@@ -10,19 +10,13 @@ export const metadata: Metadata = {
   description: 'The first SEO automation platform that actually fixes your website. Claude AI automatically applies permanent SEO fixes to any CMS.',
 }
 
-const isClerkConfigured =
-  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
-  !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.includes('REPLACE')
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider
-      publishableKey={isClerkConfigured ? process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY : undefined}
-    >
+    <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>{children}</body>
       </html>
