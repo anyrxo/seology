@@ -1,5 +1,4 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server'
 
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -9,6 +8,7 @@ const isPublicRoute = createRouteMatcher([
   '/features',
   '/about',
   '/blog(.*)',
+  '/api/webhooks(.*)',
 ])
 
 const isAdminRoute = createRouteMatcher([
@@ -19,21 +19,13 @@ const isAdminRoute = createRouteMatcher([
 export default clerkMiddleware(async (auth, req) => {
   // Protect non-public routes
   if (!isPublicRoute(req)) {
-    auth().protect()
+    await auth.protect()
   }
 
   // Additional admin route protection
-  // Admin verification is done in the admin pages/routes themselves
-  // This just ensures authentication is required
   if (isAdminRoute(req)) {
-    auth().protect()
+    await auth.protect()
   }
-
-  // Note: Onboarding status check moved to individual pages
-  // Edge middleware cannot access database (Prisma) directly
-  // Each protected page checks onboarding status and redirects if needed
-
-  return NextResponse.next()
 })
 
 export const config = {
