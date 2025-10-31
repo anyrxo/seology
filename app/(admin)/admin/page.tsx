@@ -112,6 +112,8 @@ async function getAdminStats() {
   }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboard() {
   const stats = await getAdminStats()
 

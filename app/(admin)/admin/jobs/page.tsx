@@ -140,6 +140,8 @@ const recentJobRuns = [
   },
 ]
 
+export const dynamic = 'force-dynamic'
+
 export default function AdminJobs() {
   const runningJobs = mockJobs.filter(j => j.status === 'running').length
   const totalJobs = mockJobs.length

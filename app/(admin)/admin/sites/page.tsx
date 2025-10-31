@@ -63,6 +63,8 @@ async function getSiteStats() {
   return { totalSites, connectedSites, errorSites, platformBreakdown }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminSites() {
   const [sites, stats] = await Promise.all([
     getAllSites(),

@@ -64,6 +64,8 @@ async function getUserStats() {
   return { totalUsers, activeUsers, newUsersThisMonth }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminUsers() {
   const [users, stats] = await Promise.all([
     getUsers(),

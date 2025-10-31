@@ -89,6 +89,8 @@ async function getIssueStats() {
   return { totalIssues, criticalIssues, fixedIssues, bySeverity, byCategory }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminIssues() {
   const [issues, stats] = await Promise.all([
     getAllIssues(),
