@@ -1,14 +1,21 @@
 import Stripe from 'stripe'
 import { db } from './db'
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('STRIPE_SECRET_KEY is not set')
-}
+// Initialize Stripe only if the key is available
+// During build time, this may not be set, so we use a placeholder
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+export const stripe = new Stripe(stripeKey, {
   apiVersion: '2025-02-24.acacia',
   typescript: true,
 })
+
+// Helper to ensure Stripe is properly configured at runtime
+function ensureStripeConfigured() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not set')
+  }
+}
 
 /**
  * Create or retrieve a Stripe customer for a user
@@ -18,6 +25,8 @@ export async function createOrGetStripeCustomer(
   email: string,
   name?: string
 ): Promise<string> {
+  ensureStripeConfigured()
+
   // Check if user already has a Stripe customer ID
   const user = await db.user.findUnique({
     where: { id: userId },
@@ -62,6 +71,8 @@ export async function createCheckoutSession({
   cancelUrl: string
   userId: string
 }): Promise<Stripe.Checkout.Session> {
+  ensureStripeConfigured()
+
   const session = await stripe.checkout.sessions.create({
     customer: customerId,
     mode: 'subscription',
@@ -100,6 +111,8 @@ export async function createPortalSession({
   customerId: string
   returnUrl: string
 }): Promise<Stripe.BillingPortal.Session> {
+  ensureStripeConfigured()
+
   const session = await stripe.billingPortal.sessions.create({
     customer: customerId,
     return_url: returnUrl,
@@ -120,6 +133,8 @@ export async function createSubscription({
   priceId: string
   userId: string
 }): Promise<Stripe.Subscription> {
+  ensureStripeConfigured()
+
   const subscription = await stripe.subscriptions.create({
     customer: customerId,
     items: [{ price: priceId }],
