@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(curl:*)",
+      "Bash(nslookup:*)",
+      "Bash(git checkout:*)",
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(ls:*)",
+      "Read(//c/Users/manna/Downloads/test-route-groups/**)"
     ],
     "deny": [],
     "ask": []
