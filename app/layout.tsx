@@ -22,7 +22,6 @@ export default function RootLayout({
   return (
     <ClerkProvider
       publishableKey={isClerkConfigured ? process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY : undefined}
-      dynamic
     >
       <html lang="en">
         <body className={inter.className}>{children}</body>
