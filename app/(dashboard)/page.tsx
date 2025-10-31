@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, TrendingUp, AlertCircle, CheckCircle2, Clock } from 'lucide-react'
 import { UsageDashboardCard } from '@/components/usage/UsageDashboardCard'
 
+export const dynamic = 'force-dynamic'
+
 export default function DashboardPage() {
   return (
     <div className="space-y-6">
