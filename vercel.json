@@ -3,32 +3,6 @@
   "devCommand": "next dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "env": {
-    "DATABASE_URL": {
-      "type": "string",
-      "required": true
-    },
-    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": {
-      "type": "string",
-      "required": true
-    },
-    "CLERK_SECRET_KEY": {
-      "type": "string",
-      "required": true
-    },
-    "ANTHROPIC_API_KEY": {
-      "type": "string",
-      "required": true
-    },
-    "ENCRYPTION_KEY": {
-      "type": "string",
-      "required": true
-    },
-    "CRON_SECRET": {
-      "type": "string",
-      "required": false
-    }
-  },
   "crons": [
     {
       "path": "/api/cron/process-jobs",
