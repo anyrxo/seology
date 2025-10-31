@@ -1,6 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/db'
 
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -17,8 +16,6 @@ const isAdminRoute = createRouteMatcher([
   '/api/admin(.*)',
 ])
 
-const isOnboardingRoute = createRouteMatcher(['/onboarding(.*)'])
-
 export default clerkMiddleware(async (auth, req) => {
   // Protect non-public routes
   if (!isPublicRoute(req)) {
@@ -32,47 +29,9 @@ export default clerkMiddleware(async (auth, req) => {
     auth().protect()
   }
 
-  // Check onboarding status for authenticated users on dashboard routes
-  const { userId } = await auth()
-
-  if (userId && !isPublicRoute(req) && !isAdminRoute(req)) {
-    try {
-      const user = await prisma.user.findUnique({
-        where: { clerkUserId: userId },
-        select: { onboardingCompleted: true },
-      })
-
-      // If user exists and hasn't completed onboarding
-      if (user && !user.onboardingCompleted) {
-        // Allow access to onboarding routes
-        if (isOnboardingRoute(req)) {
-          return NextResponse.next()
-        }
-
-        // Redirect to onboarding from dashboard routes (but not API routes)
-        if (
-          !req.nextUrl.pathname.startsWith('/api') &&
-          (req.nextUrl.pathname.startsWith('/dashboard') ||
-           req.nextUrl.pathname === '/' ||
-           req.nextUrl.pathname.startsWith('/sites') ||
-           req.nextUrl.pathname.startsWith('/connect') ||
-           req.nextUrl.pathname.startsWith('/settings') ||
-           req.nextUrl.pathname.startsWith('/billing') ||
-           req.nextUrl.pathname.startsWith('/analytics'))
-        ) {
-          return NextResponse.redirect(new URL('/onboarding', req.url))
-        }
-      }
-
-      // If user has completed onboarding and tries to access onboarding
-      if (user && user.onboardingCompleted && isOnboardingRoute(req)) {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-    } catch (error) {
-      console.error('Middleware onboarding check error:', error)
-      // Continue on error to avoid blocking access
-    }
-  }
+  // Note: Onboarding status check moved to individual pages
+  // Edge middleware cannot access database (Prisma) directly
+  // Each protected page checks onboarding status and redirects if needed
 
   return NextResponse.next()
 })
