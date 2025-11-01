@@ -9,7 +9,9 @@
       "Bash(for file in public/{api,demo,docs,help,security,privacy,terms,dpa,subprocessors}.html)",
       "Bash(for file in api demo docs help security privacy terms dpa subprocessors)",
       "Bash(do echo \"=== $file.html ===\")",
-      "Bash(do if grep -q \"Founded 2025\" \"$file\")"
+      "Bash(do if grep -q \"Founded 2025\" \"$file\")",
+      "Bash(for file in public/{saas,ecommerce,agencies,local-business,about,enterprise,api,demo,docs,help,security,privacy,terms,dpa,subprocessors}.html)",
+      "Bash(do if grep -q \"about-title.*SEOLOGY.AI\" \"$file\")"
     ],
     "deny": [],
     "ask": []
