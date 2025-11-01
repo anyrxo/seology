@@ -9,7 +9,8 @@
       "Bash(timeout 10 bash:*)",
       "Bash(curl:*)",
       "Bash(npx prisma db push:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(timeout 15 bash:*)"
     ],
     "deny": [],
     "ask": []

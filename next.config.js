@@ -5,6 +5,11 @@ const nextConfig = {
   },
   async rewrites() {
     return [
+      // Root homepage
+      {
+        source: '/',
+        destination: '/index.html'
+      },
       // Marketing pages (Craflow template - BLACK design)
       {
         source: '/about',
