@@ -1,0 +1,182 @@
+{
+  "timestamp": "2025-11-01T17:07:47.645Z",
+  "extracted": {
+    "cssAnimations": [],
+    "inlineStyles": [
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, -200vw, -500vw) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) s..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0,..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0,..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0,..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, ..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)..."
+      },
+      {
+        "style": "-webkit-transform:translate3d(0, 100%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, ..."
+      }
+    ],
+    "dataWIds": [
+      "9d817b3f-8659-a727-22d1-a2a8ff4193ad",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193af",
+      "9d817b3f-8659-a727-22d1-a2a8ff419389",
+      "9d817b3f-8659-a727-22d1-a2a8ff41938b",
+      "9d817b3f-8659-a727-22d1-a2a8ff41939b",
+      "9d817b3f-8659-a727-22d1-a2a8ff41939d",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193bf",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193c1",
+      "ee7e11aa-f33a-7c5b-4bf7-639b0527a9c4",
+      "ee7e11aa-f33a-7c5b-4bf7-639b0527a9c6",
+      "32a340cc-db54-e7ac-40fb-6a617fcec3ed",
+      "32a340cc-db54-e7ac-40fb-6a617fcec3f7",
+      "32a340cc-db54-e7ac-40fb-6a617fcec3fe",
+      "32a340cc-db54-e7ac-40fb-6a617fcec414",
+      "32a340cc-db54-e7ac-40fb-6a617fcec41b",
+      "32a340cc-db54-e7ac-40fb-6a617fcec421",
+      "1a33f387-1f2e-1471-6812-1efff807487e",
+      "1a33f387-1f2e-1471-6812-1efff8074887",
+      "c8cd16af-733e-b24e-92f5-25ec476d0657",
+      "48853f59-7f05-5ac0-b107-45e8179f87b3",
+      "c6f0c9e9-544f-88dc-e8b3-4a8c0a764fba",
+      "5e381122-b0e8-f025-902f-e7adcf321434",
+      "bc2d527b-9054-fabc-9ffb-a9249d46253e",
+      "40288436-aa08-d945-3163-0f428ac41ee5",
+      "9a115856-9c4f-e78e-e2eb-e468a0c2de9a",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be998c",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9990",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9994",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9998",
+      "66df0832-d1a3-b60d-95f9-9db30cf268c1",
+      "dd1b14bd-a538-9358-4636-1d4207752735",
+      "a9020c82-be3c-37a5-382b-17e191eaa242",
+      "a9020c82-be3c-37a5-382b-17e191eaa258",
+      "a9020c82-be3c-37a5-382b-17e191eaa25e",
+      "6fe5bfd4-8e5a-28eb-0528-0e4734f0be65",
+      "9d817b3f-8659-a727-22d1-a2a8ff419383",
+      "9d817b3f-8659-a727-22d1-a2a8ff419389",
+      "9d817b3f-8659-a727-22d1-a2a8ff41938b",
+      "9d817b3f-8659-a727-22d1-a2a8ff419395",
+      "9d817b3f-8659-a727-22d1-a2a8ff41939b",
+      "9d817b3f-8659-a727-22d1-a2a8ff41939d",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193a7",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193ad",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193af",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193b9",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193bf",
+      "9d817b3f-8659-a727-22d1-a2a8ff4193c1",
+      "ee7e11aa-f33a-7c5b-4bf7-639b0527a9be",
+      "ee7e11aa-f33a-7c5b-4bf7-639b0527a9c4",
+      "ee7e11aa-f33a-7c5b-4bf7-639b0527a9c6",
+      "3e9f23c2-3743-cc8e-fad4-92b598ffe90e",
+      "5222fe2b-493f-5599-c3ee-b7141a51917f",
+      "2b34b5ed-d271-0fd8-fca9-4d5710c19d11",
+      "2b34b5ed-d271-0fd8-fca9-4d5710c19d1c",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be998c",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9990",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9994",
+      "d02f4b07-c966-2f0b-1c24-7d46a6be9998",
+      "5db47c9a-b574-23de-7915-600dabe1f39b",
+      "5db47c9a-b574-23de-7915-600dabe1f3a1",
+      "5db47c9a-b574-23de-7915-600dabe1f3a7",
+      "5db47c9a-b574-23de-7915-600dabe1f3ad",
+      "5db47c9a-b574-23de-7915-600dabe1f3b8",
+      "5db47c9a-b574-23de-7915-600dabe1f3c1",
+      "5db47c9a-b574-23de-7915-600dabe1f3c8",
+      "5db47c9a-b574-23de-7915-600dabe1f3cc",
+      "5db47c9a-b574-23de-7915-600dabe1f3d3",
+      "5db47c9a-b574-23de-7915-600dabe1f3da"
+    ],
+    "lottieAnimations": [],
+    "jsFiles": [
+      {
+        "file": "webflow.js",
+        "size": 682966
+      }
+    ],
+    "styleBlocks": [
+      {
+        "length": 4737,
+        "preview": "@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id=\"9d817b3f-8659-a727-22d1-a2a8ff419..."
+      }
+    ]
+  },
+  "errors": [],
+  "summary": {
+    "cssAnimations": 0,
+    "inlineStyles": 27,
+    "dataWIds": 68,
+    "lottieAnimations": 0,
+    "styleBlocks": 1,
+    "jsFiles": 1,
+    "errors": 0
+  }
+}

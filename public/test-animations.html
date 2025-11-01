@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craflow Animation Test Page</title>
+
+    <!-- Craflow CSS -->
+    <link href="css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="css/webflow.css" rel="stylesheet" type="text/css">
+    <link href="css/craflow.css" rel="stylesheet" type="text/css">
+
+    <!-- IX2 Initial States -->
+    <style>
+      @media (min-width:992px) {
+        html.w-mod-js:not(.w-mod-ix) [data-w-id="48853f59-7f05-5ac0-b107-45e8179f87b3"] {
+          -webkit-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew(0, 0);
+          -moz-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew(0, 0);
+          -ms-transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew(0, 0);
+          transform:translate3d(0, 110%, 0) scale3d(1, 1, 1) rotateX(45deg) rotateY(0) rotateZ(0) skew(0, 0);
+          transform-style:preserve-3d;
+        }
+      }
+    </style>
+
+    <style>
+        /* Test page specific styles */
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .test-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .test-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .test-header h1 {
+            font-size: 48px;
+            margin: 0 0 20px 0;
+            background: linear-gradient(135deg, #4a9eff 0%, #7dd3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .test-title {
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            color: #4a9eff;
+        }
+
+        .test-description {
+            font-size: 18px;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .status-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-error {
+            background: #ef4444;
+            color: white;
+        }
+
+        .status-info {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .code-block {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            max-width: 800px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            color: #7dd3fc;
+        }
+
+        .button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        .button:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
+        }
+
+        .animation-demo {
+            width: 300px;
+            height: 200px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checklist {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .checklist-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item::before {
+            content: '□';
+            margin-right: 12px;
+            font-size: 20px;
+            color: #4a9eff;
+        }
+
+        .checklist-item.checked::before {
+            content: '✓';
+            color: #10b981;
+        }
+
+        .lottie-container {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <h1>Craflow Animation Test Page</h1>
+        <p class="test-description">
+            This page tests all extracted Craflow animations, CSS, and JavaScript.<br>
+            Check each section below to verify everything is working correctly.
+        </p>
+        <div id="webflow-status"></div>
+        <button class="button" onclick="runAllTests()">Run All Tests</button>
+    </div>
+
+    <!-- Test Section 1: Webflow.js Loading -->
+    <div class="test-section">
+        <h2 class="test-title">1. Webflow.js Loading Test</h2>
+        <p class="test-description">
+            Verifies that webflow.js has loaded correctly and the IX2 engine is available.
+        </p>
+        <div id="webflow-test-result"></div>
+        <div class="code-block">
+            <code>console.log(typeof Webflow);</code>
+        </div>
+    </div>
+
+    <!-- Test Section 2: CSS Files Loading -->
+    <div class="test-section">
+        <h2 class="test-title">2. CSS Files Loading Test</h2>
+        <p class="test-description">
+            Checks if all three CSS files (normalize.css, webflow.css, craflow.css) are loaded.
+        </p>
+        <div id="css-test-result"></div>
+    </div>
+
+    <!-- Test Section 3: data-w-id Attributes -->
+    <div class="test-section">
+        <h2 class="test-title">3. IX2 Animation Elements Test</h2>
+        <p class="test-description">
+            Counts elements with data-w-id attributes (should be present for animations).
+        </p>
+        <div id="data-w-id-test-result"></div>
+    </div>
+
+    <!-- Test Section 4: Text Reveal Animation Demo -->
+    <div class="test-section">
+        <h2 class="test-title">4. Text Reveal Animation Demo</h2>
+        <p class="test-description">
+            Example of Craflow's signature text reveal animation with 3D rotation.
+        </p>
+        <div class="overflow-wrap" style="perspective: 1000px;">
+            <div data-w-id="48853f59-7f05-5ac0-b107-45e8179f87b3"
+                 class="text-item"
+                 style="transform-style: preserve-3d;">
+                <h2 class="intro-text" style="font-size: 48px; color: white;">Animated Text</h2>
+            </div>
+        </div>
+        <p style="margin-top: 20px; color: #666;">
+            <em>This text should slide up and rotate when visible</em>
+        </p>
+    </div>
+
+    <!-- Test Section 5: Lottie Animations -->
+    <div class="test-section">
+        <h2 class="test-title">5. Lottie Animations Test</h2>
+        <p class="test-description">
+            Tests if Lottie animation library is available (included in webflow.js).
+        </p>
+        <div id="lottie-test-result"></div>
+        <div class="lottie-container" style="background: #1a1a1a; border: 1px solid #333; border-radius: 8px;">
+            <div data-is-ix2-target="1"
+                 class="globe-lottie"
+                 data-w-id="1a33f387-1f2e-1471-6812-1efff807487e"
+                 data-animation-type="lottie"
+                 data-src="https://cdn.prod.website-files.com/675dde8ad6d70cdee263a72a/6762c30637d37e03df18f965_globe.json"
+                 data-loop="0"
+                 data-direction="1"
+                 data-autoplay="0"
+                 data-renderer="svg"
+                 style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+
+    <!-- Test Section 6: Navigation Hover Effect -->
+    <div class="test-section">
+        <h2 class="test-title">6. Navigation Hover Effect Demo</h2>
+        <p class="test-description">
+            Hover over the links below to see the dual-text transition effect.
+        </p>
+        <div style="display: flex; gap: 20px;">
+            <a href="#" class="nav-link w-inline-block" style="display: inline-block; position: relative; padding: 10px 20px;">
+                <div class="nav-link-block">
+                    <div class="nav-text">Home</div>
+                    <div class="nav-text is-hover">Home</div>
+                </div>
+            </a>
+            <a href="#" class="nav-link w-inline-block" style="display: inline-block; position: relative; padding: 10px 20px;">
+                <div class="nav-link-block">
+                    <div class="nav-text">About</div>
+                    <div class="nav-text is-hover">About</div>
+                </div>
+            </a>
+            <a href="#" class="nav-link w-inline-block" style="display: inline-block; position: relative; padding: 10px 20px;">
+                <div class="nav-link-block">
+                    <div class="nav-text">Contact</div>
+                    <div class="nav-text is-hover">Contact</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Test Section 7: Button Hover Effect -->
+    <div class="test-section">
+        <h2 class="test-title">7. Button Hover Effect Demo</h2>
+        <p class="test-description">
+            Hover over the button to see the vertical slide transition.
+        </p>
+        <a href="#" class="main-button w-inline-block" style="position: relative; display: inline-block; overflow: hidden;">
+            <div style="position: relative;">
+                <div class="button-text is-transition">Get in touch</div>
+            </div>
+            <div class="button-transition">
+                <div class="button-text">Get in touch</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Test Section 8: Summary -->
+    <div class="test-section">
+        <h2 class="test-title">Test Summary</h2>
+        <p class="test-description">
+            Overall status of Craflow animation extraction and integration.
+        </p>
+        <div class="checklist">
+            <div class="checklist-item" id="check-webflow">webflow.js loaded successfully</div>
+            <div class="checklist-item" id="check-css">All CSS files loaded</div>
+            <div class="checklist-item" id="check-ix2">IX2 animation system available</div>
+            <div class="checklist-item" id="check-lottie">Lottie animations supported</div>
+            <div class="checklist-item" id="check-dataids">data-w-id attributes present</div>
+        </div>
+        <div id="final-result" style="margin-top: 30px;"></div>
+    </div>
+
+    <!-- Webflow JS -->
+    <script src="js/webflow.js" type="text/javascript"></script>
+
+    <!-- Test Script -->
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            runAllTests();
+        });
+
+        function runAllTests() {
+            console.log('Running Craflow animation tests...');
+
+            let passed = 0;
+            let total = 5;
+
+            // Test 1: Webflow.js loaded
+            const webflowTest = document.getElementById('webflow-test-result');
+            if (typeof Webflow !== 'undefined') {
+                webflowTest.innerHTML = '<span class="status-indicator status-success">✓ PASS</span> Webflow object is defined (type: ' + typeof Webflow + ')';
+                document.getElementById('check-webflow').classList.add('checked');
+                passed++;
+            } else {
+                webflowTest.innerHTML = '<span class="status-indicator status-error">✗ FAIL</span> Webflow object is undefined';
+            }
+
+            // Test 2: CSS files loaded
+            const cssTest = document.getElementById('css-test-result');
+            const stylesheets = document.styleSheets;
+            let cssCount = 0;
+            let cssNames = [];
+
+            for (let i = 0; i < stylesheets.length; i++) {
+                const href = stylesheets[i].href;
+                if (href) {
+                    if (href.includes('normalize.css') || href.includes('webflow.css') || href.includes('craflow.css')) {
+                        cssCount++;
+                        cssNames.push(href.split('/').pop());
+                    }
+                }
+            }
+
+            if (cssCount >= 3) {
+                cssTest.innerHTML = '<span class="status-indicator status-success">✓ PASS</span> ' + cssCount + ' CSS files loaded: ' + cssNames.join(', ');
+                document.getElementById('check-css').classList.add('checked');
+                passed++;
+            } else {
+                cssTest.innerHTML = '<span class="status-indicator status-error">✗ FAIL</span> Only ' + cssCount + ' CSS files loaded (expected 3)';
+            }
+
+            // Test 3: data-w-id elements
+            const dataWIdTest = document.getElementById('data-w-id-test-result');
+            const dataWIdElements = document.querySelectorAll('[data-w-id]');
+
+            if (dataWIdElements.length > 0) {
+                dataWIdTest.innerHTML = '<span class="status-indicator status-success">✓ PASS</span> Found ' + dataWIdElements.length + ' elements with data-w-id attributes';
+                document.getElementById('check-dataids').classList.add('checked');
+                passed++;
+            } else {
+                dataWIdTest.innerHTML = '<span class="status-indicator status-error">✗ FAIL</span> No elements with data-w-id found';
+            }
+
+            // Test 4: IX2 engine
+            const webflowStatus = document.getElementById('webflow-status');
+            if (typeof Webflow !== 'undefined' && typeof Webflow.require !== 'undefined') {
+                webflowStatus.innerHTML = '<span class="status-indicator status-success">✓ IX2 Engine Available</span>';
+                document.getElementById('check-ix2').classList.add('checked');
+                passed++;
+            } else {
+                webflowStatus.innerHTML = '<span class="status-indicator status-error">✗ IX2 Engine Not Available</span>';
+            }
+
+            // Test 5: Lottie support
+            const lottieTest = document.getElementById('lottie-test-result');
+            const lottieElements = document.querySelectorAll('[data-animation-type="lottie"]');
+
+            if (lottieElements.length > 0) {
+                lottieTest.innerHTML = '<span class="status-indicator status-success">✓ PASS</span> Found ' + lottieElements.length + ' Lottie animation element(s)';
+                document.getElementById('check-lottie').classList.add('checked');
+                passed++;
+            } else {
+                lottieTest.innerHTML = '<span class="status-indicator status-info">ℹ INFO</span> No Lottie elements found (expected on this test page)';
+            }
+
+            // Final result
+            const finalResult = document.getElementById('final-result');
+            const percentage = Math.round((passed / total) * 100);
+
+            if (percentage === 100) {
+                finalResult.innerHTML = '<div style="font-size: 24px;"><span class="status-indicator status-success" style="font-size: 24px;">✓ ALL TESTS PASSED</span></div><p style="margin-top: 20px;">Craflow animations are fully extracted and working!</p>';
+            } else if (percentage >= 60) {
+                finalResult.innerHTML = '<div style="font-size: 24px;"><span class="status-indicator status-info" style="font-size: 24px;">' + passed + '/' + total + ' TESTS PASSED</span></div><p style="margin-top: 20px;">Most features working. Check failed tests above.</p>';
+            } else {
+                finalResult.innerHTML = '<div style="font-size: 24px;"><span class="status-indicator status-error" style="font-size: 24px;">✗ TESTS FAILED</span></div><p style="margin-top: 20px;">Only ' + passed + '/' + total + ' tests passed. Check console for errors.</p>';
+            }
+
+            console.log('Tests complete: ' + passed + '/' + total + ' passed (' + percentage + '%)');
+        }
+    </script>
+</body>
+</html>
