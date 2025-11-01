@@ -15,9 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="/webflow/normalize.css" rel="stylesheet" type="text/css" />
-        <link href="/webflow/webflow.css" rel="stylesheet" type="text/css" />
-        <link href="/webflow/anyros-fresh-site.webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+        <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/css/anyros-fresh-site.webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/css/anyros-wondrous-site.webflow.css" rel="stylesheet" type="text/css" />
         {/* Webflow modernizr script */}
         <Script id="webflow-modernizr" strategy="beforeInteractive">
           {`!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);`}
