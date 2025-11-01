@@ -10,7 +10,18 @@
       "Bash(for page in ecommerce saas agencies local-business enterprise-guides security demo help docs api privacy terms dpa subprocessors)",
       "Bash(do cp about.html \"$page.html\")",
       "Bash(done)",
-      "Bash(node update-page-titles.js:*)"
+      "Bash(node update-page-titles.js:*)",
+      "Bash(do ls -lh \"public/$page.html\")",
+      "Bash(echo:*)",
+      "Bash(for page in security demo help docs api privacy terms dpa subprocessors)",
+      "Bash(do echo \"=== $page.html ===\")",
+      "Bash(head:*)",
+      "Bash(node update-all-remaining.js:*)",
+      "Bash(awk:*)",
+      "Bash(node update-projects.js:*)",
+      "Bash(node fix-homepage.js:*)",
+      "Bash(node create-roi-page.js:*)",
+      "Bash(node add-roi-to-footers.js:*)"
     ],
     "deny": [],
     "ask": []
