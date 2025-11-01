@@ -5,18 +5,14 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      // Marketing pages (Noura template)
+      // Marketing pages (Craflow template - BLACK design)
       {
         source: '/about',
         destination: '/about.html'
       },
       {
-        source: '/works',
-        destination: '/works.html'
-      },
-      {
-        source: '/blog',
-        destination: '/blog.html'
+        source: '/projects',
+        destination: '/projects.html'
       },
       {
         source: '/contact',
