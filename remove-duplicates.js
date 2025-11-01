@@ -2,17 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const files = [
-  'help.html',
-  'security.html',
-  'demo.html',
-  'docs.html',
-  'api.html',
-  'privacy.html',
-  'terms.html',
-  'dpa.html',
-  'subprocessors.html',
-  'enterprise-guides.html',
-  'careers.html'
+  'enterprise.html'
 ];
 
 const publicDir = path.join(__dirname, 'public');
