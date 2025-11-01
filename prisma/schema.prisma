@@ -1,0 +1,283 @@
+// SEOLOGY.AI - Complete Database Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// Users & Authentication (managed by Clerk)
+model User {
+  id        String   @id @default(uuid())
+  clerkId   String   @unique
+  email     String   @unique
+  name      String?
+  plan      Plan     @default(STARTER)
+
+  stripeCustomerId       String?
+  stripeSubscriptionId   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  connections      Connection[]
+  aiConversations  AIConversation[]
+  auditLogs        AuditLog[]
+  subscriptions    Subscription[]
+  notifications    Notification[]
+}
+
+enum Plan {
+  STARTER
+  GROWTH
+  SCALE
+}
+
+// Website Connections
+model Connection {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  platform    Platform
+  domain      String
+  displayName String?
+
+  // Encrypted credentials
+  accessToken   String?
+  refreshToken  String?
+  credentials   String?  // JSON string of platform-specific data
+
+  status      ConnectionStatus  @default(PENDING)
+  lastSync    DateTime?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  issues      Issue[]
+  fixes       Fix[]
+  metrics     Metric[]
+  crawls      Crawl[]
+
+  @@index([userId])
+}
+
+enum Platform {
+  SHOPIFY
+  WORDPRESS
+  WIX
+  CUSTOM
+}
+
+enum ConnectionStatus {
+  PENDING
+  CONNECTED
+  ERROR
+  DISCONNECTED
+}
+
+// SEO Issues Detected
+model Issue {
+  id           String   @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  type         String   // 'missing_meta', 'broken_link', 'missing_alt', etc.
+  severity     Severity
+  pageUrl      String
+  details      String   // JSON string
+
+  status       IssueStatus @default(DETECTED)
+
+  detectedAt   DateTime @default(now())
+  fixedAt      DateTime?
+
+  // Relations
+  fixes        Fix[]
+
+  @@index([connectionId])
+  @@index([status])
+}
+
+enum Severity {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum IssueStatus {
+  DETECTED
+  FIXING
+  FIXED
+  FAILED
+  IGNORED
+}
+
+// Fixes Applied
+model Fix {
+  id           String   @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  issueId      String?
+  issue        Issue?   @relation(fields: [issueId], references: [id])
+
+  type         String
+  targetUrl    String?
+
+  beforeState  String   // JSON string
+  afterState   String   // JSON string
+
+  method       FixMethod
+  status       FixStatus @default(PENDING)
+
+  appliedAt    DateTime?
+  rolledBackAt DateTime?
+
+  createdAt    DateTime @default(now())
+
+  @@index([connectionId])
+  @@index([status])
+}
+
+enum FixMethod {
+  AUTOMATIC
+  MANUAL
+  PENDING
+}
+
+enum FixStatus {
+  PENDING
+  APPLIED
+  ROLLED_BACK
+  FAILED
+}
+
+// Performance Metrics
+model Metric {
+  id           String   @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  date         DateTime @default(now())
+
+  organicTraffic Int?
+  rankings       String?  // JSON string: {keyword: position}
+  pageSpeed      Float?
+  issuesCount    Int?
+  fixesCount     Int?
+
+  createdAt    DateTime @default(now())
+
+  @@unique([connectionId, date])
+  @@index([connectionId])
+}
+
+// AI Conversations
+model AIConversation {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  connectionId String?
+
+  messages     String   // JSON string array of {role, content}
+  context      String?  // JSON string of site-specific context
+
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+}
+
+// Audit Logs
+model AuditLog {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+
+  connectionId String?
+
+  action       String
+  details      String?  // JSON string
+  ipAddress    String?
+  userAgent    String?
+
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+// Billing & Subscriptions
+model Subscription {
+  id                    String   @id @default(uuid())
+  userId                String
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  stripeSubscriptionId  String   @unique
+  plan                  Plan
+  status                SubscriptionStatus
+
+  currentPeriodStart    DateTime
+  currentPeriodEnd      DateTime
+
+  createdAt             DateTime @default(now())
+
+  @@index([userId])
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  PAST_DUE
+  TRIALING
+}
+
+// Crawl Jobs
+model Crawl {
+  id           String   @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  status       CrawlStatus @default(PENDING)
+  pagesFound   Int?
+  issuesFound  Int?
+
+  startedAt    DateTime?
+  completedAt  DateTime?
+
+  createdAt    DateTime @default(now())
+
+  @@index([connectionId])
+  @@index([status])
+}
+
+enum CrawlStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+// Notifications
+model Notification {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type         String   // 'fix_applied', 'issue_detected', etc.
+  title        String
+  message      String
+
+  read         Boolean  @default(false)
+
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+  @@index([read])
+}

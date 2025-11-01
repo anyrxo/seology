@@ -9,19 +9,42 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "^24.9.2",
+    "@anthropic-ai/sdk": "^0.68.0",
+    "@clerk/nextjs": "^6.34.1",
+    "@prisma/client": "^6.18.0",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.13",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.21",
+    "axios": "^1.13.1",
+    "bull": "^4.16.5",
+    "cheerio": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "ioredis": "^5.8.2",
+    "lucide-react": "^0.552.0",
     "next": "14.2.18",
     "postcss": "^8.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "recharts": "^3.3.0",
+    "redis": "^5.9.0",
+    "stripe": "^19.2.0",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.18",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zod": "^4.1.12",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@types/bull": "^3.15.9",
+    "@types/node": "^24.9.2",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.18"
+    "eslint-config-next": "^14.2.18",
+    "prisma": "^6.18.0"
   }
 }

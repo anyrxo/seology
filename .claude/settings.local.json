@@ -7,7 +7,9 @@
       "Bash(git push:*)",
       "Bash(npm run build:*)",
       "Bash(timeout 10 bash:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npx prisma db push:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
