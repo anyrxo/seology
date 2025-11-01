@@ -1,30 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(do sed -i 's|href=\"\"css/|href=\"\"/css/|g' \"$file\")",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
+      "Bash(node update-footers.js:*)",
+      "Bash(git checkout:*)",
       "Bash(npm run build:*)",
-      "Bash(timeout 10 bash:*)",
-      "Bash(curl:*)",
-      "Bash(npx prisma db push:*)",
-      "Bash(find:*)",
-      "Bash(timeout 15 bash:*)",
-      "Bash(timeout 30 bash:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(start index.html)",
-      "Bash(start:*)",
-      "Bash(python -m http.server:*)",
-      "Bash(diff:*)",
-      "Bash(ls:*)",
-      "Bash(for file in about.html contact.html projects.html 404.html)",
-      "Bash(do [ -f \"$file\" ])",
-      "Bash(git rm:*)",
-      "Bash(taskkill:*)",
-      "Bash(for file in index.html about.html projects.html contact.html 404.html)",
-      "Bash(do)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
