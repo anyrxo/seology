@@ -3,7 +3,11 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(find:*)",
-      "Read(//c/Users/manna/Downloads/Website inspo/**)"
+      "Read(//c/Users/manna/Downloads/Website inspo/**)",
+      "Bash(test:*)",
+      "Bash(npm install:*)",
+      "Bash(while read file)",
+      "Bash(Affordable Automated SEO\"\n- Description: Updated to focus on affordability and small business needs\n\nThis aligns with helping actual small businesses get SEO basics right,\nnot enterprise-level local SEO automation.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []
