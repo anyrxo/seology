@@ -1,24 +1,35 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from "next";
+import Script from "next/script";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Seology.ai - SEO Automation Platform',
-  description: 'The first SEO automation platform that actually fixes your website. Claude AI automatically applies permanent SEO fixes to any CMS.',
-}
+  title: "SEOLOGY.AI - AI-Powered SEO Automation That Actually Fixes Issues",
+  description: "The first SEO tool that doesn't just report problems—it fixes them. Connect your CMS and let Claude AI automatically optimize your SEO.",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <head>
+        <link href="/webflow/normalize.css" rel="stylesheet" type="text/css" />
+        <link href="/webflow/webflow.css" rel="stylesheet" type="text/css" />
+        <link href="/webflow/anyros-fresh-site.webflow.css" rel="stylesheet" type="text/css" />
+        {/* Webflow modernizr script */}
+        <Script id="webflow-modernizr" strategy="beforeInteractive">
+          {`!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);`}
+        </Script>
+        {/* Font smoothing */}
+        <style>{`* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }`}</style>
+      </head>
+      <body>
         {children}
+        {/* Webflow interactions */}
+        <Script src="/js/webflow.js" strategy="afterInteractive" />
       </body>
     </html>
-  )
+  );
 }

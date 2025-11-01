@@ -1,0 +1,1357 @@
+SEOLOGY.AI - Complete Project Specification
+Executive Summary
+SEOLOGY.AI is an AI-powered SEO automation SaaS that actually DOES the SEO work instead of just reporting problems. We use Claude AI to analyze, plan, and execute SEO fixes across WordPress, Shopify, and custom websites automatically.
+The Market Gap: Every SEO tool tells you what's wrong. Nobody actually fixes it. We're the first to log into your CMS and make permanent changes.
+The Innovation: Claude AI brain + universal platform connectors + automatic execution = SEO on autopilot.
+
+Table of Contents
+
+Market Opportunity
+Product Vision
+Technical Architecture
+Platform Integrations
+Features & Roadmap
+Database Schema
+API Structure
+Frontend Requirements
+Claude AI Integration
+Pricing & Business Model
+MVP Implementation
+Development Phases
+
+
+Market Opportunity
+The Problem
+
+45% of SEO teams have <$1,000/month budget but tools cost $500+
+Enterprises identify SEO issues but face 60+ day implementation cycles
+24% of SEO teams lack technical expertise
+Current tools provide data, not execution
+
+Our Solution
+
+Automatic implementation of SEO fixes
+Direct CMS integration (no manual work)
+Claude AI for intelligent decision-making
+Guaranteed execution with rollback safety
+
+Target Market
+
+Primary: SMBs with 100-10,000 pages ($297-$997/month)
+Secondary: Agencies managing multiple sites ($2,497/month)
+Tertiary: Enterprises needing execution, not more data ($5,000+/month)
+
+Competitive Advantage
+
+First-mover: Nobody else makes permanent CMS changes
+Trust through gradual access: Start read-only, earn write permissions
+Claude AI: Smarter than rule-based automation
+Universal compatibility: Works with any platform
+
+
+Product Vision
+Core Value Proposition
+"We don't tell you what's wrong with your SEO. We fix it."
+Three Execution Modes
+javascriptconst EXECUTION_MODES = {
+  AUTOMATIC: 'fix_immediately',      // Full autopilot
+  PLAN: 'show_plan_first',          // Review before execution
+  APPROVE: 'ask_for_each_fix'       // Manual approval required
+};
+```
+
+### Key Features
+1. **Universal Connection Layer** - Connect any CMS in 2 minutes
+2. **Claude-Powered Analysis** - AI understands context, not just rules
+3. **Automatic Execution** - Makes real database changes
+4. **Rollback Safety** - Undo if metrics drop
+5. **Cross-Platform Dashboard** - Manage all sites from one place
+
+---
+
+## Technical Architecture
+
+### System Overview
+```
+┌─────────────────────────────────────────────────┐
+│                   Frontend                       │
+│         Next.js 14 + Tailwind + Shadcn          │
+└─────────────────┬───────────────────────────────┘
+                  │
+┌─────────────────┴───────────────────────────────┐
+│              API Layer (Node.js)                 │
+│                Express + TypeScript               │
+└─────────────────┬───────────────────────────────┘
+                  │
+        ┌─────────┴─────────┬──────────────┐
+        │                   │              │
+┌───────┴────────┐ ┌────────┴──────┐ ┌────┴──────┐
+│  Claude AI     │ │   PostgreSQL  │ │   Redis   │
+│  Integration   │ │   (Supabase)  │ │   Queue   │
+└────────────────┘ └───────────────┘ └───────────┘
+        │
+┌───────┴────────────────────────────────────────┐
+│           Platform Connectors                   │
+├─────────────┬─────────────┬───────────────────┤
+│  Shopify    │  WordPress  │     Custom        │
+│    API      │     API     │   JavaScript      │
+└─────────────┴─────────────┴───────────────────┘
+Tech Stack
+javascriptconst TECH_STACK = {
+  frontend: {
+    framework: 'Next.js 14',
+    ui: 'Tailwind CSS + Shadcn/ui',
+    state: 'Zustand',
+    auth: 'Clerk',
+  },
+  backend: {
+    runtime: 'Node.js',
+    framework: 'Express',
+    language: 'TypeScript',
+    orm: 'Prisma',
+    queue: 'Bull (Redis)',
+  },
+  database: {
+    primary: 'PostgreSQL (Supabase)',
+    cache: 'Redis',
+    vector: 'Pinecone (for SEO knowledge)',
+  },
+  ai: {
+    primary: 'Claude 3.5 Sonnet API',
+    fallback: 'OpenAI GPT-4',
+    embeddings: 'OpenAI Ada',
+  },
+  infrastructure: {
+    hosting: 'Vercel (Frontend) + Railway (Backend)',
+    cdn: 'Cloudflare',
+    monitoring: 'Sentry + PostHog',
+    payments: 'Stripe',
+  }
+};
+
+Platform Integrations
+Shopify Integration
+javascript// Already configured with your credentials
+const SHOPIFY_CONFIG = {
+  client_id: '0b87ac78cf0783fd1dd829bf5421fae5',
+  client_secret: process.env.SHOPIFY_CLIENT_SECRET,
+  scopes: 'read_products,write_products,read_content,write_content,read_themes,write_themes',
+  redirect_uri: 'https://app.seology.ai/auth/shopify/callback'
+};
+
+class ShopifyConnector {
+  async connect(storeDomain: string, userId: string) {
+    const state = crypto.randomBytes(16).toString('hex');
+    
+    // Save state for security
+    await redis.set(`shopify:state:${state}`, userId, 'EX', 600);
+    
+    // Generate install URL
+    const params = new URLSearchParams({
+      client_id: SHOPIFY_CONFIG.client_id,
+      scope: SHOPIFY_CONFIG.scopes,
+      redirect_uri: SHOPIFY_CONFIG.redirect_uri,
+      state: state
+    });
+    
+    return `https://${storeDomain}/admin/oauth/authorize?${params}`;
+  }
+  
+  async handleCallback(shop: string, code: string, state: string) {
+    // Verify state
+    const userId = await redis.get(`shopify:state:${state}`);
+    if (!userId) throw new Error('Invalid state');
+    
+    // Exchange for token
+    const response = await fetch(`https://${shop}/admin/oauth/access_token`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        client_id: SHOPIFY_CONFIG.client_id,
+        client_secret: SHOPIFY_CONFIG.client_secret,
+        code
+      })
+    });
+    
+    const { access_token } = await response.json();
+    
+    // Save connection
+    await db.connection.create({
+      data: {
+        userId,
+        platform: 'SHOPIFY',
+        domain: shop,
+        accessToken: encrypt(access_token),
+        status: 'CONNECTED'
+      }
+    });
+    
+    // Start initial analysis
+    await queue.add('analyze-site', { shop, userId });
+    
+    return { success: true };
+  }
+  
+  async executeFix(shop: string, token: string, fix: Fix) {
+    const shopify = new ShopifyAPI({ shop, token });
+    
+    switch(fix.type) {
+      case 'UPDATE_PRODUCT_SEO':
+        await shopify.product.update(fix.targetId, {
+          title: fix.data.title,
+          metafields: [{
+            namespace: 'seo',
+            key: 'description',
+            value: fix.data.description
+          }]
+        });
+        break;
+        
+      case 'ADD_REDIRECT':
+        await shopify.redirect.create({
+          path: fix.data.from,
+          target: fix.data.to
+        });
+        break;
+        
+      case 'UPDATE_THEME_CONTENT':
+        await shopify.asset.update(fix.data.template, {
+          value: fix.data.content
+        });
+        break;
+    }
+  }
+}
+WordPress Integration
+javascriptclass WordPressConnector {
+  // Method 1: REST API with Application Passwords
+  async connectViaREST(siteUrl: string, username: string, appPassword: string) {
+    const auth = Buffer.from(`${username}:${appPassword}`).toString('base64');
+    
+    // Test connection
+    const response = await fetch(`${siteUrl}/wp-json/wp/v2/users/me`, {
+      headers: { 'Authorization': `Basic ${auth}` }
+    });
+    
+    if (!response.ok) throw new Error('Invalid credentials');
+    
+    return { 
+      method: 'REST',
+      credentials: { siteUrl, auth }
+    };
+  }
+  
+  // Method 2: Custom Plugin
+  async connectViaPlugin(siteUrl: string, apiKey: string) {
+    const response = await fetch(`${siteUrl}/wp-json/seology/v1/verify`, {
+      headers: { 'X-SEOLOGY-KEY': apiKey }
+    });
+    
+    if (!response.ok) throw new Error('Plugin not installed or invalid key');
+    
+    return {
+      method: 'PLUGIN',
+      credentials: { siteUrl, apiKey }
+    };
+  }
+  
+  async executeFix(connection: Connection, fix: Fix) {
+    if (connection.method === 'REST') {
+      const wp = new WordPressAPI({
+        endpoint: connection.credentials.siteUrl,
+        auth: connection.credentials.auth
+      });
+      
+      switch(fix.type) {
+        case 'UPDATE_POST_SEO':
+          await wp.posts().id(fix.targetId).update({
+            title: fix.data.title,
+            meta: {
+              _yoast_wpseo_title: fix.data.seoTitle,
+              _yoast_wpseo_metadesc: fix.data.description
+            }
+          });
+          break;
+          
+        case 'CREATE_REDIRECT':
+          await wp.redirects().create({
+            from: fix.data.from,
+            to: fix.data.to,
+            status: 301
+          });
+          break;
+      }
+    }
+  }
+}
+Universal JavaScript Integration
+javascriptclass UniversalConnector {
+  generateScript(siteId: string) {
+    return `
+      <script>
+        (function() {
+          const SEOLOGY_SITE_ID = '${siteId}';
+          const script = document.createElement('script');
+          script.src = 'https://cdn.seology.ai/magic.js';
+          script.async = true;
+          script.dataset.siteId = SEOLOGY_SITE_ID;
+          document.head.appendChild(script);
+        })();
+      </script>
+    `;
+  }
+  
+  async executeFix(siteId: string, fix: Fix) {
+    // Store fix in database
+    await db.pendingFix.create({
+      data: {
+        siteId,
+        fix: fix,
+        status: 'PENDING'
+      }
+    });
+    
+    // JavaScript will fetch and apply on next page load
+  }
+}
+
+// magic.js (served from CDN)
+class SEOLOGYMagic {
+  async init() {
+    this.siteId = document.currentScript.dataset.siteId;
+    this.fixes = await this.fetchFixes();
+    this.applyFixes();
+    this.trackPerformance();
+  }
+  
+  async fetchFixes() {
+    const response = await fetch(`https://api.seology.ai/fixes/${this.siteId}`);
+    return response.json();
+  }
+  
+  applyFixes() {
+    this.fixes.forEach(fix => {
+      switch(fix.type) {
+        case 'UPDATE_META':
+          document.title = fix.data.title;
+          this.updateMetaTag('description', fix.data.description);
+          break;
+          
+        case 'ADD_SCHEMA':
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.text = JSON.stringify(fix.data.schema);
+          document.head.appendChild(script);
+          break;
+          
+        case 'UPDATE_CONTENT':
+          const element = document.querySelector(fix.selector);
+          if (element) element.innerHTML = fix.data.content;
+          break;
+      }
+    });
+  }
+}
+
+Features & Roadmap
+MVP Features (Month 1)
+typescriptinterface MVPFeatures {
+  auth: {
+    signup: boolean;
+    login: boolean;
+    oauth: ['google', 'github'];
+  };
+  connections: {
+    shopify: boolean;
+    wordpress: boolean;
+    universal_js: boolean;
+  };
+  seo_fixes: {
+    meta_optimization: boolean;
+    broken_links: boolean;
+    alt_text: boolean;
+    sitemap_generation: boolean;
+    robots_txt: boolean;
+  };
+  modes: {
+    automatic: boolean;
+    plan: boolean;
+    approve: boolean;
+  };
+  dashboard: {
+    sites_overview: boolean;
+    fixes_log: boolean;
+    performance_metrics: boolean;
+  };
+  billing: {
+    stripe_integration: boolean;
+    three_tiers: boolean;
+  };
+}
+Phase 2 Features (Month 2-3)
+typescriptinterface Phase2Features {
+  advanced_fixes: {
+    content_refresh: boolean;
+    internal_linking: boolean;
+    schema_markup: boolean;
+    page_speed: boolean;
+  };
+  ai_features: {
+    content_generation: boolean;
+    keyword_research: boolean;
+    competitor_analysis: boolean;
+  };
+  platforms: {
+    wix: boolean;
+    squarespace: boolean;
+    webflow: boolean;
+  };
+  team_features: {
+    multi_user: boolean;
+    permissions: boolean;
+    audit_log: boolean;
+  };
+}
+Phase 3 Features (Month 4-6)
+typescriptinterface Phase3Features {
+  enterprise: {
+    sso: boolean;
+    api_access: boolean;
+    custom_reporting: boolean;
+    sla: boolean;
+  };
+  advanced_ai: {
+    predictive_seo: boolean;
+    content_strategy: boolean;
+    voice_search_optimization: boolean;
+  };
+  automation: {
+    workflow_builder: boolean;
+    custom_rules: boolean;
+    bulk_operations: boolean;
+  };
+}
+
+Database Schema
+sql-- Users & Authentication
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255),
+  password_hash VARCHAR(255),
+  plan ENUM('starter', 'growth', 'scale') DEFAULT 'starter',
+  stripe_customer_id VARCHAR(255),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Website Connections
+CREATE TABLE connections (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  platform ENUM('shopify', 'wordpress', 'wix', 'custom'),
+  domain VARCHAR(255) NOT NULL,
+  display_name VARCHAR(255),
+  access_token TEXT, -- Encrypted
+  refresh_token TEXT, -- Encrypted
+  credentials JSONB, -- Platform-specific data
+  status ENUM('pending', 'connected', 'error', 'disconnected'),
+  last_sync TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- SEO Issues Detected
+CREATE TABLE issues (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  connection_id UUID REFERENCES connections(id) ON DELETE CASCADE,
+  type VARCHAR(100), -- 'missing_meta', 'broken_link', etc.
+  severity ENUM('critical', 'high', 'medium', 'low'),
+  page_url TEXT,
+  details JSONB,
+  status ENUM('detected', 'fixing', 'fixed', 'failed'),
+  detected_at TIMESTAMP DEFAULT NOW(),
+  fixed_at TIMESTAMP
+);
+
+-- Fixes Applied
+CREATE TABLE fixes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  connection_id UUID REFERENCES connections(id) ON DELETE CASCADE,
+  issue_id UUID REFERENCES issues(id),
+  type VARCHAR(100),
+  target_url TEXT,
+  before_state JSONB,
+  after_state JSONB,
+  method ENUM('automatic', 'manual', 'pending'),
+  status ENUM('pending', 'applied', 'rolled_back', 'failed'),
+  applied_at TIMESTAMP,
+  rolled_back_at TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Performance Metrics
+CREATE TABLE metrics (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  connection_id UUID REFERENCES connections(id) ON DELETE CASCADE,
+  date DATE NOT NULL,
+  organic_traffic INTEGER,
+  rankings JSONB, -- {keyword: position}
+  page_speed DECIMAL(3,1),
+  issues_count INTEGER,
+  fixes_count INTEGER,
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(connection_id, date)
+);
+
+-- AI Conversations
+CREATE TABLE ai_conversations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  connection_id UUID REFERENCES connections(id),
+  messages JSONB[], -- Array of {role, content}
+  context JSONB, -- Site-specific context
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Audit Logs
+CREATE TABLE audit_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id),
+  connection_id UUID REFERENCES connections(id),
+  action VARCHAR(100),
+  details JSONB,
+  ip_address INET,
+  user_agent TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Billing & Subscriptions
+CREATE TABLE subscriptions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  stripe_subscription_id VARCHAR(255) UNIQUE,
+  plan ENUM('starter', 'growth', 'scale'),
+  status ENUM('active', 'cancelled', 'past_due', 'trialing'),
+  current_period_start TIMESTAMP,
+  current_period_end TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+API Structure
+Core Endpoints
+typescript// Authentication
+POST   /api/auth/signup
+POST   /api/auth/login
+POST   /api/auth/logout
+GET    /api/auth/me
+POST   /api/auth/refresh
+
+// Connections
+GET    /api/connections
+POST   /api/connections/shopify
+POST   /api/connections/wordpress
+DELETE /api/connections/:id
+GET    /api/connections/:id/health
+
+// Shopify OAuth
+GET    /api/shopify/install?shop=:shop
+GET    /api/shopify/callback
+
+// SEO Operations
+GET    /api/sites/:id/issues
+POST   /api/sites/:id/analyze
+POST   /api/sites/:id/fix/:issueId
+POST   /api/sites/:id/fix-all
+GET    /api/sites/:id/metrics
+
+// AI Integration
+POST   /api/ai/analyze
+POST   /api/ai/suggest
+POST   /api/ai/chat
+
+// Settings
+GET    /api/settings
+PUT    /api/settings
+PUT    /api/settings/mode
+
+// Billing
+POST   /api/billing/checkout
+POST   /api/billing/portal
+POST   /api/webhooks/stripe
+API Response Structure
+typescriptinterface APIResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: {
+    code: string;
+    message: string;
+    details?: any;
+  };
+  meta?: {
+    page?: number;
+    limit?: number;
+    total?: number;
+  };
+}
+
+// Example success response
+{
+  "success": true,
+  "data": {
+    "id": "123",
+    "fixes_applied": 47,
+    "issues_remaining": 3
+  }
+}
+
+// Example error response
+{
+  "success": false,
+  "error": {
+    "code": "CONNECTION_FAILED",
+    "message": "Unable to connect to Shopify store",
+    "details": {
+      "store": "example.myshopify.com",
+      "reason": "Invalid access token"
+    }
+  }
+}
+```
+
+---
+
+## Frontend Requirements
+
+### Pages Structure
+```
+app/
+├── (auth)/
+│   ├── login/
+│   ├── signup/
+│   └── forgot-password/
+├── (dashboard)/
+│   ├── page.tsx              // Dashboard home
+│   ├── sites/
+│   │   ├── page.tsx          // All sites
+│   │   └── [id]/
+│   │       ├── page.tsx      // Site details
+│   │       ├── issues/       // Issues list
+│   │       ├── fixes/        // Fixes history
+│   │       └── settings/     // Site settings
+│   ├── connect/
+│   │   ├── shopify/
+│   │   ├── wordpress/
+│   │   └── custom/
+│   ├── settings/
+│   └── billing/
+├── api/
+│   └── [...routes]
+└── (marketing)/
+    ├── page.tsx              // Landing page
+    ├── pricing/
+    ├── features/
+    └── blog/
+Component Library
+typescript// Core Components
+components/
+├── ui/                       // Shadcn components
+│   ├── button.tsx
+│   ├── card.tsx
+│   ├── dialog.tsx
+│   └── ...
+├── dashboard/
+│   ├── SiteCard.tsx
+│   ├── IssuesList.tsx
+│   ├── FixLog.tsx
+│   ├── MetricsChart.tsx
+│   └── QuickActions.tsx
+├── connections/
+│   ├── ShopifyConnect.tsx
+│   ├── WordPressConnect.tsx
+│   └── ConnectionStatus.tsx
+├── seo/
+│   ├── IssueCard.tsx
+│   ├── FixPreview.tsx
+│   ├── ModeSelector.tsx
+│   └── ProgressBar.tsx
+└── shared/
+    ├── Header.tsx
+    ├── Sidebar.tsx
+    └── Footer.tsx
+Key UI Features
+typescriptinterface UIFeatures {
+  dashboard: {
+    real_time_updates: boolean;    // WebSocket for live fixes
+    drag_drop_priority: boolean;   // Reorder fix priority
+    bulk_actions: boolean;          // Select multiple issues
+    quick_filters: boolean;         // Filter by severity/type
+  };
+  
+  visualizations: {
+    fix_timeline: boolean;          // Visual history of fixes
+    impact_graph: boolean;          // Traffic/ranking changes
+    issue_heatmap: boolean;         // Issues by page/type
+    competitive_comparison: boolean;
+  };
+  
+  notifications: {
+    in_app_alerts: boolean;
+    email_digests: boolean;
+    slack_integration: boolean;
+    browser_push: boolean;
+  };
+}
+
+Claude AI Integration
+System Prompt
+typescriptconst CLAUDE_SYSTEM_PROMPT = `You are SEOLOGY, an expert SEO automation system. Your role is to:
+
+1. Analyze websites for SEO issues with deep technical understanding
+2. Prioritize fixes based on impact and effort
+3. Generate exact code/content fixes that can be automatically applied
+4. Consider the specific CMS/platform constraints
+5. Ensure all fixes follow Google's guidelines and best practices
+
+Context about the current site:
+- Platform: {platform}
+- Domain: {domain}
+- Current issues: {issueCount}
+- Mode: {mode} (automatic/plan/approve)
+
+When generating fixes:
+- Be specific and implementable
+- Include exact values, not placeholders
+- Consider site context and industry
+- Prioritize user experience alongside SEO
+- Never suggest black-hat techniques
+
+Output format:
+{
+  "fix_type": "string",
+  "priority": "critical|high|medium|low",
+  "implementation": {
+    "method": "api|script|manual",
+    "code": "exact implementation code",
+    "target": "specific element/page",
+    "estimated_impact": "1-10 scale"
+  }
+}`;
+Claude Integration Service
+typescriptimport Anthropic from '@anthropic-ai/sdk';
+
+class ClaudeService {
+  private client: Anthropic;
+  private contextCache: Map<string, any>;
+  
+  constructor() {
+    this.client = new Anthropic({
+      apiKey: process.env.CLAUDE_API_KEY,
+    });
+    this.contextCache = new Map();
+  }
+  
+  async analyzeSite(connection: Connection): Promise<Analysis> {
+    // Gather site data
+    const siteData = await this.gatherSiteData(connection);
+    
+    // Build context
+    const context = {
+      platform: connection.platform,
+      domain: connection.domain,
+      pages: siteData.pages,
+      current_seo: siteData.seo,
+      competitors: siteData.competitors
+    };
+    
+    // Cache context for future calls
+    this.contextCache.set(connection.id, context);
+    
+    // Call Claude
+    const response = await this.client.messages.create({
+      model: 'claude-3-5-sonnet-20241022',
+      system: CLAUDE_SYSTEM_PROMPT.replace('{platform}', connection.platform),
+      messages: [{
+        role: 'user',
+        content: `Analyze this site for SEO issues and opportunities: ${JSON.stringify(context)}`
+      }],
+      max_tokens: 4000
+    });
+    
+    return this.parseAnalysis(response.content);
+  }
+  
+  async generateFix(issue: Issue, connection: Connection): Promise<Fix> {
+    const context = this.contextCache.get(connection.id);
+    
+    const response = await this.client.messages.create({
+      model: 'claude-3-5-sonnet-20241022',
+      system: CLAUDE_SYSTEM_PROMPT,
+      messages: [{
+        role: 'user',
+        content: `Generate an exact fix for this issue: ${JSON.stringify(issue)}
+                  Site context: ${JSON.stringify(context)}
+                  Platform: ${connection.platform}`
+      }],
+      max_tokens: 2000
+    });
+    
+    return this.parseFix(response.content);
+  }
+  
+  async chat(messages: Message[], connection?: Connection): Promise<string> {
+    const context = connection ? this.contextCache.get(connection.id) : null;
+    
+    const response = await this.client.messages.create({
+      model: 'claude-3-5-sonnet-20241022',
+      system: `You are SEOLOGY, an SEO expert assistant. ${context ? `Current site: ${connection.domain}` : ''}`,
+      messages: messages.map(m => ({
+        role: m.role === 'user' ? 'user' : 'assistant',
+        content: m.content
+      })),
+      max_tokens: 2000
+    });
+    
+    return response.content[0].text;
+  }
+}
+
+Pricing & Business Model
+Pricing Tiers
+typescriptconst PRICING = {
+  starter: {
+    monthly: 297,
+    annual: 2970, // 2 months free
+    features: {
+      sites: 3,
+      fixes_per_month: 500,
+      users: 1,
+      platforms: ['shopify', 'wordpress'],
+      mode: ['approve'],
+      support: 'email'
+    }
+  },
+  
+  growth: {
+    monthly: 997,
+    annual: 9970,
+    features: {
+      sites: 10,
+      fixes_per_month: 5000,
+      users: 5,
+      platforms: ['all'],
+      mode: ['approve', 'plan', 'automatic'],
+      support: 'priority',
+      api_access: true
+    }
+  },
+  
+  scale: {
+    monthly: 2497,
+    annual: 24970,
+    features: {
+      sites: 'unlimited',
+      fixes_per_month: 'unlimited',
+      users: 'unlimited',
+      platforms: ['all'],
+      mode: ['all'],
+      support: 'dedicated',
+      api_access: true,
+      white_label: true,
+      custom_integration: true
+    }
+  }
+};
+Revenue Projections
+typescriptconst PROJECTIONS = {
+  month_1: {
+    users: 10,
+    mrr: 2970,
+    costs: 5000
+  },
+  month_6: {
+    users: 100,
+    mrr: 59700,
+    costs: 15000
+  },
+  month_12: {
+    users: 500,
+    mrr: 298500,
+    costs: 50000
+  },
+  year_2: {
+    users: 2000,
+    mrr: 1194000,
+    costs: 200000
+  }
+};
+
+MVP Implementation
+Week 1: Foundation
+bash# Setup project
+npx create-next-app@latest seology-ai --typescript --tailwind --app
+cd seology-ai
+
+# Install dependencies
+npm install @clerk/nextjs @anthropic-ai/sdk @prisma/client stripe
+npm install @radix-ui/react-dialog @radix-ui/react-select
+npm install recharts zustand axios
+npm install -D @types/node prisma
+
+# Setup database
+npx prisma init
+# Configure schema
+npx prisma db push
+
+# Environment variables
+cp .env.example .env.local
+Week 2: Core Features
+typescript// 1. Authentication with Clerk
+// app/layout.tsx
+import { ClerkProvider } from '@clerk/nextjs';
+
+export default function RootLayout({ children }) {
+  return (
+    <ClerkProvider>
+      <html>
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  );
+}
+
+// 2. Shopify Connection
+// app/api/connections/shopify/route.ts
+export async function POST(request: Request) {
+  const { shop } = await request.json();
+  
+  const installUrl = generateShopifyInstallUrl(shop);
+  
+  return Response.json({ installUrl });
+}
+
+// 3. Claude Integration
+// lib/claude.ts
+export async function analyzeSite(siteData: SiteData) {
+  const claude = new Anthropic();
+  const response = await claude.messages.create({
+    model: 'claude-3-5-sonnet-20241022',
+    messages: [{
+      role: 'user',
+      content: `Analyze: ${JSON.stringify(siteData)}`
+    }]
+  });
+  
+  return response;
+}
+
+// 4. Dashboard
+// app/(dashboard)/page.tsx
+export default async function Dashboard() {
+  const sites = await getSites();
+  const recentFixes = await getRecentFixes();
+  
+  return (
+    <div>
+      <SiteGrid sites={sites} />
+      <FixTimeline fixes={recentFixes} />
+      <QuickActions />
+    </div>
+  );
+}
+Week 3: Execution Engine
+typescript// Queue processor for fixes
+// lib/queue/processor.ts
+import Bull from 'bull';
+
+const fixQueue = new Bull('fix-queue', {
+  redis: process.env.REDIS_URL
+});
+
+fixQueue.process(async (job) => {
+  const { connectionId, fixId, data } = job.data;
+  
+  // Get connection details
+  const connection = await db.connection.findUnique({
+    where: { id: connectionId }
+  });
+  
+  // Execute based on platform
+  switch(connection.platform) {
+    case 'SHOPIFY':
+      await executeShopifyFix(connection, data);
+      break;
+    case 'WORDPRESS':
+      await executeWordPressFix(connection, data);
+      break;
+  }
+  
+  // Update fix status
+  await db.fix.update({
+    where: { id: fixId },
+    data: { status: 'APPLIED', appliedAt: new Date() }
+  });
+  
+  return { success: true };
+});
+Week 4: Launch Preparation
+typescript// 1. Stripe Integration
+// app/api/billing/checkout/route.ts
+export async function POST(request: Request) {
+  const { priceId } = await request.json();
+  const { userId } = auth();
+  
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [{ price: priceId, quantity: 1 }],
+    mode: 'subscription',
+    success_url: `${process.env.NEXT_PUBLIC_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${process.env.NEXT_PUBLIC_URL}/pricing`,
+    client_reference_id: userId,
+  });
+  
+  return Response.json({ url: session.url });
+}
+
+// 2. Landing Page
+// app/(marketing)/page.tsx
+export default function LandingPage() {
+  return (
+    <>
+      <Hero />
+      <Problem />
+      <Solution />
+      <Features />
+      <Testimonials />
+      <Pricing />
+      <CTA />
+    </>
+  );
+}
+
+// 3. Monitoring
+// lib/monitoring.ts
+import * as Sentry from '@sentry/nextjs';
+import posthog from 'posthog-js';
+
+export function trackEvent(event: string, properties?: any) {
+  posthog.capture(event, properties);
+}
+
+export function logError(error: Error, context?: any) {
+  Sentry.captureException(error, { extra: context });
+}
+
+Development Phases
+Phase 1: MVP (Weeks 1-4)
+
+ Basic authentication
+ Shopify connection
+ WordPress REST API connection
+ 5 core SEO fixes (meta, alt text, 404s, robots, sitemap)
+ Simple dashboard
+ Manual approval mode only
+ Stripe billing
+
+Phase 2: Enhancement (Weeks 5-8)
+
+ Universal JavaScript connector
+ 10 additional fix types
+ Automatic and Plan modes
+ Performance tracking
+ Email notifications
+ API documentation
+
+Phase 3: Scale (Weeks 9-12)
+
+ Team features
+ Advanced Claude AI features
+ Wix/Squarespace/Webflow
+ White label option
+ API access
+ Enterprise features
+
+Phase 4: Growth (Months 4-6)
+
+ Predictive SEO
+ Content generation
+ Workflow automation
+ Custom integrations
+ Affiliate program
+ Mobile app
+
+
+Key Files to Create First
+bash# 1. Environment Configuration
+.env.local
+# Add all API keys and configuration
+
+# 2. Database Schema
+prisma/schema.prisma
+# Complete database structure
+
+# 3. Core Services
+lib/services/
+├── claude.service.ts       # AI integration
+├── shopify.service.ts      # Shopify connector
+├── wordpress.service.ts    # WordPress connector
+├── fix.service.ts          # Fix execution engine
+└── metrics.service.ts      # Performance tracking
+
+# 4. API Routes
+app/api/
+├── auth/                   # Authentication endpoints
+├── connections/            # Platform connections
+├── sites/                  # Site management
+├── fixes/                  # Fix execution
+└── webhooks/              # External webhooks
+
+# 5. Core Components
+components/
+├── dashboard/             # Dashboard components
+├── connections/           # Connection flows
+├── seo/                   # SEO-specific components
+└── ui/                    # Reusable UI components
+
+# 6. Landing Page
+app/(marketing)/
+├── page.tsx               # Main landing page
+├── pricing/page.tsx       # Pricing page
+└── components/            # Marketing components
+
+Testing Strategy
+typescript// E2E Test Example
+// tests/shopify-connection.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('Connect Shopify store', async ({ page }) => {
+  // Login
+  await page.goto('/login');
+  await page.fill('[name=email]', 'test@example.com');
+  await page.fill('[name=password]', 'password');
+  await page.click('button[type=submit]');
+  
+  // Navigate to connections
+  await page.goto('/dashboard/connect/shopify');
+  
+  // Enter store URL
+  await page.fill('[name=shop]', 'test-store.myshopify.com');
+  await page.click('button:has-text("Connect")');
+  
+  // Should redirect to Shopify OAuth
+  await expect(page.url()).toContain('myshopify.com/admin/oauth');
+});
+
+// Unit Test Example
+// lib/services/__tests__/fix.service.test.ts
+describe('FixService', () => {
+  it('should apply meta description fix', async () => {
+    const fix = {
+      type: 'UPDATE_META',
+      data: {
+        title: 'Optimized Title',
+        description: 'Optimized description'
+      }
+    };
+    
+    const result = await fixService.apply(fix, mockConnection);
+    
+    expect(result.status).toBe('SUCCESS');
+    expect(result.changes).toHaveLength(2);
+  });
+});
+
+Deployment
+yaml# Railway/Vercel Configuration
+# railway.yaml
+services:
+  - name: api
+    env:
+      - NODE_ENV=production
+      - DATABASE_URL=${{POSTGRES.DATABASE_URL}}
+      - REDIS_URL=${{REDIS.REDIS_URL}}
+    build:
+      command: npm run build:api
+    start:
+      command: npm run start:api
+    
+  - name: worker
+    env:
+      - NODE_ENV=production
+      - DATABASE_URL=${{POSTGRES.DATABASE_URL}}
+      - REDIS_URL=${{REDIS.REDIS_URL}}
+    start:
+      command: npm run worker
+
+# Vercel Configuration
+# vercel.json
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@api_url",
+    "NEXT_PUBLIC_STRIPE_KEY": "@stripe_public_key"
+  }
+}
+
+Launch Checklist
+Pre-Launch (Week 0)
+
+ Domain purchased (seology.ai)
+ Hosting setup (Vercel + Railway)
+ SSL certificates
+ Email configuration (Resend/SendGrid)
+ Stripe account verified
+ Privacy Policy & Terms
+ GDPR compliance
+
+Launch Day
+
+ ProductHunt submission
+ HackerNews post
+ Reddit posts (r/SEO, r/shopify, r/wordpress)
+ Twitter announcement
+ Email to beta list
+ Enable monitoring
+
+Post-Launch (Week 1)
+
+ Customer feedback collection
+ Bug fixes
+ Performance optimization
+ First case study
+ Affiliate program setup
+
+
+Success Metrics
+typescriptconst KPIs = {
+  technical: {
+    uptime: '99.9%',
+    api_response_time: '<200ms',
+    fix_success_rate: '>95%'
+  },
+  
+  business: {
+    month_1: {
+      signups: 100,
+      paid_conversions: 10,
+      mrr: 2970
+    },
+    month_6: {
+      signups: 1000,
+      paid_conversions: 100,
+      mrr: 59700
+    }
+  },
+  
+  customer: {
+    nps_score: '>50',
+    churn_rate: '<5%',
+    support_response: '<2 hours'
+  }
+};
+
+Support Documentation
+User Guides
+
+Getting Started with SEOLOGY
+Connecting Your Shopify Store
+Connecting WordPress Sites
+Understanding Execution Modes
+Reading Your SEO Reports
+Billing & Subscription Management
+
+API Documentation
+
+Authentication
+Rate Limits
+Webhook Events
+Error Codes
+SDK Libraries
+
+Troubleshooting
+
+Connection Issues
+Fix Failures
+Billing Problems
+Performance Issues
+
+
+Security Considerations
+typescriptconst SECURITY = {
+  authentication: {
+    provider: 'Clerk',
+    mfa: true,
+    session_timeout: '24h'
+  },
+  
+  api: {
+    rate_limiting: true,
+    api_keys: true,
+    ip_whitelist: false,
+    webhook_verification: true
+  },
+  
+  data: {
+    encryption_at_rest: true,
+    encryption_in_transit: true,
+    backup_frequency: 'daily',
+    pii_handling: 'GDPR compliant'
+  },
+  
+  platform_tokens: {
+    storage: 'encrypted',
+    rotation: 'quarterly',
+    access_logs: true
+  }
+};
+
+Contact & Resources
+Development Resources
+
+GitHub Repo: github.com/seology-ai/core
+API Docs: docs.seology.ai
+Status Page: status.seology.ai
+Support: support@seology.ai
+
+Key Integrations
+
+Shopify App: Client ID 0b87ac78cf0783fd1dd829bf5421fae5
+Claude AI: Model claude-3-5-sonnet-20241022
+Stripe: Publishable Key pk_live_xxx
+
+Marketing Assets
+
+Landing Page Copy: /marketing/copy.md
+Product Demo: /marketing/demo.mp4
+Case Studies: /marketing/case-studies/
+
+
+Quick Start Commands
+bash# Clone and setup
+git clone https://github.com/seology-ai/core.git
+cd core
+npm install
+
+# Setup environment
+cp .env.example .env.local
+# Edit .env.local with your keys
+
+# Setup database
+npx prisma db push
+npx prisma db seed
+
+# Run development
+npm run dev          # Frontend on :3000
+npm run dev:api      # API on :4000
+npm run dev:worker   # Queue processor
+
+# Run tests
+npm run test
+npm run test:e2e
+
+# Deploy
+npm run deploy:staging
+npm run deploy:production
+
+This is SEOLOGY.AI - The SEO tool that actually does the work.
+Start building. Ship fast. Dominate the market.
