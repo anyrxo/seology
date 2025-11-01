@@ -29,6 +29,25 @@
   <meta property="twitter:image" content="https://seology.ai/images/og-image.jpg">
 
   <style>
+    /* Real-time Form Validation */
+    .form-input:invalid:not(:placeholder-shown) {
+      border-color: #ff4444 !important;
+      box-shadow: 0 0 0 3px rgba(255, 68, 68, 0.1) !important;
+    }
+    .form-input:valid:not(:placeholder-shown) {
+      border-color: var(--text-color-secondary, #00ff88) !important;
+      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1) !important;
+    }
+    .validation-message {
+      font-size: 13px;
+      margin-top: 6px;
+      display: none;
+      color: #ff4444;
+    }
+    .form-input:invalid:not(:placeholder-shown) + .validation-message {
+      display: block;
+    }
+
     /* Keyboard Navigation Focus Indicators (WCAG 2.4.7) */
     .nav-link:focus,
     .button:focus,
@@ -271,10 +290,14 @@
               <div class="padding-section-small">
                 <div class="contact-form-block">
                   <div class="contact-form-wrapper w-form">
-                    <form id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form" method="get" class="contact-form" data-wf-page-id="690377308ebfd7be919f1f8f" data-wf-element-id="000a6e7f-091f-55f1-b166-da3ed953395c"><label for="name" class="form-label">Name</label><input class="form-input w-input" maxlength="256" name="name" data-name="Name" placeholder="" type="text" id="name">
-                      <div class="spacer-small"></div><label for="email" class="form-label">Email Address</label><input class="form-input w-input" maxlength="256" name="email" data-name="Email" placeholder="" type="email" id="email" required="" aria-required="true" autocomplete="email">
-                      <div class="spacer-small"></div><label for="Subject" class="form-label">Subject</label><input class="form-input w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="" type="text" id="Subject" required="" aria-required="true">
+                    <form id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form" method="get" class="contact-form" data-wf-page-id="690377308ebfd7be919f1f8f" data-wf-element-id="000a6e7f-091f-55f1-b166-da3ed953395c"><label for="name" class="form-label">Name</label><input class="form-input w-input" maxlength="256" name="name" data-name="Name" placeholder=" " type="text" id="name" required="" aria-required="true">
+                      <div class="validation-message">Please enter your name</div>
+                      <div class="spacer-small"></div><label for="email" class="form-label">Email Address</label><input class="form-input w-input" maxlength="256" name="email" data-name="Email" placeholder=" " type="email" id="email" required="" aria-required="true" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                      <div class="validation-message">Please enter a valid email address</div>
+                      <div class="spacer-small"></div><label for="Subject" class="form-label">Subject</label><input class="form-input w-input" maxlength="256" name="Subject" data-name="Subject" placeholder=" " type="text" id="Subject" required="" aria-required="true">
+                      <div class="validation-message">Please enter a subject</div>
                       <div class="spacer-small"></div><label for="Message" class="form-label">Message</label><textarea class="form-input is-text-area w-input" maxlength="5000" name="Message" data-name="Message" placeholder="Tell us how we can help..." id="Message" required="" aria-required="true"></textarea>
+                      <div class="validation-message">Please enter your message</div>
                       <div class="spacer-large"></div><input type="submit" data-wait="Please wait..." class="button w-button" value="Send Message">
                     </form>
                     <div class="form-message-success w-form-done">
