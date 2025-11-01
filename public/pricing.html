@@ -287,7 +287,99 @@ img {
   </style>
   <link href="css/craflow.css" rel="stylesheet" type="text/css">
     <link href="css/craflow-animations.css" rel="stylesheet" type="text/css">
-  </head>
+  
+  <style>
+  /* Mobile Optimization */
+  @media (max-width: 991px) {
+    .heading-style-h1 {
+      font-size: 48px !important;
+      line-height: 1.1 !important;
+    }
+
+    .heading-style-h2 {
+      font-size: 36px !important;
+      line-height: 1.2 !important;
+    }
+
+    .text-size-large {
+      font-size: 18px !important;
+    }
+
+    .padding-section-large {
+      padding-top: 60px !important;
+      padding-bottom: 60px !important;
+    }
+
+    .header-image-wrapper {
+      margin-top: 40px;
+    }
+
+    /* Stack pricing cards */
+    .pricing-grid {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+
+    /* Mobile navigation */
+    .nav-menu {
+      width: 100% !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .heading-style-h1 {
+      font-size: 36px !important;
+    }
+
+    .heading-style-h2 {
+      font-size: 28px !important;
+    }
+
+    /* Touch-friendly buttons */
+    .button {
+      min-height: 48px !important;
+      padding: 14px 28px !important;
+    }
+
+    /* Readable text */
+    body {
+      font-size: 16px !important;
+    }
+
+    .text-size-regular {
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+    }
+
+    /* Mobile spacing */
+    .padding-global {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .heading-style-h1 {
+      font-size: 32px !important;
+    }
+
+    .heading-style-h2 {
+      font-size: 24px !important;
+    }
+
+    /* Stack everything */
+    .w-layout-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Full-width images */
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+  </style>
+</head>
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
   <style>.skip-link:focus{position:static;width:auto;height:auto;background:#ffffff;color:#000;padding:8px 16px;z-index:9999;}</style>
