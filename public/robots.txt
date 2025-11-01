@@ -1,0 +1,25 @@
+# SEOLOGY.AI Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://seology.ai/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# Disallow crawling of any admin or internal areas (if they exist in future)
+# Disallow: /admin/
+# Disallow: /dashboard/
+
+# Allow social media bots full access for rich previews
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

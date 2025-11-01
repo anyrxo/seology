@@ -186,6 +186,7 @@
     }
   </style>
 
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 </head>
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
@@ -882,17 +883,29 @@
     const annualPrices = document.querySelectorAll('.annual-price');
     let isAnnual = false;
 
-    toggle.addEventListener('click', () => {
+    const handleToggle = () => {
       isAnnual = !isAnnual;
 
       if (isAnnual) {
         toggleSwitch.style.transform = 'translateX(28px)';
         monthlyPrices.forEach(el => el.style.display = 'none');
         annualPrices.forEach(el => el.style.display = 'inline');
+        toggle.setAttribute('aria-checked', 'true');
       } else {
         toggleSwitch.style.transform = 'translateX(0)';
         monthlyPrices.forEach(el => el.style.display = 'inline');
         annualPrices.forEach(el => el.style.display = 'none');
+        toggle.setAttribute('aria-checked', 'false');
+      }
+    };
+
+    toggle.addEventListener('click', handleToggle);
+
+    // Add keyboard support for toggle
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleToggle();
       }
     });
   </script>
@@ -918,17 +931,33 @@ if (window.location.hash === '#pricing-plans') {
 function toggleFAQ(index) {
   const answer = document.getElementById('faq-answer-' + index);
   const icon = document.getElementById('faq-icon-' + index);
+  const button = document.querySelector('button[aria-controls="faq-answer-' + index + '"]');
   const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
 
   if (isOpen) {
     answer.style.maxHeight = '0';
     answer.style.padding = '0';
     icon.style.transform = 'rotate(0deg)';
+    if (button) button.setAttribute('aria-expanded', 'false');
   } else {
     answer.style.maxHeight = answer.scrollHeight + 'px';
     icon.style.transform = 'rotate(180deg)';
+    if (button) button.setAttribute('aria-expanded', 'true');
   }
 }
+
+// Add keyboard support for FAQ accordions
+document.addEventListener('DOMContentLoaded', function() {
+  const faqButtons = document.querySelectorAll('.faq-question');
+  faqButtons.forEach((btn, index) => {
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleFAQ(index);
+      }
+    });
+  });
+});
 
 // Add hover effects
 document.addEventListener('DOMContentLoaded', function() {
