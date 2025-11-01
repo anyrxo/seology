@@ -37,7 +37,8 @@
       "Bash(node remove-emojis-add-animations.js:*)",
       "Bash(node remove-emojis-simple.js:*)",
       "Bash(node fix-homepage-button.js:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(tail:*)"
     ],
     "deny": [],
     "ask": []
