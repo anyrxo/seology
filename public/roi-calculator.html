@@ -1,4 +1,24 @@
-<!DOCTYPE html><!--  This site was created in CMS Connect. https://webflow.com  --><!--  Last Published: Thu Oct 30 2025 14:35:32 GMT+0000 (Coordinated Universal Time)  -->
+<!-- Current Spend Section -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 48px; margin-bottom: 32px;">
+              <h3 class="heading-style-h3" style="font-size: 24px; margin-bottom: 32px; text-align: center;">What are you currently using for SEO?</h3>
+
+              <div id="current-solutions-grid" style="display: grid; gap: 16px; margin-bottom: 32px;">
+                <p class="text-size-regular" style="text-align: center; opacity: 0.7;">Select your industry above to see options</p>
+              </div>
+
+              <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <p class="text-size-regular" style="opacity: 0.7; margin-bottom: 8px;">Total annual cost</p>
+                    <h2 class="heading-style-h2" style="font-size: 36px;" id="total-current-cost">$0</h2>
+                  </div>
+                  <div style="text-align: right;">
+                    <p class="text-size-regular" style="opacity: 0.7; margin-bottom: 8px;">Per month</p>
+                    <h3 class="heading-style-h3" style="font-size: 28px;" id="monthly-current-cost">$0</h3>
+                  </div>
+                </div>
+              </div>
+            </div><!DOCTYPE html><!--  This site was created in CMS Connect. https://webflow.com  --><!--  Last Published: Thu Oct 30 2025 14:35:32 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="690377308ebfd7be919f1f8c" data-wf-site="6903772e8ebfd7be919f1f14" lang="en">
 <head>
   <meta charset="utf-8">
@@ -88,7 +108,7 @@
         </div>
       </div>
     </div>
-            <main class="main-wrapper">
+                <main class="main-wrapper">
       <header class="section-projects-header">
         <div class="padding-global">
           <div class="container-large">
@@ -280,7 +300,7 @@
       </div>
 
     </main>
-        <footer class="footer">
+    <footer class="footer">
       <div class="padding-global">
         <div class="container-large">
           <div style="padding: 60px 0;">
@@ -755,6 +775,158 @@ function showObjections(industry) {
   `).join('');
 }
 
+
+
+// Industry-specific objections and answers
+const industryObjections = {
+  ecommerce: [
+    {
+      question: "But my products are unique - how can AI understand them?",
+      answer: "That's EXACTLY why generic tools fail. SEOLOGY.AI learns YOUR product catalog, YOUR category structure, YOUR customer language. It doesn't copy-paste meta descriptions from other stores. It analyzes your best-selling products, understands your niche, and writes SEO specifically for YOUR brand. A skateboard shop gets different optimization than a luxury jewelry store.",
+      icon: "🤔"
+    },
+    {
+      question: "What if I have 10,000+ SKUs? Can it handle that?",
+      answer: "We STARTED with e-commerce because of this exact problem. One of our first customers had 8,500 products. SEOLOGY.AI optimized ALL of them in 72 hours. Agencies would take 6+ months and charge $50k+. We automate what they do manually - product schema, meta tags, alt text, internal linking - across your ENTIRE catalog simultaneously.",
+      icon: "📦"
+    },
+    {
+      question: "I'm on Shopify/WooCommerce - does it actually work with my platform?",
+      answer: "We connect directly to Shopify, WooCommerce, BigCommerce, Magento, and custom platforms via API. We don't just 'integrate' - we LOG INTO your CMS and deploy fixes like a developer would. Product updates? We catch them. New collections? Optimized automatically. Inventory changes? SEO updates with it.",
+      icon: "🔌"
+    },
+    {
+      question: "What if it breaks something? I can't risk my store going down.",
+      answer: "We test in staging environments first if you want. We make the SAME changes an SEO agency would - just automatically and faster. Plus, we monitor every deployment to catch issues immediately. Agencies take weeks to even notice problems.",
+      icon: "⚠️"
+    },
+    {
+      question: "I tried Yoast/RankMath/[plugin] - how is this different?",
+      answer: "Those plugins TELL you what's wrong. You still do the work. SEOLOGY.AI DOES the work. Yoast says 'add meta description' - you write 8,500 of them. We write all 8,500 for you, tailored to each product. They're checklist tools. We're automation.",
+      icon: "🔧"
+    },
+    {
+      question: "Can I review fixes before they go live?",
+      answer: "Yes - 3 execution modes: AUTOMATIC (apply immediately), PLAN (review & approve batches), or APPROVE (review each fix individually). Start conservative, scale to automatic as you trust it. Most customers go full-auto after seeing the first batch of results.",
+      icon: "✋"
+    }
+  ],
+  saas: [
+    {
+      question: "Our product changes every week - can it keep up with our velocity?",
+      answer: "THIS is why we built SEOLOGY for SaaS. We integrate with your CI/CD pipeline. New feature? SEO updates automatically. Docs changed? Meta tags update. Changelog published? We optimize it for '[your product] vs [competitor]' searches. We move at YOUR speed, not agency speed (which is glacial).",
+      icon: "⚡"
+    },
+    {
+      question: "We have technical documentation - AI can't understand that, right?",
+      answer: "Wrong. We're BUILT on advanced AI - literally the smartest LLM for technical content. We understand API docs, code examples, SDK references. We don't just stuff keywords - we optimize for how developers actually search. 'How to authenticate with [your API]' gets different SEO than 'What is [your product]'.",
+      icon: "📚"
+    },
+    {
+      question: "What about our product-led growth funnel? SEO seems too slow.",
+      answer: "PLG companies are our BEST customers. Why? You need organic signups, not ad spend. We optimize trial signup flows, comparison pages, docs, and feature pages - the ENTIRE funnel. One SaaS customer got 143% more trial signups in 6 months. That's not 'slow' - that's compounding growth.",
+      icon: "📈"
+    },
+    {
+      question: "Our engineering team won't let random tools touch production.",
+      answer: "Good engineering culture. That's why we offer: 1) Staging environment testing first, 2) Real-time monitoring of every change, 3) Read-only mode to audit first, 4) SOC 2 compliance docs for your security team, 5) Dedicated Slack channel with our engineers. We've passed security review at 50+ enterprise SaaS companies.",
+      icon: "🔒"
+    },
+    {
+      question: "We already use Ahrefs/Semrush - why do we need this?",
+      answer: "You're paying Ahrefs $500/mo to TELL you about problems. Then paying engineers $150/hr to FIX them. SEOLOGY.AI does both - finds AND fixes. Keep Ahrefs for backlink research. Use us for automated technical SEO. Complementary tools, not competing.",
+      icon: "🛠️"
+    },
+    {
+      question: "Can it handle our multi-product structure?",
+      answer: "We handle SaaS companies with 5+ separate products, each with their own docs, landing pages, and positioning. We learn the context - Product A is for developers, Product B is for marketers - and optimize accordingly. Not one-size-fits-all.",
+      icon: "🎯"
+    }
+  ],
+  agency: [
+    {
+      question: "Can I use this for multiple client accounts?",
+      answer: "Absolutely. Set up separate accounts for each client with their own dashboards and reports. Perfect for marketing agencies managing SEO for multiple clients. Each client gets their own isolated workspace, and you control access to all accounts from one master view.",
+      icon: "🎨"
+    },
+    {
+      question: "What if a client's CMS breaks or the fix doesn't work?",
+      answer: "WE handle all support - not you. Client has an issue? We debug it. Think of us as your offshore team, except we're AI and we don't sleep. You stay client-facing, we do the technical heavy lifting.",
+      icon: "🛡️"
+    },
+    {
+      question: "I need to show clients what I'm doing - where are the reports?",
+      answer: "Automated reports showing: issues found, fixes deployed, rankings improved, traffic increased. Delivered weekly/monthly to clients with YOUR branding. Plus real-time dashboards they can log into. Make you look like you have a 10-person SEO team when it's just you + SEOLOGY.",
+      icon: "📊"
+    },
+    {
+      question: "My clients are in different industries - does it work for all of them?",
+      answer: "We handle e-commerce, SaaS, local businesses, B2B, publishers - everything. The AI adapts to each client's industry, CMS, and goals. You're not forcing one strategy on everyone. Each client gets tailored SEO like they hired a specialist agency.",
+      icon: "🎭"
+    },
+    {
+      question: "How do I explain to clients that AI is doing the work?",
+      answer: "Position it as 'AI-powered automation' not 'AI replacement'. You're SCALING your expertise, not replacing it. You still do strategy, positioning, content direction. We automate the grunt work - meta tags, schema, technical fixes, monitoring. Clients don't care HOW it's done - they care about RESULTS.",
+      icon: "💡"
+    },
+    {
+      question: "What's the pricing for agencies? Per client?",
+      answer: "Agency volume pricing starts at 10+ client accounts. Many marketing agencies include automated SEO as part of their monthly retainers. Instead of burning 40 hours/month on manual SEO work per client, automate it with SEOLOGY and focus your team on strategy and creative. Scale to 50 clients without hiring more SEO specialists.",
+      icon: "💰"
+    }
+  ],
+  local: [
+    {
+      question: "I have 50+ locations - can it handle multi-location SEO?",
+      answer: "Built for this. We've done 250+ location franchises. SEOLOGY.AI manages NAP consistency, local schema, Google Business Profile optimization, and location-specific landing pages ACROSS all locations. One update = deployed to all 50+ sites. No manual copy-paste.",
+      icon: "📍"
+    },
+    {
+      question: "What about Google Business Profile - does it optimize that too?",
+      answer: "Yes. We connect to GBP API, optimize business descriptions, categories, attributes, and monitor Q&A. We don't just 'check' your GBP - we FIX it. Missing categories? Added. Wrong hours? Corrected. Incomplete attributes? Filled in. Across ALL locations.",
+      icon: "🗺️"
+    },
+    {
+      question: "My locations have different owners/franchisees - how does that work?",
+      answer: "Each location gets their own login and dashboard. Corporate sees everything (all locations). Franchisees see only their locations. You control what fixes deploy automatically vs require approval. Perfect for franchise structures with semi-independent operators.",
+      icon: "🏢"
+    },
+    {
+      question: "I'm already paying Yext - is this the same thing?",
+      answer: "Yext is listing distribution - getting your NAP on 100+ directories. We're on-site SEO automation - fixing YOUR website's technical issues. Complementary, not competitive. Keep Yext for listings. Use SEOLOGY for website optimization. Better together.",
+      icon: "🤝"
+    },
+    {
+      question: "What if different locations offer different services?",
+      answer: "We handle that. Location A offers plumbing + HVAC. Location B is plumbing only. The AI understands context and optimizes service pages accordingly. Not one-size-fits-all templates - actually tailored to what each location does.",
+      icon: "🔨"
+    },
+    {
+      question: "Can it help with local rankings (map pack)?",
+      answer: "That's the goal. We optimize on-page signals Google uses for local pack: NAP consistency, local schema markup, location-specific content, embedded maps, local keywords. Combined with GBP optimization = better local rankings. One HVAC franchise got 234% more map pack appearances in 4 months.",
+      icon: "🎯"
+    }
+  ]
+};
+
+// Add objections display function
+function showObjections(industry) {
+  const objections = industryObjections[industry];
+  const container = document.getElementById('objections-container');
+
+  container.innerHTML = objections.map((obj, index) => `
+    <div style="background: rgba(255,255,255,0.03); border-left: 3px solid var(--text-color-secondary, #00ff88); border-radius: 12px; padding: 32px; margin-bottom: 24px; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+      <div style="display: flex; gap: 20px; align-items: start;">
+        <div style="font-size: 32px; flex-shrink: 0;">${obj.icon}</div>
+        <div style="flex: 1;">
+          <h3 class="heading-style-h4" style="font-size: 18px; margin-bottom: 16px; color: var(--text-color-secondary, #00ff88);">"${obj.question}"</h3>
+          <p class="text-size-regular" style="opacity: 0.85; line-height: 1.7;">${obj.answer}</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
 let selectedIndustry = null;
 
 // Industry card selection
@@ -830,5 +1002,376 @@ function showComparison(industry) {
 
   // Show industry-specific objections
   showObjections(industry);
+
+  // Show industry-specific objections
+  showObjections(industry);
+}
+</script>
+
+
+<script>
+// Industry-specific data
+const industryData = {
+  ecommerce: {
+    subtitle: "E-commerce stores typically waste thousands on generic SEO tools and agencies",
+    currentSolutions: [
+      {
+        title: "SEO Agency",
+        cost: "$2,000-5,000/mo",
+        issues: [
+          "Copy-paste fixes from other stores",
+          "Doesn't know your products",
+          "Manual updates take weeks",
+          "Charges hourly for everything"
+        ]
+      },
+      {
+        title: "Shopify SEO Apps",
+        cost: "$50-200/mo each",
+        issues: [
+          "Only reports issues, doesn't fix",
+          "Need 5+ apps for full coverage",
+          "Generic recommendations",
+          "Still requires manual work"
+        ]
+      },
+      {
+        title: "Freelance SEO",
+        cost: "$1,000-3,000/mo",
+        issues: [
+          "Inconsistent quality",
+          "Doesn't scale with inventory",
+          "Turnover risk",
+          "Limited tech knowledge"
+        ]
+      }
+    ],
+    currentCost: 24000,
+    currentMethod: "SEO Agency ($2k/mo)",
+    timeSaved: "40+ hours/month on product SEO"
+  },
+  saas: {
+    subtitle: "SaaS companies pay premium rates for SEO that doesn't understand their product velocity",
+    currentSolutions: [
+      {
+        title: "Technical SEO Agency",
+        cost: "$3,000-8,000/mo",
+        issues: [
+          "Can't keep up with product launches",
+          "Doesn't integrate with CI/CD",
+          "Generic docs optimization",
+          "Slow turnaround on fixes"
+        ]
+      },
+      {
+        title: "Ahrefs + Semrush Stack",
+        cost: "$500-1,500/mo",
+        issues: [
+          "Just shows you problems",
+          "You still do all the work",
+          "Doesn't understand SaaS SEO",
+          "No automation"
+        ]
+      },
+      {
+        title: "In-House SEO Team",
+        cost: "$8,000-15,000/mo",
+        issues: [
+          "Expensive salaries + benefits",
+          "Busy with analysis, not fixes",
+          "Limited technical skills",
+          "Doesn't scale"
+        ]
+      }
+    ],
+    currentCost: 36000,
+    currentMethod: "SEO Agency ($3k/mo)",
+    timeSaved: "60+ hours/month on docs and landing pages"
+  },
+  agency: {
+    subtitle: "Agencies burn hours on manual SEO work that could be automated",
+    currentSolutions: [
+      {
+        title: "Manual Labor",
+        cost: "$4,000-8,000/mo",
+        issues: [
+          "Junior staff doing grunt work",
+          "40+ hours/week per client",
+          "Human error and inconsistency",
+          "Can't scale to more clients"
+        ]
+      },
+      {
+        title: "White-Label SEO Services",
+        cost: "$1,000-3,000/client",
+        issues: [
+          "Generic reporting",
+          "No real fixes, just analysis",
+          "Cuts into your margins",
+          "Quality varies wildly"
+        ]
+      },
+      {
+        title: "Tool Stack Per Client",
+        cost: "$200-500/client/mo",
+        issues: [
+          "Managing 5+ tools per client",
+          "Still requires manual fixes",
+          "Doesn't work for all clients",
+          "Expensive at scale"
+        ]
+      }
+    ],
+    currentCost: 48000,
+    currentMethod: "Manual Labor ($4k/mo average per client)",
+    timeSaved: "75+ hours/month across all clients"
+  },
+  local: {
+    subtitle: "Local businesses and franchises overpay for cookie-cutter local SEO",
+    currentSolutions: [
+      {
+        title: "Local SEO Agency",
+        cost: "$1,000-2,500/mo",
+        issues: [
+          "Same template for everyone",
+          "Slow to update locations",
+          "Charges per location",
+          "Doesn't fix NAP automatically"
+        ]
+      },
+      {
+        title: "Yext / BrightLocal",
+        cost: "$500-2,000/mo",
+        issues: [
+          "Just listing management",
+          "Doesn't fix on-site SEO",
+          "Expensive per location",
+          "Limited automation"
+        ]
+      },
+      {
+        title: "Local Marketing Agency",
+        cost: "$1,500-4,000/mo",
+        issues: [
+          "Focuses on ads, not SEO",
+          "SEO is an afterthought",
+          "Doesn't scale locations",
+          "Expensive bundled services"
+        ]
+      }
+    ],
+    currentCost: 18000,
+    currentMethod: "Local SEO Agency ($1.5k/mo)",
+    timeSaved: "30+ hours/month on location updates"
+  }
+};
+
+let selectedIndustry = null;
+
+// Industry card selection
+document.querySelectorAll('.industry-card').forEach(card => {
+  card.addEventListener('click', function() {
+    // Remove active class from all cards
+    document.querySelectorAll('.industry-card').forEach(c => {
+      c.style.border = '2px solid rgba(255,255,255,0.08)';
+      c.style.background = 'rgba(255,255,255,0.03)';
+    });
+
+    // Add active class to clicked card
+    this.style.border = '2px solid var(--text-color-secondary, #00ff88)';
+    this.style.background = 'rgba(0,255,136,0.08)';
+
+    // Get industry
+    selectedIndustry = this.getAttribute('data-industry');
+
+    // Show comparison section
+    showComparison(selectedIndustry);
+
+    // Smooth scroll to comparison
+    setTimeout(() => {
+      document.getElementById('comparison-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  });
+});
+
+function showComparison(industry) {
+  const data = industryData[industry];
+
+  // Update subtitle
+  document.getElementById('current-solution-subtitle').textContent = data.subtitle;
+
+  // Populate current solutions
+  const solutionsContainer = document.getElementById('current-solutions');
+  solutionsContainer.innerHTML = '';
+
+  data.currentSolutions.forEach(solution => {
+    const solutionHTML = `
+      <div style="background: rgba(255,0,0,0.05); border: 1px solid rgba(255,0,0,0.2); border-radius: 16px; padding: 32px;">
+        <h3 class="heading-style-h4" style="font-size: 20px; margin-bottom: 8px;">${solution.title}</h3>
+        <div style="font-size: 24px; font-weight: 700; color: #ff4444; margin-bottom: 20px;">${solution.cost}</div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          ${solution.issues.map(issue => `
+            <div style="display: flex; align-items: start; gap: 10px; font-size: 14px;">
+              <span style="color: #ff4444; flex-shrink: 0; margin-top: 2px;">✗</span>
+              <span style="opacity: 0.8;">${issue}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    solutionsContainer.innerHTML += solutionHTML;
+  });
+
+  // Update costs
+  document.getElementById('current-cost').textContent = '$' + data.currentCost.toLocaleString();
+  document.getElementById('current-method').textContent = data.currentMethod;
+
+  // Calculate savings
+  const seologyCost = 240; // $20/mo * 12
+  const savings = data.currentCost - seologyCost;
+  const savingsPercentage = Math.round((savings / data.currentCost) * 100);
+
+  document.getElementById('total-savings').textContent = '$' + savings.toLocaleString();
+  document.getElementById('savings-percentage').textContent = savingsPercentage + '% Cost Reduction';
+  document.getElementById('time-savings').textContent = 'Plus save ' + data.timeSaved;
+  document.getElementById('savings-preview').textContent = 'Save ' + savingsPercentage + '% vs traditional SEO';
+
+  // Show comparison section
+  document.getElementById('comparison-section').style.display = 'block';
+}
+
+
+// Enhanced solutions with costs - users can SELECT what they use
+const detailedSolutions = {
+  ecommerce: [
+    { id: 'ecom-agency', name: 'SEO Agency', cost: 36000, description: '$3,000/mo retainer' },
+    { id: 'ecom-freelancer', name: 'SEO Freelancer', cost: 18000, description: '$1,500/mo contract' },
+    { id: 'ecom-yoast', name: 'Yoast Premium', cost: 99, description: '$99/year plugin' },
+    { id: 'ecom-rankmath', name: 'RankMath Pro', cost: 599, description: '$599/year subscription' },
+    { id: 'ecom-ahrefs', name: 'Ahrefs', cost: 2388, description: '$199/mo SEO tool' },
+    { id: 'ecom-semrush', name: 'Semrush', cost: 2868, description: '$239/mo SEO tool' },
+    { id: 'ecom-inhouse', name: 'In-house SEO Team', cost: 72000, description: '$6,000/mo employee cost' },
+    { id: 'ecom-nothing', name: "We don't do SEO", cost: 0, description: 'Missing out on traffic' }
+  ],
+  saas: [
+    { id: 'saas-agency', name: 'SEO Agency', cost: 60000, description: '$5,000/mo retainer' },
+    { id: 'saas-consultant', name: 'SEO Consultant', cost: 30000, description: '$2,500/mo contract' },
+    { id: 'saas-ahrefs', name: 'Ahrefs', cost: 5988, description: '$499/mo enterprise' },
+    { id: 'saas-semrush', name: 'Semrush', cost: 5988, description: '$499/mo enterprise' },
+    { id: 'saas-inhouse', name: 'In-house SEO Team', cost: 120000, description: '$10,000/mo loaded cost' },
+    { id: 'saas-engineer', name: 'Engineering Time', cost: 48000, description: '$4,000/mo (10% of dev time)' },
+    { id: 'saas-contentwriter', name: 'Content Writers', cost: 36000, description: '$3,000/mo for SEO content' },
+    { id: 'saas-nothing', name: "We don't do SEO", cost: 0, description: 'Relying only on word-of-mouth' }
+  ],
+  agency: [
+    { id: 'agency-whitelabel', name: 'White-label SEO Provider', cost: 24000, description: '$2,000/mo per client (avg 12 clients = $24k/mo total)' },
+    { id: 'agency-ahrefs', name: 'Ahrefs Agency', cost: 9588, description: '$799/mo for all clients' },
+    { id: 'agency-semrush', name: 'Semrush Agency', cost: 5988, description: '$499/mo for all clients' },
+    { id: 'agency-contractor', name: 'SEO Contractors', cost: 48000, description: '$4,000/mo outsourced help' },
+    { id: 'agency-inhouse', name: 'In-house SEO Specialists', cost: 96000, description: '$8,000/mo (2 specialists)' },
+    { id: 'agency-manual', name: 'Manual Work (Our Team Time)', cost: 120000, description: '$10,000/mo team hours on SEO' },
+    { id: 'agency-nothing', name: "We don't offer SEO", cost: 0, description: 'Not providing this service' }
+  ],
+  local: [
+    { id: 'local-agency', name: 'Local SEO Agency', cost: 24000, description: '$2,000/mo retainer' },
+    { id: 'local-freelancer', name: 'SEO Freelancer', cost: 12000, description: '$1,000/mo contract' },
+    { id: 'local-yext', name: 'Yext Listings', cost: 4800, description: '$400/mo for 50 locations' },
+    { id: 'local-moz', name: 'Moz Local', cost: 3588, description: '$299/mo for management' },
+    { id: 'local-ahrefs', name: 'Ahrefs', cost: 2388, description: '$199/mo SEO tool' },
+    { id: 'local-inhouse', name: 'Marketing Manager Time', cost: 24000, description: '$2,000/mo (20% of time on SEO)' },
+    { id: 'local-nothing', name: "We don't do SEO", cost: 0, description: 'Relying on foot traffic only' }
+  ]
+};
+
+// Update showComparison to use checkboxes
+function showComparison(industry) {
+  const solutions = detailedSolutions[industry];
+  const container = document.getElementById('current-solutions-grid');
+
+  container.innerHTML = `
+    <div style="margin-bottom: 24px;">
+      <p class="text-size-regular" style="opacity: 0.8; text-align: center;">Select everything you currently use for SEO:</p>
+    </div>
+    ${solutions.map(sol => `
+      <label style="background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 24px; cursor: pointer; display: flex; align-items: start; gap: 16px; transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(0,255,136,0.3)'; this.style.background='rgba(255,255,255,0.08)';" onmouseout="if(!this.querySelector('input').checked) { this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)'; }">
+        <input type="checkbox" id="${sol.id}" value="${sol.cost}" onchange="calculateTotal()" style="width: 20px; height: 20px; margin-top: 2px; cursor: pointer; accent-color: var(--text-color-secondary, #00ff88);">
+        <div style="flex: 1;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 4px;">
+            <h4 class="heading-style-h5" style="font-size: 16px; font-weight: 600;">${sol.name}</h4>
+            <span class="text-size-regular" style="color: var(--text-color-secondary, #00ff88); font-weight: 600; white-space: nowrap;">${sol.cost > 0 ? '$' + sol.cost.toLocaleString() + '/yr' : 'Free'}</span>
+          </div>
+          <p class="text-size-regular" style="opacity: 0.7; font-size: 14px;">${sol.description}</p>
+        </div>
+      </label>
+    `).join('')}
+  `;
+
+  // Show calculator section
+  document.getElementById('calculator-section').style.display = 'block';
+  document.getElementById('questions-section').style.display = 'block';
+
+  // Show objections
+  showObjections(industry);
+
+  // Smooth scroll to calculator
+  setTimeout(() => {
+    document.getElementById('calculator-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// Calculate total based on selected items
+function calculateTotal() {
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  let totalCost = 0;
+
+  checkboxes.forEach(cb => {
+    totalCost += parseInt(cb.value);
+  });
+
+  const seologyCost = 588; // $49/mo
+  const savings = totalCost - seologyCost;
+  const savingsPercent = totalCost > 0 ? Math.round((savings / totalCost) * 100) : 0;
+
+  // Update displays
+  document.getElementById('total-current-cost').textContent = '$' + totalCost.toLocaleString();
+  document.getElementById('monthly-current-cost').textContent = '$' + Math.round(totalCost / 12).toLocaleString();
+  document.getElementById('total-savings').textContent = totalCost > 0 ? '$' + savings.toLocaleString() : '$0';
+  document.getElementById('savings-percentage').textContent = savingsPercent + '%';
+
+  // Update comparison cards
+  const comparisonContainer = document.getElementById('quick-comparison');
+  if (totalCost > 0) {
+    comparisonContainer.style.display = 'grid';
+    comparisonContainer.innerHTML = `
+      <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center;">
+        <p class="text-size-regular" style="opacity: 0.7; margin-bottom: 8px; font-size: 14px;">Your current cost</p>
+        <h3 class="heading-style-h4" style="font-size: 24px; color: rgba(255,255,255,0.6);">$${Math.round(totalCost/12).toLocaleString()}/mo</h3>
+      </div>
+      <div style="background: linear-gradient(135deg, rgba(0,255,136,0.15), rgba(0,255,136,0.05)); border: 1px solid var(--text-color-secondary, #00ff88); border-radius: 12px; padding: 20px; text-align: center;">
+        <p class="text-size-regular" style="opacity: 0.9; margin-bottom: 8px; font-size: 14px;">With SEOLOGY.AI</p>
+        <h3 class="heading-style-h4" style="font-size: 24px; color: var(--text-color-secondary, #00ff88);">$49/mo</h3>
+      </div>
+      <div style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; text-align: center;">
+        <p class="text-size-regular" style="opacity: 0.7; margin-bottom: 8px; font-size: 14px;">You save</p>
+        <h3 class="heading-style-h4" style="font-size: 24px; color: var(--text-color-secondary, #00ff88);">$${Math.round(savings/12).toLocaleString()}/mo</h3>
+      </div>
+    `;
+  } else {
+    comparisonContainer.style.display = 'none';
+  }
+
+  // Highlight selected checkboxes' parent labels
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    const label = cb.closest('label');
+    if (cb.checked) {
+      label.style.borderColor = 'var(--text-color-secondary, #00ff88)';
+      label.style.background = 'rgba(0,255,136,0.1)';
+    } else {
+      if (!label.matches(':hover')) {
+        label.style.borderColor = 'rgba(255,255,255,0.1)';
+        label.style.background = 'rgba(255,255,255,0.05)';
+      }
+    }
+  });
 }
 </script>

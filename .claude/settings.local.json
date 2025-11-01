@@ -27,7 +27,13 @@
       "Bash(node rebuild-roi-calculator.js:*)",
       "Bash(node add-objections-to-roi.js:*)",
       "Bash(node remove-claude-rollback.js:*)",
-      "Bash(node fix-footer-button-clean.js:*)"
+      "Bash(node fix-footer-button-clean.js:*)",
+      "Bash(for file in public/*.html)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(node clean-all-pages.js:*)",
+      "Bash(node simplify-roi-calc.js:*)",
+      "Bash(node make-calc-super-interactive.js:*)"
     ],
     "deny": [],
     "ask": []
