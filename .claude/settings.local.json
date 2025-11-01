@@ -23,7 +23,8 @@
       "Bash(node create-roi-page.js:*)",
       "Bash(node add-roi-to-footers.js:*)",
       "Bash(xargs:*)",
-      "Bash(node fix-footer-and-roi.js:*)"
+      "Bash(node fix-footer-and-roi.js:*)",
+      "Bash(node rebuild-roi-calculator.js:*)"
     ],
     "deny": [],
     "ask": []
