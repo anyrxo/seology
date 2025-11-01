@@ -21,7 +21,8 @@
       "Bash(ls:*)",
       "Bash(for file in about.html contact.html projects.html 404.html)",
       "Bash(do [ -f \"$file\" ])",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
