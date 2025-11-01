@@ -21,7 +21,9 @@
       "Bash(node update-projects.js:*)",
       "Bash(node fix-homepage.js:*)",
       "Bash(node create-roi-page.js:*)",
-      "Bash(node add-roi-to-footers.js:*)"
+      "Bash(node add-roi-to-footers.js:*)",
+      "Bash(xargs:*)",
+      "Bash(node fix-footer-and-roi.js:*)"
     ],
     "deny": [],
     "ask": []
