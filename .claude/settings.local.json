@@ -4,7 +4,11 @@
       "Bash(git restore:*)",
       "Bash(do if [ -f \"$file\" ])",
       "Bash(then node -e \"const fs = require(''fs''); const content = fs.readFileSync(''$file'', ''utf8''); if (!content.includes(''</html>'')) { console.log(''Missing closing tag: $file''); }\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(for page in public/*.html)",
+      "Bash(for file in public/{api,demo,docs,help,security,privacy,terms,dpa,subprocessors}.html)",
+      "Bash(for file in api demo docs help security privacy terms dpa subprocessors)",
+      "Bash(do echo \"=== $file.html ===\")"
     ],
     "deny": [],
     "ask": []
