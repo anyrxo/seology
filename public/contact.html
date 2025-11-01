@@ -1,6 +1,12 @@
 <!DOCTYPE html><!--  This site was created in IImagined. https://webflow.com  --><!--  Last Published: Thu Oct 30 2025 14:35:32 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="690377308ebfd7be919f1f8f" data-wf-site="6903772e8ebfd7be919f1f14" lang="en">
 <head>
+  <!-- Resource Hints for Performance -->
+  <link rel="dns-prefetch" href="https://d3e54v103j8qbb.cloudfront.net">
+  <link rel="preconnect" href="https://d3e54v103j8qbb.cloudfront.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.prod.website-files.com">
+  <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
+
   <meta charset="utf-8">
   <title>Contact Us - SEOLOGY.AI | Sales, Support & Partnerships</title>
   <meta content="Get in touch with SEOLOGY.AI. Sales inquiries < 2hrs response, technical support < 4hrs. Live chat 9am-6pm EST. Join 5,000+ users in our Discord community." name="description">
@@ -21,6 +27,43 @@
   <link rel="canonical" href="https://seology.ai/contact.html">
   <meta property="og:image" content="https://seology.ai/images/og-image.jpg">
   <meta property="twitter:image" content="https://seology.ai/images/og-image.jpg">
+
+  <style>
+    /* Keyboard Navigation Focus Indicators (WCAG 2.4.7) */
+    .nav-link:focus,
+    .button:focus,
+    .main-button:focus,
+    .w-inline-block:focus,
+    button:focus,
+    a:focus,
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Remove outline for mouse users only */
+    .nav-link:focus:not(:focus-visible),
+    .button:focus:not(:focus-visible),
+    .main-button:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    /* Enhanced focus for interactive elements */
+    .faq-question:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1) !important;
+    }
+
+    /* Focus for menu button */
+    .menu-button:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 4px !important;
+    }
+  </style>
+
 </head>
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
@@ -32,7 +75,7 @@
         <div class="container-large">
           <div class="w-layout-grid nav-component-grid">
             <a href="index.html" id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec3ed-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec3ed" class="brand-link w-inline-block">
-              <div class="logo-wrap"><img loading="lazy" src="images/logo.png" alt="Logo - SEOLOGY.AI SEO Platform" class="logo"><img loading="lazy" src="images/logo.png" alt="Logo - SEOLOGY.AI SEO Platform" class="alternate-logo"></div>
+              <div class="logo-wrap"><img loading="lazy" src="images/logo.png" alt="SEOLOGY.AI Logo - AI-Powered SEO Automation" class="logo"><img loading="lazy" src="images/logo.png" alt="SEOLOGY.AI Logo - AI-Powered SEO Automation" class="alternate-logo"></div>
             </a>
             <nav role="navigation" id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec3f1-7fcec3e9" class="nav-menu w-nav-menu">
               <div class="background-navbar">
@@ -85,7 +128,7 @@
                 </div>
               </div>
             </nav>
-            <div id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec421-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec421" class="menu-button w-nav-button">
+            <div id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec421-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec421" class="menu-button w-nav-button" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
               <div class="menu-button-block">
                 <div class="menu-button-wrap">
                   <div class="menu-line-item">
@@ -228,9 +271,9 @@
                 <div class="contact-form-block">
                   <div class="contact-form-wrapper w-form">
                     <form id="wf-form-Contact-Form" name="wf-form-Contact-Form" data-name="Contact Form" method="get" class="contact-form" data-wf-page-id="690377308ebfd7be919f1f8f" data-wf-element-id="000a6e7f-091f-55f1-b166-da3ed953395c"><label for="name" class="form-label">Name</label><input class="form-input w-input" maxlength="256" name="name" data-name="Name" placeholder="" type="text" id="name">
-                      <div class="spacer-small"></div><label for="email" class="form-label">Email Address</label><input class="form-input w-input" maxlength="256" name="email" data-name="Email" placeholder="" type="email" id="email" required="">
-                      <div class="spacer-small"></div><label for="Subject" class="form-label">Subject</label><input class="form-input w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="" type="text" id="Subject" required="">
-                      <div class="spacer-small"></div><label for="Message" class="form-label">Message</label><textarea class="form-input is-text-area w-input" maxlength="5000" name="Message" data-name="Message" placeholder="Tell us how we can help..." id="Message" required=""></textarea>
+                      <div class="spacer-small"></div><label for="email" class="form-label">Email Address</label><input class="form-input w-input" maxlength="256" name="email" data-name="Email" placeholder="" type="email" id="email" required="" aria-required="true" autocomplete="email">
+                      <div class="spacer-small"></div><label for="Subject" class="form-label">Subject</label><input class="form-input w-input" maxlength="256" name="Subject" data-name="Subject" placeholder="" type="text" id="Subject" required="" aria-required="true">
+                      <div class="spacer-small"></div><label for="Message" class="form-label">Message</label><textarea class="form-input is-text-area w-input" maxlength="5000" name="Message" data-name="Message" placeholder="Tell us how we can help..." id="Message" required="" aria-required="true"></textarea>
                       <div class="spacer-large"></div><input type="submit" data-wait="Please wait..." class="button w-button" value="Send Message">
                     </form>
                     <div class="form-message-success w-form-done">

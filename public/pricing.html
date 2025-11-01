@@ -1,6 +1,12 @@
 <!DOCTYPE html><!--  This site was created in Next.js. https://webflow.com  --><!--  Last Published: Thu Oct 30 2025 14:35:32 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="690377308ebfd7be919f1f93" data-wf-site="6903772e8ebfd7be919f1f14" lang="en">
 <head>
+  <!-- Resource Hints for Performance -->
+  <link rel="dns-prefetch" href="https://d3e54v103j8qbb.cloudfront.net">
+  <link rel="preconnect" href="https://d3e54v103j8qbb.cloudfront.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.prod.website-files.com">
+  <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
+
   <meta charset="utf-8">
   <title>Pricing & Plans - SEOLOGY.AI | SEO Automation Platform</title>
   <meta content="Compare SEOLOGY.AI pricing plans. Start free with 3 sites & 100 fixes/month, or go unlimited with Pro at $20/mo. Enterprise plans with white-label reporting available." name="description">
@@ -95,6 +101,91 @@
     ]
   }
   </script>
+
+  <!-- Product Schema Markup for Pricing Plans -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "SEOLOGY.AI Pro Plan",
+    "description": "AI-powered SEO automation platform with unlimited sites and fixes. Automatically fix broken links, meta tags, and 47+ other SEO issues.",
+    "brand": {
+      "@type": "Brand",
+      "name": "SEOLOGY.AI"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "0",
+      "highPrice": "20",
+      "offerCount": "3",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter Plan",
+          "price": "0",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://seology.ai/pricing.html",
+          "description": "Free forever plan with 3 sites and 100 fixes per month"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro Plan",
+          "price": "20",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://seology.ai/pricing.html",
+          "description": "Unlimited sites and fixes for professional users"
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+
+  <style>
+    /* Keyboard Navigation Focus Indicators (WCAG 2.4.7) */
+    .nav-link:focus,
+    .button:focus,
+    .main-button:focus,
+    .w-inline-block:focus,
+    button:focus,
+    a:focus,
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Remove outline for mouse users only */
+    .nav-link:focus:not(:focus-visible),
+    .button:focus:not(:focus-visible),
+    .main-button:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    /* Enhanced focus for interactive elements */
+    .faq-question:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.1) !important;
+    }
+
+    /* Focus for menu button */
+    .menu-button:focus {
+      outline: 2px solid var(--text-color-secondary, #00ff88) !important;
+      outline-offset: 4px !important;
+    }
+  </style>
+
 </head>
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
@@ -106,7 +197,7 @@
         <div class="container-large">
           <div class="w-layout-grid nav-component-grid">
             <a href="index.html" id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec3ed-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec3ed" class="brand-link w-inline-block">
-              <div class="logo-wrap"><img loading="lazy" src="images/logo.png" alt="Logo - SEOLOGY.AI SEO Platform" class="logo"><img loading="lazy" src="images/logo.png" alt="Logo - SEOLOGY.AI SEO Platform" class="alternate-logo"></div>
+              <div class="logo-wrap"><img loading="lazy" src="images/logo.png" alt="SEOLOGY.AI Logo - AI-Powered SEO Automation" class="logo"><img loading="lazy" src="images/logo.png" alt="SEOLOGY.AI Logo - AI-Powered SEO Automation" class="alternate-logo"></div>
             </a>
             <nav role="navigation" id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec3f1-7fcec3e9" class="nav-menu w-nav-menu">
               <div class="background-navbar">
@@ -159,7 +250,7 @@
                 </div>
               </div>
             </nav>
-            <div id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec421-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec421" class="menu-button w-nav-button">
+            <div id="w-node-_32a340cc-db54-e7ac-40fb-6a617fcec421-7fcec3e9" data-w-id="32a340cc-db54-e7ac-40fb-6a617fcec421" class="menu-button w-nav-button" role="button" aria-label="Toggle navigation menu" aria-expanded="false" tabindex="0">
               <div class="menu-button-block">
                 <div class="menu-button-wrap">
                   <div class="menu-line-item">
@@ -518,7 +609,7 @@
                 
                 <!-- FAQ Item 1 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(0)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(0)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-0" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">What counts as a "fix"?</h3>
                     <svg id="faq-icon-0" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -530,7 +621,7 @@
                 </div>\n
                 <!-- FAQ Item 2 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(1)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(1)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">Can I change plans anytime?</h3>
                     <svg id="faq-icon-1" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -542,7 +633,7 @@
                 </div>\n
                 <!-- FAQ Item 3 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(2)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(2)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">What payment methods do you accept?</h3>
                     <svg id="faq-icon-2" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -554,7 +645,7 @@
                 </div>\n
                 <!-- FAQ Item 4 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(3)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(3)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">Is there a contract or commitment?</h3>
                     <svg id="faq-icon-3" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -566,7 +657,7 @@
                 </div>\n
                 <!-- FAQ Item 5 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(4)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(4)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">What happens if I exceed my fix limit?</h3>
                     <svg id="faq-icon-4" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -578,7 +669,7 @@
                 </div>\n
                 <!-- FAQ Item 6 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(5)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(5)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">Do you offer discounts for nonprofits or education?</h3>
                     <svg id="faq-icon-5" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -590,7 +681,7 @@
                 </div>\n
                 <!-- FAQ Item 7 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(6)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(6)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">Can I get a refund if I'm not satisfied?</h3>
                     <svg id="faq-icon-6" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
@@ -602,7 +693,7 @@
                 </div>\n
                 <!-- FAQ Item 8 -->
                 <div class="faq-item" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                  <button onclick="toggleFAQ(7)" class="faq-question" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
+                  <button onclick="toggleFAQ(7)" class="faq-question" aria-expanded="false" aria-controls="faq-answer-7" style="width: 100%; text-align: left; background: none; border: none; padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease;">
                     <h3 class="heading-style-h4" style="font-size: 18px; margin: 0; color: var(--text-color-secondary, #00ff88);">What's included in Enterprise support?</h3>
                     <svg id="faq-icon-7" style="width: 24px; height: 24px; fill: var(--text-color-secondary, #00ff88); transition: transform 0.3s ease;" viewBox="0 0 24 24">
                       <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
