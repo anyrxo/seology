@@ -397,6 +397,119 @@
 
               </div>
 
+              <!-- ROI Calculator Section -->
+              <div id="roi-calculator" style="background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,0,0,0.3) 100%); padding: 80px 32px; border-radius: 24px; margin: 0 auto 80px; max-width: 900px;">
+                <div style="text-align: center; margin-bottom: 48px;">
+                  <h2 class="heading-style-h2">Calculate Your <span class="text-color-secondary">Savings</span></h2>
+                  <div class="spacer-small"></div>
+                  <p class="text-size-regular" style="opacity: 0.7;">How much does manual SEO cost you vs SEOLOGY.AI automation?</p>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.3); padding: 48px; border-radius: 16px; backdrop-filter: blur(10px);">
+
+                  <!-- Input: Number of Sites -->
+                  <div style="margin-bottom: 32px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600;">How many sites do you manage?</label>
+                    <input type="range" id="roi-sites" min="1" max="100" value="5" oninput="calculateROI()" style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; outline: none; cursor: pointer;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; opacity: 0.6; font-size: 13px;">
+                      <span>1 site</span>
+                      <span id="sites-value" style="color: var(--text-color-secondary, #00ff88); font-weight: 600;">5 sites</span>
+                      <span>100 sites</span>
+                    </div>
+                  </div>
+
+                  <!-- Input: Hours per Site -->
+                  <div style="margin-bottom: 32px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600;">Hours spent on SEO per site per month?</label>
+                    <input type="range" id="roi-hours" min="1" max="40" value="8" oninput="calculateROI()" style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; outline: none; cursor: pointer;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; opacity: 0.6; font-size: 13px;">
+                      <span>1 hour</span>
+                      <span id="hours-value" style="color: var(--text-color-secondary, #00ff88); font-weight: 600;">8 hours</span>
+                      <span>40 hours</span>
+                    </div>
+                  </div>
+
+                  <!-- Input: Hourly Rate -->
+                  <div style="margin-bottom: 48px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: 600;">What's your hourly rate (or employee cost)?</label>
+                    <input type="range" id="roi-rate" min="25" max="200" value="75" step="5" oninput="calculateROI()" style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; outline: none; cursor: pointer;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 8px; opacity: 0.6; font-size: 13px;">
+                      <span>$25/hr</span>
+                      <span id="rate-value" style="color: var(--text-color-secondary, #00ff88); font-weight: 600;">$75/hr</span>
+                      <span>$200/hr</span>
+                    </div>
+                  </div>
+
+                  <!-- Results -->
+                  <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+
+                      <!-- Manual Cost -->
+                      <div style="text-align: center; padding: 24px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+                        <div style="opacity: 0.6; margin-bottom: 8px; font-size: 14px;">Manual SEO Cost/Month</div>
+                        <div id="manual-cost" style="font-size: 36px; font-weight: 700; color: #ff4444;">$3,000</div>
+                      </div>
+
+                      <!-- SEOLOGY.AI Cost -->
+                      <div style="text-align: center; padding: 24px; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px;">
+                        <div style="opacity: 0.6; margin-bottom: 8px; font-size: 14px;">SEOLOGY.AI Cost/Month</div>
+                        <div id="seology-cost" style="font-size: 36px; font-weight: 700; color: var(--text-color-secondary, #00ff88);">$20</div>
+                      </div>
+
+                    </div>
+
+                    <!-- Savings -->
+                    <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(0,255,136,0.15) 0%, rgba(0,255,136,0.05) 100%); border-radius: 16px; border: 2px solid rgba(0,255,136,0.3);">
+                      <div style="opacity: 0.8; margin-bottom: 12px; font-size: 16px;">💰 You'll save</div>
+                      <div id="savings-amount" style="font-size: 56px; font-weight: 700; color: var(--text-color-secondary, #00ff88); margin-bottom: 8px;">$2,980</div>
+                      <div style="opacity: 0.7; font-size: 14px;">per month with automation</div>
+                      <div id="annual-savings" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 18px; font-weight: 600;">= <span style="color: var(--text-color-secondary, #00ff88);">$35,760/year</span></div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div style="text-align: center; margin-top: 32px;">
+                      <a href="contact.html" class="main-button w-inline-block" style="display: inline-flex; padding: 16px 48px; font-size: 16px;">
+                        <div class="button-text-wrap"><div class="button-text" style="color: #000; font-weight: 600;">Start Saving Now →</div></div>
+                      </a>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <script>
+              function calculateROI() {
+                const sites = parseInt(document.getElementById('roi-sites').value);
+                const hours = parseInt(document.getElementById('roi-hours').value);
+                const rate = parseInt(document.getElementById('roi-rate').value);
+
+                // Update slider values display
+                document.getElementById('sites-value').textContent = sites + (sites === 1 ? ' site' : ' sites');
+                document.getElementById('hours-value').textContent = hours + (hours === 1 ? ' hour' : ' hours');
+                document.getElementById('rate-value').textContent = '$' + rate + '/hr';
+
+                // Calculate costs
+                const manualCost = sites * hours * rate;
+                const seologyCost = 20; // Pro plan
+                const savings = manualCost - seologyCost;
+                const annualSavings = savings * 12;
+
+                // Update results
+                document.getElementById('manual-cost').textContent = '$' + manualCost.toLocaleString();
+                document.getElementById('seology-cost').textContent = '$' + seologyCost;
+                document.getElementById('savings-amount').textContent = '$' + savings.toLocaleString();
+                document.getElementById('annual-savings').innerHTML = '= <span style="color: var(--text-color-secondary, #00ff88)">$' + annualSavings.toLocaleString() + '/year</span>';
+              }
+
+              // Initialize on page load
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', calculateROI);
+              } else {
+                calculateROI();
+              }
+              </script>
+
               <!-- Trust Signals -->
               <div style="text-align: center; padding: 40px 0; max-width: 800px; margin: 0 auto;">
                 <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; opacity: 0.8;">
