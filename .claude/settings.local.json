@@ -33,7 +33,9 @@
       "Bash(sort:*)",
       "Bash(node clean-all-pages.js:*)",
       "Bash(node simplify-roi-calc.js:*)",
-      "Bash(node make-calc-super-interactive.js:*)"
+      "Bash(node make-calc-super-interactive.js:*)",
+      "Bash(node remove-emojis-add-animations.js:*)",
+      "Bash(node remove-emojis-simple.js:*)"
     ],
     "deny": [],
     "ask": []
