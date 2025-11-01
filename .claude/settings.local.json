@@ -35,7 +35,8 @@
       "Bash(node simplify-roi-calc.js:*)",
       "Bash(node make-calc-super-interactive.js:*)",
       "Bash(node remove-emojis-add-animations.js:*)",
-      "Bash(node remove-emojis-simple.js:*)"
+      "Bash(node remove-emojis-simple.js:*)",
+      "Bash(node fix-homepage-button.js:*)"
     ],
     "deny": [],
     "ask": []

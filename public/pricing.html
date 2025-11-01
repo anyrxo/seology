@@ -644,5 +644,22 @@
       }
     });
   </script>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
+<script>
+// Smooth scroll to pricing plans if hash is present
+if (window.location.hash === '#pricing-plans') {
+  setTimeout(function() {
+    const element = document.getElementById('pricing-plans');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 100);
+}
+</script>
 </body>
 </html>
