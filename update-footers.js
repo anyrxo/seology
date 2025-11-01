@@ -6,7 +6,7 @@ const indexPath = path.join(__dirname, 'public', 'index.html');
 const indexContent = fs.readFileSync(indexPath, 'utf8');
 
 // Extract new footer section
-const footerStart = indexContent.indexOf('<div class="w-layout-grid footer-grid" style="grid-template-columns:');
+const footerStart = indexContent.indexOf('<div style="display: grid; grid-template-columns: repeat(5, 1fr);');
 const footerEnd = indexContent.indexOf('</footer>', footerStart) + '</footer>'.length;
 
 if (footerStart === -1 || footerEnd === -1) {
@@ -29,8 +29,11 @@ pages.forEach(page => {
 
   let pageContent = fs.readFileSync(pagePath, 'utf8');
 
-  // Find old footer
-  const oldFooterStart = pageContent.indexOf('<div class="w-layout-grid footer-grid');
+  // Find old footer - try both old and new patterns
+  let oldFooterStart = pageContent.indexOf('<div style="display: grid; grid-template-columns: repeat(5, 1fr);');
+  if (oldFooterStart === -1) {
+    oldFooterStart = pageContent.indexOf('<div class="w-layout-grid footer-grid');
+  }
   const oldFooterEnd = pageContent.indexOf('</footer>', oldFooterStart) + '</footer>'.length;
 
   if (oldFooterStart === -1 || oldFooterEnd === -1) {
