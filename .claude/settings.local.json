@@ -5,7 +5,12 @@
       "Bash(git checkout:*)",
       "Bash(npm run build:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(for page in ecommerce saas agencies local-business enterprise-guides security demo help docs api privacy terms dpa subprocessors)",
+      "Bash(do cp about.html \"$page.html\")",
+      "Bash(done)",
+      "Bash(node update-page-titles.js:*)"
     ],
     "deny": [],
     "ask": []
