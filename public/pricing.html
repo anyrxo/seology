@@ -208,17 +208,87 @@
     ]
   }
   </script>
-  </head>
+  
+  <style>
+/* Button animations */
+.main-button {
+  transition: all 0.3s ease;
+}
+.main-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+.main-button:active {
+  transform: translateY(0);
+}
+
+/* Link hover animations */
+a.w-inline-block {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+a.w-inline-block:hover {
+  opacity: 0.8;
+}
+
+/* Card hover animations */
+.service-card,
+.pricing-card,
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover,
+.pricing-card:hover,
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
+}
+
+/* Social link animations */
+.social-link {
+  transition: transform 0.3s ease;
+}
+.social-link:hover {
+  transform: scale(1.1);
+}
+
+/* Menu animations */
+.menu-button {
+  transition: transform 0.2s ease;
+}
+.menu-button:hover {
+  transform: rotate(90deg);
+}
+
+/* Image hover animations */
+img {
+  transition: transform 0.4s ease;
+}
+.service-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Fade in on scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation: fadeInUp 0.8s ease forwards;
+}
+  </style>
+</head>
 <body>
   <a href="#main-content" class="skip-link" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
   <style>.skip-link:focus{position:static;width:auto;height:auto;background:#ffffff;color:#000;padding:8px 16px;z-index:9999;}</style>
 
   <div class="page-wrapper">
-    <!-- Urgency Banner -->
-    <div style="background: linear-gradient(135deg, #ffffff 0%, #00cc70 100%); color: #000; text-align: center; padding: 12px 20px; font-weight: 600; font-size: 14px; position: relative; z-index: 1000;">
-      ⚡ <strong>Limited Time Offer:</strong> Get 2 months free on annual plans — Only  this month! Offer ends Nov 30th
-    </div>
-
     <div id="top" data-animation="default" data-collapse="medium" data-duration="0" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
       <div class="padding-global">
         <div class="container-large">
@@ -1344,6 +1414,30 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.style.opacity = '0';
         btn.style.visibility = 'hidden';
       }
+    });
+  </script>
+
+  <script>
+    // Scroll reveal animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.service-card, .pricing-card, .feature-card, h2, h3');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-on-scroll');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      animateElements.forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+      });
     });
   </script>
 </body>
