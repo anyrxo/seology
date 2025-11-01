@@ -8,7 +8,8 @@
       "Bash(for page in public/*.html)",
       "Bash(for file in public/{api,demo,docs,help,security,privacy,terms,dpa,subprocessors}.html)",
       "Bash(for file in api demo docs help security privacy terms dpa subprocessors)",
-      "Bash(do echo \"=== $file.html ===\")"
+      "Bash(do echo \"=== $file.html ===\")",
+      "Bash(do if grep -q \"Founded 2025\" \"$file\")"
     ],
     "deny": [],
     "ask": []
