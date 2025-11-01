@@ -25,7 +25,8 @@
       "Bash(xargs:*)",
       "Bash(node fix-footer-and-roi.js:*)",
       "Bash(node rebuild-roi-calculator.js:*)",
-      "Bash(node add-objections-to-roi.js:*)"
+      "Bash(node add-objections-to-roi.js:*)",
+      "Bash(node remove-claude-rollback.js:*)"
     ],
     "deny": [],
     "ask": []
