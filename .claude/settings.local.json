@@ -4,7 +4,8 @@
       "Bash(git commit:*)",
       "Bash(npm run build:*)",
       "Bash(NODE_ENV=development npm run build:*)",
-      "Bash(export NODE_ENV=development)"
+      "Bash(export NODE_ENV=development)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
