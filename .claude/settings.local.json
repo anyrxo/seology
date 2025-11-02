@@ -8,7 +8,9 @@
       "Bash(while read f)",
       "Bash(do grep -q \"href=\"\"blog/$f\"\"\" blog.html)",
       "Bash(do grep -q \"href=\"\"blog/$file\"\"\" ../blog.html)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npx prisma init)",
+      "Bash(npx prisma generate:*)"
     ],
     "deny": [],
     "ask": []
