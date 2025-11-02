@@ -80,12 +80,12 @@ export async function POST(req: NextRequest, context: RouteContext) {
         data: {
           connectionId: connection.id,
           type: issue.type,
+          title: issue.title,
           severity: issue.severity,
           pageUrl: issue.pageUrl,
+          recommendation: issue.recommendation,
           details: JSON.stringify({
-            title: issue.title,
             description: issue.description,
-            recommendation: issue.recommendation,
             fixCode: issue.fixCode,
           }),
           status: 'DETECTED',

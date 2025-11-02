@@ -16,6 +16,8 @@ model User {
   name      String?
   plan      Plan     @default(STARTER)
 
+  executionMode  ExecutionMode @default(AUTOMATIC)
+
   stripeCustomerId       String?
   stripeSubscriptionId   String?
 
@@ -28,6 +30,12 @@ model User {
   auditLogs        AuditLog[]
   subscriptions    Subscription[]
   notifications    Notification[]
+}
+
+enum ExecutionMode {
+  AUTOMATIC
+  PLAN
+  APPROVE
 }
 
 enum Plan {
@@ -87,14 +95,17 @@ model Issue {
   connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
 
   type         String   // 'missing_meta', 'broken_link', 'missing_alt', etc.
+  title        String
   severity     Severity
   pageUrl      String
   details      String   // JSON string
+  recommendation String? // AI-generated fix recommendation
 
   status       IssueStatus @default(DETECTED)
 
   detectedAt   DateTime @default(now())
   fixedAt      DateTime?
+  createdAt    DateTime @default(now())
 
   // Relations
   fixes        Fix[]
@@ -111,11 +122,13 @@ enum Severity {
 }
 
 enum IssueStatus {
-  DETECTED
-  FIXING
+  OPEN
+  IN_PROGRESS
   FIXED
   FAILED
   IGNORED
+  DETECTED
+  FIXING
 }
 
 // Fixes Applied
@@ -127,13 +140,15 @@ model Fix {
   issueId      String?
   issue        Issue?   @relation(fields: [issueId], references: [id])
 
-  type         String
+  description  String
+  type         String   @default("seo_fix")
   targetUrl    String?
 
-  beforeState  String   // JSON string
-  afterState   String   // JSON string
+  changes      String   // JSON string of the fix code/changes
+  beforeState  String   @default("{}")  // JSON string
+  afterState   String   @default("{}")  // JSON string
 
-  method       FixMethod
+  method       FixMethod @default(AUTOMATIC)
   status       FixStatus @default(PENDING)
 
   appliedAt    DateTime?
@@ -203,7 +218,9 @@ model AuditLog {
   connectionId String?
 
   action       String
-  details      String?  // JSON string
+  resource     String?  // Type of resource ('fix', 'issue', 'plan', etc.)
+  resourceId   String?  // ID of the resource
+  details      String   @default("{}")  // JSON string
   ipAddress    String?
   userAgent    String?
 
@@ -270,9 +287,10 @@ model Notification {
   userId       String
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  type         String   // 'fix_applied', 'issue_detected', etc.
+  type         String   // 'SUCCESS', 'ERROR', 'INFO', 'WARNING'
   title        String
   message      String
+  actionUrl    String?  // Optional link to relevant page
 
   read         Boolean  @default(false)
 
