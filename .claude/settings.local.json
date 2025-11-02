@@ -6,7 +6,9 @@
       "Bash(NODE_ENV=development npm run build:*)",
       "Bash(export NODE_ENV=development)",
       "Bash(git add:*)",
-      "Bash(git push)"
+      "Bash(git push)",
+      "Bash(ls:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []
