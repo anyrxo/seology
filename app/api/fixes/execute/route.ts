@@ -8,6 +8,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { executeFixes } from '@/lib/execution-modes'
+import { canApplyFixes } from '@/lib/usage'
+import { db } from '@/lib/db'
 
 export async function POST(req: NextRequest) {
   try {
@@ -30,8 +32,49 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // Get user to check limits
+    const user = await db.user.findFirst({
+      where: { clerkId: session.userId }
+    })
+
+    if (!user) {
+      return NextResponse.json(
+        { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found' } },
+        { status: 404 }
+      )
+    }
+
+    // Count how many issues will be fixed
+    const issueCount = issueIds?.length || await db.issue.count({
+      where: {
+        connectionId: siteId,
+        status: { in: ['OPEN', 'IN_PROGRESS'] }
+      }
+    })
+
+    // Check if user can apply fixes
+    const usageCheck = await canApplyFixes(user.id, issueCount)
+
+    if (!usageCheck.allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'USAGE_LIMIT_EXCEEDED',
+            message: usageCheck.reason,
+            details: {
+              currentCount: usageCheck.currentCount,
+              limit: usageCheck.limit,
+              remaining: usageCheck.remaining
+            }
+          }
+        },
+        { status: 403 }
+      )
+    }
+
     // Execute fixes based on user's execution mode
-    const result = await executeFixes(siteId, session.userId, issueIds)
+    const result = await executeFixes(siteId, user.id, issueIds)
 
     if (!result.success) {
       return NextResponse.json(
