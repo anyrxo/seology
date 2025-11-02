@@ -28,23 +28,10 @@ const isPublicRoute = createRouteMatcher([
   '/api/magic/(.*)',
 ])
 
-// Admin routes require admin role
-const isAdminRoute = createRouteMatcher(['/admin(.*)'])
-
 export default clerkMiddleware(async (auth, req) => {
-  const session = await auth()
-
-  // Restrict admin routes to users with admin role
-  if (isAdminRoute(req)) {
-    const metadata = session.sessionClaims?.metadata as { role?: string } | undefined
-    if (!session.userId || !metadata?.role || metadata.role !== 'admin') {
-      return Response.redirect(new URL('/dashboard', req.url))
-    }
-  }
-
-  // Protect all dashboard routes - redirect to sign-in if not authenticated
-  if (!isPublicRoute(req) && !session.userId) {
-    return Response.redirect(new URL('/sign-in', req.url))
+  // Only protect non-public routes
+  if (!isPublicRoute(req)) {
+    await auth.protect()
   }
 })
 
