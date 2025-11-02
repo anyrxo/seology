@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { UserButton } from '@clerk/nextjs'
+import NotificationCenter from '@/components/notifications/NotificationCenter'
 
 interface SidebarLink {
   href: string
@@ -26,9 +27,12 @@ export default function Sidebar() {
     <div className="flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0">
       {/* Logo */}
       <div className="p-6 border-b border-gray-800">
-        <Link href="/dashboard" className="flex items-center space-x-2">
-          <div className="text-2xl font-bold text-white">SEOLOGY.AI</div>
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link href="/dashboard" className="flex items-center space-x-2">
+            <div className="text-2xl font-bold text-white">SEOLOGY.AI</div>
+          </Link>
+          <NotificationCenter />
+        </div>
       </div>
 
       {/* Navigation Links */}
