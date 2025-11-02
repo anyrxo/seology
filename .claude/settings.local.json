@@ -4,7 +4,10 @@
       "Bash(claudekit setup:*)",
       "Bash(claudekit doctor:*)",
       "Bash(claudekit list:*)",
-      "Bash(for file in index.html pricing.html about.html enterprise.html blog.html careers.html)"
+      "Bash(for file in index.html pricing.html about.html enterprise.html blog.html careers.html)",
+      "Bash(while read f)",
+      "Bash(do grep -q \"href=\"\"blog/$f\"\"\" blog.html)",
+      "Bash(do grep -q \"href=\"\"blog/$file\"\"\" ../blog.html)"
     ],
     "deny": [],
     "ask": []
