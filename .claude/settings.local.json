@@ -10,7 +10,8 @@
       "Bash(do grep -q \"href=\"\"blog/$file\"\"\" ../blog.html)",
       "Bash(npx tsc:*)",
       "Bash(npx prisma init)",
-      "Bash(npx prisma generate:*)"
+      "Bash(npx prisma generate:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
