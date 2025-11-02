@@ -11,7 +11,10 @@
       "Bash(npx tsc:*)",
       "Bash(npx prisma init)",
       "Bash(npx prisma generate:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npx prisma db push:*)",
+      "Bash(export DATABASE_URL:*)",
+      "Bash(export DIRECT_URL=\"postgres://ff2cd1c07aba7823a64ef8c77ad5a48e94702f2c0de4e9ade5b0beb950f32c58:sk_hlnMHgh1HurZVhF9vuqx9@db.prisma.io:5432/postgres?sslmode=require\")"
     ],
     "deny": [],
     "ask": []
