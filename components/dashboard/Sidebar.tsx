@@ -13,6 +13,8 @@ interface SidebarLink {
 
 const sidebarLinks: SidebarLink[] = [
   { href: '/dashboard', label: 'Dashboard', icon: '📊' },
+  { href: '/dashboard/ai-analysis', label: 'AI Analysis', icon: '🤖' },
+  { href: '/dashboard/analytics', label: 'Analytics', icon: '📈' },
   { href: '/dashboard/sites', label: 'Sites', icon: '🌐' },
   { href: '/dashboard/issues', label: 'Issues', icon: '⚠️' },
   { href: '/dashboard/fixes', label: 'Fixes', icon: '✓' },
