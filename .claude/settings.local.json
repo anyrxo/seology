@@ -1,25 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(claudekit setup:*)",
-      "Bash(claudekit doctor:*)",
-      "Bash(claudekit list:*)",
-      "Bash(for file in index.html pricing.html about.html enterprise.html blog.html careers.html)",
-      "Bash(while read f)",
-      "Bash(do grep -q \"href=\"\"blog/$f\"\"\" blog.html)",
-      "Bash(do grep -q \"href=\"\"blog/$file\"\"\" ../blog.html)",
-      "Bash(npx tsc:*)",
-      "Bash(npx prisma init)",
-      "Bash(npx prisma generate:*)",
-      "Bash(curl:*)",
-      "Bash(npx prisma db push:*)",
-      "Bash(export DATABASE_URL:*)",
-      "Bash(export DIRECT_URL=\"postgres://ff2cd1c07aba7823a64ef8c77ad5a48e94702f2c0de4e9ade5b0beb950f32c58:sk_hlnMHgh1HurZVhF9vuqx9@db.prisma.io:5432/postgres?sslmode=require\")",
-      "Bash(cat:*)",
-      "Bash(for file in app/api/notifications/route.ts app/api/sites/route.ts app/api/auth/shopify/route.ts app/api/fixes/approve-plan/route.ts app/api/fixes/execute/route.ts app/api/notifications/read-all/route.ts \"app/api/sites/[id]/route.ts\" \"app/api/fixes/[id]/approve/route.ts\" \"app/api/fixes/[id]/rollback/route.ts\" \"app/api/notifications/[id]/read/route.ts\" \"app/api/sites/[id]/analyze/route.ts\")",
-      "Bash(pkill -f \"npm run build\")",
-      "Bash(nslookup:*)",
-      "Bash(npm show:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run build:*)",
+      "Bash(NODE_ENV=development npm run build:*)",
+      "Bash(export NODE_ENV=development)"
     ],
     "deny": [],
     "ask": []
