@@ -1,5 +1,7 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
+import { db } from '@/lib/db'
 
 export default async function DashboardPage() {
   const { userId } = await auth()
@@ -8,6 +10,38 @@ export default async function DashboardPage() {
   if (!userId) {
     redirect('/sign-in')
   }
+
+  // Get user data from database
+  const dbUser = await db.user.findUnique({
+    where: { clerkId: userId },
+    include: {
+      connections: {
+        include: {
+          issues: {
+            where: { status: { not: 'FIXED' } },
+          },
+          fixes: {
+            where: {
+              createdAt: {
+                gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+              },
+            },
+          },
+        },
+      },
+    },
+  })
+
+  // Calculate stats
+  const sitesCount = dbUser?.connections.length || 0
+  const activeIssuesCount =
+    dbUser?.connections.reduce((sum, conn) => sum + conn.issues.length, 0) || 0
+  const fixesThisMonth =
+    dbUser?.connections.reduce((sum, conn) => sum + conn.fixes.length, 0) || 0
+
+  // Usage calculation (500 fixes/month for STARTER plan)
+  const fixLimit = dbUser?.plan === 'STARTER' ? 500 : dbUser?.plan === 'GROWTH' ? 5000 : 999999
+  const usagePercent = Math.min(Math.round((fixesThisMonth / fixLimit) * 100), 100)
 
   return (
     <div className="space-y-8">
@@ -25,30 +59,30 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="Sites Connected"
-          value="0"
+          value={sitesCount.toString()}
           icon="🌐"
-          trend="+0%"
+          trend={sitesCount > 0 ? `${sitesCount} active` : 'Get started'}
           trendUp={true}
         />
         <StatCard
           title="Issues Detected"
-          value="0"
+          value={activeIssuesCount.toString()}
           icon="⚠️"
-          trend="+0%"
+          trend={activeIssuesCount > 0 ? 'Needs attention' : 'All clear'}
           trendUp={false}
         />
         <StatCard
           title="Fixes Applied"
-          value="0"
+          value={fixesThisMonth.toString()}
           icon="✓"
-          trend="+0%"
+          trend="This month"
           trendUp={true}
         />
         <StatCard
           title="Usage This Month"
-          value="0/500"
+          value={`${usagePercent}%`}
           icon="📊"
-          trend="Free Plan"
+          trend={`${fixesThisMonth}/${fixLimit} fixes`}
           trendUp={true}
         />
       </div>
@@ -81,12 +115,48 @@ export default async function DashboardPage() {
       {/* Recent Activity */}
       <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
         <h2 className="text-xl font-semibold text-white mb-4">Recent Activity</h2>
-        <div className="text-center py-12">
-          <p className="text-gray-500 mb-4">No activity yet</p>
-          <p className="text-sm text-gray-600">
-            Connect a site to start seeing SEO automation in action
-          </p>
-        </div>
+        {dbUser && dbUser.connections.length > 0 ? (
+          <div className="space-y-3">
+            {dbUser.connections.slice(0, 5).map((conn) => (
+              <div
+                key={conn.id}
+                className="flex items-center justify-between p-3 bg-gray-800 rounded-lg"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="text-2xl">
+                    {{
+                      SHOPIFY: '🛍️',
+                      WORDPRESS: '📝',
+                      WIX: '🎨',
+                      CUSTOM: '⚡',
+                    }[conn.platform] || '🌐'}
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">
+                      {conn.displayName || conn.domain}
+                    </p>
+                    <p className="text-gray-400 text-sm">
+                      {conn.issues.length} active issues • {conn.fixes.length} fixes this month
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href={`/dashboard/sites/${conn.id}`}
+                  className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+                >
+                  View →
+                </Link>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-500 mb-4">No activity yet</p>
+            <p className="text-sm text-gray-600">
+              Connect a site to start seeing SEO automation in action
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -111,7 +181,7 @@ function StatCard({
         <span className="text-2xl">{icon}</span>
         <span
           className={`text-sm font-medium ${
-            trendUp ? 'text-green-500' : 'text-red-500'
+            trendUp ? 'text-green-500' : 'text-yellow-500'
           }`}
         >
           {trend}
@@ -135,7 +205,7 @@ function QuickActionCard({
   icon: string
 }) {
   return (
-    <a
+    <Link
       href={href}
       className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors group"
     >
@@ -144,6 +214,6 @@ function QuickActionCard({
         {title}
       </h3>
       <p className="text-gray-400 text-sm">{description}</p>
-    </a>
+    </Link>
   )
 }
