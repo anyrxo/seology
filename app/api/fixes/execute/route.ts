@@ -10,6 +10,7 @@ import { auth } from '@clerk/nextjs/server'
 import { executeFixes } from '@/lib/execution-modes'
 import { canApplyFixes } from '@/lib/usage'
 import { db } from '@/lib/db'
+import { IssueStatus } from '@prisma/client'
 
 export async function POST(req: NextRequest) {
   try {
@@ -48,7 +49,7 @@ export async function POST(req: NextRequest) {
     const issueCount = issueIds?.length || await db.issue.count({
       where: {
         connectionId: siteId,
-        status: { in: ['OPEN', 'IN_PROGRESS'] }
+        status: { in: [IssueStatus.OPEN, IssueStatus.IN_PROGRESS] }
       }
     })
 
