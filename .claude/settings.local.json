@@ -3,7 +3,8 @@
     "allow": [
       "Bash(claudekit setup:*)",
       "Bash(claudekit doctor:*)",
-      "Bash(claudekit list:*)"
+      "Bash(claudekit list:*)",
+      "Bash(for file in index.html pricing.html about.html enterprise.html blog.html careers.html)"
     ],
     "deny": [],
     "ask": []
