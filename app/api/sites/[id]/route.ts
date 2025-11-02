@@ -7,6 +7,9 @@ interface RouteContext {
 }
 
 // GET /api/sites/[id] - Get single site details
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest, context: RouteContext) {
   const session = await auth()
   const { id } = await context.params

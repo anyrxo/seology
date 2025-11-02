@@ -9,6 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { rollbackFix } from '@/lib/execution-modes'
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }

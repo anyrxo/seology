@@ -7,6 +7,9 @@ interface RouteContext {
 }
 
 // PATCH /api/notifications/[id]/read - Mark notification as read
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function PATCH(req: NextRequest, context: RouteContext) {
   const session = await auth()
   const { id } = await context.params

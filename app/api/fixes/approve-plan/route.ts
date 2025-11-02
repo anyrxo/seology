@@ -9,6 +9,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { approvePlan } from '@/lib/execution-modes'
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   try {
     const session = await auth()

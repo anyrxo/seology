@@ -3,6 +3,9 @@ import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { db } from '@/lib/db'
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   // Get Svix headers for verification
   const headerPayload = await headers()

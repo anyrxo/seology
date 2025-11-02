@@ -12,6 +12,9 @@ import { canApplyFixes } from '@/lib/usage'
 import { db } from '@/lib/db'
 import { IssueStatus } from '@prisma/client'
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   try {
     const session = await auth()

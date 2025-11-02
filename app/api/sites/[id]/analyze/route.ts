@@ -8,6 +8,9 @@ interface RouteContext {
 }
 
 // POST /api/sites/[id]/analyze - Trigger SEO analysis for a site
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest, context: RouteContext) {
   const session = await auth()
   const { id } = await context.params

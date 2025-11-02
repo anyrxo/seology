@@ -10,6 +10,9 @@ import { auth } from '@clerk/nextjs/server'
 import { getUsageSummary, shouldPromptUpgrade } from '@/lib/usage'
 import { db } from '@/lib/db'
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest) {
   try {
     const session = await auth()

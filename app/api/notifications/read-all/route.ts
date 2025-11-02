@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
 // PATCH /api/notifications/read-all - Mark all notifications as read
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function PATCH() {
   const session = await auth()
 

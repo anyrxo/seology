@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
 // GET /api/sites - List all sites for authenticated user
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const session = await auth()
 

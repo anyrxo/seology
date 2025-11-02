@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 
 // GET /api/notifications - Get all notifications for user
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const session = await auth()
 
