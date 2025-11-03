@@ -1,6 +1,9 @@
+'use client'
+
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 import { cn } from "@/lib/utils"
+import { motion } from "framer-motion"
 
 const Tabs = TabsPrimitive.Root
 
@@ -11,7 +14,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-lg bg-gray-800 p-1 text-gray-400",
+      "relative inline-flex h-11 items-center justify-center rounded-xl",
+      "bg-white/5 backdrop-blur-sm border border-white/10 p-1",
       className
     )}
     {...props}
@@ -22,16 +26,32 @@ TabsList.displayName = TabsPrimitive.List.displayName
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ring-offset-gray-950 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-gray-900 data-[state=active]:text-white data-[state=active]:shadow-sm",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, children, ...props }, ref) => {
+  return (
+    <TabsPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        "relative inline-flex items-center justify-center whitespace-nowrap rounded-lg",
+        "px-4 py-2 text-sm font-medium",
+        "transition-all duration-200",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+        "disabled:pointer-events-none disabled:opacity-50",
+        "data-[state=inactive]:text-white/60 data-[state=inactive]:hover:text-white/80",
+        "data-[state=active]:text-white",
+        className
+      )}
+      {...props}
+    >
+      {/* Background for active state - using data attribute for styling */}
+      <span
+        className="absolute inset-0 rounded-lg bg-white/0 border border-white/0 shadow-none transition-all duration-200 data-[state=active]:bg-white/10 data-[state=active]:border-white/20 data-[state=active]:shadow-lg"
+        aria-hidden="true"
+      />
+
+      <span className="relative z-10">{children}</span>
+    </TabsPrimitive.Trigger>
+  )
+})
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
 const TabsContent = React.forwardRef<

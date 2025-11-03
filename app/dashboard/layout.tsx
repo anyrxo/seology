@@ -2,6 +2,7 @@ import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import Sidebar from '@/components/dashboard/Sidebar'
 import { DashboardHeader } from '@/components/dashboard/DashboardHeader'
+import { BottomNav } from '@/components/mobile/BottomNav'
 
 export default async function DashboardLayout({
   children,
@@ -20,12 +21,15 @@ export default async function DashboardLayout({
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden w-full lg:w-auto">
         <DashboardHeader />
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-auto pb-16 md:pb-0">
           <div className="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
             {children}
           </div>
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <BottomNav />
     </div>
   )
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { formatDistanceToNow } from 'date-fns'
+import { SwipeableNotification } from '@/components/mobile/SwipeableNotification'
 
 interface Notification {
   id: string
@@ -76,6 +77,17 @@ export default function NotificationCenter() {
       setUnreadCount((prev) => Math.max(0, prev - 1))
     } catch (error) {
       console.error('Failed to mark as read:', error)
+    }
+  }
+
+  const dismissNotification = async (notificationId: string) => {
+    try {
+      await fetch(`/api/notifications/${notificationId}`, {
+        method: 'DELETE',
+      })
+      setNotifications((prev) => prev.filter((n) => n.id !== notificationId))
+    } catch (error) {
+      console.error('Failed to dismiss notification:', error)
     }
   }
 
@@ -163,11 +175,17 @@ export default function NotificationCenter() {
               ) : (
                 <div className="divide-y divide-gray-800">
                   {notifications.map((notification) => (
-                    <NotificationItem
+                    <SwipeableNotification
                       key={notification.id}
                       notification={notification}
+                      onDismiss={dismissNotification}
                       onMarkAsRead={markAsRead}
-                    />
+                    >
+                      <NotificationItem
+                        notification={notification}
+                        onMarkAsRead={markAsRead}
+                      />
+                    </SwipeableNotification>
                   ))}
                 </div>
               )}

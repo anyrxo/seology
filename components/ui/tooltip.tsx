@@ -12,7 +12,7 @@ interface TooltipProps {
 
 export function Tooltip({ children, content, side = "top", delay = 300 }: TooltipProps) {
   const [isVisible, setIsVisible] = React.useState(false)
-  const timeoutRef = React.useRef<NodeJS.Timeout>()
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null)
 
   const sideClasses = {
     top: "bottom-full left-1/2 -translate-x-1/2 mb-3",
