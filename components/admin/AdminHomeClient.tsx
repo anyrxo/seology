@@ -89,29 +89,29 @@ export default function AdminHomeClient({
   }, [])
 
   return (
-    <div className="space-y-8">
+    <div className="flex-vertical gap-row-32px">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h1>
-          <p className="text-gray-400">System overview and real-time monitoring</p>
+      <div className="flex-horizontal space-between align-center">
+        <div className="flex-vertical gap-row-8px">
+          <h1 className="display-2 color-neutral-800">Admin Dashboard</h1>
+          <p className="text-200 color-neutral-600">System overview and real-time monitoring</p>
         </div>
-        <div className="text-right">
-          <div className="text-sm text-gray-400">System Time</div>
-          <div className="text-white font-mono">{currentTime.toLocaleTimeString()}</div>
+        <div className="card pd-16px">
+          <div className="text-100 color-neutral-600 mg-bottom-8px">System Time</div>
+          <div className="text-300 medium color-neutral-800">{currentTime.toLocaleTimeString()}</div>
         </div>
       </div>
 
       {/* KPI Cards with Trends */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px">
         <StatCard
           title="Total Users"
           value={stats.totalUsers}
           trend={stats.userTrend}
           icon="👥"
           color="text-blue-400"
-          bgColor="bg-blue-900/20"
-          borderColor="border-blue-700"
+          bgColor="bg-gray-900"
+          borderColor="border-blue-800"
         />
         <StatCard
           title="Active Sites"
@@ -119,17 +119,17 @@ export default function AdminHomeClient({
           trend={stats.connectionTrend}
           icon="🔗"
           color="text-green-400"
-          bgColor="bg-green-900/20"
-          borderColor="border-green-700"
+          bgColor="bg-gray-900"
+          borderColor="border-green-800"
         />
         <StatCard
           title="Active Issues"
           value={stats.activeIssues}
           trend={0}
           icon="⚠️"
-          color="text-yellow-400"
-          bgColor="bg-yellow-900/20"
-          borderColor="border-yellow-700"
+          color="text-orange-400"
+          bgColor="bg-gray-900"
+          borderColor="border-orange-800"
         />
         <StatCard
           title="Monthly Revenue"
@@ -137,25 +137,25 @@ export default function AdminHomeClient({
           trend={stats.fixTrend}
           icon="💰"
           color="text-purple-400"
-          bgColor="bg-purple-900/20"
-          borderColor="border-purple-700"
+          bgColor="bg-gray-900"
+          borderColor="border-purple-800"
         />
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid-2-columns _1-column-mbl gap-row-24px gap-column-12px">
         {/* User Growth Chart */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">User Growth (30 Days)</h2>
+        <div className="card pd-24px">
+          <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">User Growth (30 Days)</h2>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={userGrowthData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-              <XAxis dataKey="date" stroke="#9ca3af" />
-              <YAxis stroke="#9ca3af" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e6e9f1" />
+              <XAxis dataKey="date" stroke="#828aa3" />
+              <YAxis stroke="#828aa3" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#1f2937',
-                  border: '1px solid #374151',
+                  backgroundColor: 'white',
+                  border: '1px solid #e6e9f1',
                   borderRadius: '0.5rem',
                 }}
               />
@@ -164,42 +164,42 @@ export default function AdminHomeClient({
                 type="monotone"
                 dataKey="count"
                 name="New Users"
-                stroke="#8b5cf6"
+                stroke="#3d73ff"
                 strokeWidth={2}
-                dot={{ fill: '#8b5cf6' }}
+                dot={{ fill: '#3d73ff' }}
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         {/* Plan Distribution */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">Plan Distribution</h2>
+        <div className="card pd-24px">
+          <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">Plan Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={planDistribution}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-              <XAxis dataKey="plan" stroke="#9ca3af" />
-              <YAxis stroke="#9ca3af" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e6e9f1" />
+              <XAxis dataKey="plan" stroke="#828aa3" />
+              <YAxis stroke="#828aa3" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#1f2937',
-                  border: '1px solid #374151',
+                  backgroundColor: 'white',
+                  border: '1px solid #e6e9f1',
                   borderRadius: '0.5rem',
                 }}
               />
               <Legend />
-              <Bar dataKey="count" name="Users" fill="#8b5cf6" />
+              <Bar dataKey="count" name="Users" fill="#3d73ff" />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
       {/* Platform Stats & System Health */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
         {/* Platform Distribution */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">Platform Breakdown</h2>
-          <div className="space-y-4">
+        <div className="card pd-24px">
+          <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">Platform Breakdown</h2>
+          <div className="flex-vertical gap-row-16px">
             {platformDistribution.map((platform) => {
               const total = platformDistribution.reduce((sum, p) => sum + p.count, 0)
               const percentage = ((platform.count / total) * 100).toFixed(1)
@@ -211,21 +211,23 @@ export default function AdminHomeClient({
               }[platform.platform] || '🌐'
 
               return (
-                <div key={platform.platform}>
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center space-x-2">
-                      <span className="text-xl">{emoji}</span>
-                      <span className="text-white font-medium">{platform.platform}</span>
+                <div key={platform.platform} className="flex-vertical gap-row-8px">
+                  <div className="flex-horizontal space-between align-center">
+                    <div className="flex-horizontal gap-column-8px align-center">
+                      <span className="text-200">{emoji}</span>
+                      <span className="text-200 medium color-neutral-800">{platform.platform}</span>
                     </div>
-                    <span className="text-gray-400">{platform.count}</span>
+                    <span className="text-100 color-neutral-600">{platform.count}</span>
                   </div>
-                  <div className="w-full bg-gray-800 rounded-full h-2">
-                    <div
-                      className="bg-purple-600 h-2 rounded-full"
-                      style={{ width: `${percentage}%` }}
-                    />
+                  <div className="progress-bar-wrapper">
+                    <div className="progress-bar-bg">
+                      <div
+                        className="progress-bar green"
+                        style={{ width: `${percentage}%` }}
+                      />
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{percentage}% of total</div>
+                  <div className="text-50 color-neutral-500">{percentage}% of total</div>
                 </div>
               )
             })}
@@ -233,9 +235,9 @@ export default function AdminHomeClient({
         </div>
 
         {/* System Health */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">System Health</h2>
-          <div className="space-y-4">
+        <div className="card pd-24px">
+          <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">System Health</h2>
+          <div className="flex-vertical gap-row-16px">
             <HealthIndicator
               label="API Status"
               status="healthy"
@@ -260,9 +262,9 @@ export default function AdminHomeClient({
         </div>
 
         {/* Quick Stats */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">Quick Stats</h2>
-          <div className="space-y-4">
+        <div className="card pd-24px">
+          <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">Quick Stats</h2>
+          <div className="flex-vertical gap-row-16px">
             <QuickStat label="Total Issues" value={stats.totalIssues} />
             <QuickStat label="Fixed Issues" value={stats.appliedFixes} />
             <QuickStat label="Active Issues" value={stats.activeIssues} />
@@ -272,37 +274,41 @@ export default function AdminHomeClient({
       </div>
 
       {/* Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid-2-columns _1-column-mbl gap-row-24px gap-column-12px">
         {/* Recent Users */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-white">Recent Users</h2>
+        <div className="card pd-24px">
+          <div className="flex-horizontal space-between align-center mg-bottom-24px">
+            <h2 className="text-400 medium color-neutral-800">Recent Users</h2>
             <Link
               href="/admin/users"
-              className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+              className="text-100 medium color-accent-1"
             >
               View All →
             </Link>
           </div>
-          <div className="space-y-3">
+          <div className="flex-vertical gap-row-12px">
             {recentUsers.map((user) => (
               <div
                 key={user.id}
-                className="flex items-center justify-between p-3 bg-gray-800 rounded-lg border border-gray-700"
+                className="card pd-16px hover-card-link"
               >
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-semibold">
-                    {user.name.charAt(0).toUpperCase()}
+                <div className="flex-horizontal space-between align-center">
+                  <div className="flex-horizontal gap-column-12px align-center">
+                    <div className="card-icon-square _40px">
+                      <div className="text-200 medium color-neutral-800">
+                        {user.name.charAt(0).toUpperCase()}
+                      </div>
+                    </div>
+                    <div className="flex-vertical gap-row-4px">
+                      <p className="text-200 medium color-neutral-800">{user.name}</p>
+                      <p className="text-100 color-neutral-600">{user.email}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-white font-medium">{user.name}</p>
-                    <p className="text-gray-400 text-sm">{user.email}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm text-gray-400">{user.connectionsCount} sites</div>
-                  <div className="text-xs text-gray-500">
-                    {new Date(user.createdAt).toLocaleDateString()}
+                  <div className="flex-vertical gap-row-4px" style={{ alignItems: 'flex-end' }}>
+                    <div className="text-100 color-neutral-600">{user.connectionsCount} sites</div>
+                    <div className="text-50 color-neutral-500">
+                      {new Date(user.createdAt).toLocaleDateString()}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -311,17 +317,17 @@ export default function AdminHomeClient({
         </div>
 
         {/* Recent Connections */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-white">Recent Connections</h2>
+        <div className="card pd-24px">
+          <div className="flex-horizontal space-between align-center mg-bottom-24px">
+            <h2 className="text-400 medium color-neutral-800">Recent Connections</h2>
             <Link
               href="/admin/sites"
-              className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+              className="text-100 medium color-accent-1"
             >
               View All →
             </Link>
           </div>
-          <div className="space-y-3">
+          <div className="flex-vertical gap-row-12px">
             {recentConnections.slice(0, 5).map((connection) => {
               const platformEmoji = {
                 SHOPIFY: '🛍️',
@@ -333,17 +339,19 @@ export default function AdminHomeClient({
               return (
                 <div
                   key={connection.id}
-                  className="flex items-center justify-between p-3 bg-gray-800 rounded-lg border border-gray-700"
+                  className="card pd-16px hover-card-link"
                 >
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">{platformEmoji}</div>
-                    <div>
-                      <p className="text-white font-medium">{connection.displayName}</p>
-                      <p className="text-gray-400 text-sm">{connection.userEmail}</p>
+                  <div className="flex-horizontal space-between align-center">
+                    <div className="flex-horizontal gap-column-12px align-center">
+                      <div className="text-300">{platformEmoji}</div>
+                      <div className="flex-vertical gap-row-4px">
+                        <p className="text-200 medium color-neutral-800">{connection.displayName}</p>
+                        <p className="text-100 color-neutral-600">{connection.userEmail}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-xs text-gray-500">
-                    {new Date(connection.createdAt).toLocaleDateString()}
+                    <div className="text-50 color-neutral-500">
+                      {new Date(connection.createdAt).toLocaleDateString()}
+                    </div>
                   </div>
                 </div>
               )
@@ -353,23 +361,25 @@ export default function AdminHomeClient({
       </div>
 
       {/* System Activity Feed */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-        <h2 className="text-xl font-semibold text-white mb-6">System Activity Feed</h2>
-        <div className="space-y-2 max-h-96 overflow-y-auto">
+      <div className="card pd-24px">
+        <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">System Activity Feed</h2>
+        <div className="flex-vertical gap-row-8px" style={{ maxHeight: '400px', overflowY: 'auto' }}>
           {systemActivity.map((log) => (
             <div
               key={log.id}
-              className="flex items-start justify-between p-3 bg-gray-800/50 rounded border border-gray-700/50 hover:bg-gray-800 transition-colors"
+              className="card pd-16px hover-card-link"
             >
-              <div className="flex items-start space-x-3">
-                <div className="text-lg">{getActionIcon(log.action)}</div>
-                <div>
-                  <p className="text-white text-sm font-medium">{log.action}</p>
-                  <p className="text-gray-400 text-xs">{log.userEmail}</p>
+              <div className="flex-horizontal space-between align-start">
+                <div className="flex-horizontal gap-column-12px align-start">
+                  <div className="text-200">{getActionIcon(log.action)}</div>
+                  <div className="flex-vertical gap-row-4px">
+                    <p className="text-100 medium color-neutral-800">{log.action}</p>
+                    <p className="text-50 color-neutral-600">{log.userEmail}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="text-xs text-gray-500 whitespace-nowrap">
-                {getTimeAgo(new Date(log.createdAt))}
+                <div className="text-50 color-neutral-500" style={{ whiteSpace: 'nowrap' }}>
+                  {getTimeAgo(new Date(log.createdAt))}
+                </div>
               </div>
             </div>
           ))}
@@ -377,36 +387,36 @@ export default function AdminHomeClient({
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-        <h2 className="text-xl font-semibold text-white mb-6">Quick Actions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="card pd-24px">
+        <h2 className="text-400 medium color-neutral-800 mg-bottom-24px">Quick Actions</h2>
+        <div className="grid-4-columns _1-column-tablet gap-row-16px gap-column-12px">
           <AdminActionCard
             title="Manage Users"
             description="View and manage user accounts"
             href="/admin/users"
             icon="👥"
-            color="bg-blue-600 hover:bg-blue-700"
+            color="blue"
           />
           <AdminActionCard
             title="Monitor Sites"
             description="Track connected sites"
             href="/admin/sites"
             icon="🌐"
-            color="bg-green-600 hover:bg-green-700"
+            color="green"
           />
           <AdminActionCard
             title="Job Queue"
             description="Monitor background jobs"
             href="/admin/jobs"
             icon="⚙️"
-            color="bg-purple-600 hover:bg-purple-700"
+            color="primary"
           />
           <AdminActionCard
             title="Analytics"
             description="Detailed system metrics"
             href="/admin/analytics"
             icon="📈"
-            color="bg-yellow-600 hover:bg-yellow-700"
+            color="orange"
           />
         </div>
       </div>
@@ -432,21 +442,28 @@ function StatCard({
   borderColor: string
 }) {
   const isPositive = trend >= 0
-  const trendColor = isPositive ? 'text-green-400' : 'text-red-400'
   const trendIcon = isPositive ? '↑' : '↓'
 
   return (
-    <div className={`${bgColor} rounded-lg border ${borderColor} p-6 relative overflow-hidden`}>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-3xl">{icon}</span>
+    <div className="card pd-24px">
+      <div className="flex-horizontal space-between align-center mg-bottom-16px">
+        <div className="card-icon-square _40px">
+          <div className="text-300">{icon}</div>
+        </div>
         {trend !== 0 && (
-          <div className={`flex items-center ${trendColor} text-sm font-semibold`}>
-            {trendIcon} {Math.abs(trend).toFixed(1)}%
+          <div className={`badge ${isPositive ? 'green' : 'red'}`}>
+            <div className="text-50 medium">
+              {trendIcon} {Math.abs(trend).toFixed(1)}%
+            </div>
           </div>
         )}
       </div>
-      <h3 className="text-gray-400 text-sm mb-1">{title}</h3>
-      <p className={`text-4xl font-bold ${color}`}>{value}</p>
+      <div className="flex-vertical gap-row-12px">
+        <div className="text-100 medium color-neutral-600">{title}</div>
+        <div className="card-amount-container">
+          <div className="display-2 color-neutral-800">{value}</div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -460,28 +477,30 @@ function HealthIndicator({
   status: 'healthy' | 'warning' | 'error'
   value: string
 }) {
-  const statusColors = {
-    healthy: 'bg-green-500',
-    warning: 'bg-yellow-500',
-    error: 'bg-red-500',
+  const statusBadge = {
+    healthy: 'green',
+    warning: 'orange',
+    error: 'red',
   }
 
   return (
-    <div className="flex items-center justify-between">
-      <div className="flex items-center space-x-2">
-        <div className={`w-2 h-2 rounded-full ${statusColors[status]}`} />
-        <span className="text-gray-300">{label}</span>
+    <div className="flex-horizontal space-between align-center">
+      <div className="flex-horizontal gap-column-8px align-center">
+        <div className={`badge ${statusBadge[status]}`}>
+          <div className="text-50 medium">{status === 'healthy' ? '✓' : status === 'warning' ? '!' : '✕'}</div>
+        </div>
+        <span className="text-100 color-neutral-600">{label}</span>
       </div>
-      <span className="text-white font-medium">{value}</span>
+      <span className="text-200 medium color-neutral-800">{value}</span>
     </div>
   )
 }
 
 function QuickStat({ label, value }: { label: string; value: number | string }) {
   return (
-    <div className="flex items-center justify-between">
-      <span className="text-gray-400">{label}</span>
-      <span className="text-white font-semibold">{value}</span>
+    <div className="flex-horizontal space-between align-center">
+      <span className="text-100 color-neutral-600">{label}</span>
+      <span className="text-200 medium color-neutral-800">{value}</span>
     </div>
   )
 }
@@ -497,31 +516,38 @@ function AdminActionCard({
   description: string
   href: string
   icon: string
-  color: string
+  color: 'blue' | 'green' | 'primary' | 'orange'
 }) {
   return (
     <Link
       href={href}
-      className={`${color} rounded-lg p-6 text-white transition-colors group`}
+      className="card pd-24px hover-card-link"
     >
-      <div className="text-4xl mb-3">{icon}</div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-white/80">{description}</p>
-      <div className="mt-4 flex items-center text-sm font-medium">
-        Go to {title}
-        <svg
-          className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
+      <div className="flex-vertical gap-row-16px">
+        <div className={`badge ${color}`}>
+          <div className="text-300">{icon}</div>
+        </div>
+        <div className="flex-vertical gap-row-8px">
+          <h3 className="text-200 medium color-neutral-800">{title}</h3>
+          <p className="text-100 color-neutral-600">{description}</p>
+        </div>
+        <div className="flex-horizontal gap-column-8px align-center">
+          <span className="text-100 medium color-accent-1">View details</span>
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            style={{ color: '#3d73ff' }}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
       </div>
     </Link>
   )

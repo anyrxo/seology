@@ -53,7 +53,7 @@ export function DashboardClient({ userName }: { userName: string }) {
         </div>
 
         {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px">
           {/* Sites Connected Card */}
           <div className="card pd-24px">
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
@@ -178,7 +178,7 @@ export function DashboardClient({ userName }: { userName: string }) {
             <h2 className="text-400 bold color-neutral-800">Quick Actions</h2>
           </div>
           <div className="w-layout-vflex flex-vertical gap-row-24px">
-            <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
               <Link href="/dashboard/sites/connect" className="card pd-24px hover-card-link">
                 <div className="flex-vertical gap-row-16px">
                   <div className="card-icon-square _40px">
@@ -291,7 +291,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 Getting Started
               </h2>
             </div>
-            <div className="grid-2-columns gap-row-16px gap-column-12px md:grid-cols-2">
+            <div className="grid-2-columns gap-row-16px gap-column-12px">
               <ChecklistItem completed={false} text="Connect your first site" icon="🔗" />
               <ChecklistItem completed={false} text="Run your first SEO analysis" icon="🔍" />
               <ChecklistItem completed={false} text="Apply AI-powered fixes" icon="🤖" />
@@ -339,7 +339,7 @@ function DashboardSkeleton() {
         </div>
 
         {/* Stats grid skeleton */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="card pd-24px">
               <div className="skeleton-box" style={{ height: '16px', width: '120px', marginBottom: '16px' }}></div>
@@ -351,7 +351,7 @@ function DashboardSkeleton() {
         {/* Actions skeleton */}
         <div className="card pd-32px---24px">
           <div className="skeleton-box" style={{ height: '32px', width: '160px', marginBottom: '32px' }}></div>
-          <div className="grid-3-columns _1-column-mbl gap-row-24px md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
             {[1, 2, 3].map((i) => (
               <div key={i} className="skeleton-box" style={{ height: '48px' }}></div>
             ))}

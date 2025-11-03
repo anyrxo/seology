@@ -209,7 +209,7 @@ function EmptyState() {
         {/* Empty State Card with pd-32px---44px */}
         <div className="rt-component-section card pd-32px---44px">
           <div className="text-center inner-container _400px center">
-            <div className="card-icon-square _40px neutral-icon mg-bottom-24px" style={{ margin: '0 auto 24px' }}>
+            <div className="card-icon-square _40px neutral-icon" style={{ margin: '0 auto', marginBottom: '24px' }}>
               <div className="text-600">🌐</div>
             </div>
             <h2 className="text-400 bold color-neutral-800 mg-bottom-12px">

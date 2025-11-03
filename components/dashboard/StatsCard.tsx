@@ -31,9 +31,9 @@ export function StatsCard({
     return (
       <div className={cn('card pd-24px', className)}>
         <div className="flex-vertical gap-row-12px">
-          <div className="skeleton-box card-icon-square _26px" />
-          <div className="skeleton-box text-100" style={{ width: '60%' }} />
-          <div className="skeleton-box text-300" style={{ width: '40%' }} />
+          <div className="skeleton-box" style={{ height: '26px', width: '26px' }} />
+          <div className="skeleton-box" style={{ height: '16px', width: '60%' }} />
+          <div className="skeleton-box" style={{ height: '40px', width: '40%' }} />
         </div>
       </div>
     )
