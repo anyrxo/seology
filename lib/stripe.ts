@@ -8,10 +8,28 @@ import Stripe from 'stripe'
 import { db } from './db'
 import { PLANS, type PlanTier } from './plans'
 
-// Initialize Stripe
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2025-10-29.clover',
-  typescript: true,
+// Lazy initialization of Stripe
+let stripeInstance: Stripe | null = null
+
+function getStripe(): Stripe {
+  if (!stripeInstance) {
+    const apiKey = process.env.STRIPE_SECRET_KEY
+    if (!apiKey) {
+      throw new Error('STRIPE_SECRET_KEY is not defined')
+    }
+    stripeInstance = new Stripe(apiKey, {
+      apiVersion: '2025-10-29.clover',
+      typescript: true,
+    })
+  }
+  return stripeInstance
+}
+
+// Export getter for backwards compatibility
+export const stripe = new Proxy({} as Stripe, {
+  get(target, prop) {
+    return getStripe()[prop as keyof Stripe]
+  },
 })
 
 /**
