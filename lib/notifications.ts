@@ -2,9 +2,15 @@
  * Notifications System
  *
  * Create and manage in-app notifications for users
+ * Also sends email notifications where appropriate
  */
 
 import { db } from './db'
+import {
+  sendFixAppliedEmail,
+  sendUsageLimitWarningEmail,
+  sendPlanUpgradeEmail,
+} from './email'
 
 type NotificationType = 'SUCCESS' | 'ERROR' | 'INFO' | 'WARNING' | 'FIX_APPLIED' | 'FIX_FAILED' | 'SITE_CONNECTED' | 'ANALYSIS_COMPLETE' | 'USAGE_LIMIT' | 'PLAN_UPGRADED' | 'FIX_PENDING'
 
@@ -128,15 +134,40 @@ export async function notifyFixApplied(
   userId: string,
   connectionId: string,
   fixId: string,
-  issueTitle: string
+  issueTitle: string,
+  fixDescription?: string
 ) {
-  return await createNotification({
+  // Create in-app notification
+  const notification = await createNotification({
     userId,
     type: 'FIX_APPLIED',
     title: 'SEO Fix Applied',
     message: `Successfully applied fix for: ${issueTitle}`,
     actionUrl: `/dashboard/sites/${connectionId}`,
   })
+
+  // Send email notification (non-blocking)
+  const user = await db.user.findUnique({
+    where: { id: userId },
+    select: { email: true },
+  })
+
+  const connection = await db.connection.findUnique({
+    where: { id: connectionId },
+    select: { domain: true, displayName: true },
+  })
+
+  if (user?.email && connection?.domain) {
+    sendFixAppliedEmail(
+      userId,
+      user.email,
+      connection.displayName || connection.domain,
+      issueTitle,
+      fixDescription || 'SEO optimization applied'
+    ).catch((err) => console.error('Failed to send fix applied email:', err))
+  }
+
+  return notification
 }
 
 /**
@@ -201,13 +232,32 @@ export async function notifyUsageLimitApproaching(
   limitType: string,
   percentage: number
 ) {
-  return await createNotification({
+  // Create in-app notification
+  const notification = await createNotification({
     userId,
     type: 'USAGE_LIMIT',
     title: 'Approaching Usage Limit',
     message: `You've used ${percentage}% of your ${limitType} limit. Consider upgrading your plan.`,
     actionUrl: `/dashboard/billing`,
   })
+
+  // Send email warning (non-blocking)
+  const user = await db.user.findUnique({
+    where: { id: userId },
+    select: { email: true, plan: true },
+  })
+
+  if (user?.email) {
+    sendUsageLimitWarningEmail(
+      userId,
+      user.email,
+      limitType,
+      percentage,
+      user.plan
+    ).catch((err) => console.error('Failed to send usage warning email:', err))
+  }
+
+  return notification
 }
 
 /**
@@ -215,15 +265,34 @@ export async function notifyUsageLimitApproaching(
  */
 export async function notifyPlanUpgraded(
   userId: string,
-  planName: string
+  planName: string,
+  oldPlan?: string
 ) {
-  return await createNotification({
+  // Create in-app notification
+  const notification = await createNotification({
     userId,
     type: 'PLAN_UPGRADED',
     title: 'Plan Upgraded',
     message: `Your plan has been upgraded to ${planName}`,
     actionUrl: `/dashboard/billing`,
   })
+
+  // Send email confirmation (non-blocking)
+  const user = await db.user.findUnique({
+    where: { id: userId },
+    select: { email: true, plan: true },
+  })
+
+  if (user?.email) {
+    sendPlanUpgradeEmail(
+      userId,
+      user.email,
+      oldPlan || 'previous plan',
+      planName
+    ).catch((err) => console.error('Failed to send plan upgrade email:', err))
+  }
+
+  return notification
 }
 
 /**

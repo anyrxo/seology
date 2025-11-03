@@ -6,6 +6,7 @@
 
 import { db } from './db'
 import { Plan } from '@prisma/client'
+import { notifyUsageLimitApproaching } from './notifications'
 
 // ==================== PLAN LIMITS ====================
 
@@ -159,6 +160,7 @@ export async function canApplyFixes(
 
 /**
  * Track a fix application (for usage statistics)
+ * Also checks usage limits and sends warnings
  */
 export async function trackFixApplied(
   userId: string,
@@ -181,6 +183,37 @@ export async function trackFixApplied(
       })
     }
   })
+
+  // Check if user is approaching usage limit
+  try {
+    const usage = await getCurrentUsage(userId)
+
+    // Send warning at 80% threshold
+    if (usage.usage.percentUsed.fixes >= 80 && usage.usage.percentUsed.fixes < 100) {
+      // Check if we've already sent a warning recently (within last 24 hours)
+      const recentWarning = await db.notification.findFirst({
+        where: {
+          userId,
+          type: 'USAGE_LIMIT',
+          createdAt: {
+            gte: new Date(Date.now() - 24 * 60 * 60 * 1000)
+          }
+        }
+      })
+
+      // Only send if no recent warning exists
+      if (!recentWarning) {
+        await notifyUsageLimitApproaching(
+          userId,
+          'monthly fixes',
+          Math.round(usage.usage.percentUsed.fixes)
+        )
+      }
+    }
+  } catch (error) {
+    console.error('Error checking usage limits:', error)
+    // Don't throw - usage tracking shouldn't block fix application
+  }
 }
 
 /**

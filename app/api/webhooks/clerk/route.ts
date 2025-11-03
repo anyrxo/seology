@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
 import { db } from '@/lib/db'
+import { sendWelcomeEmail } from '@/lib/email'
 
 // Mark this route as dynamic
 export const dynamic = 'force-dynamic'
@@ -58,18 +59,23 @@ export async function POST(req: NextRequest) {
 
   if (eventType === 'user.created') {
     const { id, email_addresses, first_name, last_name } = evt.data
+    const email = email_addresses[0].email_address
+    const name = `${first_name || ''} ${last_name || ''}`.trim() || null
 
     // Create user in database
-    await db.user.create({
+    const user = await db.user.create({
       data: {
         clerkId: id,
-        email: email_addresses[0].email_address,
-        name: `${first_name || ''} ${last_name || ''}`.trim() || null,
+        email,
+        name,
         plan: 'STARTER',
       },
     })
 
     console.log('User created in database:', id)
+
+    // Send welcome email (don't await to avoid blocking webhook response)
+    sendWelcomeEmail(user.id, email, first_name || undefined).catch(console.error)
   }
 
   if (eventType === 'user.updated') {
