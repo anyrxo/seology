@@ -23,7 +23,7 @@ export default function AdminSidebar() {
   const pathname = usePathname()
 
   return (
-    <div className="flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0">
+    <div className="flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0 hidden lg:flex">
       {/* Logo */}
       <div className="p-6 border-b border-gray-800">
         <Link href="/admin" className="flex items-center space-x-2">

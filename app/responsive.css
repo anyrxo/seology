@@ -150,6 +150,11 @@ html, body {
 
 /* ============= COMPONENT-SPECIFIC RESPONSIVE FIXES ============= */
 
+/* CRITICAL: Override Dashflow X CSS that hides header-sidebar-wrapper on desktop */
+.header-sidebar-wrapper {
+  display: block !important;
+}
+
 /* Dashboard Sidebar - Mobile */
 @media (max-width: 1024px) {
   .dashboard-sidebar {

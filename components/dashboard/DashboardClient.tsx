@@ -4,8 +4,28 @@ import { useDashboardStats } from '@/lib/hooks/useDashboardStats'
 import Link from 'next/link'
 
 export function DashboardClient({ userName }: { userName: string }) {
-  const { stats, isLoading } = useDashboardStats()
+  const { stats, isLoading, isError } = useDashboardStats()
 
+  // Show error state if API failed
+  if (isError && !isLoading) {
+    return (
+      <div className="w-layout-blockcontainer container-default w-container">
+        <div className="card pd-32px---44px">
+          <div className="flex-vertical gap-row-16px align-center text-center">
+            <div className="card-icon-square _40px neutral-icon">
+              <div className="text-400">⚠️</div>
+            </div>
+            <div>
+              <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">Unable to load dashboard</h2>
+              <p className="text-100 color-neutral-600">Please check your connection and try refreshing the page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Show loading skeleton
   if (isLoading || !stats) {
     return <DashboardSkeleton />
   }
@@ -33,7 +53,7 @@ export function DashboardClient({ userName }: { userName: string }) {
         </div>
 
         {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px">
+        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px md:grid-cols-2 lg:grid-cols-4">
           {/* Sites Connected Card */}
           <div className="card pd-24px">
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
@@ -158,7 +178,7 @@ export function DashboardClient({ userName }: { userName: string }) {
             <h2 className="text-400 bold color-neutral-800">Quick Actions</h2>
           </div>
           <div className="w-layout-vflex flex-vertical gap-row-24px">
-            <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
+            <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px md:grid-cols-2 lg:grid-cols-3">
               <Link href="/dashboard/sites/connect" className="card pd-24px hover-card-link">
                 <div className="flex-vertical gap-row-16px">
                   <div className="card-icon-square _40px">
@@ -271,7 +291,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 Getting Started
               </h2>
             </div>
-            <div className="grid-2-columns gap-row-16px gap-column-12px">
+            <div className="grid-2-columns gap-row-16px gap-column-12px md:grid-cols-2">
               <ChecklistItem completed={false} text="Connect your first site" icon="🔗" />
               <ChecklistItem completed={false} text="Run your first SEO analysis" icon="🔍" />
               <ChecklistItem completed={false} text="Apply AI-powered fixes" icon="🤖" />
@@ -319,7 +339,7 @@ function DashboardSkeleton() {
         </div>
 
         {/* Stats grid skeleton */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px">
+        <div className="grid-4-columns _1-column-tablet gap-row-32px md:grid-cols-2 lg:grid-cols-4">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="card pd-24px">
               <div className="skeleton-box" style={{ height: '16px', width: '120px', marginBottom: '16px' }}></div>
@@ -331,7 +351,7 @@ function DashboardSkeleton() {
         {/* Actions skeleton */}
         <div className="card pd-32px---24px">
           <div className="skeleton-box" style={{ height: '32px', width: '160px', marginBottom: '32px' }}></div>
-          <div className="grid-3-columns _1-column-mbl gap-row-24px">
+          <div className="grid-3-columns _1-column-mbl gap-row-24px md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((i) => (
               <div key={i} className="skeleton-box" style={{ height: '48px' }}></div>
             ))}

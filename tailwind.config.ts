@@ -13,13 +13,17 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       // Enhanced responsive breakpoints
+      // Mobile-first approach matching Dashflow X:
+      // Mobile: default (< 768px)
+      // Tablet: 768px - 991px
+      // Desktop: >= 992px
       screens: {
-        'xs': '475px',
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px',
+        'xs': '475px',    // Extra small devices
+        'sm': '640px',    // Small devices (large phones)
+        'md': '768px',    // Medium devices (tablets) - Dashflow X tablet breakpoint
+        'lg': '992px',    // Large devices (desktops) - Dashflow X desktop breakpoint
+        'xl': '1280px',   // Extra large devices
+        '2xl': '1536px',  // 2X large devices
       },
       // Enhanced font family
       fontFamily: {

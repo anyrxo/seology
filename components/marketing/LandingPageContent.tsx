@@ -87,7 +87,7 @@ export default function LandingPageContent() {
                 </div>
 
                 {/* Social Proof Stats */}
-                <div className="grid-3-columns gap-row-24px">
+                <div className="grid-3-columns gap-row-24px md:grid-cols-3">
                   <div className="card pd-24px">
                     <div className="text-400 bold color-accent-1 mg-bottom-8px">10,000+</div>
                     <div className="text-100 medium color-neutral-600">Fixes Applied</div>
@@ -120,7 +120,7 @@ export default function LandingPageContent() {
             </div>
 
             {/* Comparison Grid */}
-            <div className="grid-3-columns gap-row-24px">
+            <div className="grid-3-columns gap-row-24px md:grid-cols-2 lg:grid-cols-3">
               {/* Traditional SEO Tools */}
               <div className="card pd-32px---24px">
                 <div className="mg-bottom-24px">
@@ -228,7 +228,7 @@ export default function LandingPageContent() {
 
             {/* Steps Grid with Navigation */}
             <div className="rt-nav-top-wrap-contain">
-              <div className="grid-3-columns gap-row-32px">
+              <div className="grid-3-columns gap-row-32px md:grid-cols-2 lg:grid-cols-3">
                 {/* Step 1 */}
                 <div className="card pd-32px---24px">
                   <div className="flex-horizontal gap-column-16px mg-bottom-16px align-center">
@@ -371,7 +371,7 @@ export default function LandingPageContent() {
                   </div>
 
                   {/* Stats Row */}
-                  <div className="grid-3-columns gap-row-32px mg-top-48px">
+                  <div className="grid-3-columns gap-row-32px mg-top-48px md:grid-cols-3">
                     <div>
                       <div className="text-400 bold color-neutral-100 mg-bottom-8px">92%</div>
                       <div className="text-100 color-neutral-100">Time Saved</div>
@@ -410,7 +410,7 @@ export default function LandingPageContent() {
             </div>
 
             {/* Features Grid */}
-            <div className="grid-3-columns gap-row-24px">
+            <div className="grid-3-columns gap-row-24px md:grid-cols-2 lg:grid-cols-3">
               {/* Automatic Fixes */}
               <div className="card pd-32px---24px">
                 <div className="card-icon-square _40px mg-bottom-16px">
@@ -592,7 +592,7 @@ export default function LandingPageContent() {
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid-3-columns gap-row-24px">
+            <div className="grid-3-columns gap-row-24px md:grid-cols-2 lg:grid-cols-3">
               {/* Testimonial 1 */}
               <div className="card pd-32px---24px">
                 <div className="flex-horizontal gap-column-8px mg-bottom-16px">
@@ -684,7 +684,7 @@ export default function LandingPageContent() {
             </div>
 
             {/* Pricing Cards */}
-            <div className="grid-3-columns gap-row-24px">
+            <div className="grid-3-columns gap-row-24px md:grid-cols-2 lg:grid-cols-3">
               {/* Starter */}
               <div className="card pd-32px---44px">
                 <div className="text-50 medium color-neutral-600 mg-bottom-16px" style={{ letterSpacing: '0.06em', textTransform: 'uppercase' }}>
@@ -857,7 +857,7 @@ export default function LandingPageContent() {
             </div>
 
             {/* FAQ Grid */}
-            <div className="grid-2-columns gap-row-24px">
+            <div className="grid-2-columns gap-row-24px md:grid-cols-2">
               {/* FAQ 1 */}
               <div className="card pd-24px---18px">
                 <div className="flex-horizontal gap-column-12px mg-bottom-12px">
@@ -1039,7 +1039,7 @@ export default function LandingPageContent() {
                   </div>
 
                   {/* Trust Row */}
-                  <div className="grid-3-columns gap-row-32px">
+                  <div className="grid-3-columns gap-row-32px md:grid-cols-3">
                     <div className="card pd-24px" style={{ background: 'rgba(255,255,255,0.05)' }}>
                       <div className="rt-text-icon-wrap mg-bottom-8px">
                         <Check className="w-5 h-5 color-accent-1" />

@@ -25,12 +25,12 @@ export default async function AdminLayout({
   // TODO: Implement proper admin role checking with Clerk metadata
 
   return (
-    <div className="flex min-h-screen bg-gray-950">
+    <div className="flex min-h-screen bg-gray-950 flex-col lg:flex-row">
       <AdminSidebar />
-      <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex flex-1 flex-col overflow-hidden w-full lg:w-auto">
         <AdminHeader />
-        <main className="flex-1 overflow-auto">
-          <div className="container mx-auto p-8">{children}</div>
+        <main className="flex-1 overflow-auto pb-20 lg:pb-0">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">{children}</div>
         </main>
       </div>
     </div>

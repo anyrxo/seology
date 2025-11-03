@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "SEOLOGY.AI - AI-Powered SEO Automation That Actually Fixes Issues",
   description: "The first SEO tool that doesn't just report problems—it fixes them. Connect your CMS and let Claude AI automatically optimize your SEO.",
   metadataBase: new URL('https://seology.ai'),
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   openGraph: {
     title: "SEOLOGY.AI - AI-Powered SEO Automation",
     description: "The first SEO tool that actually fixes issues automatically using Claude AI.",
@@ -50,12 +56,16 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
 
-          {/* Load Dashflow X CSS files */}
+          {/* Load Dashflow X CSS files - ORDER MATTERS */}
           <link href="/dashflow/normalize.css" rel="stylesheet" type="text/css" />
+          <link href="/dashflow/webflow.css" rel="stylesheet" type="text/css" />
           <link href="/dashflow/dashflow.css" rel="stylesheet" type="text/css" />
+          <link href="/dashflow/dashflow-utilities.css" rel="stylesheet" type="text/css" />
 
-          {/* Load Radiant UI CSS */}
-          <link href="/radiant/radiant.css" rel="stylesheet" type="text/css" />
+          {/* Load Radiant UI CSS - CRITICAL ORDER: normalize -> webflow -> custom */}
+          <link href="/radiant/normalize.css" rel="stylesheet" type="text/css" />
+          <link href="/radiant/webflow.css" rel="stylesheet" type="text/css" />
+          <link href="/radiant/radiant-ui.css" rel="stylesheet" type="text/css" />
 
           {/* Webflow modernizr script - critical for layout */}
           <Script id="webflow-modernizr" strategy="beforeInteractive">
@@ -87,6 +97,8 @@ export default function RootLayout({
           </ThemeProvider>
           {/* Webflow interactions - load after interactive */}
           <Script src="/js/webflow.js" strategy="lazyOnload" />
+          {/* Radiant UI webflow.js - CRITICAL for dropdowns and interactions */}
+          <Script src="/radiant/webflow.js" strategy="afterInteractive" />
         </body>
       </html>
     </ClerkProvider>
