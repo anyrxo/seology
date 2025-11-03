@@ -2,6 +2,9 @@ import { auth } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 
+// Force dynamic rendering (uses headers for auth)
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
   try {
     const { userId } = await auth()
