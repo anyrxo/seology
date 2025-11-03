@@ -45,19 +45,25 @@ export function ProgressIndicator({
                   className="relative flex flex-col items-center"
                 >
                   <div
-                    className={`
-                      w-10 h-10 rounded-full flex items-center justify-center text-lg
-                      transition-all duration-300
-                      ${
-                        isCompleted
-                          ? 'bg-green-500 text-white'
-                          : isActive
-                          ? 'bg-blue-600 text-white ring-4 ring-blue-600/30'
-                          : 'bg-gray-800 text-gray-500 border-2 border-gray-700'
-                      }
-                    `}
+                    className={`avatar-circle _40px ${
+                      isCompleted
+                        ? 'success'
+                        : isActive
+                        ? 'primary'
+                        : ''
+                    }`}
+                    style={{
+                      backgroundColor: isCompleted
+                        ? 'var(--system--green-400)'
+                        : isActive
+                        ? 'var(--accent--primary-1)'
+                        : 'var(--neutral--700)',
+                      boxShadow: isActive ? '0 0 0 4px rgba(59, 130, 246, 0.3)' : undefined
+                    }}
                   >
-                    {isCompleted ? '✓' : step.icon}
+                    <span className="text-100 bold color-neutral-100">
+                      {isCompleted ? '✓' : step.icon}
+                    </span>
                   </div>
 
                   {/* Step Title */}

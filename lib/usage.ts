@@ -241,6 +241,7 @@ export async function getUsageSummary(userId: string) {
     },
     warnings: {
       sitesAtLimit: usage.isAtLimit.sites,
+      sitesNearLimit: usage.usage.percentUsed.sites >= 80,
       fixesAtLimit: usage.isAtLimit.fixes,
       fixesNearLimit: usage.usage.percentUsed.fixes >= 80
     }

@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import Sidebar from '@/components/dashboard/Sidebar'
 import { DashboardHeader } from '@/components/dashboard/DashboardHeader'
 import { BottomNav } from '@/components/mobile/BottomNav'
+import { Footer } from '@/components/layout/Footer'
 
 export default async function DashboardLayout({
   children,
@@ -17,15 +18,24 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 animate-gradient-slow">
+    <div className="header-sidebar-wrapper bg-neutral-200">
+      {/* Sidebar with Dashflow X classes */}
       <Sidebar />
-      <div className="flex flex-1 flex-col overflow-hidden w-full lg:w-auto">
+
+      {/* Main Content Area */}
+      <div className="page-wrapper full-page-wrapper" style={{ marginLeft: '0' }}>
+        {/* Header */}
         <DashboardHeader />
+
+        {/* Main Content */}
         <main className="flex-1 overflow-auto pb-16 md:pb-0">
-          <div className="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+          <div className="container-default w-container" style={{ padding: '24px 40px' }}>
             {children}
           </div>
         </main>
+
+        {/* Footer */}
+        <Footer variant="minimal" />
       </div>
 
       {/* Mobile Bottom Navigation */}

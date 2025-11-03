@@ -57,38 +57,43 @@ export function ConnectSiteStep({ onNext, onBack }: ConnectSiteStepProps) {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="text-center mb-8">
-        <div className="text-5xl mb-4">🔌</div>
-        <h2 className="text-3xl font-bold text-white mb-2">Connect Your First Site</h2>
-        <p className="text-gray-400">
+      <div className="card pd-32px---44px text-center mg-bottom-32px">
+        <div className="flex-horizontal justify-center mg-bottom-24px">
+          <div className="avatar-circle _48px">
+            🔌
+          </div>
+        </div>
+        <h2 className="text-400 bold color-neutral-100 mg-bottom-8px">Connect Your First Site</h2>
+        <p className="text-200 medium color-neutral-400">
           Choose your platform to get started with automated SEO fixes
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid-3-columns gap-row-16px gap-column-16px mg-bottom-32px">
         {platforms.map((platform) => (
           <button
             key={platform.id}
             onClick={() => handleConnect(platform.id)}
             disabled={!platform.available || isConnecting}
-            className={`
-              p-6 rounded-lg border-2 transition-all text-left
-              ${
-                selectedPlatform === platform.id
-                  ? 'border-blue-500 bg-blue-500/10'
-                  : 'border-gray-700 bg-gray-800 hover:border-gray-600'
-              }
-              ${!platform.available ? 'opacity-50 cursor-not-allowed' : ''}
-              ${isConnecting ? 'opacity-50 cursor-wait' : ''}
-            `}
+            className={`card pd-24px ${
+              selectedPlatform === platform.id ? 'border-accent' : ''
+            }`}
+            style={{
+              border: selectedPlatform === platform.id ? '2px solid var(--accent--primary-1)' : undefined,
+              opacity: !platform.available || isConnecting ? 0.5 : 1,
+              cursor: !platform.available || isConnecting ? 'not-allowed' : 'pointer',
+              textAlign: 'left'
+            }}
           >
-            <div className="text-4xl mb-3">{platform.icon}</div>
-            <h3 className="text-lg font-semibold text-white mb-1">
+            <div className="avatar-circle _40px mg-bottom-16px">
+              {platform.icon}
+            </div>
+            <h3 className="text-200 bold color-neutral-100 mg-bottom-8px">
               {platform.name}
             </h3>
-            <p className="text-sm text-gray-400">{platform.description}</p>
+            <p className="text-100 medium color-neutral-400">{platform.description}</p>
             {!platform.available && (
-              <span className="inline-block mt-2 text-xs text-yellow-500">
+              <span className="badge mg-top-12px" style={{ backgroundColor: 'var(--system--yellow-200)' }}>
                 Coming Soon
               </span>
             )}

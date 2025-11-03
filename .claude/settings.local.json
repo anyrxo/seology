@@ -57,7 +57,9 @@
       "Bash(/dev/null)",
       "Bash(head:*)",
       "Bash(timeout 30 npx tsc:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(copy:*)",
+      "Bash(cmd /c \"copy \"\"C:\\Users\\manna\\Downloads\\Website inspo\\radiant-ui-component-library-s-34e5e8.webflow\\images\\Navgiation-Icon.svg\"\" images\"\")"
     ],
     "deny": [],
     "ask": []

@@ -1,6 +1,6 @@
 import { AnnouncementBar } from './AnnouncementBar'
-import MarketingNavbar from './MarketingNavbar'
-import MarketingFooter from './MarketingFooter'
+import { MarketingHeader } from './MarketingHeader'
+import { Footer } from '@/components/layout/Footer'
 import { AnnouncementProvider } from './AnnouncementContext'
 
 export default function MarketingLayout({
@@ -10,18 +10,18 @@ export default function MarketingLayout({
 }) {
   return (
     <AnnouncementProvider>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <div className="min-h-screen bg-neutral-200">
         {/* Announcement Bar - Fixed at top */}
         <AnnouncementBar />
 
-        {/* Navigation - Fixed below announcement bar */}
-        <MarketingNavbar />
+        {/* Navigation - Dashflow X Header */}
+        <MarketingHeader />
 
-        {/* Main Content - Padding to account for fixed header */}
-        <main className="pt-[112px]">{children}</main>
+        {/* Main Content */}
+        <main>{children}</main>
 
-        {/* Footer */}
-        <MarketingFooter />
+        {/* Footer - Dashflow X Footer */}
+        <Footer />
       </div>
     </AnnouncementProvider>
   )

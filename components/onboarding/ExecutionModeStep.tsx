@@ -50,43 +50,48 @@ export function ExecutionModeStep({ onNext, onBack }: ExecutionModeStepProps) {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <div className="text-5xl mb-4">⚙️</div>
-        <h2 className="text-3xl font-bold text-white mb-2">
+      <div className="card pd-32px---44px text-center mg-bottom-32px">
+        <div className="flex-horizontal justify-center mg-bottom-24px">
+          <div className="avatar-circle _48px">
+            ⚙️
+          </div>
+        </div>
+        <h2 className="text-400 bold color-neutral-100 mg-bottom-8px">
           How Should We Apply Fixes?
         </h2>
-        <p className="text-gray-400">
+        <p className="text-200 medium color-neutral-400">
           Choose how you want SEOLOGY.AI to handle SEO fixes
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid-3-columns gap-row-24px gap-column-24px mg-bottom-32px">
         {modes.map((mode) => (
           <button
             key={mode.id}
             onClick={() => setSelectedMode(mode.id)}
-            className={`
-              p-6 rounded-lg border-2 transition-all text-left relative
-              ${
-                selectedMode === mode.id
-                  ? 'border-blue-500 bg-blue-500/10'
-                  : 'border-gray-700 bg-gray-800 hover:border-gray-600'
-              }
-            `}
+            className="card pd-32px---44px"
+            style={{
+              position: 'relative',
+              border: selectedMode === mode.id ? '2px solid var(--accent--primary-1)' : undefined,
+              backgroundColor: selectedMode === mode.id ? 'var(--secondary--color-3)' : undefined,
+              textAlign: 'left'
+            }}
           >
             {mode.recommended && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="bg-green-500 text-white text-xs px-3 py-1 rounded-full">
+              <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)' }}>
+                <span className="badge success">
                   Recommended
                 </span>
               </div>
             )}
 
-            <div className="text-4xl mb-3">{mode.icon}</div>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <div className="avatar-circle _40px mg-bottom-16px">
+              {mode.icon}
+            </div>
+            <h3 className="text-300 bold color-neutral-100 mg-bottom-8px">
               {mode.name}
             </h3>
-            <p className="text-sm text-gray-400 mb-4">{mode.description}</p>
+            <p className="text-100 medium color-neutral-400 mg-bottom-16px">{mode.description}</p>
 
             <div className="space-y-3">
               <div>

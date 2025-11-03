@@ -44,7 +44,7 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
       transition={{ duration: 0.5 }}
       className="text-center max-w-2xl mx-auto"
     >
-      {/* Animated Rocket Icon */}
+      {/* Animated Rocket Icon with Avatar Circle */}
       <motion.div
         initial={{ scale: 0.5, rotate: -10 }}
         animate={{ scale: 1, rotate: 0 }}
@@ -54,9 +54,11 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
           damping: 20,
           delay: 0.1
         }}
-        className="text-7xl mb-6"
+        className="flex-horizontal justify-center mg-bottom-32px"
       >
-        🚀
+        <div className="avatar-circle" style={{ width: '120px', height: '120px', fontSize: '64px' }}>
+          🚀
+        </div>
       </motion.div>
 
       {/* Welcome Heading */}
@@ -64,7 +66,7 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-4"
+        className="display-1 color-neutral-100 mg-bottom-16px"
       >
         Welcome to SEOLOGY.AI{userName ? `, ${userName}` : ''}!
       </motion.h1>
@@ -73,10 +75,10 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="text-xl text-gray-400 mb-10"
+        className="text-300 medium color-neutral-400 mg-bottom-48px"
       >
         The world's first AI-powered SEO automation platform that actually{' '}
-        <span className="text-blue-400 font-semibold">fixes</span> issues for you—not just reports them.
+        <span className="text-300 bold color-accent-1">fixes</span> issues for you—not just reports them.
       </motion.p>
 
       {/* Key Benefits */}
