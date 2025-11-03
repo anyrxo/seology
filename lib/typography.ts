@@ -137,3 +137,48 @@ export const typographyPatterns = {
   // Label Pattern
   label: typo(typography.label, typography.color.secondary),
 } as const
+
+/**
+ * Gradient Text Utilities
+ * Premium gradient effects for headings and emphasis
+ */
+export const gradientText = {
+  blue: 'bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent',
+  purple: 'bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent',
+  rainbow: 'bg-gradient-to-r from-blue-400 via-purple-500 to-pink-600 bg-clip-text text-transparent',
+  white: 'bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent',
+  shimmer: 'bg-gradient-to-r from-white via-white/80 to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer',
+  subtle: 'bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent',
+  accent: 'bg-gradient-to-r from-blue-300 via-purple-400 to-pink-400 bg-clip-text text-transparent',
+  gold: 'bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 bg-clip-text text-transparent',
+} as const
+
+/**
+ * Text Effect Utilities
+ * Additional text effects for premium feel
+ */
+export const textEffects = {
+  glow: 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]',
+  glowBlue: 'drop-shadow-[0_0_20px_rgba(59,130,246,0.5)]',
+  glowPurple: 'drop-shadow-[0_0_20px_rgba(168,85,247,0.5)]',
+  shadow: 'drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]',
+  outline: '[text-shadow:_0_0_2px_rgb(0_0_0_/_100%)]',
+} as const
+
+/**
+ * Helper function to get gradient class
+ */
+export function getGradientClass(variant: keyof typeof gradientText): string {
+  return gradientText[variant]
+}
+
+/**
+ * Helper function to combine heading with gradient
+ */
+export function getHeadingWithGradient(
+  level: keyof typeof typography,
+  gradient?: keyof typeof gradientText
+): string {
+  const base = typeof typography[level] === 'string' ? typography[level] : ''
+  return gradient ? `${base} ${gradientText[gradient]}` : base
+}

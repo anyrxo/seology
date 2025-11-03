@@ -14,12 +14,12 @@ const config: Config = {
       },
       // Enhanced responsive breakpoints
       screens: {
-        'xs': '475px',    // Extra small devices
-        'sm': '640px',    // Mobile devices
-        'md': '768px',    // Tablets
-        'lg': '1024px',   // Small laptops
-        'xl': '1280px',   // Desktops
-        '2xl': '1536px',  // Large desktops
+        'xs': '475px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
       // Enhanced font family
       fontFamily: {
@@ -28,21 +28,21 @@ const config: Config = {
       },
       // Enhanced typography scale
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1.5' }],      // 12px
-        'sm': ['0.875rem', { lineHeight: '1.5' }],     // 14px
-        'base': ['1rem', { lineHeight: '1.625' }],     // 16px
-        'lg': ['1.125rem', { lineHeight: '1.625' }],   // 18px
-        'xl': ['1.25rem', { lineHeight: '1.625' }],    // 20px
-        '2xl': ['1.5rem', { lineHeight: '1.375' }],    // 24px
-        '3xl': ['1.875rem', { lineHeight: '1.375' }],  // 30px
-        '4xl': ['2.25rem', { lineHeight: '1.25' }],    // 36px
-        '5xl': ['3rem', { lineHeight: '1.25' }],       // 48px
-        '6xl': ['3.75rem', { lineHeight: '1.125' }],   // 60px
-        '7xl': ['4.5rem', { lineHeight: '1' }],        // 72px
-        '8xl': ['6rem', { lineHeight: '1' }],          // 96px
-        '9xl': ['8rem', { lineHeight: '1' }],          // 128px
+        'xs': ['0.75rem', { lineHeight: '1.5' }],
+        'sm': ['0.875rem', { lineHeight: '1.5' }],
+        'base': ['1rem', { lineHeight: '1.625' }],
+        'lg': ['1.125rem', { lineHeight: '1.625' }],
+        'xl': ['1.25rem', { lineHeight: '1.625' }],
+        '2xl': ['1.5rem', { lineHeight: '1.375' }],
+        '3xl': ['1.875rem', { lineHeight: '1.375' }],
+        '4xl': ['2.25rem', { lineHeight: '1.25' }],
+        '5xl': ['3rem', { lineHeight: '1.25' }],
+        '6xl': ['3.75rem', { lineHeight: '1.125' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
       },
-      // Responsive spacing scale (8px base unit)
+      // Responsive spacing scale
       spacing: {
         'safe-top': 'env(safe-area-inset-top)',
         'safe-bottom': 'env(safe-area-inset-bottom)',
@@ -51,10 +51,10 @@ const config: Config = {
       },
       // Touch-friendly minimum sizes
       minHeight: {
-        'touch': '44px',  // iOS minimum touch target
+        'touch': '44px',
       },
       minWidth: {
-        'touch': '44px',  // iOS minimum touch target
+        'touch': '44px',
       },
       // Enhanced letter spacing
       letterSpacing: {
@@ -64,6 +64,52 @@ const config: Config = {
         wide: '0.025em',
         wider: '0.05em',
         widest: '0.1em',
+      },
+      // Glass-morphism & Gradient Animations
+      animation: {
+        'shimmer': 'shimmer 3s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'spin-slow': 'spin-slow 8s linear infinite',
+        'gradient-shift': 'gradient-shift 15s ease infinite',
+        'spotlight': 'spotlight 20s ease-in-out infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+        'gradient-shift': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        spotlight: {
+          '0%, 100%': { transform: 'translate(0%, 0%)' },
+          '25%': { transform: 'translate(20%, 20%)' },
+          '50%': { transform: 'translate(-20%, 20%)' },
+          '75%': { transform: 'translate(20%, -20%)' },
+        },
+      },
+      // Backdrop blur
+      backdropBlur: {
+        'xs': '2px',
+        '3xl': '64px',
+      },
+      // Box shadow extensions
+      boxShadow: {
+        'glow': '0 0 30px rgba(255, 255, 255, 0.1)',
+        'glow-blue': '0 0 40px rgba(59, 130, 246, 0.3)',
+        'glow-purple': '0 0 40px rgba(168, 85, 247, 0.3)',
+        'glow-pink': '0 0 40px rgba(236, 72, 153, 0.3)',
+        'inner-glow': 'inset 0 0 20px rgba(255, 255, 255, 0.05)',
+        'inner-glow-hover': 'inset 0 0 20px rgba(255, 255, 255, 0.1)',
       },
     },
   },
