@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
+import { generateOAuthState } from '@/lib/csrf'
 
 // Mark this route as dynamic
 export const dynamic = 'force-dynamic'
@@ -23,13 +24,8 @@ export async function GET(req: NextRequest) {
   const scopes = 'read_products,write_products,read_content,write_content,read_themes,write_themes'
   const redirectUri = `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/shopify/callback`
 
-  // Generate state for security
-  const state = Buffer.from(
-    JSON.stringify({
-      userId: session.userId,
-      timestamp: Date.now(),
-    })
-  ).toString('base64')
+  // Generate cryptographically secure CSRF-protected state
+  const state = await generateOAuthState(session.userId, 'SHOPIFY', { shop })
 
   // Build Shopify OAuth URL
   const shopifyDomain = shop.includes('.myshopify.com') ? shop : `${shop}.myshopify.com`

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { encrypt } from '@/lib/encryption'
+import { validateOAuthState } from '@/lib/csrf'
 
 // Mark this route as dynamic
 export const dynamic = 'force-dynamic'
@@ -17,23 +19,16 @@ export async function GET(req: NextRequest) {
     )
   }
 
-  // Decode state to get userId
-  let userId: string
-  try {
-    const stateData = JSON.parse(Buffer.from(state, 'base64').toString())
-    userId = stateData.userId
+  // Validate CSRF-protected state parameter
+  const stateValidation = await validateOAuthState(state, 'SHOPIFY')
 
-    // Verify state timestamp is recent (within 10 minutes)
-    if (Date.now() - stateData.timestamp > 600000) {
-      return NextResponse.redirect(
-        new URL('/dashboard/sites?error=state_expired', req.url)
-      )
-    }
-  } catch (error) {
+  if (!stateValidation.valid || !stateValidation.userId) {
     return NextResponse.redirect(
       new URL('/dashboard/sites?error=invalid_state', req.url)
     )
   }
+
+  const userId = stateValidation.userId
 
   // Exchange code for access token
   const clientId = process.env.SHOPIFY_CLIENT_ID || '0b87ac78cf0783fd1dd829bf5421fae5'
@@ -76,8 +71,8 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // TODO: Encrypt access token before storing
-    // For now, storing plain text (NOT PRODUCTION READY)
+    // Encrypt access token before storing
+    const encryptedToken = encrypt(accessToken)
 
     // Create connection in database
     const connection = await db.connection.create({
@@ -86,7 +81,7 @@ export async function GET(req: NextRequest) {
         platform: 'SHOPIFY',
         domain: shop,
         displayName: shop.replace('.myshopify.com', ''),
-        accessToken: accessToken, // TODO: Encrypt this
+        accessToken: encryptedToken, // Encrypted using AES-256-GCM
         status: 'CONNECTED',
       },
     })

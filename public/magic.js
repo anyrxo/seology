@@ -29,6 +29,58 @@
     console.error('[SEOLOGY.AI]', ...args);
   }
 
+  /**
+   * Sanitize HTML to prevent XSS attacks
+   * Removes dangerous tags and attributes
+   */
+  function sanitizeHTML(html) {
+    const div = document.createElement('div');
+    div.textContent = html; // First escape all HTML
+
+    // Define allowed tags and attributes
+    const allowedTags = ['p', 'br', 'strong', 'em', 'b', 'i', 'u', 'a', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li'];
+    const allowedAttributes = {
+      'a': ['href', 'title', 'target', 'rel'],
+      'span': ['class'],
+      'div': ['class'],
+    };
+
+    // Parse the escaped HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(div.innerHTML, 'text/html');
+
+    // Remove disallowed tags
+    const allElements = doc.body.querySelectorAll('*');
+    allElements.forEach(el => {
+      const tagName = el.tagName.toLowerCase();
+
+      // Remove disallowed tags
+      if (!allowedTags.includes(tagName)) {
+        el.remove();
+        return;
+      }
+
+      // Remove disallowed attributes
+      const attrs = Array.from(el.attributes);
+      attrs.forEach(attr => {
+        const allowed = allowedAttributes[tagName] || [];
+        if (!allowed.includes(attr.name)) {
+          el.removeAttribute(attr.name);
+        }
+      });
+
+      // Sanitize href attributes to prevent javascript: URLs
+      if (tagName === 'a') {
+        const href = el.getAttribute('href');
+        if (href && (href.startsWith('javascript:') || href.startsWith('data:'))) {
+          el.removeAttribute('href');
+        }
+      }
+    });
+
+    return doc.body.innerHTML;
+  }
+
   // Validate configuration
   if (!SITE_ID) {
     logError('Missing data-site-id attribute. Please add your site ID to the script tag.');
@@ -99,6 +151,31 @@
   }
 
   /**
+   * Sanitize text content (remove HTML tags, keep only text)
+   */
+  function sanitizeText(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.textContent || '';
+  }
+
+  /**
+   * Validate and sanitize URL
+   */
+  function sanitizeURL(url) {
+    try {
+      const parsed = new URL(url, window.location.href);
+      // Only allow http, https, and relative URLs
+      if (parsed.protocol === 'http:' || parsed.protocol === 'https:' || parsed.protocol === 'mailto:') {
+        return parsed.href;
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  }
+
+  /**
    * Apply meta title fix
    */
   function applyMetaTitle(fix) {
@@ -109,7 +186,8 @@
       document.head.appendChild(titleTag);
     }
 
-    titleTag.textContent = fix.value;
+    // Sanitize to text-only (no HTML in title)
+    titleTag.textContent = sanitizeText(fix.value);
     log('Updated meta title to:', fix.value);
   }
 
@@ -125,7 +203,8 @@
       document.head.appendChild(metaTag);
     }
 
-    metaTag.setAttribute('content', fix.value);
+    // Sanitize to text-only (no HTML in meta description)
+    metaTag.setAttribute('content', sanitizeText(fix.value));
     log('Updated meta description to:', fix.value);
   }
 
@@ -138,7 +217,8 @@
     images.forEach((img, index) => {
       const altText = Array.isArray(fix.value) ? fix.value[index] : fix.value;
       if (altText && !img.getAttribute('alt')) {
-        img.setAttribute('alt', altText);
+        // Sanitize alt text (text-only)
+        img.setAttribute('alt', sanitizeText(altText));
         log('Added alt text to image:', altText);
       }
     });
@@ -151,7 +231,8 @@
     const element = document.querySelector(fix.selector);
 
     if (element) {
-      element.textContent = fix.value;
+      // Use textContent for headings (no HTML)
+      element.textContent = sanitizeText(fix.value);
       log('Updated heading:', fix.value);
     }
   }
@@ -164,8 +245,14 @@
 
     links.forEach(link => {
       if (link.href === fix.oldValue) {
-        link.href = fix.value;
-        log('Fixed link from', fix.oldValue, 'to', fix.value);
+        // Sanitize URL to prevent javascript: or data: URIs
+        const sanitizedURL = sanitizeURL(fix.value);
+        if (sanitizedURL) {
+          link.href = sanitizedURL;
+          log('Fixed link from', fix.oldValue, 'to', sanitizedURL);
+        } else {
+          logError('Invalid URL blocked:', fix.value);
+        }
       }
     });
   }
@@ -178,11 +265,13 @@
 
     if (element) {
       if (fix.html) {
-        element.innerHTML = fix.value;
+        // Sanitize HTML before inserting to prevent XSS
+        element.innerHTML = sanitizeHTML(fix.value);
+        log('Updated HTML content for:', fix.selector, '(sanitized)');
       } else {
         element.textContent = fix.value;
+        log('Updated text content for:', fix.selector);
       }
-      log('Updated content for:', fix.selector);
     }
   }
 

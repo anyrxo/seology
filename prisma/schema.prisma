@@ -11,36 +11,42 @@ datasource db {
 
 // Users & Authentication (managed by Clerk)
 model User {
-  id        String   @id @default(uuid())
-  clerkId   String   @unique
-  email     String   @unique
-  name      String?
-  plan      Plan     @default(STARTER)
+  id      String  @id @default(uuid())
+  clerkId String  @unique
+  email   String  @unique
+  name    String?
+  plan    Plan    @default(STARTER)
+  role    Role    @default(USER)
 
-  executionMode  ExecutionMode @default(AUTOMATIC)
+  executionMode ExecutionMode @default(AUTOMATIC)
 
-  stripeCustomerId       String?
-  stripeSubscriptionId   String?
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   // Relations
-  connections      Connection[]
-  aiConversations  AIConversation[]
-  auditLogs        AuditLog[]
-  subscriptions    Subscription[]
-  notifications    Notification[]
-  webhooks         Webhook[]
-  teamMemberships  TeamMember[]
-  ownedTeams       Team[]             @relation("TeamOwner")
-  sentInvitations  TeamInvitation[]   @relation("InvitationSender")
+  connections     Connection[]
+  aiConversations AIConversation[]
+  auditLogs       AuditLog[]
+  subscriptions   Subscription[]
+  notifications   Notification[]
+  webhooks        Webhook[]
+  teamMemberships TeamMember[]
+  ownedTeams      Team[]           @relation("TeamOwner")
+  sentInvitations TeamInvitation[] @relation("InvitationSender")
 }
 
 enum ExecutionMode {
   AUTOMATIC
   PLAN
   APPROVE
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 enum Plan {
@@ -51,33 +57,33 @@ enum Plan {
 
 // Website Connections
 model Connection {
-  id          String   @id @default(uuid())
-  userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  teamId      String?
-  team        Team?    @relation("TeamConnections", fields: [teamId], references: [id], onDelete: SetNull)
+  teamId String?
+  team   Team?   @relation("TeamConnections", fields: [teamId], references: [id], onDelete: SetNull)
 
   platform    Platform
   domain      String
   displayName String?
 
   // Encrypted credentials
-  accessToken   String?
-  refreshToken  String?
-  credentials   String?  // JSON string of platform-specific data
+  accessToken  String?
+  refreshToken String?
+  credentials  String? // JSON string of platform-specific data
 
-  status      ConnectionStatus  @default(PENDING)
-  lastSync    DateTime?
+  status   ConnectionStatus @default(PENDING)
+  lastSync DateTime?
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
-  issues      Issue[]
-  fixes       Fix[]
-  metrics     Metric[]
-  crawls      Crawl[]
+  issues  Issue[]
+  fixes   Fix[]
+  metrics Metric[]
+  crawls  Crawl[]
 
   @@index([userId])
   @@index([teamId])
@@ -99,25 +105,25 @@ enum ConnectionStatus {
 
 // SEO Issues Detected
 model Issue {
-  id           String   @id @default(uuid())
+  id           String     @id @default(uuid())
   connectionId String
   connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
 
-  type         String   // 'missing_meta', 'broken_link', 'missing_alt', etc.
-  title        String
-  severity     Severity
-  pageUrl      String
-  details      String   // JSON string
+  type           String // 'missing_meta', 'broken_link', 'missing_alt', etc.
+  title          String
+  severity       Severity
+  pageUrl        String
+  details        String // JSON string
   recommendation String? // AI-generated fix recommendation
 
-  status       IssueStatus @default(DETECTED)
+  status IssueStatus @default(DETECTED)
 
-  detectedAt   DateTime @default(now())
-  fixedAt      DateTime?
-  createdAt    DateTime @default(now())
+  detectedAt DateTime  @default(now())
+  fixedAt    DateTime?
+  createdAt  DateTime  @default(now())
 
   // Relations
-  fixes        Fix[]
+  fixes Fix[]
 
   @@index([connectionId])
   @@index([status])
@@ -142,28 +148,28 @@ enum IssueStatus {
 
 // Fixes Applied
 model Fix {
-  id           String   @id @default(uuid())
+  id           String     @id @default(uuid())
   connectionId String
   connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
 
-  issueId      String?
-  issue        Issue?   @relation(fields: [issueId], references: [id])
+  issueId String?
+  issue   Issue?  @relation(fields: [issueId], references: [id])
 
-  description  String
-  type         String   @default("seo_fix")
-  targetUrl    String?
+  description String
+  type        String  @default("seo_fix")
+  targetUrl   String?
 
-  changes      String   // JSON string of the fix code/changes
-  beforeState  String   @default("{}")  // JSON string
-  afterState   String   @default("{}")  // JSON string
+  changes     String // JSON string of the fix code/changes
+  beforeState String @default("{}") // JSON string
+  afterState  String @default("{}") // JSON string
 
-  method       FixMethod @default(AUTOMATIC)
-  status       FixStatus @default(PENDING)
+  method FixMethod @default(AUTOMATIC)
+  status FixStatus @default(PENDING)
 
   appliedAt    DateTime?
   rolledBackAt DateTime?
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([connectionId])
   @@index([status])
@@ -184,19 +190,19 @@ enum FixStatus {
 
 // Performance Metrics
 model Metric {
-  id           String   @id @default(uuid())
+  id           String     @id @default(uuid())
   connectionId String
   connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
 
-  date         DateTime @default(now())
+  date DateTime @default(now())
 
   organicTraffic Int?
-  rankings       String?  // JSON string: {keyword: position}
+  rankings       String? // JSON string: {keyword: position}
   pageSpeed      Float?
   issuesCount    Int?
   fixesCount     Int?
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@unique([connectionId, date])
   @@index([connectionId])
@@ -204,36 +210,36 @@ model Metric {
 
 // AI Conversations
 model AIConversation {
-  id           String   @id @default(uuid())
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   connectionId String?
 
-  messages     String   // JSON string array of {role, content}
-  context      String?  // JSON string of site-specific context
+  messages String // JSON string array of {role, content}
+  context  String? // JSON string of site-specific context
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([userId])
 }
 
 // Audit Logs
 model AuditLog {
-  id           String   @id @default(uuid())
-  userId       String
-  user         User     @relation(fields: [userId], references: [id])
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   connectionId String?
 
-  action       String
-  resource     String?  // Type of resource ('fix', 'issue', 'plan', etc.)
-  resourceId   String?  // ID of the resource
-  details      String   @default("{}")  // JSON string
-  ipAddress    String?
-  userAgent    String?
+  action     String
+  resource   String? // Type of resource ('fix', 'issue', 'plan', etc.)
+  resourceId String? // ID of the resource
+  details    String  @default("{}") // JSON string
+  ipAddress  String?
+  userAgent  String?
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([userId])
   @@index([createdAt])
@@ -241,18 +247,18 @@ model AuditLog {
 
 // Billing & Subscriptions
 model Subscription {
-  id                    String   @id @default(uuid())
-  userId                String
-  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  stripeSubscriptionId  String   @unique
-  plan                  Plan
-  status                SubscriptionStatus
+  stripeSubscriptionId String             @unique
+  plan                 Plan
+  status               SubscriptionStatus
 
-  currentPeriodStart    DateTime
-  currentPeriodEnd      DateTime
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
 
-  createdAt             DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([userId])
 }
@@ -266,18 +272,18 @@ enum SubscriptionStatus {
 
 // Crawl Jobs
 model Crawl {
-  id           String   @id @default(uuid())
+  id           String     @id @default(uuid())
   connectionId String
   connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
 
-  status       CrawlStatus @default(PENDING)
-  pagesFound   Int?
-  issuesFound  Int?
+  status      CrawlStatus @default(PENDING)
+  pagesFound  Int?
+  issuesFound Int?
 
-  startedAt    DateTime?
-  completedAt  DateTime?
+  startedAt   DateTime?
+  completedAt DateTime?
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([connectionId])
   @@index([status])
@@ -292,18 +298,18 @@ enum CrawlStatus {
 
 // Notifications
 model Notification {
-  id           String   @id @default(uuid())
-  userId       String
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  type         String   // 'SUCCESS', 'ERROR', 'INFO', 'WARNING'
-  title        String
-  message      String
-  actionUrl    String?  // Optional link to relevant page
+  type      String // 'SUCCESS', 'ERROR', 'INFO', 'WARNING'
+  title     String
+  message   String
+  actionUrl String? // Optional link to relevant page
 
-  read         Boolean  @default(false)
+  read Boolean @default(false)
 
-  createdAt    DateTime @default(now())
+  createdAt DateTime @default(now())
 
   @@index([userId])
   @@index([read])
@@ -311,20 +317,20 @@ model Notification {
 
 // Webhooks
 model Webhook {
-  id               String    @id @default(uuid())
-  userId           String
-  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  url              String
-  events           String    // JSON array of event types
-  secret           String    // HMAC secret for signature verification
-  enabled          Boolean   @default(true)
+  url     String
+  events  String // JSON array of event types
+  secret  String // HMAC secret for signature verification
+  enabled Boolean @default(true)
 
-  failureCount     Int       @default(0)
-  lastTriggeredAt  DateTime?
+  failureCount    Int       @default(0)
+  lastTriggeredAt DateTime?
 
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([userId])
   @@index([enabled])
@@ -332,17 +338,17 @@ model Webhook {
 
 // Teams & Collaboration
 model Team {
-  id          String   @id @default(uuid())
+  id          String  @id @default(uuid())
   name        String
   description String?
 
-  ownerId     String
-  owner       User     @relation("TeamOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId String
+  owner   User   @relation("TeamOwner", fields: [ownerId], references: [id], onDelete: Cascade)
 
-  plan        Plan     @default(STARTER)
+  plan Plan @default(STARTER)
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   // Relations
   members     TeamMember[]
@@ -353,16 +359,16 @@ model Team {
 }
 
 model TeamMember {
-  id          String   @id @default(uuid())
-  teamId      String
-  team        Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  teamId String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
 
-  userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  role        TeamRole @default(MEMBER)
+  role TeamRole @default(MEMBER)
 
-  joinedAt    DateTime @default(now())
+  joinedAt DateTime @default(now())
 
   @@unique([teamId, userId])
   @@index([teamId])
@@ -377,23 +383,23 @@ enum TeamRole {
 }
 
 model TeamInvitation {
-  id          String           @id @default(uuid())
-  teamId      String
-  team        Team             @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  teamId String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
 
-  email       String
-  role        TeamRole         @default(MEMBER)
+  email String
+  role  TeamRole @default(MEMBER)
 
-  invitedBy   String
-  inviter     User             @relation("InvitationSender", fields: [invitedBy], references: [id])
+  invitedBy String
+  inviter   User   @relation("InvitationSender", fields: [invitedBy], references: [id])
 
-  status      InvitationStatus @default(PENDING)
-  token       String           @unique
+  status InvitationStatus @default(PENDING)
+  token  String           @unique
 
-  expiresAt   DateTime
-  acceptedAt  DateTime?
+  expiresAt  DateTime
+  acceptedAt DateTime?
 
-  createdAt   DateTime         @default(now())
+  createdAt DateTime @default(now())
 
   @@unique([teamId, email])
   @@index([teamId])
@@ -406,4 +412,18 @@ enum InvitationStatus {
   ACCEPTED
   EXPIRED
   REVOKED
+}
+
+// CSRF Protection for OAuth Flows
+model CSRFToken {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  provider  String   // SHOPIFY, WORDPRESS, GOOGLE
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([userId])
+  @@index([token])
+  @@index([expiresAt])
 }
