@@ -32,6 +32,9 @@ model User {
   subscriptions    Subscription[]
   notifications    Notification[]
   webhooks         Webhook[]
+  teamMemberships  TeamMember[]
+  ownedTeams       Team[]             @relation("TeamOwner")
+  sentInvitations  TeamInvitation[]   @relation("InvitationSender")
 }
 
 enum ExecutionMode {
@@ -51,6 +54,9 @@ model Connection {
   id          String   @id @default(uuid())
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  teamId      String?
+  team        Team?    @relation("TeamConnections", fields: [teamId], references: [id], onDelete: SetNull)
 
   platform    Platform
   domain      String
@@ -74,6 +80,7 @@ model Connection {
   crawls      Crawl[]
 
   @@index([userId])
+  @@index([teamId])
 }
 
 enum Platform {
@@ -321,4 +328,82 @@ model Webhook {
 
   @@index([userId])
   @@index([enabled])
+}
+
+// Teams & Collaboration
+model Team {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+
+  ownerId     String
+  owner       User     @relation("TeamOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  plan        Plan     @default(STARTER)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  members     TeamMember[]
+  invitations TeamInvitation[]
+  connections Connection[]     @relation("TeamConnections")
+
+  @@index([ownerId])
+}
+
+model TeamMember {
+  id          String   @id @default(uuid())
+  teamId      String
+  team        Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  role        TeamRole @default(MEMBER)
+
+  joinedAt    DateTime @default(now())
+
+  @@unique([teamId, userId])
+  @@index([teamId])
+  @@index([userId])
+}
+
+enum TeamRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+model TeamInvitation {
+  id          String           @id @default(uuid())
+  teamId      String
+  team        Team             @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  email       String
+  role        TeamRole         @default(MEMBER)
+
+  invitedBy   String
+  inviter     User             @relation("InvitationSender", fields: [invitedBy], references: [id])
+
+  status      InvitationStatus @default(PENDING)
+  token       String           @unique
+
+  expiresAt   DateTime
+  acceptedAt  DateTime?
+
+  createdAt   DateTime         @default(now())
+
+  @@unique([teamId, email])
+  @@index([teamId])
+  @@index([email])
+  @@index([token])
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
 }
