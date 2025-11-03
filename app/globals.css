@@ -240,6 +240,11 @@ body {
   animation: gradient-shift 15s ease infinite;
 }
 
+.animate-gradient-slow {
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
 /* Spotlight effect */
 .bg-spotlight {
   position: relative;

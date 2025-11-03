@@ -17,7 +17,7 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-950">
+    <div className="flex min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 animate-gradient-slow">
       <Sidebar />
       <div className="flex flex-1 flex-col overflow-hidden w-full lg:w-auto">
         <DashboardHeader />
