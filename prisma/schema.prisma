@@ -27,6 +27,10 @@ model User {
   // Onboarding state
   onboardingCompleted Boolean @default(false)
   onboardingStep      Int     @default(0)
+  businessType        String? // E-commerce, SaaS, Local Business
+  businessName        String?
+  businessStage       String? // Just Starting, Growing, Established
+  platform            String? // Shopify, WordPress, WooCommerce, Custom
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
