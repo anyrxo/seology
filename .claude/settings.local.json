@@ -27,7 +27,8 @@
       "Read(//c/Users/manna/Downloads/**)",
       "Bash(cd:*)",
       "Bash(git push:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git tag:*)"
     ],
     "deny": [],
     "ask": []

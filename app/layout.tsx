@@ -48,22 +48,8 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
 
-          {/* Preload critical CSS - use media print trick to load async */}
-          <link
-            rel="preload"
-            href="/css/normalize.css"
-            as="style"
-            onLoad={(e) => {
-              const target = e.target as HTMLLinkElement;
-              target.onload = null;
-              target.rel = 'stylesheet';
-            }}
-          />
-          <noscript>
-            <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
-          </noscript>
-
-          {/* Load Webflow CSS */}
+          {/* Load critical CSS */}
+          <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
           <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
           <link href="/css/anyros-fantabulous-site.webflow.css" rel="stylesheet" type="text/css" />
           <link href="/css/anyros-wondrous-site.webflow.css" rel="stylesheet" type="text/css" />
