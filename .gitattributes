@@ -1,0 +1,64 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare text files
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.json text
+*.md text
+*.css text
+*.scss text
+*.html text
+*.xml text
+*.yml text
+*.yaml text
+*.txt text
+*.prisma text
+*.env.example text
+*.gitignore text
+*.gitattributes text
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Denote binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.svg binary
+*.webp binary
+*.avif binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.rar binary
+*.7z binary
+
+# Exclude from releases
+.github/ export-ignore
+.vscode/ export-ignore
+tests/ export-ignore
+*.test.ts export-ignore
+*.spec.ts export-ignore
+.env.example export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+CLAUDE.md export-ignore
+breakdown.txt export-ignore
+BUILD_STATUS.md export-ignore

@@ -32,7 +32,21 @@
       "Bash(wc:*)",
       "Bash(tail:*)",
       "Bash(awk:*)",
-      "Bash(npx prisma validate:*)"
+      "Bash(npx prisma validate:*)",
+      "Bash(xargs:*)",
+      "Bash(git mv:*)",
+      "Bash(if [ -f \"nul\" ])",
+      "Bash(then rm -f nul)",
+      "Bash(else echo \"No nul file found\")",
+      "Bash(fi)",
+      "Bash(git checkout:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm audit:*)",
+      "Bash(git log:*)",
+      "Bash(npm ls:*)",
+      "Bash(for dir in docs/guides docs/architecture docs/deployment docs/reviews docs/summaries docs/quick-reference)",
+      "Bash(done)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

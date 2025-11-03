@@ -1,5 +1,13 @@
 # SEOLOGY.AI
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748.svg)](https://prisma.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC.svg)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](BUILD_STATUS.md)
+[![Production Ready](https://img.shields.io/badge/status-production--ready-success.svg)](https://github.com/anyrxo/seology)
+
 > The first platform that automatically fixes SEO issues instead of just reporting them.
 
 SEOLOGY.AI is an AI-powered SEO automation SaaS that connects to your CMS (Shopify, WordPress, or custom sites), analyzes your content for SEO problems, and automatically applies fixes - all powered by Claude AI.

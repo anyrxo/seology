@@ -2,17 +2,22 @@
 node_modules/
 .pnp
 .pnp.js
+/.yarn
+.npm
+.yarn-integrity
 
 # Testing
 coverage/
 .nyc_output/
 *.lcov
+.nyc_output
 
 # Next.js
 .next/
 out/
 dist/
 build/
+.vercel/
 
 # Environment variables
 .env
@@ -20,15 +25,15 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
-
-# Vercel
-.vercel/
+.env*.local
+!.env.example
 
 # Database
 *.db
 *.db-journal
 prisma/dev.db
 prisma/dev.db-journal
+/prisma/migrations/*_migration.sql
 
 # Logs
 logs/
@@ -39,19 +44,44 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# OS files
+# OS files - Mac
 .DS_Store
-Thumbs.db
-*.swp
-*.swo
-*~
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
 
-# IDE
+# OS files - Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# OS files - Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# IDE - VSCode
 .vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.vscode-test
+
+# IDE - Others
 .idea/
 *.sublime-project
 *.sublime-workspace
 .history/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
 
 # Backups
 backups/
@@ -62,6 +92,7 @@ backups/
 tmp/
 temp/
 *.tmp
+*.tgz
 
 # Secrets and keys
 *.key
@@ -70,12 +101,22 @@ temp/
 *.pfx
 secrets/
 
+# Build artifacts
+*.tsbuildinfo
+next-env.d.ts
+
+# Cache
+.cache/
+.parcel-cache
+.turbo/
+.eslintcache
+.node_repl_history
+
 # Sentry
 .sentryclirc
 
+# Package managers
+.pnpm-debug.log*
+
 # Misc
-.turbo/
-.cache/
-*.tsbuildinfo
-next-env.d.ts
 nul
