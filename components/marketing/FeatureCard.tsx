@@ -65,7 +65,7 @@ export default function FeatureCard({
         rotateY,
         transformStyle: 'preserve-3d',
       }}
-      className="relative bg-black border border-white/10 rounded-xl p-8 overflow-hidden group cursor-pointer"
+      className="relative bg-black border border-white/10 rounded-lg p-8 overflow-hidden group cursor-pointer"
     >
       {/* Glow effect on hover */}
       <div
@@ -80,7 +80,7 @@ export default function FeatureCard({
 
       {/* Icon container with animation */}
       <motion.div
-        className="relative w-16 h-16 rounded-xl flex items-center justify-center mb-6 border border-white/10 bg-white/5"
+        className="relative w-16 h-16 rounded-lg flex items-center justify-center mb-6 border border-white/10 bg-white/5"
         animate={{
           scale: isHovered ? 1.1 : 1,
           rotate: isHovered ? [0, -10, 10, -10, 0] : 0,
@@ -98,7 +98,7 @@ export default function FeatureCard({
 
         {/* Icon glow */}
         <motion.div
-          className="absolute inset-0 rounded-xl blur-xl bg-white/20"
+          className="absolute inset-0 rounded-lg blur-xl bg-white/20"
           animate={{
             opacity: isHovered ? 0.5 : 0,
             scale: isHovered ? 1.2 : 1,
@@ -119,7 +119,7 @@ export default function FeatureCard({
 
       {/* Border glow on hover */}
       <motion.div
-        className="absolute inset-0 rounded-xl"
+        className="absolute inset-0 rounded-lg"
         style={{
           border: '1px solid rgba(255,255,255,0.1)',
           boxShadow: isHovered ? '0 0 30px rgba(255,255,255,0.1), inset 0 0 30px rgba(255,255,255,0.05)' : 'none',

@@ -30,6 +30,7 @@ import {
   gridAnimation,
   defaultViewport,
 } from '@/lib/animations'
+import { typography, typographyPatterns, typo } from '@/lib/typography'
 
 // Magnetic button component with cursor follow
 const MagneticButton = ({
@@ -87,7 +88,7 @@ export default function LandingPageContent() {
   return (
     <div className="bg-black">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative min-h-[calc(100vh-112px)] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Animated Background Grid */}
         <motion.div
           className="absolute inset-0 opacity-10"
@@ -135,7 +136,7 @@ export default function LandingPageContent() {
             className="inline-flex items-center px-6 py-3 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-sm"
           >
             <Sparkles className="w-4 h-4 text-white mr-2" />
-            <span className="text-sm text-white/80 font-medium">
+            <span className={typo(typography.caption, typography.color.secondary, 'font-medium', typography.tracking.wide)}>
               Powered by Claude 3.5 Sonnet AI
             </span>
           </motion.div>
@@ -143,7 +144,7 @@ export default function LandingPageContent() {
           {/* Headline with animated gradient text */}
           <motion.h1
             variants={fadeInUp}
-            className="text-6xl md:text-8xl font-black text-white mb-8 leading-[1.1]"
+            className={typo(typography.h1, typography.color.primary, 'mb-8', typography.width.heading, 'mx-auto')}
           >
             Stop Reporting SEO Issues.
             <br />
@@ -158,7 +159,7 @@ export default function LandingPageContent() {
           {/* Subtitle */}
           <motion.p
             variants={fadeInUp}
-            className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className={typo(typographyPatterns.heroBody, 'mb-12 mx-auto')}
           >
             The world's first AI-powered platform that doesn't just find SEO
             problems—it logs into your CMS and fixes them. Automatically.
@@ -181,18 +182,18 @@ export default function LandingPageContent() {
           {/* Trust Indicators */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/40"
+            className={typo('flex flex-col sm:flex-row items-center justify-center gap-6', typographyPatterns.smallBody)}
           >
             <span className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white/60" />
               14-day free trial
             </span>
-            <span className="hidden sm:inline text-white/20">•</span>
+            <span className={typo('hidden sm:inline', typography.color.disabled)}>•</span>
             <span className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white/60" />
               No credit card required
             </span>
-            <span className="hidden sm:inline text-white/20">•</span>
+            <span className={typo('hidden sm:inline', typography.color.disabled)}>•</span>
             <span className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-white/60" />
               Cancel anytime
@@ -222,10 +223,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-6 mx-auto')}>
               Every SEO Tool Tells You What's Wrong
             </h2>
-            <p className="text-2xl text-white/50">Nobody actually fixes it.</p>
+            <p className={typo(typography['body-xl'], typography.color.muted)}>Nobody actually fixes it.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -286,12 +287,12 @@ export default function LandingPageContent() {
                 }`}
               >
                 <item.icon className={`w-14 h-14 ${item.color} mb-6`} />
-                <h3 className="text-2xl font-bold text-white mb-6">
+                <h3 className={typo(typographyPatterns.cardTitle, 'mb-6')}>
                   {item.title}
                 </h3>
                 <ul className="space-y-3">
                   {item.items.map((point, i) => (
-                    <li key={i} className="flex items-start text-white/60">
+                    <li key={i} className={typo('flex items-start', typography.body, typography.color.tertiary)}>
                       <span
                         className={`${item.color} mr-3 mt-1 font-bold text-lg`}
                       >
@@ -308,7 +309,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section id="how-it-works" className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -317,10 +318,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               How It Works
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className={typo(typographyPatterns.heroBody)}>
               Three simple steps to automated SEO success
             </p>
           </motion.div>
@@ -363,10 +364,10 @@ export default function LandingPageContent() {
                 <div className="w-16 h-16 bg-blue-600/10 rounded-lg flex items-center justify-center mb-4">
                   <item.icon className="w-8 h-8 text-blue-500" />
                 </div>
-                <h3 className="text-2xl font-semibold text-white mb-3">
+                <h3 className={typo(typographyPatterns.cardTitle, 'mb-3')}>
                   {item.title}
                 </h3>
-                <p className="text-gray-400">{item.description}</p>
+                <p className={typo(typographyPatterns.body)}>{item.description}</p>
 
                 {index < 2 && (
                   <div className="hidden md:block absolute top-20 -right-4 w-8">
@@ -380,7 +381,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -389,10 +390,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               Why Choose SEOLOGY.AI?
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className={typo(typographyPatterns.heroBody)}>
               The most advanced SEO automation platform ever built
             </p>
           </motion.div>
@@ -439,7 +440,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -448,10 +449,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               Loved by SEO Teams Everywhere
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className={typo(typographyPatterns.heroBody)}>
               See what our customers are saying
             </p>
           </motion.div>
@@ -483,7 +484,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* Platform Support */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -491,10 +492,10 @@ export default function LandingPageContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               Works With Your Platform
             </h2>
-            <p className="text-xl text-gray-400 mb-12">
+            <p className={typo(typographyPatterns.heroBody, 'mb-12')}>
               Seamless integration with the tools you already use
             </p>
 
@@ -524,15 +525,15 @@ export default function LandingPageContent() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-blue-500/50 transition-colors"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className={typo(typographyPatterns.cardTitle, 'mb-2')}>
                     {platform.name}
                   </h3>
-                  <p className="text-gray-400 mb-4">{platform.description}</p>
+                  <p className={typo(typographyPatterns.body, 'mb-4')}>{platform.description}</p>
                   <ul className="space-y-2">
                     {platform.features.map((feature, i) => (
                       <li
                         key={i}
-                        className="flex items-center text-gray-300 text-sm"
+                        className={typo('flex items-center', typographyPatterns.smallBody)}
                       >
                         <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
                         {feature}
@@ -547,7 +548,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -556,7 +557,7 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <p className="text-sm text-gray-500 uppercase tracking-wider mb-8">
+            <p className={typo(typographyPatterns.caption, 'uppercase mb-8')}>
               Trusted by 10,000+ websites worldwide
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-50">
@@ -580,7 +581,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* Pricing Preview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -589,10 +590,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               Simple, Transparent Pricing
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className={typo(typographyPatterns.heroBody)}>
               Start free, scale as you grow
             </p>
           </motion.div>
@@ -649,19 +650,19 @@ export default function LandingPageContent() {
                     </span>
                   </div>
                 )}
-                <div className="text-sm text-gray-500 font-semibold mb-2">
+                <div className={typo(typographyPatterns.caption, 'font-semibold mb-2 uppercase')}>
                   {plan.name}
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className={typo(typographyPatterns.stat, 'mb-2')}>
                   {plan.price}
-                  <span className="text-lg text-gray-400">/mo</span>
+                  <span className={typo(typography.h5, typography.color.muted)}>/mo</span>
                 </div>
-                <p className="text-gray-400 mb-6">{plan.description}</p>
+                <p className={typo(typographyPatterns.body, 'mb-6')}>{plan.description}</p>
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="flex items-center text-gray-300 text-sm"
+                      className={typo('flex items-center', typographyPatterns.smallBody)}
                     >
                       <CheckCircle2 className="w-4 h-4 text-green-500 mr-2" />
                       {feature}
@@ -701,7 +702,7 @@ export default function LandingPageContent() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -710,10 +711,10 @@ export default function LandingPageContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={typo(typographyPatterns.sectionTitle, 'mb-4')}>
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className={typo(typographyPatterns.heroBody)}>
               Everything you need to know about SEOLOGY.AI
             </p>
           </motion.div>
@@ -759,10 +760,10 @@ export default function LandingPageContent() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className={typo(typography.h5, typography.color.primary, 'mb-3')}>
                   {faq.question}
                 </h3>
-                <p className="text-gray-400">{faq.answer}</p>
+                <p className={typo(typographyPatterns.body)}>{faq.answer}</p>
               </motion.div>
             ))}
           </div>

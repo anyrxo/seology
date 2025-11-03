@@ -17,6 +17,39 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Responsive container utilities */
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+
+  /* Touch-friendly buttons */
+  .btn-touch {
+    @apply min-h-touch min-w-touch;
+  }
+
+  /* Prevent horizontal scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Safe area support for mobile devices */
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+  }
+  .safe-left {
+    padding-left: max(env(safe-area-inset-left), 0px);
+  }
+  .safe-right {
+    padding-right: max(env(safe-area-inset-right), 0px);
+  }
 }
 
 /* Ripple effect animation */

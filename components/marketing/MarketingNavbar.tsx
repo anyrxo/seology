@@ -3,12 +3,14 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useAnnouncement } from './AnnouncementContext'
 
 export default function MarketingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [visible, setVisible] = useState(true)
+  const { height: announcementHeight } = useAnnouncement()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,9 +33,13 @@ export default function MarketingNavbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
+  const navbarTop = announcementHeight
+  const mobileMenuTop = announcementHeight + 64 // navbar height (h-16 = 64px)
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      style={{ top: `${navbarTop}px` }}
+      className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
         visible ? 'translate-y-0' : '-translate-y-full'
       } ${
         scrolled
@@ -76,7 +82,7 @@ export default function MarketingNavbar() {
             </Link>
             <Link
               href="/sign-up"
-              className="bg-white text-black px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 hover:bg-white/90 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              className="inline-flex items-center justify-center h-10 bg-white text-black px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-white/90 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
             >
               Start Free
             </Link>
@@ -95,7 +101,8 @@ export default function MarketingNavbar() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-full max-w-sm bg-black border-l border-white/10 transition-transform duration-300 ease-out ${
+        style={{ top: `${mobileMenuTop}px`, height: `calc(100vh - ${mobileMenuTop}px)` }}
+        className={`md:hidden fixed right-0 w-full max-w-sm bg-black/95 backdrop-blur-xl border-l border-white/10 transition-transform duration-300 ease-out z-50 ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -136,7 +143,7 @@ export default function MarketingNavbar() {
             </Link>
             <Link
               href="/sign-up"
-              className="block bg-white text-black px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-white/90 text-center hover:scale-105"
+              className="flex items-center justify-center h-12 bg-white text-black px-6 rounded-lg font-semibold transition-all duration-300 hover:bg-white/90 hover:scale-105"
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 animation: mobileMenuOpen ? 'slideIn 0.3s ease-out 0.5s both' : 'none',
@@ -151,9 +158,9 @@ export default function MarketingNavbar() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-16 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+          style={{ top: `${mobileMenuTop}px` }}
+          className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 z-30"
           onClick={() => setMobileMenuOpen(false)}
-          style={{ animation: 'fadeIn 0.3s ease-out' }}
         />
       )}
 

@@ -59,7 +59,7 @@ const MagneticCTAButton = ({
       style={{ x: springX, y: springY }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`inline-flex items-center justify-center px-10 py-5 rounded-xl font-bold text-lg transition-all ${
+      className={`inline-flex items-center justify-center h-12 px-8 rounded-lg font-bold text-base transition-all duration-300 ${
         variant === 'primary'
           ? 'bg-white text-black hover:shadow-[0_0_40px_rgba(255,255,255,0.6)]'
           : 'border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/60'

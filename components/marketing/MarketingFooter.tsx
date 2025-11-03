@@ -45,14 +45,14 @@ export default function MarketingFooter() {
               AI-powered SEO automation that actually fixes your issues, not just reports them.
             </p>
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative"
+                  className="group relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-all duration-300"
                   aria-label={social.name}
                 >
                   <div className="relative z-10 text-gray-400 transition-all duration-300 group-hover:text-white group-hover:scale-110">
@@ -66,7 +66,7 @@ export default function MarketingFooter() {
 
           {/* Product Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
+            <h4 className="text-white font-semibold mb-5">Product</h4>
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
@@ -86,7 +86,7 @@ export default function MarketingFooter() {
 
           {/* Company Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <h4 className="text-white font-semibold mb-5">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -106,7 +106,7 @@ export default function MarketingFooter() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
+            <h4 className="text-white font-semibold mb-5">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>

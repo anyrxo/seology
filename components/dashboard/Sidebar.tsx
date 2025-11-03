@@ -2,7 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import { UserButton } from '@clerk/nextjs'
+import { Menu, X } from 'lucide-react'
 import NotificationCenter from '@/components/notifications/NotificationCenter'
 
 interface SidebarLink {
@@ -24,50 +26,92 @@ const sidebarLinks: SidebarLink[] = [
 
 export default function Sidebar() {
   const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0">
-      {/* Logo */}
-      <div className="p-6 border-b border-gray-800">
-        <div className="flex items-center justify-between">
-          <Link href="/dashboard" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-white">SEOLOGY.AI</div>
-          </Link>
-          <NotificationCenter />
-        </div>
-      </div>
+    <>
+      {/* Mobile Menu Button - Only visible on mobile */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-900 border border-gray-800 rounded-lg text-white hover:bg-gray-800 transition-colors min-h-touch min-w-touch"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </button>
 
-      {/* Navigation Links */}
-      <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-        {sidebarLinks.map((link) => {
-          const isActive = pathname === link.href
-          return (
+      {/* Mobile Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/60 z-40"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar - Desktop always visible, Mobile slide-in */}
+      <div
+        className={`
+          flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0 z-40
+          lg:translate-x-0
+          fixed lg:static
+          transition-transform duration-300 ease-in-out
+          ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+        `}
+      >
+        {/* Logo */}
+        <div className="p-4 sm:p-6 border-b border-gray-800">
+          <div className="flex items-center justify-between">
             <Link
-              key={link.href}
-              href={link.href}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                isActive
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
-              }`}
+              href="/dashboard"
+              className="flex items-center space-x-2"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="text-xl">{link.icon}</span>
-              <span className="font-medium">{link.label}</span>
+              <div className="text-lg sm:text-2xl font-bold text-white truncate">
+                SEOLOGY.AI
+              </div>
             </Link>
-          )
-        })}
-      </nav>
+            <div className="hidden lg:block">
+              <NotificationCenter />
+            </div>
+          </div>
+        </div>
 
-      {/* User Profile */}
-      <div className="p-4 border-t border-gray-800">
-        <div className="flex items-center space-x-3 px-4 py-3">
-          <UserButton afterSignOutUrl="/" />
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-white truncate">Your Account</p>
-            <p className="text-xs text-gray-400 truncate">Manage profile</p>
+        {/* Navigation Links */}
+        <nav className="flex-1 p-3 sm:p-4 space-y-1 overflow-y-auto no-scrollbar">
+          {sidebarLinks.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`
+                  flex items-center space-x-3 px-3 sm:px-4 py-3 rounded-lg transition-colors
+                  min-h-touch
+                  ${
+                    isActive
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                  }
+                `}
+              >
+                <span className="text-xl flex-shrink-0">{link.icon}</span>
+                <span className="font-medium text-sm sm:text-base">{link.label}</span>
+              </Link>
+            )
+          })}
+        </nav>
+
+        {/* User Profile */}
+        <div className="p-3 sm:p-4 border-t border-gray-800">
+          <div className="flex items-center space-x-3 px-3 sm:px-4 py-3">
+            <UserButton afterSignOutUrl="/" />
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-white truncate">Your Account</p>
+              <p className="text-xs text-gray-400 truncate">Manage profile</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

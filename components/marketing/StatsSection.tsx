@@ -45,9 +45,9 @@ function AnimatedCounter({ end, suffix = '', prefix = '', decimals = 0 }: { end:
 
 export default function StatsSection() {
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-white/5 to-black border-y border-white/10">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-white/5 to-black border-y border-white/10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -63,7 +63,7 @@ export default function StatsSection() {
               className="text-center group cursor-default"
             >
               <motion.div
-                className="text-5xl md:text-7xl font-black text-white mb-4 group-hover:text-white/90 transition-colors"
+                className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-3 md:mb-4 group-hover:text-white/90 transition-colors duration-300"
                 whileHover={{
                   textShadow: '0 0 20px rgba(255,255,255,0.5)',
                 }}
@@ -76,7 +76,7 @@ export default function StatsSection() {
                   />
                 )}
               </motion.div>
-              <div className="text-white/50 text-sm md:text-base uppercase tracking-wider font-semibold group-hover:text-white/70 transition-colors">
+              <div className="text-white/50 text-xs md:text-sm uppercase tracking-wider font-semibold group-hover:text-white/70 transition-colors duration-300">
                 {stat.label}
               </div>
             </motion.div>

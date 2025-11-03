@@ -26,12 +26,12 @@ export function NewsletterSignup() {
   }
 
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-black p-8 overflow-hidden group">
+    <div className="relative rounded-lg border border-white/10 bg-black p-8 overflow-hidden group">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Glow effect on hover */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-white/20 via-white/10 to-white/20 rounded-lg opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
 
       <div className="mx-auto max-w-md text-center relative z-10">
         {/* Icon with animation */}
@@ -70,7 +70,7 @@ export function NewsletterSignup() {
                 onBlur={() => setIsFocused(false)}
                 required
                 className={`
-                  w-full bg-white/5 border-white/20 text-white placeholder:text-gray-500
+                  h-12 w-full bg-white/5 border-white/20 text-white placeholder:text-gray-500
                   focus:bg-white/10 focus:border-white/40
                   transition-all duration-300
                   ${isFocused ? 'shadow-[0_0_20px_rgba(255,255,255,0.1)]' : ''}
@@ -88,7 +88,8 @@ export function NewsletterSignup() {
             <Button
               type="submit"
               isLoading={status === 'loading'}
-              className="bg-white text-black hover:bg-white/90 font-semibold px-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              size="lg"
+              className="bg-white text-black hover:bg-white/90 font-semibold px-8 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
             >
               Subscribe
             </Button>

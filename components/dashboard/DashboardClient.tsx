@@ -26,19 +26,19 @@ export function DashboardClient({ userName }: { userName: string }) {
   ]
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-500">
       {/* Welcome Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
           Welcome back, {userName}!
         </h1>
-        <p className="text-gray-400">
+        <p className="text-sm sm:text-base text-gray-400">
           Here's what's happening with your SEO automation
         </p>
       </div>
 
       {/* Stats Grid with Animations */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         <StatCard
           title="Sites Connected"
           value={stats.sitesCount}
@@ -101,9 +101,9 @@ export function DashboardClient({ userName }: { userName: string }) {
 
       {/* Trend Chart */}
       <Card className="border-gray-800">
-        <CardContent className="p-6">
-          <h2 className="text-xl font-semibold text-white mb-6">Issues & Fixes This Week</h2>
-          <ResponsiveContainer width="100%" height={300}>
+        <CardContent className="p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Issues & Fixes This Week</h2>
+          <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
             <AreaChart data={mockChartData}>
               <defs>
                 <linearGradient id="colorIssues" x1="0" y1="0" x2="0" y2="1">
@@ -131,9 +131,9 @@ export function DashboardClient({ userName }: { userName: string }) {
 
       {/* Quick Actions */}
       <Card className="border-gray-800">
-        <CardContent className="p-6">
-          <h2 className="text-xl font-semibold text-white mb-4">Quick Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <CardContent className="p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Quick Actions</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <QuickActionCard
               title="Connect Your First Site"
               description="Start by connecting Shopify, WordPress, or any website"
@@ -158,9 +158,9 @@ export function DashboardClient({ userName }: { userName: string }) {
 
       {/* Recent Activity */}
       <Card className="border-gray-800">
-        <CardContent className="p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-white">Recent Activity</h2>
+        <CardContent className="p-4 sm:p-6">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-white">Recent Activity</h2>
             <Link
               href="/dashboard/sites"
               className="text-blue-400 hover:text-blue-300 text-sm font-medium inline-flex items-center"
@@ -251,20 +251,20 @@ function StatCard({
       className="border-gray-800 hover:border-blue-500/50 transition-all duration-300 animate-in slide-in-from-bottom"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-2xl">{icon}</span>
+          <span className="text-xl sm:text-2xl">{icon}</span>
           <span
-            className={`text-sm font-medium flex items-center ${
+            className={`text-xs sm:text-sm font-medium flex items-center ${
               trendUp ? 'text-green-500' : 'text-yellow-500'
             }`}
           >
             {trendUp ? <ArrowUpRight className="h-3 w-3 mr-1" /> : <ArrowDownRight className="h-3 w-3 mr-1" />}
-            {trend}
+            <span className="hidden xs:inline">{trend}</span>
           </span>
         </div>
-        <h3 className="text-gray-400 text-sm mb-1">{title}</h3>
-        <p className="text-3xl font-bold text-white tabular-nums">{value}</p>
+        <h3 className="text-gray-400 text-xs sm:text-sm mb-1">{title}</h3>
+        <p className="text-2xl sm:text-3xl font-bold text-white tabular-nums">{value}</p>
       </CardContent>
     </Card>
   )
@@ -284,13 +284,13 @@ function QuickActionCard({
   return (
     <Link
       href={href}
-      className="bg-gray-800/50 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:scale-105"
+      className="bg-gray-800/50 rounded-lg p-4 sm:p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:scale-105 min-h-touch"
     >
-      <div className="text-3xl mb-3">{icon}</div>
-      <h3 className="text-white font-semibold mb-2 group-hover:text-blue-400 transition-colors">
+      <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{icon}</div>
+      <h3 className="text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2 group-hover:text-blue-400 transition-colors">
         {title}
       </h3>
-      <p className="text-gray-400 text-sm">{description}</p>
+      <p className="text-gray-400 text-xs sm:text-sm">{description}</p>
     </Link>
   )
 }

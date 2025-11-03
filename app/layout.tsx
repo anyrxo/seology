@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
+import "./responsive.css";
 
 export const metadata: Metadata = {
   title: "SEOLOGY.AI - AI-Powered SEO Automation That Actually Fixes Issues",

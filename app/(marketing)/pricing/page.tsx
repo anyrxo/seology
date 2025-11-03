@@ -153,7 +153,7 @@ export default function PricingPage() {
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -244,7 +244,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="pb-32 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <motion.div
@@ -365,7 +365,7 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -477,7 +477,7 @@ export default function PricingPage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
@@ -528,7 +528,7 @@ export default function PricingPage() {
       </section>
 
       {/* Enterprise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -591,7 +591,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
