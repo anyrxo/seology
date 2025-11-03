@@ -1,12 +1,116 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { db } from '@/lib/db'
+import Link from 'next/link'
+import { Severity, Prisma } from '@prisma/client'
 
-export default async function IssuesPage() {
+export default async function IssuesPage({
+  searchParams,
+}: {
+  searchParams: { severity?: string; type?: string; connectionId?: string }
+}) {
   const { userId } = await auth()
 
   if (!userId) {
     redirect('/sign-in')
   }
+
+  // Get user
+  const dbUser = await db.user.findUnique({
+    where: { clerkId: userId },
+  })
+
+  if (!dbUser) {
+    redirect('/sign-in')
+  }
+
+  // Build filters
+  const where: Prisma.IssueWhereInput = {
+    connection: {
+      userId: dbUser.id,
+    },
+    status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+  }
+
+  // Add severity filter with proper type checking
+  if (searchParams.severity) {
+    const severityUpper = searchParams.severity.toUpperCase()
+    if (Object.values(Severity).includes(severityUpper as Severity)) {
+      where.severity = severityUpper as Severity
+    }
+  }
+
+  if (searchParams.type) {
+    where.type = searchParams.type
+  }
+
+  if (searchParams.connectionId) {
+    where.connectionId = searchParams.connectionId
+  }
+
+  // Get issues
+  const issues = await db.issue.findMany({
+    where,
+    include: {
+      connection: true,
+      fixes: {
+        orderBy: { createdAt: 'desc' },
+        take: 1,
+      },
+    },
+    orderBy: [{ severity: 'desc' }, { createdAt: 'desc' }],
+    take: 100,
+  })
+
+  // Get all connections for filter
+  const connections = await db.connection.findMany({
+    where: { userId: dbUser.id },
+    select: { id: true, domain: true, displayName: true },
+  })
+
+  // Calculate stats
+  const totalIssues = await db.issue.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+    },
+  })
+
+  const criticalIssues = await db.issue.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+      severity: 'CRITICAL',
+    },
+  })
+
+  const highIssues = await db.issue.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+      severity: 'HIGH',
+    },
+  })
+
+  const mediumIssues = await db.issue.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+      severity: 'MEDIUM',
+    },
+  })
+
+  // Get issue type breakdown
+  const issuesByType = await db.issue.groupBy({
+    by: ['type'],
+    where: {
+      connection: { userId: dbUser.id },
+      status: { in: ['OPEN', 'DETECTED', 'IN_PROGRESS'] },
+    },
+    _count: { type: true },
+    orderBy: { _count: { type: 'desc' } },
+    take: 5,
+  })
 
   return (
     <div className="space-y-8">
@@ -19,23 +123,21 @@ export default async function IssuesPage() {
           </p>
         </div>
         <div className="flex items-center space-x-4">
-          <select className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
-            <option>All Sites</option>
-            <option>All Severities</option>
-            <option>All Types</option>
-          </select>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
-            Scan All Sites
-          </button>
+          <Link
+            href="/dashboard/sites"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+          >
+            Scan Sites
+          </Link>
         </div>
       </div>
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <IssueStatCard title="Total Issues" value="0" severity="all" />
-        <IssueStatCard title="Critical" value="0" severity="critical" />
-        <IssueStatCard title="Warning" value="0" severity="warning" />
-        <IssueStatCard title="Info" value="0" severity="info" />
+        <IssueStatCard title="Total Issues" value={totalIssues.toString()} severity="all" />
+        <IssueStatCard title="Critical" value={criticalIssues.toString()} severity="critical" />
+        <IssueStatCard title="High" value={highIssues.toString()} severity="warning" />
+        <IssueStatCard title="Medium" value={mediumIssues.toString()} severity="info" />
       </div>
 
       {/* Issues Table */}
@@ -44,56 +146,79 @@ export default async function IssuesPage() {
           <h2 className="text-xl font-semibold text-white">All Issues</h2>
         </div>
 
-        {/* Empty State */}
-        <div className="p-12 text-center">
-          <div className="text-6xl mb-4">🔍</div>
-          <h3 className="text-xl font-semibold text-white mb-2">
-            No issues detected yet
-          </h3>
-          <p className="text-gray-400 mb-6">
-            Connect a site and run a scan to detect SEO issues
-          </p>
-          <a
-            href="/dashboard/sites"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            Connect Your First Site
-          </a>
-        </div>
+        {issues.length === 0 ? (
+          /* Empty State */
+          <div className="p-12 text-center">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              No issues detected yet
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Connect a site and run a scan to detect SEO issues
+            </p>
+            <Link
+              href="/dashboard/sites"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              Connect Your First Site
+            </Link>
+          </div>
+        ) : (
+          /* Issues Table */
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-800 text-gray-400 text-sm">
+                <tr>
+                  <th className="text-left px-6 py-3">Severity</th>
+                  <th className="text-left px-6 py-3">Issue Type</th>
+                  <th className="text-left px-6 py-3">Description</th>
+                  <th className="text-left px-6 py-3">Page</th>
+                  <th className="text-left px-6 py-3">Site</th>
+                  <th className="text-left px-6 py-3">Detected</th>
+                  <th className="text-left px-6 py-3">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {issues.map((issue) => {
+                  const severityColors = {
+                    CRITICAL: 'bg-red-900 text-red-200',
+                    HIGH: 'bg-orange-900 text-orange-200',
+                    MEDIUM: 'bg-yellow-900 text-yellow-200',
+                    LOW: 'bg-blue-900 text-blue-200',
+                  }
 
-        {/* Table Header (hidden when empty) */}
-        {/* <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-800 text-gray-400 text-sm">
-              <tr>
-                <th className="text-left px-6 py-3">Severity</th>
-                <th className="text-left px-6 py-3">Issue Type</th>
-                <th className="text-left px-6 py-3">Description</th>
-                <th className="text-left px-6 py-3">Page</th>
-                <th className="text-left px-6 py-3">Site</th>
-                <th className="text-left px-6 py-3">Detected</th>
-                <th className="text-left px-6 py-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-gray-800 hover:bg-gray-800">
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-900 text-red-200">
-                    Critical
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-white">Missing Meta Description</td>
-                <td className="px-6 py-4 text-gray-400">Product page is missing meta description</td>
-                <td className="px-6 py-4 text-gray-400">/products/example</td>
-                <td className="px-6 py-4 text-gray-400">example.com</td>
-                <td className="px-6 py-4 text-gray-400">2 hours ago</td>
-                <td className="px-6 py-4">
-                  <button className="text-blue-400 hover:text-blue-300">Create Fix</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> */}
+                  return (
+                    <tr key={issue.id} className="border-t border-gray-800 hover:bg-gray-800">
+                      <td className="px-6 py-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${severityColors[issue.severity]}`}>
+                          {issue.severity}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-white">{issue.type.replace(/_/g, ' ')}</td>
+                      <td className="px-6 py-4 text-gray-400 max-w-xs truncate">{issue.title}</td>
+                      <td className="px-6 py-4 text-gray-400 max-w-xs truncate">
+                        <a href={issue.pageUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+                          {issue.pageUrl}
+                        </a>
+                      </td>
+                      <td className="px-6 py-4 text-gray-400">{issue.connection.domain}</td>
+                      <td className="px-6 py-4 text-gray-400">
+                        {new Date(issue.detectedAt).toLocaleDateString()}
+                      </td>
+                      <td className="px-6 py-4">
+                        {issue.fixes.length > 0 ? (
+                          <span className="text-green-400 text-sm">Fixed</span>
+                        ) : (
+                          <button className="text-blue-400 hover:text-blue-300">Create Fix</button>
+                        )}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
       {/* Issue Type Breakdown */}
@@ -101,11 +226,23 @@ export default async function IssuesPage() {
         <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
           <h3 className="text-lg font-semibold text-white mb-4">Issue Types</h3>
           <div className="space-y-3">
-            <IssueTypeRow type="Missing Meta Tags" count={0} />
-            <IssueTypeRow type="Broken Links" count={0} />
-            <IssueTypeRow type="Missing Alt Text" count={0} />
-            <IssueTypeRow type="Slow Page Speed" count={0} />
-            <IssueTypeRow type="Duplicate Content" count={0} />
+            {issuesByType.length > 0 ? (
+              issuesByType.map((item) => (
+                <IssueTypeRow
+                  key={item.type}
+                  type={item.type.replace(/_/g, ' ')}
+                  count={item._count.type}
+                />
+              ))
+            ) : (
+              <>
+                <IssueTypeRow type="Missing Meta Tags" count={0} />
+                <IssueTypeRow type="Broken Links" count={0} />
+                <IssueTypeRow type="Missing Alt Text" count={0} />
+                <IssueTypeRow type="Slow Page Speed" count={0} />
+                <IssueTypeRow type="Duplicate Content" count={0} />
+              </>
+            )}
           </div>
         </div>
 

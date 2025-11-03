@@ -70,7 +70,8 @@ export async function GET(request: Request) {
 
     // Issue breakdown by type
     const issuesByType = allIssues.reduce((acc, issue) => {
-      const type = JSON.parse(issue.details).type || 'Other'
+      // Use the issue type directly instead of parsing details
+      const type = issue.type || 'Other'
       acc[type] = (acc[type] || 0) + 1
       return acc
     }, {} as Record<string, number>)

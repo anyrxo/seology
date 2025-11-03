@@ -1,11 +1,91 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { db } from '@/lib/db'
+import { Prisma } from '@prisma/client'
+import Link from 'next/link'
 
-export default async function FixesPage() {
+export default async function FixesPage({
+  searchParams,
+}: {
+  searchParams: { status?: string }
+}) {
   const { userId } = await auth()
 
   if (!userId) {
     redirect('/sign-in')
+  }
+
+  // Get user
+  const dbUser = await db.user.findUnique({
+    where: { clerkId: userId },
+  })
+
+  if (!dbUser) {
+    redirect('/sign-in')
+  }
+
+  // Build filters
+  const where: Prisma.FixWhereInput = {
+    connection: {
+      userId: dbUser.id,
+    },
+  }
+
+  if (searchParams.status) {
+    where.status = searchParams.status.toUpperCase() as Prisma.EnumFixStatusFilter
+  }
+
+  // Get fixes
+  const fixes = await db.fix.findMany({
+    where,
+    include: {
+      connection: true,
+      issue: true,
+    },
+    orderBy: { createdAt: 'desc' },
+    take: 100,
+  })
+
+  // Calculate stats
+  const totalFixes = await db.fix.count({
+    where: { connection: { userId: dbUser.id } },
+  })
+
+  const pendingFixes = await db.fix.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: 'PENDING',
+    },
+  })
+
+  const thisMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1)
+  const appliedThisMonth = await db.fix.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: 'APPLIED',
+      appliedAt: { gte: thisMonth },
+    },
+  })
+
+  const now = new Date()
+  const availableRollbacks = await db.fix.count({
+    where: {
+      connection: { userId: dbUser.id },
+      status: 'APPLIED',
+      rollbackDeadline: { gte: now },
+    },
+  })
+
+  const executionModeLabels = {
+    AUTOMATIC: 'Automatic',
+    PLAN: 'Plan',
+    APPROVE: 'Approve',
+  }
+
+  const executionModeDescriptions = {
+    AUTOMATIC: 'Fixes are applied automatically without approval. All changes include 90-day rollback.',
+    PLAN: 'Claude AI creates a plan of all fixes. You approve once, and all fixes execute together.',
+    APPROVE: 'Each fix requires individual approval before application. Maximum control.',
   }
 
   return (
@@ -18,39 +98,31 @@ export default async function FixesPage() {
             Review, approve, and rollback automated SEO fixes
           </p>
         </div>
-        <div className="flex items-center space-x-4">
-          <select className="bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
-            <option>All Status</option>
-            <option>Pending</option>
-            <option>Applied</option>
-            <option>Rolled Back</option>
-          </select>
-        </div>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <FixStatCard
           title="Total Fixes"
-          value="0"
+          value={totalFixes.toString()}
           icon="✓"
           color="blue"
         />
         <FixStatCard
           title="Pending Approval"
-          value="0"
+          value={pendingFixes.toString()}
           icon="⏳"
           color="yellow"
         />
         <FixStatCard
           title="Applied This Month"
-          value="0"
+          value={appliedThisMonth.toString()}
           icon="📊"
           color="green"
         />
         <FixStatCard
           title="Available Rollbacks"
-          value="0"
+          value={availableRollbacks.toString()}
           icon="↩️"
           color="gray"
         />
@@ -62,17 +134,17 @@ export default async function FixesPage() {
           <div className="text-3xl">⚙️</div>
           <div className="flex-1">
             <h3 className="text-white font-semibold mb-2">
-              Execution Mode: <span className="text-blue-300">Automatic</span>
+              Execution Mode: <span className="text-blue-300">{executionModeLabels[dbUser.executionMode]}</span>
             </h3>
             <p className="text-gray-300 text-sm mb-3">
-              Fixes are applied automatically without approval. All changes include 90-day rollback.
+              {executionModeDescriptions[dbUser.executionMode]}
             </p>
-            <a
+            <Link
               href="/dashboard/settings"
               className="text-blue-300 hover:text-blue-200 text-sm font-medium"
             >
               Change Execution Mode →
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -83,56 +155,87 @@ export default async function FixesPage() {
           <h2 className="text-xl font-semibold text-white">Recent Fixes</h2>
         </div>
 
-        {/* Empty State */}
-        <div className="p-12 text-center">
-          <div className="text-6xl mb-4">✨</div>
-          <h3 className="text-xl font-semibold text-white mb-2">
-            No fixes applied yet
-          </h3>
-          <p className="text-gray-400 mb-6">
-            Once issues are detected, fixes will appear here for review or auto-application
-          </p>
-          <a
-            href="/dashboard/issues"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            View SEO Issues
-          </a>
-        </div>
+        {fixes.length === 0 ? (
+          /* Empty State */
+          <div className="p-12 text-center">
+            <div className="text-6xl mb-4">✨</div>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              No fixes applied yet
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Once issues are detected, fixes will appear here for review or auto-application
+            </p>
+            <Link
+              href="/dashboard/issues"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+            >
+              View SEO Issues
+            </Link>
+          </div>
+        ) : (
+          /* Fixes Table */
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-800 text-gray-400 text-sm">
+                <tr>
+                  <th className="text-left px-6 py-3">Status</th>
+                  <th className="text-left px-6 py-3">Fix Type</th>
+                  <th className="text-left px-6 py-3">Description</th>
+                  <th className="text-left px-6 py-3">Site</th>
+                  <th className="text-left px-6 py-3">Applied</th>
+                  <th className="text-left px-6 py-3">Rollback</th>
+                  <th className="text-left px-6 py-3">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {fixes.map((fix) => {
+                  const statusColors = {
+                    PENDING: 'bg-yellow-900 text-yellow-200',
+                    APPLIED: 'bg-green-900 text-green-200',
+                    ROLLED_BACK: 'bg-gray-700 text-gray-300',
+                    FAILED: 'bg-red-900 text-red-200',
+                  }
 
-        {/* Table Header (example - shown when there are fixes) */}
-        {/* <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-800 text-gray-400 text-sm">
-              <tr>
-                <th className="text-left px-6 py-3">Status</th>
-                <th className="text-left px-6 py-3">Fix Type</th>
-                <th className="text-left px-6 py-3">Description</th>
-                <th className="text-left px-6 py-3">Page</th>
-                <th className="text-left px-6 py-3">Applied</th>
-                <th className="text-left px-6 py-3">Rollback</th>
-                <th className="text-left px-6 py-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-gray-800 hover:bg-gray-800">
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-900 text-green-200">
-                    Applied
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-white">Meta Description</td>
-                <td className="px-6 py-4 text-gray-400">Added optimized meta description</td>
-                <td className="px-6 py-4 text-gray-400">/products/example</td>
-                <td className="px-6 py-4 text-gray-400">2 hours ago</td>
-                <td className="px-6 py-4 text-gray-400">88 days left</td>
-                <td className="px-6 py-4">
-                  <button className="text-red-400 hover:text-red-300">Rollback</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> */}
+                  const daysLeftForRollback = fix.rollbackDeadline
+                    ? Math.max(0, Math.ceil((new Date(fix.rollbackDeadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+                    : null
+
+                  return (
+                    <tr key={fix.id} className="border-t border-gray-800 hover:bg-gray-800">
+                      <td className="px-6 py-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusColors[fix.status]}`}>
+                          {fix.status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-white">{fix.type.replace(/_/g, ' ')}</td>
+                      <td className="px-6 py-4 text-gray-400 max-w-xs truncate">{fix.description}</td>
+                      <td className="px-6 py-4 text-gray-400">{fix.connection.domain}</td>
+                      <td className="px-6 py-4 text-gray-400">
+                        {fix.appliedAt ? new Date(fix.appliedAt).toLocaleDateString() : 'Not applied'}
+                      </td>
+                      <td className="px-6 py-4 text-gray-400">
+                        {daysLeftForRollback !== null
+                          ? daysLeftForRollback > 0
+                            ? `${daysLeftForRollback} days left`
+                            : 'Expired'
+                          : 'N/A'}
+                      </td>
+                      <td className="px-6 py-4">
+                        {fix.status === 'APPLIED' && daysLeftForRollback && daysLeftForRollback > 0 ? (
+                          <button className="text-red-400 hover:text-red-300">Rollback</button>
+                        ) : fix.status === 'PENDING' ? (
+                          <button className="text-blue-400 hover:text-blue-300">Approve</button>
+                        ) : (
+                          <span className="text-gray-500 text-sm">-</span>
+                        )}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
 
       {/* Info Cards */}

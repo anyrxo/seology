@@ -16,8 +16,8 @@ export async function GET() {
       )
     }
 
-    // Get user from database
-    const dbUser = await db.user.findUnique({
+    // Get or create user in database
+    let dbUser = await db.user.findUnique({
       where: { clerkId: userId },
       include: {
         connections: {
@@ -33,17 +33,40 @@ export async function GET() {
               },
             },
           },
-          take: 5,
           orderBy: { createdAt: 'desc' },
         },
       },
     })
 
+    // Create user if doesn't exist
     if (!dbUser) {
-      return NextResponse.json(
-        { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found' } },
-        { status: 404 }
-      )
+      dbUser = await db.user.create({
+        data: {
+          clerkId: userId,
+          email: `${userId}@placeholder.com`, // Will be updated on first full page load
+          plan: 'STARTER',
+          executionMode: 'AUTOMATIC',
+          onboardingCompleted: false,
+          onboardingStep: 0,
+        },
+        include: {
+          connections: {
+            include: {
+              issues: {
+                where: { status: { not: 'FIXED' } },
+              },
+              fixes: {
+                where: {
+                  createdAt: {
+                    gte: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+                  },
+                },
+              },
+            },
+            orderBy: { createdAt: 'desc' },
+          },
+        },
+      })
     }
 
     // Calculate stats

@@ -1,5 +1,6 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { db } from '@/lib/db'
 
 export default async function SettingsPage() {
   const { userId } = await auth()
@@ -7,6 +8,21 @@ export default async function SettingsPage() {
 
   if (!userId) {
     redirect('/sign-in')
+  }
+
+  // Get database user
+  const dbUser = await db.user.findUnique({
+    where: { clerkId: userId },
+  })
+
+  if (!dbUser) {
+    redirect('/sign-in')
+  }
+
+  const planLabels = {
+    STARTER: 'Starter',
+    GROWTH: 'Growth',
+    SCALE: 'Scale',
   }
 
   return (
@@ -89,6 +105,18 @@ export default async function SettingsPage() {
               disabled
             />
           </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Current Plan
+            </label>
+            <input
+              type="text"
+              defaultValue={planLabels[dbUser.plan]}
+              className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white"
+              disabled
+            />
+          </div>
         </div>
 
         <div className="pt-4 border-t border-gray-800">
@@ -115,24 +143,24 @@ export default async function SettingsPage() {
 
         <div className="space-y-4">
           <ExecutionModeOption
-            mode="automatic"
+            mode="AUTOMATIC"
             title="Automatic"
             description="Fixes are applied immediately without approval. Best for hands-off automation."
-            isActive={true}
+            isActive={dbUser.executionMode === 'AUTOMATIC'}
           />
 
           <ExecutionModeOption
-            mode="plan"
+            mode="PLAN"
             title="Plan Mode"
             description="Claude AI creates a plan of all fixes. You approve once, and all fixes execute together."
-            isActive={false}
+            isActive={dbUser.executionMode === 'PLAN'}
           />
 
           <ExecutionModeOption
-            mode="approve"
+            mode="APPROVE"
             title="Approve Mode"
             description="Each fix requires individual approval before application. Maximum control."
-            isActive={false}
+            isActive={dbUser.executionMode === 'APPROVE'}
           />
         </div>
 

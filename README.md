@@ -89,12 +89,33 @@ SEOLOGY.AI is an AI-powered SEO automation SaaS that connects to your CMS (Shopi
    npx prisma generate
    ```
 
-5. **Start the development server:**
+5. **Seed demo data (recommended):**
+   ```bash
+   npm run db:seed
+   ```
+
+   This creates comprehensive demo data including:
+   - 5 demo users (1 admin, 4 regular users) with various plans
+   - 10 platform connections (Shopify, WordPress, Custom)
+   - 40+ realistic SEO issues across all sites
+   - Applied, pending, and failed fixes
+   - 30 days of performance metrics
+   - Notifications, audit logs, and AI conversations
+
+   **Demo accounts created:**
+   - Admin: `admin@seology.ai` (SCALE plan, PLAN mode)
+   - User 1: `sarah@example.com` (STARTER plan, APPROVE mode)
+   - User 2: `michael@techstartup.io` (GROWTH plan, PLAN mode)
+   - User 3: `jennifer@enterprise.com` (SCALE plan, AUTOMATIC mode)
+   - User 4: `alex@shopowner.com` (STARTER plan, AUTOMATIC mode)
+   - User 5: `david@digitalagency.com` (GROWTH plan, PLAN mode)
+
+6. **Start the development server:**
    ```bash
    npm run dev
    ```
 
-6. **Open your browser:**
+7. **Open your browser:**
 
    Visit [http://localhost:3000](http://localhost:3000)
 
@@ -445,6 +466,115 @@ See [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) for detailed contribution guideli
 - Write meaningful commit messages
 - Add tests for new features
 - Update documentation
+
+---
+
+## Database Management
+
+### Available Commands
+
+```bash
+# Push schema to database (no migrations)
+npm run db:push
+
+# Generate Prisma client
+npx prisma generate
+
+# Open Prisma Studio (database GUI)
+npm run db:studio
+
+# Seed demo data
+npm run db:seed
+
+# Reset database and re-seed (DESTRUCTIVE!)
+npm run db:reset
+
+# Reset database without seeding
+npm run db:reset-only
+
+# Create a migration
+npm run db:migrate
+
+# Backup database (requires scripts/backup-db.sh)
+npm run db:backup
+
+# Restore database (requires scripts/restore-db.sh)
+npm run db:restore
+```
+
+### Seeding Details
+
+The seed script (`prisma/seed.ts`) creates:
+
+**Users:**
+- 1 admin user with SCALE plan
+- 5 regular users across STARTER, GROWTH, and SCALE plans
+- Different execution modes: AUTOMATIC, PLAN, APPROVE
+
+**Platform Connections:**
+- Multiple Shopify stores
+- WordPress sites with REST API
+- Custom sites using Magic.js connector
+- One connection in ERROR state for testing
+
+**SEO Issues:**
+- Missing meta descriptions
+- Missing alt text on images
+- Broken internal links
+- Duplicate content
+- Slow page speed warnings
+- Missing H1 headings
+- Thin content alerts
+
+**Fixes:**
+- Applied fixes with timestamps
+- Pending fixes awaiting approval
+- Failed fixes for error handling
+- 90-day rollback data
+
+**Metrics:**
+- 30 days of performance data per site
+- Organic traffic trends
+- Keyword rankings
+- Issues detected/fixed counts
+
+**Other Data:**
+- Real-time notifications (read/unread)
+- Audit logs for all actions
+- AI conversation samples
+- Webhook configurations
+- Team setup for agency users
+
+### Demo User Credentials
+
+**Important:** The seed creates users with Clerk IDs that match the pattern `user_*_demo_*`. To log in with these accounts, you need to either:
+
+1. **Option A - Mock Authentication (Development):**
+   - Use Clerk's development mode
+   - Manually create matching users in Clerk Dashboard
+
+2. **Option B - Update Clerk IDs (Recommended):**
+   - Create real users in Clerk
+   - Update the seed script with actual Clerk IDs
+   - Run `npm run db:reset`
+
+### Resetting the Database
+
+**Warning:** This will delete ALL data!
+
+```bash
+# Reset and re-seed in one command
+npm run db:reset
+
+# Reset only (no seeding)
+npm run db:reset-only
+```
+
+The reset script includes:
+- Safety check (production environments blocked)
+- 3-second countdown warning
+- Proper deletion order (respects foreign keys)
+- Comprehensive cleanup of all tables
 
 ---
 
