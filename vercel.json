@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/cleanup",
+      "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/reset-usage",
+      "schedule": "0 0 1 * *"
+    },
+    {
+      "path": "/api/cron/backup",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
