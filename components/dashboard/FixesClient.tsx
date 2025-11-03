@@ -73,32 +73,26 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
           </div>
 
           {/* Execution Mode Info */}
-          <div className="card pd-32px---24px" style={{ marginBottom: '32px' }}>
-            <div className="flex-horizontal align-center" style={{ gap: '24px' }}>
-              <div style={{
+          <div className="card pd-32px---44px" style={{ marginBottom: '32px' }}>
+            <div className="flex-horizontal align-center gap-column-24px">
+              <div className="card-icon-square _40px flex-horizontal" style={{
                 width: '64px',
                 height: '64px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                borderRadius: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '32px',
                 flexShrink: 0
               }}>
-                {executionModeConfig.icon}
+                <span style={{ fontSize: '32px' }}>{executionModeConfig.icon}</span>
               </div>
-              <div style={{ flex: 1 }}>
-                <h3 className="text-300 bold color-neutral-800" style={{ marginBottom: '8px' }}>
-                  Execution Mode: <span className="color-accent-1">{executionModeConfig.label}</span>
+              <div className="flex-vertical" style={{ flex: 1 }}>
+                <h3 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                  Execution Mode: <span className="primary-badge light">{executionModeConfig.label}</span>
                 </h3>
-                <p className="text-200 color-neutral-600" style={{ marginBottom: '16px' }}>
+                <p className="text-200 medium color-neutral-600 mg-bottom-16px">
                   {executionModeConfig.description}
                 </p>
                 <Link
                   href="/dashboard/settings"
-                  className="text-100 color-accent-1"
-                  style={{ fontWeight: 500 }}
+                  className="text-100 medium color-accent-1 hover-opacity-85"
+                  style={{ textDecoration: 'none' }}
                 >
                   Change Execution Mode →
                 </Link>
@@ -153,35 +147,34 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
           </div>
 
           {/* Rollback Safety Info */}
-          <div className="card pd-32px---24px">
-            <h3 className="text-300 bold color-neutral-800 flex-horizontal align-center" style={{ marginBottom: '24px', gap: '12px' }}>
-              <RotateCcw className="h-6 w-6" />
-              90-Day Rollback Protection
-            </h3>
-            <p className="text-200 color-neutral-600" style={{ marginBottom: '24px' }}>
+          <div className="rt-component-section card pd-32px---44px">
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
+              <div className="card-icon-square _40px flex-horizontal" style={{ flexShrink: 0 }}>
+                <RotateCcw className="h-5 w-5" />
+              </div>
+              <h3 className="text-300 bold color-neutral-800">
+                90-Day Rollback Protection
+              </h3>
+            </div>
+            <p className="text-200 medium color-neutral-600 mg-bottom-32px">
               Every fix includes the original content state, allowing you to safely revert any changes within 90 days. After 90 days, rollback data is automatically cleaned up for compliance.
             </p>
-            <div className="grid-3-columns gap-row-24px">
+            <div className="grid-2-columns gap-row-24px gap-column-24px">
               {[
-                { label: 'Before/After State Stored', description: 'Complete content backup' },
-                { label: 'One-Click Rollback', description: 'Instant reversion' },
-                { label: 'Audit Trail', description: 'Full change history' },
-                { label: 'Automatic Cleanup', description: '90-day retention' },
+                { label: 'Before/After State Stored', description: 'Complete content backup', icon: '💾' },
+                { label: 'One-Click Rollback', description: 'Instant reversion', icon: '⚡' },
+                { label: 'Audit Trail', description: 'Full change history', icon: '📋' },
+                { label: 'Automatic Cleanup', description: '90-day retention', icon: '🗑️' },
               ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex-horizontal align-center"
-                  style={{
-                    gap: '12px',
-                    padding: '16px',
-                    background: '#f9fafb',
-                    borderRadius: '8px'
-                  }}
-                >
-                  <CheckCircle2 className="h-5 w-5 color-accent-1" style={{ flexShrink: 0 }} />
-                  <div>
-                    <p className="text-100 bold color-neutral-800" style={{ marginBottom: '4px' }}>{item.label}</p>
-                    <p className="text-100 color-neutral-600">{item.description}</p>
+                <div key={item.label} className="card pd-24px">
+                  <div className="flex-horizontal align-start gap-column-12px">
+                    <div className="card-icon-square _26px neutral-icon flex-horizontal" style={{ flexShrink: 0 }}>
+                      <span style={{ fontSize: '14px' }}>{item.icon}</span>
+                    </div>
+                    <div className="flex-vertical">
+                      <p className="text-200 bold color-neutral-800 mg-bottom-4px">{item.label}</p>
+                      <p className="text-100 medium color-neutral-600">{item.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -195,50 +188,52 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
 
 function StatCard({ title, value, icon }: { title: string; value: number; icon: string }) {
   return (
-    <div className="card pd-24px">
-      <div style={{
-        width: '56px',
-        height: '56px',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        borderRadius: '12px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '24px',
-        marginBottom: '16px'
+    <div className="card pd-32px---24px">
+      <div className="card-icon-square neutral-icon flex-horizontal mg-bottom-16px" style={{
+        width: '48px',
+        height: '48px'
       }}>
-        {icon}
+        <span style={{ fontSize: '24px' }}>{icon}</span>
       </div>
-      <p className="text-100 color-neutral-600" style={{ marginBottom: '8px' }}>{title}</p>
-      <p className="text-500 bold color-accent-1">{value}</p>
+      <div className="flex-vertical">
+        <p className="text-100 medium color-neutral-600 mg-bottom-8px">{title}</p>
+        <div className="card-amount-container green">
+          <p className="text-600 bold color-accent-1">{value}</p>
+        </div>
+      </div>
     </div>
   )
 }
 
 function FixRow({ fix }: { fix: Fix }) {
   const statusBadge = {
-    PENDING: 'badge orange',
-    APPLIED: 'badge green',
-    ROLLED_BACK: 'badge',
-    FAILED: 'badge red',
-  }[fix.status] || 'badge'
+    PENDING: 'color-badge orange',
+    APPLIED: 'color-badge green',
+    ROLLED_BACK: 'neutral-badge neutral-300',
+    FAILED: 'color-badge red',
+  }[fix.status] || 'neutral-badge'
 
   const daysLeftForRollback = fix.rollbackDeadline
     ? Math.max(0, Math.ceil((new Date(fix.rollbackDeadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
     : null
 
   return (
-    <tr style={{ borderTop: '1px solid #e5e7eb' }}>
+    <tr style={{ borderTop: '1px solid var(--neutral--300)' }}>
       <td style={{ padding: '16px' }}>
         <span className={statusBadge}>
           {fix.status}
         </span>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-200 color-neutral-800">{fix.type.replace(/_/g, ' ')}</span>
+        <div className="flex-horizontal gap-column-12px justify-start">
+          <div className="card-icon-square _26px neutral-icon flex-horizontal" style={{ flexShrink: 0 }}>
+            <Settings className="h-3 w-3" />
+          </div>
+          <span className="text-200 medium color-neutral-800">{fix.type.replace(/_/g, ' ')}</span>
+        </div>
       </td>
       <td style={{ padding: '16px', maxWidth: '300px' }}>
-        <span className="text-100 color-neutral-600" style={{
+        <span className="text-100 medium color-neutral-600" style={{
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
@@ -246,15 +241,18 @@ function FixRow({ fix }: { fix: Fix }) {
         }}>{fix.description}</span>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-100 color-neutral-600">{fix.connection.domain}</span>
+        <span className="text-100 medium color-neutral-600">{fix.connection.domain}</span>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-100 color-neutral-600">
-          {fix.appliedAt ? new Date(fix.appliedAt).toLocaleDateString() : 'Not applied'}
-        </span>
+        <div className="flex-horizontal gap-column-8px justify-start">
+          <Clock className="h-4 w-4 color-neutral-600" />
+          <span className="text-100 medium color-neutral-600">
+            {fix.appliedAt ? new Date(fix.appliedAt).toLocaleDateString() : 'Not applied'}
+          </span>
+        </div>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-100 color-neutral-600">
+        <span className={`text-100 medium ${daysLeftForRollback && daysLeftForRollback > 0 ? 'color-accent-1' : 'color-neutral-600'}`}>
           {daysLeftForRollback !== null
             ? daysLeftForRollback > 0
               ? `${daysLeftForRollback} days left`
@@ -263,17 +261,21 @@ function FixRow({ fix }: { fix: Fix }) {
         </span>
       </td>
       <td style={{ padding: '16px' }}>
-        {fix.status === 'APPLIED' && daysLeftForRollback && daysLeftForRollback > 0 ? (
-          <button className="btn-secondary" style={{ fontSize: '14px', padding: '8px 16px' }}>
-            Rollback
-          </button>
-        ) : fix.status === 'PENDING' ? (
-          <button className="btn-primary" style={{ fontSize: '14px', padding: '8px 16px' }}>
-            Approve
-          </button>
-        ) : (
-          <span className="text-100 color-neutral-600">-</span>
-        )}
+        <div className="flex-horizontal gap-column-12px justify-start">
+          {fix.status === 'APPLIED' && daysLeftForRollback && daysLeftForRollback > 0 ? (
+            <button className="btn-secondary" style={{ fontSize: '14px', padding: '8px 16px' }}>
+              <RotateCcw className="h-3 w-3" style={{ display: 'inline', marginRight: '6px' }} />
+              Rollback
+            </button>
+          ) : fix.status === 'PENDING' ? (
+            <button className="btn-primary" style={{ fontSize: '14px', padding: '8px 16px' }}>
+              <CheckCircle2 className="h-3 w-3" style={{ display: 'inline', marginRight: '6px' }} />
+              Approve
+            </button>
+          ) : (
+            <span className="text-100 color-neutral-600">-</span>
+          )}
+        </div>
       </td>
     </tr>
   )

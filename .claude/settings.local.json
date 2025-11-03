@@ -54,7 +54,10 @@
       "Bash(timeout 5 echo:*)",
       "Bash(node -e:*)",
       "Bash(curl:*)",
-      "Bash(/dev/null)"
+      "Bash(/dev/null)",
+      "Bash(head:*)",
+      "Bash(timeout 30 npx tsc:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []

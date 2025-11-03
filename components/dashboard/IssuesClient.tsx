@@ -169,45 +169,44 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
 function StatCard({ title, value, icon, colorClass }: { title: string; value: number; icon: string; colorClass: string }) {
   return (
     <div className="card pd-24px">
-      <div style={{
-        width: '56px',
-        height: '56px',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        borderRadius: '12px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '24px',
+      <div className="card-icon-square neutral-icon flex-horizontal" style={{
+        width: '48px',
+        height: '48px',
         marginBottom: '16px'
       }}>
-        {icon}
+        <span style={{ fontSize: '24px' }}>{icon}</span>
       </div>
-      <p className="text-100 color-neutral-600" style={{ marginBottom: '8px' }}>{title}</p>
-      <p className={`text-500 bold ${colorClass}`}>{value}</p>
+      <p className="text-100 medium color-neutral-600 mg-bottom-8px">{title}</p>
+      <p className={`text-600 bold ${colorClass}`}>{value}</p>
     </div>
   )
 }
 
 function IssueRow({ issue }: { issue: Issue }) {
   const severityBadge = {
-    CRITICAL: 'badge red',
-    HIGH: 'badge orange',
-    MEDIUM: 'badge orange',
-    LOW: 'badge green',
-  }[issue.severity] || 'badge'
+    CRITICAL: 'color-badge red',
+    HIGH: 'color-badge orange',
+    MEDIUM: 'color-badge orange',
+    LOW: 'color-badge green',
+  }[issue.severity] || 'neutral-badge'
 
   return (
-    <tr style={{ borderTop: '1px solid #e5e7eb' }}>
+    <tr style={{ borderTop: '1px solid var(--neutral--300)' }}>
       <td style={{ padding: '16px' }}>
         <span className={severityBadge}>
           {issue.severity}
         </span>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-200 color-neutral-800">{issue.type.replace(/_/g, ' ')}</span>
+        <div className="flex-horizontal gap-column-12px justify-start">
+          <div className="card-icon-square _26px neutral-icon flex-horizontal" style={{ flexShrink: 0 }}>
+            <AlertTriangle className="h-3 w-3" />
+          </div>
+          <span className="text-200 medium color-neutral-800">{issue.type.replace(/_/g, ' ')}</span>
+        </div>
       </td>
       <td style={{ padding: '16px', maxWidth: '300px' }}>
-        <span className="text-100 color-neutral-600" style={{
+        <span className="text-100 medium color-neutral-600" style={{
           overflow: 'hidden',
           textOverflow: 'ellipsis',
           whiteSpace: 'nowrap',
@@ -219,19 +218,20 @@ function IssueRow({ issue }: { issue: Issue }) {
           href={issue.pageUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-100 color-accent-1"
+          className="text-100 medium color-accent-1 hover-opacity-85"
           style={{
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
-            display: 'block'
+            display: 'block',
+            textDecoration: 'none'
           }}
         >
-          {issue.pageUrl}
+          {issue.pageUrl} <ArrowUpRight className="h-3 w-3" style={{ display: 'inline' }} />
         </a>
       </td>
       <td style={{ padding: '16px' }}>
-        <span className="text-100 color-neutral-600">{issue.connection.domain}</span>
+        <span className="text-100 medium color-neutral-600">{issue.connection.domain}</span>
       </td>
       <td style={{ padding: '16px' }}>
         <span className="text-100 color-neutral-600">
@@ -239,15 +239,18 @@ function IssueRow({ issue }: { issue: Issue }) {
         </span>
       </td>
       <td style={{ padding: '16px' }}>
-        {issue.fixes.length > 0 ? (
-          <span className="text-100 color-accent-1 flex items-center gap-1">
-            <CheckCircle2 className="h-4 w-4" /> Fixed
-          </span>
-        ) : (
-          <button className="btn-secondary" style={{ fontSize: '14px', padding: '8px 16px' }}>
-            Create Fix
-          </button>
-        )}
+        <div className="flex-horizontal gap-column-12px justify-start">
+          {issue.fixes.length > 0 ? (
+            <div className="flex-horizontal gap-column-8px">
+              <CheckCircle2 className="h-4 w-4 color-accent-1" />
+              <span className="text-100 medium color-accent-1">Fixed</span>
+            </div>
+          ) : (
+            <button className="btn-secondary" style={{ fontSize: '14px', padding: '8px 16px' }}>
+              Create Fix
+            </button>
+          )}
+        </div>
       </td>
     </tr>
   )
@@ -255,24 +258,24 @@ function IssueRow({ issue }: { issue: Issue }) {
 
 function IssueTypeRow({ type, count }: { type: string; count: number }) {
   return (
-    <div className="flex-horizontal space-between align-center" style={{
-      padding: '12px 16px',
-      background: '#f9fafb',
-      borderRadius: '8px'
-    }}>
-      <span className="text-200 color-neutral-800">{type}</span>
-      <span className="text-200 bold color-neutral-600">{count}</span>
+    <div className="card pd-16px">
+      <div className="flex-horizontal space-between align-center">
+        <span className="text-200 medium color-neutral-800">{type}</span>
+        <span className="primary-badge">{count}</span>
+      </div>
     </div>
   )
 }
 
 function HowItWorksStep({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="flex-horizontal align-center" style={{ gap: '16px' }}>
-      <div style={{ fontSize: '32px', flexShrink: 0 }}>{icon}</div>
-      <div>
-        <p className="text-200 bold color-neutral-800" style={{ marginBottom: '4px' }}>{title}</p>
-        <p className="text-100 color-neutral-600">{description}</p>
+    <div className="flex-horizontal align-start gap-column-16px">
+      <div className="card-icon-square _40px neutral-icon flex-horizontal" style={{ flexShrink: 0 }}>
+        <span style={{ fontSize: '20px' }}>{icon}</span>
+      </div>
+      <div className="flex-vertical">
+        <p className="text-200 bold color-neutral-800 mg-bottom-4px">{title}</p>
+        <p className="text-100 medium color-neutral-600">{description}</p>
       </div>
     </div>
   )

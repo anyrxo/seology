@@ -23,235 +23,262 @@ export function SettingsClient({ user }: SettingsClientProps) {
   }
 
   return (
-    <div className="container-default w-container">
-      {/* Header */}
-      <div className="gap-row-24px">
-        <h1 className="text-500 bold color-neutral-800">
-          Settings
-        </h1>
-        <p className="text-200 color-neutral-600">
-          Manage your account preferences and execution mode
-        </p>
-      </div>
-
-      {/* Profile Section */}
-      <div className="card pd-32px---24px" style={{ marginTop: '48px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px' }}>
-            <Settings className="color-neutral-800" />
-          </div>
-          <h2 className="text-300 bold color-neutral-800">
-            Profile Information
-          </h2>
-        </div>
-
-        <div className="grid-2-columns gap-row-24px">
-          <div>
-            <label className="text-100 color-neutral-600" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              First Name
-            </label>
-            <input
-              type="text"
-              defaultValue={user.firstName || ''}
-              className="input"
-              disabled
-            />
-          </div>
-
-          <div>
-            <label className="text-100 color-neutral-600" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Last Name
-            </label>
-            <input
-              type="text"
-              defaultValue={user.lastName || ''}
-              className="input"
-              disabled
-            />
-          </div>
-
-          <div>
-            <label className="text-100 color-neutral-600" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Email
-            </label>
-            <input
-              type="email"
-              defaultValue={user.email}
-              className="input"
-              disabled
-            />
-          </div>
-
-          <div>
-            <label className="text-100 color-neutral-600" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              User ID
-            </label>
-            <input
-              type="text"
-              defaultValue={user.userId}
-              className="input"
-              style={{ fontFamily: 'monospace', fontSize: '14px' }}
-              disabled
-            />
-          </div>
-
-          <div>
-            <label className="text-100 color-neutral-600" style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>
-              Current Plan
-            </label>
-            <input
-              type="text"
-              defaultValue={planLabels[user.plan as keyof typeof planLabels]}
-              className="input"
-              disabled
-            />
-          </div>
-        </div>
-
-        <div style={{ paddingTop: '24px', borderTop: '1px solid #e5e7eb', marginTop: '24px' }}>
-          <p className="text-100 color-neutral-600">
-            Profile information is managed through Clerk. Visit your{' '}
-            <a href="#" className="color-accent-1" style={{ textDecoration: 'underline' }}>
-              account settings
-            </a>{' '}
-            to make changes.
-          </p>
-        </div>
-      </div>
-
-      {/* Execution Mode Section */}
-      <div className="card pd-32px---24px" style={{ marginTop: '24px' }}>
-        <div style={{ marginBottom: '24px' }}>
-          <h2 className="text-300 bold color-neutral-800" style={{ marginBottom: '8px' }}>
-            Fix Execution Mode
-          </h2>
-          <p className="text-100 color-neutral-600">
-            Choose how SEO fixes are applied to your sites
-          </p>
-        </div>
-
+    <div className="bg-neutral-200 min-h-screen">
+      <div className="container-default w-container">
         <div className="gap-row-24px">
-          <ExecutionModeOption
-            mode="AUTOMATIC"
-            title="Automatic"
-            description="Fixes are applied immediately without approval. Best for hands-off automation."
-            isActive={user.executionMode === 'AUTOMATIC'}
-          />
+          {/* Header */}
+          <div className="rt-component-section gap-row-24px">
+            <div className="flex-horizontal align-center gap-column-16px">
+              <div className="card-icon-square _40px flex-horizontal">
+                <Settings className="h-5 w-5" />
+              </div>
+              <div>
+                <h1 className="display-2 color-neutral-800">
+                  Settings
+                </h1>
+                <p className="text-200 medium color-neutral-600">
+                  Manage your account preferences and execution mode
+                </p>
+              </div>
+            </div>
+          </div>
 
-          <ExecutionModeOption
-            mode="PLAN"
-            title="Plan Mode"
-            description="Claude AI creates a plan of all fixes. You approve once, and all fixes execute together."
-            isActive={user.executionMode === 'PLAN'}
-          />
+          {/* Profile Section */}
+          <div className="card pd-32px---44px" style={{ marginTop: '48px' }}>
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
+              <div className="card-icon-square _40px neutral-icon flex-horizontal">
+                <Settings className="h-5 w-5" />
+              </div>
+              <h2 className="text-300 bold color-neutral-800">
+                Profile Information
+              </h2>
+            </div>
 
-          <ExecutionModeOption
-            mode="APPROVE"
-            title="Approve Mode"
-            description="Each fix requires individual approval before application. Maximum control."
-            isActive={user.executionMode === 'APPROVE'}
-          />
-        </div>
+            <div className="grid-2-columns gap-row-24px gap-column-24px">
+              <div className="flex-vertical">
+                <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  defaultValue={user.firstName || ''}
+                  className="rt-footer-newsletter-input"
+                  style={{ border: '1px solid var(--neutral--400)', borderRadius: '6px' }}
+                  disabled
+                />
+              </div>
 
-        <div style={{ paddingTop: '24px', borderTop: '1px solid #e5e7eb', marginTop: '24px' }}>
-          <div style={{ backgroundColor: '#dbeafe', border: '1px solid #93c5fd', borderRadius: '12px', padding: '16px' }}>
-            <p className="text-100 color-neutral-800">
-              <strong>Note:</strong> All execution modes include 90-day rollback protection. You can safely revert any fix within 90 days.
+              <div className="flex-vertical">
+                <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  defaultValue={user.lastName || ''}
+                  className="rt-footer-newsletter-input"
+                  style={{ border: '1px solid var(--neutral--400)', borderRadius: '6px' }}
+                  disabled
+                />
+              </div>
+
+              <div className="flex-vertical">
+                <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  defaultValue={user.email}
+                  className="rt-footer-newsletter-input"
+                  style={{ border: '1px solid var(--neutral--400)', borderRadius: '6px' }}
+                  disabled
+                />
+              </div>
+
+              <div className="flex-vertical">
+                <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  User ID
+                </label>
+                <input
+                  type="text"
+                  defaultValue={user.userId}
+                  className="rt-footer-newsletter-input"
+                  style={{
+                    border: '1px solid var(--neutral--400)',
+                    borderRadius: '6px',
+                    fontFamily: 'monospace',
+                    fontSize: '14px'
+                  }}
+                  disabled
+                />
+              </div>
+
+              <div className="flex-vertical">
+                <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  Current Plan
+                </label>
+                <div className="flex-horizontal gap-column-12px">
+                  <input
+                    type="text"
+                    defaultValue={planLabels[user.plan as keyof typeof planLabels]}
+                    className="rt-footer-newsletter-input"
+                    style={{ border: '1px solid var(--neutral--400)', borderRadius: '6px', flex: 1 }}
+                    disabled
+                  />
+                  <span className="primary-badge" style={{ alignSelf: 'center' }}>{user.plan}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="divider card-small-divider mg-top-24px"></div>
+            <p className="text-100 medium color-neutral-600">
+              Profile information is managed through Clerk. Visit your{' '}
+              <a href="#" className="text-100 medium color-accent-1 hover-opacity-85" style={{ textDecoration: 'none' }}>
+                account settings →
+              </a>
             </p>
           </div>
-        </div>
-      </div>
 
-      {/* Notifications Section */}
-      <div className="card pd-32px---24px" style={{ marginTop: '24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px' }}>
-            <Bell className="color-neutral-800" />
+          {/* Execution Mode Section */}
+          <div className="card pd-32px---44px" style={{ marginTop: '24px' }}>
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
+              <div className="card-icon-square _40px neutral-icon flex-horizontal">
+                <span style={{ fontSize: '20px' }}>⚙️</span>
+              </div>
+              <div>
+                <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                  Fix Execution Mode
+                </h2>
+                <p className="text-100 medium color-neutral-600">
+                  Choose how SEO fixes are applied to your sites
+                </p>
+              </div>
+            </div>
+
+            <div className="grid-1-column gap-row-16px">
+              <ExecutionModeOption
+                mode="AUTOMATIC"
+                title="Automatic"
+                description="Fixes are applied immediately without approval. Best for hands-off automation."
+                isActive={user.executionMode === 'AUTOMATIC'}
+              />
+
+              <ExecutionModeOption
+                mode="PLAN"
+                title="Plan Mode"
+                description="Claude AI creates a plan of all fixes. You approve once, and all fixes execute together."
+                isActive={user.executionMode === 'PLAN'}
+              />
+
+              <ExecutionModeOption
+                mode="APPROVE"
+                title="Approve Mode"
+                description="Each fix requires individual approval before application. Maximum control."
+                isActive={user.executionMode === 'APPROVE'}
+              />
+            </div>
+
+            <div className="divider card-small-divider mg-top-24px"></div>
+            <div className="card pd-24px" style={{ backgroundColor: 'var(--system--blue-100)', border: '1px solid var(--system--blue-200)' }}>
+              <div className="flex-horizontal align-center gap-column-12px">
+                <div className="card-icon-square _26px flex-horizontal" style={{ flexShrink: 0 }}>
+                  <span style={{ fontSize: '14px' }}>ℹ️</span>
+                </div>
+                <p className="text-100 medium color-neutral-800">
+                  <strong>Note:</strong> All execution modes include 90-day rollback protection. You can safely revert any fix within 90 days.
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2 className="text-300 bold color-neutral-800" style={{ marginBottom: '4px' }}>
-              Email Notifications
-            </h2>
-            <p className="text-100 color-neutral-600">
-              Choose what emails you want to receive
-            </p>
+
+          {/* Notifications Section */}
+          <div className="card pd-32px---44px" style={{ marginTop: '24px' }}>
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
+              <div className="card-icon-square _40px neutral-icon flex-horizontal">
+                <Bell className="h-5 w-5" />
+              </div>
+              <div>
+                <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                  Email Notifications
+                </h2>
+                <p className="text-100 medium color-neutral-600">
+                  Choose what emails you want to receive
+                </p>
+              </div>
+            </div>
+
+            <div className="grid-1-column gap-row-16px">
+              <NotificationToggle
+                label="New Issues Detected"
+                description="Get notified when SEO issues are found on your sites"
+                enabled={true}
+              />
+
+              <NotificationToggle
+                label="Fixes Applied"
+                description="Receive a summary of fixes applied to your sites"
+                enabled={true}
+              />
+
+              <NotificationToggle
+                label="Weekly Reports"
+                description="Get a weekly summary of SEO health across all sites"
+                enabled={false}
+              />
+
+              <NotificationToggle
+                label="Billing Updates"
+                description="Important updates about your subscription and usage"
+                enabled={true}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="gap-row-24px">
-          <NotificationToggle
-            label="New Issues Detected"
-            description="Get notified when SEO issues are found on your sites"
-            enabled={true}
-          />
-
-          <NotificationToggle
-            label="Fixes Applied"
-            description="Receive a summary of fixes applied to your sites"
-            enabled={true}
-          />
-
-          <NotificationToggle
-            label="Weekly Reports"
-            description="Get a weekly summary of SEO health across all sites"
-            enabled={false}
-          />
-
-          <NotificationToggle
-            label="Billing Updates"
-            description="Important updates about your subscription and usage"
-            enabled={true}
-          />
-        </div>
-      </div>
-
-      {/* Danger Zone */}
-      <div className="card pd-32px---24px" style={{ marginTop: '24px', backgroundColor: '#fee2e2', border: '1px solid #fca5a5' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', color: '#dc2626' }}>
-            <AlertTriangle />
+          {/* Danger Zone */}
+          <div className="card pd-32px---44px" style={{ marginTop: '24px', backgroundColor: 'var(--system--red-100)', border: '1px solid var(--system--red-200)' }}>
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
+              <div className="card-icon-square _40px flex-horizontal" style={{ flexShrink: 0, borderColor: 'var(--system--300)', backgroundColor: 'var(--system--red-100)' }}>
+                <AlertTriangle className="h-5 w-5" style={{ color: 'var(--system--300)' }} />
+              </div>
+              <h2 className="text-300 bold" style={{ color: 'var(--system--red-400)' }}>
+                Danger Zone
+              </h2>
+            </div>
+            <div className="flex-horizontal space-between align-center children-wrap gap-16px---8px">
+              <div className="flex-vertical">
+                <p className="text-200 bold color-neutral-800 mg-bottom-4px">Delete Account</p>
+                <p className="text-100 medium color-neutral-600">
+                  Permanently delete your account and all associated data
+                </p>
+              </div>
+              <button className="btn-primary large" style={{ backgroundColor: 'var(--system--red-400)', borderColor: 'var(--system--red-400)' }}>
+                Delete Account
+              </button>
+            </div>
           </div>
-          <h2 className="text-300 bold" style={{ color: '#dc2626' }}>
-            Danger Zone
-          </h2>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
-          <div>
-            <p className="text-200 bold color-neutral-800" style={{ marginBottom: '4px' }}>Delete Account</p>
-            <p className="text-100 color-neutral-600">
-              Permanently delete your account and all associated data
-            </p>
-          </div>
-          <button className="btn-primary" style={{ backgroundColor: '#dc2626', borderColor: '#dc2626' }}>
-            Delete Account
-          </button>
         </div>
       </div>
     </div>
   )
 }
 
-function ExecutionModeOption({
-  mode,
-  title,
-  description,
-  isActive,
-}: {
+interface ExecutionModeOptionProps {
   mode: string
   title: string
   description: string
   isActive: boolean
-}) {
+}
+
+function ExecutionModeOption({ mode, title, description, isActive }: ExecutionModeOptionProps) {
   return (
     <label
       className="card pd-24px"
       style={{
         cursor: 'pointer',
-        border: isActive ? '2px solid #3b82f6' : '1px solid #e5e7eb',
-        backgroundColor: isActive ? '#eff6ff' : 'white'
+        border: isActive ? '2px solid var(--accent--primary-1)' : '1px solid var(--neutral--400)',
+        backgroundColor: isActive ? 'var(--secondary--color-3)' : 'var(--neutral--100)'
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+      <div className="flex-horizontal align-start gap-column-16px">
         <input
           type="radio"
           name="execution_mode"
@@ -261,44 +288,42 @@ function ExecutionModeOption({
           style={{ marginTop: '4px' }}
           readOnly
         />
-        <div style={{ flex: 1 }}>
-          <p className="text-200 bold color-neutral-800">{title}</p>
-          <p className="text-100 color-neutral-600" style={{ marginTop: '4px' }}>{description}</p>
+        <div className="flex-vertical" style={{ flex: 1 }}>
+          <div className="flex-horizontal space-between align-center mg-bottom-8px">
+            <p className="text-200 bold color-neutral-800">{title}</p>
+            {isActive && <span className="primary-badge light">Active</span>}
+          </div>
+          <p className="text-100 medium color-neutral-600">{description}</p>
         </div>
       </div>
     </label>
   )
 }
 
-function NotificationToggle({
-  label,
-  description,
-  enabled,
-}: {
+interface NotificationToggleProps {
   label: string
   description: string
   enabled: boolean
-}) {
+}
+
+function NotificationToggle({ label, description, enabled }: NotificationToggleProps) {
   return (
-    <div className="card pd-24px" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <div>
-        <p className="text-200 bold color-neutral-800">{label}</p>
-        <p className="text-100 color-neutral-600">{description}</p>
-      </div>
-      <div className="toggle-button-wrapper">
-        <input
-          type="checkbox"
-          checked={enabled}
-          readOnly
-          style={{
-            width: '48px',
-            height: '28px',
-            borderRadius: '14px',
-            backgroundColor: enabled ? '#3b82f6' : '#d1d5db',
-            position: 'relative',
-            cursor: 'pointer'
-          }}
-        />
+    <div className="card pd-24px">
+      <div className="flex-horizontal space-between align-center">
+        <div className="flex-vertical" style={{ flex: 1 }}>
+          <div className="flex-horizontal gap-column-12px align-center mg-bottom-4px">
+            <p className="text-200 bold color-neutral-800">{label}</p>
+            {enabled && <span className="color-badge green">Enabled</span>}
+          </div>
+          <p className="text-100 medium color-neutral-600">{description}</p>
+        </div>
+        <div className="toggle-button-wrapper" style={{ flexShrink: 0, marginLeft: '16px' }}>
+          <div className={`toggle-button-bg ${enabled ? 'active' : ''}`}></div>
+          <div className="toggle-button-circle-inside" style={{
+            transform: enabled ? 'translateX(14px)' : 'translateX(0)',
+            transition: 'transform 0.3s'
+          }}></div>
+        </div>
       </div>
     </div>
   )
