@@ -1,7 +1,12 @@
+'use client'
+
 import * as React from 'react'
+import { cn } from '@/lib/utils'
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
+  variant?: 'default' | 'glass' | 'elevated' | 'outlined' | 'gradient'
+  hover?: boolean
 }
 
 interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -25,15 +30,40 @@ interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className = '', children, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={`rounded-lg border border-gray-700 bg-gray-800 text-white shadow-sm ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
-  )
+  ({ className = '', children, variant = 'glass', hover = true, ...props }, ref) => {
+    const variants = {
+      default: 'bg-black/40 border-white/10',
+      glass: 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border-white/10',
+      elevated: 'bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/50',
+      outlined: 'bg-transparent border-white/20',
+      gradient: 'bg-gradient-to-br from-white/15 via-white/10 to-white/5 backdrop-blur-xl border-white/20',
+    }
+
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'rounded-2xl border text-white transition-all duration-300 overflow-hidden relative group',
+          variants[variant],
+          hover && 'hover:border-white/20 hover:shadow-2xl hover:shadow-black/60 hover:-translate-y-1',
+          className
+        )}
+        {...props}
+      >
+        {/* Inner glow on hover */}
+        {hover && (
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="relative z-10">
+          {children}
+        </div>
+      </div>
+    )
+  }
 )
 Card.displayName = 'Card'
 

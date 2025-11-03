@@ -23,6 +23,10 @@ model User {
   stripeCustomerId     String?
   stripeSubscriptionId String?
 
+  // Onboarding state
+  onboardingCompleted Boolean @default(false)
+  onboardingStep      Int     @default(0)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -36,6 +40,11 @@ model User {
   teamMemberships TeamMember[]
   ownedTeams      Team[]           @relation("TeamOwner")
   sentInvitations TeamInvitation[] @relation("InvitationSender")
+  usageRecords    UsageRecord[]
+  pendingPlans    PendingPlan[]
+
+  @@index([email])
+  @@index([plan])
 }
 
 enum ExecutionMode {
@@ -76,6 +85,13 @@ model Connection {
   status   ConnectionStatus @default(PENDING)
   lastSync DateTime?
 
+  // Health and statistics
+  healthStatus String  @default("unknown") // 'healthy', 'warning', 'error', 'unknown'
+  pageCount    Int     @default(0)
+  issueCount   Int     @default(0)
+  lastCrawlAt  DateTime?
+  lastAnalysisAt DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -87,6 +103,9 @@ model Connection {
 
   @@index([userId])
   @@index([teamId])
+  @@index([platform])
+  @@index([status])
+  @@index([domain])
 }
 
 enum Platform {
@@ -118,6 +137,11 @@ model Issue {
 
   status IssueStatus @default(DETECTED)
 
+  // Impact estimation
+  impactScore        Float?   @default(0) // Estimated SEO impact (0-100)
+  estimatedTraffic   Int?     // Estimated traffic impact per month
+  elementSelector    String?  // CSS selector for element
+
   detectedAt DateTime  @default(now())
   fixedAt    DateTime?
   createdAt  DateTime  @default(now())
@@ -127,6 +151,8 @@ model Issue {
 
   @@index([connectionId])
   @@index([status])
+  @@index([severity])
+  @@index([type])
 }
 
 enum Severity {
@@ -168,11 +194,23 @@ model Fix {
 
   appliedAt    DateTime?
   rolledBackAt DateTime?
+  rollbackDeadline DateTime? // appliedAt + 90 days
+
+  // Impact tracking
+  impactMetrics String @default("{}") // JSON: actual vs. expected metrics
+  platform      String? // Platform-specific implementation details
+
+  // Plan association
+  planId String?
+  plan   PendingPlan? @relation(fields: [planId], references: [id])
 
   createdAt DateTime @default(now())
 
   @@index([connectionId])
   @@index([status])
+  @@index([appliedAt])
+  @@index([rollbackDeadline])
+  @@index([planId])
 }
 
 enum FixMethod {
@@ -206,6 +244,7 @@ model Metric {
 
   @@unique([connectionId, date])
   @@index([connectionId])
+  @@index([date])
 }
 
 // AI Conversations
@@ -243,6 +282,8 @@ model AuditLog {
 
   @@index([userId])
   @@index([createdAt])
+  @@index([action])
+  @@index([connectionId])
 }
 
 // Billing & Subscriptions
@@ -258,9 +299,14 @@ model Subscription {
   currentPeriodStart DateTime
   currentPeriodEnd   DateTime
 
+  trialEnd DateTime?
+  cancelAtPeriodEnd Boolean @default(false)
+
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([userId])
+  @@index([status])
 }
 
 enum SubscriptionStatus {
@@ -306,6 +352,8 @@ model Notification {
   title     String
   message   String
   actionUrl String? // Optional link to relevant page
+  icon      String? // Icon identifier
+  color     String? // Color scheme
 
   read Boolean @default(false)
 
@@ -313,6 +361,7 @@ model Notification {
 
   @@index([userId])
   @@index([read])
+  @@index([createdAt])
 }
 
 // Webhooks
@@ -426,4 +475,137 @@ model CSRFToken {
   @@index([userId])
   @@index([token])
   @@index([expiresAt])
+}
+
+// Usage Tracking (Monthly quotas per plan)
+model UsageRecord {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  period DateTime // First day of the month (e.g., 2024-01-01)
+
+  // Usage counters
+  sitesUsed Int @default(0)
+  fixesApplied Int @default(0)
+  crawlsExecuted Int @default(0)
+  apiCallsMade Int @default(0)
+
+  // Quota limits from plan (cached for historical accuracy)
+  sitesLimit Int
+  fixesLimit Int
+
+  // Flags
+  overageOccurred Boolean @default(false)
+  limitWarningShown Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, period])
+  @@index([userId])
+  @@index([period])
+}
+
+// Job Queue System (for background tasks)
+model Job {
+  id String @id @default(uuid())
+
+  type JobType // Type of job to execute
+  status JobStatus @default(PENDING)
+  priority Int @default(5) // 1=highest, 10=lowest
+
+  // Job data
+  payload String // JSON string of input data
+  result String? // JSON string of output data
+  error String? // Error message if failed
+
+  // Execution tracking
+  attempts Int @default(0)
+  maxAttempts Int @default(3)
+  progress Float @default(0) // 0-100 percentage
+  estimatedCompletion DateTime? // Estimated completion time
+
+  // Scheduling
+  scheduledFor DateTime @default(now())
+  startedAt DateTime?
+  completedAt DateTime?
+  failedAt DateTime?
+
+  // Relations (optional)
+  connectionId String?
+  userId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([scheduledFor])
+  @@index([priority])
+  @@index([type])
+  @@index([connectionId])
+  @@index([userId])
+}
+
+enum JobType {
+  CRAWL_SITE
+  ANALYZE_SITE
+  APPLY_FIX
+  ROLLBACK_FIX
+  CLEANUP_ROLLBACKS
+  RESET_USAGE
+  SYNC_METRICS
+  GENERATE_REPORT
+}
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+  RETRYING
+}
+
+// Pending Plans (for PLAN execution mode)
+model PendingPlan {
+  id String @id @default(uuid())
+
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  connectionId String
+
+  // Plan details
+  title String
+  description String
+  estimatedImpact String @default("{}") // JSON: expected improvements
+
+  status PlanStatus @default(PENDING)
+
+  // Approval tracking
+  approvedAt DateTime?
+  rejectedAt DateTime?
+  executedAt DateTime?
+  rejectionReason String?
+
+  // Relations
+  fixes Fix[] // All fixes in this plan
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+enum PlanStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXECUTING
+  COMPLETED
+  FAILED
 }

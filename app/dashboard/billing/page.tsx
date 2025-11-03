@@ -1,5 +1,18 @@
+/**
+ * Billing Dashboard Page
+ * Shows subscription, usage, and billing management
+ */
+
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
+import { db } from '@/lib/db'
+import { getUsageSummary } from '@/lib/usage'
+import { PlanComparison } from '@/components/billing/PlanComparison'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Progress } from '@/components/ui/progress'
+import { ExternalLink, CreditCard, Receipt, AlertCircle } from 'lucide-react'
 
 export default async function BillingPage() {
   const { userId } = await auth()
@@ -8,291 +21,256 @@ export default async function BillingPage() {
     redirect('/sign-in')
   }
 
+  // Get user with subscription
+  const user = await db.user.findUnique({
+    where: { clerkId: userId },
+    include: {
+      subscriptions: {
+        orderBy: { createdAt: 'desc' },
+        take: 1,
+      },
+    },
+  })
+
+  if (!user) {
+    redirect('/sign-in')
+  }
+
+  // Get usage stats
+  const usage = await getUsageSummary(user.id)
+  const subscription = user.subscriptions[0]
+
+  // Get Stripe subscription status if exists
+  let stripeStatus: 'active' | 'past_due' | 'canceled' | 'trialing' | null = null
+  let nextBillingDate: Date | null = null
+
+  if (subscription) {
+    stripeStatus = subscription.status === 'ACTIVE' ? 'active'
+      : subscription.status === 'PAST_DUE' ? 'past_due'
+      : subscription.status === 'TRIALING' ? 'trialing'
+      : 'canceled'
+    nextBillingDate = subscription.currentPeriodEnd
+  }
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 max-w-7xl">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Billing & Usage</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Billing & Subscription</h1>
         <p className="text-gray-400">
-          Manage your subscription and monitor usage
+          Manage your subscription, monitor usage, and view billing history
         </p>
       </div>
 
-      {/* Current Plan */}
-      <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-700 rounded-lg p-8">
-        <div className="flex items-start justify-between">
-          <div>
-            <div className="flex items-center space-x-3 mb-2">
-              <h2 className="text-2xl font-bold text-white">Free Plan</h2>
-              <span className="px-3 py-1 bg-green-900 text-green-200 rounded-full text-xs font-semibold">
-                ACTIVE
-              </span>
+      {/* Payment Failed Alert */}
+      {stripeStatus === 'past_due' && (
+        <Card className="border-red-500 bg-red-500/10">
+          <CardContent className="pt-6">
+            <div className="flex items-start space-x-3">
+              <AlertCircle className="h-5 w-5 text-red-500 mt-0.5" />
+              <div className="flex-1">
+                <h3 className="font-semibold text-red-500 mb-1">Payment Failed</h3>
+                <p className="text-sm text-red-400 mb-3">
+                  Your most recent payment failed. Please update your payment method to avoid service interruption.
+                </p>
+                <ManageSubscriptionButton customerId={user.stripeCustomerId} />
+              </div>
             </div>
-            <p className="text-gray-300 mb-4">
-              Perfect for trying out SEOLOGY.AI
-            </p>
-            <div className="flex items-center space-x-6 text-sm">
-              <div>
-                <span className="text-gray-400">Price:</span>
-                <span className="text-white font-semibold ml-2">$0/month</span>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Current Plan Overview */}
+      <Card className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border-blue-700/50">
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div>
+              <div className="flex items-center space-x-3 mb-2">
+                <CardTitle className="text-2xl">{usage.plan.name} Plan</CardTitle>
+                {stripeStatus && (
+                  <Badge variant={
+                    stripeStatus === 'active' ? 'success'
+                    : stripeStatus === 'trialing' ? 'info'
+                    : stripeStatus === 'past_due' ? 'danger'
+                    : 'default'
+                  }>
+                    {stripeStatus.toUpperCase()}
+                  </Badge>
+                )}
               </div>
-              <div>
-                <span className="text-gray-400">Renews:</span>
-                <span className="text-white font-semibold ml-2">Never</span>
-              </div>
+              <CardDescription>
+                ${usage.plan.price}/month
+                {nextBillingDate && ` • Renews ${new Date(nextBillingDate).toLocaleDateString()}`}
+              </CardDescription>
+            </div>
+            <div className="flex space-x-2">
+              {user.stripeCustomerId ? (
+                <ManageSubscriptionButton customerId={user.stripeCustomerId} />
+              ) : (
+                <Button variant="primary">
+                  Upgrade Plan
+                </Button>
+              )}
             </div>
           </div>
-          <a
-            href="/pricing.html"
-            className="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            Upgrade Plan
-          </a>
-        </div>
-      </div>
+        </CardHeader>
+      </Card>
 
       {/* Usage This Month */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 space-y-6">
-        <h2 className="text-xl font-semibold text-white">Usage This Month</h2>
+      <Card>
+        <CardHeader>
+          <CardTitle>Usage This Month</CardTitle>
+          <CardDescription>
+            Track your monthly usage across all limits
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Sites Usage */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span className="font-medium text-white">Sites Connected</span>
+              <span className="text-gray-400">
+                {usage.sites.used} / {usage.sites.limit === 999999 ? '∞' : usage.sites.limit}
+              </span>
+            </div>
+            <Progress
+              value={Math.min(usage.sites.percentUsed, 100)}
+              variant={
+                usage.sites.percentUsed >= 90 ? 'danger'
+                : usage.sites.percentUsed >= 70 ? 'warning'
+                : 'success'
+              }
+              size="md"
+            />
+            {usage.warnings.sitesAtLimit && (
+              <p className="text-xs text-red-400">
+                Site limit reached. Upgrade to connect more sites.
+              </p>
+            )}
+          </div>
 
-        <div className="space-y-6">
-          <UsageBar
-            label="Sites Connected"
-            current={0}
-            limit={3}
-            unit="sites"
-          />
+          {/* Fixes Usage */}
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span className="font-medium text-white">Monthly Fixes</span>
+              <span className="text-gray-400">
+                {usage.fixes.used} / {usage.fixes.limit === 999999 ? '∞' : usage.fixes.limit}
+              </span>
+            </div>
+            <Progress
+              value={Math.min(usage.fixes.percentUsed, 100)}
+              variant={
+                usage.fixes.percentUsed >= 90 ? 'danger'
+                : usage.fixes.percentUsed >= 70 ? 'warning'
+                : 'success'
+              }
+              size="md"
+            />
+            {usage.warnings.fixesAtLimit && (
+              <p className="text-xs text-red-400">
+                Monthly fix limit reached. Upgrade for more fixes.
+              </p>
+            )}
+            {usage.warnings.fixesNearLimit && !usage.warnings.fixesAtLimit && (
+              <p className="text-xs text-yellow-400">
+                Approaching monthly limit. Consider upgrading.
+              </p>
+            )}
+          </div>
 
-          <UsageBar
-            label="Fixes Applied"
-            current={0}
-            limit={500}
-            unit="fixes"
-          />
-        </div>
-
-        <div className="pt-4 border-t border-gray-800">
-          <p className="text-sm text-gray-400">
-            Usage resets on the 1st of each month. Upgrade to Pro for unlimited sites and fixes.
-          </p>
-        </div>
-      </div>
+          <div className="pt-4 border-t border-gray-800">
+            <p className="text-sm text-gray-400">
+              Usage resets on the 1st of each month.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Plan Comparison */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 space-y-6">
-        <h2 className="text-xl font-semibold text-white">Available Plans</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <PlanCard
-            name="Free"
-            price="$0"
-            period="forever"
-            features={[
-              '3 sites',
-              '500 fixes/month',
-              'Basic SEO audit',
-              'Email support',
-              '14-day rollback',
-            ]}
-            isCurrent={true}
-            ctaText="Current Plan"
-            ctaDisabled={true}
-          />
-
-          <PlanCard
-            name="Pro"
-            price="$497"
-            period="month"
-            features={[
-              'Unlimited sites',
-              'Unlimited fixes',
-              'Advanced SEO audit',
-              'Priority support',
-              '90-day rollback',
-              'Custom integrations',
-            ]}
-            isCurrent={false}
-            ctaText="Upgrade to Pro"
-            ctaDisabled={false}
-            highlighted={true}
-          />
-
-          <PlanCard
-            name="Enterprise"
-            price="Custom"
-            period=""
-            features={[
-              'Everything in Pro',
-              'Dedicated account manager',
-              'SLA guarantee',
-              'White-label reporting',
-              'Custom development',
-              'On-premise deployment',
-            ]}
-            isCurrent={false}
-            ctaText="Contact Sales"
-            ctaDisabled={false}
-          />
-        </div>
+      <div>
+        <h2 className="text-2xl font-bold text-white mb-6">Available Plans</h2>
+        <PlanComparison currentPlan={user.plan} showCurrentBadge={true} />
       </div>
 
       {/* Payment Method */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 space-y-6">
-        <h2 className="text-xl font-semibold text-white">Payment Method</h2>
-
-        <div className="text-center py-12">
-          <div className="text-5xl mb-4">💳</div>
-          <p className="text-gray-400 mb-4">No payment method on file</p>
-          <p className="text-sm text-gray-500 mb-6">
-            Add a payment method to upgrade to a paid plan
-          </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-            Add Payment Method
-          </button>
-        </div>
-      </div>
-
-      {/* Billing History */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 space-y-6">
-        <h2 className="text-xl font-semibold text-white">Billing History</h2>
-
-        <div className="text-center py-12">
-          <div className="text-5xl mb-4">📄</div>
-          <p className="text-gray-400">No billing history yet</p>
-          <p className="text-sm text-gray-500 mt-2">
-            Your invoices will appear here
-          </p>
-        </div>
-
-        {/* Example table when there's history */}
-        {/* <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-800 text-gray-400 text-sm">
-              <tr>
-                <th className="text-left px-6 py-3">Invoice</th>
-                <th className="text-left px-6 py-3">Date</th>
-                <th className="text-left px-6 py-3">Amount</th>
-                <th className="text-left px-6 py-3">Status</th>
-                <th className="text-left px-6 py-3">Download</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-gray-800">
-                <td className="px-6 py-4 text-white">#INV-001</td>
-                <td className="px-6 py-4 text-gray-400">Jan 1, 2025</td>
-                <td className="px-6 py-4 text-white">$497.00</td>
-                <td className="px-6 py-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-900 text-green-200">
-                    Paid
-                  </span>
-                </td>
-                <td className="px-6 py-4">
-                  <button className="text-blue-400 hover:text-blue-300">Download PDF</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> */}
-      </div>
-    </div>
-  )
-}
-
-function UsageBar({
-  label,
-  current,
-  limit,
-  unit,
-}: {
-  label: string
-  current: number
-  limit: number
-  unit: string
-}) {
-  const percentage = (current / limit) * 100
-
-  return (
-    <div>
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-white font-medium">{label}</span>
-        <span className="text-gray-400 text-sm">
-          {current} / {limit} {unit}
-        </span>
-      </div>
-      <div className="w-full bg-gray-800 rounded-full h-2">
-        <div
-          className="bg-blue-600 h-2 rounded-full transition-all"
-          style={{ width: `${Math.min(percentage, 100)}%` }}
-        />
-      </div>
-    </div>
-  )
-}
-
-function PlanCard({
-  name,
-  price,
-  period,
-  features,
-  isCurrent,
-  ctaText,
-  ctaDisabled,
-  highlighted,
-}: {
-  name: string
-  price: string
-  period: string
-  features: string[]
-  isCurrent: boolean
-  ctaText: string
-  ctaDisabled: boolean
-  highlighted?: boolean
-}) {
-  return (
-    <div
-      className={`rounded-lg p-6 ${
-        highlighted
-          ? 'bg-gradient-to-b from-blue-900/50 to-blue-800/50 border-2 border-blue-500'
-          : 'bg-gray-800 border border-gray-700'
-      }`}
-    >
-      {highlighted && (
-        <div className="text-center mb-4">
-          <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            MOST POPULAR
-          </span>
-        </div>
+      {user.stripeCustomerId && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <CreditCard className="h-5 w-5 mr-2" />
+              Payment Method
+            </CardTitle>
+            <CardDescription>
+              Manage your payment methods through Stripe
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ManageSubscriptionButton customerId={user.stripeCustomerId} text="Manage Payment Methods" />
+          </CardContent>
+        </Card>
       )}
 
-      <div className="text-center mb-6">
-        <h3 className="text-xl font-semibold text-white mb-2">{name}</h3>
-        <div className="mb-4">
-          <span className="text-4xl font-bold text-white">{price}</span>
-          {period && <span className="text-gray-400">/{period}</span>}
-        </div>
-      </div>
-
-      <ul className="space-y-3 mb-6">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-center space-x-2 text-sm">
-            <span className="text-green-400">✓</span>
-            <span className="text-gray-300">{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      <button
-        className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-          ctaDisabled
-            ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-            : highlighted
-            ? 'bg-blue-600 hover:bg-blue-700 text-white'
-            : 'bg-gray-700 hover:bg-gray-600 text-white'
-        }`}
-        disabled={ctaDisabled}
-      >
-        {ctaText}
-      </button>
+      {/* Billing History */}
+      {user.stripeCustomerId && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Receipt className="h-5 w-5 mr-2" />
+              Billing History
+            </CardTitle>
+            <CardDescription>
+              View and download your invoices
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="text-center py-8">
+              <p className="text-gray-400 mb-4">
+                Access your complete billing history through the Stripe customer portal
+              </p>
+              <ManageSubscriptionButton customerId={user.stripeCustomerId} text="View Billing History" />
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
+  )
+}
+
+/**
+ * Client component to handle Stripe portal redirection
+ */
+function ManageSubscriptionButton({
+  customerId,
+  text = 'Manage Subscription',
+}: {
+  customerId: string | null
+  text?: string
+}) {
+  if (!customerId) {
+    return null
+  }
+
+  async function handleManageSubscription() {
+    try {
+      const response = await fetch('/api/billing/portal', {
+        method: 'POST',
+      })
+
+      const data = await response.json()
+      if (data.success && data.url) {
+        window.location.href = data.url
+      }
+    } catch (error) {
+      console.error('Error opening billing portal:', error)
+    }
+  }
+
+  return (
+    <form action={handleManageSubscription}>
+      <Button type="submit" variant="outline">
+        <ExternalLink className="h-4 w-4 mr-2" />
+        {text}
+      </Button>
+    </form>
   )
 }

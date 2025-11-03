@@ -226,7 +226,7 @@ export default function LandingPageContent() {
             <h2 className={typo(typographyPatterns.sectionTitle, 'mb-6 mx-auto')}>
               Every SEO Tool Tells You What's Wrong
             </h2>
-            <p className={typo(typography['body-xl'], typography.color.muted)}>Nobody actually fixes it.</p>
+            <p className={typo(typography.body.xl, typography.color.muted)}>Nobody actually fixes it.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -292,7 +292,7 @@ export default function LandingPageContent() {
                 </h3>
                 <ul className="space-y-3">
                   {item.items.map((point, i) => (
-                    <li key={i} className={typo('flex items-start', typography.body, typography.color.tertiary)}>
+                    <li key={i} className="flex items-start text-base leading-relaxed text-white/60">
                       <span
                         className={`${item.color} mr-3 mt-1 font-bold text-lg`}
                       >

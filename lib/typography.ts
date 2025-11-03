@@ -1,25 +1,71 @@
 /**
  * Typography System for SEOLOGY.AI
  *
- * Consistent typography classes for perfect visual hierarchy and readability
+ * Perfect typography scale following professional design principles
+ * Based on modular scale with responsive variants
  */
 
 export const typography = {
+  // Display (Hero headings)
+  display: {
+    xl: 'text-7xl md:text-8xl lg:text-9xl font-black tracking-tight leading-none',
+    lg: 'text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none',
+    md: 'text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight',
+  },
+
   // Headings
-  h1: 'text-6xl md:text-7xl font-bold tracking-tight leading-none',
-  h2: 'text-4xl md:text-5xl font-bold tracking-tight leading-tight',
-  h3: 'text-2xl md:text-3xl font-semibold tracking-tight leading-snug',
-  h4: 'text-xl md:text-2xl font-semibold leading-snug',
-  h5: 'text-lg md:text-xl font-semibold leading-snug',
-  h6: 'text-base md:text-lg font-semibold leading-normal',
+  h1: 'text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight',
+  h2: 'text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight',
+  h3: 'text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug',
+  h4: 'text-xl md:text-2xl lg:text-3xl font-semibold leading-snug',
+  h5: 'text-lg md:text-xl lg:text-2xl font-semibold leading-normal',
+  h6: 'text-base md:text-lg lg:text-xl font-semibold leading-normal',
 
   // Body Text
-  'body-xl': 'text-lg md:text-xl leading-relaxed',
-  'body-lg': 'text-base md:text-lg leading-relaxed',
-  body: 'text-base leading-relaxed',
-  'body-sm': 'text-sm md:text-base leading-normal',
-  caption: 'text-xs md:text-sm leading-normal',
-  tiny: 'text-xs leading-normal',
+  body: {
+    xl: 'text-xl leading-relaxed',
+    lg: 'text-lg leading-relaxed',
+    md: 'text-base leading-relaxed',
+    sm: 'text-sm leading-normal',
+    xs: 'text-xs leading-normal',
+  },
+
+  // Special Text Styles
+  label: 'text-sm font-medium uppercase tracking-wide',
+  caption: 'text-xs text-white/60',
+  code: 'font-mono text-sm bg-white/10 px-1.5 py-0.5 rounded',
+  stat: 'text-3xl md:text-4xl font-bold tabular-nums',
+
+  // Font Weights
+  weight: {
+    light: 'font-light',      // 300
+    normal: 'font-normal',    // 400
+    medium: 'font-medium',    // 500
+    semibold: 'font-semibold', // 600
+    bold: 'font-bold',        // 700
+    extrabold: 'font-extrabold', // 800
+    black: 'font-black',      // 900
+  },
+
+  // Line Heights
+  leading: {
+    none: 'leading-none',       // 1
+    tight: 'leading-tight',     // 1.25
+    snug: 'leading-snug',       // 1.375
+    normal: 'leading-normal',   // 1.5
+    relaxed: 'leading-relaxed', // 1.625
+    loose: 'leading-loose',     // 2
+  },
+
+  // Letter Spacing
+  tracking: {
+    tighter: 'tracking-tighter', // -0.05em
+    tight: 'tracking-tight',     // -0.025em
+    normal: 'tracking-normal',   // 0
+    wide: 'tracking-wide',       // 0.025em
+    wider: 'tracking-wider',     // 0.05em
+    widest: 'tracking-widest',   // 0.1em
+  },
 
   // Color Hierarchy
   color: {
@@ -30,37 +76,31 @@ export const typography = {
     disabled: 'text-white/20',
   },
 
-  // Max Width for Readability
+  // Text Alignment
+  align: {
+    left: 'text-left',
+    center: 'text-center',
+    right: 'text-right',
+    justify: 'text-justify',
+  },
+
+  // Max Widths for Readability (optimal line length)
   width: {
-    heading: 'max-w-4xl',
-    'body-wide': 'max-w-3xl',
-    body: 'max-w-2xl',
-    narrow: 'max-w-xl',
-  },
-
-  // Letter Spacing
-  tracking: {
-    tight: 'tracking-tight', // -0.02em for headlines
-    normal: 'tracking-normal', // 0 for subheadings and body
-    wide: 'tracking-wide', // 0.02em for small text
-  },
-
-  // Line Height
-  leading: {
-    none: 'leading-none', // 1 for headlines
-    tight: 'leading-tight', // 1.25 for subheadings
-    snug: 'leading-snug', // 1.375 for larger body
-    normal: 'leading-normal', // 1.5 for small text
-    relaxed: 'leading-relaxed', // 1.625 for body text
-    loose: 'leading-loose', // 2 for spacious text
+    heading: 'max-w-4xl',   // ~768px for headings
+    body: 'max-w-2xl',      // ~672px for body text (optimal 50-75ch)
+    narrow: 'max-w-xl',     // ~576px for narrow content
+    wide: 'max-w-6xl',      // ~1152px for wide layouts
   },
 } as const
 
 /**
  * Utility function to combine typography classes
  */
-export function typo(...classes: string[]): string {
-  return classes.filter(Boolean).join(' ')
+export function typo(...classes: (string | Record<string, string>)[]): string {
+  return classes
+    .filter(Boolean)
+    .map(c => typeof c === 'string' ? c : Object.values(c).join(' '))
+    .join(' ')
 }
 
 /**
@@ -80,20 +120,20 @@ export const typographyPatterns = {
   cardTitle: typo(typography.h4, typography.color.primary),
 
   // Large Body Pattern (for hero descriptions)
-  heroBody: typo(typography['body-xl'], typography.color.tertiary, typography.width.body),
+  heroBody: typo(typography.body.xl, typography.color.tertiary, typography.width.body),
 
   // Regular Body Pattern
-  body: typo(typography.body, typography.color.secondary, typography.width.body),
+  body: typo(typography.body.md, typography.color.secondary, typography.width.body),
 
   // Small Body Pattern (for descriptions, metadata)
-  smallBody: typo(typography['body-sm'], typography.color.tertiary),
+  smallBody: typo(typography.body.sm, typography.color.tertiary),
 
   // Caption Pattern (for labels, hints)
   caption: typo(typography.caption, typography.color.muted, typography.tracking.wide),
 
   // Stats/Metrics Pattern
-  stat: typo('text-3xl md:text-4xl font-bold tabular-nums', typography.color.primary),
+  stat: typo(typography.stat, typography.color.primary),
 
   // Label Pattern
-  label: typo(typography['body-sm'], typography.color.secondary, 'font-medium'),
+  label: typo(typography.label, typography.color.secondary),
 } as const

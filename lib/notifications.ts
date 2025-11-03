@@ -12,21 +12,54 @@ import {
   sendPlanUpgradeEmail,
 } from './email'
 
-type NotificationType = 'SUCCESS' | 'ERROR' | 'INFO' | 'WARNING' | 'FIX_APPLIED' | 'FIX_FAILED' | 'SITE_CONNECTED' | 'ANALYSIS_COMPLETE' | 'USAGE_LIMIT' | 'PLAN_UPGRADED' | 'FIX_PENDING'
+export enum NotificationType {
+  // Fix-related
+  FIX_APPLIED = 'FIX_APPLIED',
+  FIX_FAILED = 'FIX_FAILED',
+  FIX_REQUIRES_APPROVAL = 'FIX_REQUIRES_APPROVAL',
+  PLAN_READY = 'PLAN_READY',
+
+  // Job-related
+  CRAWL_COMPLETE = 'CRAWL_COMPLETE',
+  ANALYSIS_COMPLETE = 'ANALYSIS_COMPLETE',
+  JOB_FAILED = 'JOB_FAILED',
+
+  // Usage/Billing
+  USAGE_WARNING = 'USAGE_WARNING',
+  USAGE_LIMIT = 'USAGE_LIMIT',
+  PAYMENT_FAILED = 'PAYMENT_FAILED',
+  SUBSCRIPTION_RENEWED = 'SUBSCRIPTION_RENEWED',
+
+  // System
+  ISSUE_DETECTED = 'ISSUE_DETECTED',
+  SITE_HEALTH = 'SITE_HEALTH',
+  SYSTEM_ANNOUNCEMENT = 'SYSTEM_ANNOUNCEMENT',
+  SITE_CONNECTED = 'SITE_CONNECTED',
+
+  // Legacy types for backward compatibility
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
+  INFO = 'INFO',
+  WARNING = 'WARNING',
+  PLAN_UPGRADED = 'PLAN_UPGRADED',
+  FIX_PENDING = 'FIX_PENDING',
+}
 
 interface CreateNotificationParams {
   userId: string
-  type: NotificationType
+  type: NotificationType | string
   title: string
   message: string
   actionUrl?: string
+  actionLabel?: string
+  metadata?: Record<string, any>
 }
 
 /**
  * Create a new notification
  */
 export async function createNotification(params: CreateNotificationParams) {
-  const { userId, type, title, message, actionUrl } = params
+  const { userId, type, title, message, actionUrl, actionLabel, metadata } = params
 
   return await db.notification.create({
     data: {

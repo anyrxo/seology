@@ -22,15 +22,15 @@ export async function GET(req: NextRequest) {
     const type = searchParams.get('type') as JobType | null
 
     // Get queue statistics
-    const stats = getQueueStats()
+    const stats = await getQueueStats()
 
     // Get pending jobs
-    const pendingJobs = getPendingJobs()
+    const pendingJobs = await getPendingJobs()
 
     // Get jobs by type if specified
     let jobsByType = null
     if (type) {
-      jobsByType = getJobsByType(type)
+      jobsByType = await getJobsByType(type)
     }
 
     return NextResponse.json({
@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
           createdAt: job.createdAt.toISOString(),
           startedAt: job.startedAt?.toISOString() || null,
           completedAt: job.completedAt?.toISOString() || null,
-          data: job.data,
+          payload: job.payload,
         })),
         jobsByType: jobsByType
           ? jobsByType.map((job) => ({
@@ -60,7 +60,7 @@ export async function GET(req: NextRequest) {
               createdAt: job.createdAt.toISOString(),
               startedAt: job.startedAt?.toISOString() || null,
               completedAt: job.completedAt?.toISOString() || null,
-              data: job.data,
+              payload: job.payload,
             }))
           : null,
       },
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
     if (action === 'retry') {
       result = await retryJob(jobId)
     } else if (action === 'cancel') {
-      result = cancelJob(jobId)
+      result = await cancelJob(jobId)
     } else {
       return NextResponse.json(
         {

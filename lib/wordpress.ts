@@ -9,7 +9,7 @@ import { decrypt } from './encryption'
 interface WordPressFixResult {
   success: boolean
   message: string
-  data?: unknown
+  data?: Record<string, unknown>
 }
 
 interface WordPressPost {

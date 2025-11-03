@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useUser } from '@clerk/nextjs'
+import { formatDistanceToNow } from 'date-fns'
 
 interface Notification {
   id: string
   type: string
   title: string
   message: string
+  actionUrl?: string | null
   read: boolean
   createdAt: string
 }
@@ -16,18 +18,30 @@ export default function NotificationCenter() {
   const { user } = useUser()
   const [isOpen, setIsOpen] = useState(false)
   const [notifications, setNotifications] = useState<Notification[]>([])
+  const [unreadCount, setUnreadCount] = useState(0)
   const [loading, setLoading] = useState(false)
 
+  // Poll for new notifications every 30 seconds
   useEffect(() => {
-    if (isOpen && user) {
+    if (user) {
       fetchNotifications()
+      fetchUnreadCount()
+
+      const interval = setInterval(() => {
+        fetchUnreadCount()
+        if (isOpen) {
+          fetchNotifications()
+        }
+      }, 30000) // 30 seconds
+
+      return () => clearInterval(interval)
     }
-  }, [isOpen, user])
+  }, [user, isOpen])
 
   const fetchNotifications = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/notifications')
+      const response = await fetch('/api/notifications?limit=20')
       const data = await response.json()
       if (data.success) {
         setNotifications(data.data)
@@ -39,6 +53,18 @@ export default function NotificationCenter() {
     }
   }
 
+  const fetchUnreadCount = async () => {
+    try {
+      const response = await fetch('/api/notifications/unread-count')
+      const data = await response.json()
+      if (data.success) {
+        setUnreadCount(data.data.count)
+      }
+    } catch (error) {
+      console.error('Failed to fetch unread count:', error)
+    }
+  }
+
   const markAsRead = async (notificationId: string) => {
     try {
       await fetch(`/api/notifications/${notificationId}/read`, {
@@ -47,6 +73,7 @@ export default function NotificationCenter() {
       setNotifications((prev) =>
         prev.map((n) => (n.id === notificationId ? { ...n, read: true } : n))
       )
+      setUnreadCount((prev) => Math.max(0, prev - 1))
     } catch (error) {
       console.error('Failed to mark as read:', error)
     }
@@ -58,27 +85,9 @@ export default function NotificationCenter() {
         method: 'PATCH',
       })
       setNotifications((prev) => prev.map((n) => ({ ...n, read: true })))
+      setUnreadCount(0)
     } catch (error) {
       console.error('Failed to mark all as read:', error)
-    }
-  }
-
-  const unreadCount = notifications.filter((n) => !n.read).length
-
-  const getNotificationIcon = (type: string) => {
-    switch (type) {
-      case 'connection_success':
-        return '🔗'
-      case 'site_analyzed':
-        return '🔍'
-      case 'fix_applied':
-        return '✅'
-      case 'issue_detected':
-        return '⚠️'
-      case 'billing_updated':
-        return '💳'
-      default:
-        return '📬'
     }
   }
 

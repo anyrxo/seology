@@ -2,18 +2,13 @@
  * Job Queue System
  *
  * Manages background jobs for crawling, analysis, and maintenance
- * Uses in-memory queue with database persistence
+ * Uses database for persistence
  */
 
 import { db } from './db'
+import type { JobType, JobStatus, Job } from '@prisma/client'
 
-export type JobType =
-  | 'CRAWL_SITE'
-  | 'ANALYZE_SITE'
-  | 'CLEANUP_ROLLBACKS'
-  | 'RESET_USAGE'
-
-export type JobStatus = 'PENDING' | 'RUNNING' | 'COMPLETED' | 'FAILED'
+export type { JobType, JobStatus, Job }
 
 interface JobData {
   connectionId?: string
@@ -23,31 +18,16 @@ interface JobData {
   [key: string]: unknown
 }
 
-interface Job {
-  id: string
-  type: JobType
-  data: JobData
-  status: JobStatus
-  attempts: number
-  maxAttempts: number
-  error?: string
-  createdAt: Date
-  startedAt?: Date
-  completedAt?: Date
-}
-
-// In-memory job queue
-const jobQueue: Map<string, Job> = new Map()
-
 // Job processors
-const processors: Map<JobType, (job: Job) => Promise<void>> = new Map()
+type JobProcessor = (job: Job) => Promise<void>
+const processors: Map<JobType, JobProcessor> = new Map()
 
 /**
  * Register a job processor
  */
 export function registerProcessor(
   type: JobType,
-  processor: (job: Job) => Promise<void>
+  processor: JobProcessor
 ) {
   processors.set(type, processor)
 }
@@ -63,60 +43,79 @@ export async function createJob(
     priority?: number
   } = {}
 ): Promise<string> {
-  const { maxAttempts = 3 } = options
+  const { maxAttempts = 3, priority = 5 } = options
 
-  // Generate job ID
-  const jobId = `job_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-
-  const job: Job = {
-    id: jobId,
-    type,
-    data,
-    status: 'PENDING',
-    attempts: 0,
-    maxAttempts,
-    createdAt: new Date(),
-  }
-
-  // Add to queue
-  jobQueue.set(jobId, job)
+  const job = await db.job.create({
+    data: {
+      type,
+      status: 'PENDING',
+      priority,
+      payload: JSON.stringify(data),
+      attempts: 0,
+      maxAttempts,
+      connectionId: data.connectionId,
+      userId: data.userId,
+    },
+  })
 
   // Process immediately if processor is available
   if (processors.has(type)) {
-    processJob(jobId).catch(error => {
-      console.error(`Error processing job ${jobId}:`, error)
+    processJob(job.id).catch(error => {
+      console.error(`Error processing job ${job.id}:`, error)
     })
   }
 
-  return jobId
+  return job.id
 }
 
 /**
- * Get job status
+ * Get job by ID
  */
-export function getJob(jobId: string): Job | undefined {
-  return jobQueue.get(jobId)
-}
-
-/**
- * Get all jobs of a specific type
- */
-export function getJobsByType(type: JobType): Job[] {
-  return Array.from(jobQueue.values()).filter(job => job.type === type)
+export async function getJob(jobId: string): Promise<Job | null> {
+  return await db.job.findUnique({
+    where: { id: jobId },
+  })
 }
 
 /**
  * Get pending jobs
  */
-export function getPendingJobs(): Job[] {
-  return Array.from(jobQueue.values()).filter(job => job.status === 'PENDING')
+export async function getPendingJobs(limit: number = 10): Promise<Job[]> {
+  return await db.job.findMany({
+    where: {
+      status: {
+        in: ['PENDING', 'RETRYING'],
+      },
+      scheduledFor: {
+        lte: new Date(),
+      },
+    },
+    orderBy: [
+      { priority: 'asc' },
+      { createdAt: 'asc' },
+    ],
+    take: limit,
+  })
+}
+
+/**
+ * Get all jobs of a specific type
+ */
+export async function getJobsByType(type: JobType, limit: number = 50): Promise<Job[]> {
+  return await db.job.findMany({
+    where: { type },
+    orderBy: { createdAt: 'desc' },
+    take: limit,
+  })
 }
 
 /**
  * Process a job
  */
 async function processJob(jobId: string): Promise<void> {
-  const job = jobQueue.get(jobId)
+  const job = await db.job.findUnique({
+    where: { id: jobId },
+  })
 
   if (!job) {
     console.error(`Job ${jobId} not found`)
@@ -130,8 +129,14 @@ async function processJob(jobId: string): Promise<void> {
 
   // Check max attempts
   if (job.attempts >= job.maxAttempts) {
-    job.status = 'FAILED'
-    job.error = 'Max attempts reached'
+    await db.job.update({
+      where: { id: jobId },
+      data: {
+        status: 'FAILED',
+        error: 'Max attempts reached',
+        failedAt: new Date(),
+      },
+    })
     return
   }
 
@@ -140,41 +145,71 @@ async function processJob(jobId: string): Promise<void> {
 
   if (!processor) {
     console.error(`No processor found for job type: ${job.type}`)
-    job.status = 'FAILED'
-    job.error = `No processor found for type: ${job.type}`
+    await db.job.update({
+      where: { id: jobId },
+      data: {
+        status: 'FAILED',
+        error: `No processor found for type: ${job.type}`,
+        failedAt: new Date(),
+      },
+    })
     return
   }
 
   try {
     // Mark as running
-    job.status = 'RUNNING'
-    job.startedAt = new Date()
-    job.attempts++
+    const updatedJob = await db.job.update({
+      where: { id: jobId },
+      data: {
+        status: 'RUNNING',
+        startedAt: new Date(),
+        attempts: { increment: 1 },
+      },
+    })
 
     // Process
-    await processor(job)
+    await processor(updatedJob)
 
     // Mark as completed
-    job.status = 'COMPLETED'
-    job.completedAt = new Date()
+    await db.job.update({
+      where: { id: jobId },
+      data: {
+        status: 'COMPLETED',
+        completedAt: new Date(),
+        progress: 100,
+      },
+    })
   } catch (error) {
     console.error(`Job ${jobId} failed:`, error)
 
-    job.error = error instanceof Error ? error.message : 'Unknown error'
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
 
     // Retry if attempts remaining
-    if (job.attempts < job.maxAttempts) {
-      job.status = 'PENDING'
+    if (job.attempts + 1 < job.maxAttempts) {
+      await db.job.update({
+        where: { id: jobId },
+        data: {
+          status: 'RETRYING',
+          error: errorMessage,
+        },
+      })
 
       // Retry with exponential backoff
-      const delay = Math.pow(2, job.attempts) * 1000
+      const delay = Math.pow(2, job.attempts + 1) * 1000
       setTimeout(() => {
         processJob(jobId).catch(err => {
           console.error(`Retry failed for job ${jobId}:`, err)
         })
       }, delay)
     } else {
-      job.status = 'FAILED'
+      await db.job.update({
+        where: { id: jobId },
+        data: {
+          status: 'FAILED',
+          error: errorMessage,
+          failedAt: new Date(),
+        },
+      })
     }
   }
 }
@@ -183,7 +218,7 @@ async function processJob(jobId: string): Promise<void> {
  * Process all pending jobs
  */
 export async function processAllPending(): Promise<void> {
-  const pending = getPendingJobs()
+  const pending = await getPendingJobs()
 
   await Promise.all(
     pending.map(job => processJob(job.id))
@@ -193,58 +228,70 @@ export async function processAllPending(): Promise<void> {
 /**
  * Clear completed jobs older than specified days
  */
-export function clearOldJobs(daysOld: number = 7): number {
+export async function clearOldJobs(daysOld: number = 7): Promise<number> {
   const cutoff = new Date()
   cutoff.setDate(cutoff.getDate() - daysOld)
 
-  let cleared = 0
+  const result = await db.job.deleteMany({
+    where: {
+      status: 'COMPLETED',
+      completedAt: {
+        lt: cutoff,
+      },
+    },
+  })
 
-  for (const [jobId, job] of jobQueue.entries()) {
-    if (
-      job.status === 'COMPLETED' &&
-      job.completedAt &&
-      job.completedAt < cutoff
-    ) {
-      jobQueue.delete(jobId)
-      cleared++
-    }
-  }
-
-  return cleared
+  return result.count
 }
 
 /**
  * Get queue statistics
  */
-export function getQueueStats() {
-  const jobs = Array.from(jobQueue.values())
+export async function getQueueStats() {
+  const [total, pending, running, completed, failed, byType] = await Promise.all([
+    db.job.count(),
+    db.job.count({ where: { status: 'PENDING' } }),
+    db.job.count({ where: { status: 'RUNNING' } }),
+    db.job.count({ where: { status: 'COMPLETED' } }),
+    db.job.count({ where: { status: 'FAILED' } }),
+    db.job.groupBy({
+      by: ['type'],
+      _count: true,
+    }),
+  ])
 
   return {
-    total: jobs.length,
-    pending: jobs.filter(j => j.status === 'PENDING').length,
-    running: jobs.filter(j => j.status === 'RUNNING').length,
-    completed: jobs.filter(j => j.status === 'COMPLETED').length,
-    failed: jobs.filter(j => j.status === 'FAILED').length,
-    byType: {
-      CRAWL_SITE: jobs.filter(j => j.type === 'CRAWL_SITE').length,
-      ANALYZE_SITE: jobs.filter(j => j.type === 'ANALYZE_SITE').length,
-      CLEANUP_ROLLBACKS: jobs.filter(j => j.type === 'CLEANUP_ROLLBACKS').length,
-      RESET_USAGE: jobs.filter(j => j.type === 'RESET_USAGE').length,
-    },
+    total,
+    pending,
+    running,
+    completed,
+    failed,
+    byType: byType.reduce((acc, item) => {
+      acc[item.type] = item._count
+      return acc
+    }, {} as Record<string, number>),
   }
 }
 
 /**
  * Cancel a job
  */
-export function cancelJob(jobId: string): boolean {
-  const job = jobQueue.get(jobId)
+export async function cancelJob(jobId: string): Promise<boolean> {
+  const job = await db.job.findUnique({
+    where: { id: jobId },
+  })
 
   if (!job) return false
 
-  if (job.status === 'PENDING') {
-    job.status = 'FAILED'
-    job.error = 'Cancelled by user'
+  if (job.status === 'PENDING' || job.status === 'RETRYING') {
+    await db.job.update({
+      where: { id: jobId },
+      data: {
+        status: 'CANCELLED',
+        error: 'Cancelled by user',
+        failedAt: new Date(),
+      },
+    })
     return true
   }
 
@@ -255,13 +302,21 @@ export function cancelJob(jobId: string): boolean {
  * Retry a failed job
  */
 export async function retryJob(jobId: string): Promise<boolean> {
-  const job = jobQueue.get(jobId)
+  const job = await db.job.findUnique({
+    where: { id: jobId },
+  })
 
   if (!job || job.status !== 'FAILED') return false
 
-  job.status = 'PENDING'
-  job.attempts = 0
-  job.error = undefined
+  await db.job.update({
+    where: { id: jobId },
+    data: {
+      status: 'PENDING',
+      attempts: 0,
+      error: null,
+      failedAt: null,
+    },
+  })
 
   await processJob(jobId)
 

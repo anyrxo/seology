@@ -1,20 +1,43 @@
 /**
  * Shopify Integration
  * Complete OAuth flow and SEO fix application for Shopify stores
+ *
+ * Features:
+ * - OAuth 2.0 flow with CSRF protection
+ * - Rate limiting (2 req/sec bucket algorithm)
+ * - Comprehensive error handling
+ * - Rollback support with before/after state
+ * - Retry logic for transient failures
  */
 
-import { Connection } from '@prisma/client'
+import { Connection, Fix, Issue } from '@prisma/client'
 import { decrypt } from './encryption'
 import { db } from './db'
+
+// Rate limiting state
+const rateLimitState = new Map<string, { tokens: number; lastRefill: number }>()
+const MAX_TOKENS = 2 // 2 requests per second
+const REFILL_RATE = 500 // Add 1 token every 500ms
 
 interface ShopifyFixResult {
   success: boolean
   message: string
-  data?: unknown
+  data?: Record<string, unknown>
+  rollbackData?: Record<string, unknown>
+}
+
+interface ShopInfo {
+  shop: {
+    id: string
+    name: string
+    email: string
+    domain: string
+    plan_name: string
+  }
 }
 
 interface ShopifyProduct {
-  id: number
+  id: string
   title: string
   body_html: string
   handle: string
@@ -23,7 +46,7 @@ interface ShopifyProduct {
 }
 
 interface ShopifyPage {
-  id: number
+  id: string
   title: string
   body_html: string
   handle: string
@@ -34,8 +57,77 @@ interface ShopifyPage {
   }>
 }
 
+interface ApplyResult {
+  success: boolean
+  message: string
+  beforeState?: unknown
+  afterState?: unknown
+}
+
 /**
- * Shopify API client
+ * Rate limiting using token bucket algorithm
+ */
+async function checkRateLimit(shop: string): Promise<void> {
+  const now = Date.now()
+  const state = rateLimitState.get(shop) || { tokens: MAX_TOKENS, lastRefill: now }
+
+  // Refill tokens based on time elapsed
+  const timeElapsed = now - state.lastRefill
+  const tokensToAdd = Math.floor(timeElapsed / REFILL_RATE)
+
+  if (tokensToAdd > 0) {
+    state.tokens = Math.min(MAX_TOKENS, state.tokens + tokensToAdd)
+    state.lastRefill = now
+  }
+
+  // Check if we have tokens available
+  if (state.tokens < 1) {
+    const waitTime = REFILL_RATE - (now - state.lastRefill)
+    await new Promise(resolve => setTimeout(resolve, waitTime))
+    state.tokens = 1
+    state.lastRefill = Date.now()
+  } else {
+    state.tokens -= 1
+  }
+
+  rateLimitState.set(shop, state)
+}
+
+/**
+ * Retry logic for transient failures
+ */
+async function retryOnFailure<T>(
+  fn: () => Promise<T>,
+  maxRetries = 3,
+  delayMs = 1000
+): Promise<T> {
+  let lastError: Error | null = null
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      return await fn()
+    } catch (error) {
+      lastError = error as Error
+
+      // Don't retry on auth errors or client errors
+      if (error instanceof Error) {
+        const message = error.message.toLowerCase()
+        if (message.includes('401') || message.includes('403') || message.includes('400')) {
+          throw error
+        }
+      }
+
+      if (attempt < maxRetries - 1) {
+        await new Promise(resolve => setTimeout(resolve, delayMs * (attempt + 1)))
+      }
+    }
+  }
+
+  throw lastError || new Error('Max retries exceeded')
+}
+
+/**
+ * Shopify API client with rate limiting and error handling
  */
 class ShopifyAPI {
   private shop: string
@@ -47,22 +139,72 @@ class ShopifyAPI {
   }
 
   private async request(endpoint: string, options: RequestInit = {}) {
+    // Apply rate limiting
+    await checkRateLimit(this.shop)
+
     const url = `https://${this.shop}/admin/api/2024-10/graphql.json`
 
-    const response = await fetch(url, {
-      ...options,
-      headers: {
-        'X-Shopify-Access-Token': this.accessToken,
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+    const response = await retryOnFailure(async () => {
+      const res = await fetch(url, {
+        ...options,
+        headers: {
+          'X-Shopify-Access-Token': this.accessToken,
+          'Content-Type': 'application/json',
+          ...options.headers,
+        },
+        signal: AbortSignal.timeout(30000), // 30 second timeout
+      })
+
+      // Handle rate limit errors
+      if (res.status === 429) {
+        const retryAfter = res.headers.get('Retry-After')
+        const waitTime = retryAfter ? parseInt(retryAfter) * 1000 : 2000
+        await new Promise(resolve => setTimeout(resolve, waitTime))
+        throw new Error('Rate limited, retrying...')
+      }
+
+      if (!res.ok) {
+        const errorText = await res.text()
+        throw new Error(`Shopify API error ${res.status}: ${res.statusText} - ${errorText}`)
+      }
+
+      return res
     })
 
-    if (!response.ok) {
-      throw new Error(`Shopify API error: ${response.statusText}`)
-    }
-
     return response.json()
+  }
+
+  async getShopInfo(): Promise<ShopInfo> {
+    const query = `
+      query {
+        shop {
+          id
+          name
+          email
+          primaryDomain {
+            host
+          }
+          plan {
+            displayName
+          }
+        }
+      }
+    `
+
+    const result = await this.request('/admin/api/2024-10/graphql.json', {
+      method: 'POST',
+      body: JSON.stringify({ query }),
+    })
+
+    return {
+      shop: {
+        id: result.data.shop.id,
+        name: result.data.shop.name,
+        email: result.data.shop.email,
+        domain: result.data.shop.primaryDomain.host,
+        plan_name: result.data.shop.plan.displayName
+      }
+    }
   }
 
   async getProduct(productId: string): Promise<ShopifyProduct> {
@@ -357,6 +499,34 @@ function determineResourceType(url: string): 'PRODUCT' | 'PAGE' | 'COLLECTION' {
   if (url.includes('/pages/')) return 'PAGE'
   if (url.includes('/collections/')) return 'COLLECTION'
   return 'PRODUCT' // default
+}
+
+/**
+ * Validate Shopify connection by testing API access
+ */
+export async function validateShopifyConnection(
+  accessToken: string,
+  shop: string
+): Promise<boolean> {
+  try {
+    const shopify = new ShopifyAPI(shop, accessToken)
+    const shopInfo = await shopify.getShopInfo()
+    return !!shopInfo.shop
+  } catch (error) {
+    console.error('Shopify connection validation failed:', error)
+    return false
+  }
+}
+
+/**
+ * Get Shopify store information
+ */
+export async function getShopifyStoreInfo(
+  accessToken: string,
+  shop: string
+): Promise<ShopInfo> {
+  const shopify = new ShopifyAPI(shop, accessToken)
+  return await shopify.getShopInfo()
 }
 
 /**

@@ -32,14 +32,14 @@ export async function GET(
   }
 
   const jobId = params.id
-  const job = getJob(jobId)
+  const job = await getJob(jobId)
 
   if (!job) {
     return NextResponse.json({ error: 'Job not found' }, { status: 404 })
   }
 
-  // Verify job belongs to user
-  if (job.data.userId !== user.id) {
+  // Verify job belongs to user (if userId is set on job)
+  if (job.userId && job.userId !== user.id) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
   }
 
@@ -51,10 +51,13 @@ export async function GET(
       status: job.status,
       attempts: job.attempts,
       maxAttempts: job.maxAttempts,
+      progress: job.progress,
       error: job.error,
-      createdAt: job.createdAt,
-      startedAt: job.startedAt,
-      completedAt: job.completedAt,
+      createdAt: job.createdAt.toISOString(),
+      startedAt: job.startedAt?.toISOString() || null,
+      completedAt: job.completedAt?.toISOString() || null,
+      payload: job.payload,
+      result: job.result,
     },
   })
 }

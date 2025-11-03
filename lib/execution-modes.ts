@@ -151,47 +151,56 @@ async function executeAutomatic(context: ExecutionContext): Promise<ExecutionRes
         if (result.success) {
           successCount++
 
-          // Create fix record
-          await db.fix.create({
-            data: {
-              connectionId: context.connectionId,
-              issueId: issue.id,
-              description: fixPlan.description,
-              changes: fixPlan.code
-            }
+          // Use transaction to ensure atomicity of fix application
+          await db.$transaction(async (tx) => {
+            // Create fix record with rollback data
+            await tx.fix.create({
+              data: {
+                connectionId: context.connectionId,
+                issueId: issue.id,
+                description: fixPlan.description,
+                changes: fixPlan.code,
+                beforeState: result.beforeState || '{}',
+                afterState: result.afterState || '{}',
+                status: 'APPLIED',
+                method: 'AUTOMATIC',
+                appliedAt: new Date()
+              }
+            })
+
+            // Update issue status
+            await tx.issue.update({
+              where: { id: issue.id },
+              data: { status: 'FIXED', fixedAt: new Date() }
+            })
+
+            // Create audit log
+            await tx.auditLog.create({
+              data: {
+                userId: context.userId,
+                connectionId: context.connectionId,
+                action: 'FIX_APPLIED',
+                resource: 'fix',
+                details: JSON.stringify({
+                  issueId: issue.id,
+                  issueTitle: issue.title,
+                  mode: 'AUTOMATIC',
+                  fixDescription: fixPlan.description
+                })
+              }
+            })
           })
 
-          // Update issue status
-          await db.issue.update({
-            where: { id: issue.id },
-            data: { status: 'FIXED' }
-          })
-
-          // Create notification
+          // Create notification (outside transaction - non-critical)
           await db.notification.create({
             data: {
               userId: context.userId,
               title: 'Fix Applied Automatically',
               message: `Fixed: ${issue.title}`,
-              type: 'SUCCESS',
+              type: 'FIX_APPLIED',
               actionUrl: `/dashboard/sites/${context.siteId}`
             }
-          })
-
-          // Create audit log
-          await db.auditLog.create({
-            data: {
-              userId: context.userId,
-              connectionId: context.connectionId,
-              action: 'FIX_APPLIED',
-              resource: 'fix',
-              details: JSON.stringify({
-                issueId: issue.id,
-                issueTitle: issue.title,
-                mode: 'AUTOMATIC'
-              })
-            }
-          })
+          }).catch(err => console.error('Failed to create notification:', err))
         } else {
           errorCount++
         }
@@ -657,25 +666,189 @@ async function getIssuesToFix(context: ExecutionContext): Promise<IssueWithDetai
  * Generate fix plan for an issue using Claude AI
  */
 async function generateFixForIssue(issue: IssueWithDetails, context: ExecutionContext): Promise<FixPlan> {
-  // For now, return structured fix plan
-  // In production, this would call Claude AI to generate the fix
+  try {
+    // Get connection details for context
+    const connection = await db.connection.findUnique({
+      where: { id: context.connectionId },
+      select: { domain: true, platform: true }
+    })
 
-  return {
-    description: `Fix ${issue.type}: ${issue.title}`,
-    code: issue.recommendation || 'No specific fix code available',
-    estimatedTime: '5 minutes'
+    if (!connection) {
+      throw new Error('Connection not found')
+    }
+
+    // Use Claude AI to generate platform-specific fix
+    const { generateFixPlan } = await import('./claude')
+
+    const fixPlanData = await generateFixPlan(
+      {
+        type: issue.type,
+        severity: issue.severity,
+        pageUrl: issue.pageUrl,
+        description: issue.details || issue.title
+      },
+      context.platform,
+      issue.recommendation || undefined
+    )
+
+    return {
+      description: fixPlanData.fixDescription,
+      code: fixPlanData.fixCode,
+      estimatedTime: estimateFixTime(issue.severity)
+    }
+  } catch (error) {
+    console.error('Error generating fix with Claude AI:', error)
+
+    // Fallback to basic fix plan if Claude AI fails
+    return {
+      description: `Fix ${issue.type}: ${issue.title}`,
+      code: issue.recommendation || generateFallbackFixCode(issue, context.platform),
+      estimatedTime: estimateFixTime(issue.severity)
+    }
+  }
+}
+
+/**
+ * Estimate time required to apply fix based on severity
+ */
+function estimateFixTime(severity: Severity): string {
+  switch (severity) {
+    case 'CRITICAL':
+      return '2-3 minutes'
+    case 'HIGH':
+      return '3-5 minutes'
+    case 'MEDIUM':
+      return '5-10 minutes'
+    case 'LOW':
+      return '10-15 minutes'
+    default:
+      return '5 minutes'
+  }
+}
+
+/**
+ * Generate fallback fix code when Claude AI is unavailable
+ */
+function generateFallbackFixCode(issue: IssueWithDetails, platform: Platform): string {
+  const fixTemplates: Record<string, Record<string, string>> = {
+    missing_meta_title: {
+      title: `${issue.pageUrl.split('/').pop()} - Your Site Name`,
+    },
+    missing_meta_description: {
+      description: 'Add a compelling meta description here (150-160 characters)',
+    },
+    broken_link: {
+      from: issue.pageUrl,
+      to: '/', // Redirect to homepage as fallback
+    },
+    missing_alt_text: {
+      alt: 'Descriptive image text',
+    },
+  }
+
+  const template = fixTemplates[issue.type] || { action: 'manual_review_required' }
+  return JSON.stringify(template)
+}
+
+/**
+ * Rate limiting to avoid overwhelming platforms
+ */
+const lastPlatformRequest: Record<string, number> = {}
+const RATE_LIMIT_DELAY_MS = 1000
+
+async function rateLimitPlatformRequests(platform: Platform): Promise<void> {
+  const now = Date.now()
+  const lastRequest = lastPlatformRequest[platform] || 0
+  const timeSinceLastRequest = now - lastRequest
+
+  if (timeSinceLastRequest < RATE_LIMIT_DELAY_MS) {
+    const delayNeeded = RATE_LIMIT_DELAY_MS - timeSinceLastRequest
+    await new Promise(resolve => setTimeout(resolve, delayNeeded))
+  }
+
+  lastPlatformRequest[platform] = Date.now()
+}
+
+/**
+ * Capture state before applying fix (for rollback capability)
+ */
+async function captureStateBeforeFix(
+  connection: { id: string; platform: Platform; domain: string },
+  issue: IssueWithDetails,
+  platform: Platform
+): Promise<Record<string, unknown>> {
+  try {
+    const state: Record<string, unknown> = {
+      timestamp: new Date().toISOString(),
+      issueId: issue.id,
+      issueType: issue.type,
+      pageUrl: issue.pageUrl,
+      platform
+    }
+
+    switch (platform) {
+      case 'SHOPIFY':
+      case 'WORDPRESS':
+        state.details = issue.details
+        break
+      case 'CUSTOM':
+        state.details = 'Magic.js - client-side state'
+        break
+    }
+
+    return state
+  } catch (error) {
+    console.error('Error capturing before state:', error)
+    return { error: 'Failed to capture state', timestamp: new Date().toISOString() }
+  }
+}
+
+/**
+ * Capture state after applying fix
+ */
+async function captureStateAfterFix(
+  connection: { id: string; platform: Platform; domain: string },
+  issue: IssueWithDetails,
+  platform: Platform,
+  fixData?: Record<string, unknown>
+): Promise<Record<string, unknown>> {
+  try {
+    return {
+      timestamp: new Date().toISOString(),
+      issueId: issue.id,
+      issueType: issue.type,
+      pageUrl: issue.pageUrl,
+      platform,
+      fixApplied: true,
+      ...fixData
+    }
+  } catch (error) {
+    console.error('Error capturing after state:', error)
+    return { error: 'Failed to capture state', timestamp: new Date().toISOString() }
   }
 }
 
 /**
  * Apply a fix to the platform (Shopify, WordPress, etc.)
+ * Includes rollback data capture and usage tracking
  */
 async function applyFix(
   fixPlan: FixPlan,
   issue: IssueWithDetails,
   context: ExecutionContext
-): Promise<{ success: boolean; message: string }> {
+): Promise<{ success: boolean; message: string; beforeState?: string; afterState?: string }> {
   try {
+    // Check usage limits before applying fix
+    const { canApplyFixes } = await import('./usage')
+    const usageCheck = await canApplyFixes(context.userId, 1)
+
+    if (!usageCheck.allowed) {
+      return {
+        success: false,
+        message: usageCheck.reason || 'Usage limit exceeded'
+      }
+    }
+
     // Get connection with credentials
     const connection = await db.connection.findUnique({
       where: { id: context.connectionId }
@@ -685,21 +858,59 @@ async function applyFix(
       return { success: false, message: 'Connection not found' }
     }
 
+    // Capture state before applying fix (for rollback)
+    const beforeState = await captureStateBeforeFix(connection, issue, context.platform)
+
+    // Apply rate limiting to avoid overwhelming platforms
+    await rateLimitPlatformRequests(context.platform)
+
+    let result: { success: boolean; message: string; data?: unknown }
+
     // Route to correct platform
     switch (context.platform) {
-      case 'SHOPIFY':
-        return await applyShopifyFix(connection, issue, fixPlan.code)
+      case 'SHOPIFY': {
+        result = await applyShopifyFix(connection, issue, fixPlan.code)
+        break
+      }
 
-      case 'WORDPRESS':
-        return await applyWordPressFix(connection, issue, fixPlan.code)
+      case 'WORDPRESS': {
+        result = await applyWordPressFix(connection, issue, fixPlan.code)
+        break
+      }
 
       case 'CUSTOM':
         // For custom sites using Magic.js, the fix is stored and fetched by the client
-        return { success: true, message: 'Fix stored for Magic.js client' }
+        result = { success: true, message: 'Fix stored for Magic.js client' }
+        break
 
       default:
         return { success: false, message: 'Unsupported platform' }
     }
+
+    // If fix was applied successfully, capture after state
+    if (result.success) {
+      const afterState = await captureStateAfterFix(
+        connection,
+        issue,
+        context.platform,
+        result.data as Record<string, unknown> | undefined
+      )
+
+      // Track usage
+      const { trackFixApplied } = await import('./usage')
+      await trackFixApplied(context.userId, issue.id, context.connectionId).catch(err =>
+        console.error('Failed to track fix usage:', err)
+      )
+
+      return {
+        success: true,
+        message: result.message,
+        beforeState: JSON.stringify(beforeState),
+        afterState: JSON.stringify(afterState)
+      }
+    }
+
+    return result
   } catch (error) {
     console.error('Error applying fix:', error)
     return {

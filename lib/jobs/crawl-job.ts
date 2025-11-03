@@ -1,25 +1,33 @@
 /**
  * Crawl Site Job
  *
- * Crawls a website to discover pages and SEO issues
+ * Crawls a website to discover pages and SEO issues using Puppeteer
+ * Stores pages and detected issues in the database
  */
 
 import { db } from '../db'
 import { crawlWebsite } from '../crawler'
+import type { Job } from '@prisma/client'
 
-interface CrawlJobData {
-  connectionId?: string
-  url?: string
+interface CrawlJobPayload {
+  connectionId: string
+  url: string
+  maxPages?: number
+  maxDepth?: number
 }
 
-export async function crawlSiteJob(job: { data: CrawlJobData }) {
-  const { connectionId, url } = job.data
+/**
+ * Execute crawl site job
+ */
+export async function crawlSiteJob(job: Job): Promise<void> {
+  const payload: CrawlJobPayload = JSON.parse(job.payload)
+  const { connectionId, url, maxPages = 100, maxDepth = 3 } = payload
 
   if (!connectionId || !url) {
-    throw new Error('Missing required data for crawl')
+    throw new Error('Missing required data: connectionId and url')
   }
 
-  console.log(`Starting crawl for ${url}`)
+  console.log(`Starting crawl job ${job.id} for ${url}`)
 
   // Create crawl record
   const crawl = await db.crawl.create({
@@ -31,13 +39,34 @@ export async function crawlSiteJob(job: { data: CrawlJobData }) {
   })
 
   try {
-    // Perform the crawl
-    const result = await crawlWebsite(url, {
-      maxPages: 100,
-      maxDepth: 3,
+    // Update connection status
+    await db.connection.update({
+      where: { id: connectionId },
+      data: { lastCrawlAt: new Date() }
     })
 
-    // Update crawl record
+    // Update job progress (using database)
+    await db.job.update({
+      where: { id: job.id },
+      data: { progress: 10 }
+    })
+
+    // Perform the crawl
+    console.log(`Crawling ${url} (max ${maxPages} pages, depth ${maxDepth})`)
+
+    const result = await crawlWebsite(url, {
+      maxPages,
+      maxDepth,
+      connectionId,
+    })
+
+    // Update job progress
+    await db.job.update({
+      where: { id: job.id },
+      data: { progress: 90 }
+    })
+
+    // Update crawl record with results
     await db.crawl.update({
       where: { id: crawl.id },
       data: {
@@ -48,15 +77,36 @@ export async function crawlSiteJob(job: { data: CrawlJobData }) {
       },
     })
 
-    console.log(`✓ Crawl completed for ${url}: ${result.pagesFound} pages, ${result.issuesFound} issues`)
+    // Update connection with crawl results
+    await db.connection.update({
+      where: { id: connectionId },
+      data: {
+        pageCount: result.pagesFound,
+        issueCount: result.issuesFound,
+        healthStatus: result.issuesFound === 0 ? 'healthy' :
+                     result.issuesFound < 10 ? 'warning' : 'error'
+      }
+    })
+
+    console.log(
+      `Crawl completed for ${url}: ${result.pagesFound} pages, ${result.issuesFound} issues`
+    )
   } catch (error) {
-    // Mark as failed
+    console.error(`Crawl failed for ${url}:`, error)
+
+    // Mark crawl as failed
     await db.crawl.update({
       where: { id: crawl.id },
       data: {
         status: 'FAILED',
         completedAt: new Date(),
       },
+    })
+
+    // Update connection status
+    await db.connection.update({
+      where: { id: connectionId },
+      data: { healthStatus: 'error' }
     })
 
     throw error

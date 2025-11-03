@@ -15,6 +15,8 @@ import { ReviewIssuesStep } from '@/components/onboarding/ReviewIssuesStep'
 import { ExecutionModeStep } from '@/components/onboarding/ExecutionModeStep'
 import { FirstFixStep } from '@/components/onboarding/FirstFixStep'
 import { CompleteStep } from '@/components/onboarding/CompleteStep'
+import { ProgressIndicator } from '@/components/onboarding/ProgressIndicator'
+import { motion } from 'framer-motion'
 
 type OnboardingStep =
   | 'welcome'
@@ -97,28 +99,32 @@ export default function OnboardingPage() {
     router.push('/dashboard')
   }
 
-  const steps = [
-    'welcome',
-    'connect',
-    'scanning',
-    'review',
-    'execution-mode',
-    'first-fix',
-    'complete',
+  const progressSteps = [
+    { id: 'welcome', title: 'Welcome', icon: '🚀' },
+    { id: 'connect', title: 'Connect', icon: '🔌' },
+    { id: 'scanning', title: 'Scan', icon: '🔍' },
+    { id: 'review', title: 'Review', icon: '📊' },
+    { id: 'execution-mode', title: 'Mode', icon: '⚙️' },
+    { id: 'first-fix', title: 'Fix', icon: '🔧' },
+    { id: 'complete', title: 'Done', icon: '🎉' },
   ]
-  const currentStepIndex = steps.indexOf(currentStep)
-  const progress = ((currentStepIndex + 1) / steps.length) * 100
+
+  const currentStepIndex = progressSteps.findIndex(s => s.id === currentStep)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center p-6">
-      <div className="max-w-4xl w-full">
-        {/* Progress Bar */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center p-4 md:p-6">
+      <div className="max-w-5xl w-full">
+        {/* Progress Indicator */}
         {currentStep !== 'welcome' && currentStep !== 'complete' && (
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-sm text-gray-400">
-                Step {currentStepIndex + 1} of {steps.length}
-              </span>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8"
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-lg font-semibold text-white hidden md:block">
+                Getting Started
+              </h2>
               <button
                 onClick={handleSkip}
                 className="text-sm text-gray-400 hover:text-white transition-colors"
@@ -126,17 +132,22 @@ export default function OnboardingPage() {
                 Skip to Dashboard →
               </button>
             </div>
-            <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-blue-600 transition-all duration-300 ease-in-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
+            <ProgressIndicator
+              steps={progressSteps}
+              currentStep={currentStepIndex}
+            />
+          </motion.div>
         )}
 
         {/* Step Content */}
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3 }}
+          className="bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-800 p-6 md:p-10 shadow-2xl"
+        >
           {currentStep === 'welcome' && (
             <WelcomeStep
               userName={user?.firstName || 'there'}
@@ -181,7 +192,7 @@ export default function OnboardingPage() {
           {currentStep === 'complete' && (
             <CompleteStep onFinish={handleNext} />
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   )

@@ -1,0 +1,440 @@
+# SEOLOGY.AI Database Schema Diagram
+# Version 2.0 - Enhanced Schema
+
+================================================================================
+                            CORE USER MANAGEMENT
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ User                                                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ clerkId (UQ)             String       ← Clerk Auth Integration         │
+│ email (UQ)               String                                         │
+│ name                     String?                                        │
+│ plan                     Plan         ← STARTER|GROWTH|SCALE           │
+│ role                     Role         ← USER|ADMIN                     │
+│ executionMode            ExecutionMode ← AUTOMATIC|PLAN|APPROVE        │
+│ stripeCustomerId         String?                                        │
+│ stripeSubscriptionId     String?                                        │
+│ onboardingCompleted      Boolean      ← Onboarding state               │
+│ onboardingStep           Int                                            │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: clerkId(UQ), email(UQ+IX), plan(IX)                           │
+└─────────────────────────────────────────────────────────────────────────┘
+         │
+         ├──────────────────────────────────────────────────────────┐
+         │                                                            │
+         ▼                                                            ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Connection (Website/CMS Integration)                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ teamId (FK → Team)       String?                                        │
+│ platform                 Platform     ← SHOPIFY|WORDPRESS|WIX|CUSTOM   │
+│ domain                   String                                         │
+│ displayName              String?                                        │
+│ accessToken              String?      ← ENCRYPTED                      │
+│ refreshToken             String?      ← ENCRYPTED                      │
+│ credentials              String?      ← ENCRYPTED JSON                 │
+│ status                   ConnectionStatus ← PENDING|CONNECTED|ERROR    │
+│ lastSync                 DateTime?                                      │
+│ healthStatus             String       ← 'healthy'|'warning'|'error'    │
+│ pageCount                Int                                            │
+│ issueCount               Int                                            │
+│ lastCrawlAt              DateTime?                                      │
+│ lastAnalysisAt           DateTime?                                      │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, teamId, platform, status, domain                      │
+└─────────────────────────────────────────────────────────────────────────┘
+         │
+         ├──────────────────────────────────────────────────────────┐
+         │                                                            │
+         ▼                                                            ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Issue (SEO Problems Detected)                                           │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ connectionId (FK)        String                                         │
+│ type                     String       ← 'missing_meta', 'broken_link'  │
+│ title                    String                                         │
+│ severity                 Severity     ← CRITICAL|HIGH|MEDIUM|LOW       │
+│ pageUrl                  String                                         │
+│ details                  String       ← JSON                           │
+│ recommendation           String?      ← AI-generated                   │
+│ status                   IssueStatus  ← OPEN|IN_PROGRESS|FIXED...     │
+│ impactScore              Float?       ← 0-100                          │
+│ estimatedTraffic         Int?                                          │
+│ elementSelector          String?      ← CSS selector                   │
+│ detectedAt               DateTime                                       │
+│ fixedAt                  DateTime?                                      │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: connectionId, status, severity, type                          │
+└─────────────────────────────────────────────────────────────────────────┘
+         │
+         │ (1:N)
+         ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Fix (Applied SEO Fixes)                                                 │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ connectionId (FK)        String                                         │
+│ issueId (FK → Issue)     String?                                        │
+│ planId (FK → PendingPlan) String?                                       │
+│ description              String                                         │
+│ type                     String       ← 'seo_fix'                      │
+│ targetUrl                String?                                        │
+│ changes                  String       ← JSON (fix code)                │
+│ beforeState              String       ← JSON (for rollback)            │
+│ afterState               String       ← JSON                           │
+│ method                   FixMethod    ← AUTOMATIC|MANUAL|PENDING       │
+│ status                   FixStatus    ← PENDING|APPLIED|ROLLED_BACK    │
+│ appliedAt                DateTime?                                      │
+│ rolledBackAt             DateTime?                                      │
+│ rollbackDeadline         DateTime?    ← appliedAt + 90 days            │
+│ impactMetrics            String       ← JSON (actual vs expected)      │
+│ platform                 String?                                        │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: connectionId, status, appliedAt, rollbackDeadline, planId     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                          EXECUTION MODE: PLAN
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ PendingPlan (Batch Fix Approval)                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ connectionId             String                                         │
+│ status                   PlanStatus   ← PENDING|APPROVED|REJECTED      │
+│ description              String                                         │
+│ fixesCount               Int                                            │
+│ createdAt                DateTime                                       │
+│ approvedAt               DateTime?                                      │
+│ appliedAt                DateTime?                                      │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Relations: fixes (1:N → Fix)                                            │
+│ Indexes: userId, connectionId, status                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Workflow:
+  1. Issues detected → PendingPlan created with status=PENDING
+  2. Multiple fixes associated with plan (planId foreign key)
+  3. User reviews plan in dashboard
+  4. User approves → status=APPROVED, fixes applied
+  5. All fixes complete → status=APPLIED
+
+================================================================================
+                         BACKGROUND JOB SYSTEM
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Job (Background Task Queue)                                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ type                     JobType      ← CRAWL_SITE|ANALYZE_SITE...     │
+│ status                   JobStatus    ← PENDING|RUNNING|COMPLETED      │
+│ payload                  String       ← JSON input data                │
+│ result                   String?      ← JSON output data               │
+│ error                    String?                                        │
+│ priority                 Int          ← 0=highest, 10=lowest           │
+│ attempts                 Int                                            │
+│ maxAttempts              Int                                            │
+│ progress                 Int          ← 0-100%                         │
+│ createdAt                DateTime                                       │
+│ startedAt                DateTime?                                      │
+│ completedAt              DateTime?                                      │
+│ nextRetryAt              DateTime?                                      │
+│ connectionId             String?                                        │
+│ userId                   String?                                        │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: status, type, connectionId, userId, createdAt, nextRetryAt,   │
+│          status+priority (composite)                                    │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Job Types:
+  - CRAWL_SITE: Crawl website for pages
+  - ANALYZE_SITE: Claude AI analysis
+  - APPLY_FIX: Apply single fix
+  - APPLY_PLAN: Execute entire plan
+  - CLEANUP_ROLLBACKS: Remove old rollback data (90+ days)
+  - RESET_USAGE: Monthly usage reset
+  - SEND_NOTIFICATION: Send notification
+
+Job Processor Logic:
+  SELECT * FROM Job
+  WHERE status = 'PENDING'
+  ORDER BY priority ASC, createdAt ASC
+  LIMIT 1 FOR UPDATE SKIP LOCKED
+
+================================================================================
+                          USAGE & BILLING
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ UsageRecord (Monthly Quota Tracking)                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ month                    Int          ← 1-12                           │
+│ year                     Int          ← 2024                           │
+│ fixesApplied             Int                                            │
+│ sitesActive              Int                                            │
+│ apiCalls                 Int                                            │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Unique: userId + month + year                                           │
+│ Indexes: userId, year+month                                             │
+└─────────────────────────────────────────────────────────────────────────┘
+
+Plan Limits:
+  STARTER:  3 sites,    500 fixes/month
+  GROWTH:  10 sites,   5000 fixes/month
+  SCALE:   ∞  sites, 999999 fixes/month
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Subscription (Stripe Integration)                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ stripeSubscriptionId (UQ) String                                        │
+│ plan                     Plan                                           │
+│ status                   SubscriptionStatus ← ACTIVE|TRIALING...       │
+│ currentPeriodStart       DateTime                                       │
+│ currentPeriodEnd         DateTime                                       │
+│ trialEnd                 DateTime?                                      │
+│ cancelAtPeriodEnd        Boolean                                        │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, status                                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                        PERFORMANCE & ANALYTICS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Metric (Time-Series Performance Data)                                   │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ connectionId (FK)        String                                         │
+│ date                     DateTime                                       │
+│ organicTraffic           Int?                                           │
+│ rankings                 String?      ← JSON {keyword: position}       │
+│ pageSpeed                Float?                                         │
+│ issuesCount              Int?                                           │
+│ fixesCount               Int?                                           │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Unique: connectionId + date                                             │
+│ Indexes: connectionId, date                                             │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Crawl (Crawl Job History)                                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ connectionId (FK)        String                                         │
+│ status                   CrawlStatus  ← PENDING|RUNNING|COMPLETED      │
+│ pagesFound               Int?                                           │
+│ issuesFound              Int?                                           │
+│ startedAt                DateTime?                                      │
+│ completedAt              DateTime?                                      │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: connectionId, status                                           │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         AUDIT & NOTIFICATIONS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ AuditLog (Complete Audit Trail)                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ connectionId             String?                                        │
+│ action                   String       ← 'FIX_APPLIED', 'PLAN_APPROVED' │
+│ resource                 String?      ← 'fix', 'issue', 'plan'         │
+│ resourceId               String?                                        │
+│ details                  String       ← JSON                           │
+│ ipAddress                String?                                        │
+│ userAgent                String?                                        │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, createdAt, action, connectionId                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Notification (In-App Notifications)                                     │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ type                     String       ← 'SUCCESS'|'ERROR'|'INFO'       │
+│ title                    String                                         │
+│ message                  String                                         │
+│ actionUrl                String?                                        │
+│ icon                     String?                                        │
+│ color                    String?                                        │
+│ read                     Boolean                                        │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, read, createdAt                                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         TEAM COLLABORATION
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Team                                                                    │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ name                     String                                         │
+│ description              String?                                        │
+│ ownerId (FK → User)      String                                         │
+│ plan                     Plan                                           │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: ownerId                                                        │
+└─────────────────────────────────────────────────────────────────────────┘
+         │
+         │ (1:N)
+         ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│ TeamMember                                                              │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ teamId (FK → Team)       String                                         │
+│ userId (FK → User)       String                                         │
+│ role                     TeamRole     ← OWNER|ADMIN|MEMBER|VIEWER      │
+│ joinedAt                 DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Unique: teamId + userId                                                 │
+│ Indexes: teamId, userId                                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ TeamInvitation                                                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ teamId (FK → Team)       String                                         │
+│ email                    String                                         │
+│ role                     TeamRole                                       │
+│ invitedBy (FK → User)    String                                         │
+│ status                   InvitationStatus ← PENDING|ACCEPTED...        │
+│ token (UQ)               String                                         │
+│ expiresAt                DateTime                                       │
+│ acceptedAt               DateTime?                                      │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Unique: teamId + email, token                                           │
+│ Indexes: teamId, email, token                                           │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         AI & SECURITY
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ AIConversation (Claude AI Context)                                      │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ connectionId             String?                                        │
+│ messages                 String       ← JSON [{role, content}]         │
+│ context                  String?      ← JSON (site context)            │
+│ createdAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ CSRFToken (OAuth Flow Protection)                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId                   String                                         │
+│ token (UQ)               String                                         │
+│ provider                 String       ← 'SHOPIFY', 'WORDPRESS'         │
+│ createdAt                DateTime                                       │
+│ expiresAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, token, expiresAt                                       │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Webhook (Outbound Webhooks)                                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│ id (PK)                  String                                         │
+│ userId (FK → User)       String                                         │
+│ url                      String                                         │
+│ events                   String       ← JSON ['FIX_APPLIED', ...]      │
+│ secret                   String       ← HMAC secret                    │
+│ enabled                  Boolean                                        │
+│ failureCount             Int                                            │
+│ lastTriggeredAt          DateTime?                                      │
+│ createdAt                DateTime                                       │
+│ updatedAt                DateTime                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│ Indexes: userId, enabled                                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         RELATIONSHIP SUMMARY
+================================================================================
+
+User (1) ─────┐
+              ├──> (N) Connection ───┐
+              │                      ├──> (N) Issue ───> (N) Fix
+              │                      ├──> (N) Fix
+              │                      ├──> (N) Metric
+              │                      └──> (N) Crawl
+              │
+              ├──> (N) UsageRecord
+              ├──> (N) Subscription
+              ├──> (N) PendingPlan ───> (N) Fix
+              ├──> (N) Notification
+              ├──> (N) AuditLog
+              ├──> (N) Webhook
+              ├──> (N) AIConversation
+              └──> (N) Team ───┐
+                               ├──> (N) TeamMember
+                               └──> (N) TeamInvitation
+
+================================================================================
+                         INDEX PERFORMANCE MAP
+================================================================================
+
+High-Traffic Query Indexes:
+  ✓ User.clerkId (unique) - Auth lookup
+  ✓ Connection.userId + status - Dashboard site list
+  ✓ Issue.connectionId + status - Active issues per site
+  ✓ Fix.connectionId + status - Fix history per site
+  ✓ Job.status + priority (composite) - Job queue processing
+  ✓ AuditLog.userId + createdAt - Audit trail pagination
+  ✓ Notification.userId + read - Notification center
+
+Time-Series Indexes:
+  ✓ Metric.connectionId + date - Performance charts
+  ✓ AuditLog.createdAt - Historical queries
+  ✓ UsageRecord.year + month - Usage reporting
+
+Cleanup Job Indexes:
+  ✓ Fix.rollbackDeadline - 90-day rollback cleanup
+  ✓ Job.nextRetryAt - Failed job retry scheduling
+  ✓ CSRFToken.expiresAt - Expired token cleanup
+
+================================================================================

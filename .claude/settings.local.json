@@ -31,7 +31,8 @@
       "Bash(git tag:*)",
       "Bash(wc:*)",
       "Bash(tail:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(npx prisma validate:*)"
     ],
     "deny": [],
     "ask": []
