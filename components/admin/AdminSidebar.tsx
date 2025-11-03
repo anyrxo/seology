@@ -14,9 +14,9 @@ const adminLinks: AdminLink[] = [
   { href: '/admin', label: 'Dashboard', icon: '📊' },
   { href: '/admin/users', label: 'Users', icon: '👥' },
   { href: '/admin/sites', label: 'Sites', icon: '🌐' },
-  { href: '/admin/issues', label: 'Issues', icon: '⚠️' },
   { href: '/admin/jobs', label: 'Background Jobs', icon: '⚙️' },
   { href: '/admin/analytics', label: 'Analytics', icon: '📈' },
+  { href: '/admin/broadcast', label: 'Broadcast', icon: '📢' },
 ]
 
 export default function AdminSidebar() {

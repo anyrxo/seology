@@ -2,6 +2,7 @@ import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import { db } from '@/lib/db'
 import AdminSidebar from '@/components/admin/AdminSidebar'
+import { AdminHeader } from '@/components/admin/AdminHeader'
 
 export default async function AdminLayout({
   children,
@@ -26,9 +27,12 @@ export default async function AdminLayout({
   return (
     <div className="flex min-h-screen bg-gray-950">
       <AdminSidebar />
-      <main className="flex-1 overflow-auto">
-        <div className="container mx-auto p-8">{children}</div>
-      </main>
+      <div className="flex flex-1 flex-col overflow-hidden">
+        <AdminHeader />
+        <main className="flex-1 overflow-auto">
+          <div className="container mx-auto p-8">{children}</div>
+        </main>
+      </div>
     </div>
   )
 }
