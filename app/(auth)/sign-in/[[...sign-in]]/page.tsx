@@ -2,16 +2,23 @@ import { SignIn } from '@clerk/nextjs'
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
-      <div className="w-full max-w-md">
-        <SignIn
-          appearance={{
-            elements: {
-              rootBox: 'w-full',
-              card: 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl',
-            },
-          }}
-        />
+    <div className="min-h-screen flex items-center justify-center bg-neutral-200 p-4">
+      <div className="container-default w-full" style={{ maxWidth: '500px' }}>
+        <div className="card pd-32px---24px">
+          <SignIn
+            appearance={{
+              elements: {
+                rootBox: 'w-full',
+                card: 'shadow-none border-0 bg-transparent p-0',
+                headerTitle: 'text-500 bold',
+                headerSubtitle: 'text-200',
+                formButtonPrimary: 'btn-primary large',
+                formFieldLabel: 'text-100 medium',
+                footerActionLink: 'text-accent--primary-1',
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   )

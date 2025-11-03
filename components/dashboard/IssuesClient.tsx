@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { AlertTriangle, ArrowUpRight, CheckCircle2, Search } from 'lucide-react'
 
 interface Issue {
@@ -41,265 +40,239 @@ interface IssuesClientProps {
 
 export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-8"
-    >
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-      >
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
-          SEO Issues
-        </h1>
-        <p className="text-base sm:text-lg text-white/70">
-          Detected SEO problems across all your sites
-        </p>
-      </motion.div>
-
-      {/* Stats Grid */}
-      <motion.div
-        className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.1
-            }
-          }
-        }}
-      >
-        <StatCard
-          title="Total Issues"
-          value={stats.totalIssues}
-          gradient="from-blue-500 to-cyan-500"
-          icon="🔍"
-          delay={0}
-        />
-        <StatCard
-          title="Critical"
-          value={stats.criticalIssues}
-          gradient="from-red-500 to-rose-500"
-          icon="🚨"
-          delay={0.1}
-        />
-        <StatCard
-          title="High Priority"
-          value={stats.highIssues}
-          gradient="from-orange-500 to-amber-500"
-          icon="⚠️"
-          delay={0.2}
-        />
-        <StatCard
-          title="Medium Priority"
-          value={stats.mediumIssues}
-          gradient="from-yellow-500 to-yellow-400"
-          icon="📊"
-          delay={0.3}
-        />
-      </motion.div>
-
-      {/* Issues Table */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl overflow-hidden"
-      >
-        <div className="p-8 border-b border-white/10">
-          <h2 className="text-2xl font-bold text-white">All Issues</h2>
-        </div>
-
-        {issues.length === 0 ? (
-          <div className="p-16 text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.5, type: 'spring' }}
-              className="text-7xl mb-6"
-            >
-              🎉
-            </motion.div>
-            <h3 className="text-2xl font-semibold text-white mb-3">
-              No issues detected
-            </h3>
-            <p className="text-white/60 text-lg mb-8">
-              Connect a site and run a scan to detect SEO issues
+    <div className="bg-neutral-200 min-h-screen">
+      <div className="container-default w-container">
+        <div className="gap-row-24px">
+          {/* Header */}
+          <div className="gap-row-24px">
+            <h1 className="display-2 color-neutral-800">SEO Issues</h1>
+            <p className="text-200 color-neutral-600">
+              Detected SEO problems across all your sites
             </p>
-            <Link
-              href="/dashboard/sites"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-2xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105"
-            >
-              <Search className="h-5 w-5 mr-2" />
-              Connect Your First Site
-            </Link>
           </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-white/5 text-white/70 text-sm">
-                <tr>
-                  <th className="text-left px-6 py-4 font-semibold">Severity</th>
-                  <th className="text-left px-6 py-4 font-semibold">Issue Type</th>
-                  <th className="text-left px-6 py-4 font-semibold">Description</th>
-                  <th className="text-left px-6 py-4 font-semibold">Page</th>
-                  <th className="text-left px-6 py-4 font-semibold">Site</th>
-                  <th className="text-left px-6 py-4 font-semibold">Detected</th>
-                  <th className="text-left px-6 py-4 font-semibold">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {issues.map((issue, index) => (
-                  <IssueRow key={issue.id} issue={issue} index={index} />
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </motion.div>
 
-      {/* Issue Type Breakdown */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8"
-        >
-          <h3 className="text-xl font-semibold text-white mb-6">Issue Types</h3>
-          <div className="space-y-4">
-            {issuesByType.length > 0 ? (
-              issuesByType.map((item, index) => (
-                <IssueTypeRow
-                  key={item.type}
-                  type={item.type.replace(/_/g, ' ')}
-                  count={item._count.type}
-                  delay={0.6 + index * 0.1}
-                />
-              ))
+          {/* Stats Grid */}
+          <div className="grid-3-columns gap-row-24px" style={{ marginTop: '32px', marginBottom: '32px' }}>
+            <StatCard
+              title="Total Issues"
+              value={stats.totalIssues}
+              icon="🔍"
+              colorClass="color-accent-1"
+            />
+            <StatCard
+              title="Critical"
+              value={stats.criticalIssues}
+              icon="🚨"
+              colorClass="color-neutral-800"
+            />
+            <StatCard
+              title="High Priority"
+              value={stats.highIssues}
+              icon="⚠️"
+              colorClass="color-neutral-800"
+            />
+            <StatCard
+              title="Medium Priority"
+              value={stats.mediumIssues}
+              icon="📊"
+              colorClass="color-neutral-800"
+            />
+          </div>
+
+          {/* Issues Table Card */}
+          <div className="card pd-32px---24px" style={{ marginBottom: '32px' }}>
+            <div style={{ marginBottom: '24px' }}>
+              <h2 className="text-500 bold color-neutral-800">All Issues</h2>
+            </div>
+
+            {issues.length === 0 ? (
+              <div style={{ padding: '64px 16px', textAlign: 'center' }}>
+                <div style={{ fontSize: '48px', marginBottom: '24px' }}>🎉</div>
+                <h3 className="text-300 bold color-neutral-800" style={{ marginBottom: '12px' }}>
+                  No issues detected
+                </h3>
+                <p className="text-200 color-neutral-600" style={{ marginBottom: '32px' }}>
+                  Connect a site and run a scan to detect SEO issues
+                </p>
+                <Link
+                  href="/dashboard/sites"
+                  className="btn-primary large"
+                >
+                  <Search className="h-5 w-5" style={{ marginRight: '8px' }} />
+                  Connect Your First Site
+                </Link>
+              </div>
             ) : (
-              <>
-                <IssueTypeRow type="Missing Meta Tags" count={0} delay={0.6} />
-                <IssueTypeRow type="Broken Links" count={0} delay={0.7} />
-                <IssueTypeRow type="Missing Alt Text" count={0} delay={0.8} />
-                <IssueTypeRow type="Slow Page Speed" count={0} delay={0.9} />
-                <IssueTypeRow type="Duplicate Content" count={0} delay={1.0} />
-              </>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead style={{ borderBottom: '1px solid #e5e7eb' }}>
+                    <tr>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Severity</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Issue Type</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Description</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Page</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Site</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Detected</th>
+                      <th className="text-100 color-neutral-600" style={{ textAlign: 'left', padding: '12px 16px', fontWeight: 600 }}>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {issues.map((issue) => (
+                      <IssueRow key={issue.id} issue={issue} />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8"
-        >
-          <h3 className="text-xl font-semibold text-white mb-6">How It Works</h3>
-          <div className="space-y-6">
-            <HowItWorksStep icon="🔍" title="Automatic Scanning" description="We crawl your site and detect SEO issues using AI" />
-            <HowItWorksStep icon="🤖" title="AI Analysis" description="Claude AI analyzes each issue and generates fixes" />
-            <HowItWorksStep icon="✅" title="Auto-Apply" description="Fixes are applied automatically based on your execution mode" />
+          {/* Issue Type Breakdown Grid */}
+          <div className="grid-3-columns gap-row-24px">
+            <div className="card pd-32px---24px">
+              <h3 className="text-300 bold color-neutral-800" style={{ marginBottom: '24px' }}>Issue Types</h3>
+              <div className="gap-row-24px">
+                {issuesByType.length > 0 ? (
+                  issuesByType.map((item) => (
+                    <IssueTypeRow
+                      key={item.type}
+                      type={item.type.replace(/_/g, ' ')}
+                      count={item._count.type}
+                    />
+                  ))
+                ) : (
+                  <>
+                    <IssueTypeRow type="Missing Meta Tags" count={0} />
+                    <IssueTypeRow type="Broken Links" count={0} />
+                    <IssueTypeRow type="Missing Alt Text" count={0} />
+                    <IssueTypeRow type="Slow Page Speed" count={0} />
+                    <IssueTypeRow type="Duplicate Content" count={0} />
+                  </>
+                )}
+              </div>
+            </div>
+
+            <div className="card pd-32px---24px">
+              <h3 className="text-300 bold color-neutral-800" style={{ marginBottom: '24px' }}>How It Works</h3>
+              <div className="gap-row-24px">
+                <HowItWorksStep icon="🔍" title="Automatic Scanning" description="We crawl your site and detect SEO issues using AI" />
+                <HowItWorksStep icon="🤖" title="AI Analysis" description="Claude AI analyzes each issue and generates fixes" />
+                <HowItWorksStep icon="✅" title="Auto-Apply" description="Fixes are applied automatically based on your execution mode" />
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
-function StatCard({ title, value, gradient, icon, delay }: { title: string; value: number; gradient: string; icon: string; delay: number }) {
+function StatCard({ title, value, icon, colorClass }: { title: string; value: number; icon: string; colorClass: string }) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-      }}
-      whileHover={{ y: -4, scale: 1.02 }}
-      className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 transition-all duration-300 hover:border-white/40"
-    >
-      <div className={`w-14 h-14 bg-gradient-to-r ${gradient} rounded-2xl flex items-center justify-center text-2xl mb-4`}>
+    <div className="card pd-24px">
+      <div style={{
+        width: '56px',
+        height: '56px',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        borderRadius: '12px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '24px',
+        marginBottom: '16px'
+      }}>
         {icon}
       </div>
-      <p className="text-white/60 text-sm mb-2">{title}</p>
-      <p className="text-4xl font-bold text-white">{value}</p>
-    </motion.div>
+      <p className="text-100 color-neutral-600" style={{ marginBottom: '8px' }}>{title}</p>
+      <p className={`text-500 bold ${colorClass}`}>{value}</p>
+    </div>
   )
 }
 
-function IssueRow({ issue, index }: { issue: Issue; index: number }) {
-  const severityConfig = {
-    CRITICAL: { bg: 'bg-red-400/20', text: 'text-red-300', border: 'border-red-400/30' },
-    HIGH: { bg: 'bg-orange-400/20', text: 'text-orange-300', border: 'border-orange-400/30' },
-    MEDIUM: { bg: 'bg-yellow-400/20', text: 'text-yellow-300', border: 'border-yellow-400/30' },
-    LOW: { bg: 'bg-blue-400/20', text: 'text-blue-300', border: 'border-blue-400/30' },
-  }[issue.severity] || { bg: 'bg-gray-400/20', text: 'text-gray-300', border: 'border-gray-400/30' }
+function IssueRow({ issue }: { issue: Issue }) {
+  const severityBadge = {
+    CRITICAL: 'badge red',
+    HIGH: 'badge orange',
+    MEDIUM: 'badge orange',
+    LOW: 'badge green',
+  }[issue.severity] || 'badge'
 
   return (
-    <motion.tr
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.5 + index * 0.05 }}
-      className="border-t border-white/10 hover:bg-white/5 transition-colors"
-    >
-      <td className="px-6 py-4">
-        <span className={`px-3 py-1.5 rounded-full text-xs font-semibold ${severityConfig.bg} ${severityConfig.text} border ${severityConfig.border}`}>
+    <tr style={{ borderTop: '1px solid #e5e7eb' }}>
+      <td style={{ padding: '16px' }}>
+        <span className={severityBadge}>
           {issue.severity}
         </span>
       </td>
-      <td className="px-6 py-4 text-white font-medium">{issue.type.replace(/_/g, ' ')}</td>
-      <td className="px-6 py-4 text-white/70 max-w-xs truncate">{issue.title}</td>
-      <td className="px-6 py-4 text-white/70 max-w-xs truncate">
-        <a href={issue.pageUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">
+      <td style={{ padding: '16px' }}>
+        <span className="text-200 color-neutral-800">{issue.type.replace(/_/g, ' ')}</span>
+      </td>
+      <td style={{ padding: '16px', maxWidth: '300px' }}>
+        <span className="text-100 color-neutral-600" style={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          display: 'block'
+        }}>{issue.title}</span>
+      </td>
+      <td style={{ padding: '16px', maxWidth: '200px' }}>
+        <a
+          href={issue.pageUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-100 color-accent-1"
+          style={{
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            display: 'block'
+          }}
+        >
           {issue.pageUrl}
         </a>
       </td>
-      <td className="px-6 py-4 text-white/70">{issue.connection.domain}</td>
-      <td className="px-6 py-4 text-white/50 text-sm">
-        {new Date(issue.detectedAt).toLocaleDateString()}
+      <td style={{ padding: '16px' }}>
+        <span className="text-100 color-neutral-600">{issue.connection.domain}</span>
       </td>
-      <td className="px-6 py-4">
+      <td style={{ padding: '16px' }}>
+        <span className="text-100 color-neutral-600">
+          {new Date(issue.detectedAt).toLocaleDateString()}
+        </span>
+      </td>
+      <td style={{ padding: '16px' }}>
         {issue.fixes.length > 0 ? (
-          <span className="text-emerald-300 text-sm font-medium flex items-center gap-1">
+          <span className="text-100 color-accent-1 flex items-center gap-1">
             <CheckCircle2 className="h-4 w-4" /> Fixed
           </span>
         ) : (
-          <button className="text-blue-300 hover:text-blue-200 text-sm font-medium transition-colors">
+          <button className="btn-secondary" style={{ fontSize: '14px', padding: '8px 16px' }}>
             Create Fix
           </button>
         )}
       </td>
-    </motion.tr>
+    </tr>
   )
 }
 
-function IssueTypeRow({ type, count, delay }: { type: string; count: number; delay: number }) {
+function IssueTypeRow({ type, count }: { type: string; count: number }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay }}
-      className="flex justify-between items-center p-3 bg-white/5 rounded-xl"
-    >
-      <span className="text-white font-medium">{type}</span>
-      <span className="text-white/60 font-semibold text-lg">{count}</span>
-    </motion.div>
+    <div className="flex-horizontal space-between align-center" style={{
+      padding: '12px 16px',
+      background: '#f9fafb',
+      borderRadius: '8px'
+    }}>
+      <span className="text-200 color-neutral-800">{type}</span>
+      <span className="text-200 bold color-neutral-600">{count}</span>
+    </div>
   )
 }
 
 function HowItWorksStep({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="flex items-start space-x-4">
-      <div className="text-3xl">{icon}</div>
+    <div className="flex-horizontal align-center" style={{ gap: '16px' }}>
+      <div style={{ fontSize: '32px', flexShrink: 0 }}>{icon}</div>
       <div>
-        <p className="text-white font-semibold mb-1">{title}</p>
-        <p className="text-white/60 text-sm">{description}</p>
+        <p className="text-200 bold color-neutral-800" style={{ marginBottom: '4px' }}>{title}</p>
+        <p className="text-100 color-neutral-600">{description}</p>
       </div>
     </div>
   )

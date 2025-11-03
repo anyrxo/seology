@@ -2,9 +2,8 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import {
   Check,
   X,
@@ -13,63 +12,11 @@ import {
   CreditCard,
   Clock,
   HelpCircle,
-  Zap,
   Users,
-  Globe,
-  Sparkles,
   Lock,
+  Sparkles,
 } from 'lucide-react'
 import CTASection from '@/components/marketing/CTASection'
-
-// Magnetic button component
-const MagneticButton = ({ children, href, variant = 'primary' }: {
-  children: React.ReactNode;
-  href: string;
-  variant?: 'primary' | 'secondary'
-}) => {
-  const ref = useRef<HTMLAnchorElement>(null)
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  const springConfig = { damping: 15, stiffness: 150 }
-  const springX = useSpring(x, springConfig)
-  const springY = useSpring(y, springConfig)
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    x.set((e.clientX - centerX) * 0.2)
-    y.set((e.clientY - centerY) * 0.2)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
-
-  return (
-    <motion.a
-      ref={ref}
-      href={href}
-      style={{ x: springX, y: springY }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`
-        block text-center py-3 px-6 rounded-lg font-semibold transition-all
-        ${variant === 'primary'
-          ? 'bg-white text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]'
-          : 'border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/60'
-        }
-      `}
-    >
-      {children}
-    </motion.a>
-  )
-}
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
@@ -151,251 +98,163 @@ export default function PricingPage() {
   }
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-neutral-200 min-h-screen">
       {/* Hero Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-6 py-3 bg-white/5 border border-white/20 rounded-full mb-8 backdrop-blur-sm"
-          >
-            <Sparkles className="w-4 h-4 text-white mr-2" />
-            <span className="text-sm text-white/90 font-medium">
-              14-day free trial • No credit card required
-            </span>
-          </motion.div>
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container-default" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="text-center">
+            <div className="inline-flex items-center primary-badge light mb-6">
+              <Sparkles className="w-4 h-4 mr-2" />
+              <span className="text-100 medium">
+                14-day free trial • No credit card required
+              </span>
+            </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
-          >
-            Simple, Transparent Pricing.
-            <br />
-            <span className="text-white/60">No Hidden Fees.</span>
-          </motion.h1>
+            <h1 className="text-600 bold mb-4" style={{ color: 'var(--neutral--800)' }}>
+              Simple, Transparent Pricing.
+              <br />
+              <span style={{ color: 'var(--neutral--600)' }}>No Hidden Fees.</span>
+            </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed"
-          >
-            Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
-          </motion.p>
+            <p className="text-300 mb-8" style={{ color: 'var(--neutral--600)', maxWidth: '700px', margin: '0 auto 2rem' }}>
+              Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
+            </p>
 
-          {/* Billing Toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="inline-flex items-center bg-white/5 border border-white/20 rounded-2xl p-1.5 backdrop-blur-sm relative"
-          >
-            <motion.div
-              className="absolute inset-0 rounded-2xl bg-white/10"
-              initial={false}
-              animate={{
-                x: billingCycle === 'monthly' ? '2%' : '98%',
-                width: '48%',
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: 300,
-                damping: 30,
-              }}
-            />
-            <button
-              onClick={() => setBillingCycle('monthly')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all relative z-10 ${
-                billingCycle === 'monthly'
-                  ? 'text-white'
-                  : 'text-white/40 hover:text-white/60'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle('annual')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all relative z-10 ${
-                billingCycle === 'annual'
-                  ? 'text-white'
-                  : 'text-white/40 hover:text-white/60'
-              }`}
-            >
-              Annual
-              <motion.span
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="absolute -top-3 -right-2 bg-white text-black text-xs px-3 py-1 rounded-full font-bold"
+            {/* Billing Toggle */}
+            <div className="inline-flex items-center p-1 gap-2" style={{ borderRadius: '12px', border: '1px solid var(--neutral--400)', backgroundColor: 'var(--neutral--100)' }}>
+              <button
+                onClick={() => setBillingCycle('monthly')}
+                className={`px-6 py-2 text-100 medium transition-all ${
+                  billingCycle === 'monthly'
+                    ? 'btn-primary'
+                    : 'bg-transparent'
+                }`}
+                style={billingCycle === 'monthly' ? {} : { color: 'var(--neutral--600)' }}
               >
-                Save 17%
-              </motion.span>
-            </button>
-          </motion.div>
-        </motion.div>
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingCycle('annual')}
+                className={`px-6 py-2 text-100 medium transition-all relative ${
+                  billingCycle === 'annual'
+                    ? 'btn-primary'
+                    : 'bg-transparent'
+                }`}
+                style={billingCycle === 'annual' ? {} : { color: 'var(--neutral--600)' }}
+              >
+                Annual
+                <span className="primary-badge" style={{ position: 'absolute', top: '-12px', right: '-12px', fontSize: '10px' }}>
+                  Save 17%
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-32 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.6 + index * 0.15,
-                ease: [0.6, 0.05, 0.01, 0.9],
-              }}
-              whileHover={{
-                y: -10,
-                transition: { duration: 0.3 },
-              }}
-              className={`relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 group ${
-                plan.popular
-                  ? 'border-2 border-white shadow-[0_0_50px_rgba(255,255,255,0.2)]'
-                  : 'border border-white/20 hover:border-white/40'
-              } transition-all duration-500`}
-            >
-              {plan.popular && (
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [1, 0.8, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                  className="absolute -top-4 left-1/2 -translate-x-1/2"
-                >
-                  <span className="bg-white text-black text-xs px-6 py-2 rounded-full font-bold tracking-wide shadow-lg">
-                    MOST POPULAR
-                  </span>
-                </motion.div>
-              )}
-
-              <div className="mb-8">
-                <h3 className="text-sm font-bold text-white/60 mb-3 tracking-widest">
-                  {plan.name}
-                </h3>
-                <motion.div
-                  key={billingCycle + plan.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex items-baseline mb-2"
-                >
-                  <span className="text-6xl font-bold text-white">
-                    ${getPrice(plan)}
-                  </span>
-                  <span className="text-white/40 ml-3 text-lg">/month</span>
-                </motion.div>
-                {billingCycle === 'annual' && (
-                  <motion.p
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-sm text-white/80 font-medium"
-                  >
-                    Save ${getSavings(plan)}/year
-                  </motion.p>
-                )}
-                <p className="text-white/60 mt-3 text-base">{plan.description}</p>
-              </div>
-
-              <div className="mb-8">
-                <MagneticButton
-                  href="/sign-up"
-                  variant={plan.popular ? 'primary' : 'secondary'}
-                >
-                  {plan.cta}
-                </MagneticButton>
-              </div>
-
-              <div className="space-y-4">
-                {plan.features.map((feature, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: 0.8 + index * 0.15 + i * 0.05,
-                    }}
-                    className="flex items-start"
-                  >
-                    {feature.included ? (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{
-                          duration: 0.3,
-                          delay: 0.8 + index * 0.15 + i * 0.05,
-                          type: 'spring',
-                        }}
-                      >
-                        <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                      </motion.div>
-                    ) : (
-                      <X className="w-5 h-5 text-white/20 mr-3 flex-shrink-0 mt-0.5" />
-                    )}
-                    <span
-                      className={
-                        feature.included ? 'text-white/80' : 'text-white/30'
-                      }
-                    >
-                      {feature.name}
+      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="container-default" style={{ margin: '0 auto' }}>
+          <div className="grid-3-columns gap-row-24px">
+            {plans.map((plan) => (
+              <div
+                key={plan.name}
+                className="card pd-32px---24px"
+                style={{
+                  position: 'relative',
+                  ...(plan.popular && {
+                    border: '2px solid var(--accent--primary-1)',
+                    boxShadow: '0 4px 20px rgba(61, 115, 255, 0.2)',
+                  }),
+                }}
+              >
+                {plan.popular && (
+                  <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)' }}>
+                    <span className="primary-badge">
+                      MOST POPULAR
                     </span>
-                  </motion.div>
-                ))}
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <h3 className="text-100 bold mb-2" style={{ color: 'var(--neutral--600)', letterSpacing: '0.1em' }}>
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-baseline mb-2">
+                    <span className="text-600 bold" style={{ color: 'var(--neutral--800)' }}>
+                      ${getPrice(plan)}
+                    </span>
+                    <span className="text-200 ml-2" style={{ color: 'var(--neutral--600)' }}>/month</span>
+                  </div>
+                  {billingCycle === 'annual' && (
+                    <p className="text-100 medium" style={{ color: 'var(--system--green-300)' }}>
+                      Save ${getSavings(plan)}/year
+                    </p>
+                  )}
+                  <p className="text-200 mt-2" style={{ color: 'var(--neutral--600)' }}>{plan.description}</p>
+                </div>
+
+                <div className="mb-6">
+                  <Link
+                    href="/sign-up"
+                    className="btn-primary large w-full block text-center"
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+
+                <div className="space-y-3">
+                  {plan.features.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start"
+                    >
+                      {feature.included ? (
+                        <Check className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" style={{ color: 'var(--system--green-300)' }} />
+                      ) : (
+                        <X className="w-5 h-5 mr-3 flex-shrink-0 mt-0.5" style={{ color: 'var(--neutral--400)' }} />
+                      )}
+                      <span
+                        className="text-200"
+                        style={{ color: feature.included ? 'var(--neutral--700)' : 'var(--neutral--500)' }}
+                      >
+                        {feature.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-bold text-white mb-4">
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ borderTop: '1px solid var(--neutral--400)' }}>
+        <div className="container-default" style={{ margin: '0 auto' }}>
+          <div className="text-center mb-12">
+            <h2 className="text-500 bold mb-3" style={{ color: 'var(--neutral--800)' }}>
               Compare All Features
             </h2>
-            <p className="text-xl text-white/60">
+            <p className="text-300" style={{ color: 'var(--neutral--600)' }}>
               See exactly what is included in each plan
             </p>
-          </motion.div>
+          </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border border-white/20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl">
+          <div className="card pd-24px" style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
-                <tr className="border-b border-white/20 bg-white/5">
-                  <th className="text-left py-5 px-6 text-white/60 font-bold text-sm tracking-wide">
+                <tr style={{ borderBottom: '2px solid var(--neutral--400)' }}>
+                  <th className="text-100 bold py-4 px-4 text-left" style={{ color: 'var(--neutral--600)' }}>
                     FEATURE
                   </th>
-                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
+                  <th className="text-100 bold py-4 px-4 text-center" style={{ color: 'var(--neutral--800)' }}>
                     STARTER
                   </th>
-                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
+                  <th className="text-100 bold py-4 px-4 text-center" style={{ color: 'var(--neutral--800)' }}>
                     GROWTH
                   </th>
-                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
+                  <th className="text-100 bold py-4 px-4 text-center" style={{ color: 'var(--neutral--800)' }}>
                     SCALE
                   </th>
                 </tr>
@@ -439,36 +298,25 @@ export default function PricingPage() {
                   },
                   { feature: 'SLA Guarantee', values: [false, false, true] },
                 ].map((row, index) => (
-                  <motion.tr
+                  <tr
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="border-b border-white/10 hover:bg-white/5 transition-colors"
+                    style={{ borderBottom: '1px solid var(--neutral--300)' }}
                   >
-                    <td className="py-5 px-6 text-white/80 font-medium">{row.feature}</td>
+                    <td className="text-200 py-4 px-4" style={{ color: 'var(--neutral--700)' }}>{row.feature}</td>
                     {row.values.map((value, i) => (
-                      <td key={i} className="py-5 px-6 text-center">
+                      <td key={i} className="py-4 px-4 text-center">
                         {typeof value === 'boolean' ? (
                           value ? (
-                            <motion.div
-                              initial={{ scale: 0, rotate: -180 }}
-                              whileInView={{ scale: 1, rotate: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
-                            >
-                              <Check className="w-5 h-5 text-white mx-auto" />
-                            </motion.div>
+                            <Check className="w-5 h-5 mx-auto" style={{ color: 'var(--system--green-300)' }} />
                           ) : (
-                            <X className="w-5 h-5 text-white/20 mx-auto" />
+                            <X className="w-5 h-5 mx-auto" style={{ color: 'var(--neutral--400)' }} />
                           )
                         ) : (
-                          <span className="text-white/80 font-medium">{value}</span>
+                          <span className="text-200 medium" style={{ color: 'var(--neutral--700)' }}>{value}</span>
                         )}
                       </td>
                     ))}
-                  </motion.tr>
+                  </tr>
                 ))}
               </tbody>
             </table>
@@ -477,9 +325,9 @@ export default function PricingPage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container-default" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div className="grid-3-columns gap-row-24px" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             {[
               {
                 icon: Shield,
@@ -502,121 +350,68 @@ export default function PricingPage() {
                 description: 'No long-term contracts',
               },
             ].map((badge, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 text-center hover:border-white/40 transition-colors group"
+                className="card pd-24px text-center"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <badge.icon className="w-12 h-12 text-white mx-auto mb-4 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all" />
-                </motion.div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <badge.icon className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--accent--primary-1)' }} />
+                <h3 className="text-200 bold mb-2" style={{ color: 'var(--neutral--800)' }}>
                   {badge.title}
                 </h3>
-                <p className="text-sm text-white/60">{badge.description}</p>
-              </motion.div>
+                <p className="text-100" style={{ color: 'var(--neutral--600)' }}>{badge.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Enterprise Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-white/5 backdrop-blur-xl border-2 border-white/30 rounded-3xl p-16 text-center relative overflow-hidden"
-          >
-            {/* Animated glow effect */}
-            <motion.div
-              className="absolute inset-0 opacity-20"
-              animate={{
-                background: [
-                  'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                  'radial-gradient(circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                  'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                ],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-            />
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ borderTop: '1px solid var(--neutral--400)' }}>
+        <div className="container-default" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="card pd-32px---44px text-center" style={{ background: 'linear-gradient(135deg, var(--secondary--color-3) 0%, var(--neutral--100) 100%)' }}>
+            <Users className="w-16 h-16 mx-auto mb-6" style={{ color: 'var(--accent--primary-1)' }} />
 
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              whileInView={{ scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Users className="w-20 h-20 text-white mx-auto mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
-            </motion.div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10">
+            <h2 className="text-500 bold mb-4" style={{ color: 'var(--neutral--800)' }}>
               Need a Custom Enterprise Plan?
             </h2>
-            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed">
+            <p className="text-300 mb-8" style={{ color: 'var(--neutral--700)', maxWidth: '600px', margin: '0 auto 2rem' }}>
               Get custom pricing, dedicated support, and tailored features for
               your agency or large organization. We will work with you to build
               the perfect solution.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/sign-up"
-                  className="inline-flex items-center justify-center bg-white text-black px-10 py-5 rounded-xl font-bold transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
-                >
-                  Contact Sales Team
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold transition-all hover:bg-white/10 hover:border-white/60"
-                >
-                  Learn More About Us
-                </Link>
-              </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/sign-up"
+                className="inline-flex items-center justify-center btn-primary large"
+              >
+                Contact Sales Team
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center btn-primary white large"
+              >
+                Learn More About Us
+              </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              whileInView={{ scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, type: 'spring' }}
-            >
-              <HelpCircle className="w-20 h-20 text-white mx-auto mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-            </motion.div>
-            <h2 className="text-5xl font-bold text-white mb-4">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="container-default" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="text-center mb-12">
+            <HelpCircle className="w-16 h-16 mx-auto mb-6" style={{ color: 'var(--accent--primary-1)' }} />
+            <h2 className="text-500 bold mb-3" style={{ color: 'var(--neutral--800)' }}>
               Pricing Questions?
             </h2>
-            <p className="text-xl text-white/60">
+            <p className="text-300" style={{ color: 'var(--neutral--600)' }}>
               Common questions about billing and plans
             </p>
-          </motion.div>
+          </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 question: 'What counts as an SEO fix?',
@@ -659,23 +454,15 @@ export default function PricingPage() {
                   'No setup fees. No long-term contracts. You can cancel anytime and you will not be charged again. Your data remains accessible for 30 days after cancellation.',
               },
             ].map((faq, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
-                whileHover={{
-                  x: 10,
-                  transition: { duration: 0.3 },
-                }}
-                className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 hover:border-white/40 transition-all group"
+                className="card pd-24px"
               >
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-white/90 transition-colors">
+                <h3 className="text-300 bold mb-3" style={{ color: 'var(--neutral--800)' }}>
                   {faq.question}
                 </h3>
-                <p className="text-white/70 leading-relaxed">{faq.answer}</p>
-              </motion.div>
+                <p className="text-200" style={{ color: 'var(--neutral--700)' }}>{faq.answer}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -685,7 +472,7 @@ export default function PricingPage() {
       <CTASection
         title="Ready to Fix Your SEO Automatically?"
         description="Start your 14-day free trial today. No credit card required."
-        primaryCTA={{ text: 'Start Free Trial →', href: '/sign-up' }}
+        primaryCTA={{ text: 'Start Free Trial', href: '/sign-up' }}
         secondaryCTA={{ text: 'View Features', href: '/features' }}
       />
     </div>
