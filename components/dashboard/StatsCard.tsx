@@ -46,30 +46,46 @@ export function StatsCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: delay / 1000 }}
+      transition={{ duration: 0.5, delay: delay / 1000, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] }}
     >
       <Card
         className={cn(
-          'border-gray-800 hover:border-blue-500/50 transition-all duration-300 group cursor-default',
+          'relative border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 hover:border-white/20 hover:shadow-glow hover:-translate-y-1 transition-all duration-300 group cursor-default overflow-hidden',
           className
         )}
       >
-        <CardContent className="p-6">
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:via-pink-500/5 group-hover:to-blue-500/5 transition-all duration-500 pointer-events-none" />
+
+        {/* Inner glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+
+        <CardContent className="p-6 relative z-10">
           <div className="flex items-start justify-between mb-4">
-            <div className="p-2.5 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-              <Icon className="h-5 w-5 text-blue-400" />
-            </div>
+            {/* Icon with gradient background */}
+            <motion.div
+              className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl group-hover:from-blue-500/30 group-hover:to-purple-500/30 group-hover:shadow-lg group-hover:shadow-blue-500/20 transition-all duration-300"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Icon className="h-6 w-6 text-blue-400 group-hover:text-blue-300" />
+            </motion.div>
 
             {trend && (
-              <div
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: (delay / 1000) + 0.2 }}
                 className={cn(
-                  'flex items-center space-x-1 text-sm font-medium',
-                  trend.positive ? 'text-green-400' : 'text-red-400'
+                  'flex items-center space-x-1 px-2.5 py-1 rounded-full text-xs font-semibold backdrop-blur-sm',
+                  trend.positive
+                    ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                    : 'bg-red-500/20 text-red-400 border border-red-500/30'
                 )}
               >
                 <svg
                   className={cn(
-                    'h-4 w-4',
+                    'h-3 w-3',
                     trend.positive ? 'rotate-0' : 'rotate-180'
                   )}
                   fill="none"
@@ -79,24 +95,34 @@ export function StatsCard({
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={2.5}
                     d="M5 10l7-7m0 0l7 7m-7-7v18"
                   />
                 </svg>
                 <span>{Math.abs(trend.value)}%</span>
-              </div>
+              </motion.div>
             )}
           </div>
 
-          <h3 className="text-sm font-medium text-gray-400 mb-2">{title}</h3>
+          <h3 className="text-sm font-medium text-gray-400 mb-3 group-hover:text-gray-300 transition-colors">{title}</h3>
 
           <div className="flex items-end justify-between">
-            <p className="text-3xl font-bold text-white tabular-nums">{value}</p>
+            <motion.p
+              className="text-4xl font-bold text-white tabular-nums"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: (delay / 1000) + 0.1, duration: 0.5 }}
+            >
+              {value}
+            </motion.p>
 
             {trend && (
-              <span className="text-xs text-gray-500 mb-1">{trend.label}</span>
+              <span className="text-xs text-gray-500 mb-1.5 font-medium">{trend.label}</span>
             )}
           </div>
+
+          {/* Bottom gradient line */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </CardContent>
       </Card>
     </motion.div>

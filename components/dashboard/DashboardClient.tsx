@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { LoadingSkeleton } from '@/components/ui/loading'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { motion } from 'framer-motion'
 
 export function DashboardClient({ userName }: { userName: string }) {
   const { stats, isLoading } = useDashboardStats()
@@ -26,19 +27,41 @@ export function DashboardClient({ userName }: { userName: string }) {
   ]
 
   return (
-    <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-500">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="space-y-6 sm:space-y-8"
+    >
       {/* Welcome Header */}
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
           Welcome back, {userName}!
         </h1>
         <p className="text-sm sm:text-base text-gray-400">
           Here's what's happening with your SEO automation
         </p>
-      </div>
+      </motion.div>
 
       {/* Stats Grid with Animations */}
-      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <motion.div
+        className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.1
+            }
+          }
+        }}
+      >
         <StatCard
           title="Sites Connected"
           value={stats.sitesCount}
@@ -71,7 +94,7 @@ export function DashboardClient({ userName }: { userName: string }) {
           trendUp={true}
           delay={300}
         />
-      </div>
+      </motion.div>
 
       {/* Usage Progress Bar */}
       {stats.usagePercent > 0 && (
@@ -227,7 +250,7 @@ export function DashboardClient({ userName }: { userName: string }) {
           </CardContent>
         </Card>
       )}
-    </div>
+    </motion.div>
   )
 }
 
@@ -247,26 +270,49 @@ function StatCard({
   delay?: number
 }) {
   return (
-    <Card
-      className="border-gray-800 hover:border-blue-500/50 transition-all duration-300 animate-in slide-in-from-bottom"
-      style={{ animationDelay: `${delay}ms` }}
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 }
+      }}
     >
-      <CardContent className="p-4 sm:p-6">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xl sm:text-2xl">{icon}</span>
-          <span
-            className={`text-xs sm:text-sm font-medium flex items-center ${
-              trendUp ? 'text-green-500' : 'text-yellow-500'
-            }`}
-          >
-            {trendUp ? <ArrowUpRight className="h-3 w-3 mr-1" /> : <ArrowDownRight className="h-3 w-3 mr-1" />}
-            <span className="hidden xs:inline">{trend}</span>
-          </span>
-        </div>
-        <h3 className="text-gray-400 text-xs sm:text-sm mb-1">{title}</h3>
-        <p className="text-2xl sm:text-3xl font-bold text-white tabular-nums">{value}</p>
-      </CardContent>
-    </Card>
+      <motion.div
+        whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <Card className="border-gray-800 hover:border-blue-500/50 transition-all duration-300">
+          <CardContent className="p-4 sm:p-6">
+            <div className="flex items-center justify-between mb-2">
+              <motion.span
+                className="text-xl sm:text-2xl"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: delay / 1000, type: "spring", stiffness: 200 }}
+              >
+                {icon}
+              </motion.span>
+              <span
+                className={`text-xs sm:text-sm font-medium flex items-center ${
+                  trendUp ? 'text-green-500' : 'text-yellow-500'
+                }`}
+              >
+                {trendUp ? <ArrowUpRight className="h-3 w-3 mr-1" /> : <ArrowDownRight className="h-3 w-3 mr-1" />}
+                <span className="hidden xs:inline">{trend}</span>
+              </span>
+            </div>
+            <h3 className="text-gray-400 text-xs sm:text-sm mb-1">{title}</h3>
+            <motion.p
+              className="text-2xl sm:text-3xl font-bold text-white tabular-nums"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: (delay / 1000) + 0.1 }}
+            >
+              {value}
+            </motion.p>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </motion.div>
   )
 }
 
@@ -282,16 +328,27 @@ function QuickActionCard({
   icon: string
 }) {
   return (
-    <Link
-      href={href}
-      className="bg-gray-800/50 rounded-lg p-4 sm:p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:scale-105 min-h-touch"
+    <motion.div
+      whileHover={{ scale: 1.03, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
     >
-      <div className="text-2xl sm:text-3xl mb-2 sm:mb-3">{icon}</div>
-      <h3 className="text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2 group-hover:text-blue-400 transition-colors">
-        {title}
-      </h3>
-      <p className="text-gray-400 text-xs sm:text-sm">{description}</p>
-    </Link>
+      <Link
+        href={href}
+        className="block bg-gray-800/50 rounded-lg p-4 sm:p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group min-h-touch"
+      >
+        <motion.div
+          className="text-2xl sm:text-3xl mb-2 sm:mb-3"
+          whileHover={{ rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } }}
+        >
+          {icon}
+        </motion.div>
+        <h3 className="text-white text-sm sm:text-base font-semibold mb-1 sm:mb-2 group-hover:text-blue-400 transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-400 text-xs sm:text-sm">{description}</p>
+      </Link>
+    </motion.div>
   )
 }
 

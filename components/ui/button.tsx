@@ -7,25 +7,25 @@ import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50 overflow-hidden",
+  "relative inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50 overflow-hidden group",
   {
     variants: {
       variant: {
-        primary: "bg-white text-black hover:bg-white/90 active:scale-95 shadow-lg shadow-white/20 hover:shadow-xl hover:shadow-white/30 focus-visible:ring-white/50",
-        secondary: "bg-white/10 text-white backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-white/30 active:scale-95 focus-visible:ring-white/30",
-        outline: "border-2 border-white/20 text-white hover:border-white/40 hover:bg-white/5 active:scale-95 focus-visible:ring-white/30",
-        ghost: "text-white hover:bg-white/10 active:scale-95",
-        danger: "bg-red-500 text-white hover:bg-red-600 active:scale-95 shadow-lg shadow-red-500/20 hover:shadow-xl hover:shadow-red-500/30 focus-visible:ring-red-500/50",
-        success: "bg-green-500 text-white hover:bg-green-600 active:scale-95 shadow-lg shadow-green-500/20 hover:shadow-xl hover:shadow-green-500/30 focus-visible:ring-green-500/50",
-        warning: "bg-yellow-500 text-black hover:bg-yellow-600 active:scale-95 shadow-lg shadow-yellow-500/20 hover:shadow-xl hover:shadow-yellow-500/30 focus-visible:ring-yellow-500/50",
-        link: "text-white underline-offset-4 hover:underline",
+        primary: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/50 active:scale-95 focus-visible:ring-purple-500/50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-pink-500 before:via-purple-500 before:to-indigo-500 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500",
+        secondary: "bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 active:scale-95 focus-visible:ring-white/30 transition-all duration-300",
+        outline: "border-2 border-white/30 text-white hover:border-white/50 hover:bg-white/5 hover:shadow-lg hover:shadow-white/10 active:scale-95 focus-visible:ring-white/30 backdrop-blur-sm",
+        ghost: "text-white hover:bg-white/10 active:scale-95 hover:shadow-inner",
+        danger: "bg-gradient-to-r from-red-500 to-rose-600 text-white hover:shadow-2xl hover:shadow-red-500/50 active:scale-95 focus-visible:ring-red-500/50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-rose-600 before:to-red-500 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500",
+        success: "bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:shadow-2xl hover:shadow-green-500/50 active:scale-95 focus-visible:ring-green-500/50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-600 before:to-emerald-500 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500",
+        warning: "bg-gradient-to-r from-amber-400 to-yellow-500 text-black hover:shadow-2xl hover:shadow-yellow-500/50 active:scale-95 focus-visible:ring-yellow-500/50 before:absolute before:inset-0 before:bg-gradient-to-r before:from-yellow-500 before:to-amber-400 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500",
+        link: "text-white underline-offset-4 hover:underline hover:text-purple-400 transition-colors",
       },
       size: {
-        sm: "h-8 px-3 text-xs",
-        default: "h-10 px-4 py-2",
-        md: "h-10 px-4",
-        lg: "h-12 px-6 text-base",
-        xl: "h-14 px-8 text-lg",
+        sm: "h-8 px-3 text-xs gap-1.5",
+        default: "h-10 px-4 py-2 gap-2",
+        md: "h-10 px-4 gap-2",
+        lg: "h-12 px-6 text-base gap-2.5",
+        xl: "h-14 px-8 text-lg gap-3",
         icon: "h-10 w-10",
       },
     },

@@ -1,12 +1,18 @@
+'use client'
+
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 interface GlassCardProps {
-  variant?: 'light' | 'medium' | 'heavy'
+  variant?: 'light' | 'medium' | 'heavy' | 'gradient' | 'glow'
   blur?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
   children: React.ReactNode
   className?: string
-  hover?: boolean
+  hover?: 'none' | 'lift' | 'glow' | 'scale'
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
+  animated?: boolean
+  borderGradient?: boolean
 }
 
 export function GlassCard({
@@ -14,12 +20,17 @@ export function GlassCard({
   blur = 'xl',
   children,
   className = '',
-  hover = false
+  hover = 'lift',
+  padding = 'md',
+  animated = true,
+  borderGradient = false
 }: GlassCardProps) {
   const variants = {
-    light: 'bg-white/5 border-white/10',
-    medium: 'bg-white/10 border-white/20',
-    heavy: 'bg-white/20 border-white/30',
+    light: 'bg-white/5 border-white/10 shadow-lg',
+    medium: 'bg-white/10 border-white/20 shadow-xl',
+    heavy: 'bg-white/20 border-white/30 shadow-2xl',
+    gradient: 'bg-gradient-to-br from-white/10 via-white/5 to-transparent border-white/20 shadow-xl',
+    glow: 'bg-white/5 border-white/10 shadow-glow',
   }
 
   const blurs = {
@@ -30,16 +41,51 @@ export function GlassCard({
     '2xl': 'backdrop-blur-2xl',
   }
 
+  const hoverEffects = {
+    none: '',
+    lift: 'hover:-translate-y-1 hover:shadow-2xl',
+    glow: 'hover:shadow-glow hover:border-white/30',
+    scale: 'hover:scale-[1.02]',
+  }
+
+  const paddings = {
+    none: '',
+    sm: 'p-4',
+    md: 'p-6',
+    lg: 'p-8',
+    xl: 'p-10',
+  }
+
+  const Component = animated ? motion.div : 'div'
+  const motionProps = animated
+    ? {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
+      }
+    : {}
+
   return (
-    <div className={cn(
-      variants[variant],
-      blurs[blur],
-      'rounded-2xl border shadow-2xl transition-all duration-300',
-      hover && 'hover:bg-white/15 hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]',
-      className
-    )}>
-      {children}
-    </div>
+    <Component
+      className={cn(
+        'relative rounded-xl border transition-all duration-300',
+        variants[variant],
+        blurs[blur],
+        hoverEffects[hover],
+        paddings[padding],
+        borderGradient && 'before:absolute before:inset-0 before:rounded-xl before:p-[1px] before:bg-gradient-to-br before:from-purple-500/50 before:via-pink-500/50 before:to-blue-500/50 before:-z-10',
+        className
+      )}
+      {...motionProps}
+    >
+      {/* Inner glow effect */}
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+
+      {/* Content */}
+      <div className="relative z-10">
+        {children}
+      </div>
+    </Component>
   )
 }
 

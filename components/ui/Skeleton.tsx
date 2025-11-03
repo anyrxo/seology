@@ -1,17 +1,42 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 
 interface SkeletonProps {
   className?: string
+  shimmer?: boolean
+  variant?: 'pulse' | 'shimmer' | 'wave'
 }
 
-export function Skeleton({ className }: SkeletonProps) {
+export function Skeleton({
+  className,
+  shimmer = true,
+  variant = 'shimmer'
+}: SkeletonProps) {
   return (
     <div
       className={cn(
-        'animate-pulse rounded-md bg-gray-800',
+        'relative overflow-hidden rounded-md bg-white/5 backdrop-blur-sm',
+        variant === 'pulse' && 'animate-pulse',
         className
       )}
-    />
+    >
+      {/* Shimmer effect */}
+      {shimmer && variant === 'shimmer' && (
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+      )}
+
+      {/* Wave effect */}
+      {variant === 'wave' && (
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0"
+          style={{
+            animation: 'shimmer 2s ease-in-out infinite',
+            backgroundSize: '200% 100%',
+          }}
+        />
+      )}
+    </div>
   )
 }
 

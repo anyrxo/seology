@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { LoadingSkeleton } from '@/components/ui/loading'
 import { Badge } from '@/components/ui/badge'
+import { motion, AnimatePresence } from 'framer-motion'
 
 type ViewMode = 'grid' | 'list'
 
@@ -151,42 +152,81 @@ export function SitesClient() {
       </div>
 
       {/* Sites Grid/List */}
-      {filteredSites.length === 0 ? (
-        <Card className="border-gray-800">
-          <CardContent className="py-12 text-center">
-            <p className="text-gray-400">No sites found matching your filters</p>
-          </CardContent>
-        </Card>
-      ) : viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSites.map((site) => (
-            <SiteCard
-              key={site.id}
-              site={{
-                ...site,
-                lastSync: site.lastSync ? site.lastSync.toString() : null
-              }}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {filteredSites.map((site) => (
-            <SiteListItem
-              key={site.id}
-              site={{
-                ...site,
-                lastSync: site.lastSync ? site.lastSync.toString() : null
-              }}
-            />
-          ))}
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {filteredSites.length === 0 ? (
+          <motion.div
+            key="empty"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Card className="border-gray-800">
+              <CardContent className="py-12 text-center">
+                <p className="text-gray-400">No sites found matching your filters</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ) : viewMode === 'grid' ? (
+          <motion.div
+            key="grid"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.08
+                }
+              }
+            }}
+          >
+            {filteredSites.map((site, index) => (
+              <SiteCard
+                key={site.id}
+                site={{
+                  ...site,
+                  lastSync: site.lastSync ? site.lastSync.toString() : null
+                }}
+                index={index}
+              />
+            ))}
+          </motion.div>
+        ) : (
+          <motion.div
+            key="list"
+            className="space-y-3"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.05
+                }
+              }
+            }}
+          >
+            {filteredSites.map((site, index) => (
+              <SiteListItem
+                key={site.id}
+                site={{
+                  ...site,
+                  lastSync: site.lastSync ? site.lastSync.toString() : null
+                }}
+                index={index}
+              />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
-function SiteCard({ site }: { site: SiteCardProps }) {
+function SiteCard({ site, index = 0 }: { site: SiteCardProps; index?: number }) {
   const platformEmojis: Record<string, string> = {
     SHOPIFY: '🛍️',
     WORDPRESS: '📝',
@@ -196,9 +236,20 @@ function SiteCard({ site }: { site: SiteCardProps }) {
   const platformEmoji = (platformEmojis[site.platform as keyof typeof platformEmojis]) || '🌐'
 
   return (
-    <Link href={`/dashboard/sites/${site.id}`}>
-      <Card className="border-gray-800 hover:border-blue-500 transition-all duration-300 group hover:scale-105">
-        <CardContent className="p-6">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 }
+      }}
+    >
+      <Link href={`/dashboard/sites/${site.id}`}>
+        <motion.div
+          whileHover={{ y: -4, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Card className="border-gray-800 hover:border-blue-500 transition-all duration-300 group">
+            <CardContent className="p-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
               <div className="text-3xl">{platformEmoji}</div>
@@ -228,13 +279,15 @@ function SiteCard({ site }: { site: SiteCardProps }) {
               Last synced: {new Date(site.lastSync).toLocaleDateString()}
             </div>
           )}
-        </CardContent>
-      </Card>
-    </Link>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </Link>
+    </motion.div>
   )
 }
 
-function SiteListItem({ site }: { site: SiteCardProps }) {
+function SiteListItem({ site, index = 0 }: { site: SiteCardProps; index?: number }) {
   const platformEmojis: Record<string, string> = {
     SHOPIFY: '🛍️',
     WORDPRESS: '📝',
@@ -244,9 +297,20 @@ function SiteListItem({ site }: { site: SiteCardProps }) {
   const platformEmoji = (platformEmojis[site.platform as keyof typeof platformEmojis]) || '🌐'
 
   return (
-    <Link href={`/dashboard/sites/${site.id}`}>
-      <Card className="border-gray-800 hover:border-blue-500 transition-colors group">
-        <CardContent className="p-4">
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, x: -20 },
+        show: { opacity: 1, x: 0 }
+      }}
+    >
+      <Link href={`/dashboard/sites/${site.id}`}>
+        <motion.div
+          whileHover={{ x: 4 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Card className="border-gray-800 hover:border-blue-500 transition-colors group">
+            <CardContent className="p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4 flex-1">
               <div className="text-2xl">{platformEmoji}</div>
@@ -271,7 +335,9 @@ function SiteListItem({ site }: { site: SiteCardProps }) {
           </div>
         </CardContent>
       </Card>
+        </motion.div>
     </Link>
+    </motion.div>
   )
 }
 
