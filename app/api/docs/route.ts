@@ -10,6 +10,61 @@ export const dynamic = 'force-dynamic'
 
 // OpenAPI paths documentation
 const paths = {
+  '/api/health': {
+    get: {
+      tags: ['System'],
+      summary: 'Health check',
+      description: 'Check API and database health status',
+      security: [],
+      responses: {
+        '200': {
+          description: 'System is healthy',
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  status: { type: 'string', example: 'healthy' },
+                  timestamp: { type: 'string', format: 'date-time' },
+                  services: {
+                    type: 'object',
+                    properties: {
+                      api: { type: 'string', example: 'operational' },
+                      database: { type: 'string', example: 'operational' },
+                    },
+                  },
+                  version: { type: 'string', example: '1.0.0' },
+                },
+              },
+            },
+          },
+        },
+        '503': {
+          description: 'System is unhealthy',
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  status: { type: 'string', example: 'unhealthy' },
+                  timestamp: { type: 'string', format: 'date-time' },
+                  services: {
+                    type: 'object',
+                    properties: {
+                      api: { type: 'string' },
+                      database: { type: 'string' },
+                    },
+                  },
+                  error: { type: 'string' },
+                  version: { type: 'string' },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   '/api/sites': {
     get: {
       tags: ['Sites'],

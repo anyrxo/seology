@@ -1,0 +1,32 @@
+// Sentry edge runtime configuration for SEOLOGY.AI
+import * as Sentry from '@sentry/nextjs'
+
+const SENTRY_DSN = process.env.SENTRY_DSN
+
+Sentry.init({
+  dsn: SENTRY_DSN,
+  
+  // Performance Monitoring (lower sample rate for edge)
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.05 : 1.0,
+  
+  // Environment
+  environment: process.env.VERCEL_ENV || process.env.NODE_ENV || 'development',
+  
+  // Release tracking
+  release: process.env.VERCEL_GIT_COMMIT_SHA || 'development',
+  
+  // Filter sensitive data
+  beforeSend(event) {
+    // Remove sensitive headers
+    if (event.request?.headers) {
+      const sensitiveHeaders = ['authorization', 'cookie', 'x-api-key', 'x-cron-secret']
+      sensitiveHeaders.forEach(header => {
+        if (event.request.headers[header]) {
+          event.request.headers[header] = '[FILTERED]'
+        }
+      })
+    }
+    
+    return event
+  },
+})

@@ -4,35 +4,17 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
+import { verifyAdmin } from '@/lib/middleware/admin-guard'
 
 export const dynamic = 'force-dynamic'
 
-// Helper to check if user is admin
-async function isAdmin(userId: string): Promise<boolean> {
-  // In production, check user role in Clerk or database
-  // For now, we'll use an environment variable for admin emails
-  const user = await db.user.findUnique({
-    where: { clerkId: userId },
-    select: { email: true },
-  })
-
-  const adminEmails = (process.env.ADMIN_EMAILS || '').split(',').map((e) => e.trim())
-  return user ? adminEmails.includes(user.email) : false
-}
-
 export async function GET(req: NextRequest) {
   try {
-    const session = await auth()
-    if (!session?.userId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    // Check if user is admin
-    const userIsAdmin = await isAdmin(session.userId)
-    if (!userIsAdmin) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    // Verify admin access using RBAC
+    const adminCheck = await verifyAdmin()
+    if ('error' in adminCheck) {
+      return adminCheck.error
     }
 
     // Get query parameters

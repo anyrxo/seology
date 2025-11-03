@@ -181,6 +181,10 @@ export const swaggerDefinition = {
   ],
   tags: [
     {
+      name: 'System',
+      description: 'System health and documentation',
+    },
+    {
       name: 'Sites',
       description: 'Website connection management',
     },

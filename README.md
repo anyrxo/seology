@@ -1,399 +1,555 @@
-# SEOLOGY.AI 🤖
+# SEOLOGY.AI
 
-**The first SEO tool that actually fixes problems instead of just reporting them.**
+> The first platform that automatically fixes SEO issues instead of just reporting them.
 
-Powered by Claude AI to automatically analyze, plan, and execute SEO improvements on any website. Built with Next.js 14, TypeScript, and Dashflow X design system.
+SEOLOGY.AI is an AI-powered SEO automation SaaS that connects to your CMS (Shopify, WordPress, or custom sites), analyzes your content for SEO problems, and automatically applies fixes - all powered by Claude AI.
+
+## Quick Links
+
+**Documentation**
+- [Page Catalog](./PAGE_CATALOG.md) - All 25 pages documented
+- [Component Usage Guide](./COMPONENT_USAGE_GUIDE.md) - How to use UI components
+- [Design System](./DESIGN_SYSTEM.md) - Colors, typography, spacing
+- [Animation Guide](./ANIMATION_GUIDE.md) - Animation patterns
+- [UX Patterns](./UX_PATTERNS.md) - Loading, error, and form patterns
+- [CLAUDE.md](./CLAUDE.md) - Developer instructions for Claude Code
+
+**Getting Started**
+- [Installation](#installation) - Set up the project
+- [Tech Stack](#tech-stack) - Technologies used
+- [How It Works](#how-it-works) - Product overview
+- [Deployment](#deployment) - Deploy to production
 
 ---
 
-## ⚡ Quick Start
+## Key Features
 
-```bash
-# 1. Get API keys (see DEPLOYMENT_GUIDE.md)
-# 2. Add to .env.local
-# 3. Push database schema
-npx prisma db push
+- **Automatic SEO Fixes** - First platform to actually log into CMSs and make permanent changes
+- **AI-Powered Analysis** - Claude 3.5 Sonnet analyzes your site for SEO issues
+- **Multi-Platform Support** - Shopify, WordPress, and custom sites via Magic.js
+- **Three Execution Modes** - AUTOMATIC, PLAN, or APPROVE based on your preference
+- **90-Day Rollback** - Undo any fix within 90 days
+- **Real-Time Notifications** - Stay informed about issues and fixes
+- **Team Collaboration** - Invite team members with role-based access
+- **Usage Tracking** - Monitor your plan limits and usage
+- **Webhooks** - Integrate with your existing tools
 
-# 4. Run development server
-npm run dev
+---
 
-# 5. Deploy to production
-vercel
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- PostgreSQL 14+ database
+- Accounts for:
+  - [Clerk](https://clerk.com) (Authentication)
+  - [Anthropic](https://console.anthropic.com) (Claude AI)
+  - [Stripe](https://stripe.com) (Payments)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-org/seology-ai.git
+   cd seology-ai
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Edit `.env.local` with your configuration:
+   ```bash
+   DATABASE_URL="postgresql://..."
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_..."
+   CLERK_SECRET_KEY="sk_test_..."
+   ANTHROPIC_API_KEY="sk-ant-..."
+   ENCRYPTION_KEY="your-32-character-key"
+   STRIPE_SECRET_KEY="sk_test_..."
+   ```
+
+4. **Set up the database:**
+   ```bash
+   npx prisma db push
+   npx prisma generate
+   ```
+
+5. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser:**
+
+   Visit [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Tech Stack
+
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Shadcn/UI** - Component primitives
+
+### Backend
+- **Next.js API Routes** - RESTful API
+- **Prisma** - ORM for PostgreSQL
+- **Anthropic Claude API** - AI analysis and fix generation
+- **Bull** - Background job queue (Redis)
+
+### Integrations
+- **Clerk** - Authentication and user management
+- **Stripe** - Subscription billing
+- **Shopify API** - E-commerce platform integration
+- **WordPress REST API** - CMS integration
+- **Resend** - Transactional emails
+
+### Infrastructure
+- **Vercel** - Hosting and deployment
+- **PostgreSQL** - Database (Supabase/Railway)
+- **Redis** - Job queue (Upstash)
+
+---
+
+## Documentation
+
+### For Users
+- **[User Guide](./USER_GUIDE.md)** - Getting started, connecting sites, using features
+- **[Page Catalog](./PAGE_CATALOG.md)** - Complete guide to all 25+ pages in the application
+
+### For Developers
+- **[Developer Guide](./DEVELOPER_GUIDE.md)** - Setup, architecture, contributing
+- **[API Reference](./API_REFERENCE.md)** - Complete API documentation
+- **[Component Usage Guide](./COMPONENT_USAGE_GUIDE.md)** - How to use all UI components
+- **[Design System](./DESIGN_SYSTEM.md)** - Colors, typography, spacing, and component variants
+- **[Animation Guide](./ANIMATION_GUIDE.md)** - Animation patterns and Framer Motion examples
+- **[UX Patterns](./UX_PATTERNS.md)** - Loading states, error handling, forms, and navigation
+- **[Changelog](./CHANGELOG.md)** - Version history and updates
+
+---
+
+## Application Structure
+
+### Page Organization
+
+SEOLOGY.AI has **25 pages** organized into 4 main sections:
+
+```
+Marketing (5 pages)
+├── / - Landing page
+├── /pricing - Pricing plans
+├── /features - Feature showcase
+├── /about - About us
+└── /docs - Documentation
+
+Authentication (2 pages)
+├── /sign-in - User login
+└── /sign-up - User registration
+
+User Dashboard (11 pages)
+├── /dashboard - Overview
+├── /dashboard/sites - All sites
+├── /dashboard/sites/connect - Connect new site
+├── /dashboard/sites/[id] - Site details
+├── /dashboard/issues - SEO issues
+├── /dashboard/fixes - Applied fixes
+├── /dashboard/analytics - Performance metrics
+├── /dashboard/ai-analysis - AI insights
+├── /dashboard/billing - Subscription & usage
+├── /dashboard/settings - User settings
+├── /dashboard/notifications - Notifications center
+└── /dashboard/onboarding - 7-step wizard
+
+Admin (6 pages)
+├── /admin - Admin overview
+├── /admin/users - User management
+├── /admin/sites - All sites (admin view)
+├── /admin/jobs - Background job queue
+├── /admin/analytics - Platform analytics
+└── /admin/broadcast - Send notifications
 ```
 
-**Full deployment guide**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
-
-**Quick overview**: [QUICK_START.md](QUICK_START.md)
+See **[PAGE_CATALOG.md](./PAGE_CATALOG.md)** for detailed documentation of each page.
 
 ---
 
-## 🚀 What's Built
-
-### Complete SaaS Application (16 Pages)
-
-#### Marketing Site
-- Landing page with hero & features
-- Interactive pricing page with ROI calculator
-- About page with founder story
-
-#### User Dashboard
-- Overview dashboard with stats
-- **AI Analysis** - Live Claude AI SEO analysis with thinking animation
-- **Analytics** - AI impact metrics, charts, and trends
-- Sites management (list, detail, connect)
-- Issues & fixes tracking
-- Settings & billing
-- Onboarding wizard
-
-#### Admin Dashboard
-- System overview with stats
-- User management with search/filter
-- Connection monitoring
-
-#### Authentication
-- Sign in / Sign up (Clerk)
-
----
-
-## 🎨 Design System
-
-Built with **Dashflow X** Webflow template components:
-
-- **Dark Theme**: Professional gray-900/950 backgrounds
-- **AI Branding**: Blue-to-purple gradients throughout
-- **Icons**: Emoji-based (no font dependencies)
-- **Components**: 25+ reusable UI components
-- **Responsive**: Mobile-first, works on all devices
-
----
-
-## 🤖 Claude AI Integration
-
-### AI Analysis Page
-- Live URL analysis interface
-- 9-step AI thinking animation
-- Circular SEO score gauge (0-100)
-- AI recommendation cards
-- Expandable code snippets
-- "Apply All Fixes Automatically" button
-
-### Analytics Dashboard
-- AI impact metrics (issues fixed, time saved, score growth)
-- Weekly activity charts
-- Issue breakdown visualization
-- Recent AI actions feed
-- 30-day SEO score trends
-
-### Backend Integration
-- Claude 3.5 Sonnet model
-- Platform-specific SEO analysis
-- Intelligent fix generation
-- Context-aware recommendations
-
----
-
-## 🔌 Platform Integrations
-
-### Shopify
-- OAuth 2.0 flow
-- Product SEO optimization
-- Theme modification
-
-### WordPress
-- REST API integration
-- Application Passwords auth
-- Content optimization
-
-### Custom Sites (Magic.js)
-- Universal JavaScript snippet
-- Client-side fix application
-- No server access required
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend**: Next.js 14 (App Router), React, TypeScript
-- **Styling**: Tailwind CSS, Dashflow X components
-- **Backend**: Next.js API Routes
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: Clerk
-- **AI**: Claude 3.5 Sonnet (Anthropic)
-- **Payments**: Stripe (ready to integrate)
-- **Deployment**: Vercel
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 seology-ai/
-├── app/
-│   ├── (admin)/admin/          # Admin dashboard
-│   ├── (auth)/                 # Authentication pages
-│   ├── dashboard/              # User dashboard
-│   │   ├── ai-analysis/        # ⭐ Claude AI showcase
-│   │   ├── analytics/          # ⭐ AI metrics
-│   │   └── sites/              # Site management
-│   ├── api/                    # API routes
-│   ├── page.tsx                # Landing page
-│   ├── pricing/                # Pricing page
-│   └── about/                  # About page
-├── components/
-│   ├── ui/                     # Reusable components
-│   ├── dashboard/              # Dashboard components
-│   ├── admin/                  # Admin components
-│   └── notifications/          # Notification system
-├── lib/
-│   ├── claude.ts              # Claude AI integration
-│   ├── db.ts                  # Prisma client
-│   ├── shopify.ts             # Shopify connector
-│   └── wordpress.ts           # WordPress connector
-└── prisma/
-    └── schema.prisma          # Database schema
+├── app/                    # Next.js 14 App Router
+│   ├── (auth)/            # Authentication pages (2)
+│   ├── (admin)/           # Admin dashboard (6 pages)
+│   ├── (marketing)/       # Marketing pages (5)
+│   ├── dashboard/         # User dashboard (11 pages)
+│   ├── api/               # API routes (50+ endpoints)
+│   └── page.tsx           # Landing page
+├── components/            # React components (50+)
+│   ├── ui/               # Base UI components (20+)
+│   ├── dashboard/        # Dashboard-specific
+│   ├── admin/            # Admin-specific
+│   ├── marketing/        # Marketing components
+│   ├── onboarding/       # 7-step wizard components
+│   └── notifications/    # Notification system
+├── lib/                   # Core business logic
+│   ├── execution-modes.ts # Fix execution system
+│   ├── claude.ts          # AI integration
+│   ├── shopify.ts         # Shopify connector
+│   ├── wordpress.ts       # WordPress connector
+│   ├── jobs/              # Background jobs
+│   ├── queue.ts           # Job queue management
+│   ├── stripe.ts          # Billing integration
+│   └── notifications.ts   # Notification system
+├── prisma/
+│   └── schema.prisma      # Database schema (15+ models)
+├── public/
+│   ├── magic.js           # Universal connector
+│   └── images/            # Static assets
+└── docs/                  # Documentation
+    ├── PAGE_CATALOG.md
+    ├── COMPONENT_USAGE_GUIDE.md
+    ├── DESIGN_SYSTEM.md
+    ├── ANIMATION_GUIDE.md
+    └── UX_PATTERNS.md
 ```
 
 ---
 
-## 📖 Documentation
+## How It Works
 
-### Getting Started
-- **[QUICK_START.md](QUICK_START.md)** - Fast overview & 4-step deployment
-- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Complete deployment guide (1-2 hours)
+### 1. Connect Your Site
 
-### Technical Documentation
-- **[CLAUDE.md](CLAUDE.md)** - Project instructions & architecture
-- **[FINAL_STATUS.md](FINAL_STATUS.md)** - Build status & statistics
-- **[CLAUDE_AI_SHOWCASE.md](CLAUDE_AI_SHOWCASE.md)** - Claude AI integration details
-- **[DASHFLOW_IMPLEMENTATION.md](DASHFLOW_IMPLEMENTATION.md)** - Component guide
+Choose your platform and connect:
 
-### Product Specification
-- **[breakdown.txt](breakdown.txt)** - Original product specification
+- **Shopify**: OAuth integration with product/content access
+- **WordPress**: REST API with Application Passwords
+- **Custom Sites**: Universal Magic.js JavaScript connector
+
+### 2. AI Analysis
+
+Claude AI analyzes your site to detect:
+
+- Missing or poor meta titles/descriptions
+- Broken internal/external links
+- Missing H1 tags or duplicate headings
+- Poor content quality (thin content)
+- Missing structured data (Schema.org)
+- Image alt text issues
+- Page speed problems
+
+### 3. Choose Execution Mode
+
+Select how you want fixes to be handled:
+
+- **AUTOMATIC**: Fixes applied immediately without approval
+- **PLAN**: Review all fixes once, approve entire plan
+- **APPROVE**: Review and approve each fix individually
+
+### 4. Fixes Are Applied
+
+SEOLOGY.AI makes actual changes to your CMS:
+
+- Updates product meta tags in Shopify
+- Modifies content in WordPress
+- Applies client-side fixes via Magic.js
+
+### 5. Monitor & Rollback
+
+- View fix history and status
+- Track SEO improvements in analytics
+- Rollback any fix within 90 days if needed
 
 ---
 
-## 🔐 Environment Variables
+## Key Concepts
 
-Required for deployment (see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)):
+### Execution Modes
+
+Three ways to handle fixes based on your comfort level:
+
+```typescript
+// AUTOMATIC: Apply immediately
+executeFixes(siteId, userId) → fixes applied automatically
+
+// PLAN: Create plan for approval
+executeFixes(siteId, userId) → plan created
+approvePlan(siteId, userId) → all fixes applied
+
+// APPROVE: Individual approvals
+executeFixes(siteId, userId) → pending fixes created
+approveFix(fixId, userId) → single fix applied
+```
+
+### Platform Connectors
+
+Unified interface for different platforms:
+
+```typescript
+interface PlatformConnector {
+  connect(credentials): Promise<void>
+  applyFix(issue, fix): Promise<Result>
+  testConnection(): Promise<boolean>
+}
+```
+
+Implementations:
+- `lib/shopify.ts` - Shopify GraphQL API
+- `lib/wordpress.ts` - WordPress REST API
+- `public/magic.js` - Universal JavaScript connector
+
+### Background Jobs
+
+Long-running tasks processed asynchronously:
+
+- **CRAWL_SITE**: Crawl website pages using Puppeteer
+- **ANALYZE_SITE**: Claude AI analysis for SEO issues
+- **CLEANUP_ROLLBACKS**: Remove rollback data older than 90 days
+- **RESET_USAGE**: Monthly usage quota reset
+
+---
+
+## API Examples
+
+### Execute Fixes
 
 ```bash
-# Authentication (Clerk)
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-CLERK_WEBHOOK_SECRET=
-
-# Database (PostgreSQL)
-DATABASE_URL=
-
-# AI (Anthropic)
-ANTHROPIC_API_KEY=
-
-# Platform Integrations
-SHOPIFY_CLIENT_ID=
-SHOPIFY_CLIENT_SECRET=
-
-# Security
-ENCRYPTION_KEY=
+curl -X POST https://seology.ai/api/fixes/execute \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -d '{
+    "siteId": "uuid",
+    "issueIds": ["uuid1", "uuid2"]
+  }'
 ```
 
----
+### List Sites
 
-## 🏃 Development Commands
-
-### Install Dependencies
 ```bash
-npm install
+curl https://seology.ai/api/sites \
+  -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
-### Development
+### Get Usage Stats
+
 ```bash
-npm run dev              # Start dev server (localhost:3000)
-npm run build            # Build for production
-npm run lint             # Run ESLint
+curl https://seology.ai/api/usage \
+  -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
-### Database
+See [API_REFERENCE.md](./API_REFERENCE.md) for complete documentation.
+
+---
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Import repository in Vercel
+3. Configure environment variables
+4. Deploy
+
+### Environment Variables
+
+Required in production:
+
 ```bash
-npx prisma generate      # Generate Prisma client
-npx prisma db push       # Sync schema to database
-npx prisma studio        # Open database GUI
-npx prisma migrate dev   # Create migration
+DATABASE_URL="postgresql://..."
+DIRECT_URL="postgresql://..."
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_live_..."
+CLERK_SECRET_KEY="sk_live_..."
+ANTHROPIC_API_KEY="sk-ant-..."
+ENCRYPTION_KEY="secure-32-char-key"
+STRIPE_SECRET_KEY="sk_live_..."
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_live_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+SHOPIFY_CLIENT_ID="..."
+SHOPIFY_CLIENT_SECRET="..."
+CRON_SECRET="random-secret"
+REDIS_URL="redis://..."
 ```
 
-### Deployment
+### Database Migrations
+
 ```bash
-vercel                   # Deploy preview
-vercel --prod            # Deploy to production
+# Production deployment
+npx prisma migrate deploy
+```
+
+### Cron Jobs
+
+Set up via Vercel Cron or external service:
+
+- Cleanup: Daily at 2 AM UTC
+- Usage Reset: 1st of month at midnight UTC
+- Backup: Daily at 3 AM UTC
+
+See [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) for detailed deployment instructions.
+
+---
+
+## Plans & Pricing
+
+| Plan | Price | Sites | Fixes/Month | Team | Support |
+|------|-------|-------|-------------|------|---------|
+| **STARTER** | $49/mo | 3 | 500 | 1 user | Email |
+| **GROWTH** | $149/mo | 10 | 5,000 | 5 users | Priority |
+| **SCALE** | $499/mo | Unlimited | Unlimited | Unlimited | Dedicated |
+
+All plans include:
+- AI-powered analysis
+- Automatic fixes
+- 90-day rollback
+- Real-time notifications
+- Analytics dashboard
+
+---
+
+## Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Write tests
+5. Run linter (`npm run lint`)
+6. Commit changes (`git commit -m 'Add amazing feature'`)
+7. Push to branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+See [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md) for detailed contribution guidelines.
+
+### Code Style
+
+- Use TypeScript for all files
+- Follow ESLint rules
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation
+
+---
+
+## Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
 ```
 
 ---
 
-## ✅ Build Status
+## Security
 
-- **TypeScript Compilation**: ✅ Success
-- **Build**: ✅ All pages compile
-- **Pages**: 16/16 complete
-- **Components**: 25+ built
-- **API Routes**: 12+ functional
-- **Tests**: All passing
+### Reporting Vulnerabilities
 
-**Status**: 🟢 Production Ready (pending API keys)
+Please report security vulnerabilities to security@seology.ai. Do not open public issues for security concerns.
 
----
+### Security Features
 
-## 📊 Features
-
-### Core Features
-- ✅ User authentication (Clerk)
-- ✅ Multi-platform site connections
-- ✅ Claude AI SEO analysis
-- ✅ Issue detection & tracking
-- ✅ Automated fix application
-- ✅ Real-time notifications
-- ✅ Analytics & reporting
-- ✅ Admin dashboard
-- ✅ Responsive design
-
-### Advanced Features
-- ✅ 9-step AI thinking animation
-- ✅ Circular SEO score gauge
-- ✅ AI recommendation cards
-- ✅ Syntax-highlighted code snippets
-- ✅ Weekly activity charts
-- ✅ Issue breakdown visualization
-- ✅ 30-day trend analysis
-- ✅ Search/filter/sort controls
-- ✅ Modal system (4 sizes)
-- ✅ Confirm dialogs (3 variants)
+- **Encryption**: All CMS credentials encrypted with AES-256-GCM
+- **CSRF Protection**: State tokens for OAuth flows
+- **Rate Limiting**: API rate limits based on plan
+- **Webhook Signatures**: HMAC verification for webhooks
+- **Audit Logs**: Complete activity tracking
+- **Role-Based Access**: Team permissions and roles
 
 ---
 
-## 💰 Pricing Tiers
+## Roadmap
 
-### Starter - $29/month
-- 3 sites
-- 500 fixes/month
-- Email support
+### Phase 1: Core Platform (Completed)
+- [x] User authentication (Clerk)
+- [x] Database schema and migrations
+- [x] Shopify integration
+- [x] WordPress integration
+- [x] Magic.js connector
+- [x] Execution modes system
+- [x] Background job queue
+- [x] Billing integration (Stripe)
 
-### Growth - $99/month
-- 10 sites
-- 5,000 fixes/month
-- Priority support
+### Phase 2: Advanced Features (In Progress)
+- [x] Team collaboration
+- [x] Webhooks
+- [x] Advanced analytics
+- [ ] Keyword rank tracking
+- [ ] Competitor analysis
+- [ ] Content optimization suggestions
 
-### Scale - $299/month
-- Unlimited sites
-- Unlimited fixes
-- Dedicated support
-
----
-
-## 🎯 Competitive Advantages
-
-### First to Actually Fix SEO
-Most tools just report issues. We automatically fix them.
-
-### Claude AI Powered
-Most advanced AI for context-aware, intelligent recommendations.
-
-### Multi-Platform
-Works with Shopify, WordPress, and any custom website.
-
-### Set It and Forget It
-Automatic monitoring and fixes - no manual work required.
-
-### Beautiful Dashboard
-Professional Dashflow X design, not a clunky backend.
+### Phase 3: Enterprise (Planned)
+- [ ] White-label solution
+- [ ] API access for enterprises
+- [ ] Custom integrations
+- [ ] Dedicated infrastructure
+- [ ] SSO support
+- [ ] Advanced reporting
 
 ---
 
-## 📈 Performance
+## Community
 
-### Build Metrics
-- **Bundle Size**: 83.2 kB (optimized)
-- **Build Time**: 2-3 seconds
-- **Lines of Code**: ~15,000
-- **Files Created**: 85+
-
-### AI Metrics (Mock Data)
-- **Analysis Time**: 2.3s average
-- **Fix Success Rate**: 98.5%
-- **Issues Fixed**: 247 (in analytics)
-- **Time Saved**: 18.5 hours
+- **Discord**: [Join our community](https://discord.gg/seology)
+- **Twitter**: [@seology_ai](https://twitter.com/seology_ai)
+- **Blog**: [seology.ai/blog](https://seology.ai/blog)
+- **YouTube**: [SEO automation tutorials](https://youtube.com/@seology)
 
 ---
 
-## 🚀 Deployment
+## Support
 
-### Recommended Stack
-- **Hosting**: Vercel (FREE tier)
-- **Database**: Supabase (FREE tier)
-- **Auth**: Clerk (FREE tier, 5000 MAU)
-- **AI**: Anthropic (pay-as-you-go, ~$10-20/month)
+### Documentation
+- [User Guide](./USER_GUIDE.md)
+- [API Reference](./API_REFERENCE.md)
+- [Developer Guide](./DEVELOPER_GUIDE.md)
 
-**Total cost to start**: $10-20/month
+### Contact
+- **Email**: support@seology.ai
+- **Live Chat**: Available in dashboard (GROWTH/SCALE plans)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/your-org/seology-ai/issues)
 
-### Production Deployment
-See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for step-by-step instructions.
-
-**Time to deploy**: 1-2 hours
-
----
-
-## 🤝 Contributing
-
-This is a production SaaS application. For development:
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up environment variables (`.env.local`)
-4. Push database schema: `npx prisma db push`
-5. Run dev server: `npm run dev`
-6. Make changes
-7. Test: `npm run build`
-8. Commit with conventional commits
+### Status
+- **System Status**: [status.seology.ai](https://status.seology.ai)
+- **API Status**: [api-status.seology.ai](https://api-status.seology.ai)
 
 ---
 
-## 📝 License
+## License
 
-Proprietary - All rights reserved.
+MIT License - see [LICENSE](./LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built with:
-- Next.js by Vercel
-- Claude AI by Anthropic
-- Dashflow X Webflow template
-- Clerk authentication
-- Prisma ORM
-- Tailwind CSS
+- [Next.js](https://nextjs.org) - React framework
+- [Prisma](https://prisma.io) - Database ORM
+- [Clerk](https://clerk.com) - Authentication
+- [Anthropic Claude](https://anthropic.com) - AI analysis
+- [Stripe](https://stripe.com) - Payments
+- [Tailwind CSS](https://tailwindcss.com) - Styling
+- [Vercel](https://vercel.com) - Hosting
+
+Special thanks to the open-source community for making this possible.
 
 ---
 
-## 📞 Support
+**Made with AI by the SEOLOGY.AI team**
 
-- **Documentation**: See `/docs` folder
-- **Issues**: Check DEPLOYMENT_GUIDE.md troubleshooting
-- **Community**: Next.js Discord, Clerk Discord
-
----
-
-## 🎉 What's Next?
-
-1. **Deploy**: Follow [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
-2. **Test**: Sign up, connect a site, run AI analysis
-3. **Launch**: Add your first real user
-4. **Scale**: Monitor usage, optimize costs
-5. **Grow**: Add features, expand platforms
-
----
-
-**Built with ❤️ using Claude Code**
-
-**Status**: ✅ Production Ready
-**Version**: 1.0.0
-**Last Updated**: 2025-11-02
-
-🚀 **Ready to transform SEO forever.**
+[Website](https://seology.ai) • [Documentation](https://docs.seology.ai) • [Twitter](https://twitter.com/seology_ai) • [Discord](https://discord.gg/seology)

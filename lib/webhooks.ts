@@ -218,6 +218,31 @@ async function sendWebhook(
 }
 
 /**
+ * Trigger a single webhook with custom payload (for testing)
+ */
+export async function triggerWebhook(
+  url: string,
+  payload: unknown,
+  secret: string
+): Promise<Response> {
+  // Generate signature
+  const signature = generateSignature(JSON.stringify(payload), secret)
+
+  // Send webhook
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Webhook-Signature': signature,
+      'User-Agent': 'SEOLOGY.AI-Webhook/1.0',
+    },
+    body: JSON.stringify(payload),
+  })
+
+  return response
+}
+
+/**
  * Generate HMAC signature for webhook payload
  */
 function generateSignature(payload: string, secret: string): string {

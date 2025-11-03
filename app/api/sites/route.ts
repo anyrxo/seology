@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
+import { encrypt } from '@/lib/encryption'
 
 // GET /api/sites - List all sites for authenticated user
 // Mark this route as dynamic
@@ -85,6 +86,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'User not found' }, { status: 404 })
   }
 
+  // Encrypt credentials if provided (e.g., WordPress username/password)
+  const encryptedCredentials = credentials
+    ? encrypt(JSON.stringify(credentials))
+    : null
+
   // Create connection
   const connection = await db.connection.create({
     data: {
@@ -92,7 +98,7 @@ export async function POST(req: NextRequest) {
       platform,
       domain,
       displayName: displayName || domain,
-      credentials: credentials ? JSON.stringify(credentials) : null,
+      credentials: encryptedCredentials, // Encrypted using AES-256-GCM
       status: 'PENDING',
     },
   })

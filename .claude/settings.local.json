@@ -13,7 +13,21 @@
       "Bash(npx prisma generate:*)",
       "Bash(grep:*)",
       "Bash(npm test:*)",
-      "Bash(npm run test:coverage:*)"
+      "Bash(npm run test:coverage:*)",
+      "Bash(npx prisma --version)",
+      "Bash(git rev-parse:*)",
+      "Bash(test:*)",
+      "Bash(find:*)",
+      "Bash(npx prisma format)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(cat:*)",
+      "Bash(npx next build:*)",
+      "Bash(timeout 120 npx:*)",
+      "Read(//c/Users/manna/Downloads/**)",
+      "Bash(cd:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

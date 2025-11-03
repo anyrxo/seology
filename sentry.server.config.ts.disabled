@@ -1,0 +1,83 @@
+// Sentry server-side configuration for SEOLOGY.AI
+import * as Sentry from '@sentry/nextjs'
+
+const SENTRY_DSN = process.env.SENTRY_DSN
+
+Sentry.init({
+  dsn: SENTRY_DSN,
+  
+  // Performance Monitoring
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  
+  // Environment
+  environment: process.env.VERCEL_ENV || process.env.NODE_ENV || 'development',
+  
+  // Release tracking
+  release: process.env.VERCEL_GIT_COMMIT_SHA || 'development',
+  
+  // Error filtering
+  ignoreErrors: [
+    'ECONNREFUSED',
+    'ETIMEDOUT',
+    'ENOTFOUND',
+  ],
+  
+  // Filter sensitive data
+  beforeSend(event, hint) {
+    // Remove sensitive data from context
+    if (event.contexts?.['environment variables']) {
+      const sensitiveVars = [
+        'DATABASE_URL',
+        'DIRECT_URL',
+        'CLERK_SECRET_KEY',
+        'ANTHROPIC_API_KEY',
+        'STRIPE_SECRET_KEY',
+        'ENCRYPTION_KEY',
+        'CRON_SECRET',
+        'SHOPIFY_CLIENT_SECRET',
+        'REDIS_URL',
+      ]
+      
+      sensitiveVars.forEach(varName => {
+        if (event.contexts['environment variables'][varName]) {
+          event.contexts['environment variables'][varName] = '[FILTERED]'
+        }
+      })
+    }
+    
+    // Remove sensitive request data
+    if (event.request?.data) {
+      try {
+        const data = typeof event.request.data === 'string' 
+          ? JSON.parse(event.request.data) 
+          : event.request.data
+        
+        const sensitiveFields = ['password', 'token', 'apiKey', 'secret', 'accessToken']
+        sensitiveFields.forEach(field => {
+          if (data[field]) {
+            data[field] = '[FILTERED]'
+          }
+        })
+        
+        event.request.data = data
+      } catch (e) {
+        // If parsing fails, just leave it
+      }
+    }
+    
+    // Add user context (non-sensitive)
+    if (event.user) {
+      // Remove sensitive user data
+      delete event.user.ip_address
+      delete event.user.email
+    }
+    
+    return event
+  },
+  
+  // Integrations
+  integrations: [
+    new Sentry.Integrations.Http({ tracing: true }),
+    new Sentry.Integrations.Prisma({ client: undefined }), // Will be set up later
+  ],
+})

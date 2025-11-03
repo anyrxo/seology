@@ -1,0 +1,85 @@
+// Sentry client-side configuration for SEOLOGY.AI
+import * as Sentry from '@sentry/nextjs'
+
+const SENTRY_DSN = process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.SENTRY_DSN
+
+Sentry.init({
+  dsn: SENTRY_DSN,
+  
+  // Performance Monitoring
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  
+  // Session Replay
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+  
+  // Environment
+  environment: process.env.NEXT_PUBLIC_VERCEL_ENV || process.env.NODE_ENV || 'development',
+  
+  // Release tracking
+  release: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || 'development',
+  
+  // Error filtering
+  ignoreErrors: [
+    // Browser extensions
+    'top.GLOBALS',
+    'canvas.contentDocument',
+    'MyApp_RemoveAllHighlights',
+    'atomicFindClose',
+    // Network errors that are expected
+    'NetworkError',
+    'Failed to fetch',
+    // Clerk auth errors (expected during auth flow)
+    'clerk-js',
+  ],
+  
+  // Breadcrumbs
+  beforeBreadcrumb(breadcrumb, hint) {
+    // Don't log console.log in production
+    if (breadcrumb.category === 'console' && process.env.NODE_ENV === 'production') {
+      return null
+    }
+    return breadcrumb
+  },
+  
+  // Filter sensitive data
+  beforeSend(event, hint) {
+    // Remove sensitive query parameters
+    if (event.request?.url) {
+      const url = new URL(event.request.url)
+      const sensitiveParams = ['token', 'key', 'secret', 'password', 'api_key']
+      sensitiveParams.forEach(param => {
+        if (url.searchParams.has(param)) {
+          url.searchParams.set(param, '[FILTERED]')
+        }
+      })
+      event.request.url = url.toString()
+    }
+    
+    // Remove sensitive headers
+    if (event.request?.headers) {
+      const sensitiveHeaders = ['authorization', 'cookie', 'x-api-key']
+      sensitiveHeaders.forEach(header => {
+        if (event.request.headers[header]) {
+          event.request.headers[header] = '[FILTERED]'
+        }
+      })
+    }
+    
+    return event
+  },
+  
+  // Integrations
+  integrations: [
+    new Sentry.BrowserTracing({
+      tracePropagationTargets: [
+        'localhost',
+        /^https:\/\/.*\.seology\.ai/,
+      ],
+    }),
+    new Sentry.Replay({
+      maskAllText: true,
+      blockAllMedia: true,
+    }),
+  ],
+})
