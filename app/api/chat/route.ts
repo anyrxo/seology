@@ -8,7 +8,9 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
 })
 
-export const runtime = 'edge'
+// IMPORTANT: Cannot use 'edge' runtime with Prisma database queries
+// Edge runtime doesn't support Node.js APIs that Prisma requires
+// export const runtime = 'edge'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -44,6 +46,21 @@ interface UserWithContext {
 
 export async function POST(req: NextRequest) {
   try {
+    // Check if API key is configured
+    if (!process.env.ANTHROPIC_API_KEY) {
+      console.error('ANTHROPIC_API_KEY is not configured')
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'CONFIGURATION_ERROR',
+            message: 'AI service is not configured. Please contact support.'
+          }
+        },
+        { status: 500 }
+      )
+    }
+
     const { userId } = await auth()
 
     if (!userId) {
@@ -59,6 +76,13 @@ export async function POST(req: NextRequest) {
     if (!message || typeof message !== 'string') {
       return NextResponse.json(
         { success: false, error: { code: 'INVALID_INPUT', message: 'Message is required' } },
+        { status: 400 }
+      )
+    }
+
+    if (message.length > 4000) {
+      return NextResponse.json(
+        { success: false, error: { code: 'MESSAGE_TOO_LONG', message: 'Message is too long. Please keep it under 4000 characters.' } },
         { status: 400 }
       )
     }
@@ -146,6 +170,11 @@ export async function POST(req: NextRequest) {
     const stream = new ReadableStream({
       async start(controller) {
         try {
+          // Validate Anthropic client is ready
+          if (!anthropic) {
+            throw new Error('Anthropic client not initialized')
+          }
+
           const response = await anthropic.messages.create({
             model: 'claude-3-5-sonnet-20241022',
             max_tokens: 2048,

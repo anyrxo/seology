@@ -2,12 +2,6 @@
 
 import { useDashboardStats } from '@/lib/hooks/useDashboardStats'
 import Link from 'next/link'
-import { ArrowUpRight, TrendingUp, Globe, AlertTriangle, CheckCircle, BarChart3 } from 'lucide-react'
-import { Progress } from '@/components/ui/progress'
-import { motion } from 'framer-motion'
-import { PremiumStatCard } from './PremiumStatCard'
-import { PremiumActionCard, PremiumActionGrid } from './PremiumActionCard'
-import { Skeleton } from '@/components/ui/skeleton'
 
 export function DashboardClient({ userName }: { userName: string }) {
   const { stats, isLoading } = useDashboardStats()
@@ -17,195 +11,151 @@ export function DashboardClient({ userName }: { userName: string }) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-8 sm:space-y-10"
-    >
-      {/* Welcome Header with gradient text */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="relative"
-      >
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
-          Welcome back, {userName}!
-        </h1>
-        <p className="text-base sm:text-lg text-white/70">
-          Here's what's happening with your SEO automation
-        </p>
-      </motion.div>
+    <div className="container-default w-container">
+      <div className="grid-1-column gap-row-32px">
+        {/* Welcome Header using Dashflow X typography */}
+        <div className="mg-bottom-48px">
+          <h1 className="display-1 color-neutral-800 mg-bottom-12px">
+            Welcome back, {userName}!
+          </h1>
+          <p className="text-200 color-neutral-600">
+            Here's what's happening with your SEO automation
+          </p>
+        </div>
 
-      {/* Premium Stats Grid with stagger animation */}
-      <motion.div
-        className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.1
-            }
-          }
-        }}
-      >
-        <PremiumStatCard
-          title="Sites Connected"
-          value={stats.sitesCount}
-          icon={Globe}
-          trend={{
-            value: stats.sitesCount > 0 ? 100 : 0,
-            label: stats.sitesCount > 0 ? `${stats.sitesCount} active` : 'Get started',
-            positive: true
-          }}
-          delay={0}
-        />
-        <PremiumStatCard
-          title="Issues Detected"
-          value={stats.activeIssuesCount}
-          icon={AlertTriangle}
-          trend={{
-            value: stats.activeIssuesCount,
-            label: stats.activeIssuesCount > 0 ? 'Needs attention' : 'All clear',
-            positive: false
-          }}
-          delay={100}
-        />
-        <PremiumStatCard
-          title="Fixes Applied"
-          value={stats.fixesThisMonth}
-          icon={CheckCircle}
-          trend={{
-            value: 15,
-            label: 'This month',
-            positive: true
-          }}
-          delay={200}
-        />
-        <PremiumStatCard
-          title="Usage This Month"
-          value={`${stats.usagePercent}%`}
-          icon={BarChart3}
-          trend={{
-            value: stats.usagePercent,
-            label: `${stats.fixesThisMonth}/${stats.fixLimit} fixes`,
-            positive: stats.usagePercent < 80
-          }}
-          delay={300}
-        />
-      </motion.div>
-
-      {/* Usage Progress Bar with premium styling */}
-      {stats.usagePercent > 0 && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-            <div className="relative z-10 space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white">Monthly Usage</h3>
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5, type: 'spring' }}
-                  className={`text-sm font-bold px-4 py-2 rounded-full ${
-                    stats.usagePercent >= 90
-                      ? 'bg-red-400/20 text-red-300 border border-red-400/30'
-                      : stats.usagePercent >= 70
-                      ? 'bg-yellow-400/20 text-yellow-300 border border-yellow-400/30'
-                      : 'bg-emerald-400/20 text-emerald-300 border border-emerald-400/30'
-                  }`}
-                >
-                  {stats.fixesThisMonth} / {stats.fixLimit} fixes
-                </motion.span>
+        {/* Stats Grid using actual Dashflow X cards */}
+        <div className="grid-4-columns _1-column-tablet gap-row-32px">
+          {/* Sites Connected Card */}
+          <div className="card pd-24px">
+            <div className="mg-bottom-16px">
+              <div className="text-100 medium color-neutral-600 mg-bottom-8px">Sites Connected</div>
+              <div className="display-2 color-neutral-800">{stats.sitesCount}</div>
+            </div>
+            <div className="flex-horizontal gap-column-8px align-center">
+              <div className="badge green">
+                <div className="text-50 medium">{stats.sitesCount > 0 ? 'Active' : 'Get started'}</div>
               </div>
-              <Progress value={stats.usagePercent} className="h-3" />
-              {stats.usagePercent >= 90 && (
-                <motion.p
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="text-sm text-red-300"
-                >
-                  You're approaching your monthly limit. Consider upgrading your plan.
-                </motion.p>
-              )}
             </div>
           </div>
-        </motion.div>
-      )}
 
-      {/* Premium Quick Actions */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Quick Actions</h2>
-          <PremiumActionGrid cols={3}>
-            <PremiumActionCard
-              title="Connect Your First Site"
-              description="Start by connecting Shopify, WordPress, or any website"
-              href="/dashboard/sites/connect"
-              icon="🚀"
-              gradient="blue"
-            />
-            <PremiumActionCard
-              title="View Analytics"
-              description="Track your SEO performance improvements"
-              href="/dashboard/analytics"
-              icon="📈"
-              gradient="purple"
-            />
-            <PremiumActionCard
-              title="Upgrade Plan"
-              description="Get unlimited sites and fixes"
-              href="/dashboard/billing"
-              icon="⚡"
-              gradient="orange"
-            />
-          </PremiumActionGrid>
+          {/* Issues Detected Card */}
+          <div className="card pd-24px">
+            <div className="mg-bottom-16px">
+              <div className="text-100 medium color-neutral-600 mg-bottom-8px">Issues Detected</div>
+              <div className="display-2 color-neutral-800">{stats.activeIssuesCount}</div>
+            </div>
+            <div className="flex-horizontal gap-column-8px align-center">
+              <div className={`badge ${stats.activeIssuesCount > 0 ? 'red' : 'green'}`}>
+                <div className="text-50 medium">
+                  {stats.activeIssuesCount > 0 ? 'Needs attention' : 'All clear'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Fixes Applied Card */}
+          <div className="card pd-24px">
+            <div className="mg-bottom-16px">
+              <div className="text-100 medium color-neutral-600 mg-bottom-8px">Fixes Applied</div>
+              <div className="display-2 color-neutral-800">{stats.fixesThisMonth}</div>
+            </div>
+            <div className="flex-horizontal gap-column-8px align-center">
+              <div className="badge green">
+                <div className="text-50 medium">This month</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Usage Card */}
+          <div className="card pd-24px">
+            <div className="mg-bottom-16px">
+              <div className="text-100 medium color-neutral-600 mg-bottom-8px">Usage This Month</div>
+              <div className="display-2 color-neutral-800">{stats.usagePercent}%</div>
+            </div>
+            <div className="flex-horizontal gap-column-8px align-center">
+              <div className={`badge ${stats.usagePercent < 80 ? 'green' : 'orange'}`}>
+                <div className="text-50 medium">
+                  {stats.fixesThisMonth}/{stats.fixLimit} fixes
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </motion.div>
 
-      {/* Recent Activity with premium cards */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Recent Activity</h2>
-            <Link
-              href="/dashboard/sites"
-              className="group text-white/70 hover:text-white text-sm font-medium inline-flex items-center gap-1 transition-all duration-300"
-            >
-              View All
-              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        {/* Usage Progress Bar */}
+        {stats.usagePercent > 0 && (
+          <div className="card pd-32px---24px">
+            <div className="flex-horizontal space-between align-center mg-bottom-16px">
+              <h3 className="heading-h4-size color-neutral-800">Monthly Usage</h3>
+              <div className={`badge ${
+                stats.usagePercent >= 90 ? 'red' :
+                stats.usagePercent >= 70 ? 'orange' : 'green'
+              }`}>
+                <div className="text-100 medium">
+                  {stats.fixesThisMonth} / {stats.fixLimit} fixes
+                </div>
+              </div>
+            </div>
+            <div className="progress-bar-wrapper">
+              <div className="progress-bar-bg">
+                <div
+                  className={`progress-bar ${
+                    stats.usagePercent >= 90 ? 'red' :
+                    stats.usagePercent >= 70 ? 'orange' : 'green'
+                  }`}
+                  style={{ width: `${stats.usagePercent}%` }}
+                ></div>
+              </div>
+            </div>
+            {stats.usagePercent >= 90 && (
+              <p className="text-100 color-neutral-600 mg-top-12px">
+                You're approaching your monthly limit. Consider upgrading your plan.
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Quick Actions using Dashflow X buttons */}
+        <div className="card pd-32px---24px">
+          <h2 className="heading-h3-size color-neutral-800 mg-bottom-32px">Quick Actions</h2>
+          <div className="grid-3-columns _1-column-mbl gap-row-24px">
+            <Link href="/dashboard/sites/connect" className="btn-primary large">
+              <div className="flex-horizontal gap-column-4px">
+                <div>Connect Your First Site</div>
+              </div>
+            </Link>
+            <Link href="/dashboard/analytics" className="btn-secondary large">
+              <div className="flex-horizontal gap-column-4px">
+                <div>View Analytics</div>
+              </div>
+            </Link>
+            <Link href="/dashboard/billing" className="btn-primary large">
+              <div className="flex-horizontal gap-column-4px">
+                <div>Upgrade Plan</div>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Recent Activity */}
+        <div className="card pd-32px---24px">
+          <div className="flex-horizontal space-between align-center mg-bottom-24px">
+            <h2 className="heading-h3-size color-neutral-800">Recent Activity</h2>
+            <Link href="/dashboard/sites" className="text-100 medium color-accent-1 hover-neutral-800">
+              View All →
             </Link>
           </div>
           {stats.recentActivity && stats.recentActivity.length > 0 ? (
-            <div className="space-y-3">
-              {stats.recentActivity.map((activity, index) => (
-                <motion.div
+            <div className="grid-1-column gap-row-12px">
+              {stats.recentActivity.map((activity) => (
+                <Link
                   key={activity.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 + index * 0.1 }}
+                  href={`/dashboard/sites/${activity.id}`}
+                  className="card pd-16px hover-card-link"
                 >
-                  <Link
-                    href={`/dashboard/sites/${activity.id}`}
-                    className="group flex items-center justify-between p-5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl transition-all duration-300"
-                  >
-                    <div className="flex items-center space-x-4">
-                      <div className="text-3xl p-3 bg-white/10 rounded-xl group-hover:scale-110 transition-transform">
+                  <div className="flex-horizontal space-between align-center">
+                    <div className="flex-horizontal gap-column-16px align-center">
+                      <div className="text-300">
                         {{
                           SHOPIFY: '🛍️',
                           WORDPRESS: '📝',
@@ -214,122 +164,94 @@ export function DashboardClient({ userName }: { userName: string }) {
                         }[activity.platform] || '🌐'}
                       </div>
                       <div>
-                        <p className="text-white text-lg font-semibold group-hover:text-blue-200 transition-colors">
+                        <p className="text-100 medium color-neutral-800">
                           {activity.displayName || activity.domain}
                         </p>
-                        <p className="text-white/60 text-sm">
+                        <p className="text-100 color-neutral-600">
                           {activity.issuesCount} active issues • {activity.fixesCount} fixes this month
                         </p>
                       </div>
                     </div>
-                    <ArrowUpRight className="h-6 w-6 text-white/40 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                  </Link>
-                </motion.div>
+                    <div className="text-200 color-neutral-600">→</div>
+                  </div>
+                </Link>
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.7, type: 'spring' }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-white/10 rounded-2xl mb-4"
-              >
-                <TrendingUp className="h-10 w-10 text-white/60" />
-              </motion.div>
-              <p className="text-white/80 text-lg mb-2">No activity yet</p>
-              <p className="text-white/50">
-                Connect a site to start seeing SEO automation in action
-              </p>
+            <div className="empty-state">
+              <div className="empty-state-icon-wrapper">
+                <div className="text-400">📈</div>
+              </div>
+              <div className="text-center mg-top-16px">
+                <p className="text-200 medium color-neutral-800 mg-bottom-8px">No activity yet</p>
+                <p className="text-100 color-neutral-600">
+                  Connect a site to start seeing SEO automation in action
+                </p>
+              </div>
             </div>
           )}
         </div>
-      </motion.div>
 
-      {/* Getting Started Checklist (for new users) with premium styling */}
-      {stats.sitesCount === 0 && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-            <div className="relative z-10">
-              <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <TrendingUp className="h-6 w-6 text-white" />
-                Getting Started
-              </h2>
-              <div className="space-y-4">
-                <ChecklistItem completed={false} text="Connect your first site" delay={0.8} />
-                <ChecklistItem completed={false} text="Run your first SEO analysis" delay={0.9} />
-                <ChecklistItem completed={false} text="Apply AI-powered fixes" delay={1.0} />
-                <ChecklistItem completed={false} text="Review your analytics" delay={1.1} />
-              </div>
+        {/* Getting Started Checklist */}
+        {stats.sitesCount === 0 && (
+          <div className="card pd-32px---24px">
+            <h2 className="heading-h4-size color-neutral-800 mg-bottom-24px">
+              Getting Started
+            </h2>
+            <div className="grid-1-column gap-row-16px">
+              <ChecklistItem completed={false} text="Connect your first site" />
+              <ChecklistItem completed={false} text="Run your first SEO analysis" />
+              <ChecklistItem completed={false} text="Apply AI-powered fixes" />
+              <ChecklistItem completed={false} text="Review your analytics" />
             </div>
           </div>
-        </motion.div>
-      )}
-    </motion.div>
+        )}
+      </div>
+    </div>
   )
 }
 
-function ChecklistItem({ completed, text, delay = 0 }: { completed: boolean; text: string; delay?: number }) {
+function ChecklistItem({ completed, text }: { completed: boolean; text: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay }}
-      className="flex items-center space-x-4"
-    >
-      <motion.div
-        whileHover={{ scale: 1.1 }}
-        className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-300 ${
-          completed
-            ? 'border-emerald-400 bg-emerald-400 shadow-lg shadow-emerald-400/50'
-            : 'border-white/30 bg-white/5 hover:border-white/50'
-        }`}
-      >
-        {completed && <span className="text-white text-sm font-bold">✓</span>}
-      </motion.div>
-      <span className={`text-lg ${completed ? 'text-white/50 line-through' : 'text-white'} transition-colors`}>
+    <div className="flex-horizontal gap-column-12px align-center">
+      <div className={`checkbox ${completed ? 'checked' : ''}`}>
+        {completed && <span className="text-50">✓</span>}
+      </div>
+      <span className={`text-100 medium ${completed ? 'color-neutral-500' : 'color-neutral-800'}`}>
         {text}
       </span>
-    </motion.div>
+    </div>
   )
 }
 
 function DashboardSkeleton() {
   return (
-    <div className="space-y-10">
-      {/* Header skeleton */}
-      <div>
-        <Skeleton className="h-12 w-96 mb-3 bg-white/10 rounded-2xl" variant="shimmer" />
-        <Skeleton className="h-6 w-80 bg-white/10 rounded-2xl" variant="shimmer" />
-      </div>
+    <div className="container-default w-container">
+      <div className="grid-1-column gap-row-32px">
+        {/* Header skeleton */}
+        <div>
+          <div className="skeleton-box" style={{ height: '48px', width: '400px', marginBottom: '12px' }}></div>
+          <div className="skeleton-box" style={{ height: '24px', width: '320px' }}></div>
+        </div>
 
-      {/* Stats grid skeleton */}
-      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-            <div className="space-y-6">
-              <Skeleton className="h-4 w-32 bg-white/10 rounded-lg" variant="shimmer" />
-              <Skeleton className="h-16 w-32 bg-white/10 rounded-lg" variant="shimmer" />
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Actions skeleton */}
-      <div className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
-        <Skeleton className="h-8 w-40 mb-6 bg-white/10 rounded-2xl" variant="shimmer" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="space-y-4">
-              <Skeleton className="h-16 w-16 rounded-2xl bg-white/10" variant="shimmer" />
-              <Skeleton className="h-6 w-48 bg-white/10 rounded-lg" variant="shimmer" />
-              <Skeleton className="h-4 w-full bg-white/10 rounded-lg" variant="shimmer" />
+        {/* Stats grid skeleton */}
+        <div className="grid-4-columns _1-column-tablet gap-row-32px">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="card pd-24px">
+              <div className="skeleton-box" style={{ height: '16px', width: '120px', marginBottom: '16px' }}></div>
+              <div className="skeleton-box" style={{ height: '64px', width: '80px' }}></div>
             </div>
           ))}
+        </div>
+
+        {/* Actions skeleton */}
+        <div className="card pd-32px---24px">
+          <div className="skeleton-box" style={{ height: '32px', width: '160px', marginBottom: '32px' }}></div>
+          <div className="grid-3-columns _1-column-mbl gap-row-24px">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="skeleton-box" style={{ height: '48px' }}></div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

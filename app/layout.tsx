@@ -49,11 +49,9 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
 
-          {/* Load critical CSS */}
-          <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
-          <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
-          <link href="/css/anyros-fantabulous-site.webflow.css" rel="stylesheet" type="text/css" />
-          <link href="/css/anyros-wondrous-site.webflow.css" rel="stylesheet" type="text/css" />
+          {/* Load Dashflow X CSS files */}
+          <link href="/dashflow/normalize.css" rel="stylesheet" type="text/css" />
+          <link href="/dashflow/dashflow.css" rel="stylesheet" type="text/css" />
 
           {/* Webflow modernizr script - critical for layout */}
           <Script id="webflow-modernizr" strategy="beforeInteractive">

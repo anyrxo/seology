@@ -29,62 +29,77 @@ export function PremiumStatCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
-        duration: 0.5,
+        duration: 0.6,
         delay: delay / 1000,
-        ease: [0.4, 0, 0.2, 1]
+        ease: [0.16, 1, 0.3, 1]
       }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -8, scale: 1.02 }}
       className="h-full"
     >
       <div
         className={cn(
           'group relative h-full overflow-hidden rounded-3xl transition-all duration-500',
           'bg-white/10 backdrop-blur-2xl border border-white/20',
-          'hover:bg-white/15 hover:border-white/30 hover:shadow-2xl',
+          'hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_80px_-20px_rgba(255,255,255,0.3)]',
           className
         )}
       >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent pointer-events-none" />
+        {/* Animated gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/0 via-white/0 to-white/0 group-hover:from-white/10 group-hover:via-white/5 group-hover:to-transparent transition-all duration-700 pointer-events-none" />
+
+        {/* Shimmer effect on hover */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+        </div>
 
         {/* Content */}
-        <div className="relative z-10 p-8">
-          {/* Title */}
-          <h3 className="text-sm font-medium text-white/60 mb-6 uppercase tracking-wider">
+        <div className="relative z-10 p-10">
+          {/* Title with better spacing */}
+          <h3 className="text-xs font-bold text-white/70 mb-8 uppercase tracking-[0.2em] leading-none">
             {title}
           </h3>
 
-          {/* Value - HUGE */}
-          <div className="mb-4">
+          {/* Value - MASSIVE and BEAUTIFUL */}
+          <div className="mb-6">
             <motion.p
-              className="text-6xl sm:text-7xl font-bold text-white tabular-nums tracking-tight"
-              initial={{ opacity: 0, scale: 0.8 }}
+              className="text-7xl sm:text-8xl lg:text-9xl font-black text-white tabular-nums tracking-tighter leading-none"
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{
-                delay: (delay / 1000) + 0.1,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1]
+                delay: (delay / 1000) + 0.2,
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+                type: "spring",
+                stiffness: 100
               }}
             >
               {value}
             </motion.p>
           </div>
 
-          {/* Trend label */}
+          {/* Trend label with icon */}
           {trend && (
-            <div className="flex items-center gap-2">
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: (delay / 1000) + 0.4 }}
+              className="flex items-center gap-2"
+            >
               <span className={cn(
-                "text-sm font-medium",
+                "text-base font-semibold",
                 trend.positive ? "text-emerald-300" : "text-amber-300"
               )}>
                 {trend.label}
               </span>
-            </div>
+            </motion.div>
           )}
         </div>
+
+        {/* Bottom shine line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
     </motion.div>
   )

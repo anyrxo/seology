@@ -13,6 +13,8 @@ import {
   Check,
   Loader2,
   Globe,
+  AlertCircle,
+  X,
 } from 'lucide-react'
 import { GlassCard } from '@/components/ui/glass-card'
 import { Button } from '@/components/ui/button'
@@ -63,6 +65,7 @@ export function SeologyChat() {
   const [input, setInput] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -94,6 +97,7 @@ export function SeologyChat() {
     setMessages((prev) => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
+    setError(null)
 
     try {
       const response = await fetch('/api/chat', {
@@ -105,7 +109,19 @@ export function SeologyChat() {
         }),
       })
 
-      if (!response.ok) throw new Error('Failed to get response')
+      if (!response.ok) {
+        // Try to get error details from response
+        let errorMessage = 'Failed to get response from AI'
+        try {
+          const errorData = await response.json()
+          if (errorData.error?.message) {
+            errorMessage = errorData.error.message
+          }
+        } catch (e) {
+          // Use default error message
+        }
+        throw new Error(errorMessage)
+      }
 
       const reader = response.body?.getReader()
       const decoder = new TextDecoder()
@@ -166,12 +182,14 @@ export function SeologyChat() {
       })
     } catch (error) {
       console.error('Chat error:', error)
+      const errorMessage = error instanceof Error ? error.message : 'Sorry, I encountered an error. Please try again.'
+      setError(errorMessage)
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           role: 'assistant',
-          content: 'Sorry, I encountered an error. Please try again.',
+          content: errorMessage,
           timestamp: new Date(),
         },
       ])
@@ -228,6 +246,32 @@ export function SeologyChat() {
           Online
         </Badge>
       </div>
+
+      {/* Error Banner */}
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="mb-4"
+          >
+            <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <h3 className="text-sm font-semibold text-red-400 mb-1">Error</h3>
+                <p className="text-sm text-red-300">{error}</p>
+              </div>
+              <button
+                onClick={() => setError(null)}
+                className="text-red-400 hover:text-red-300 transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Messages Container */}
       <GlassCard
