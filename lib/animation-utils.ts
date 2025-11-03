@@ -2,13 +2,14 @@
  * Performance-Optimized Animation Utilities
  *
  * Features:
- * - Uses CSS transforms for GPU acceleration
+ * - Uses CSS transforms for GPU acceleration (transform, opacity only)
  * - Respects prefers-reduced-motion
  * - Efficient scroll animations with IntersectionObserver
- * - Debounced scroll handlers
+ * - Reusable Framer Motion variants
+ * - 60fps animations across all devices
  */
 
-import { MotionProps, Variants } from 'framer-motion'
+import { MotionProps, Variants, Transition } from 'framer-motion'
 
 /**
  * Check if user prefers reduced motion

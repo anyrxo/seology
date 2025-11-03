@@ -2,9 +2,9 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import {
   Check,
   X,
@@ -20,6 +20,56 @@ import {
   Lock,
 } from 'lucide-react'
 import CTASection from '@/components/marketing/CTASection'
+
+// Magnetic button component
+const MagneticButton = ({ children, href, variant = 'primary' }: {
+  children: React.ReactNode;
+  href: string;
+  variant?: 'primary' | 'secondary'
+}) => {
+  const ref = useRef<HTMLAnchorElement>(null)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const springConfig = { damping: 15, stiffness: 150 }
+  const springX = useSpring(x, springConfig)
+  const springY = useSpring(y, springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    x.set((e.clientX - centerX) * 0.2)
+    y.set((e.clientY - centerY) * 0.2)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <motion.a
+      ref={ref}
+      href={href}
+      style={{ x: springX, y: springY }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={`
+        block text-center py-3 px-6 rounded-lg font-semibold transition-all
+        ${variant === 'primary'
+          ? 'bg-white text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]'
+          : 'border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/60'
+        }
+      `}
+    >
+      {children}
+    </motion.a>
+  )
+}
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
@@ -101,133 +151,212 @@ export default function PricingPage() {
   }
 
   return (
-    <>
+    <div className="bg-black min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.6, 0.05, 0.01, 0.9] }}
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center px-4 py-2 bg-green-600/10 border border-green-500/20 rounded-full mb-6"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center px-6 py-3 bg-white/5 border border-white/20 rounded-full mb-8 backdrop-blur-sm"
           >
-            <Sparkles className="w-4 h-4 text-green-500 mr-2" />
-            <span className="text-sm text-green-400">
+            <Sparkles className="w-4 h-4 text-white mr-2" />
+            <span className="text-sm text-white/90 font-medium">
               14-day free trial • No credit card required
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
+          >
             Simple, Transparent Pricing.
             <br />
-            <span className="text-blue-500">No Hidden Fees.</span>
-          </h1>
-          <p className="text-xl text-gray-400 mb-8">
+            <span className="text-white/60">No Hidden Fees.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
             Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
-          </p>
+          </motion.p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center bg-gray-900 border border-gray-800 rounded-lg p-1">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="inline-flex items-center bg-white/5 border border-white/20 rounded-2xl p-1.5 backdrop-blur-sm relative"
+          >
+            <motion.div
+              className="absolute inset-0 rounded-2xl bg-white/10"
+              initial={false}
+              animate={{
+                x: billingCycle === 'monthly' ? '2%' : '98%',
+                width: '48%',
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
+            />
             <button
               onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-2 rounded-md font-semibold transition-colors ${
+              className={`px-8 py-3 rounded-xl font-semibold transition-all relative z-10 ${
                 billingCycle === 'monthly'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'text-white'
+                  : 'text-white/40 hover:text-white/60'
               }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle('annual')}
-              className={`px-6 py-2 rounded-md font-semibold transition-colors relative ${
+              className={`px-8 py-3 rounded-xl font-semibold transition-all relative z-10 ${
                 billingCycle === 'annual'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-400 hover:text-white'
+                  ? 'text-white'
+                  : 'text-white/40 hover:text-white/60'
               }`}
             >
               Annual
-              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
+              <motion.span
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="absolute -top-3 -right-2 bg-white text-black text-xs px-3 py-1 rounded-full font-bold"
+              >
                 Save 17%
-              </span>
+              </motion.span>
             </button>
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-gray-900 border-2 rounded-lg p-8 ${
+              transition={{
+                duration: 0.8,
+                delay: 0.6 + index * 0.15,
+                ease: [0.6, 0.05, 0.01, 0.9],
+              }}
+              whileHover={{
+                y: -10,
+                transition: { duration: 0.3 },
+              }}
+              className={`relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 group ${
                 plan.popular
-                  ? 'border-blue-500 shadow-lg shadow-blue-500/20'
-                  : 'border-gray-800'
-              }`}
+                  ? 'border-2 border-white shadow-[0_0_50px_rgba(255,255,255,0.2)]'
+                  : 'border border-white/20 hover:border-white/40'
+              } transition-all duration-500`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs px-4 py-1 rounded-full font-semibold">
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    opacity: [1, 0.8, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute -top-4 left-1/2 -translate-x-1/2"
+                >
+                  <span className="bg-white text-black text-xs px-6 py-2 rounded-full font-bold tracking-wide shadow-lg">
                     MOST POPULAR
                   </span>
-                </div>
+                </motion.div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-sm font-semibold text-gray-500 mb-2">
+              <div className="mb-8">
+                <h3 className="text-sm font-bold text-white/60 mb-3 tracking-widest">
                   {plan.name}
                 </h3>
-                <div className="flex items-baseline mb-2">
-                  <span className="text-5xl font-bold text-white">
+                <motion.div
+                  key={billingCycle + plan.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-baseline mb-2"
+                >
+                  <span className="text-6xl font-bold text-white">
                     ${getPrice(plan)}
                   </span>
-                  <span className="text-gray-400 ml-2">/month</span>
-                </div>
+                  <span className="text-white/40 ml-3 text-lg">/month</span>
+                </motion.div>
                 {billingCycle === 'annual' && (
-                  <p className="text-sm text-green-500">
+                  <motion.p
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-sm text-white/80 font-medium"
+                  >
                     Save ${getSavings(plan)}/year
-                  </p>
+                  </motion.p>
                 )}
-                <p className="text-gray-400 mt-2">{plan.description}</p>
+                <p className="text-white/60 mt-3 text-base">{plan.description}</p>
               </div>
 
-              <Link
-                href="/sign-up"
-                className={`block text-center py-3 rounded-lg font-semibold transition-all mb-6 ${
-                  plan.popular
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg'
-                    : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'
-                }`}
-              >
-                {plan.cta}
-              </Link>
+              <div className="mb-8">
+                <MagneticButton
+                  href="/sign-up"
+                  variant={plan.popular ? 'primary' : 'secondary'}
+                >
+                  {plan.cta}
+                </MagneticButton>
+              </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {plan.features.map((feature, i) => (
-                  <div key={i} className="flex items-start">
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.8 + index * 0.15 + i * 0.05,
+                    }}
+                    className="flex items-start"
+                  >
                     {feature.included ? (
-                      <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{
+                          duration: 0.3,
+                          delay: 0.8 + index * 0.15 + i * 0.05,
+                          type: 'spring',
+                        }}
+                      >
+                        <Check className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
+                      </motion.div>
                     ) : (
-                      <X className="w-5 h-5 text-gray-600 mr-3 flex-shrink-0 mt-0.5" />
+                      <X className="w-5 h-5 text-white/20 mr-3 flex-shrink-0 mt-0.5" />
                     )}
                     <span
                       className={
-                        feature.included ? 'text-gray-300' : 'text-gray-600'
+                        feature.included ? 'text-white/80' : 'text-white/30'
                       }
                     >
                       {feature.name}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -236,7 +365,7 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -245,28 +374,28 @@ export default function PricingPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-5xl font-bold text-white mb-4">
               Compare All Features
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-white/60">
               See exactly what is included in each plan
             </p>
           </motion.div>
 
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full border border-white/20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl">
               <thead>
-                <tr className="border-b border-gray-800">
-                  <th className="text-left py-4 px-6 text-gray-400 font-semibold">
-                    Feature
+                <tr className="border-b border-white/20 bg-white/5">
+                  <th className="text-left py-5 px-6 text-white/60 font-bold text-sm tracking-wide">
+                    FEATURE
                   </th>
-                  <th className="text-center py-4 px-6 text-white font-semibold">
+                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
                     STARTER
                   </th>
-                  <th className="text-center py-4 px-6 text-white font-semibold">
+                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
                     GROWTH
                   </th>
-                  <th className="text-center py-4 px-6 text-white font-semibold">
+                  <th className="text-center py-5 px-6 text-white font-bold tracking-wide">
                     SCALE
                   </th>
                 </tr>
@@ -312,23 +441,30 @@ export default function PricingPage() {
                 ].map((row, index) => (
                   <motion.tr
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="border-b border-gray-800"
+                    className="border-b border-white/10 hover:bg-white/5 transition-colors"
                   >
-                    <td className="py-4 px-6 text-gray-300">{row.feature}</td>
+                    <td className="py-5 px-6 text-white/80 font-medium">{row.feature}</td>
                     {row.values.map((value, i) => (
-                      <td key={i} className="py-4 px-6 text-center">
+                      <td key={i} className="py-5 px-6 text-center">
                         {typeof value === 'boolean' ? (
                           value ? (
-                            <Check className="w-5 h-5 text-green-500 mx-auto" />
+                            <motion.div
+                              initial={{ scale: 0, rotate: -180 }}
+                              whileInView={{ scale: 1, rotate: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
+                            >
+                              <Check className="w-5 h-5 text-white mx-auto" />
+                            </motion.div>
                           ) : (
-                            <X className="w-5 h-5 text-gray-600 mx-auto" />
+                            <X className="w-5 h-5 text-white/20 mx-auto" />
                           )
                         ) : (
-                          <span className="text-gray-300">{value}</span>
+                          <span className="text-white/80 font-medium">{value}</span>
                         )}
                       </td>
                     ))}
@@ -341,7 +477,7 @@ export default function PricingPage() {
       </section>
 
       {/* Trust Badges */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
@@ -368,17 +504,23 @@ export default function PricingPage() {
             ].map((badge, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 text-center hover:border-white/40 transition-colors group"
               >
-                <badge.icon className="w-10 h-10 text-blue-500 mx-auto mb-3" />
-                <h3 className="text-lg font-semibold text-white mb-1">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <badge.icon className="w-12 h-12 text-white mx-auto mb-4 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all" />
+                </motion.div>
+                <h3 className="text-lg font-bold text-white mb-2">
                   {badge.title}
                 </h3>
-                <p className="text-sm text-gray-400">{badge.description}</p>
+                <p className="text-sm text-white/60">{badge.description}</p>
               </motion.div>
             ))}
           </div>
@@ -386,63 +528,95 @@ export default function PricingPage() {
       </section>
 
       {/* Enterprise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-lg p-12 text-center"
+            transition={{ duration: 0.8 }}
+            className="bg-white/5 backdrop-blur-xl border-2 border-white/30 rounded-3xl p-16 text-center relative overflow-hidden"
           >
-            <Users className="w-16 h-16 text-blue-500 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-white mb-4">
+            {/* Animated glow effect */}
+            <motion.div
+              className="absolute inset-0 opacity-20"
+              animate={{
+                background: [
+                  'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                  'radial-gradient(circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                  'radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                ],
+              }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+            />
+
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Users className="w-20 h-20 text-white mx-auto mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10">
               Need a Custom Enterprise Plan?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto relative z-10 leading-relaxed">
               Get custom pricing, dedicated support, and tailored features for
               your agency or large organization. We will work with you to build
               the perfect solution.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/sign-up"
-                className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-              >
-                Contact Sales Team
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
-              >
-                Learn More About Us
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/sign-up"
+                  className="inline-flex items-center justify-center bg-white text-black px-10 py-5 rounded-xl font-bold transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+                >
+                  Contact Sales Team
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center border-2 border-white/30 text-white px-10 py-5 rounded-xl font-bold transition-all hover:bg-white/10 hover:border-white/60"
+                >
+                  Learn More About Us
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <HelpCircle className="w-16 h-16 text-blue-500 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <motion.div
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, type: 'spring' }}
+            >
+              <HelpCircle className="w-20 h-20 text-white mx-auto mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
+            </motion.div>
+            <h2 className="text-5xl font-bold text-white mb-4">
               Pricing Questions?
             </h2>
-            <p className="text-xl text-gray-400">
+            <p className="text-xl text-white/60">
               Common questions about billing and plans
             </p>
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
               {
                 question: 'What counts as an SEO fix?',
@@ -487,16 +661,20 @@ export default function PricingPage() {
             ].map((faq, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                whileHover={{
+                  x: 10,
+                  transition: { duration: 0.3 },
+                }}
+                className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 hover:border-white/40 transition-all group"
               >
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-white/90 transition-colors">
                   {faq.question}
                 </h3>
-                <p className="text-gray-400">{faq.answer}</p>
+                <p className="text-white/70 leading-relaxed">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
@@ -510,6 +688,6 @@ export default function PricingPage() {
         primaryCTA={{ text: 'Start Free Trial →', href: '/sign-up' }}
         secondaryCTA={{ text: 'View Features', href: '/features' }}
       />
-    </>
+    </div>
   )
 }

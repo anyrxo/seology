@@ -399,3 +399,168 @@ export const easings = {
   easeInOut: [0.4, 0, 0.2, 1] as const,
   bounce: [0.34, 1.56, 0.64, 1] as const
 }
+
+/**
+ * Premium Landing Page Animations
+ */
+
+// Magnetic button hover effect
+export const magneticHover = {
+  scale: 1.05,
+  transition: {
+    duration: 0.3,
+    ease: [0.22, 1, 0.36, 1] as const
+  }
+}
+
+export const magneticTap = {
+  scale: 0.95,
+  transition: {
+    duration: 0.1
+  }
+}
+
+// Card tilt effect (3D)
+export const cardTilt = {
+  rest: {
+    scale: 1,
+    rotateX: 0,
+    rotateY: 0,
+  },
+  hover: {
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+      ease: 'easeOut'
+    }
+  }
+}
+
+// Glow effect on hover
+export const glowHover = {
+  borderColor: 'rgba(255, 255, 255, 0.3)',
+  boxShadow: '0 0 30px rgba(255, 255, 255, 0.15), 0 0 60px rgba(255, 255, 255, 0.1)',
+  transition: {
+    duration: 0.3
+  }
+}
+
+// Infinite pulse animation
+export const pulseInfinite = {
+  scale: [1, 1.05, 1],
+  opacity: [0.5, 1, 0.5],
+  transition: {
+    duration: 2,
+    repeat: Infinity,
+    ease: 'easeInOut'
+  }
+}
+
+// Float animation
+export const floatAnimation = {
+  y: [0, -10, 0],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: 'easeInOut'
+  }
+}
+
+// Text gradient reveal
+export const textGradientReveal: Variants = {
+  hidden: {
+    opacity: 0,
+    backgroundPosition: '200% center'
+  },
+  visible: {
+    opacity: 1,
+    backgroundPosition: '0% center',
+    transition: {
+      duration: 1.5,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+}
+
+// Counter animation for stats
+export const counterReveal: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.5,
+    y: 20
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 10
+    }
+  }
+}
+
+// Scroll indicator pulse
+export const scrollIndicatorPulse = {
+  y: [0, 10, 0],
+  opacity: [1, 0.5, 1],
+  transition: {
+    duration: 1.5,
+    repeat: Infinity,
+    ease: 'easeInOut' as const
+  }
+}
+
+// Hero entrance animation
+export const heroEntrance: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 60,
+    scale: 0.95
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+}
+
+// Stagger fast for hero elements
+export const staggerHero: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+}
+
+// Background grid animation
+export const gridAnimation = {
+  opacity: [0.05, 0.15, 0.05],
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: 'easeInOut' as const
+  }
+}
+
+// Viewport configs
+export const defaultViewport = {
+  once: true,
+  margin: '-100px',
+  amount: 0.3 as const
+}
+
+export const repeatViewport = {
+  once: false,
+  margin: '0px',
+  amount: 0.5 as const
+}

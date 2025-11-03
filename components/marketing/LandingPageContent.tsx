@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import {
   Zap,
   Shield,
@@ -13,81 +14,198 @@ import {
   ArrowRight,
   Cpu,
   Globe,
+  ChevronDown,
 } from 'lucide-react'
 import FeatureCard from '@/components/marketing/FeatureCard'
 import TestimonialCard from '@/components/marketing/TestimonialCard'
 import StatsSection from '@/components/marketing/StatsSection'
 import CTASection from '@/components/marketing/CTASection'
+import {
+  heroEntrance,
+  staggerHero,
+  fadeInUp,
+  magneticHover,
+  magneticTap,
+  scrollIndicatorPulse,
+  gridAnimation,
+  defaultViewport,
+} from '@/lib/animations'
+
+// Magnetic button component with cursor follow
+const MagneticButton = ({
+  children,
+  href,
+  variant = 'primary',
+}: {
+  children: React.ReactNode
+  href: string
+  variant?: 'primary' | 'secondary'
+}) => {
+  const ref = useRef<HTMLAnchorElement>(null)
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const springConfig = { damping: 15, stiffness: 150 }
+  const springX = useSpring(x, springConfig)
+  const springY = useSpring(y, springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    x.set((e.clientX - centerX) * 0.2)
+    y.set((e.clientY - centerY) * 0.2)
+  }
+
+  const handleMouseLeave = () => {
+    x.set(0)
+    y.set(0)
+  }
+
+  return (
+    <motion.a
+      ref={ref}
+      href={href}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ x: springX, y: springY }}
+      whileHover={magneticHover}
+      whileTap={magneticTap}
+      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all ${
+        variant === 'primary'
+          ? 'bg-white text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]'
+          : 'border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/60'
+      }`}
+    >
+      {children}
+    </motion.a>
+  )
+}
 
 export default function LandingPageContent() {
   return (
-    <>
+    <div className="bg-black">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10" />
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Animated Background Grid */}
+        <motion.div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+          }}
+          animate={gridAnimation}
+        />
+
+        {/* Floating particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 0.5, 0.2],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative max-w-7xl mx-auto text-center"
+          variants={staggerHero}
+          initial="hidden"
+          animate="visible"
+          className="relative max-w-7xl mx-auto text-center z-10"
         >
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-full mb-6"
+            variants={fadeInUp}
+            className="inline-flex items-center px-6 py-3 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-sm"
           >
-            <Sparkles className="w-4 h-4 text-blue-500 mr-2" />
-            <span className="text-sm text-blue-400">
+            <Sparkles className="w-4 h-4 text-white mr-2" />
+            <span className="text-sm text-white/80 font-medium">
               Powered by Claude 3.5 Sonnet AI
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          {/* Headline with animated gradient text */}
+          <motion.h1
+            variants={fadeInUp}
+            className="text-6xl md:text-8xl font-black text-white mb-8 leading-[1.1]"
+          >
             Stop Reporting SEO Issues.
             <br />
-            Start <span className="text-blue-500">Fixing</span> Them Automatically.
-          </h1>
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent animate-pulse">
+                Start Fixing
+              </span>
+            </span>{' '}
+            Them Automatically.
+          </motion.h1>
 
-          <p className="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
-            SEOLOGY.AI is the world's first AI-powered platform that doesn't just find SEO problems—it logs into your CMS and fixes them. Automatically.
-          </p>
+          {/* Subtitle */}
+          <motion.p
+            variants={fadeInUp}
+            className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            The world's first AI-powered platform that doesn't just find SEO
+            problems—it logs into your CMS and fixes them. Automatically.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Link
-              href="/sign-up"
-              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors shadow-lg shadow-blue-500/20"
-            >
+          {/* CTA Buttons */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          >
+            <MagneticButton href="/sign-up" variant="primary">
               Start Fixing Issues Free
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link
-              href="#demo"
-              className="inline-flex items-center justify-center bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
-            >
+            </MagneticButton>
+            <MagneticButton href="#how-it-works" variant="secondary">
               Watch How It Works
-            </Link>
-          </div>
+            </MagneticButton>
+          </motion.div>
 
-          <p className="text-gray-500 flex flex-col sm:flex-row items-center justify-center gap-3">
+          {/* Trust Indicators */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white/40"
+          >
             <span className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-white/60" />
               14-day free trial
             </span>
-            <span className="hidden sm:inline text-gray-700">•</span>
+            <span className="hidden sm:inline text-white/20">•</span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-white/60" />
               No credit card required
             </span>
-            <span className="hidden sm:inline text-gray-700">•</span>
+            <span className="hidden sm:inline text-white/20">•</span>
             <span className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-white/60" />
               Cancel anytime
             </span>
-          </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={scrollIndicatorPulse}
+        >
+          <ChevronDown className="w-8 h-8 text-white/40" />
         </motion.div>
       </section>
 
@@ -95,19 +213,19 @@ export default function LandingPageContent() {
       <StatsSection />
 
       {/* The Problem Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            viewport={defaultViewport}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">
               Every SEO Tool Tells You What's Wrong
             </h2>
-            <p className="text-xl text-gray-400">Nobody actually fixes it.</p>
+            <p className="text-2xl text-white/50">Nobody actually fixes it.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -121,7 +239,8 @@ export default function LandingPageContent() {
                   'Send alerts',
                   'You fix everything manually',
                 ],
-                color: 'text-red-500',
+                color: 'text-white/40',
+                borderColor: 'border-white/10',
               },
               {
                 title: 'Manual Fixing',
@@ -132,7 +251,8 @@ export default function LandingPageContent() {
                   'Inconsistent execution',
                   'Expensive developers',
                 ],
-                color: 'text-orange-500',
+                color: 'text-white/40',
+                borderColor: 'border-white/10',
               },
               {
                 title: 'SEOLOGY.AI',
@@ -143,29 +263,39 @@ export default function LandingPageContent() {
                   'Claude AI intelligence',
                   'Complete in minutes',
                 ],
-                color: 'text-green-500',
+                color: 'text-white',
+                borderColor: 'border-white/30',
+                highlight: true,
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-900 border border-gray-800 rounded-lg p-6"
+                viewport={defaultViewport}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{
+                  scale: 1.02,
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                  boxShadow: item.highlight
+                    ? '0 0 40px rgba(255, 255, 255, 0.15)'
+                    : '0 0 20px rgba(255, 255, 255, 0.1)',
+                }}
+                className={`bg-white/5 backdrop-blur-sm border ${item.borderColor} rounded-2xl p-8 transition-all ${
+                  item.highlight ? 'ring-2 ring-white/20' : ''
+                }`}
               >
-                <item.icon className={`w-12 h-12 ${item.color} mb-4`} />
-                <h3 className="text-xl font-semibold text-white mb-4">
+                <item.icon className={`w-14 h-14 ${item.color} mb-6`} />
+                <h3 className="text-2xl font-bold text-white mb-6">
                   {item.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {item.items.map((point, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start text-gray-400"
-                    >
-                      <span className={`${item.color} mr-2 mt-1`}>
-                        {index === 2 ? '✓' : '•'}
+                    <li key={i} className="flex items-start text-white/60">
+                      <span
+                        className={`${item.color} mr-3 mt-1 font-bold text-lg`}
+                      >
+                        {item.highlight ? '✓' : '•'}
                       </span>
                       {point}
                     </li>
@@ -646,6 +776,6 @@ export default function LandingPageContent() {
         primaryCTA={{ text: 'Start Free Trial →', href: '/sign-up' }}
         secondaryCTA={{ text: 'View Pricing', href: '/pricing' }}
       />
-    </>
+    </div>
   )
 }
