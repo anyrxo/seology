@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { ClerkProvider } from '@clerk/nextjs'
+import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import "./globals.css";
 import "./responsive.css";
 
@@ -78,7 +79,9 @@ export default function RootLayout({
           `}</style>
         </head>
         <body>
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
           {/* Webflow interactions - load after interactive */}
           <Script src="/js/webflow.js" strategy="lazyOnload" />
         </body>

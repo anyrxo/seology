@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme support for Dashflow X */
+.dark {
+  /* Override Dashflow X CSS variables for dark mode */
+  --neutral--200: #1a1d2e;
+  --neutral--300: #252938;
+  --neutral--400: #2f3447;
+  --neutral--500: #52566d;
+  --neutral--600: #9095a8;
+  --neutral--700: #c5c9d6;
+  --neutral--800: #e6e8f0;
+  --neutral--100: #1f2337;
+
+  --accent--primary-1: #5b8fff;
+
+  --button-shadow--color-01: rgba(91, 143, 255, 0.26);
+  --button-shadow--white-01: rgba(255, 255, 255, 0.04);
+  --button-shadow--white-02: rgba(255, 255, 255, 0.06);
+  --button-shadow--white-03: rgba(255, 255, 255, 0.1);
+
+  --general--shadow-01: rgba(0, 0, 0, 0.3);
+  --general--shadow-02: rgba(0, 0, 0, 0.4);
+  --general--shadow-03: rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure smooth transitions */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
 /* Skeleton loading animation */
 .skeleton-box {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
