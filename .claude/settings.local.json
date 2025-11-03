@@ -46,7 +46,12 @@
       "Bash(npm ls:*)",
       "Bash(for dir in docs/guides docs/architecture docs/deployment docs/reviews docs/summaries docs/quick-reference)",
       "Bash(done)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(npm run db:seed:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npx prisma db push:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout 5 echo:*)"
     ],
     "deny": [],
     "ask": []
