@@ -467,6 +467,46 @@ export default function LandingPageContent() {
         </div>
       </section>
 
+      {/* Radiant UI Newsletter Section */}
+      <section className="rt-component-section rt-newsletter-blue-section">
+        <div className="w-layout-blockcontainer rt-component-container w-container">
+          <div className="rt-newsletter-wrap">
+            <div className="rt-footer-four-title-main">
+              <div className="rt-component-heading-two">Stay Updated with <span className="color-accent-1">SEO Insights</span></div>
+              <div className="rt-component-heading-two">Delivered to Your Inbox</div>
+              <p className="text-200 color-neutral-600 mg-top-16px">
+                Get weekly tips on SEO automation, Claude AI updates, and success stories from our users
+              </p>
+            </div>
+            <div className="rt-footer-newsletter">
+              <div className="rt-form-block w-form">
+                <form method="get">
+                  <div className="rt-footer-newsletter-main">
+                    <input
+                      className="rt-footer-newsletter-input w-input"
+                      maxLength={256}
+                      name="email"
+                      placeholder="Enter your email address"
+                      type="email"
+                      required
+                    />
+                    <div className="rt-footer-newsletter-line rt-mobile-display-off"></div>
+                    <div className="rt-footer-newsletter-button">
+                      <div className="rt-footer-newsletter-button-text">
+                        <div className="rt-button-font">SUBSCRIBE</div>
+                      </div>
+                      <button type="submit" className="btn-primary large">
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-neutral-100">
         <div className="container-default w-container">

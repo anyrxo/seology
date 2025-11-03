@@ -54,6 +54,9 @@ export default function RootLayout({
           <link href="/dashflow/normalize.css" rel="stylesheet" type="text/css" />
           <link href="/dashflow/dashflow.css" rel="stylesheet" type="text/css" />
 
+          {/* Load Radiant UI CSS */}
+          <link href="/radiant/radiant.css" rel="stylesheet" type="text/css" />
+
           {/* Webflow modernizr script - critical for layout */}
           <Script id="webflow-modernizr" strategy="beforeInteractive">
             {`!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);`}

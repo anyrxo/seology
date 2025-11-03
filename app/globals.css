@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark theme support for Dashflow X */
+/* Dark theme support for Dashflow X and Radiant UI */
 .dark {
   /* Override Dashflow X CSS variables for dark mode */
   --neutral--200: #1a1d2e;
@@ -24,6 +24,11 @@
   --general--shadow-01: rgba(0, 0, 0, 0.3);
   --general--shadow-02: rgba(0, 0, 0, 0.4);
   --general--shadow-03: rgba(0, 0, 0, 0.5);
+
+  /* Override Radiant UI CSS variables for dark mode */
+  --radiant-ui-components-library-marketplace--color--white: #1f2337;
+  --radiant-ui-components-library-marketplace--color--body-font-dark: #9095a8;
+  --radiant-ui-components-library-marketplace--color--heading-dark: #e6e8f0;
 }
 
 /* Ensure smooth transitions */
