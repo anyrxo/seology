@@ -1,0 +1,22 @@
+# Coverage configuration for SEOLOGY.AI
+
+# Coverage thresholds
+# Run: npm run test:coverage
+
+## Current Coverage
+- webhooks.ts: 67.32% (11/11 tests passing)
+- teams.ts: 35.45% (4/15 tests passing)
+
+## Coverage Goals
+- Target: 80% coverage for critical business logic
+- Priority modules:
+  - webhooks.ts ✅
+  - teams.ts (needs improvement)
+  - execution-modes.ts (needs tests)
+  - stripe.ts (needs tests)
+  - usage.ts (needs tests)
+
+## Coverage Reports
+- HTML report: coverage/lcov-report/index.html
+- Text summary: Displayed after test run
+- CI/CD: Coverage badge can be added to README

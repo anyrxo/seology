@@ -12,7 +12,8 @@
       "Bash(npm install:*)",
       "Bash(npx prisma generate:*)",
       "Bash(grep:*)",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(npm run test:coverage:*)"
     ],
     "deny": [],
     "ask": []
