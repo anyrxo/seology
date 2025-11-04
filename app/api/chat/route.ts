@@ -172,8 +172,11 @@ export async function POST(req: NextRequest) {
         try {
           // Validate Anthropic client is ready
           if (!anthropic) {
+            console.error('Anthropic client not initialized')
             throw new Error('Anthropic client not initialized')
           }
+
+          console.log('Initiating Claude AI request with', aiMessages.length, 'messages')
 
           const response = await anthropic.messages.create({
             model: 'claude-3-5-sonnet-20241022',
@@ -250,10 +253,26 @@ Remember: You're not just an advisor - you're part of a platform that actually F
           controller.enqueue(encoder.encode('data: [DONE]\n\n'))
           controller.close()
         } catch (error) {
-          console.error('AI API error:', error)
-          const errorMessage = JSON.stringify({
-            content: 'Sorry, I encountered an error processing your request. Please try again.',
+          console.error('AI API error details:', {
+            name: error instanceof Error ? error.name : 'Unknown',
+            message: error instanceof Error ? error.message : 'Unknown error',
+            stack: error instanceof Error ? error.stack : undefined,
           })
+
+          let errorMsg = 'Sorry, I encountered an error processing your request. Please try again.'
+
+          // Provide more specific error messages
+          if (error instanceof Error) {
+            if (error.message.includes('API key')) {
+              errorMsg = 'AI service configuration error. Please contact support.'
+            } else if (error.message.includes('rate limit')) {
+              errorMsg = 'Too many requests. Please wait a moment and try again.'
+            } else if (error.message.includes('timeout')) {
+              errorMsg = 'Request timed out. Please try again with a shorter message.'
+            }
+          }
+
+          const errorMessage = JSON.stringify({ content: errorMsg })
           controller.enqueue(encoder.encode(`data: ${errorMessage}\n\n`))
           controller.close()
         }
