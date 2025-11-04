@@ -15,7 +15,8 @@
       "Bash(npx prisma generate:*)",
       "Bash(npm run build:*)",
       "Bash(nul)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)"
     ],
     "deny": [],
     "ask": []

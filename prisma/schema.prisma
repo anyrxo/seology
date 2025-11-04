@@ -91,20 +91,25 @@ model Connection {
   lastSync DateTime?
 
   // Health and statistics
-  healthStatus String  @default("unknown") // 'healthy', 'warning', 'error', 'unknown'
-  pageCount    Int     @default(0)
-  issueCount   Int     @default(0)
-  lastCrawlAt  DateTime?
+  healthStatus   String    @default("unknown") // 'healthy', 'warning', 'error', 'unknown'
+  pageCount      Int       @default(0)
+  issueCount     Int       @default(0)
+  lastCrawlAt    DateTime?
   lastAnalysisAt DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   // Relations
-  issues  Issue[]
-  fixes   Fix[]
-  metrics Metric[]
-  crawls  Crawl[]
+  issues             Issue[]
+  fixes              Fix[]
+  metrics            Metric[]
+  crawls             Crawl[]
+  pages              Page[] // Page-level SEO tracking
+  keywords           Keyword[] // Keyword tracking
+  aiInsights         AIInsight[] // AI-powered insights
+  contentSuggestions ContentSuggestion[] // Content optimization
+  healthScores       SiteHealthScore[] // Site health tracking
 
   @@index([userId])
   @@index([teamId])
@@ -143,9 +148,9 @@ model Issue {
   status IssueStatus @default(DETECTED)
 
   // Impact estimation
-  impactScore        Float?   @default(0) // Estimated SEO impact (0-100)
-  estimatedTraffic   Int?     // Estimated traffic impact per month
-  elementSelector    String?  // CSS selector for element
+  impactScore      Float?  @default(0) // Estimated SEO impact (0-100)
+  estimatedTraffic Int? // Estimated traffic impact per month
+  elementSelector  String? // CSS selector for element
 
   detectedAt DateTime  @default(now())
   fixedAt    DateTime?
@@ -197,12 +202,12 @@ model Fix {
   method FixMethod @default(AUTOMATIC)
   status FixStatus @default(PENDING)
 
-  appliedAt    DateTime?
-  rolledBackAt DateTime?
+  appliedAt        DateTime?
+  rolledBackAt     DateTime?
   rollbackDeadline DateTime? // appliedAt + 90 days
 
   // Impact tracking
-  impactMetrics String @default("{}") // JSON: actual vs. expected metrics
+  impactMetrics String  @default("{}") // JSON: actual vs. expected metrics
   platform      String? // Platform-specific implementation details
 
   // Plan association
@@ -304,8 +309,8 @@ model Subscription {
   currentPeriodStart DateTime
   currentPeriodEnd   DateTime
 
-  trialEnd DateTime?
-  cancelAtPeriodEnd Boolean @default(false)
+  trialEnd          DateTime?
+  cancelAtPeriodEnd Boolean   @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -473,7 +478,7 @@ model CSRFToken {
   id        String   @id @default(uuid())
   userId    String
   token     String   @unique
-  provider  String   // SHOPIFY, WORDPRESS, GOOGLE
+  provider  String // SHOPIFY, WORDPRESS, GOOGLE
   createdAt DateTime @default(now())
   expiresAt DateTime
 
@@ -491,17 +496,17 @@ model UsageRecord {
   period DateTime // First day of the month (e.g., 2024-01-01)
 
   // Usage counters
-  sitesUsed Int @default(0)
-  fixesApplied Int @default(0)
+  sitesUsed      Int @default(0)
+  fixesApplied   Int @default(0)
   crawlsExecuted Int @default(0)
-  apiCallsMade Int @default(0)
+  apiCallsMade   Int @default(0)
 
   // Quota limits from plan (cached for historical accuracy)
   sitesLimit Int
   fixesLimit Int
 
   // Flags
-  overageOccurred Boolean @default(false)
+  overageOccurred   Boolean @default(false)
   limitWarningShown Boolean @default(false)
 
   createdAt DateTime @default(now())
@@ -516,30 +521,30 @@ model UsageRecord {
 model Job {
   id String @id @default(uuid())
 
-  type JobType // Type of job to execute
-  status JobStatus @default(PENDING)
-  priority Int @default(5) // 1=highest, 10=lowest
+  type     JobType // Type of job to execute
+  status   JobStatus @default(PENDING)
+  priority Int       @default(5) // 1=highest, 10=lowest
 
   // Job data
   payload String // JSON string of input data
-  result String? // JSON string of output data
-  error String? // Error message if failed
+  result  String? // JSON string of output data
+  error   String? // Error message if failed
 
   // Execution tracking
-  attempts Int @default(0)
-  maxAttempts Int @default(3)
-  progress Float @default(0) // 0-100 percentage
+  attempts            Int       @default(0)
+  maxAttempts         Int       @default(3)
+  progress            Float     @default(0) // 0-100 percentage
   estimatedCompletion DateTime? // Estimated completion time
 
   // Scheduling
-  scheduledFor DateTime @default(now())
-  startedAt DateTime?
-  completedAt DateTime?
-  failedAt DateTime?
+  scheduledFor DateTime  @default(now())
+  startedAt    DateTime?
+  completedAt  DateTime?
+  failedAt     DateTime?
 
   // Relations (optional)
   connectionId String?
-  userId String?
+  userId       String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -577,21 +582,21 @@ model PendingPlan {
   id String @id @default(uuid())
 
   userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   connectionId String
 
   // Plan details
-  title String
-  description String
+  title           String
+  description     String
   estimatedImpact String @default("{}") // JSON: expected improvements
 
   status PlanStatus @default(PENDING)
 
   // Approval tracking
-  approvedAt DateTime?
-  rejectedAt DateTime?
-  executedAt DateTime?
+  approvedAt      DateTime?
+  rejectedAt      DateTime?
+  executedAt      DateTime?
   rejectionReason String?
 
   // Relations
@@ -620,33 +625,33 @@ model Broadcast {
   id String @id @default(uuid())
 
   // Message content
-  type String // 'INFO', 'SUCCESS', 'WARNING', 'ERROR'
-  title String
-  message String
+  type        String // 'INFO', 'SUCCESS', 'WARNING', 'ERROR'
+  title       String
+  message     String
   richMessage String? // HTML content from rich editor
-  actionUrl String? // Optional CTA link
-  actionText String? // CTA button text
+  actionUrl   String? // Optional CTA link
+  actionText  String? // CTA button text
 
   // Targeting
   targetAudience String @default("all") // 'all', 'plan', 'role', 'custom'
-  targetPlans String @default("[]") // JSON array of plan names
-  targetRoles String @default("[]") // JSON array of roles
-  targetUserIds String @default("[]") // JSON array of specific user IDs
+  targetPlans    String @default("[]") // JSON array of plan names
+  targetRoles    String @default("[]") // JSON array of roles
+  targetUserIds  String @default("[]") // JSON array of specific user IDs
 
   // Scheduling
-  scheduledFor DateTime?
-  sendImmediately Boolean @default(true)
+  scheduledFor    DateTime?
+  sendImmediately Boolean   @default(true)
 
   // Delivery tracking
-  status BroadcastStatus @default(DRAFT)
-  sentAt DateTime?
-  recipientCount Int @default(0)
-  deliveredCount Int @default(0)
-  openedCount Int @default(0)
-  clickedCount Int @default(0)
+  status         BroadcastStatus @default(DRAFT)
+  sentAt         DateTime?
+  recipientCount Int             @default(0)
+  deliveredCount Int             @default(0)
+  openedCount    Int             @default(0)
+  clickedCount   Int             @default(0)
 
   // Template
-  isTemplate Boolean @default(false)
+  isTemplate   Boolean @default(false)
   templateName String?
 
   // Metadata
@@ -666,4 +671,408 @@ enum BroadcastStatus {
   SENT
   FAILED
   CANCELLED
+}
+
+// ==================== ADVANCED SEO TRACKING ====================
+
+// Page-level SEO tracking with comprehensive metrics
+model Page {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  url         String
+  title       String?
+  description String?
+  canonical   String?
+
+  // Page identification
+  pageType PageType @default(OTHER)
+  slug     String?
+  path     String?
+
+  // Content analysis
+  wordCount    Int?
+  readingTime  Int? // minutes
+  languageCode String @default("en")
+
+  // SEO metadata
+  metaTags        String  @default("{}") // JSON string
+  openGraphTags   String  @default("{}") // JSON string
+  twitterCardTags String  @default("{}") // JSON string
+  schemaMarkup    String? // JSON string for structured data
+
+  // Heading structure
+  h1Count          Int     @default(0)
+  h2Count          Int     @default(0)
+  h3Count          Int     @default(0)
+  h1Text           String?
+  headingStructure String  @default("{}") // JSON string
+
+  // Image analysis
+  totalImages      Int    @default(0)
+  imagesWithAlt    Int    @default(0)
+  missingAltImages String @default("[]") // JSON array
+
+  // Link analysis
+  internalLinks Int    @default(0)
+  externalLinks Int    @default(0)
+  brokenLinks   String @default("[]") // JSON array
+
+  // Technical SEO
+  loadTime    Float? // milliseconds
+  pageSize    Int? // bytes
+  httpStatus  Int?
+  isIndexable Boolean @default(true)
+  robotsMeta  String?
+
+  // Mobile optimization
+  mobileScore  Float? // 0-100
+  mobileIssues String @default("[]") // JSON array
+
+  // Core Web Vitals
+  lcp  Float? // Largest Contentful Paint (seconds)
+  fid  Float? // First Input Delay (milliseconds)
+  cls  Float? // Cumulative Layout Shift (score)
+  fcp  Float? // First Contentful Paint (seconds)
+  ttfb Float? // Time to First Byte (milliseconds)
+
+  // Content quality metrics
+  readabilityScore Float? // Flesch Reading Ease
+  keywordDensity   String  @default("{}") // JSON object
+  contentQuality   String? // 'excellent', 'good', 'needs_improvement'
+
+  // SEO health score
+  seoScore       Float? // Overall SEO score 0-100
+  scoreBreakdown String @default("{}") // JSON object
+
+  // Analytics data (when available)
+  pageViews     Int?
+  bounceRate    Float?
+  avgTimeOnPage Float? // seconds
+
+  // Status tracking
+  lastCrawled  DateTime?
+  lastModified DateTime?
+  firstSeen    DateTime  @default(now())
+
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  PageKeyword     PageKeyword[]
+  PageImprovement PageImprovement[]
+  PageSnapshot    PageSnapshot[]
+
+  @@unique([connectionId, url])
+  @@index([connectionId])
+  @@index([pageType])
+  @@index([seoScore])
+  @@index([lastCrawled])
+}
+
+enum PageType {
+  HOMEPAGE
+  PRODUCT
+  CATEGORY
+  BLOG_POST
+  BLOG_INDEX
+  LANDING_PAGE
+  CHECKOUT
+  CART
+  ACCOUNT
+  CONTACT
+  ABOUT
+  LEGAL
+  OTHER
+}
+
+// Keyword tracking and intelligence
+model Keyword {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  keyword      String
+  searchVolume Int? // Monthly search volume
+  difficulty   Float? // 0-100 ranking difficulty
+  cpc          Float? // Cost per click in USD
+  intent       KeywordIntent?
+  category     String? // keyword category/topic
+
+  // Tracking
+  isTracking Boolean @default(true)
+  priority   Int     @default(5) // 1=highest, 10=lowest
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  rankings KeywordRanking[]
+  pages    PageKeyword[]
+
+  @@unique([connectionId, keyword])
+  @@index([connectionId])
+  @@index([searchVolume])
+  @@index([difficulty])
+}
+
+enum KeywordIntent {
+  INFORMATIONAL
+  NAVIGATIONAL
+  TRANSACTIONAL
+  COMMERCIAL
+}
+
+// Keyword rankings over time
+model KeywordRanking {
+  id        String  @id @default(uuid())
+  keywordId String
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  position     Int // Search result position
+  url          String // Ranking URL
+  searchEngine String  @default("google") // google, bing, etc.
+  location     String? // Geographic location
+  device       String  @default("desktop") // desktop, mobile
+
+  // SERP features
+  hasFeaturedSnippet Boolean @default(false)
+  hasLocalPack       Boolean @default(false)
+  hasPeopleAlsoAsk   Boolean @default(false)
+  hasImagePack       Boolean @default(false)
+
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([keywordId])
+  @@index([date])
+  @@index([position])
+}
+
+// Page-Keyword association (which keywords target which pages)
+model PageKeyword {
+  id        String  @id @default(uuid())
+  pageId    String
+  page      Page    @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  keywordId String
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  // How well the page targets this keyword
+  relevanceScore Float? // 0-100
+  density        Float? // keyword density %
+  position       String? // where keyword appears (title, h1, body, etc.)
+
+  isTarget Boolean @default(true) // Is this a target keyword for this page?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([pageId, keywordId])
+  @@index([pageId])
+  @@index([keywordId])
+}
+
+// AI-powered insights and recommendations
+model AIInsight {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String? // Optional - can be site-wide or page-specific
+
+  type        InsightType
+  category    String // 'technical', 'content', 'keywords', 'links', 'performance'
+  title       String
+  description String
+  insight     String      @db.Text // AI-generated detailed analysis
+
+  // Actionable recommendations
+  recommendation  String  @db.Text
+  estimatedImpact Float? // Estimated traffic increase %
+  estimatedEffort String? // 'low', 'medium', 'high'
+
+  priority   Priority @default(MEDIUM)
+  confidence Float    @default(80) // AI confidence 0-100
+
+  status InsightStatus @default(NEW)
+
+  // Impact tracking (after implementation)
+  implementedAt DateTime?
+  actualImpact  Float? // Measured traffic change %
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([priority])
+  @@index([type])
+}
+
+enum InsightType {
+  MISSING_CONTENT
+  KEYWORD_OPPORTUNITY
+  TECHNICAL_ISSUE
+  LINK_BUILDING
+  CONTENT_REFRESH
+  PERFORMANCE_ISSUE
+  COMPETITOR_GAP
+  TRENDING_TOPIC
+  SEASONAL_OPPORTUNITY
+}
+
+enum Priority {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum InsightStatus {
+  NEW
+  REVIEWED
+  IN_PROGRESS
+  IMPLEMENTED
+  DISMISSED
+}
+
+// Content optimization suggestions
+model ContentSuggestion {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String // Specific page to optimize
+
+  suggestionType String // 'add_section', 'expand_content', 'add_keywords', 'improve_readability'
+  title          String
+  description    String @db.Text
+
+  // What to add/change
+  suggestedContent String  @db.Text
+  targetLocation   String? // Where to add (e.g., "after h2", "in intro")
+
+  // Keywords to target
+  targetKeywords String @default("[]") // JSON array
+
+  // Metrics
+  currentWordCount   Int?
+  suggestedWordCount Int?
+  currentReadability Float?
+  targetReadability  Float?
+
+  status SuggestionStatus @default(PENDING)
+
+  implementedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([pageId])
+  @@index([status])
+}
+
+enum SuggestionStatus {
+  PENDING
+  APPROVED
+  IMPLEMENTED
+  REJECTED
+}
+
+// Track page-level improvements and changes
+model PageImprovement {
+  id     String @id @default(uuid())
+  pageId String
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  improvementType String // 'meta_tags', 'content', 'images', 'links', 'technical'
+  description     String
+
+  beforeValue String? @db.Text
+  afterValue  String? @db.Text
+
+  // Metrics before/after
+  seoScoreBefore Float?
+  seoScoreAfter  Float?
+  rankingBefore  Int?
+  rankingAfter   Int?
+  trafficBefore  Int?
+  trafficAfter   Int?
+
+  implementedAt DateTime  @default(now())
+  measuredAt    DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([pageId])
+  @@index([implementedAt])
+}
+
+// Site health scores over time
+model SiteHealthScore {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  date DateTime @default(now())
+
+  // Overall scores
+  overallScore     Float // 0-100
+  technicalScore   Float // 0-100
+  contentScore     Float // 0-100
+  performanceScore Float // 0-100
+  securityScore    Float // 0-100
+
+  // Key metrics
+  totalPages     Int
+  indexablePages Int
+  brokenLinks    Int
+  avgLoadTime    Float // seconds
+  avgSeoScore    Float // average page SEO score
+
+  // Issues breakdown
+  criticalIssues Int
+  highIssues     Int
+  mediumIssues   Int
+  lowIssues      Int
+
+  // Rankings
+  avgKeywordPosition Float?
+  topKeywordsCount   Int? // Keywords in top 10
+
+  // Traffic (if available)
+  organicTraffic Int?
+  organicClicks  Int?
+
+  createdAt DateTime @default(now())
+
+  @@unique([connectionId, date])
+  @@index([connectionId])
+  @@index([date])
+  @@index([overallScore])
+}
+
+// Page snapshots for comparison over time
+model PageSnapshot {
+  id     String @id @default(uuid())
+  pageId String
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  // Snapshot of key metrics at this point in time
+  seoScore   Float?
+  wordCount  Int?
+  loadTime   Float?
+  httpStatus Int?
+  lcp        Float?
+  fid        Float?
+  cls        Float?
+
+  // Content hash to detect changes
+  contentHash String?
+
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([pageId])
+  @@index([date])
 }
