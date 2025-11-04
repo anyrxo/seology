@@ -11,82 +11,88 @@ export default async function AdminDashboardPage() {
     redirect('/sign-in')
   }
 
-  // Get comprehensive system stats
-  const [
-    totalUsers,
-    totalConnections,
-    totalIssues,
-    totalFixes,
-    activeIssues,
-    pendingFixes,
-    appliedFixes,
-    recentUsers,
-    recentConnections,
-    systemActivity,
-    usersByPlan,
-    connectionsByPlatform,
-  ] = await Promise.all([
-    db.user.count(),
-    db.connection.count(),
-    db.issue.count(),
-    db.fix.count(),
-    db.issue.count({ where: { status: { notIn: ['FIXED', 'IGNORED'] } } }),
-    db.fix.count({ where: { status: 'PENDING' } }),
-    db.fix.count({ where: { status: 'APPLIED' } }),
-    db.user.findMany({
-      orderBy: { createdAt: 'desc' },
-      take: 5,
-      include: {
-        connections: true,
-      },
-    }),
-    db.connection.findMany({
-      orderBy: { createdAt: 'desc' },
-      take: 10,
-      include: {
-        user: true,
-      },
-    }),
-    db.auditLog.findMany({
-      orderBy: { createdAt: 'desc' },
-      take: 20,
-      include: {
-        user: true,
-      },
-    }),
-    db.user.groupBy({
-      by: ['plan'],
+  try {
+    // Get comprehensive system stats
+    const [
+      totalUsers,
+      totalConnections,
+      totalIssues,
+      totalFixes,
+      activeIssues,
+      pendingFixes,
+      appliedFixes,
+      recentUsers,
+      recentConnections,
+      systemActivity,
+      usersByPlan,
+      connectionsByPlatform,
+    ] = await Promise.all([
+      db.user.count(),
+      db.connection.count(),
+      db.issue.count().catch(() => 0),
+      db.fix.count().catch(() => 0),
+      db.issue.count({ where: { status: { notIn: ['FIXED', 'IGNORED'] } } }).catch(() => 0),
+      db.fix.count({ where: { status: 'PENDING' } }).catch(() => 0),
+      db.fix.count({ where: { status: 'APPLIED' } }).catch(() => 0),
+      db.user.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+        include: {
+          connections: true,
+        },
+      }),
+      db.connection.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: 10,
+        include: {
+          user: true,
+        },
+      }).catch(() => []),
+      db.auditLog.findMany({
+        orderBy: { createdAt: 'desc' },
+        take: 20,
+        include: {
+          user: true,
+        },
+      }).catch(() => []),
+      db.user.groupBy({
+        by: ['plan'],
+        _count: true,
+      }).catch(() => []),
+      db.connection.groupBy({
+        by: ['platform'],
+        _count: true,
+      }).catch(() => []),
+    ])
+
+    // Get user growth for last 30 days
+    const thirtyDaysAgo = new Date()
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+
+    let userGrowth: Array<{ date: Date; count: bigint }> = []
+    try {
+      userGrowth = await db.$queryRaw<Array<{ date: Date; count: bigint }>>`
+        SELECT DATE(created_at) as date, COUNT(*)::int as count
+        FROM "User"
+        WHERE created_at >= ${thirtyDaysAgo}
+        GROUP BY DATE(created_at)
+        ORDER BY date ASC
+      `
+    } catch (e) {
+      console.error('Error fetching user growth:', e)
+    }
+
+    // Get revenue data (last 7 days)
+    const sevenDaysAgo = new Date()
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
+
+    const revenueData = await db.user.groupBy({
+      by: ['plan', 'createdAt'],
       _count: true,
-    }),
-    db.connection.groupBy({
-      by: ['platform'],
-      _count: true,
-    }),
-  ])
-
-  // Get user growth for last 30 days
-  const thirtyDaysAgo = new Date()
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-
-  const userGrowth = await db.$queryRaw<Array<{ date: Date; count: bigint }>>`
-    SELECT DATE(created_at) as date, COUNT(*)::int as count
-    FROM "User"
-    WHERE created_at >= ${thirtyDaysAgo}
-    GROUP BY DATE(created_at)
-    ORDER BY date ASC
-  `
-
-  // Get revenue data (last 7 days)
-  const sevenDaysAgo = new Date()
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
-
-  const revenueData = await db.user.groupBy({
-    by: ['plan', 'createdAt'],
-    _count: true,
-    where: {
-      createdAt: { gte: sevenDaysAgo },
-    },
-  })
+      where: {
+        createdAt: { gte: sevenDaysAgo },
+      },
+    }).catch(() => [])
 
   // Calculate total revenue
   const planPrices = { STARTER: 29, GROWTH: 99, SCALE: 299 }
@@ -190,6 +196,21 @@ export default async function AdminDashboardPage() {
       }))}
     />
   )
+  } catch (error) {
+    console.error('Admin dashboard error:', error)
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-900">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-white mb-4">Admin Dashboard</h1>
+          <p className="text-gray-400 mb-4">Error loading dashboard data. Please check the console for details.</p>
+          <p className="text-sm text-red-400">{error instanceof Error ? error.message : 'Unknown error'}</p>
+          <Link href="/dashboard" className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            Go to User Dashboard
+          </Link>
+        </div>
+      </div>
+    )
+  }
 }
 
 function StatCard({
