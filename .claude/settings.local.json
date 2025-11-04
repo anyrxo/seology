@@ -16,7 +16,8 @@
       "Bash(npm run build:*)",
       "Bash(nul)",
       "Bash(npm install:*)",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
