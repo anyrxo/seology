@@ -123,49 +123,43 @@ export async function POST(req: NextRequest) {
     }
 
     // Get user context from database
-    const user = await db.user.findUnique({
-      where: { clerkId: userId },
-      include: {
-        connections: {
-          select: {
-            id: true,
-            platform: true,
-            domain: true,
-            displayName: true,
-            credentials: true, // Include shop metadata for AI context
-            status: true,
-            healthStatus: true,
-            pageCount: true,
-            issueCount: true,
-            issues: {
-              where: { status: 'DETECTED' },
-              take: 10,
-              select: {
-                id: true,
-                type: true,
-                title: true,
-                severity: true,
-                details: true,
-                pageUrl: true,
-              },
-            },
-            fixes: {
-              orderBy: { createdAt: 'desc' },
-              take: 5,
-              select: {
-                id: true,
-                description: true,
-                createdAt: true,
-              },
+    let user
+    try {
+      user = await db.user.findUnique({
+        where: { clerkId: userId },
+        include: {
+          connections: {
+            select: {
+              id: true,
+              platform: true,
+              domain: true,
+              displayName: true,
+              credentials: true,
+              status: true,
+              healthStatus: true,
+              pageCount: true,
+              issueCount: true,
             },
           },
         },
-      },
-    })
+      })
+    } catch (dbError) {
+      console.error('Database error fetching user:', dbError)
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'DATABASE_ERROR',
+            message: 'Error fetching user data. Please try again.',
+          },
+        },
+        { status: 500 }
+      )
+    }
 
     if (!user) {
       return NextResponse.json(
-        { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found' } },
+        { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found in database. Please visit /dashboard first.' } },
         { status: 404 }
       )
     }
@@ -189,15 +183,8 @@ export async function POST(req: NextRequest) {
         healthStatus: conn.healthStatus,
         pageCount: conn.pageCount,
         issueCount: conn.issueCount,
-        issues: conn.issues.map((issue) => ({
-          id: issue.id,
-          type: issue.type,
-          title: issue.title,
-          severity: issue.severity,
-          description: issue.details,
-          pageUrl: issue.pageUrl,
-        })),
-        fixes: conn.fixes,
+        issues: [], // Simplified - don't fetch issues to avoid errors
+        fixes: [], // Simplified - don't fetch fixes to avoid errors
       })),
     })
 
@@ -258,8 +245,7 @@ YOUR CAPABILITIES:
 
 2. Access user's real data:
    - Their connected sites and platforms (${user.connections.length} sites)
-   - Current detected issues on their sites (${user.connections.flatMap(c => c.issues).length} active issues)
-   - Recently applied fixes
+   - Current site status and health
    - Their current plan: ${user.plan}
    - Their execution mode: ${user.executionMode}
    - Onboarding info: ${user.businessType || 'Not specified'} business (${user.businessStage || 'stage unknown'})
@@ -298,7 +284,7 @@ ${user.executionMode === 'PLAN' ? '- User is in PLAN mode: Explain that you can 
 ${user.executionMode === 'APPROVE' ? '- User is in APPROVE mode: Let them know each fix will be reviewed individually before applying, giving them maximum control' : ''}
 
 EXAMPLE RESPONSES:
-- "I can see you have ${user.connections.length} site(s) connected with ${user.connections.flatMap(c => c.issues).length} active issues. Since you're in ${user.executionMode} mode, ${user.executionMode === 'AUTOMATIC' ? 'I can apply fixes immediately' : user.executionMode === 'PLAN' ? "I'll create a plan for you to review" : "I'll present each fix for your approval"}. Let me help you prioritize the most impactful fixes..."
+- "I can see you have ${user.connections.length} site(s) connected. Since you're in ${user.executionMode} mode, ${user.executionMode === 'AUTOMATIC' ? 'I can apply fixes immediately' : user.executionMode === 'PLAN' ? "I'll create a plan for you to review" : "I'll present each fix for your approval"}. Let me help you prioritize the most impactful fixes..."
 - "Based on your ${user.plan} plan, you can fix issues efficiently. Here's what I recommend tackling first..."
 - "This missing meta description on [page URL] is affecting your click-through rates. ${user.executionMode === 'AUTOMATIC' ? 'I can fix this right now' : user.executionMode === 'PLAN' ? "I'll add this to your fix plan" : 'Would you like me to create a fix for your approval'}?"
 
@@ -427,7 +413,7 @@ function buildUserContext(user: UserWithContext): string {
       // Build rich site context
       let siteInfo = `- ${conn.displayName || conn.domain} (${conn.platform})`
       siteInfo += `\n  Status: ${conn.status} | Health: ${conn.healthStatus}`
-      siteInfo += `\n  Pages: ${conn.pageCount} | Issues: ${conn.issueCount} (${conn.issues.length} active)`
+      siteInfo += `\n  Pages: ${conn.pageCount} | Issues: ${conn.issueCount}`
       siteInfo += `\n  Recent Fixes: ${conn.fixes.length}`
 
       // Add Shopify-specific metadata if available
