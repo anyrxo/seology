@@ -51,8 +51,8 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
               <div className="text-300">🔍</div>
             </div>
             <div className="flex-vertical">
-              <h1 className="display-2 color-neutral-800">SEO Issues</h1>
-              <p className="text-200 color-neutral-600">
+              <h1 className="display-2 text-white">SEO Issues</h1>
+              <p className="text-200 text-gray-400">
                 Detected SEO problems across all your sites
               </p>
             </div>
@@ -101,9 +101,9 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
         </motion.div>
 
         {/* Issues List */}
-        <div className="card pd-32px---24px">
+        <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
           <div className="mg-bottom-24px">
-            <h2 className="text-400 bold color-neutral-800">All Issues</h2>
+            <h2 className="text-400 bold text-white">All Issues</h2>
           </div>
 
           {issues.length === 0 ? (
@@ -111,10 +111,10 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
               <div className="card-icon-square _40px neutral-icon">
                 <div className="text-600">🎉</div>
               </div>
-              <h3 className="text-300 bold color-neutral-800">
+              <h3 className="text-300 bold text-white">
                 No issues detected
               </h3>
-              <p className="text-200 color-neutral-600 mg-bottom-16px">
+              <p className="text-200 text-gray-400 mg-bottom-16px">
                 Connect a site and run a scan to detect SEO issues
               </p>
               <Link
@@ -184,16 +184,16 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
 
 function StatCard({ title, value, icon, colorClass }: { title: string; value: number; icon: string; colorClass: string }) {
   return (
-    <div className="card pd-24px">
+    <div className="card pd-24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2">
       <div className="flex-horizontal space-between align-center mg-bottom-16px">
         <div className="card-icon-square _26px neutral-icon">
           <div className="text-200">{icon}</div>
         </div>
       </div>
       <div className="flex-vertical gap-row-12px">
-        <p className="text-100 medium color-neutral-600">{title}</p>
+        <p className="text-100 medium text-gray-400">{title}</p>
         <div className="card-amount-container">
-          <p className={`display-2 ${colorClass}`}>{value}</p>
+          <p className="display-2 text-white">{value}</p>
         </div>
       </div>
     </div>
@@ -209,34 +209,34 @@ function IssueRow({ issue }: { issue: Issue }) {
   }[issue.severity] || 'neutral'
 
   return (
-    <div className="card pd-24px">
+    <div className="card pd-24px bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 hover:border-white/20 transition-all duration-200">
       <div className="flex-horizontal space-between align-center">
         <div className="flex-horizontal gap-column-16px align-center flex-1">
           <div className="card-icon-square _26px neutral-icon">
-            <AlertTriangle className="w-3 h-3 color-neutral-600" />
+            <AlertTriangle className="w-3 h-3 text-gray-400" />
           </div>
           <div className="flex-vertical gap-row-8px flex-1">
             <div className="flex-horizontal gap-column-12px align-center">
-              <span className="text-200 medium color-neutral-800">{issue.type.replace(/_/g, ' ')}</span>
+              <span className="text-200 medium text-white">{issue.type.replace(/_/g, ' ')}</span>
               <div className={`badge ${severityBadge}`}>
                 <div className="text-50 medium">{issue.severity}</div>
               </div>
             </div>
-            <p className="text-100 color-neutral-600">{issue.title}</p>
+            <p className="text-100 text-gray-400">{issue.title}</p>
             <div className="flex-horizontal gap-column-16px">
               <div className="flex-horizontal gap-column-8px align-center">
-                <div className="text-50 color-neutral-600">Site:</div>
-                <div className="text-50 medium color-neutral-800">{issue.connection.domain}</div>
+                <div className="text-50 text-gray-500">Site:</div>
+                <div className="text-50 medium text-gray-300">{issue.connection.domain}</div>
               </div>
               <a
                 href={issue.pageUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-horizontal gap-column-4px align-center text-50 medium color-accent-1"
+                className="flex-horizontal gap-column-4px align-center text-50 medium color-accent-1 hover:underline"
               >
                 View Page <ArrowUpRight className="w-3 h-3" />
               </a>
-              <div className="text-50 color-neutral-600">
+              <div className="text-50 text-gray-500">
                 Detected {new Date(issue.detectedAt).toLocaleDateString()}
               </div>
             </div>

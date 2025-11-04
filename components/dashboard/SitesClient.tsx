@@ -46,10 +46,10 @@ export function SitesClient({ connections }: SitesClientProps) {
                 <div className="text-300">🌐</div>
               </div>
               <div className="flex-vertical">
-                <h1 className="rt-component-heading-two text-500 bold color-neutral-800">
+                <h1 className="rt-component-heading-two text-500 bold text-white">
                   Sites
                 </h1>
-                <p className="rt-text-block text-200 color-neutral-600">
+                <p className="rt-text-block text-200 text-gray-400">
                   Manage your connected websites and e-commerce stores
                 </p>
               </div>
@@ -112,19 +112,20 @@ function SiteCard({ connection }: { connection: Connection }) {
   }
 
   return (
-    <Link href={`/dashboard/sites/${connection.id}`} className="text-decoration-none">
-      <div className="card pd-24px hover-card-link">
+    <Link href={`/dashboard/sites/${connection.id}`} className="text-decoration-none group">
+      <div className="card pd-24px hover-card-link relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500/30">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         {/* Header with card-icon-square for platform */}
         <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-16px">
           <div className="flex-horizontal gap-column-12px align-center">
             <div className="card-icon-square _40px">
               <div className="text-300">{platformEmoji}</div>
             </div>
-            <div className="flex-vertical">
-              <h3 className="text-200 medium color-neutral-800 mg-bottom-4px">
+            <div className="flex-vertical relative z-10">
+              <h3 className="text-200 medium text-white mg-bottom-4px">
                 {connection.displayName || connection.domain}
               </h3>
-              <p className="rt-text-block text-100 color-neutral-600">{connection.domain}</p>
+              <p className="rt-text-block text-100 text-gray-400">{connection.domain}</p>
             </div>
           </div>
           <div className={`badge ${statusConfig.badge}`}>
@@ -135,29 +136,29 @@ function SiteCard({ connection }: { connection: Connection }) {
         <div className="divider card-small-divider mg-bottom-16px"></div>
 
         {/* Metrics with card-icon-square */}
-        <div className="w-layout-vflex flex-vertical gap-row-12px mg-bottom-16px">
-          <div className="card pd-16px">
+        <div className="w-layout-vflex flex-vertical gap-row-12px mg-bottom-16px relative z-10">
+          <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10">
             <div className="flex-horizontal gap-column-12px align-center">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-100">🔍</div>
               </div>
               <div className="flex-vertical flex-1">
-                <div className="text-50 color-neutral-600">Active Issues</div>
+                <div className="text-50 text-gray-400">Active Issues</div>
                 <div className="card-amount-container red">
-                  <div className="text-300 bold color-neutral-800">{connection.issues.length}</div>
+                  <div className="text-300 bold text-white">{connection.issues.length}</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="card pd-16px">
+          <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10">
             <div className="flex-horizontal gap-column-12px align-center">
               <div className="card-icon-square _26px">
                 <div className="text-100">✅</div>
               </div>
               <div className="flex-vertical flex-1">
-                <div className="text-50 color-neutral-600">Total Fixes</div>
+                <div className="text-50 text-gray-400">Total Fixes</div>
                 <div className="card-amount-container green">
-                  <div className="text-300 bold color-neutral-800">{connection._count.fixes}</div>
+                  <div className="text-300 bold text-white">{connection._count.fixes}</div>
                 </div>
               </div>
             </div>
@@ -169,7 +170,7 @@ function SiteCard({ connection }: { connection: Connection }) {
             <div className="rt-icon-box card-icon-square _26px neutral-icon">
               <div className="text-100">⏱️</div>
             </div>
-            <div className="text-50 color-neutral-600">
+            <div className="text-50 text-gray-400 relative z-10">
               Last synced: {new Date(connection.lastSync).toLocaleDateString()}
             </div>
           </div>
@@ -196,10 +197,10 @@ function EmptyState() {
               <div className="text-300">🌐</div>
             </div>
             <div className="flex-vertical">
-              <h1 className="rt-component-heading-two text-500 bold color-neutral-800 mg-bottom-8px">
+              <h1 className="rt-component-heading-two text-500 bold text-white mg-bottom-8px">
                 Sites
               </h1>
-              <p className="rt-text-block text-200 color-neutral-600">
+              <p className="rt-text-block text-200 text-gray-400">
                 Manage your connected websites and e-commerce stores
               </p>
             </div>
@@ -207,15 +208,15 @@ function EmptyState() {
         </div>
 
         {/* Empty State Card with pd-32px---44px */}
-        <div className="rt-component-section card pd-32px---44px">
+        <div className="rt-component-section card pd-32px---44px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
           <div className="text-center inner-container _400px center">
             <div className="card-icon-square _40px neutral-icon" style={{ margin: '0 auto', marginBottom: '24px' }}>
               <div className="text-600">🌐</div>
             </div>
-            <h2 className="text-400 bold color-neutral-800 mg-bottom-12px">
+            <h2 className="text-400 bold text-white mg-bottom-12px">
               No sites connected yet
             </h2>
-            <p className="rt-text-block text-200 color-neutral-600 mg-bottom-32px">
+            <p className="rt-text-block text-200 text-gray-400 mg-bottom-32px">
               Connect your first website to start automating SEO fixes with SEOLOGY.AI
             </p>
 
@@ -254,46 +255,46 @@ function EmptyState() {
         </div>
 
         {/* Additional info cards with pd-16px */}
-        <div className="card pd-32px---24px">
+        <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
           <div className="flex-horizontal gap-column-12px align-center mg-bottom-24px">
             <div className="card-icon-square _40px">
               <div className="text-300">💡</div>
             </div>
-            <h2 className="text-300 bold color-neutral-800">
+            <h2 className="text-300 bold text-white">
               Getting Started is Easy
             </h2>
           </div>
           <div className="w-layout-vflex flex-vertical gap-row-12px">
-            <div className="card pd-16px">
+            <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10">
               <div className="flex-horizontal gap-column-12px align-center">
                 <div className="card-icon-square _26px">
                   <div className="text-100">1️⃣</div>
                 </div>
                 <div className="flex-vertical">
-                  <div className="text-100 medium color-neutral-800">Connect Platform</div>
-                  <div className="text-50 color-neutral-600">Link Shopify, WordPress, or custom site</div>
+                  <div className="text-100 medium text-white">Connect Platform</div>
+                  <div className="text-50 text-gray-400">Link Shopify, WordPress, or custom site</div>
                 </div>
               </div>
             </div>
-            <div className="card pd-16px">
+            <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10">
               <div className="flex-horizontal gap-column-12px align-center">
                 <div className="card-icon-square _26px neutral-icon">
                   <div className="text-100">2️⃣</div>
                 </div>
                 <div className="flex-vertical">
-                  <div className="text-100 medium color-neutral-800">Analyze Site</div>
-                  <div className="text-50 color-neutral-600">AI scans for SEO issues automatically</div>
+                  <div className="text-100 medium text-white">Analyze Site</div>
+                  <div className="text-50 text-gray-400">AI scans for SEO issues automatically</div>
                 </div>
               </div>
             </div>
-            <div className="card pd-16px">
+            <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] border border-white/10">
               <div className="flex-horizontal gap-column-12px align-center">
                 <div className="card-icon-square _26px">
                   <div className="text-100">3️⃣</div>
                 </div>
                 <div className="flex-vertical">
-                  <div className="text-100 medium color-neutral-800">Apply Fixes</div>
-                  <div className="text-50 color-neutral-600">AI fixes issues automatically</div>
+                  <div className="text-100 medium text-white">Apply Fixes</div>
+                  <div className="text-50 text-gray-400">AI fixes issues automatically</div>
                 </div>
               </div>
             </div>
@@ -316,14 +317,14 @@ function FeatureCard({
   cardStyle?: string
 }) {
   return (
-    <div className={`card ${cardStyle} hover-card-link`}>
+    <div className={`card ${cardStyle} hover-card-link bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10`}>
       <div className="flex-vertical gap-row-16px">
         <div className="card-icon-square _40px">
           <div className="text-400">{icon}</div>
         </div>
         <div className="flex-vertical gap-row-8px">
-          <h3 className="text-200 medium color-neutral-800">{title}</h3>
-          <p className="rt-text-block text-100 color-neutral-600">{description}</p>
+          <h3 className="text-200 medium text-white">{title}</h3>
+          <p className="rt-text-block text-100 text-gray-400">{description}</p>
         </div>
       </div>
     </div>

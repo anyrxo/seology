@@ -202,10 +202,10 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="text-400">👋</div>
               </div>
               <div className="flex-vertical">
-                <h1 className="rt-component-heading-two display-1 color-neutral-800">
+                <h1 className="rt-component-heading-two display-1 text-white">
                   Welcome back, {userName}!
                 </h1>
-                <p className="rt-text-block text-200 color-neutral-600">
+                <p className="rt-text-block text-200 text-gray-400">
                   Here's what's happening with your SEO automation
                 </p>
               </div>
@@ -231,7 +231,7 @@ export function DashboardClient({ userName }: { userName: string }) {
         >
           {/* Sites Connected Card */}
           <motion.div
-            className="card pd-24px"
+            className="card pd-24px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -245,10 +245,12 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -4,
-              transition: { duration: 0.2 }
+              y: -6,
+              scale: 1.02,
+              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
             }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">🌐</div>
@@ -257,17 +259,17 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="text-50 medium">{stats.sitesCount > 0 ? 'Active' : 'Get started'}</div>
               </div>
             </div>
-            <div className="flex-vertical gap-row-12px">
-              <div className="text-100 medium color-neutral-600">Sites Connected</div>
+            <div className="flex-vertical gap-row-12px relative z-10">
+              <div className="text-100 medium text-gray-400">Sites Connected</div>
               <div className="card-amount-container green">
-                <div className="display-2 color-neutral-800">{stats.sitesCount}</div>
+                <div className="display-2 text-white">{stats.sitesCount}</div>
               </div>
             </div>
           </motion.div>
 
           {/* Issues Detected Card */}
           <motion.div
-            className="card pd-24px---18px"
+            className="card pd-24px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-orange-500/10"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -281,10 +283,12 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -4,
-              transition: { duration: 0.2 }
+              y: -6,
+              scale: 1.02,
+              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
             }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">🔍</div>
@@ -295,17 +299,17 @@ export function DashboardClient({ userName }: { userName: string }) {
                 </div>
               </div>
             </div>
-            <div className="flex-vertical gap-row-12px">
-              <div className="text-100 medium color-neutral-600">Issues Detected</div>
+            <div className="flex-vertical gap-row-12px relative z-10">
+              <div className="text-100 medium text-gray-400">Issues Detected</div>
               <div className={`card-amount-container ${stats.activeIssuesCount > 0 ? 'red' : 'green'}`}>
-                <div className="display-2 color-neutral-800">{stats.activeIssuesCount}</div>
+                <div className="display-2 text-white">{stats.activeIssuesCount}</div>
               </div>
             </div>
           </motion.div>
 
           {/* Fixes Applied Card */}
           <motion.div
-            className="card pd-22px---18px"
+            className="card pd-22px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-green-500/10"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -319,10 +323,12 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -4,
-              transition: { duration: 0.2 }
+              y: -6,
+              scale: 1.02,
+              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
             }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">✅</div>
@@ -331,17 +337,17 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="text-50 medium">This month</div>
               </div>
             </div>
-            <div className="flex-vertical gap-row-12px">
-              <div className="text-100 medium color-neutral-600">Fixes Applied</div>
+            <div className="flex-vertical gap-row-12px relative z-10">
+              <div className="text-100 medium text-gray-400">Fixes Applied</div>
               <div className="card-amount-container green">
-                <div className="display-2 color-neutral-800">{stats.fixesThisMonth}</div>
+                <div className="display-2 text-white">{stats.fixesThisMonth}</div>
               </div>
             </div>
           </motion.div>
 
           {/* Usage Card */}
           <motion.div
-            className="card pd-16px"
+            className="card pd-16px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -355,10 +361,12 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -4,
-              transition: { duration: 0.2 }
+              y: -6,
+              scale: 1.02,
+              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
             }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">📊</div>
@@ -369,10 +377,10 @@ export function DashboardClient({ userName }: { userName: string }) {
                 </div>
               </div>
             </div>
-            <div className="flex-vertical gap-row-12px">
-              <div className="text-100 medium color-neutral-600">Usage This Month</div>
+            <div className="flex-vertical gap-row-12px relative z-10">
+              <div className="text-100 medium text-gray-400">Usage This Month</div>
               <div className={`card-amount-container ${stats.usagePercent >= 90 ? 'red' : 'green'}`}>
-                <div className="display-2 color-neutral-800">{stats.usagePercent}%</div>
+                <div className="display-2 text-white">{stats.usagePercent}%</div>
               </div>
             </div>
           </motion.div>
@@ -380,13 +388,13 @@ export function DashboardClient({ userName }: { userName: string }) {
 
         {/* Usage Progress Bar with card-icon-square */}
         {stats.usagePercent > 0 && (
-          <div className="card pd-32px---24px">
+          <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
             <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-16px">
               <div className="flex-horizontal gap-column-12px align-center">
                 <div className="card-icon-square _40px">
                   <div className="text-300">📈</div>
                 </div>
-                <h3 className="text-300 bold color-neutral-800">Monthly Usage</h3>
+                <h3 className="text-300 bold text-white">Monthly Usage</h3>
               </div>
               <div className={`badge ${
                 stats.usagePercent >= 90 ? 'red' :
@@ -409,7 +417,7 @@ export function DashboardClient({ userName }: { userName: string }) {
               </div>
             </div>
             {stats.usagePercent >= 90 && (
-              <p className="rt-text-block text-100 color-neutral-600 mg-top-12px">
+              <p className="rt-text-block text-100 text-gray-400 mg-top-12px">
                 You're approaching your monthly limit. Consider upgrading your plan.
               </p>
             )}
@@ -417,45 +425,45 @@ export function DashboardClient({ userName }: { userName: string }) {
         )}
 
         {/* Quick Actions using Dashflow X buttons with card-icon-square */}
-        <div className="rt-component-section card pd-32px---44px">
+        <div className="rt-component-section card pd-32px---44px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
           <div className="flex-horizontal gap-column-16px align-center mg-bottom-32px">
             <div className="card-icon-square _40px neutral-icon">
               <div className="text-300">⚡</div>
             </div>
-            <h2 className="text-400 bold color-neutral-800">Quick Actions</h2>
+            <h2 className="text-400 bold text-white">Quick Actions</h2>
           </div>
           <div className="w-layout-vflex flex-vertical gap-row-24px">
             <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
-              <Link href="/dashboard/sites/connect" className="card pd-24px hover-card-link">
+              <Link href="/dashboard/sites/connect" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:border-blue-500/30">
                 <div className="flex-vertical gap-row-16px">
                   <div className="card-icon-square _40px">
                     <div className="text-300">🔗</div>
                   </div>
-                  <div className="flex-vertical gap-row-8px">
-                    <div className="text-200 bold color-neutral-800">Connect Site</div>
-                    <div className="text-100 color-neutral-600">Link your first website</div>
+                  <div className="flex-vertical gap-row-8px relative z-10">
+                    <div className="text-200 bold text-white">Connect Site</div>
+                    <div className="text-100 text-gray-400">Link your first website</div>
                   </div>
                 </div>
               </Link>
-              <Link href="/dashboard/analytics" className="card pd-24px hover-card-link">
+              <Link href="/dashboard/analytics" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:border-purple-500/30">
                 <div className="flex-vertical gap-row-16px">
                   <div className="card-icon-square _40px neutral-icon">
                     <div className="text-300">📊</div>
                   </div>
-                  <div className="flex-vertical gap-row-8px">
-                    <div className="text-200 bold color-neutral-800">View Analytics</div>
-                    <div className="text-100 color-neutral-600">Track performance</div>
+                  <div className="flex-vertical gap-row-8px relative z-10">
+                    <div className="text-200 bold text-white">View Analytics</div>
+                    <div className="text-100 text-gray-400">Track performance</div>
                   </div>
                 </div>
               </Link>
-              <Link href="/dashboard/billing" className="card pd-24px hover-card-link">
+              <Link href="/dashboard/billing" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:border-green-500/30">
                 <div className="flex-vertical gap-row-16px">
                   <div className="card-icon-square _40px">
                     <div className="text-300">🚀</div>
                   </div>
-                  <div className="flex-vertical gap-row-8px">
-                    <div className="text-200 bold color-neutral-800">Upgrade Plan</div>
-                    <div className="text-100 color-neutral-600">Unlock more features</div>
+                  <div className="flex-vertical gap-row-8px relative z-10">
+                    <div className="text-200 bold text-white">Upgrade Plan</div>
+                    <div className="text-100 text-gray-400">Unlock more features</div>
                   </div>
                 </div>
               </Link>
@@ -480,13 +488,13 @@ export function DashboardClient({ userName }: { userName: string }) {
         </div>
 
         {/* Recent Activity Timeline - Enhanced with ActivityTimeline component */}
-        <div className="rt-component-section card pd-32px---24px">
+        <div className="rt-component-section card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
           <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-24px">
             <div className="flex-horizontal gap-column-12px align-center">
               <div className="card-icon-square _40px">
                 <div className="text-300">⏱️</div>
               </div>
-              <h2 className="text-400 bold color-neutral-800">Recent Activity</h2>
+              <h2 className="text-400 bold text-white">Recent Activity</h2>
             </div>
             <Link href="/dashboard/sites" className="rt-nav-text text-100 medium color-accent-1 hover-neutral-800">
               View All <ArrowRight className="inline w-4 h-4" />
@@ -508,7 +516,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="card-icon-square _26px neutral-icon">
                   <div className="text-200">🔍</div>
                 </div>
-                <h3 className="text-300 bold color-neutral-800">Recent Issues</h3>
+                <h3 className="text-300 bold text-white">Recent Issues</h3>
               </div>
               <DashflowDataTable
                 data={mockRecentIssues}
@@ -527,7 +535,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="card-icon-square _26px">
                   <div className="text-200">✅</div>
                 </div>
-                <h3 className="text-300 bold color-neutral-800">Recent Fixes</h3>
+                <h3 className="text-300 bold text-white">Recent Fixes</h3>
               </div>
               <DashflowDataTable
                 data={mockRecentFixes}
@@ -544,12 +552,12 @@ export function DashboardClient({ userName }: { userName: string }) {
 
         {/* Getting Started Checklist with multiple card padding variants */}
         {stats.sitesCount === 0 && (
-          <div className="card pd-32px---44px">
+          <div className="card pd-32px---44px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
             <div className="flex-horizontal gap-column-16px align-center mg-bottom-24px">
               <div className="card-icon-square _40px">
                 <div className="text-300">🎯</div>
               </div>
-              <h2 className="text-300 bold color-neutral-800">
+              <h2 className="text-300 bold text-white">
                 Getting Started
               </h2>
             </div>
@@ -574,7 +582,7 @@ interface ChecklistItemProps {
 
 function ChecklistItem({ completed, text, icon }: ChecklistItemProps) {
   return (
-    <div className="card pd-16px">
+    <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10">
       <div className="flex-horizontal gap-column-12px align-center">
         <div className="card-icon-square _26px neutral-icon">
           <div className="text-100">{icon}</div>
@@ -582,7 +590,7 @@ function ChecklistItem({ completed, text, icon }: ChecklistItemProps) {
         <div className={`checkbox ${completed ? 'checked' : ''}`}>
           {completed && <span className="text-50">✓</span>}
         </div>
-        <span className={`text-100 medium ${completed ? 'color-neutral-500' : 'color-neutral-800'}`}>
+        <span className={`text-100 medium ${completed ? 'text-gray-500' : 'text-gray-300'}`}>
           {text}
         </span>
       </div>
