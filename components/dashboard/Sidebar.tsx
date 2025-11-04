@@ -49,13 +49,12 @@ export default function Sidebar() {
       )}
 
       {/* Sidebar - Desktop always visible, Mobile slide-in */}
-      <div
+      <aside
         className={`
-          flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen sticky top-0 z-40
-          lg:translate-x-0
-          fixed lg:static
+          flex flex-col w-64 bg-gray-900 border-r border-gray-800 h-screen z-40
+          fixed lg:sticky lg:top-0
           transition-transform duration-300 ease-in-out
-          ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+          ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
         {/* Logo */}
@@ -112,7 +111,7 @@ export default function Sidebar() {
             </div>
           </div>
         </div>
-      </div>
+      </aside>
     </>
   )
 }

@@ -18,12 +18,12 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="header-sidebar-wrapper bg-neutral-200 min-h-screen flex flex-col lg:flex-row">
+    <div className="flex min-h-screen bg-neutral-200">
       {/* Sidebar with Dashflow X classes - Hidden on mobile, visible on desktop */}
       <Sidebar />
 
       {/* Main Content Area - Full width on mobile, adjusted for sidebar on desktop */}
-      <div className="page-wrapper full-page-wrapper flex-1 w-full lg:w-auto lg:ml-64">
+      <div className="flex-1 flex flex-col min-h-screen">
         {/* Header */}
         <DashboardHeader />
 
@@ -35,7 +35,7 @@ export default async function DashboardLayout({
         </main>
 
         {/* Footer - Hide on small mobile */}
-        <div className="hidden sm:block">
+        <div className="hidden sm:block mt-auto">
           <Footer variant="minimal" />
         </div>
       </div>
