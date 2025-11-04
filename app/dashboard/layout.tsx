@@ -4,6 +4,7 @@ import Sidebar from '@/components/dashboard/Sidebar'
 import { DashboardHeader } from '@/components/dashboard/DashboardHeader'
 import { BottomNav } from '@/components/mobile/BottomNav'
 import { Footer } from '@/components/layout/Footer'
+import { db } from '@/lib/db'
 
 export default async function DashboardLayout({
   children,
@@ -15,6 +16,16 @@ export default async function DashboardLayout({
   // Redirect to sign-in if not authenticated
   if (!session.userId) {
     redirect('/sign-in')
+  }
+
+  // Check if user is admin and redirect to admin panel
+  const dbUser = await db.user.findUnique({
+    where: { clerkId: session.userId },
+    select: { role: true },
+  })
+
+  if (dbUser?.role === 'ADMIN') {
+    redirect('/admin')
   }
 
   return (
