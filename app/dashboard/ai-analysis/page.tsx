@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Search, Lightbulb, CheckCircle, AlertCircle, TrendingUp, Code2 } from 'lucide-react'
 
 interface AnalysisResult {
   score: number
@@ -39,15 +40,15 @@ export default function AIAnalysisPage() {
 
     // Simulate AI thinking process
     const thinkingSteps = [
-      '🔍 Fetching webpage content...',
-      '🧠 Analyzing HTML structure with AI...',
-      '📊 Evaluating meta tags and descriptions...',
-      '🔗 Checking internal and external links...',
-      '🖼️ Scanning images for alt text...',
-      '📱 Testing mobile responsiveness...',
-      '⚡ Measuring page speed indicators...',
-      '🎯 Generating SEO recommendations...',
-      '✨ Creating automated fixes...',
+      'Fetching webpage content...',
+      'Analyzing HTML structure with AI...',
+      'Evaluating meta tags and descriptions...',
+      'Checking internal and external links...',
+      'Scanning images for alt text...',
+      'Testing mobile responsiveness...',
+      'Measuring page speed indicators...',
+      'Generating SEO recommendations...',
+      'Creating automated fixes...',
     ]
 
     for (let i = 0; i < thinkingSteps.length; i++) {
@@ -113,313 +114,262 @@ export default function AIAnalysisPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Header */}
-      <div className="text-center">
-        <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
-          ✨ Powered by Advanced AI
-        </div>
-        <h1 className="text-4xl font-bold text-white mb-4">
-          AI-Powered SEO Analysis
-        </h1>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Get instant, intelligent SEO recommendations from our AI. Analyze any webpage
-          and receive actionable fixes in seconds.
-        </p>
-      </div>
-
-      {/* Analysis Input */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
-        <div className="max-w-2xl mx-auto">
-          <label className="block text-white font-semibold mb-3">
-            Enter URL to Analyze
-          </label>
-          <div className="flex items-center space-x-3">
-            <input
-              type="url"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://example.com"
-              className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-lg"
-              disabled={analyzing}
-            />
-            <button
-              onClick={handleAnalyze}
-              disabled={!url || analyzing}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-700 disabled:to-gray-700 text-white px-8 py-4 rounded-lg font-semibold transition-all disabled:cursor-not-allowed flex items-center space-x-2"
-            >
-              {analyzing ? (
-                <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                  <span>Analyzing...</span>
-                </>
-              ) : (
-                <>
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  <span>Analyze</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* AI Thinking Process */}
-      {analyzing && (
-        <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-700 rounded-lg p-6">
-          <div className="flex items-start space-x-4">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
+    <div className="bg-neutral-200 min-h-screen">
+      <div className="container-default w-container">
+        <div className="gap-row-24px">
+          {/* Header */}
+          <div className="rt-component-section gap-row-24px">
+            <div className="flex-horizontal align-center gap-column-16px">
+              <div className="card-icon-square _48px flex-horizontal" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                <Lightbulb className="h-6 w-6 color-neutral-100" />
+              </div>
+              <div style={{ flex: 1 }}>
+                <div className="badge primary mg-bottom-12px">
+                  Powered by Advanced AI
+                </div>
+                <h1 className="display-2 color-neutral-800">
+                  AI-Powered SEO Analysis
+                </h1>
+                <p className="text-200 medium color-neutral-600">
+                  Get instant, intelligent SEO recommendations from our AI. Analyze any webpage and receive actionable fixes in seconds.
+                </p>
               </div>
             </div>
-            <div className="flex-1">
-              <h3 className="text-white font-semibold mb-3 flex items-center">
-                AI is thinking...
-                <span className="ml-2 text-sm text-blue-400">
-                  (This usually takes 3-5 seconds)
-                </span>
-              </h3>
-              <div className="space-y-2">
-                {aiThinking.map((step, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center text-gray-300 animate-fade-in"
-                  >
-                    <svg
-                      className="w-4 h-4 text-green-400 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
+          </div>
+
+          {/* Analysis Input Card */}
+          <div className="card pd-32px---44px">
+            <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
+              <div className="avatar-circle _32px">
+                <Search className="h-4 w-4" />
+              </div>
+              <h2 className="text-300 bold color-neutral-800">Enter URL to Analyze</h2>
+            </div>
+            <div className="flex-horizontal gap-column-12px">
+              <div style={{ flex: 1, position: 'relative' }}>
+                <input
+                  type="url"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  placeholder="https://example.com"
+                  className="input large"
+                  disabled={analyzing}
+                />
+              </div>
+              <button
+                onClick={handleAnalyze}
+                disabled={!url || analyzing}
+                className="btn-primary large"
+              >
+                {analyzing ? (
+                  <>
+                    <span className="btn-icon-left">
+                      <div className="loading-spinner small" />
+                    </span>
+                    Analyzing...
+                  </>
+                ) : (
+                  <>
+                    <Search className="h-5 w-5" style={{ marginRight: '8px' }} />
+                    Analyze
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* AI Thinking Process */}
+          {analyzing && (
+            <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1))', border: '1px solid var(--accent--primary-1)' }}>
+              <div className="flex-horizontal align-start gap-column-16px">
+                <div className="avatar-circle _48px animate-pulse" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                  <Lightbulb className="h-6 w-6 color-neutral-100" />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <h3 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                    AI is analyzing your page...
+                  </h3>
+                  <p className="text-100 medium color-neutral-600 mg-bottom-20px">
+                    This usually takes 3-5 seconds
+                  </p>
+                  <div className="gap-row-12px">
+                    {aiThinking.map((step, idx) => (
+                      <div
+                        key={idx}
+                        className="flex-horizontal align-center gap-column-8px animate-fade-in"
+                      >
+                        <div className="avatar-circle _16px" style={{ backgroundColor: 'var(--system--green-200)' }}>
+                          <CheckCircle className="h-3 w-3" style={{ color: 'var(--system--green-400)' }} />
+                        </div>
+                        <p className="text-100 medium color-neutral-700">{step}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Analysis Results */}
+          {result && !analyzing && (
+            <>
+              {/* SEO Score Card */}
+              <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                <div className="text-center">
+                  <h2 className="text-400 bold color-neutral-100 mg-bottom-32px">SEO Score</h2>
+                  <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                      <circle
+                        cx="100"
+                        cy="100"
+                        r="80"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.2)"
+                        strokeWidth="20"
+                      />
+                      <circle
+                        cx="100"
+                        cy="100"
+                        r="80"
+                        fill="none"
+                        stroke="white"
+                        strokeWidth="20"
+                        strokeDasharray={`${(result.score / 100) * 502} 502`}
                         strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
+                        transform="rotate(-90 100 100)"
+                        style={{ transition: 'all 1s ease' }}
                       />
                     </svg>
-                    {step}
+                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
+                      <div className="text-700 bold color-neutral-100">{result.score}</div>
+                      <div className="text-100 medium color-neutral-200">out of 100</div>
+                    </div>
                   </div>
-                ))}
+                  <div className="flex-horizontal justify-center gap-column-32px mg-top-32px">
+                    <div>
+                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--red-300)' }}>
+                        {result.summary.criticalIssues}
+                      </div>
+                      <div className="text-100 medium color-neutral-200">Critical</div>
+                    </div>
+                    <div>
+                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--yellow-300)' }}>
+                        {result.summary.highIssues}
+                      </div>
+                      <div className="text-100 medium color-neutral-200">High</div>
+                    </div>
+                    <div>
+                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--blue-300)' }}>
+                        {result.summary.mediumIssues}
+                      </div>
+                      <div className="text-100 medium color-neutral-200">Medium</div>
+                    </div>
+                    <div>
+                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--green-300)' }}>
+                        {result.summary.lowIssues}
+                      </div>
+                      <div className="text-100 medium color-neutral-200">Low</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      )}
 
-      {/* Analysis Results */}
-      {result && !analyzing && (
-        <>
-          {/* SEO Score */}
-          <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-white mb-6">SEO Score</h2>
-              <div className="relative inline-block">
-                <svg className="w-48 h-48" viewBox="0 0 200 200">
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="#374151"
-                    strokeWidth="20"
-                  />
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="url(#gradient)"
-                    strokeWidth="20"
-                    strokeDasharray={`${(result.score / 100) * 502} 502`}
-                    strokeLinecap="round"
-                    transform="rotate(-90 100 100)"
-                    className="transition-all duration-1000"
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#A855F7" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-5xl font-bold text-white">{result.score}</div>
-                    <div className="text-gray-400 text-sm">out of 100</div>
+              {/* Issues Found */}
+              <div className="card pd-32px---44px">
+                <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
+                  <div className="avatar-circle _32px">
+                    <AlertCircle className="h-4 w-4" />
                   </div>
+                  <h2 className="text-300 bold color-neutral-800">Issues Found</h2>
                 </div>
-              </div>
-              <div className="mt-6 flex items-center justify-center space-x-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-400">
-                    {result.summary.criticalIssues}
-                  </div>
-                  <div className="text-gray-400 text-sm">Critical</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-400">
-                    {result.summary.highIssues}
-                  </div>
-                  <div className="text-gray-400 text-sm">High</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-yellow-400">
-                    {result.summary.mediumIssues}
-                  </div>
-                  <div className="text-gray-400 text-sm">Medium</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400">
-                    {result.summary.lowIssues}
-                  </div>
-                  <div className="text-gray-400 text-sm">Low</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Issues Found */}
-          <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">Issues Found</h2>
-            <div className="space-y-4">
-              {result.issues.map((issue, idx) => (
-                <AIIssueCard key={idx} issue={issue} />
-              ))}
-            </div>
-          </div>
-
-          {/* AI Recommendations */}
-          <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-blue-700 rounded-lg p-6">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-white font-semibold mb-3">
-                  AI Recommendations
-                </h3>
-                <ul className="space-y-2">
-                  {result.recommendations.map((rec, idx) => (
-                    <li key={idx} className="flex items-start text-blue-200">
-                      <svg
-                        className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                      {rec}
-                    </li>
+                <div className="gap-row-16px">
+                  {result.issues.map((issue, idx) => (
+                    <AIIssueCard key={idx} issue={issue} />
                   ))}
-                </ul>
+                </div>
               </div>
-            </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center justify-center space-x-4">
-            <button
-              onClick={() => {
-                setUrl('')
-                setResult(null)
-              }}
-              className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-            >
-              Analyze Another URL
-            </button>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all">
-              Apply All Fixes Automatically
-            </button>
-          </div>
-        </>
-      )}
+              {/* AI Recommendations */}
+              <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1))', border: '1px solid var(--accent--primary-1)' }}>
+                <div className="flex-horizontal align-start gap-column-16px">
+                  <div className="avatar-circle _48px" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                    <Lightbulb className="h-6 w-6 color-neutral-100" />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h3 className="text-300 bold color-neutral-800 mg-bottom-16px">
+                      AI Recommendations
+                    </h3>
+                    <div className="gap-row-12px">
+                      {result.recommendations.map((rec, idx) => (
+                        <div key={idx} className="flex-horizontal align-start gap-column-8px">
+                          <div className="avatar-circle _16px" style={{ backgroundColor: 'var(--accent--primary-1)', flexShrink: 0, marginTop: '2px' }}>
+                            <TrendingUp className="h-3 w-3 color-neutral-100" />
+                          </div>
+                          <p className="text-200 medium color-neutral-700">{rec}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-      {/* How It Works */}
-      {!result && !analyzing && (
-        <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            How Our AI Analyzes Your SEO
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🔍</span>
+              {/* Action Buttons */}
+              <div className="flex-horizontal justify-center gap-column-16px">
+                <button
+                  onClick={() => {
+                    setUrl('')
+                    setResult(null)
+                  }}
+                  className="btn-secondary large"
+                >
+                  Analyze Another URL
+                </button>
+                <button className="btn-primary large">
+                  Apply All Fixes Automatically
+                </button>
               </div>
-              <h3 className="text-white font-semibold mb-2">Deep Analysis</h3>
-              <p className="text-gray-400 text-sm">
-                Our AI scans your entire page structure, content, meta tags, and technical
-                SEO elements
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🧠</span>
+            </>
+          )}
+
+          {/* How It Works */}
+          {!result && !analyzing && (
+            <div className="card pd-32px---44px">
+              <h2 className="text-400 bold color-neutral-800 mg-bottom-32px text-center">
+                How Our AI Analyzes Your SEO
+              </h2>
+              <div className="grid-3-columns gap-column-24px">
+                <div className="text-center">
+                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                    <Search className="h-8 w-8 color-neutral-100" />
+                  </div>
+                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Deep Analysis</h3>
+                  <p className="text-100 medium color-neutral-600">
+                    Our AI scans your entire page structure, content, meta tags, and technical SEO elements
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--secondary--color-5), var(--accent--primary-2))' }}>
+                    <Lightbulb className="h-8 w-8 color-neutral-100" />
+                  </div>
+                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Smart Recommendations</h3>
+                  <p className="text-100 medium color-neutral-600">
+                    AI understands context and provides intelligent, actionable recommendations tailored to your site
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
+                    <TrendingUp className="h-8 w-8 color-neutral-100" />
+                  </div>
+                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Automatic Fixes</h3>
+                  <p className="text-100 medium color-neutral-600">
+                    Get ready-to-use code snippets and automatic fixes that can be applied with one click
+                  </p>
+                </div>
               </div>
-              <h3 className="text-white font-semibold mb-2">Smart Recommendations</h3>
-              <p className="text-gray-400 text-sm">
-                AI understands context and provides intelligent, actionable recommendations
-                tailored to your site
-              </p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">⚡</span>
-              </div>
-              <h3 className="text-white font-semibold mb-2">Automatic Fixes</h3>
-              <p className="text-gray-400 text-sm">
-                Get ready-to-use code snippets and automatic fixes that can be applied with
-                one click
-              </p>
-            </div>
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }
@@ -437,62 +387,60 @@ function AIIssueCard({
 }) {
   const [showCode, setShowCode] = useState(false)
 
-  const severityColors = {
-    CRITICAL: 'bg-red-900 text-red-200 border-red-700',
-    HIGH: 'bg-orange-900 text-orange-200 border-orange-700',
-    MEDIUM: 'bg-yellow-900 text-yellow-200 border-yellow-700',
-    LOW: 'bg-blue-900 text-blue-200 border-blue-700',
+  const getBadgeClass = (severity: string) => {
+    switch (severity) {
+      case 'CRITICAL':
+        return 'danger'
+      case 'HIGH':
+        return 'warning'
+      case 'MEDIUM':
+        return 'info'
+      case 'LOW':
+        return 'success'
+      default:
+        return 'default'
+    }
   }
 
-  const color = severityColors[issue.severity as keyof typeof severityColors]
-
   return (
-    <div className="bg-gray-800 rounded-lg border border-gray-700 p-6">
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <div className="flex items-center space-x-3 mb-2">
-            <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${color}`}>
+    <div className="card pd-24px">
+      <div className="flex-horizontal align-start space-between mg-bottom-16px">
+        <div style={{ flex: 1 }}>
+          <div className="flex-horizontal align-center gap-column-12px mg-bottom-12px">
+            <span className={`badge ${getBadgeClass(issue.severity)}`}>
               {issue.severity}
             </span>
-            <h3 className="text-white font-semibold text-lg">{issue.title}</h3>
+            <h3 className="text-200 bold color-neutral-800">{issue.title}</h3>
           </div>
-          <p className="text-gray-400 mb-3">{issue.description}</p>
+          <p className="text-100 medium color-neutral-700 mg-bottom-12px">{issue.description}</p>
         </div>
       </div>
 
-      <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-4 mb-4">
-        <div className="flex items-start">
-          <svg
-            className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0 mt-0.5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-          </svg>
-          <div className="flex-1">
-            <p className="text-sm font-semibold text-blue-200 mb-1">AI Recommendation:</p>
-            <p className="text-sm text-blue-300">{issue.recommendation}</p>
+      <div className="card pd-16px" style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', border: '1px solid var(--accent--primary-1)' }}>
+        <div className="flex-horizontal align-start gap-column-12px">
+          <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--accent--primary-1)', flexShrink: 0 }}>
+            <Lightbulb className="h-4 w-4 color-neutral-100" />
+          </div>
+          <div style={{ flex: 1 }}>
+            <p className="text-100 bold color-neutral-800 mg-bottom-4px">AI Recommendation:</p>
+            <p className="text-100 medium color-neutral-700">{issue.recommendation}</p>
           </div>
         </div>
       </div>
 
       {issue.fixCode && (
-        <div>
+        <div className="mg-top-16px">
           <button
             onClick={() => setShowCode(!showCode)}
-            className="text-purple-400 hover:text-purple-300 text-sm font-medium flex items-center mb-2"
+            className="btn-text small"
+            style={{ color: 'var(--accent--primary-1)' }}
           >
-            {showCode ? '▼' : '▶'} View Generated Fix Code
+            <Code2 className="h-4 w-4" style={{ marginRight: '8px' }} />
+            {showCode ? 'Hide' : 'View'} Generated Fix Code
           </button>
           {showCode && (
-            <pre className="bg-gray-950 border border-gray-700 rounded p-4 text-sm text-green-400 overflow-x-auto">
-              {issue.fixCode}
+            <pre className="card pd-16px mg-top-12px" style={{ backgroundColor: 'var(--neutral--100)', overflow: 'auto' }}>
+              <code className="text-100 medium" style={{ color: 'var(--system--green-400)' }}>{issue.fixCode}</code>
             </pre>
           )}
         </div>

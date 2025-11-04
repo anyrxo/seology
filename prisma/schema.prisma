@@ -614,3 +614,56 @@ enum PlanStatus {
   COMPLETED
   FAILED
 }
+
+// Broadcast Messages (Admin feature)
+model Broadcast {
+  id String @id @default(uuid())
+
+  // Message content
+  type String // 'INFO', 'SUCCESS', 'WARNING', 'ERROR'
+  title String
+  message String
+  richMessage String? // HTML content from rich editor
+  actionUrl String? // Optional CTA link
+  actionText String? // CTA button text
+
+  // Targeting
+  targetAudience String @default("all") // 'all', 'plan', 'role', 'custom'
+  targetPlans String @default("[]") // JSON array of plan names
+  targetRoles String @default("[]") // JSON array of roles
+  targetUserIds String @default("[]") // JSON array of specific user IDs
+
+  // Scheduling
+  scheduledFor DateTime?
+  sendImmediately Boolean @default(true)
+
+  // Delivery tracking
+  status BroadcastStatus @default(DRAFT)
+  sentAt DateTime?
+  recipientCount Int @default(0)
+  deliveredCount Int @default(0)
+  openedCount Int @default(0)
+  clickedCount Int @default(0)
+
+  // Template
+  isTemplate Boolean @default(false)
+  templateName String?
+
+  // Metadata
+  createdBy String // Admin user ID
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([scheduledFor])
+}
+
+enum BroadcastStatus {
+  DRAFT
+  SCHEDULED
+  SENDING
+  SENT
+  FAILED
+  CANCELLED
+}
