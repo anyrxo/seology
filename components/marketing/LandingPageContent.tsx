@@ -18,6 +18,7 @@ import {
   Award,
   Code,
   Briefcase,
+  X,
   Star,
   HelpCircle,
 } from 'lucide-react'
@@ -26,23 +27,23 @@ export default function LandingPageContent() {
   return (
     <div className="bg-white">
       {/* Hero Section - Centered & Professional */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 via-white to-white">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-600 text-sm font-semibold mb-8 shadow-sm">
             <Sparkles className="w-4 h-4" />
             <span>Powered by Advanced AI</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-tight mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
             Stop Reporting SEO Issues.
             <br />
             <span className="text-blue-600">Start Fixing</span> Them Automatically.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-neutral-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
             The world's first AI-powered platform that doesn't just find SEO
             problems—it logs into your CMS and fixes them. Automatically.
           </p>
@@ -51,119 +52,123 @@ export default function LandingPageContent() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Link
               href="/sign-up"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-lg"
             >
               <span>Start Fixing Issues Free</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="#how-it-works"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-700 rounded-lg font-semibold border-2 border-neutral-200 hover:border-neutral-300 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-700 rounded-lg font-semibold border-2 border-gray-200 hover:border-gray-300 hover:shadow-md transition-all duration-300 text-lg"
             >
               Watch How It Works
             </Link>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-600 mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600 mb-16">
             <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-blue-600" />
-              <span>14-day free trial</span>
+              <Check className="w-5 h-5 text-green-600" />
+              <span className="font-medium">14-day free trial</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-blue-600" />
-              <span>No credit card required</span>
+              <Check className="w-5 h-5 text-green-600" />
+              <span className="font-medium">No credit card required</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-blue-600" />
-              <span>Cancel anytime</span>
+              <Check className="w-5 h-5 text-green-600" />
+              <span className="font-medium">Cancel anytime</span>
             </div>
           </div>
 
           {/* Social Proof Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-2">10,000+</div>
-              <div className="text-sm font-medium text-neutral-600">Fixes Applied</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="text-5xl font-bold text-blue-600 mb-3">10,000+</div>
+              <div className="text-base font-semibold text-gray-600">Fixes Applied</div>
             </div>
-            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-              <div className="text-sm font-medium text-neutral-600">Active Sites</div>
+            <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="text-5xl font-bold text-blue-600 mb-3">500+</div>
+              <div className="text-base font-semibold text-gray-600">Active Sites</div>
             </div>
-            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
-              <div className="text-sm font-medium text-neutral-600">Uptime</div>
+            <div className="bg-white border border-gray-200 rounded-xl p-8 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div className="text-5xl font-bold text-blue-600 mb-3">99.9%</div>
+              <div className="text-base font-semibold text-gray-600">Uptime</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* The Problem Section - Centered & Professional */}
-      <section className="py-20 px-4 bg-neutral-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           {/* Section Title */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Every SEO Tool Tells You What's Wrong
             </h2>
-            <p className="text-xl text-neutral-600">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Nobody actually fixes it.
             </p>
           </div>
 
           {/* Comparison Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Traditional SEO Tools */}
-            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="mb-6">
-                <BarChart3 className="w-14 h-14 text-neutral-400" />
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <BarChart3 className="w-10 h-10 text-gray-400" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-neutral-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Traditional SEO Tools
               </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Generate reports</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Identify issues</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Send alerts</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-700 font-semibold">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>You fix everything manually</span>
                 </li>
               </ul>
             </div>
 
             {/* Manual Fixing */}
-            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+            <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="mb-6">
-                <Target className="w-14 h-14 text-neutral-400" />
+                <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center">
+                  <Target className="w-10 h-10 text-gray-400" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-neutral-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Manual Fixing
               </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Hours of work</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Human errors</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Inconsistent execution</span>
                 </li>
-                <li className="flex items-start gap-2 text-neutral-600">
-                  <span className="text-neutral-400 mt-1">•</span>
+                <li className="flex items-start gap-3 text-gray-600">
+                  <X className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
                   <span>Expensive developers</span>
                 </li>
               </ul>

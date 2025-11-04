@@ -2,38 +2,71 @@
 
 /**
  * Onboarding Step 1: Welcome
+ * Enhanced with better animations, icons, and user engagement
  */
 
 import { motion } from 'framer-motion'
+import { Target, Sparkles, Zap, Clock, type LucideIcon } from 'lucide-react'
 
 interface WelcomeStepProps {
   userName?: string | null | undefined
   onNext: () => void
 }
 
-const benefits = [
+interface Benefit {
+  icon: LucideIcon
+  iconColor: string
+  bgColor: string
+  title: string
+  description: string
+}
+
+interface SetupStep {
+  text: string
+  detail: string
+}
+
+const benefits: Benefit[] = [
   {
-    icon: '🎯',
+    icon: Target,
+    iconColor: 'text-blue-400',
+    bgColor: 'from-blue-500/20 to-blue-600/10',
     title: 'Automated Fixes',
-    description: 'We don\'t just report - we actually fix SEO issues'
+    description: 'We don\'t just report - we actually fix SEO issues automatically'
   },
   {
-    icon: '🤖',
+    icon: Sparkles,
+    iconColor: 'text-purple-400',
+    bgColor: 'from-purple-500/20 to-purple-600/10',
     title: 'Advanced AI Technology',
-    description: 'State-of-the-art AI analyzes and optimizes your content'
+    description: 'State-of-the-art Claude AI analyzes and optimizes your content'
   },
   {
-    icon: '⚡',
+    icon: Zap,
+    iconColor: 'text-yellow-400',
+    bgColor: 'from-yellow-500/20 to-yellow-600/10',
     title: 'Real-Time Results',
-    description: 'See improvements in your SEO within minutes'
+    description: 'See improvements in your SEO performance within minutes'
   }
 ]
 
-const setupSteps = [
-  'Connect your first website (Shopify, WordPress, or any site)',
-  'Let our AI scan and analyze your SEO',
-  'Choose how you want fixes applied (automatic or manual approval)',
-  'Watch your first SEO issue get fixed automatically'
+const setupSteps: SetupStep[] = [
+  {
+    text: 'Connect your first website',
+    detail: 'Shopify, WordPress, or any site via Magic.js'
+  },
+  {
+    text: 'Let our AI scan and analyze',
+    detail: 'Advanced Claude AI detects SEO issues'
+  },
+  {
+    text: 'Choose your execution mode',
+    detail: 'Automatic, plan-based, or manual approval'
+  },
+  {
+    text: 'Watch your first fix in action',
+    detail: 'See SEO improvements applied instantly'
+  }
 ]
 
 export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
@@ -88,19 +121,24 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
         transition={{ delay: 0.4 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"
       >
-        {benefits.map((benefit, index) => (
-          <motion.div
-            key={benefit.title}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 + index * 0.1 }}
-            className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-5 border border-gray-700 hover:border-blue-500 transition-colors"
-          >
-            <div className="text-4xl mb-3">{benefit.icon}</div>
-            <h3 className="text-white font-semibold mb-2 text-sm">{benefit.title}</h3>
-            <p className="text-gray-400 text-xs leading-relaxed">{benefit.description}</p>
-          </motion.div>
-        ))}
+        {benefits.map((benefit, index) => {
+          const IconComponent = benefit.icon
+          return (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+              className={`bg-gradient-to-br ${benefit.bgColor} rounded-lg p-5 border border-gray-700 hover:border-blue-500 transition-all hover:scale-105 cursor-default`}
+            >
+              <div className={`${benefit.iconColor} mb-3 flex justify-center`}>
+                <IconComponent size={40} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-white font-semibold mb-2 text-sm">{benefit.title}</h3>
+              <p className="text-gray-400 text-xs leading-relaxed">{benefit.description}</p>
+            </motion.div>
+          )
+        })}
       </motion.div>
 
       {/* Setup Steps */}
@@ -125,7 +163,10 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
               <span className="text-blue-500 font-bold mr-3 flex-shrink-0 w-6">
                 {index + 1}.
               </span>
-              <span className="text-sm md:text-base">{step}</span>
+              <div className="flex-1">
+                <span className="text-sm md:text-base block font-medium text-white">{step.text}</span>
+                <span className="text-xs text-gray-500">{step.detail}</span>
+              </div>
             </motion.li>
           ))}
         </ul>
@@ -153,9 +194,7 @@ export function WelcomeStep({ userName, onNext }: WelcomeStepProps) {
         transition={{ delay: 1.4 }}
         className="text-sm text-gray-500 mt-6 flex items-center justify-center gap-2"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+        <Clock className="w-4 h-4" />
         Takes about 5 minutes
       </motion.p>
     </motion.div>

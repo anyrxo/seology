@@ -6,7 +6,11 @@
       "Bash(powershell -Command:*)",
       "Bash(git add:*)",
       "Bash(git push:*)",
-      "Bash(del \"c:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\components\\dashboard\\DashboardLayout.tsx\")"
+      "Bash(del \"c:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\components\\dashboard\\DashboardLayout.tsx\")",
+      "Bash(git commit:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)"
     ],
     "deny": [],
     "ask": []

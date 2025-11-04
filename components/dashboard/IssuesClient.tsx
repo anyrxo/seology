@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { AlertTriangle, ArrowUpRight, CheckCircle2, Search } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { staggerContainer, staggerItem, fadeInUp } from '@/lib/animations'
 
 interface Issue {
   id: string
@@ -58,32 +60,45 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
         </div>
 
         {/* Stats Grid */}
-        <div className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px">
-          <StatCard
-            title="Total Issues"
-            value={stats.totalIssues}
-            icon="🔍"
-            colorClass="color-accent-1"
-          />
-          <StatCard
-            title="Critical"
-            value={stats.criticalIssues}
-            icon="🚨"
-            colorClass="color-neutral-800"
-          />
-          <StatCard
-            title="High Priority"
-            value={stats.highIssues}
-            icon="⚠️"
-            colorClass="color-neutral-800"
-          />
-          <StatCard
-            title="Medium Priority"
-            value={stats.mediumIssues}
-            icon="📊"
-            colorClass="color-neutral-800"
-          />
-        </div>
+        <motion.div
+          className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={staggerItem}>
+            <StatCard
+              title="Total Issues"
+              value={stats.totalIssues}
+              icon="🔍"
+              colorClass="color-accent-1"
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <StatCard
+              title="Critical"
+              value={stats.criticalIssues}
+              icon="🚨"
+              colorClass="color-neutral-800"
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <StatCard
+              title="High Priority"
+              value={stats.highIssues}
+              icon="⚠️"
+              colorClass="color-neutral-800"
+            />
+          </motion.div>
+          <motion.div variants={staggerItem}>
+            <StatCard
+              title="Medium Priority"
+              value={stats.mediumIssues}
+              icon="📊"
+              colorClass="color-neutral-800"
+            />
+          </motion.div>
+        </motion.div>
 
         {/* Issues List */}
         <div className="card pd-32px---24px">
@@ -113,11 +128,18 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
               </Link>
             </div>
           ) : (
-            <div className="grid-1-column gap-row-12px">
+            <motion.div
+              className="grid-1-column gap-row-12px"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
               {issues.map((issue) => (
-                <IssueRow key={issue.id} issue={issue} />
+                <motion.div key={issue.id} variants={staggerItem}>
+                  <IssueRow issue={issue} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
         </div>
 

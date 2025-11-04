@@ -16,10 +16,10 @@ import {
   AlertCircle,
   X,
 } from 'lucide-react'
-import { GlassCard } from '@/components/ui/glass-card'
+import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { cn } from '@/lib/utils'
+import { GlassCard } from '@/components/ui/glass-card'
 
 interface Message {
   id: string

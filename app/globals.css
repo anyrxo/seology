@@ -1084,3 +1084,114 @@
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* ===========================
+   ACCESSIBILITY - REDUCED MOTION SUPPORT
+   Respects user's motion preferences
+   =========================== */
+
+/**
+ * Reduce or disable animations for users who prefer reduced motion
+ * This respects the prefers-reduced-motion media query
+ * Learn more: https://web.dev/prefers-reduced-motion/
+ */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable Framer Motion animations */
+  [data-framer-motion] {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Disable skeleton shimmer animations */
+  .animate-shimmer,
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce,
+  .animate-ping {
+    animation: none !important;
+  }
+
+  /* Keep essential opacity transitions for visibility */
+  .transition-opacity {
+    transition-duration: 0.15s !important;
+  }
+}
+
+/**
+ * Performance optimizations for animations
+ * Use GPU acceleration and prevent layout thrashing
+ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Enable smooth scrolling for normal motion preference */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Optimize transforms for GPU acceleration */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* Remove will-change after animation completes (via JS) */
+  .animation-complete {
+    will-change: auto;
+  }
+}
+
+/**
+ * Animation performance utilities
+ * Force hardware acceleration for smoother animations
+ */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/**
+ * Focus visible styles for keyboard navigation
+ * Ensures accessibility while maintaining design
+ */
+:focus-visible {
+  outline: 2px solid var(--accent--primary-1);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/**
+ * Keyframes for reduced motion fallbacks
+ */
+@keyframes fade-in-reduced {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Simple fade-in for essential animations */
+  .animate-on-scroll {
+    animation: fade-in-reduced 0.2s ease-in;
+  }
+}

@@ -1,9 +1,9 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import { isAdmin } from '@/lib/middleware/admin-guard'
-import JobsMonitoringClient from '@/components/admin/JobsMonitoringClient'
+import IssuesManagementClient from '@/components/admin/IssuesManagementClient'
 
-export default async function AdminJobsPage() {
+export default async function AdminIssuesPage() {
   const session = await auth()
 
   if (!session?.userId) {
@@ -15,5 +15,5 @@ export default async function AdminJobsPage() {
     redirect('/dashboard')
   }
 
-  return <JobsMonitoringClient />
+  return <IssuesManagementClient />
 }

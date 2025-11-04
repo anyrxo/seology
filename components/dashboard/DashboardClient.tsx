@@ -214,9 +214,41 @@ export function DashboardClient({ userName }: { userName: string }) {
         </div>
 
         {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px">
+        <motion.div
+          className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.1
+              }
+            }
+          }}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Sites Connected Card */}
-          <div className="card pd-24px">
+          <motion.div
+            className="card pd-24px"
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.95 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.4, 0, 0.2, 1]
+                }
+              }
+            }}
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.2 }
+            }}
+          >
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">🌐</div>
@@ -231,10 +263,28 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="display-2 color-neutral-800">{stats.sitesCount}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Issues Detected Card */}
-          <div className="card pd-24px---18px">
+          <motion.div
+            className="card pd-24px---18px"
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.95 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.4, 0, 0.2, 1]
+                }
+              }
+            }}
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.2 }
+            }}
+          >
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">🔍</div>
@@ -251,10 +301,28 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="display-2 color-neutral-800">{stats.activeIssuesCount}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Fixes Applied Card */}
-          <div className="card pd-22px---18px">
+          <motion.div
+            className="card pd-22px---18px"
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.95 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.4, 0, 0.2, 1]
+                }
+              }
+            }}
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.2 }
+            }}
+          >
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">✅</div>
@@ -269,10 +337,28 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="display-2 color-neutral-800">{stats.fixesThisMonth}</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Usage Card */}
-          <div className="card pd-16px">
+          <motion.div
+            className="card pd-16px"
+            variants={{
+              hidden: { opacity: 0, y: 20, scale: 0.95 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  duration: 0.4,
+                  ease: [0.4, 0, 0.2, 1]
+                }
+              }
+            }}
+            whileHover={{
+              y: -4,
+              transition: { duration: 0.2 }
+            }}
+          >
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">📊</div>
@@ -289,8 +375,8 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <div className="display-2 color-neutral-800">{stats.usagePercent}%</div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Usage Progress Bar with card-icon-square */}
         {stats.usagePercent > 0 && (
@@ -403,7 +489,7 @@ export function DashboardClient({ userName }: { userName: string }) {
               <h2 className="text-400 bold color-neutral-800">Recent Activity</h2>
             </div>
             <Link href="/dashboard/sites" className="rt-nav-text text-100 medium color-accent-1 hover-neutral-800">
-              View All →
+              View All <ArrowRight className="inline w-4 h-4" />
             </Link>
           </div>
           <ActivityTimeline
