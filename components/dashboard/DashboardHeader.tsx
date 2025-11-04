@@ -52,11 +52,11 @@ export function DashboardHeader() {
   return (
     <>
       {/* Dashflow X Header - Exact template structure */}
-      <header className="header-wrapper sticky top-0 z-50">
+      <header className="header-wrapper">
         <div className="container-default w-container">
           <div className="header-content-wrapper">
             {/* Left: Breadcrumbs / Page Title */}
-            <div className="flex items-center gap-3 flex-1 min-w-0">
+            <div className="flex-1 min-w-0">
               {/* Desktop: Show breadcrumbs */}
               <div className="hidden md:block">
                 <Breadcrumbs items={breadcrumbItems} />
@@ -71,7 +71,7 @@ export function DashboardHeader() {
             </div>
 
             {/* Right: Header Actions - Dashflow X Style */}
-            <div className="header-right-side-container">
+            <div className="header-right-side-container flex items-center gap-12px">
               {/* Command Palette Trigger - Desktop only */}
               <button
                 onClick={() => setCommandPaletteOpen(true)}
@@ -80,18 +80,9 @@ export function DashboardHeader() {
               >
                 <Command className="h-4 w-4" />
                 <span className="hidden xl:inline text-100 medium">Quick actions</span>
-                <kbd className="card pd-8px text-50 medium color-neutral-600 rounded">
+                <kbd className="card pd-6px text-50 medium color-neutral-600 rounded ml-8px">
                   ⌘K
                 </kbd>
-              </button>
-
-              {/* Search Icon - Tablet and mobile */}
-              <button
-                className="lg:hidden card-icon-square _40px neutral-icon"
-                aria-label="Search"
-                title="Search"
-              >
-                <Search className="h-5 w-5" />
               </button>
 
               {/* Desktop Search Bar - Hidden on tablet/mobile */}
@@ -99,9 +90,18 @@ export function DashboardHeader() {
                 <GlobalSearch />
               </div>
 
+              {/* Search Icon - Tablet and mobile */}
+              <button
+                className="lg:hidden card-icon-square _40px neutral-icon flex items-center justify-center"
+                aria-label="Search"
+                title="Search"
+              >
+                <Search className="h-5 w-5" />
+              </button>
+
               {/* Settings Icon */}
               <button
-                className="card-icon-square _40px neutral-icon hidden xl:flex"
+                className="card-icon-square _40px neutral-icon hidden xl:flex items-center justify-center"
                 aria-label="Settings"
                 title="Settings"
               >
@@ -109,13 +109,13 @@ export function DashboardHeader() {
               </button>
 
               {/* Theme Toggle */}
-              <div className="card-icon-square _40px neutral-icon">
+              <div className="card-icon-square _40px neutral-icon flex items-center justify-center">
                 <ThemeToggle />
               </div>
 
               {/* Notifications */}
               <div className="position-relative">
-                <div className="card-icon-square _40px neutral-icon">
+                <div className="card-icon-square _40px neutral-icon flex items-center justify-center">
                   <NotificationDropdown />
                 </div>
               </div>

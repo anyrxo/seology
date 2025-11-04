@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import { Search } from 'lucide-react'
-import { Input } from '@/components/ui/input'
 
 export function GlobalSearch() {
   const [query, setQuery] = React.useState('')
@@ -16,14 +15,17 @@ export function GlobalSearch() {
   }
 
   return (
-    <form onSubmit={handleSearch} className="relative">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-      <Input
+    <form onSubmit={handleSearch} className="position-relative">
+      <div className="position-absolute" style={{ left: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
+        <Search className="h-4 w-4 color-neutral-600" />
+      </div>
+      <input
         type="search"
         placeholder="Search sites, issues, fixes..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="w-64 pl-10"
+        className="input-field small w-input"
+        style={{ paddingLeft: '40px', minWidth: '280px' }}
       />
     </form>
   )

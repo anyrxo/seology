@@ -147,6 +147,41 @@
   column-gap: 16px;
 }
 
+/* Flexbox Gap Utilities (for non-grid flexbox layouts) */
+.gap-8px {
+  gap: 8px;
+}
+
+.gap-12px {
+  gap: 12px;
+}
+
+.gap-16px {
+  gap: 16px;
+}
+
+/* Margin Utilities */
+.ml-8px {
+  margin-left: 8px;
+}
+
+.ml-12px {
+  margin-left: 12px;
+}
+
+/* Padding Utilities */
+.pd-6px {
+  padding: 6px;
+}
+
+.pd-8px {
+  padding: 8px;
+}
+
+.pd-12px {
+  padding: 12px;
+}
+
 /* Margin Utilities */
 .mg-bottom-8px {
   margin-bottom: 8px;
