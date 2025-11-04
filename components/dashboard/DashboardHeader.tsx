@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { usePathname } from 'next/navigation'
-import { Command, Bell } from 'lucide-react'
+import { Command, Bell, Search, Settings } from 'lucide-react'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { GlobalSearch } from './GlobalSearch'
 import { NotificationDropdown } from './NotificationDropdown'
@@ -11,6 +11,19 @@ import { CommandPalette } from './CommandPalette'
 import NotificationCenter from '@/components/notifications/NotificationCenter'
 import { ThemeToggle } from '@/components/theme/ThemeToggle'
 
+/**
+ * DashboardHeader Component
+ * Based on Dashflow X Webflow template header structure
+ * Features:
+ * - Sticky header with backdrop blur
+ * - Dynamic breadcrumbs
+ * - Global search
+ * - Command palette (⌘K)
+ * - Notifications dropdown
+ * - User menu with avatar
+ * - Theme toggle
+ * - Responsive mobile layout
+ */
 export function DashboardHeader() {
   const pathname = usePathname()
   const [commandPaletteOpen, setCommandPaletteOpen] = React.useState(false)
@@ -19,7 +32,7 @@ export function DashboardHeader() {
   const breadcrumbItems = React.useMemo(() => {
     const paths = pathname.split('/').filter(Boolean)
     return paths.map((path, index) => ({
-      label: path.charAt(0).toUpperCase() + path.slice(1),
+      label: path.charAt(0).toUpperCase() + path.slice(1).replace(/-/g, ' '),
       href: '/' + paths.slice(0, index + 1).join('/'),
     }))
   }, [pathname])
@@ -38,69 +51,83 @@ export function DashboardHeader() {
 
   return (
     <>
-      {/* Dashflow X + Radiant UI Header */}
-      <header className="sticky top-0 z-30 border-b border-gray-800 bg-gray-950/95 backdrop-blur-sm">
-        <div className="w-layout-blockcontainer rt-nav-one-container w-container">
-          <div className="w-layout-hflex rt-nav-one-wrap align-center" style={{ minHeight: '64px' }}>
-            {/* Left: Breadcrumbs - Hidden on mobile, show page title instead */}
-            <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0 ml-14 lg:ml-0">
-              <div className="hidden sm:block">
+      {/* Dashflow X Header - Exact template structure */}
+      <header className="header-wrapper sticky top-0 z-50">
+        <div className="container-default w-container">
+          <div className="header-content-wrapper">
+            {/* Left: Breadcrumbs / Page Title */}
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              {/* Desktop: Show breadcrumbs */}
+              <div className="hidden md:block">
                 <Breadcrumbs items={breadcrumbItems} />
               </div>
-              <div className="sm:hidden">
-                <h1 className="text-base font-semibold text-white truncate">
+
+              {/* Mobile: Show current page title */}
+              <div className="md:hidden">
+                <h1 className="text-200 medium color-neutral-800 truncate">
                   {breadcrumbItems[breadcrumbItems.length - 1]?.label || 'Dashboard'}
                 </h1>
               </div>
             </div>
 
-            {/* Right: Actions with Radiant UI styling */}
-            <div className="w-layout-hflex align-center" style={{ gap: '16px' }}>
+            {/* Right: Header Actions - Dashflow X Style */}
+            <div className="header-right-side-container">
               {/* Command Palette Trigger - Desktop only */}
               <button
                 onClick={() => setCommandPaletteOpen(true)}
-                className="hidden xl:flex btn-secondary items-center"
-                style={{ gap: '8px' }}
+                className="hidden lg:flex btn-secondary small items-center gap-8px"
+                title="Quick actions (⌘K)"
               >
-                <div className="rt-icon-box">
-                  <Command className="h-4 w-4" />
-                </div>
-                <span className="hidden 2xl:inline rt-button-font">Quick actions</span>
-                <kbd className="rounded bg-gray-800 px-2 py-0.5 text-xs rt-button-font">
+                <Command className="h-4 w-4" />
+                <span className="hidden xl:inline text-100 medium">Quick actions</span>
+                <kbd className="card pd-8px text-50 medium color-neutral-600 rounded">
                   ⌘K
                 </kbd>
               </button>
 
-              {/* Search - Hidden on small mobile */}
-              <div className="hidden sm:block">
+              {/* Search Icon - Tablet and mobile */}
+              <button
+                className="lg:hidden card-icon-square _40px neutral-icon"
+                aria-label="Search"
+                title="Search"
+              >
+                <Search className="h-5 w-5" />
+              </button>
+
+              {/* Desktop Search Bar - Hidden on tablet/mobile */}
+              <div className="hidden lg:block">
                 <GlobalSearch />
               </div>
 
-              {/* Theme Toggle with Radiant UI styling */}
-              <div className="rt-icon-box">
+              {/* Settings Icon */}
+              <button
+                className="card-icon-square _40px neutral-icon hidden xl:flex"
+                aria-label="Settings"
+                title="Settings"
+              >
+                <Settings className="h-5 w-5" />
+              </button>
+
+              {/* Theme Toggle */}
+              <div className="card-icon-square _40px neutral-icon">
                 <ThemeToggle />
               </div>
 
-              {/* Notifications - Show on mobile (lg shows in sidebar) */}
-              <div className="lg:hidden">
-                <div className="rt-icon-box">
-                  <NotificationCenter />
-                </div>
-              </div>
-              <div className="hidden lg:block">
-                <div className="rt-icon-box">
+              {/* Notifications */}
+              <div className="position-relative">
+                <div className="card-icon-square _40px neutral-icon">
                   <NotificationDropdown />
                 </div>
               </div>
 
-              {/* User Menu */}
+              {/* User Menu with Avatar */}
               <UserMenu />
             </div>
           </div>
         </div>
       </header>
 
-      {/* Command Palette */}
+      {/* Command Palette Modal */}
       <CommandPalette
         isOpen={commandPaletteOpen}
         onClose={() => setCommandPaletteOpen(false)}

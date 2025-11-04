@@ -11,6 +11,58 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Dashflow X & Radiant UI Color System
+        neutral: {
+          100: 'var(--neutral--100)',
+          200: 'var(--neutral--200)',
+          300: 'var(--neutral--300)',
+          400: 'var(--neutral--400)',
+          500: 'var(--neutral--500)',
+          600: 'var(--neutral--600)',
+          700: 'var(--neutral--700)',
+          800: 'var(--neutral--800)',
+        },
+        accent: {
+          primary: 'var(--accent--primary-1)',
+        },
+        secondary: {
+          1: 'var(--secondary--color-1)',
+          2: 'var(--secondary--color-2)',
+          3: 'var(--secondary--color-3)',
+          4: 'var(--secondary--color-4)',
+          5: 'var(--secondary--color-5)',
+        },
+        system: {
+          green: {
+            100: 'var(--system--green-100)',
+            200: 'var(--system--green-200)',
+            300: 'var(--system--green-300)',
+            400: 'var(--system--green-400)',
+          },
+          red: {
+            100: 'var(--system--red-100)',
+            200: 'var(--system--red-200)',
+            300: 'var(--system--300)',
+            400: 'var(--system--red-400)',
+          },
+          blue: {
+            100: 'var(--system--blue-100)',
+            200: 'var(--system--blue-200)',
+            300: 'var(--system--blue-300)',
+            400: 'var(--system--blue-400)',
+          },
+          orange: {
+            100: 'var(--system--orange-100)',
+            200: 'var(--system--orange-200)',
+            300: 'var(--system--orange-300)',
+            400: 'var(--system--orange-400)',
+          },
+        },
+        radiant: {
+          white: 'var(--radiant-ui-components-library-marketplace--color--white)',
+          body: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
+          heading: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)',
+        },
       },
       // Enhanced responsive breakpoints
       // Mobile-first approach matching Dashflow X:

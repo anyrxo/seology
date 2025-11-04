@@ -256,11 +256,13 @@ export const toastSlideIn: Variants = {
 
 /**
  * Card hover effects (for use with whileHover)
+ * Based on Webflow Dashflow X template patterns
  */
 export const cardHover = {
   y: -4,
+  boxShadow: '0 8px 24px 0 rgba(20, 20, 43, 0.15)',
   transition: {
-    duration: 0.2,
+    duration: 0.3,
     ease: [0.4, 0, 0.2, 1] as const
   }
 }
@@ -273,12 +275,63 @@ export const cardHoverScale = {
   }
 }
 
+export const cardHoverLift = {
+  y: -4,
+  scale: 1.01,
+  boxShadow: '0 8px 24px 0 rgba(20, 20, 43, 0.15)',
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
+}
+
+/**
+ * Button animations (based on Webflow .btn-primary and .btn-secondary)
+ */
+export const buttonPrimaryHover = {
+  scale: 1.02,
+  boxShadow: '0 2px 16px 1px rgba(74, 58, 255, 0.3)',
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
+}
+
+export const buttonSecondaryHover = {
+  scale: 1.02,
+  boxShadow: '0 2px 6px 0 rgba(20, 20, 43, 0.1)',
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
+}
+
 /**
  * Button tap effect (for use with whileTap)
  */
 export const buttonTap = {
-  scale: 0.97,
+  scale: 0.98,
   transition: { duration: 0.1 }
+}
+
+/**
+ * Icon animations (based on Webflow icon hover patterns)
+ */
+export const iconHover = {
+  scale: 1.1,
+  color: 'var(--accent--primary-1)',
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
+}
+
+export const iconScaleHover = {
+  scale: 1.04,
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
 }
 
 /**
@@ -289,6 +342,29 @@ export const rotateIcon: Variants = {
   animate: {
     rotate: 180,
     transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+  }
+}
+
+/**
+ * Sidebar link animations (based on Webflow .sidebar-link patterns)
+ */
+export const sidebarLinkHover = {
+  backgroundColor: 'var(--neutral--100)',
+  borderColor: 'var(--neutral--300)',
+  scale: 1.01,
+  transition: {
+    duration: 0.3,
+    ease: [0.4, 0, 0.2, 1] as const
+  }
+}
+
+export const sidebarLinkActive = {
+  backgroundColor: 'var(--secondary--color-3)',
+  color: 'var(--neutral--100)',
+  scale: 1.06,
+  transition: {
+    duration: 0.3,
+    ease: [0.68, -0.55, 0.265, 1.55] as const // Bounce effect
   }
 }
 
@@ -563,4 +639,91 @@ export const repeatViewport = {
   once: false,
   margin: '0px',
   amount: 0.5 as const
+}
+
+/**
+ * CSS Animation Class Names
+ * Use these for className when Framer Motion is not available
+ * Based on Webflow Dashflow X template patterns
+ */
+export const animationClasses = {
+  // Base transitions
+  transition: 'transition-all duration-300 ease-in-out',
+  transitionFast: 'transition-all duration-150 ease-in-out',
+  transitionSlow: 'transition-all duration-500 ease-in-out',
+  transitionTransform: 'transition-transform duration-300 ease-in-out',
+  transitionColors: 'transition-colors duration-300 ease-in-out',
+  transitionOpacity: 'transition-opacity duration-300 ease-in-out',
+  transitionShadow: 'transition-shadow duration-300 ease-in-out',
+
+  // Button animations (Webflow .btn-primary/.btn-secondary patterns)
+  buttonHover: 'transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]',
+  buttonPrimaryHover: 'transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_2px_16px_1px_rgba(74,58,255,0.3)] active:scale-[0.98]',
+  buttonSecondaryHover: 'transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_2px_6px_0_rgba(20,20,43,0.1)] active:scale-[0.98]',
+
+  // Card animations (Webflow card hover patterns)
+  cardHover: 'transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_0_rgba(20,20,43,0.15)]',
+  cardHoverScale: 'transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_8px_24px_0_rgba(20,20,43,0.15)]',
+  cardHoverLift: 'transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_8px_24px_0_rgba(20,20,43,0.15)]',
+  cardClickable: 'cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_0_rgba(20,20,43,0.15)] active:-translate-y-0.5 active:scale-[0.99]',
+
+  // Icon animations
+  iconHover: 'transition-all duration-300 hover:scale-110 hover:text-blue-500',
+  iconScale: 'transition-transform duration-300 hover:scale-[1.04]',
+  iconRotate: 'transition-transform duration-300 hover:rotate-180',
+  iconBounce: 'transition-all duration-300 hover:scale-110 hover:-translate-y-0.5',
+
+  // Sidebar link animations (Webflow .sidebar-link patterns)
+  sidebarLink: 'transition-all duration-300 hover:bg-white hover:border-gray-300 hover:scale-[1.01]',
+  sidebarLinkActive: 'transition-all duration-300 bg-blue-50 scale-[1.06]',
+
+  // Dropdown animations
+  dropdownEnter: 'animate-in fade-in-0 zoom-in-95 slide-in-from-top-2 duration-150',
+  dropdownExit: 'animate-out fade-out-0 zoom-out-95 slide-out-to-top-2 duration-100',
+
+  // Modal animations
+  modalBackdrop: 'animate-in fade-in-0 duration-300',
+  modalContent: 'animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-4 duration-300',
+  modalExit: 'animate-out fade-out-0 zoom-out-95 duration-200',
+
+  // Hover effects
+  hoverLift: 'hover:-translate-y-1',
+  hoverLiftSmall: 'hover:-translate-y-0.5',
+  hoverScale: 'hover:scale-105',
+  hoverScaleSmall: 'hover:scale-[1.02]',
+  hoverScaleLarge: 'hover:scale-110',
+  hoverBrightness: 'hover:brightness-110',
+  hoverOpacity: 'hover:opacity-85',
+  hoverShadow: 'hover:shadow-lg',
+  hoverShadowXL: 'hover:shadow-xl',
+
+  // Active states
+  activeScale: 'active:scale-95',
+  activeScaleSmall: 'active:scale-[0.98]',
+  activeBrightness: 'active:brightness-90',
+
+  // Focus states
+  focusRing: 'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+  focusRingInset: 'focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500',
+
+  // Combined common patterns
+  interactive: 'transition-all duration-300 hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500',
+  link: 'transition-colors duration-300 hover:text-blue-500 hover:underline',
+  linkSubtle: 'transition-colors duration-300 hover:text-blue-500',
+
+  // Loading/skeleton animations
+  pulse: 'animate-pulse',
+  spin: 'animate-spin',
+  bounce: 'animate-bounce',
+  ping: 'animate-ping',
+
+  // Stagger animations (use with group)
+  staggerChild: 'opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300',
+}
+
+/**
+ * Utility to combine multiple animation classes
+ */
+export function combineAnimations(...classes: (string | undefined | null | false)[]): string {
+  return classes.filter(Boolean).join(' ')
 }

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(timeout 15 npm run dev:*)",
-      "Bash(diff:*)"
+      "Bash(diff:*)",
+      "Bash(powershell -Command:*)"
     ],
     "deny": [],
     "ask": []

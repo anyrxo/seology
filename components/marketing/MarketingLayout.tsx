@@ -1,8 +1,16 @@
 import { AnnouncementBar } from './AnnouncementBar'
-import { MarketingHeader } from './MarketingHeader'
-import { Footer } from '@/components/layout/Footer'
+import RadiantNav from './RadiantNav'
+import { RadiantFooter } from './RadiantFooter'
 import { AnnouncementProvider } from './AnnouncementContext'
 
+/**
+ * MarketingLayout Component
+ * Main layout for marketing pages with:
+ * - Announcement bar (optional)
+ * - RadiantNav (sticky navigation with mega dropdown)
+ * - Main content area
+ * - RadiantFooter (newsletter + multi-column footer)
+ */
 export default function MarketingLayout({
   children,
 }: {
@@ -14,14 +22,14 @@ export default function MarketingLayout({
         {/* Announcement Bar - Fixed at top */}
         <AnnouncementBar />
 
-        {/* Navigation - Dashflow X Header */}
-        <MarketingHeader />
+        {/* Navigation - Radiant UI Style */}
+        <RadiantNav />
 
         {/* Main Content */}
         <main>{children}</main>
 
-        {/* Footer - Dashflow X Footer */}
-        <Footer />
+        {/* Footer - Radiant UI with Newsletter */}
+        <RadiantFooter />
       </div>
     </AnnouncementProvider>
   )

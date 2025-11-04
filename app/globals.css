@@ -2,6 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===========================
+   DASHFLOW X & RADIANT UI COLOR SYSTEM
+   Extracted from template CSS for exact visual matching
+   =========================== */
+
+:root {
+  /* Dashflow X - Neutral Colors */
+  --neutral--100: #ffffff;
+  --neutral--200: #f7f8fc;
+  --neutral--300: #eff1f6;
+  --neutral--400: #e6e9f1;
+  --neutral--500: #aab1c6;
+  --neutral--600: #828aa3;
+  --neutral--700: #454e66;
+  --neutral--800: #1f2d54;
+
+  /* Dashflow X - Primary Accent */
+  --accent--primary-1: #3d73ff;
+
+  /* Dashflow X - Secondary Colors */
+  --secondary--color-1: #c7d6ff;
+  --secondary--color-2: #f1f4ff;
+  --secondary--color-3: #f5f8ff;
+  --secondary--color-4: #94acf2;
+  --secondary--color-5: #fdb52a;
+
+  /* Dashflow X - System Green (Success) */
+  --system--green-100: #def2e6;
+  --system--green-200: #7fdca4;
+  --system--green-300: #14ca74;
+  --system--green-400: #11845b;
+
+  /* Dashflow X - System Red (Error) */
+  --system--red-100: #ffeff0;
+  --system--red-200: #ffbec2;
+  --system--300: #ff5a65;
+  --system--red-400: #dc2b2b;
+
+  /* Dashflow X - System Blue (Info) */
+  --system--blue-100: #eaf4ff;
+  --system--blue-200: #8fc3ff;
+  --system--blue-300: #1d88fe;
+  --system--blue-400: #086cd9;
+
+  /* Dashflow X - System Orange (Warning) */
+  --system--orange-100: #fff3e4;
+  --system--orange-200: #ffd19b;
+  --system--orange-300: #ff9e2c;
+  --system--orange-400: #d5691b;
+
+  /* Dashflow X - Shadow Colors */
+  --general--shadow-01: #14142b17;
+  --general--shadow-02: #14142b0f;
+  --general--shadow-03: #14142b1a;
+  --general--shadow-04: #14142b24;
+  --general--shadow-05: #14142b29;
+  --general--shadow-06: #14142b3d;
+
+  /* Dashflow X - Button Shadows */
+  --button-shadow--color-01: #4a3aff42;
+  --button-shadow--color-2: #4a3aff14;
+  --button-shadow--color-3: #4a3aff14;
+  --button-shadow--white-01: #14142b0a;
+  --button-shadow--white-02: #14142b0f;
+  --button-shadow--white-03: #14142b1a;
+
+  /* Radiant UI - Core Colors */
+  --radiant-ui-components-library-marketplace--color--white: #ffffff;
+  --radiant-ui-components-library-marketplace--color--body-font-dark: #6d6d6d;
+  --radiant-ui-components-library-marketplace--color--heading-dark: #150438;
+}
+
 /* Dark theme support for Dashflow X and Radiant UI */
 .dark {
   /* Override Dashflow X CSS variables for dark mode */

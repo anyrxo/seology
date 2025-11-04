@@ -2,6 +2,142 @@
 
 import { useDashboardStats } from '@/lib/hooks/useDashboardStats'
 import Link from 'next/link'
+import { ActivityTimeline, type ActivityItem } from './ActivityTimeline'
+import { LineChartPlaceholder, BarChartPlaceholder } from './ChartPlaceholder'
+import { DashflowDataTable, type TableColumn } from './DashflowDataTable'
+
+// Mock data for demonstration (will be replaced with real data from API)
+const mockActivityData: ActivityItem[] = [
+  {
+    id: '1',
+    type: 'fix',
+    title: 'Fixed missing meta description',
+    description: 'Updated meta description for product page',
+    timestamp: new Date(Date.now() - 1000 * 60 * 30), // 30 min ago
+    siteName: 'My Store',
+    status: 'success',
+  },
+  {
+    id: '2',
+    type: 'issue',
+    title: 'New SEO issue detected',
+    description: 'Missing alt text on 3 images',
+    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
+    siteName: 'My Blog',
+    status: 'warning',
+  },
+  {
+    id: '3',
+    type: 'scan',
+    title: 'Site scan completed',
+    description: 'Analyzed 45 pages',
+    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5), // 5 hours ago
+    siteName: 'My Store',
+    status: 'success',
+  },
+]
+
+interface IssueRow extends Record<string, unknown> {
+  id: string
+  type: string
+  page: string
+  severity: string
+  detected: string
+}
+
+interface FixRow extends Record<string, unknown> {
+  id: string
+  description: string
+  site: string
+  status: string
+  applied: string
+}
+
+const issueColumns: TableColumn<IssueRow>[] = [
+  { key: 'type', label: 'Type', sortable: true },
+  { key: 'page', label: 'Page', sortable: true },
+  {
+    key: 'severity',
+    label: 'Severity',
+    sortable: true,
+    render: (value) => {
+      const severity = String(value)
+      return (
+        <div className={`badge ${severity === 'High' ? 'red' : severity === 'Medium' ? 'orange' : 'neutral'}`}>
+          <div className="text-50 medium">{severity}</div>
+        </div>
+      ) as React.ReactNode
+    },
+  },
+  { key: 'detected', label: 'Detected', sortable: true },
+]
+
+const fixColumns: TableColumn<FixRow>[] = [
+  { key: 'description', label: 'Fix', sortable: true },
+  { key: 'site', label: 'Site', sortable: true },
+  {
+    key: 'status',
+    label: 'Status',
+    sortable: true,
+    render: (value) => {
+      const status = String(value)
+      return (
+        <div className={`badge ${status === 'Applied' ? 'green' : 'neutral'}`}>
+          <div className="text-50 medium">{status}</div>
+        </div>
+      ) as React.ReactNode
+    },
+  },
+  { key: 'applied', label: 'Applied', sortable: true },
+]
+
+const mockRecentIssues: IssueRow[] = [
+  {
+    id: '1',
+    type: 'Missing meta description',
+    page: '/products/item-1',
+    severity: 'High',
+    detected: '2 hours ago',
+  },
+  {
+    id: '2',
+    type: 'Missing alt text',
+    page: '/blog/post-1',
+    severity: 'Medium',
+    detected: '5 hours ago',
+  },
+  {
+    id: '3',
+    type: 'Broken link',
+    page: '/about',
+    severity: 'Low',
+    detected: '1 day ago',
+  },
+]
+
+const mockRecentFixes: FixRow[] = [
+  {
+    id: '1',
+    description: 'Added meta description',
+    site: 'My Store',
+    status: 'Applied',
+    applied: '30 min ago',
+  },
+  {
+    id: '2',
+    description: 'Fixed broken link',
+    site: 'My Blog',
+    status: 'Applied',
+    applied: '2 hours ago',
+  },
+  {
+    id: '3',
+    description: 'Updated page title',
+    site: 'My Store',
+    status: 'Applied',
+    applied: '5 hours ago',
+  },
+]
 
 export function DashboardClient({ userName }: { userName: string }) {
   const { stats, isLoading, isError } = useDashboardStats()
@@ -216,69 +352,84 @@ export function DashboardClient({ userName }: { userName: string }) {
           </div>
         </div>
 
-        {/* Recent Activity with card-image-right style */}
+        {/* Analytics Charts Section - Dashflow X Style */}
+        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
+          <LineChartPlaceholder
+            title="SEO Performance"
+            subtitle="Last 30 days"
+            icon="📈"
+            trend={{ value: 12.5, direction: 'up', label: 'vs last month' }}
+          />
+          <BarChartPlaceholder
+            title="Fixes by Type"
+            subtitle="This month"
+            icon="🔧"
+            value={stats.fixesThisMonth.toString()}
+          />
+        </div>
+
+        {/* Recent Activity Timeline - Enhanced with ActivityTimeline component */}
         <div className="rt-component-section card pd-32px---24px">
           <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-24px">
             <div className="flex-horizontal gap-column-12px align-center">
-              <div className="card-icon-square _26px">
-                <div className="text-200">⏱️</div>
+              <div className="card-icon-square _40px">
+                <div className="text-300">⏱️</div>
               </div>
-              <h2 className="text-300 bold color-neutral-800">Recent Activity</h2>
+              <h2 className="text-400 bold color-neutral-800">Recent Activity</h2>
             </div>
             <Link href="/dashboard/sites" className="rt-nav-text text-100 medium color-accent-1 hover-neutral-800">
               View All →
             </Link>
           </div>
-          {stats.recentActivity && stats.recentActivity.length > 0 ? (
-            <div className="w-layout-vflex flex-vertical gap-row-12px">
-              {stats.recentActivity.map((activity) => (
-                <Link
-                  key={activity.id}
-                  href={`/dashboard/sites/${activity.id}`}
-                  className="card pd-16px hover-card-link"
-                >
-                  <div className="w-layout-hflex flex-horizontal space-between align-center">
-                    <div className="flex-horizontal gap-column-16px align-center">
-                      <div className="card-icon-square _26px">
-                        <div className="text-200">
-                          {{
-                            SHOPIFY: '🛍️',
-                            WORDPRESS: '📝',
-                            WIX: '🎨',
-                            CUSTOM: '⚡',
-                          }[activity.platform] || '🌐'}
-                        </div>
-                      </div>
-                      <div className="flex-vertical">
-                        <p className="text-100 medium color-neutral-800">
-                          {activity.displayName || activity.domain}
-                        </p>
-                        <p className="text-50 color-neutral-600">
-                          {activity.issuesCount} active issues • {activity.fixesCount} fixes this month
-                        </p>
-                      </div>
-                    </div>
-                    <div className="text-200 color-neutral-600">→</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="rt-component-container empty-state">
-              <div className="flex-vertical gap-row-16px align-center">
-                <div className="card-icon-square _40px neutral-icon">
-                  <div className="text-400">📈</div>
-                </div>
-                <div className="text-center">
-                  <p className="text-200 medium color-neutral-800 mg-bottom-8px">No activity yet</p>
-                  <p className="rt-text-block text-100 color-neutral-600">
-                    Connect a site to start seeing SEO automation in action
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+          <ActivityTimeline
+            activities={mockActivityData}
+            maxItems={5}
+            showSiteName={true}
+          />
         </div>
+
+        {/* Recent Issues & Fixes Tables - Dashflow X Data Tables */}
+        {stats.sitesCount > 0 && (
+          <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
+            {/* Recent Issues */}
+            <div>
+              <div className="flex-horizontal gap-column-12px align-center mg-bottom-16px">
+                <div className="card-icon-square _26px neutral-icon">
+                  <div className="text-200">🔍</div>
+                </div>
+                <h3 className="text-300 bold color-neutral-800">Recent Issues</h3>
+              </div>
+              <DashflowDataTable
+                data={mockRecentIssues}
+                columns={issueColumns}
+                emptyIcon="✨"
+                emptyTitle="No issues found"
+                emptyMessage="Great! Your sites are looking good."
+                pageSize={5}
+                showPagination={false}
+              />
+            </div>
+
+            {/* Recent Fixes */}
+            <div>
+              <div className="flex-horizontal gap-column-12px align-center mg-bottom-16px">
+                <div className="card-icon-square _26px">
+                  <div className="text-200">✅</div>
+                </div>
+                <h3 className="text-300 bold color-neutral-800">Recent Fixes</h3>
+              </div>
+              <DashflowDataTable
+                data={mockRecentFixes}
+                columns={fixColumns}
+                emptyIcon="🔧"
+                emptyTitle="No fixes yet"
+                emptyMessage="Issues will be fixed automatically as they're detected."
+                pageSize={5}
+                showPagination={false}
+              />
+            </div>
+          </div>
+        )}
 
         {/* Getting Started Checklist with multiple card padding variants */}
         {stats.sitesCount === 0 && (
