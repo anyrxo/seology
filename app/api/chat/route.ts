@@ -22,6 +22,11 @@ interface UserConnection {
   platform: Platform
   domain: string
   displayName: string | null
+  credentials: string | null // JSON string with shop metadata
+  status: string
+  healthStatus: string
+  pageCount: number
+  issueCount: number
   issues: Array<{
     id: string
     type: string
@@ -35,6 +40,32 @@ interface UserConnection {
     description: string
     createdAt: Date
   }>
+}
+
+interface ShopMetadata {
+  shopId?: number
+  name?: string
+  email?: string
+  domain?: string
+  myshopifyDomain?: string
+  primaryDomain?: string
+  currency?: string
+  timezone?: string
+  productCount?: number
+  collectionCount?: number
+  customerCount?: number
+  planName?: string
+  planDisplayName?: string
+  shopOwner?: string
+  phone?: string
+  address?: {
+    address1?: string
+    address2?: string
+    city?: string
+    province?: string
+    country?: string
+    zip?: string
+  }
 }
 
 interface UserWithContext {
@@ -96,7 +127,16 @@ export async function POST(req: NextRequest) {
       where: { clerkId: userId },
       include: {
         connections: {
-          include: {
+          select: {
+            id: true,
+            platform: true,
+            domain: true,
+            displayName: true,
+            credentials: true, // Include shop metadata for AI context
+            status: true,
+            healthStatus: true,
+            pageCount: true,
+            issueCount: true,
             issues: {
               where: { status: 'DETECTED' },
               take: 10,
@@ -144,6 +184,11 @@ export async function POST(req: NextRequest) {
         platform: conn.platform,
         domain: conn.domain,
         displayName: conn.displayName,
+        credentials: conn.credentials, // Shop metadata for AI context
+        status: conn.status,
+        healthStatus: conn.healthStatus,
+        pageCount: conn.pageCount,
+        issueCount: conn.issueCount,
         issues: conn.issues.map((issue) => ({
           id: issue.id,
           type: issue.type,
@@ -369,7 +414,52 @@ function buildUserContext(user: UserWithContext): string {
   if (totalConnections > 0) {
     context += `\nCONNECTED SITES:\n`
     user.connections.forEach((conn) => {
-      context += `- ${conn.displayName || conn.domain} (${conn.platform}): ${conn.issues.length} active issues, ${conn.fixes.length} recent fixes\n`
+      // Parse shop metadata from credentials if available
+      let shopMetadata: ShopMetadata | null = null
+      if (conn.credentials) {
+        try {
+          shopMetadata = JSON.parse(conn.credentials)
+        } catch (e) {
+          // Ignore parse errors
+        }
+      }
+
+      // Build rich site context
+      let siteInfo = `- ${conn.displayName || conn.domain} (${conn.platform})`
+      siteInfo += `\n  Status: ${conn.status} | Health: ${conn.healthStatus}`
+      siteInfo += `\n  Pages: ${conn.pageCount} | Issues: ${conn.issueCount} (${conn.issues.length} active)`
+      siteInfo += `\n  Recent Fixes: ${conn.fixes.length}`
+
+      // Add Shopify-specific metadata if available
+      if (shopMetadata && conn.platform === 'SHOPIFY') {
+        if (shopMetadata.productCount) {
+          siteInfo += `\n  Products: ${shopMetadata.productCount}`
+        }
+        if (shopMetadata.collectionCount) {
+          siteInfo += ` | Collections: ${shopMetadata.collectionCount}`
+        }
+        if (shopMetadata.customerCount) {
+          siteInfo += ` | Customers: ${shopMetadata.customerCount}`
+        }
+        if (shopMetadata.planName) {
+          siteInfo += `\n  Shopify Plan: ${shopMetadata.planDisplayName || shopMetadata.planName}`
+        }
+        if (shopMetadata.currency) {
+          siteInfo += ` | Currency: ${shopMetadata.currency}`
+        }
+        if (shopMetadata.shopOwner) {
+          siteInfo += `\n  Owner: ${shopMetadata.shopOwner}`
+        }
+        if (shopMetadata.address) {
+          const addr = shopMetadata.address
+          const location = [addr.city, addr.province, addr.country].filter(Boolean).join(', ')
+          if (location) {
+            siteInfo += ` | Location: ${location}`
+          }
+        }
+      }
+
+      context += siteInfo + '\n'
     })
   } else {
     context += `\nNO SITES CONNECTED YET - Guide user to /dashboard/sites/connect\n`

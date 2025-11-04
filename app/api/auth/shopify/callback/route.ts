@@ -233,6 +233,44 @@ export async function GET(req: NextRequest) {
       console.warn('Failed to fetch product count:', error)
     }
 
+    // Fetch collection count
+    try {
+      const collectionsCountResponse = await fetch(
+        `https://${shop}/admin/api/2024-01/custom_collections/count.json`,
+        {
+          headers: {
+            'X-Shopify-Access-Token': accessToken,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      if (collectionsCountResponse.ok) {
+        const countData = await collectionsCountResponse.json()
+        shopMetadata.collectionCount = countData.count || 0
+      }
+    } catch (error) {
+      console.warn('Failed to fetch collection count:', error)
+    }
+
+    // Fetch customer count
+    try {
+      const customersCountResponse = await fetch(
+        `https://${shop}/admin/api/2024-01/customers/count.json`,
+        {
+          headers: {
+            'X-Shopify-Access-Token': accessToken,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      if (customersCountResponse.ok) {
+        const countData = await customersCountResponse.json()
+        shopMetadata.customerCount = countData.count || 0
+      }
+    } catch (error) {
+      console.warn('Failed to fetch customer count:', error)
+    }
+
     // Create connection in database with enriched data
     const connection = await db.connection.create({
       data: {
@@ -262,13 +300,19 @@ export async function GET(req: NextRequest) {
       },
     })
 
-    // Create notification
+    // Create notification with comprehensive shop details
+    const shopDetails = [
+      shopMetadata.productCount ? `${shopMetadata.productCount} products` : null,
+      shopMetadata.collectionCount ? `${shopMetadata.collectionCount} collections` : null,
+      shopMetadata.customerCount ? `${shopMetadata.customerCount} customers` : null,
+    ].filter(Boolean).join(', ')
+
     await db.notification.create({
       data: {
         userId: user.id,
         type: 'connection_success',
         title: 'Shopify Store Connected',
-        message: `Successfully connected ${shopMetadata.name || shop}${shopMetadata.productCount ? ` with ${shopMetadata.productCount} products` : ''}`,
+        message: `Successfully connected ${shopMetadata.name || shop}${shopDetails ? ` with ${shopDetails}` : ''}. Your site is now being analyzed for SEO opportunities.`,
         actionUrl: `/dashboard/sites/${connection.id}`,
       },
     })
