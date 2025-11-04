@@ -4,7 +4,9 @@
       "Bash(timeout 15 npm run dev:*)",
       "Bash(diff:*)",
       "Bash(powershell -Command:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(del \"c:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\components\\dashboard\\DashboardLayout.tsx\")"
     ],
     "deny": [],
     "ask": []
