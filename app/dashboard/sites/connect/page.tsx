@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { AlertCircle, X } from 'lucide-react'
 
 type Platform = 'SHOPIFY' | 'WORDPRESS' | 'CUSTOM' | null
 
@@ -10,6 +11,7 @@ export default function ConnectSitePage() {
   const router = useRouter()
   const [selectedPlatform, setSelectedPlatform] = useState<Platform>(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -73,27 +75,42 @@ export default function ConnectSitePage() {
       {/* Shopify Connection Flow */}
       {selectedPlatform === 'SHOPIFY' && (
         <ShopifyConnectForm
-          onBack={() => setSelectedPlatform(null)}
+          onBack={() => {
+            setSelectedPlatform(null)
+            setError(null)
+          }}
           loading={loading}
           setLoading={setLoading}
+          error={error}
+          setError={setError}
         />
       )}
 
       {/* WordPress Connection Flow */}
       {selectedPlatform === 'WORDPRESS' && (
         <WordPressConnectForm
-          onBack={() => setSelectedPlatform(null)}
+          onBack={() => {
+            setSelectedPlatform(null)
+            setError(null)
+          }}
           loading={loading}
           setLoading={setLoading}
+          error={error}
+          setError={setError}
         />
       )}
 
       {/* Custom Site Connection Flow */}
       {selectedPlatform === 'CUSTOM' && (
         <CustomSiteConnectForm
-          onBack={() => setSelectedPlatform(null)}
+          onBack={() => {
+            setSelectedPlatform(null)
+            setError(null)
+          }}
           loading={loading}
           setLoading={setLoading}
+          error={error}
+          setError={setError}
         />
       )}
     </div>
@@ -174,19 +191,34 @@ function ShopifyConnectForm({
   onBack,
   loading,
   setLoading,
+  error,
+  setError,
 }: {
   onBack: () => void
   loading: boolean
   setLoading: (loading: boolean) => void
+  error: string | null
+  setError: (error: string | null) => void
 }) {
   const [shopDomain, setShopDomain] = useState('')
 
   const handleConnect = async () => {
-    if (!shopDomain) return
+    if (!shopDomain) {
+      setError('Please enter your Shopify store domain')
+      return
+    }
 
+    setError(null)
     setLoading(true)
-    // Redirect to Shopify OAuth
-    window.location.href = `/api/auth/shopify?shop=${shopDomain}`
+
+    try {
+      // Redirect to Shopify OAuth
+      window.location.href = `/api/auth/shopify?shop=${shopDomain}`
+    } catch (err) {
+      console.error('Shopify connection error:', err)
+      setError('Failed to connect to Shopify. Please try again.')
+      setLoading(false)
+    }
   }
 
   return (
@@ -207,6 +239,23 @@ function ShopifyConnectForm({
           </p>
         </div>
       </div>
+
+      {/* Error Banner */}
+      {error && (
+        <div className="mb-6 bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+          <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="text-sm font-semibold text-red-400 mb-1">Connection Error</h3>
+            <p className="text-sm text-red-300">{error}</p>
+          </div>
+          <button
+            onClick={() => setError(null)}
+            className="text-red-400 hover:text-red-300 transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       <div className="space-y-6">
         <div>
@@ -271,10 +320,14 @@ function WordPressConnectForm({
   onBack,
   loading,
   setLoading,
+  error,
+  setError,
 }: {
   onBack: () => void
   loading: boolean
   setLoading: (loading: boolean) => void
+  error: string | null
+  setError: (error: string | null) => void
 }) {
   const router = useRouter()
   const [siteUrl, setSiteUrl] = useState('')
@@ -282,8 +335,12 @@ function WordPressConnectForm({
   const [appPassword, setAppPassword] = useState('')
 
   const handleConnect = async () => {
-    if (!siteUrl || !username || !appPassword) return
+    if (!siteUrl || !username || !appPassword) {
+      setError('Please fill in all required fields')
+      return
+    }
 
+    setError(null)
     setLoading(true)
 
     try {
@@ -306,11 +363,14 @@ function WordPressConnectForm({
       if (data.success) {
         router.push('/dashboard/sites')
       } else {
-        alert('Failed to connect: ' + data.error)
+        console.error('WordPress connection failed:', data)
+        const errorMessage = data.error?.message || data.error || 'Failed to connect to WordPress. Please check your credentials and try again.'
+        setError(errorMessage)
         setLoading(false)
       }
-    } catch (error) {
-      alert('Connection failed')
+    } catch (err) {
+      console.error('WordPress connection error:', err)
+      setError('Connection failed. Please check your site URL and credentials.')
       setLoading(false)
     }
   }
@@ -333,6 +393,23 @@ function WordPressConnectForm({
           </p>
         </div>
       </div>
+
+      {/* Error Banner */}
+      {error && (
+        <div className="mb-6 bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+          <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="text-sm font-semibold text-red-400 mb-1">Connection Error</h3>
+            <p className="text-sm text-red-300">{error}</p>
+          </div>
+          <button
+            onClick={() => setError(null)}
+            className="text-red-400 hover:text-red-300 transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       <div className="space-y-6">
         <div>
@@ -419,18 +496,26 @@ function CustomSiteConnectForm({
   onBack,
   loading,
   setLoading,
+  error,
+  setError,
 }: {
   onBack: () => void
   loading: boolean
   setLoading: (loading: boolean) => void
+  error: string | null
+  setError: (error: string | null) => void
 }) {
   const router = useRouter()
   const [siteUrl, setSiteUrl] = useState('')
   const [siteName, setSiteName] = useState('')
 
   const handleConnect = async () => {
-    if (!siteUrl || !siteName) return
+    if (!siteUrl || !siteName) {
+      setError('Please fill in all required fields')
+      return
+    }
 
+    setError(null)
     setLoading(true)
 
     try {
@@ -449,11 +534,14 @@ function CustomSiteConnectForm({
       if (data.success) {
         router.push(`/dashboard/sites/${data.data.id}`)
       } else {
-        alert('Failed to connect: ' + data.error)
+        console.error('Custom site connection failed:', data)
+        const errorMessage = data.error?.message || data.error || 'Failed to create site. Please try again.'
+        setError(errorMessage)
         setLoading(false)
       }
-    } catch (error) {
-      alert('Connection failed')
+    } catch (err) {
+      console.error('Custom site connection error:', err)
+      setError('Connection failed. Please check your site URL and try again.')
       setLoading(false)
     }
   }
@@ -480,6 +568,23 @@ function CustomSiteConnectForm({
           </p>
         </div>
       </div>
+
+      {/* Error Banner */}
+      {error && (
+        <div className="mb-6 bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+          <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="text-sm font-semibold text-red-400 mb-1">Connection Error</h3>
+            <p className="text-sm text-red-300">{error}</p>
+          </div>
+          <button
+            onClick={() => setError(null)}
+            className="text-red-400 hover:text-red-300 transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      )}
 
       <div className="space-y-6">
         <div>
