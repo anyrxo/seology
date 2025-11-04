@@ -1,6 +1,5 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
-import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
 import { SeologyChat } from '@/components/dashboard/SeologyChat'
 import { db } from '@/lib/db'
 
@@ -37,12 +36,5 @@ export default async function ChatPage() {
     }
   }
 
-  // Show tutorial for first-time visitors
-  const showTutorial = !dbUser.onboardingCompleted
-
-  return (
-    <DashboardLayout showTutorial={showTutorial}>
-      <SeologyChat />
-    </DashboardLayout>
-  )
+  return <SeologyChat />
 }
