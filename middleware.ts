@@ -18,12 +18,18 @@ const isPublicRoute = createRouteMatcher([
   '/',
   '/pricing',
   '/about',
+  '/features',
   '/docs',
+  '/terms',
+  '/privacy',
+  '/contact',
   '/api/health',
   '/api/webhooks/clerk',
   '/api/billing/webhook',
   '/sign-in(.*)',
   '/sign-up(.*)',
+  '/test-dashflow',
+  '/api-explorer',
 ])
 
 // Define cron routes that use CRON_SECRET for auth

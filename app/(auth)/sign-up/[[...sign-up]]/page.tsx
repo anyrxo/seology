@@ -42,6 +42,8 @@ export default function SignUpPage() {
           {/* Sign Up Card */}
           <div className="card pd-32px---24px bg-white">
             <SignUp
+              forceRedirectUrl="/dashboard/onboarding"
+              signInUrl="/sign-in"
               appearance={{
                 elements: {
                   rootBox: 'w-full',
