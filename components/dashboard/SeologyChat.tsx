@@ -53,6 +53,8 @@ const suggestedPrompts: SuggestedPrompt[] = [
   },
 ]
 
+type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
+
 export function SeologyChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -67,9 +69,31 @@ export function SeologyChat() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
+  const [executionMode, setExecutionMode] = useState<ExecutionMode>('AUTOMATIC')
+  const [isLoadingMode, setIsLoadingMode] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // Load user's execution mode on mount
+  useEffect(() => {
+    const loadExecutionMode = async () => {
+      try {
+        const response = await fetch('/api/user/execution-mode')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success && data.data.executionMode) {
+            setExecutionMode(data.data.executionMode)
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load execution mode:', error)
+      } finally {
+        setIsLoadingMode(false)
+      }
+    }
+    loadExecutionMode()
+  }, [])
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -223,6 +247,27 @@ export function SeologyChat() {
     // TODO: Implement voice recording
   }
 
+  const handleExecutionModeChange = async (newMode: ExecutionMode) => {
+    const previousMode = executionMode
+    setExecutionMode(newMode) // Optimistic update
+
+    try {
+      const response = await fetch('/api/user/execution-mode', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ executionMode: newMode }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to update execution mode')
+      }
+    } catch (error) {
+      console.error('Failed to update execution mode:', error)
+      setExecutionMode(previousMode) // Revert on error
+      setError('Failed to update execution mode. Please try again.')
+    }
+  }
+
   const copyToClipboard = (content: string, id: string) => {
     navigator.clipboard.writeText(content)
     setCopiedId(id)
@@ -230,9 +275,9 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-full max-h-[calc(100vh-8rem)]">
+    <div className="flex flex-col h-[calc(100vh-12rem)]">
       {/* Chat Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 flex-shrink-0">
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-blue-400" />
@@ -242,9 +287,32 @@ export function SeologyChat() {
             AI-powered SEO analysis and automated fixes
           </p>
         </div>
-        <Badge variant="success" dot pulse>
-          Online
-        </Badge>
+        <div className="flex items-center gap-3">
+          {/* Execution Mode Toggle */}
+          {!isLoadingMode && (
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-1">
+              {(['AUTOMATIC', 'PLAN', 'APPROVE'] as ExecutionMode[]).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => handleExecutionModeChange(mode)}
+                  className={cn(
+                    'px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300',
+                    executionMode === mode
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  )}
+                >
+                  {mode === 'AUTOMATIC' && 'Auto'}
+                  {mode === 'PLAN' && 'Plan'}
+                  {mode === 'APPROVE' && 'Approve'}
+                </button>
+              ))}
+            </div>
+          )}
+          <Badge variant="success" dot pulse>
+            Online
+          </Badge>
+        </div>
       </div>
 
       {/* Error Banner */}
@@ -279,9 +347,9 @@ export function SeologyChat() {
         blur="xl"
         padding="none"
         hover="none"
-        className="flex-1 flex flex-col overflow-hidden mb-4"
+        className="flex-1 flex flex-col overflow-hidden mb-4 min-h-0"
       >
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth">
           <AnimatePresence mode="popLayout">
             {messages.map((message, index) => (
               <MessageBubble
@@ -325,7 +393,7 @@ export function SeologyChat() {
       </GlassCard>
 
       {/* Input Area - Lovable Style */}
-      <div className="relative">
+      <div className="relative flex-shrink-0">
         <GlassCard
           variant="medium"
           blur="xl"

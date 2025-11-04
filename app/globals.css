@@ -722,9 +722,9 @@
     display: none !important;
   }
 
-  /* Mobile-specific padding reductions */
+  /* Mobile-specific padding improvements - More breathing room */
   .card.pd-24px {
-    padding: 16px !important;
+    padding: 18px !important;
   }
 
   .card.pd-32px---24px,
@@ -737,47 +737,73 @@
     padding: 24px !important;
   }
 
-  /* Container padding for mobile */
+  /* All cards get better mobile padding */
+  .card {
+    padding: 18px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Container padding for mobile - More space */
   .container-default,
   .rt-component-container {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   .w-container {
     max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
-  /* Typography scaling for mobile */
+  /* Typography scaling for mobile - More readable */
   h1,
   .text-600 {
-    font-size: 32px !important;
-    line-height: 1.2 !important;
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
   }
 
   h2,
   .text-500 {
-    font-size: 28px !important;
+    font-size: 24px !important;
     line-height: 1.3 !important;
+    font-weight: 700 !important;
   }
 
   h3,
   .text-400 {
-    font-size: 22px !important;
-    line-height: 1.3 !important;
+    font-size: 20px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
   }
 
   .text-300 {
-    font-size: 18px !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  .text-200 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .text-100 {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
   }
 
   /* Display classes for mobile */
   .display-1 {
-    font-size: 36px !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
   }
 
   .display-2 {
-    font-size: 28px !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
   }
 
   /* Flex utilities for mobile */
@@ -874,6 +900,44 @@
   /* Mobile-specific flex direction changes */
   .flex-horizontal.stack-mobile {
     flex-direction: column !important;
+  }
+
+  /* Better mobile card shadows - Less heavy */
+  .card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Mobile-specific stat cards - Better spacing */
+  .card-amount-container {
+    margin-top: 8px !important;
+  }
+
+  /* Better mobile badge sizing */
+  .badge {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+  }
+
+  /* Mobile grid improvements - Better gaps */
+  .grid-4-columns,
+  .grid-3-columns,
+  .grid-2-columns {
+    gap: 16px !important;
+  }
+
+  /* Mobile welcome section improvements */
+  .rt-component-heading-two {
+    margin-bottom: 8px !important;
+  }
+
+  /* Hide complex animations on mobile for performance */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
   }
 }
 
@@ -1018,6 +1082,27 @@
   /* Prevent text overflow */
   .text-no-wrap-mobile {
     white-space: normal !important;
+  }
+
+  /* Better mobile scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Hide scrollbars on mobile for cleaner look */
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  /* Mobile-specific main content improvements */
+  main {
+    overscroll-behavior: contain !important;
+  }
+
+  /* Improve tap highlight */
+  * {
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1) !important;
   }
 }
 

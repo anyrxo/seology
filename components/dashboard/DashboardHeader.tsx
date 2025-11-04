@@ -51,77 +51,57 @@ export function DashboardHeader() {
 
   return (
     <>
-      {/* Dashflow X Header - Exact template structure */}
-      <header className="header-wrapper">
-        <div className="container-default w-container">
-          <div className="header-content-wrapper">
-            {/* Left: Breadcrumbs / Page Title */}
+      {/* Dashflow X Header - Mobile optimized */}
+      <header className="header-wrapper bg-gray-900/95 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50">
+        <div className="container-default w-container px-4 md:px-6">
+          <div className="header-content-wrapper flex items-center justify-between h-14 md:h-16">
+            {/* Left: Page Title */}
             <div className="flex-1 min-w-0">
               {/* Desktop: Show breadcrumbs */}
               <div className="hidden md:block">
                 <Breadcrumbs items={breadcrumbItems} />
               </div>
 
-              {/* Mobile: Show current page title */}
+              {/* Mobile: Show current page title - Simplified */}
               <div className="md:hidden">
-                <h1 className="text-200 medium color-neutral-800 truncate">
+                <h1 className="text-base font-semibold text-white truncate">
                   {breadcrumbItems[breadcrumbItems.length - 1]?.label || 'Dashboard'}
                 </h1>
               </div>
             </div>
 
-            {/* Right: Header Actions - Dashflow X Style */}
-            <div className="header-right-side-container flex items-center gap-12px">
+            {/* Right: Header Actions - Mobile simplified */}
+            <div className="flex items-center gap-2 md:gap-3">
               {/* Command Palette Trigger - Desktop only */}
               <button
                 onClick={() => setCommandPaletteOpen(true)}
-                className="hidden lg:flex btn-secondary small items-center gap-8px"
+                className="hidden lg:flex btn-secondary small items-center gap-2"
                 title="Quick actions (⌘K)"
               >
                 <Command className="h-4 w-4" />
-                <span className="hidden xl:inline text-100 medium">Quick actions</span>
-                <kbd className="card pd-6px text-50 medium color-neutral-600 rounded ml-8px">
+                <span className="hidden xl:inline text-sm font-medium">Quick actions</span>
+                <kbd className="px-2 py-1 text-xs font-medium bg-white/5 rounded ml-2">
                   ⌘K
                 </kbd>
               </button>
 
-              {/* Desktop Search Bar - Hidden on tablet/mobile */}
+              {/* Desktop Search Bar */}
               <div className="hidden lg:block">
                 <GlobalSearch />
               </div>
 
-              {/* Search Icon - Tablet and mobile */}
-              <button
-                className="lg:hidden card-icon-square _40px neutral-icon flex items-center justify-center"
-                aria-label="Search"
-                title="Search"
-              >
-                <Search className="h-5 w-5" />
-              </button>
-
-              {/* Settings Icon */}
-              <button
-                className="card-icon-square _40px neutral-icon hidden xl:flex items-center justify-center"
-                aria-label="Settings"
-                title="Settings"
-              >
-                <Settings className="h-5 w-5" />
-              </button>
-
-              {/* Theme Toggle */}
-              <div className="card-icon-square _40px neutral-icon flex items-center justify-center">
-                <ThemeToggle />
-              </div>
-
-              {/* Notifications */}
-              <div className="position-relative">
-                <div className="card-icon-square _40px neutral-icon flex items-center justify-center">
-                  <NotificationDropdown />
+              {/* Mobile: Only show essential icons */}
+              <div className="flex items-center gap-1 md:gap-2">
+                {/* Notifications - Mobile optimized */}
+                <div className="relative">
+                  <button className="p-2 hover:bg-white/5 rounded-lg transition-colors">
+                    <NotificationDropdown />
+                  </button>
                 </div>
-              </div>
 
-              {/* User Menu with Avatar */}
-              <UserMenu />
+                {/* User Menu - Mobile optimized */}
+                <UserMenu />
+              </div>
             </div>
           </div>
         </div>

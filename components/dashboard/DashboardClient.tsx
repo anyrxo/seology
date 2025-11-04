@@ -27,36 +27,7 @@ import {
   Zap
 } from 'lucide-react'
 
-// Mock data for demonstration (will be replaced with real data from API)
-const mockActivityData: ActivityItem[] = [
-  {
-    id: '1',
-    type: 'fix',
-    title: 'Fixed missing meta description',
-    description: 'Updated meta description for product page',
-    timestamp: new Date(Date.now() - 1000 * 60 * 30), // 30 min ago
-    siteName: 'My Store',
-    status: 'success',
-  },
-  {
-    id: '2',
-    type: 'issue',
-    title: 'New SEO issue detected',
-    description: 'Missing alt text on 3 images',
-    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
-    siteName: 'My Blog',
-    status: 'warning',
-  },
-  {
-    id: '3',
-    type: 'scan',
-    title: 'Site scan completed',
-    description: 'Analyzed 45 pages',
-    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5), // 5 hours ago
-    siteName: 'My Store',
-    status: 'success',
-  },
-]
+// Activity data will be fetched from API in production
 
 interface IssueRow extends Record<string, unknown> {
   id: string
@@ -112,53 +83,7 @@ const fixColumns: TableColumn<FixRow>[] = [
   { key: 'applied', label: 'Applied', sortable: true },
 ]
 
-const mockRecentIssues: IssueRow[] = [
-  {
-    id: '1',
-    type: 'Missing meta description',
-    page: '/products/item-1',
-    severity: 'High',
-    detected: '2 hours ago',
-  },
-  {
-    id: '2',
-    type: 'Missing alt text',
-    page: '/blog/post-1',
-    severity: 'Medium',
-    detected: '5 hours ago',
-  },
-  {
-    id: '3',
-    type: 'Broken link',
-    page: '/about',
-    severity: 'Low',
-    detected: '1 day ago',
-  },
-]
-
-const mockRecentFixes: FixRow[] = [
-  {
-    id: '1',
-    description: 'Added meta description',
-    site: 'My Store',
-    status: 'Applied',
-    applied: '30 min ago',
-  },
-  {
-    id: '2',
-    description: 'Fixed broken link',
-    site: 'My Blog',
-    status: 'Applied',
-    applied: '2 hours ago',
-  },
-  {
-    id: '3',
-    description: 'Updated page title',
-    site: 'My Store',
-    status: 'Applied',
-    applied: '5 hours ago',
-  },
-]
+// Issues and fixes will be fetched from API in production
 
 export function DashboardClient({ userName }: { userName: string }) {
   const { stats, isLoading, isError } = useDashboardStats()
@@ -572,15 +497,7 @@ export function DashboardClient({ userName }: { userName: string }) {
         <div className="grid-3-columns _1-column-tablet gap-column-24px gap-row-24px">
           <div className="col-span-2 _1-column-tablet">
             <LiveActivityFeed
-              activities={mockActivityData.map(activity => ({
-                id: activity.id,
-                type: activity.type === 'fix' ? 'fix' : activity.type === 'issue' ? 'issue' : activity.type === 'scan' ? 'scan' : 'connection',
-                title: activity.title,
-                description: activity.description || '',
-                site: activity.siteName || '',
-                timestamp: activity.timestamp,
-                severity: activity.status === 'warning' ? 'high' : activity.status === 'error' ? 'high' : 'low'
-              }))}
+              activities={[]}
               maxItems={6}
               showTimestamp={true}
               autoRefresh={false}
@@ -625,7 +542,7 @@ export function DashboardClient({ userName }: { userName: string }) {
             </Link>
           </div>
           <ActivityTimeline
-            activities={mockActivityData}
+            activities={[]}
             maxItems={5}
             showSiteName={true}
           />
@@ -643,7 +560,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <h3 className="text-300 bold text-white">Recent Issues</h3>
               </div>
               <DashflowDataTable
-                data={mockRecentIssues}
+                data={[]}
                 columns={issueColumns}
                 emptyIcon="✨"
                 emptyTitle="No issues found"
@@ -662,7 +579,7 @@ export function DashboardClient({ userName }: { userName: string }) {
                 <h3 className="text-300 bold text-white">Recent Fixes</h3>
               </div>
               <DashflowDataTable
-                data={mockRecentFixes}
+                data={[]}
                 columns={fixColumns}
                 emptyIcon="🔧"
                 emptyTitle="No fixes yet"

@@ -25,11 +25,12 @@ export function BottomNav() {
     <nav className="
       md:hidden
       fixed bottom-0 left-0 right-0 z-40
-      bg-gray-900/95 backdrop-blur-xl
-      border-t border-gray-800
+      bg-gray-900/98 backdrop-blur-2xl
+      border-t border-gray-800/50
       safe-bottom
+      shadow-2xl shadow-black/20
     ">
-      <div className="flex items-center justify-around h-16 px-2">
+      <div className="flex items-center justify-around h-16 px-1">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = pathname === item.href
@@ -41,9 +42,8 @@ export function BottomNav() {
               className={`
                 relative
                 flex flex-col items-center justify-center gap-1
-                min-w-touch min-h-touch
-                px-3 py-2
-                rounded-lg
+                px-4 py-2
+                rounded-xl
                 transition-all duration-200
                 ${isActive ? 'text-white' : 'text-gray-400'}
                 active:scale-95
@@ -53,7 +53,7 @@ export function BottomNav() {
               {isActive && (
                 <motion.div
                   layoutId="activeNav"
-                  className="absolute inset-0 bg-blue-600/20 rounded-lg"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-blue-500/20 rounded-xl border border-blue-500/30"
                   transition={{
                     type: 'spring',
                     stiffness: 500,
@@ -63,22 +63,22 @@ export function BottomNav() {
               )}
 
               {/* Icon */}
-              <Icon className={`w-5 h-5 relative z-10 ${isActive ? 'stroke-2' : 'stroke-1.5'}`} />
+              <Icon className={`w-6 h-6 relative z-10 ${isActive ? 'stroke-2' : 'stroke-1.5'}`} />
 
               {/* Label */}
               <span className={`
                 text-xs font-medium relative z-10
-                ${isActive ? 'font-semibold' : 'font-normal'}
+                ${isActive ? 'font-bold' : 'font-normal'}
               `}>
                 {item.label}
               </span>
 
-              {/* Active indicator dot */}
+              {/* Active indicator line */}
               {isActive && (
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 w-1 h-1 bg-blue-500 rounded-full"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
                 />
               )}
             </Link>

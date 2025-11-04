@@ -27,6 +27,10 @@ export default async function SettingsPage() {
     userId,
     plan: dbUser.plan,
     executionMode: dbUser.executionMode,
+    businessName: dbUser.businessName,
+    businessType: dbUser.businessType,
+    businessStage: dbUser.businessStage,
+    platform: dbUser.platform,
   }
 
   return <SettingsClient user={userData} />

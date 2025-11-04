@@ -45,15 +45,15 @@ export default async function DashboardLayout({
         {/* Header */}
         <DashboardHeader />
 
-        {/* Main Content - Add padding bottom for mobile nav */}
-        <main className="flex-1 overflow-auto pb-20 lg:pb-0">
-          <div className="container-default w-container px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
+        {/* Main Content - Mobile optimized padding */}
+        <main className="flex-1 overflow-auto pb-20 md:pb-6 pt-2 md:pt-0">
+          <div className="w-full px-4 md:px-6 lg:px-10 py-4 md:py-6 max-w-[100vw] overflow-x-hidden">
             {children}
           </div>
         </main>
 
-        {/* Footer - Hide on small mobile */}
-        <div className="hidden sm:block mt-auto">
+        {/* Footer - Hide on mobile */}
+        <div className="hidden md:block mt-auto">
           <Footer variant="minimal" />
         </div>
       </div>

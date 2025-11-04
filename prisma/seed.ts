@@ -746,24 +746,27 @@ async function main() {
         data: {
           userId: user.id,
           connectionId: userConnections[0].id,
-          messages: JSON.stringify([
-            {
-              role: 'user',
-              content: 'Can you analyze my homepage for SEO issues?',
-            },
-            {
-              role: 'assistant',
-              content: "I've analyzed your homepage and found several opportunities for improvement:\n\n1. Missing meta description - this helps search engines understand your page\n2. H1 heading could be more descriptive\n3. Several images lack alt text\n\nWould you like me to fix these automatically?",
-            },
-            {
-              role: 'user',
-              content: 'Yes, please fix them automatically.',
-            },
-            {
-              role: 'assistant',
-              content: "Perfect! I've applied the following fixes:\n\n✅ Added SEO-optimized meta description\n✅ Updated H1 heading\n✅ Added descriptive alt text to 8 images\n\nYour homepage is now optimized for better search engine visibility!",
-            },
-          ]),
+          title: 'SEO Analysis',
+          messages: {
+            create: [
+              {
+                role: 'user',
+                content: 'Can you analyze my homepage for SEO issues?',
+              },
+              {
+                role: 'assistant',
+                content: "I've analyzed your homepage and found several opportunities for improvement:\n\n1. Missing meta description - this helps search engines understand your page\n2. H1 heading could be more descriptive\n3. Several images lack alt text\n\nWould you like me to fix these automatically?",
+              },
+              {
+                role: 'user',
+                content: 'Yes, please fix them automatically.',
+              },
+              {
+                role: 'assistant',
+                content: "Perfect! I've applied the following fixes:\n\n✅ Added SEO-optimized meta description\n✅ Updated H1 heading\n✅ Added descriptive alt text to 8 images\n\nYour homepage is now optimized for better search engine visibility!",
+              },
+            ],
+          },
           context: JSON.stringify({
             siteUrl: userConnections[0].domain,
             platform: userConnections[0].platform,

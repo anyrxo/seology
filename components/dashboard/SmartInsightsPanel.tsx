@@ -21,56 +21,8 @@ interface SmartInsightsPanelProps {
   insights?: Insight[]
 }
 
-const defaultInsights: Insight[] = [
-  {
-    id: '1',
-    type: 'warning',
-    title: '3 Critical Issues Detected',
-    description: 'Missing meta descriptions on your top-performing pages could reduce click-through rates by up to 30%.',
-    impact: 'high',
-    estimatedTime: '5 min',
-    action: {
-      label: 'Fix Now',
-      href: '/dashboard/issues?severity=critical'
-    }
-  },
-  {
-    id: '2',
-    type: 'opportunity',
-    title: 'SEO Opportunity Identified',
-    description: 'Your blog posts are ranking well but missing internal links. Adding 10 strategic links could boost traffic by 15-20%.',
-    impact: 'medium',
-    estimatedTime: '15 min',
-    action: {
-      label: 'View Recommendations',
-      href: '/dashboard/ai-analysis'
-    }
-  },
-  {
-    id: '3',
-    type: 'success',
-    title: 'Recent Fixes Performing Well',
-    description: 'The 5 fixes applied this week have already improved your average page load time by 1.2 seconds.',
-    impact: 'high',
-    estimatedTime: 'Complete',
-    action: {
-      label: 'View Analytics',
-      href: '/dashboard/analytics'
-    }
-  },
-  {
-    id: '4',
-    type: 'action',
-    title: 'Scheduled Scan Available',
-    description: 'Run a deep crawl of your site to discover new optimization opportunities and track improvements.',
-    impact: 'low',
-    estimatedTime: '10 min',
-    action: {
-      label: 'Start Scan',
-      href: '/dashboard/sites'
-    }
-  }
-]
+// Default insights removed - will be populated from API in production
+const defaultInsights: Insight[] = []
 
 export function SmartInsightsPanel({ insights = defaultInsights }: SmartInsightsPanelProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null)
