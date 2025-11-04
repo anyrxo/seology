@@ -71,12 +71,13 @@ function addSecurityHeaders(req: NextRequest, response: NextResponse): NextRespo
   // Strict policy to prevent XSS attacks
   const cspDirectives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clerk.accounts.dev https://*.clerk.com https://js.stripe.com",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clerk.accounts.dev https://*.clerk.com https://js.stripe.com blob:",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "img-src 'self' data: blob: https: http:",
-    "font-src 'self' data: https://fonts.gstatic.com",
+    "font-src 'self' data: https://fonts.gstatic.com https://r2cdn.perplexity.ai",
     "connect-src 'self' https://*.clerk.accounts.dev https://*.clerk.com https://api.anthropic.com https://api.stripe.com https://*.myshopify.com",
     "frame-src 'self' https://js.stripe.com https://*.clerk.accounts.dev https://*.clerk.com",
+    "worker-src 'self' blob:",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
