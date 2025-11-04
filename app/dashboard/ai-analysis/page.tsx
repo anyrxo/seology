@@ -56,10 +56,10 @@ export default function AIAnalysisPage() {
       setAiThinking((prev) => [...prev, thinkingSteps[i]])
     }
 
-    // Simulate API call (in production, this calls your actual API)
+    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
-    // Mock result (replace with actual API call)
+    // Mock result
     const mockResult: AnalysisResult = {
       score: 72,
       issues: [
@@ -114,262 +114,243 @@ export default function AIAnalysisPage() {
   }
 
   return (
-    <div className="bg-neutral-200 min-h-screen">
-      <div className="container-default w-container">
-        <div className="gap-row-24px">
-          {/* Header */}
-          <div className="rt-component-section gap-row-24px">
-            <div className="flex-horizontal align-center gap-column-16px">
-              <div className="card-icon-square _48px flex-horizontal" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                <Lightbulb className="h-6 w-6 color-neutral-100" />
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-blue-500/20">
+          <Lightbulb className="w-7 h-7 text-blue-400" />
+        </div>
+        <div>
+          <div className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 inline-block mb-2">
+            Powered by Advanced AI
+          </div>
+          <h1 className="text-3xl font-bold text-white mb-1">
+            AI-Powered SEO Analysis
+          </h1>
+          <p className="text-gray-400">
+            Get instant, intelligent SEO recommendations from our AI. Analyze any webpage and receive actionable fixes in seconds.
+          </p>
+        </div>
+      </div>
+
+      {/* Analysis Input Card */}
+      <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10">
+            <Search className="w-5 h-5 text-blue-400" />
+          </div>
+          <h2 className="text-xl font-bold text-white">Enter URL to Analyze</h2>
+        </div>
+        <div className="flex gap-3">
+          <input
+            type="url"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="https://example.com"
+            disabled={analyzing}
+            className="flex-1 px-4 py-3 bg-white/[0.05] border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
+          />
+          <button
+            onClick={handleAnalyze}
+            disabled={!url || analyzing}
+            className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          >
+            <Search className="w-5 h-5" />
+            {analyzing ? 'Analyzing...' : 'Analyze'}
+          </button>
+        </div>
+      </div>
+
+      {/* AI Thinking Process */}
+      {analyzing && (
+        <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-blue-500/20 rounded-2xl p-6 shadow-lg shadow-blue-500/10 animate-pulse">
+          <div className="flex items-start gap-4">
+            <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-blue-500/20 flex-shrink-0">
+              <Lightbulb className="w-7 h-7 text-blue-400" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-white mb-2">
+                AI is analyzing your page...
+              </h3>
+              <p className="text-sm text-gray-400 mb-5">
+                This usually takes 3-5 seconds
+              </p>
+              <div className="space-y-3">
+                {aiThinking.map((step, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 animate-fade-in"
+                  >
+                    <div className="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/20 border border-green-500/30">
+                      <CheckCircle className="w-3 h-3 text-green-400" />
+                    </div>
+                    <p className="text-sm text-gray-300">{step}</p>
+                  </div>
+                ))}
               </div>
-              <div style={{ flex: 1 }}>
-                <div className="badge primary mg-bottom-12px">
-                  Powered by Advanced AI
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Analysis Results */}
+      {result && !analyzing && (
+        <>
+          {/* SEO Score Card */}
+          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl shadow-blue-500/20">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-8">SEO Score</h2>
+              <div className="relative inline-block">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="20"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="white"
+                    strokeWidth="20"
+                    strokeDasharray={`${(result.score / 100) * 502} 502`}
+                    strokeLinecap="round"
+                    transform="rotate(-90 100 100)"
+                    className="transition-all duration-1000"
+                  />
+                </svg>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                  <div className="text-6xl font-bold text-white">{result.score}</div>
+                  <div className="text-sm text-white/80">out of 100</div>
                 </div>
-                <h1 className="display-2 color-neutral-800">
-                  AI-Powered SEO Analysis
-                </h1>
-                <p className="text-200 medium color-neutral-600">
-                  Get instant, intelligent SEO recommendations from our AI. Analyze any webpage and receive actionable fixes in seconds.
-                </p>
+              </div>
+              <div className="flex justify-center gap-8 mt-8">
+                <div>
+                  <div className="text-3xl font-bold text-red-300 mb-1">
+                    {result.summary.criticalIssues}
+                  </div>
+                  <div className="text-sm text-white/80">Critical</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-yellow-300 mb-1">
+                    {result.summary.highIssues}
+                  </div>
+                  <div className="text-sm text-white/80">High</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-blue-300 mb-1">
+                    {result.summary.mediumIssues}
+                  </div>
+                  <div className="text-sm text-white/80">Medium</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-green-300 mb-1">
+                    {result.summary.lowIssues}
+                  </div>
+                  <div className="text-sm text-white/80">Low</div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Analysis Input Card */}
-          <div className="card pd-32px---44px">
-            <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-              <div className="avatar-circle _32px">
-                <Search className="h-4 w-4" />
+          {/* Issues Found */}
+          <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10">
+                <AlertCircle className="w-5 h-5 text-yellow-400" />
               </div>
-              <h2 className="text-300 bold color-neutral-800">Enter URL to Analyze</h2>
+              <h2 className="text-xl font-bold text-white">Issues Found</h2>
             </div>
-            <div className="flex-horizontal gap-column-12px">
-              <div style={{ flex: 1, position: 'relative' }}>
-                <input
-                  type="url"
-                  value={url}
-                  onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://example.com"
-                  className="input large"
-                  disabled={analyzing}
-                />
-              </div>
-              <button
-                onClick={handleAnalyze}
-                disabled={!url || analyzing}
-                className="btn-primary large"
-              >
-                {analyzing ? (
-                  <>
-                    <span className="btn-icon-left">
-                      <div className="loading-spinner small" />
-                    </span>
-                    Analyzing...
-                  </>
-                ) : (
-                  <>
-                    <Search className="h-5 w-5" style={{ marginRight: '8px' }} />
-                    Analyze
-                  </>
-                )}
-              </button>
+            <div className="space-y-4">
+              {result.issues.map((issue, idx) => (
+                <AIIssueCard key={idx} issue={issue} />
+              ))}
             </div>
           </div>
 
-          {/* AI Thinking Process */}
-          {analyzing && (
-            <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1))', border: '1px solid var(--accent--primary-1)' }}>
-              <div className="flex-horizontal align-start gap-column-16px">
-                <div className="avatar-circle _48px animate-pulse" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                  <Lightbulb className="h-6 w-6 color-neutral-100" />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <h3 className="text-300 bold color-neutral-800 mg-bottom-8px">
-                    AI is analyzing your page...
-                  </h3>
-                  <p className="text-100 medium color-neutral-600 mg-bottom-20px">
-                    This usually takes 3-5 seconds
-                  </p>
-                  <div className="gap-row-12px">
-                    {aiThinking.map((step, idx) => (
-                      <div
-                        key={idx}
-                        className="flex-horizontal align-center gap-column-8px animate-fade-in"
-                      >
-                        <div className="avatar-circle _16px" style={{ backgroundColor: 'var(--system--green-200)' }}>
-                          <CheckCircle className="h-3 w-3" style={{ color: 'var(--system--green-400)' }} />
-                        </div>
-                        <p className="text-100 medium color-neutral-700">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          {/* AI Recommendations */}
+          <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-blue-500/20 rounded-2xl p-6 shadow-lg shadow-blue-500/10">
+            <div className="flex items-start gap-4">
+              <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-blue-500/20 flex-shrink-0">
+                <Lightbulb className="w-7 h-7 text-blue-400" />
               </div>
-            </div>
-          )}
-
-          {/* Analysis Results */}
-          {result && !analyzing && (
-            <>
-              {/* SEO Score Card */}
-              <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                <div className="text-center">
-                  <h2 className="text-400 bold color-neutral-100 mg-bottom-32px">SEO Score</h2>
-                  <div style={{ position: 'relative', display: 'inline-block' }}>
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                      <circle
-                        cx="100"
-                        cy="100"
-                        r="80"
-                        fill="none"
-                        stroke="rgba(255,255,255,0.2)"
-                        strokeWidth="20"
-                      />
-                      <circle
-                        cx="100"
-                        cy="100"
-                        r="80"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="20"
-                        strokeDasharray={`${(result.score / 100) * 502} 502`}
-                        strokeLinecap="round"
-                        transform="rotate(-90 100 100)"
-                        style={{ transition: 'all 1s ease' }}
-                      />
-                    </svg>
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
-                      <div className="text-700 bold color-neutral-100">{result.score}</div>
-                      <div className="text-100 medium color-neutral-200">out of 100</div>
-                    </div>
-                  </div>
-                  <div className="flex-horizontal justify-center gap-column-32px mg-top-32px">
-                    <div>
-                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--red-300)' }}>
-                        {result.summary.criticalIssues}
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  AI Recommendations
+                </h3>
+                <div className="space-y-3">
+                  {result.recommendations.map((rec, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <div className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-500/20 border border-blue-500/30 flex-shrink-0 mt-0.5">
+                        <TrendingUp className="w-3 h-3 text-blue-400" />
                       </div>
-                      <div className="text-100 medium color-neutral-200">Critical</div>
+                      <p className="text-sm text-gray-300">{rec}</p>
                     </div>
-                    <div>
-                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--yellow-300)' }}>
-                        {result.summary.highIssues}
-                      </div>
-                      <div className="text-100 medium color-neutral-200">High</div>
-                    </div>
-                    <div>
-                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--blue-300)' }}>
-                        {result.summary.mediumIssues}
-                      </div>
-                      <div className="text-100 medium color-neutral-200">Medium</div>
-                    </div>
-                    <div>
-                      <div className="text-400 bold mg-bottom-4px" style={{ color: 'var(--system--green-300)' }}>
-                        {result.summary.lowIssues}
-                      </div>
-                      <div className="text-100 medium color-neutral-200">Low</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Issues Found */}
-              <div className="card pd-32px---44px">
-                <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-                  <div className="avatar-circle _32px">
-                    <AlertCircle className="h-4 w-4" />
-                  </div>
-                  <h2 className="text-300 bold color-neutral-800">Issues Found</h2>
-                </div>
-                <div className="gap-row-16px">
-                  {result.issues.map((issue, idx) => (
-                    <AIIssueCard key={idx} issue={issue} />
                   ))}
                 </div>
               </div>
-
-              {/* AI Recommendations */}
-              <div className="card pd-32px---44px" style={{ background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1))', border: '1px solid var(--accent--primary-1)' }}>
-                <div className="flex-horizontal align-start gap-column-16px">
-                  <div className="avatar-circle _48px" style={{ background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                    <Lightbulb className="h-6 w-6 color-neutral-100" />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <h3 className="text-300 bold color-neutral-800 mg-bottom-16px">
-                      AI Recommendations
-                    </h3>
-                    <div className="gap-row-12px">
-                      {result.recommendations.map((rec, idx) => (
-                        <div key={idx} className="flex-horizontal align-start gap-column-8px">
-                          <div className="avatar-circle _16px" style={{ backgroundColor: 'var(--accent--primary-1)', flexShrink: 0, marginTop: '2px' }}>
-                            <TrendingUp className="h-3 w-3 color-neutral-100" />
-                          </div>
-                          <p className="text-200 medium color-neutral-700">{rec}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex-horizontal justify-center gap-column-16px">
-                <button
-                  onClick={() => {
-                    setUrl('')
-                    setResult(null)
-                  }}
-                  className="btn-secondary large"
-                >
-                  Analyze Another URL
-                </button>
-                <button className="btn-primary large">
-                  Apply All Fixes Automatically
-                </button>
-              </div>
-            </>
-          )}
-
-          {/* How It Works */}
-          {!result && !analyzing && (
-            <div className="card pd-32px---44px">
-              <h2 className="text-400 bold color-neutral-800 mg-bottom-32px text-center">
-                How Our AI Analyzes Your SEO
-              </h2>
-              <div className="grid-3-columns gap-column-24px">
-                <div className="text-center">
-                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                    <Search className="h-8 w-8 color-neutral-100" />
-                  </div>
-                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Deep Analysis</h3>
-                  <p className="text-100 medium color-neutral-600">
-                    Our AI scans your entire page structure, content, meta tags, and technical SEO elements
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--secondary--color-5), var(--accent--primary-2))' }}>
-                    <Lightbulb className="h-8 w-8 color-neutral-100" />
-                  </div>
-                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Smart Recommendations</h3>
-                  <p className="text-100 medium color-neutral-600">
-                    AI understands context and provides intelligent, actionable recommendations tailored to your site
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="avatar-circle _64px" style={{ margin: '0 auto 16px', background: 'linear-gradient(135deg, var(--accent--primary-1), var(--secondary--color-5))' }}>
-                    <TrendingUp className="h-8 w-8 color-neutral-100" />
-                  </div>
-                  <h3 className="text-200 bold color-neutral-800 mg-bottom-8px">Automatic Fixes</h3>
-                  <p className="text-100 medium color-neutral-600">
-                    Get ready-to-use code snippets and automatic fixes that can be applied with one click
-                  </p>
-                </div>
-              </div>
             </div>
-          )}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={() => {
+                setUrl('')
+                setResult(null)
+              }}
+              className="px-6 py-3 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
+            >
+              Analyze Another URL
+            </button>
+            <button className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20">
+              Apply All Fixes Automatically
+            </button>
+          </div>
+        </>
+      )}
+
+      {/* How It Works */}
+      {!result && !analyzing && (
+        <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">
+            How Our AI Analyzes Your SEO
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-blue-500/20">
+                <Search className="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Deep Analysis</h3>
+              <p className="text-sm text-gray-400">
+                Our AI scans your entire page structure, content, meta tags, and technical SEO elements
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-purple-500/20">
+                <Lightbulb className="w-8 h-8 text-purple-400" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Smart Recommendations</h3>
+              <p className="text-sm text-gray-400">
+                AI understands context and provides intelligent, actionable recommendations tailored to your site
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-blue-500/20">
+                <TrendingUp className="w-8 h-8 text-blue-400" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Automatic Fixes</h3>
+              <p className="text-sm text-gray-400">
+                Get ready-to-use code snippets and automatic fixes that can be applied with one click
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
@@ -387,60 +368,51 @@ function AIIssueCard({
 }) {
   const [showCode, setShowCode] = useState(false)
 
-  const getBadgeClass = (severity: string) => {
-    switch (severity) {
-      case 'CRITICAL':
-        return 'danger'
-      case 'HIGH':
-        return 'warning'
-      case 'MEDIUM':
-        return 'info'
-      case 'LOW':
-        return 'success'
-      default:
-        return 'default'
-    }
-  }
+  const severityConfig = {
+    CRITICAL: { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/20' },
+    HIGH: { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/20' },
+    MEDIUM: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/20' },
+    LOW: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
+  }[issue.severity] || { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/20' }
 
   return (
-    <div className="card pd-24px">
-      <div className="flex-horizontal align-start space-between mg-bottom-16px">
-        <div style={{ flex: 1 }}>
-          <div className="flex-horizontal align-center gap-column-12px mg-bottom-12px">
-            <span className={`badge ${getBadgeClass(issue.severity)}`}>
+    <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:scale-[1.01] transition-all duration-300">
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-3 mb-3">
+            <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${severityConfig.bg} ${severityConfig.text} ${severityConfig.border}`}>
               {issue.severity}
             </span>
-            <h3 className="text-200 bold color-neutral-800">{issue.title}</h3>
+            <h3 className="text-base font-bold text-white">{issue.title}</h3>
           </div>
-          <p className="text-100 medium color-neutral-700 mg-bottom-12px">{issue.description}</p>
+          <p className="text-sm text-gray-400 mb-3">{issue.description}</p>
         </div>
       </div>
 
-      <div className="card pd-16px" style={{ backgroundColor: 'rgba(99, 102, 241, 0.1)', border: '1px solid var(--accent--primary-1)' }}>
-        <div className="flex-horizontal align-start gap-column-12px">
-          <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--accent--primary-1)', flexShrink: 0 }}>
-            <Lightbulb className="h-4 w-4 color-neutral-100" />
+      <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-xl border border-blue-500/20 rounded-xl p-4">
+        <div className="flex items-start gap-3">
+          <div className="flex items-center justify-center w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-500/30 flex-shrink-0">
+            <Lightbulb className="w-4 h-4 text-blue-400" />
           </div>
-          <div style={{ flex: 1 }}>
-            <p className="text-100 bold color-neutral-800 mg-bottom-4px">AI Recommendation:</p>
-            <p className="text-100 medium color-neutral-700">{issue.recommendation}</p>
+          <div className="flex-1">
+            <p className="text-xs font-bold text-white mb-1">AI Recommendation:</p>
+            <p className="text-sm text-gray-300">{issue.recommendation}</p>
           </div>
         </div>
       </div>
 
       {issue.fixCode && (
-        <div className="mg-top-16px">
+        <div className="mt-4">
           <button
             onClick={() => setShowCode(!showCode)}
-            className="btn-text small"
-            style={{ color: 'var(--accent--primary-1)' }}
+            className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
           >
-            <Code2 className="h-4 w-4" style={{ marginRight: '8px' }} />
+            <Code2 className="w-4 h-4" />
             {showCode ? 'Hide' : 'View'} Generated Fix Code
           </button>
           {showCode && (
-            <pre className="card pd-16px mg-top-12px" style={{ backgroundColor: 'var(--neutral--100)', overflow: 'auto' }}>
-              <code className="text-100 medium" style={{ color: 'var(--system--green-400)' }}>{issue.fixCode}</code>
+            <pre className="mt-3 bg-black/30 border border-white/10 rounded-xl p-4 overflow-auto">
+              <code className="text-sm text-green-400">{issue.fixCode}</code>
             </pre>
           )}
         </div>

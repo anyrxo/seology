@@ -53,123 +53,117 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
   }
 
   return (
-    <div className="w-layout-blockcontainer container-default w-container">
-      <div className="grid-1-column gap-row-32px">
-        {/* Header */}
-        <div className="rt-component-section">
-          <div className="flex-horizontal gap-column-16px align-center">
-            <div className="card-icon-square _40px">
-              <div className="text-300">✅</div>
-            </div>
-            <div className="flex-vertical">
-              <h1 className="display-2 color-neutral-800">SEO Fixes</h1>
-              <p className="text-200 color-neutral-600">
-                Review, approve, and rollback automated SEO fixes
-              </p>
-            </div>
-          </div>
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10">
+          <div className="text-2xl">✅</div>
         </div>
-
-        {/* Stats Grid */}
-        <div className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px">
-          <StatCard title="Total Fixes" value={stats.totalFixes} icon="✓" />
-          <StatCard title="Pending Approval" value={stats.pendingFixes} icon="⏳" />
-          <StatCard title="Applied This Month" value={stats.appliedThisMonth} icon="📊" />
-          <StatCard title="Available Rollbacks" value={stats.availableRollbacks} icon="↩️" />
-        </div>
-
-        {/* Execution Mode Info */}
-        <div className="card pd-32px---44px">
-          <div className="flex-horizontal gap-column-24px align-center">
-            <div className="card-icon-square _40px">
-              <div className="text-600">{executionModeConfig.icon}</div>
-            </div>
-            <div className="flex-vertical flex-1">
-              <div className="flex-horizontal gap-column-12px align-center mg-bottom-8px">
-                <h3 className="text-300 bold color-neutral-800">Execution Mode:</h3>
-                <div className="badge primary">
-                  <div className="text-50 medium">{executionModeConfig.label}</div>
-                </div>
-              </div>
-              <p className="text-200 color-neutral-600 mg-bottom-16px">
-                {executionModeConfig.description}
-              </p>
-              <Link
-                href="/dashboard/settings"
-                className="text-100 medium color-accent-1"
-              >
-                Change Execution Mode →
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Fixes Table */}
-        <div className="card pd-32px---24px">
-          <div className="mg-bottom-24px">
-            <h2 className="text-400 bold color-neutral-800">Recent Fixes</h2>
-          </div>
-
-          {fixes.length === 0 ? (
-            <div className="flex-vertical gap-row-24px align-center text-center" style={{ padding: '64px 16px' }}>
-              <div className="card-icon-square _40px neutral-icon">
-                <div className="text-600">✨</div>
-              </div>
-              <h3 className="text-300 bold color-neutral-800">
-                No fixes applied yet
-              </h3>
-              <p className="text-200 color-neutral-600 mg-bottom-16px">
-                Once issues are detected, fixes will appear here for review or auto-application
-              </p>
-              <Link
-                href="/dashboard/issues"
-                className="btn-primary large"
-              >
-                View SEO Issues
-              </Link>
-            </div>
-          ) : (
-            <div className="w-layout-blockcontainer w-container">
-              <div className="grid-1-column gap-row-12px">
-                {fixes.map((fix) => (
-                  <FixRow key={fix.id} fix={fix} />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Rollback Safety Info */}
-        <div className="card pd-32px---44px">
-          <div className="flex-horizontal gap-column-16px align-center mg-bottom-24px">
-            <div className="card-icon-square _40px">
-              <RotateCcw className="w-5 h-5 color-accent-1" />
-            </div>
-            <h3 className="text-300 bold color-neutral-800">
-              90-Day Rollback Protection
-            </h3>
-          </div>
-          <p className="text-200 color-neutral-600 mg-bottom-32px">
-            Every fix includes the original content state, allowing you to safely revert any changes within 90 days. After 90 days, rollback data is automatically cleaned up for compliance.
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-1">SEO Fixes</h1>
+          <p className="text-gray-400">
+            Review, approve, and rollback automated SEO fixes
           </p>
-          <div className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px">
-            {[
-              { label: 'Before/After State Stored', description: 'Complete content backup', icon: '💾' },
-              { label: 'One-Click Rollback', description: 'Instant reversion', icon: '⚡' },
-              { label: 'Audit Trail', description: 'Full change history', icon: '📋' },
-              { label: 'Automatic Cleanup', description: '90-day retention', icon: '🗑️' },
-            ].map((item) => (
-              <div key={item.label} className="card pd-24px">
-                <div className="flex-vertical gap-row-12px">
-                  <div className="card-icon-square _26px neutral-icon">
-                    <div className="text-100">{item.icon}</div>
-                  </div>
-                  <p className="text-200 bold color-neutral-800">{item.label}</p>
-                  <p className="text-100 color-neutral-600">{item.description}</p>
-                </div>
+        </div>
+      </div>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCard title="Total Fixes" value={stats.totalFixes} icon="✓" />
+        <StatCard title="Pending Approval" value={stats.pendingFixes} icon="⏳" />
+        <StatCard title="Applied This Month" value={stats.appliedThisMonth} icon="📊" />
+        <StatCard title="Available Rollbacks" value={stats.availableRollbacks} icon="↩️" />
+      </div>
+
+      {/* Execution Mode Info */}
+      <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 flex-shrink-0">
+            <div className="text-3xl">{executionModeConfig.icon}</div>
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-lg font-bold text-white">Execution Mode:</h3>
+              <div className="px-3 py-1 rounded-full text-sm font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                {executionModeConfig.label}
               </div>
+            </div>
+            <p className="text-gray-400 mb-4">
+              {executionModeConfig.description}
+            </p>
+            <Link
+              href="/dashboard/settings"
+              className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center gap-1"
+            >
+              Change Execution Mode →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Fixes Table */}
+      <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-white">Recent Fixes</h2>
+        </div>
+
+        {fixes.length === 0 ? (
+          <div className="flex flex-col items-center text-center py-16">
+            <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 mb-6">
+              <div className="text-3xl">✨</div>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2">
+              No fixes applied yet
+            </h3>
+            <p className="text-gray-400 mb-6 max-w-md">
+              Once issues are detected, fixes will appear here for review or auto-application
+            </p>
+            <Link
+              href="/dashboard/issues"
+              className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20"
+            >
+              View SEO Issues
+            </Link>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {fixes.map((fix) => (
+              <FixRow key={fix.id} fix={fix} />
             ))}
           </div>
+        )}
+      </div>
+
+      {/* Rollback Safety Info */}
+      <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.01] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10">
+            <RotateCcw className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 className="text-xl font-bold text-white">
+            90-Day Rollback Protection
+          </h3>
+        </div>
+        <p className="text-gray-400 mb-8 max-w-3xl">
+          Every fix includes the original content state, allowing you to safely revert any changes within 90 days. After 90 days, rollback data is automatically cleaned up for compliance.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { label: 'Before/After State Stored', description: 'Complete content backup', icon: '💾' },
+            { label: 'One-Click Rollback', description: 'Instant reversion', icon: '⚡' },
+            { label: 'Audit Trail', description: 'Full change history', icon: '📋' },
+            { label: 'Automatic Cleanup', description: '90-day retention', icon: '🗑️' },
+          ].map((item) => (
+            <div key={item.label} className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:scale-[1.02] transition-all duration-300">
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10">
+                  <div className="text-lg">{item.icon}</div>
+                </div>
+                <p className="text-sm font-bold text-white">{item.label}</p>
+                <p className="text-xs text-gray-500">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -178,17 +172,15 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
 
 function StatCard({ title, value, icon }: { title: string; value: number; icon: string }) {
   return (
-    <div className="card pd-24px">
-      <div className="flex-horizontal space-between align-center mg-bottom-16px">
-        <div className="card-icon-square _26px neutral-icon">
-          <div className="text-200">{icon}</div>
+    <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10">
+          <div className="text-base">{icon}</div>
         </div>
       </div>
-      <div className="flex-vertical gap-row-12px">
-        <p className="text-100 medium color-neutral-600">{title}</p>
-        <div className="card-amount-container">
-          <p className="display-2 color-neutral-800">{value}</p>
-        </div>
+      <div className="flex flex-col gap-3">
+        <p className="text-sm font-medium text-gray-400">{title}</p>
+        <p className="text-3xl font-bold text-white">{value}</p>
       </div>
     </div>
   )
@@ -196,46 +188,46 @@ function StatCard({ title, value, icon }: { title: string; value: number; icon: 
 
 function FixRow({ fix }: { fix: Fix }) {
   const statusBadge = {
-    PENDING: 'orange',
-    APPLIED: 'green',
-    ROLLED_BACK: 'neutral',
-    FAILED: 'red',
-  }[fix.status] || 'neutral'
+    PENDING: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
+    APPLIED: 'bg-green-500/10 text-green-400 border-green-500/20',
+    ROLLED_BACK: 'bg-gray-500/10 text-gray-400 border-gray-500/20',
+    FAILED: 'bg-red-500/10 text-red-400 border-red-500/20',
+  }[fix.status] || 'bg-gray-500/10 text-gray-400 border-gray-500/20'
 
   const daysLeftForRollback = fix.rollbackDeadline
     ? Math.max(0, Math.ceil((new Date(fix.rollbackDeadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
     : null
 
   return (
-    <div className="card pd-24px">
-      <div className="flex-horizontal space-between align-center">
-        <div className="flex-horizontal gap-column-16px align-center flex-1">
-          <div className="card-icon-square _26px neutral-icon">
-            <Settings className="w-3 h-3 color-neutral-600" />
+    <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-4 hover:scale-[1.01] transition-all duration-300">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4 flex-1">
+          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 flex-shrink-0">
+            <Settings className="w-4 h-4 text-gray-400" />
           </div>
-          <div className="flex-vertical gap-row-8px flex-1">
-            <div className="flex-horizontal gap-column-12px align-center">
-              <span className="text-200 medium color-neutral-800">{fix.type.replace(/_/g, ' ')}</span>
-              <div className={`badge ${statusBadge}`}>
-                <div className="text-50 medium">{fix.status}</div>
+          <div className="flex flex-col gap-2 flex-1 min-w-0">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-sm font-medium text-white">{fix.type.replace(/_/g, ' ')}</span>
+              <div className={`px-2 py-1 rounded-full text-xs font-semibold border ${statusBadge}`}>
+                {fix.status}
               </div>
             </div>
-            <p className="text-100 color-neutral-600">{fix.description}</p>
-            <div className="flex-horizontal gap-column-16px">
-              <div className="flex-horizontal gap-column-8px align-center">
-                <div className="text-50 color-neutral-600">Site:</div>
-                <div className="text-50 medium color-neutral-800">{fix.connection.domain}</div>
+            <p className="text-sm text-gray-400 line-clamp-1">{fix.description}</p>
+            <div className="flex items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <div className="text-xs text-gray-500">Site:</div>
+                <div className="text-xs font-medium text-gray-300">{fix.connection.domain}</div>
               </div>
               {fix.appliedAt && (
-                <div className="flex-horizontal gap-column-8px align-center">
-                  <Clock className="w-3 h-3 color-neutral-600" />
-                  <span className="text-50 color-neutral-600">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-3 h-3 text-gray-500" />
+                  <span className="text-xs text-gray-500">
                     {new Date(fix.appliedAt).toLocaleDateString()}
                   </span>
                 </div>
               )}
               {daysLeftForRollback !== null && (
-                <div className="text-50 color-accent-1">
+                <div className="text-xs text-blue-400">
                   {daysLeftForRollback > 0
                     ? `${daysLeftForRollback} days left to rollback`
                     : 'Rollback expired'}
@@ -244,19 +236,19 @@ function FixRow({ fix }: { fix: Fix }) {
             </div>
           </div>
         </div>
-        <div className="flex-horizontal gap-column-12px">
+        <div className="flex items-center gap-3 flex-shrink-0">
           {fix.status === 'APPLIED' && daysLeftForRollback && daysLeftForRollback > 0 ? (
-            <button className="btn-secondary">
-              <div className="flex-horizontal gap-column-6px align-center">
+            <button className="px-4 py-2 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10">
+              <div className="flex items-center gap-2">
                 <RotateCcw className="w-4 h-4" />
-                <div>Rollback</div>
+                <div className="text-sm font-medium">Rollback</div>
               </div>
             </button>
           ) : fix.status === 'PENDING' ? (
-            <button className="btn-primary">
-              <div className="flex-horizontal gap-column-6px align-center">
+            <button className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/20">
+              <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
-                <div>Approve</div>
+                <div className="text-sm font-medium">Approve</div>
               </div>
             </button>
           ) : null}
