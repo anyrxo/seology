@@ -41,6 +41,10 @@ interface UserWithContext {
   id: string
   plan: Plan
   executionMode: ExecutionMode
+  businessType: string | null
+  businessName: string | null
+  businessStage: string | null
+  platform: string | null
   connections: UserConnection[]
 }
 
@@ -131,6 +135,10 @@ export async function POST(req: NextRequest) {
       id: user.id,
       plan: user.plan,
       executionMode: user.executionMode,
+      businessType: user.businessType,
+      businessName: user.businessName,
+      businessStage: user.businessStage,
+      platform: user.platform,
       connections: user.connections.map((conn) => ({
         id: conn.id,
         platform: conn.platform,
@@ -209,6 +217,7 @@ YOUR CAPABILITIES:
    - Recently applied fixes
    - Their current plan: ${user.plan}
    - Their execution mode: ${user.executionMode}
+   - Onboarding info: ${user.businessType || 'Not specified'} business (${user.businessStage || 'stage unknown'})
 
 3. Provide actionable fixes:
    - Generate specific code examples (HTML, JavaScript, meta tags)
@@ -218,26 +227,43 @@ YOUR CAPABILITIES:
 
 4. Guide users through SEOLOGY platform:
    - How to connect sites (Shopify, WordPress, or custom sites)
-   - How execution modes work (AUTOMATIC, PLAN, APPROVE)
+   - How execution modes work:
+     * AUTOMATIC: Fixes apply instantly without approval
+     * PLAN: Creates fix plan, user approves once to execute all
+     * APPROVE: Each fix needs individual approval before applying
    - How to review and approve fixes
    - How to monitor SEO improvements
+   - Direct users to specific pages: /dashboard/sites/connect for connecting sites, /dashboard/issues for viewing issues, /dashboard/settings for changing execution mode
 
 RESPONSE GUIDELINES:
-- Always start by acknowledging their specific sites and issues when relevant
+- ALWAYS acknowledge their current setup (sites, execution mode, plan) when relevant
+- If they have NO sites connected, guide them to connect one: "You haven't connected any sites yet. Would you like me to help you connect your first site? Visit /dashboard/sites/connect to get started."
+- If they have sites but NO issues detected, suggest running a scan: "I see you have ${user.connections.length} site(s) connected, but no issues detected yet. The scan may still be running or you can trigger a manual scan from your dashboard."
 - Provide concrete, actionable advice with code examples
 - Use markdown formatting for code blocks and lists
 - Prioritize fixes by SEO impact (high/medium/low)
-- When suggesting fixes, mention that SEOLOGY can apply them automatically
+- When suggesting fixes, EXPLAIN how their execution mode (${user.executionMode}) affects the process
 - Ask clarifying questions if you need more information
-- Keep responses concise but comprehensive
+- Keep responses concise but comprehensive (2-4 paragraphs max)
 - Use emojis sparingly and professionally (✓, ⚠️, 📊, 🚀)
 
-EXAMPLE RESPONSES:
-- "I can see you have [X] issues on [site name]. Let me help you prioritize the most impactful fixes..."
-- "Based on your [PLAN] plan, you can fix up to [X] issues per month. Here's what I recommend tackling first..."
-- "This missing meta description on [page URL] is affecting your click-through rates. SEOLOGY can fix this automatically - would you like me to explain what we'll change?"
+EXECUTION MODE SPECIFIC GUIDANCE:
+${user.executionMode === 'AUTOMATIC' ? '- User is in AUTOMATIC mode: Emphasize that fixes will apply INSTANTLY when they approve them in chat' : ''}
+${user.executionMode === 'PLAN' ? '- User is in PLAN mode: Explain that you can create a comprehensive fix plan, and they approve once to execute all fixes at once' : ''}
+${user.executionMode === 'APPROVE' ? '- User is in APPROVE mode: Let them know each fix will be reviewed individually before applying, giving them maximum control' : ''}
 
-Remember: You're not just an advisor - you're part of a platform that actually FIXES issues, not just reports them. Emphasize SEOLOGY's unique automation capabilities.`,
+EXAMPLE RESPONSES:
+- "I can see you have ${user.connections.length} site(s) connected with ${user.connections.flatMap(c => c.issues).length} active issues. Since you're in ${user.executionMode} mode, ${user.executionMode === 'AUTOMATIC' ? 'I can apply fixes immediately' : user.executionMode === 'PLAN' ? "I'll create a plan for you to review" : "I'll present each fix for your approval"}. Let me help you prioritize the most impactful fixes..."
+- "Based on your ${user.plan} plan, you can fix issues efficiently. Here's what I recommend tackling first..."
+- "This missing meta description on [page URL] is affecting your click-through rates. ${user.executionMode === 'AUTOMATIC' ? 'I can fix this right now' : user.executionMode === 'PLAN' ? "I'll add this to your fix plan" : 'Would you like me to create a fix for your approval'}?"
+
+WHEN USER ASKS TO FIX SOMETHING:
+1. Reference their specific sites and issues
+2. Explain what will be changed
+3. Clarify next steps based on their execution mode
+4. Provide direct links to approve/view fixes
+
+Remember: You're not just an advisor - you're part of a platform that actually FIXES issues, not just reports them. Be specific about HOW SEOLOGY will fix things based on their current execution mode and connected sites.`,
             messages: aiMessages,
             stream: true,
           })
@@ -312,32 +338,75 @@ function buildUserContext(user: UserWithContext): string {
     return acc
   }, {})
 
+  const issuesBySeverity = allIssues.reduce<Record<string, number>>((acc, issue) => {
+    acc[issue.severity] = (acc[issue.severity] || 0) + 1
+    return acc
+  }, {})
+
   let context = `USER INFORMATION:
-- Plan: ${user.plan}
-- Execution Mode: ${user.executionMode}
+- Plan: ${user.plan} (determines monthly fix limit and features)
+- Execution Mode: ${user.executionMode} (${
+    user.executionMode === 'AUTOMATIC'
+      ? 'fixes apply instantly'
+      : user.executionMode === 'PLAN'
+      ? 'creates fix plans for bulk approval'
+      : 'each fix needs individual approval'
+  })
 - Connected Sites: ${totalConnections}
 - Total Active Issues: ${allIssues.length}
 - Total Fixes Applied: ${allFixes.length}
 `
 
+  if (user.businessType || user.businessStage || user.businessName) {
+    context += `\nUSER BUSINESS PROFILE:
+- Business Name: ${user.businessName || 'Not provided'}
+- Business Type: ${user.businessType || 'Not specified'}
+- Business Stage: ${user.businessStage || 'Not specified'}
+- Platform Preference: ${user.platform || 'Not specified'}
+`
+  }
+
   if (totalConnections > 0) {
     context += `\nCONNECTED SITES:\n`
     user.connections.forEach((conn) => {
-      context += `- ${conn.displayName || conn.domain} (${conn.platform}): ${conn.issues.length} issues, ${conn.fixes.length} recent fixes\n`
+      context += `- ${conn.displayName || conn.domain} (${conn.platform}): ${conn.issues.length} active issues, ${conn.fixes.length} recent fixes\n`
     })
+  } else {
+    context += `\nNO SITES CONNECTED YET - Guide user to /dashboard/sites/connect\n`
   }
 
   if (allIssues.length > 0) {
-    context += `\nISSUE BREAKDOWN:\n`
+    context += `\nISSUE SEVERITY BREAKDOWN:\n`
+    Object.entries(issuesBySeverity).forEach(([severity, count]) => {
+      context += `- ${severity}: ${count} issue(s)\n`
+    })
+
+    context += `\nISSUE TYPE BREAKDOWN:\n`
     Object.entries(issuesByType).forEach(([type, count]) => {
       context += `- ${type}: ${count}\n`
     })
+
+    context += `\nRECENT CRITICAL ISSUES (Top 5):\n`
+    const criticalIssues = allIssues.filter(i => i.severity === 'CRITICAL' || i.severity === 'HIGH')
+    criticalIssues.slice(0, 5).forEach((issue, index) => {
+      context += `${index + 1}. [${issue.severity}] ${issue.title}\n   Page: ${issue.pageUrl}\n   Description: ${issue.description}\n`
+    })
+
+    if (criticalIssues.length === 0 && allIssues.length > 0) {
+      context += `(No critical issues - showing general issues)\n`
+      allIssues.slice(0, 5).forEach((issue, index) => {
+        context += `${index + 1}. [${issue.severity}] ${issue.title}\n   Page: ${issue.pageUrl}\n`
+      })
+    }
+  } else if (totalConnections > 0) {
+    context += `\nNO ISSUES DETECTED - Site scan may be in progress, or site is healthy\n`
   }
 
-  if (allIssues.length > 0) {
-    context += `\nRECENT ISSUES (Top 5):\n`
-    allIssues.slice(0, 5).forEach((issue, index) => {
-      context += `${index + 1}. [${issue.severity}] ${issue.title} - ${issue.description}\n`
+  if (allFixes.length > 0) {
+    context += `\nRECENT FIXES APPLIED:\n`
+    allFixes.slice(0, 3).forEach((fix, index) => {
+      const daysAgo = Math.floor((Date.now() - fix.createdAt.getTime()) / (1000 * 60 * 60 * 24))
+      context += `${index + 1}. ${fix.description} (${daysAgo} day${daysAgo !== 1 ? 's' : ''} ago)\n`
     })
   }
 
