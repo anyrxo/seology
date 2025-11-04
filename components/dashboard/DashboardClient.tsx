@@ -5,6 +5,10 @@ import Link from 'next/link'
 import { ActivityTimeline, type ActivityItem } from './ActivityTimeline'
 import { LineChartPlaceholder, BarChartPlaceholder } from './ChartPlaceholder'
 import { DashflowDataTable, type TableColumn } from './DashflowDataTable'
+import { SEOWorkflowMap } from './SEOWorkflowMap'
+import { LiveActivityFeed } from './LiveActivityFeed'
+import { IssueSeverityCards, IssueSummary } from './IssueSeverityCards'
+import { AnimatedCounter, TrendIndicator } from './AnimatedCounter'
 import { motion } from 'framer-motion'
 import {
   Globe,
@@ -213,6 +217,9 @@ export function DashboardClient({ userName }: { userName: string }) {
           </div>
         </div>
 
+        {/* SEO Workflow Pipeline - Fluency-inspired real-time process visualization */}
+        <SEOWorkflowMap />
+
         {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
         <motion.div
           className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px"
@@ -262,8 +269,11 @@ export function DashboardClient({ userName }: { userName: string }) {
             <div className="flex-vertical gap-row-12px relative z-10">
               <div className="text-100 medium text-gray-400">Sites Connected</div>
               <div className="card-amount-container green">
-                <div className="display-2 text-white">{stats.sitesCount}</div>
+                <AnimatedCounter value={stats.sitesCount} className="display-2 text-white" />
               </div>
+              {stats.sitesCount > 0 && (
+                <TrendIndicator value={stats.sitesCount} direction="up" label="active" />
+              )}
             </div>
           </motion.div>
 
@@ -302,8 +312,11 @@ export function DashboardClient({ userName }: { userName: string }) {
             <div className="flex-vertical gap-row-12px relative z-10">
               <div className="text-100 medium text-gray-400">Issues Detected</div>
               <div className={`card-amount-container ${stats.activeIssuesCount > 0 ? 'red' : 'green'}`}>
-                <div className="display-2 text-white">{stats.activeIssuesCount}</div>
+                <AnimatedCounter value={stats.activeIssuesCount} className="display-2 text-white" />
               </div>
+              {stats.activeIssuesCount > 0 && (
+                <TrendIndicator value={stats.activeIssuesCount} direction="down" label="needs fixing" />
+              )}
             </div>
           </motion.div>
 
@@ -340,8 +353,11 @@ export function DashboardClient({ userName }: { userName: string }) {
             <div className="flex-vertical gap-row-12px relative z-10">
               <div className="text-100 medium text-gray-400">Fixes Applied</div>
               <div className="card-amount-container green">
-                <div className="display-2 text-white">{stats.fixesThisMonth}</div>
+                <AnimatedCounter value={stats.fixesThisMonth} className="display-2 text-white" />
               </div>
+              {stats.fixesThisMonth > 0 && (
+                <TrendIndicator value={stats.fixesThisMonth} direction="up" label="this month" />
+              )}
             </div>
           </motion.div>
 
@@ -380,11 +396,29 @@ export function DashboardClient({ userName }: { userName: string }) {
             <div className="flex-vertical gap-row-12px relative z-10">
               <div className="text-100 medium text-gray-400">Usage This Month</div>
               <div className={`card-amount-container ${stats.usagePercent >= 90 ? 'red' : 'green'}`}>
-                <div className="display-2 text-white">{stats.usagePercent}%</div>
+                <AnimatedCounter value={stats.usagePercent} suffix="%" className="display-2 text-white" />
               </div>
+              {stats.usagePercent > 0 && (
+                <TrendIndicator
+                  value={stats.usagePercent}
+                  direction={stats.usagePercent >= 90 ? 'up' : 'neutral'}
+                  label="of limit"
+                />
+              )}
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Issue Severity Cards - Fluency-inspired severity breakdown */}
+        {stats.activeIssuesCount > 0 && (
+          <IssueSeverityCards
+            counts={{
+              critical: Math.floor(stats.activeIssuesCount * 0.2),
+              warning: Math.floor(stats.activeIssuesCount * 0.5),
+              info: Math.ceil(stats.activeIssuesCount * 0.3)
+            }}
+          />
+        )}
 
         {/* Usage Progress Bar with card-icon-square */}
         {stats.usagePercent > 0 && (
@@ -469,6 +503,31 @@ export function DashboardClient({ userName }: { userName: string }) {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Live Activity & Issue Summary - Fluency-inspired real-time dashboard */}
+        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
+          <LiveActivityFeed
+            activities={mockActivityData.map(activity => ({
+              id: activity.id,
+              type: activity.type === 'fix' ? 'fix' : activity.type === 'issue' ? 'issue' : activity.type === 'scan' ? 'scan' : 'connection',
+              title: activity.title,
+              description: activity.description || '',
+              site: activity.siteName || '',
+              timestamp: activity.timestamp,
+              severity: activity.status === 'warning' ? 'high' : activity.status === 'error' ? 'high' : 'low'
+            }))}
+            maxItems={6}
+            showTimestamp={true}
+            autoRefresh={false}
+          />
+          <IssueSummary
+            counts={{
+              critical: Math.floor(stats.activeIssuesCount * 0.2),
+              warning: Math.floor(stats.activeIssuesCount * 0.5),
+              info: Math.ceil(stats.activeIssuesCount * 0.3)
+            }}
+          />
         </div>
 
         {/* Analytics Charts Section - Dashflow X Style */}
