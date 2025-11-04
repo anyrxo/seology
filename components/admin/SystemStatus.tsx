@@ -16,7 +16,7 @@ export function SystemStatus({ className }: SystemStatusProps) {
     { name: 'API', status: 'healthy' as const },
     { name: 'Database', status: 'healthy' as const },
     { name: 'Job Queue', status: 'healthy' as const },
-    { name: 'Claude AI', status: 'healthy' as const },
+    { name: 'AI Service', status: 'healthy' as const },
   ]
 
   const getStatusIcon = () => {

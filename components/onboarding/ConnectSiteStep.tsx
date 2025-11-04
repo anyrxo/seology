@@ -8,11 +8,12 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface ConnectSiteStepProps {
-  onNext: (data: { siteId: string; siteName: string; platform: string }) => void
+  onNext: (data: { connectionId: string; siteName: string; platform: string }) => void
   onBack: () => void
+  onSkip?: () => void
 }
 
-export function ConnectSiteStep({ onNext, onBack }: ConnectSiteStepProps) {
+export function ConnectSiteStep({ onNext, onBack, onSkip }: ConnectSiteStepProps) {
   const router = useRouter()
   const [selectedPlatform, setSelectedPlatform] = useState<string>('')
   const [isConnecting, setIsConnecting] = useState(false)

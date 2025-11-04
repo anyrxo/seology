@@ -129,7 +129,7 @@ export default function MarketingFooter() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-500 text-sm">
-              &copy; 2025 SEOLOGY.AI. All rights reserved. Powered by Claude AI.
+              &copy; 2025 SEOLOGY.AI. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
               <Link

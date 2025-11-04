@@ -35,7 +35,7 @@ export function CompleteStep({ onFinish }: CompleteStepProps) {
               AI-Powered Fixes
             </h3>
             <p className="text-gray-300">
-              Claude AI will generate and apply fixes based on your chosen execution mode
+              Our AI will generate and apply fixes based on your chosen execution mode
             </p>
           </div>
           <div>

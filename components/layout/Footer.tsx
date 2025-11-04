@@ -43,7 +43,7 @@ export function Footer({ variant = 'default' }: FooterProps) {
               <div className="text-400 bold color-neutral-800">SEOLOGY.AI</div>
             </Link>
             <p className="text-100 color-neutral-600 mg-bottom-24px">
-              The first SEO tool that doesn&apos;t just report problems—it fixes them automatically using Claude AI.
+              The first SEO tool that doesn&apos;t just report problems—it fixes them automatically using advanced AI.
             </p>
 
             {/* Social Media Links */}

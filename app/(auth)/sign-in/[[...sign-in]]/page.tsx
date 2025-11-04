@@ -11,7 +11,7 @@ export default function SignInPage() {
               Welcome Back to <span className="color-accent--primary-1">SEOLOGY.AI</span>
             </h1>
             <p className="text-200 color-neutral-600">
-              Sign in to continue optimizing your SEO automatically with Claude AI
+              Sign in to continue optimizing your SEO automatically with SEOLOGY.AI
             </p>
           </div>
 

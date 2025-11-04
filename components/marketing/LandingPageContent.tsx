@@ -24,668 +24,565 @@ import {
 
 export default function LandingPageContent() {
   return (
-    <div className="bg-neutral-200">
-      {/* Hero Section - Radiant UI Structure */}
-      <section className="rt-component-section">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            <div className="rt-footer-four-title-main">
-              {/* Badge */}
-              <div className="badge green mg-bottom-24px">
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <Sparkles className="w-4 h-4" />
-                  <span>Powered by Claude 3.5 Sonnet AI</span>
-                </div>
-              </div>
+    <div className="bg-white">
+      {/* Hero Section - Centered & Professional */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-8">
+            <Sparkles className="w-4 h-4" />
+            <span>Powered by Advanced AI</span>
+          </div>
 
-              {/* Headline */}
-              <div className="rt-component-heading-two">
-                Stop Reporting SEO Issues.
-              </div>
-              <div className="rt-component-heading-two">
-                <span className="color-accent-1">Start Fixing</span> Them Automatically.
-              </div>
+          {/* Headline */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-tight mb-6">
+            Stop Reporting SEO Issues.
+            <br />
+            <span className="text-blue-600">Start Fixing</span> Them Automatically.
+          </h1>
 
-              {/* Subtitle */}
-              <p className="text-200 color-neutral-600 mg-top-24px mg-bottom-32px">
-                The world's first AI-powered platform that doesn't just find SEO
-                problems—it logs into your CMS and fixes them. Automatically.
-              </p>
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-neutral-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            The world's first AI-powered platform that doesn't just find SEO
+            problems—it logs into your CMS and fixes them. Automatically.
+          </p>
 
-              {/* CTA Buttons */}
-              <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-32px">
-                <Link href="/sign-up" className="btn-primary large">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div>Start Fixing Issues Free</div>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </Link>
-                <Link href="#how-it-works" className="btn-secondary large">
-                  Watch How It Works
-                </Link>
-              </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+            >
+              <span>Start Fixing Issues Free</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-700 rounded-lg font-semibold border-2 border-neutral-200 hover:border-neutral-300 transition-colors"
+            >
+              Watch How It Works
+            </Link>
+          </div>
 
-              {/* Trust Indicators */}
-              <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-48px">
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <Check className="w-4 h-4 color-accent-1" />
-                  <span className="text-100 color-neutral-600">14-day free trial</span>
-                </div>
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <Check className="w-4 h-4 color-accent-1" />
-                  <span className="text-100 color-neutral-600">No credit card required</span>
-                </div>
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <Check className="w-4 h-4 color-accent-1" />
-                  <span className="text-100 color-neutral-600">Cancel anytime</span>
-                </div>
-              </div>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-600 mb-16">
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-blue-600" />
+              <span>14-day free trial</span>
             </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-blue-600" />
+              <span>No credit card required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-blue-600" />
+              <span>Cancel anytime</span>
+            </div>
+          </div>
 
-            {/* Social Proof Stats */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              <div className="card pd-24px">
-                <div className="text-400 bold color-accent-1 mg-bottom-8px">10,000+</div>
-                <div className="text-100 medium color-neutral-600">Fixes Applied</div>
-              </div>
-              <div className="card pd-24px">
-                <div className="text-400 bold color-accent-1 mg-bottom-8px">500+</div>
-                <div className="text-100 medium color-neutral-600">Active Sites</div>
-              </div>
-              <div className="card pd-24px">
-                <div className="text-400 bold color-accent-1 mg-bottom-8px">99.9%</div>
-                <div className="text-100 medium color-neutral-600">Uptime</div>
-              </div>
+          {/* Social Proof Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl font-bold text-blue-600 mb-2">10,000+</div>
+              <div className="text-sm font-medium text-neutral-600">Fixes Applied</div>
+            </div>
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
+              <div className="text-sm font-medium text-neutral-600">Active Sites</div>
+            </div>
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
+              <div className="text-sm font-medium text-neutral-600">Uptime</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Problem Section - Radiant UI Cards */}
-      <section className="rt-component-section bg-neutral-100">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="rt-component-heading-two">
-                Every SEO Tool Tells You What's Wrong
+      {/* The Problem Section - Centered & Professional */}
+      <section className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Every SEO Tool Tells You What's Wrong
+            </h2>
+            <p className="text-xl text-neutral-600">
+              Nobody actually fixes it.
+            </p>
+          </div>
+
+          {/* Comparison Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Traditional SEO Tools */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="mb-6">
+                <BarChart3 className="w-14 h-14 text-neutral-400" />
               </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                Nobody actually fixes it.
-              </p>
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">
+                Traditional SEO Tools
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Generate reports</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Identify issues</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Send alerts</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>You fix everything manually</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Comparison Grid */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Traditional SEO Tools */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                <div className="card pd-32px---24px">
-                  <div className="rt-icon-box mg-bottom-24px">
-                    <BarChart3 className="w-14 h-14 color-neutral-600" />
-                  </div>
-                  <div className="rt-component-heading-two mg-bottom-16px">
-                    Traditional SEO Tools
-                  </div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Generate reports</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Identify issues</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Send alerts</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">You fix everything manually</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Manual Fixing */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="mb-6">
+                <Target className="w-14 h-14 text-neutral-400" />
               </div>
+              <h3 className="text-xl font-bold text-neutral-900 mb-4">
+                Manual Fixing
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Hours of work</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Human errors</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Inconsistent execution</span>
+                </li>
+                <li className="flex items-start gap-2 text-neutral-600">
+                  <span className="text-neutral-400 mt-1">•</span>
+                  <span>Expensive developers</span>
+                </li>
+              </ul>
+            </div>
 
-              {/* Manual Fixing */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px">
-                  <div className="rt-icon-box mg-bottom-24px">
-                    <Target className="w-14 h-14 color-neutral-600" />
-                  </div>
-                  <div className="rt-component-heading-two mg-bottom-16px">
-                    Manual Fixing
-                  </div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Hours of work</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Human errors</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Inconsistent execution</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <span className="text-100 color-neutral-600">•</span>
-                      <span className="text-100 color-neutral-600">Expensive developers</span>
-                    </div>
-                  </div>
-                </div>
+            {/* SEOLOGY.AI */}
+            <div className="bg-blue-600 border-2 border-blue-600 rounded-xl p-8 shadow-xl">
+              <div className="mb-6">
+                <Zap className="w-14 h-14 text-white" />
               </div>
-
-              {/* SEOLOGY.AI */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px card-highlighted">
-                  <div className="rt-icon-box mg-bottom-24px">
-                    <Zap className="w-14 h-14 color-accent-1" />
-                  </div>
-                  <div className="rt-component-heading-two mg-bottom-16px">
-                    SEOLOGY.AI
-                  </div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Automatically logs in</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Makes permanent fixes</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Claude AI intelligence</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Complete in minutes</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-white mb-4">
+                SEOLOGY.AI
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2 text-blue-50">
+                  <Check className="w-5 h-5 text-white mt-0.5" />
+                  <span>Automatically logs in</span>
+                </li>
+                <li className="flex items-start gap-2 text-blue-50">
+                  <Check className="w-5 h-5 text-white mt-0.5" />
+                  <span>Makes permanent fixes</span>
+                </li>
+                <li className="flex items-start gap-2 text-blue-50">
+                  <Check className="w-5 h-5 text-white mt-0.5" />
+                  <span>Advanced AI intelligence</span>
+                </li>
+                <li className="flex items-start gap-2 text-blue-50">
+                  <Check className="w-5 h-5 text-white mt-0.5" />
+                  <span>Complete in minutes</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works - Radiant UI IconBox Structure */}
-      <section id="how-it-works" className="rt-component-section bg-neutral-200">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="badge green mg-bottom-16px">
-                HOW IT WORKS
+      {/* How It Works - Professional & Centered */}
+      <section id="how-it-works" className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 rounded-full bg-green-50 text-green-600 text-sm font-semibold mb-6">
+              HOW IT WORKS
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              SEO Automation in Three Simple Steps
+            </h2>
+            <p className="text-xl text-neutral-600">
+              From connection to fix in minutes, not weeks
+            </p>
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600 font-bold text-xl mb-6">
+                01
               </div>
-              <div className="rt-component-heading-two">
-                SEO Automation in Three Simple Steps
+              <div className="mb-4">
+                <Globe className="w-10 h-10 text-blue-600" />
               </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                From connection to fix in minutes, not weeks
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
+                Connect Your Site in 60 Seconds
+              </h3>
+              <p className="text-neutral-600 mb-4">
+                Link your Shopify store, WordPress site, or any website in under a minute with secure OAuth or API credentials.
               </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>One-click OAuth for Shopify</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>REST API for WordPress</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Magic.js for any site</span>
+                </li>
+              </ul>
             </div>
 
-            {/* Steps Grid */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Step 1 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <div className="card-icon-square _48px">
-                      <div className="text-300 bold color-accent-1">01</div>
-                    </div>
-                  </div>
-                  <div className="rt-icon-box mg-bottom-16px">
-                    <Globe className="w-8 h-8 color-accent-1" />
-                  </div>
-                  <div className="rt-nav-text mg-bottom-12px">
-                    Connect Your Site in 60 Seconds
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-16px">
-                    Link your Shopify store, WordPress site, or any website in under a minute with secure OAuth or API credentials.
-                  </p>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">One-click OAuth for Shopify</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">REST API for WordPress</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Magic.js for any site</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Step 2 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600 font-bold text-xl mb-6">
+                02
               </div>
-
-              {/* Step 2 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <div className="card-icon-square _48px">
-                      <div className="text-300 bold color-accent-1">02</div>
-                    </div>
-                  </div>
-                  <div className="rt-icon-box mg-bottom-16px">
-                    <Cpu className="w-8 h-8 color-accent-1" />
-                  </div>
-                  <div className="rt-nav-text mg-bottom-12px">
-                    AI Analyzes & Creates Fix Plan
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-16px">
-                    Claude AI scans your entire site for 50+ SEO issues, identifies problems, and generates intelligent fixes.
-                  </p>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Full site crawl</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">50+ issue types detected</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Smart fix generation</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="mb-4">
+                <Cpu className="w-10 h-10 text-blue-600" />
               </div>
-
-              {/* Step 3 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <div className="card-icon-square _48px">
-                      <div className="text-300 bold color-accent-1">03</div>
-                    </div>
-                  </div>
-                  <div className="rt-icon-box mg-bottom-16px">
-                    <Zap className="w-8 h-8 color-accent-1" />
-                  </div>
-                  <div className="rt-nav-text mg-bottom-12px">
-                    Approve Once, Fix Everything
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-16px">
-                    Review the plan and approve. SEOLOGY.AI logs into your CMS and applies all fixes automatically.
-                  </p>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Single approval process</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Automatic deployment</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-50 color-neutral-600">Real-time progress tracking</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
+                AI Analyzes & Creates Fix Plan
+              </h3>
+              <p className="text-neutral-600 mb-4">
+                Our AI scans your entire site for 50+ SEO issues, identifies problems, and generates intelligent fixes.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Full site crawl</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>50+ issue types detected</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Smart fix generation</span>
+                </li>
+              </ul>
             </div>
 
-            {/* CTA */}
-            <div className="rt-footer-four-title-main mg-top-48px">
-              <Link href="/sign-up" className="btn-primary large">
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <span>Get Started Now</span>
-                  <ArrowRight className="w-5 h-5" />
-                </div>
-              </Link>
+            {/* Step 3 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-blue-100 text-blue-600 font-bold text-xl mb-6">
+                03
+              </div>
+              <div className="mb-4">
+                <Zap className="w-10 h-10 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-neutral-900 mb-3">
+                Approve Once, Fix Everything
+              </h3>
+              <p className="text-neutral-600 mb-4">
+                Review the plan and approve. SEOLOGY.AI logs into your CMS and applies all fixes automatically.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Single approval process</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Automatic deployment</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm text-neutral-600">
+                  <Check className="w-4 h-4 text-blue-600" />
+                  <span>Real-time progress tracking</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
+            >
+              <span>Get Started Now</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Mid-Page CTA Section - Centered */}
+      <section className="py-20 px-4 bg-blue-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-6">
+            LIMITED TIME OFFER
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Save Hours Every Week on SEO Tasks
+          </h2>
+          <p className="text-xl text-blue-100 mb-10">
+            Join hundreds of businesses automating their SEO with SEOLOGY.AI. Start your free 14-day trial today.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-neutral-50 transition-colors shadow-lg"
+            >
+              <span>Start Free Trial</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white rounded-lg font-semibold border-2 border-white hover:bg-white/10 transition-colors"
+            >
+              Watch Demo
+            </Link>
+          </div>
+
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-white mb-2">92%</div>
+              <div className="text-blue-100">Time Saved</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-white mb-2">50+</div>
+              <div className="text-blue-100">Issue Types</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-white mb-2">4.9/5</div>
+              <div className="text-blue-100">Customer Rating</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mid-Page CTA Section - Radiant UI CTA */}
-      <section className="rt-component-section bg-accent-1">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            <div className="rt-footer-four-title-main">
-              <div className="badge white mg-bottom-24px">
-                LIMITED TIME OFFER
-              </div>
-              <div className="rt-component-heading-two color-neutral-100">
-                Save Hours Every Week on SEO Tasks
-              </div>
-              <p className="text-200 color-neutral-100 mg-top-16px mg-bottom-32px">
-                Join hundreds of businesses automating their SEO with Claude AI. Start your free 14-day trial today.
-              </p>
-              <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-48px">
-                <Link href="/sign-up" className="btn-primary large white">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <span>Start Free Trial</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </Link>
-                <Link href="#how-it-works" className="btn-secondary large white-outline">
-                  Watch Demo
-                </Link>
-              </div>
+      {/* Features Grid - Centered */}
+      <section className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 rounded-full bg-purple-50 text-purple-600 text-sm font-semibold mb-6">
+              FEATURES
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Why Choose SEOLOGY.AI?
+            </h2>
+            <p className="text-xl text-neutral-600">
+              The most advanced SEO automation platform ever built
+            </p>
+          </div>
 
-              {/* Stats Row */}
-              <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-                <div className="rt-nav-top-wrap-contain">
-                  <div className="text-400 bold color-neutral-100 mg-bottom-8px">92%</div>
-                  <div className="text-100 color-neutral-100">Time Saved</div>
-                </div>
-                <div className="rt-nav-top-wrap-contain">
-                  <div className="text-400 bold color-neutral-100 mg-bottom-8px">50+</div>
-                  <div className="text-100 color-neutral-100">Issue Types</div>
-                </div>
-                <div className="rt-nav-top-wrap-contain">
-                  <div className="text-400 bold color-neutral-100 mg-bottom-8px">4.9/5</div>
-                  <div className="text-100 color-neutral-100">Customer Rating</div>
-                </div>
+          {/* Features Grid - 3x3 Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Zap className="w-8 h-8 text-blue-600" />
               </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Automatic SEO Fixes
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Stop wasting time on manual SEO tasks. Our AI fixes issues for you automatically.
+              </p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Shield className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Secure CMS Integration
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Enterprise-grade security with encrypted credentials and OAuth flows.
+              </p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <BarChart3 className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Real-Time Analytics
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Track your SEO improvements with detailed analytics and performance metrics.
+              </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <RotateCcw className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                90-Day Rollback
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Every fix can be rolled back for 90 days. Complete peace of mind.
+              </p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Target className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Three Execution Modes
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Choose automatic, plan review, or manual approval—whatever fits your workflow.
+              </p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Sparkles className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                AI-Powered
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Leveraging the most advanced AI technology for intelligent SEO decisions.
+              </p>
+            </div>
+
+            {/* Feature 7 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Code className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Universal Integration
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Works with Shopify, WordPress, and any custom website via JavaScript.
+              </p>
+            </div>
+
+            {/* Feature 8 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Users className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                Team Collaboration
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Share sites, track changes, and collaborate with your team in real-time.
+              </p>
+            </div>
+
+            {/* Feature 9 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
+              <div className="mb-4">
+                <Clock className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                24/7 Monitoring
+              </h3>
+              <p className="text-neutral-600 text-sm">
+                Continuous site monitoring with instant alerts when new issues are detected.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid - Radiant UI IconBox Components */}
-      <section className="rt-component-section bg-neutral-100">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="badge purple mg-bottom-16px">
-                FEATURES
-              </div>
-              <div className="rt-component-heading-two">
-                Why Choose SEOLOGY.AI?
-              </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                The most advanced SEO automation platform ever built
-              </p>
+      {/* Testimonials Section - Centered */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 rounded-full bg-orange-50 text-orange-600 text-sm font-semibold mb-6">
+              TESTIMONIALS
             </div>
-
-            {/* Features Grid - 3x3 Layout */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Column 1 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                {/* Automatic Fixes */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Zap className="w-6 h-6 rt-black-icon" />
-                      <Zap className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Automatic SEO Fixes</div>
-                      <p className="text-100 color-neutral-600">
-                        Stop wasting time on manual SEO tasks. Our AI fixes issues for you automatically.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Secure Integration */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Shield className="w-6 h-6 rt-black-icon" />
-                      <Shield className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Secure CMS Integration</div>
-                      <p className="text-100 color-neutral-600">
-                        Enterprise-grade security with encrypted credentials and OAuth flows.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Analytics */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <BarChart3 className="w-6 h-6 rt-black-icon" />
-                      <BarChart3 className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Real-Time Analytics</div>
-                      <p className="text-100 color-neutral-600">
-                        Track your SEO improvements with detailed analytics and performance metrics.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-
-              {/* Column 2 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                {/* Rollback */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <RotateCcw className="w-6 h-6 rt-black-icon" />
-                      <RotateCcw className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">90-Day Rollback</div>
-                      <p className="text-100 color-neutral-600">
-                        Every fix can be rolled back for 90 days. Complete peace of mind.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Execution Modes */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Target className="w-6 h-6 rt-black-icon" />
-                      <Target className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Three Execution Modes</div>
-                      <p className="text-100 color-neutral-600">
-                        Choose automatic, plan review, or manual approval—whatever fits your workflow.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Claude AI */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Sparkles className="w-6 h-6 rt-black-icon" />
-                      <Sparkles className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Claude AI Powered</div>
-                      <p className="text-100 color-neutral-600">
-                        Leveraging Anthropic's most advanced AI model for intelligent SEO decisions.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-
-              {/* Column 3 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                {/* Integration Support */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Code className="w-6 h-6 rt-black-icon" />
-                      <Code className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Universal Integration</div>
-                      <p className="text-100 color-neutral-600">
-                        Works with Shopify, WordPress, and any custom website via JavaScript.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Team Collaboration */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Users className="w-6 h-6 rt-black-icon" />
-                      <Users className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">Team Collaboration</div>
-                      <p className="text-100 color-neutral-600">
-                        Share sites, track changes, and collaborate with your team in real-time.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-
-                {/* 24/7 Monitoring */}
-                <Link href="#features" className="rt-nav-top-link-wrap w-inline-block">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Clock className="w-6 h-6 rt-black-icon" />
-                      <Clock className="w-6 h-6 rt-blue-icon" />
-                    </div>
-                    <div className="rt-text-block">
-                      <div className="rt-nav-text">24/7 Monitoring</div>
-                      <p className="text-100 color-neutral-600">
-                        Continuous site monitoring with instant alerts when new issues are detected.
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Loved by SEO Professionals
+            </h2>
+            <p className="text-xl text-neutral-600">
+              See what our customers have to say about SEOLOGY.AI
+            </p>
           </div>
-        </div>
 
-        {/* Icon hover effect styles */}
-        <style jsx>{`
-          .rt-icon-box {
-            position: relative;
-            width: 24px;
-            height: 24px;
-          }
-          .rt-blue-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            color: #3898ec;
-          }
-          .rt-black-icon {
-            transition: opacity 0.3s ease;
-            color: #150438;
-          }
-          .rt-nav-top-link-wrap:hover .rt-black-icon {
-            opacity: 0;
-          }
-          .rt-nav-top-link-wrap:hover .rt-blue-icon {
-            opacity: 1;
-          }
-        `}</style>
-      </section>
-
-      {/* Testimonials Section - Radiant UI Testimonial Cards */}
-      <section className="rt-component-section bg-neutral-200">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="badge orange mg-bottom-16px">
-                TESTIMONIALS
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Testimonial 1 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
               </div>
-              <div className="rt-component-heading-two">
-                Loved by SEO Professionals
-              </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                See what our customers have to say about SEOLOGY.AI
+              <p className="text-neutral-700 mb-6">
+                "SEOLOGY.AI has completely transformed how we handle SEO. What used to take our team days now happens automatically in minutes. The ROI is incredible."
               </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-neutral-900">Sarah Johnson</div>
+                  <div className="text-sm text-neutral-600">Marketing Director, TechCorp</div>
+                </div>
+              </div>
             </div>
 
-            {/* Testimonials Grid */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Testimonial 1 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                  </div>
-                  <p className="text-100 color-neutral-800 mg-bottom-24px">
-                    "SEOLOGY.AI has completely transformed how we handle SEO. What used to take our team days now happens automatically in minutes. The ROI is incredible."
-                  </p>
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Briefcase className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div>
-                      <div className="text-100 medium color-neutral-800">Sarah Johnson</div>
-                      <div className="text-50 color-neutral-600">Marketing Director, TechCorp</div>
-                    </div>
-                  </div>
+            {/* Testimonial 2 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-neutral-700 mb-6">
+                "As an agency managing 50+ client sites, SEOLOGY.AI is a game-changer. The automatic fixes and detailed reporting save us countless hours every week."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-neutral-900">Michael Chen</div>
+                  <div className="text-sm text-neutral-600">CEO, Digital Growth Agency</div>
                 </div>
               </div>
+            </div>
 
-              {/* Testimonial 2 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                  </div>
-                  <p className="text-100 color-neutral-800 mg-bottom-24px">
-                    "As an agency managing 50+ client sites, SEOLOGY.AI is a game-changer. The automatic fixes and detailed reporting save us countless hours every week."
-                  </p>
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <Award className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div>
-                      <div className="text-100 medium color-neutral-800">Michael Chen</div>
-                      <div className="text-50 color-neutral-600">CEO, Digital Growth Agency</div>
-                    </div>
-                  </div>
-                </div>
+            {/* Testimonial 3 */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
               </div>
-
-              {/* Testimonial 3 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---24px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-16px">
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                    <Star className="w-5 h-5 color-accent-1" fill="currentColor" />
-                  </div>
-                  <p className="text-100 color-neutral-800 mg-bottom-24px">
-                    "The Claude AI integration is brilliant. It understands context and makes intelligent decisions that actually improve our rankings. Best SEO tool we've used."
-                  </p>
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <div className="rt-icon-box">
-                      <TrendingUp className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div>
-                      <div className="text-100 medium color-neutral-800">Emma Rodriguez</div>
-                      <div className="text-50 color-neutral-600">E-commerce Manager, FashionHub</div>
-                    </div>
-                  </div>
+              <p className="text-neutral-700 mb-6">
+                "The AI integration is brilliant. It understands context and makes intelligent decisions that actually improve our rankings. Best SEO tool we've used."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-neutral-900">Emma Rodriguez</div>
+                  <div className="text-sm text-neutral-600">E-commerce Manager, FashionHub</div>
                 </div>
               </div>
             </div>
@@ -693,414 +590,372 @@ export default function LandingPageContent() {
         </div>
       </section>
 
-      {/* Pricing Section - Radiant UI Pricing Cards */}
-      <section className="rt-component-section bg-neutral-100">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="badge blue mg-bottom-16px">
-                PRICING
+      {/* Pricing Section - Centered */}
+      <section className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
+              PRICING
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-xl text-neutral-600">
+              Start free, scale as you grow. No hidden fees or surprises.
+            </p>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Starter */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="text-sm font-semibold text-neutral-600 mb-4">
+                STARTER
               </div>
-              <div className="rt-component-heading-two">
-                Simple, Transparent Pricing
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-5xl font-bold text-neutral-900">$29</span>
+                <span className="text-xl text-neutral-600">/mo</span>
               </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                Start free, scale as you grow. No hidden fees or surprises.
+              <p className="text-neutral-600 mb-6">
+                Perfect for small businesses and startups
               </p>
-            </div>
-
-            {/* Pricing Cards */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Starter */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                <div className="card pd-32px---44px">
-                  <div className="text-50 medium color-neutral-600 mg-bottom-16px rt-button-font">
-                    STARTER
-                  </div>
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <span className="text-600 bold color-neutral-800">$29</span>
-                    <span className="text-200 color-neutral-600">/mo</span>
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-24px">
-                    Perfect for small businesses and startups
-                  </p>
-                  <div className="mg-bottom-24px">
-                    <Link href="/pricing" className="btn-primary large width-100">
-                      <div className="w-layout-hflex rt-text-icon-wrap">
-                        <span>Start Free Trial</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="divider card-small-divider"></div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">3 sites included</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">500 fixes per month</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Email support</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Basic analytics</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">90-day rollback</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Growth */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---44px card-highlighted">
-                  <div className="badge green mg-bottom-16px">MOST POPULAR</div>
-                  <div className="text-50 medium color-neutral-600 mg-bottom-16px rt-button-font">
-                    GROWTH
-                  </div>
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <span className="text-600 bold color-neutral-800">$99</span>
-                    <span className="text-200 color-neutral-600">/mo</span>
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-24px">
-                    For growing teams and agencies
-                  </p>
-                  <div className="mg-bottom-24px">
-                    <Link href="/pricing" className="btn-primary large width-100">
-                      <div className="w-layout-hflex rt-text-icon-wrap">
-                        <span>Start Free Trial</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className="divider card-small-divider"></div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">10 sites included</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">5,000 fixes per month</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Priority support</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Advanced analytics</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Team collaboration</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Custom reports</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Scale */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                <div className="card pd-32px---44px">
-                  <div className="text-50 medium color-neutral-600 mg-bottom-16px rt-button-font">
-                    SCALE
-                  </div>
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <span className="text-600 bold color-neutral-800">$299</span>
-                    <span className="text-200 color-neutral-600">/mo</span>
-                  </div>
-                  <p className="text-100 color-neutral-600 mg-bottom-24px">
-                    Enterprise-grade solution
-                  </p>
-                  <div className="mg-bottom-24px">
-                    <Link href="/pricing" className="btn-secondary large width-100">
-                      Contact Sales
-                    </Link>
-                  </div>
-                  <div className="divider card-small-divider"></div>
-                  <div className="w-layout-vflex">
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Unlimited sites</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Unlimited fixes</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Dedicated account manager</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">24/7 phone support</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">SLA guarantee</span>
-                    </div>
-                    <div className="w-layout-hflex rt-text-icon-wrap">
-                      <Check className="w-4 h-4 color-accent-1" />
-                      <span className="text-100 color-neutral-800">Custom integrations</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rt-footer-four-title-main mg-top-32px">
               <Link
                 href="/pricing"
-                className="text-100 medium color-accent-1 hover-neutral-800"
+                className="block w-full text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors mb-6"
               >
-                View detailed pricing comparison →
+                Start Free Trial →
               </Link>
+              <div className="border-t border-neutral-200 pt-6">
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">3 sites included</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">500 fixes per month</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Email support</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Basic analytics</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">90-day rollback</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FAQ Section - Radiant UI Accordion-Style Cards */}
-      <section className="rt-component-section bg-neutral-200">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            {/* Section Title */}
-            <div className="rt-footer-four-title-main">
-              <div className="badge yellow mg-bottom-16px">
-                FAQ
+            {/* Growth */}
+            <div className="bg-blue-600 border-2 border-blue-600 rounded-xl p-8 shadow-xl relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <div className="px-4 py-1 rounded-full bg-green-500 text-white text-xs font-semibold">
+                  MOST POPULAR
+                </div>
               </div>
-              <div className="rt-component-heading-two">
-                Frequently Asked Questions
+              <div className="text-sm font-semibold text-blue-100 mb-4">
+                GROWTH
               </div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                Everything you need to know about SEOLOGY.AI
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-5xl font-bold text-white">$99</span>
+                <span className="text-xl text-blue-100">/mo</span>
+              </div>
+              <p className="text-blue-100 mb-6">
+                For growing teams and agencies
               </p>
-            </div>
-
-            {/* FAQ Grid - 2 columns */}
-            <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-              {/* Column 1 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain">
-                {/* FAQ 1 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      How does SEOLOGY.AI actually fix SEO issues?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    SEOLOGY.AI connects to your CMS using secure OAuth or API credentials. When issues are detected, Claude AI generates intelligent fixes and applies them directly to your site through the CMS API—just like a developer would, but automatically.
-                  </p>
-                </div>
-
-                {/* FAQ 2 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      Is it safe? Can I rollback changes?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    Absolutely. Every fix is stored with before/after snapshots and can be rolled back with one click for 90 days. We also offer three execution modes: automatic, plan review, or manual approval for maximum control.
-                  </p>
-                </div>
-
-                {/* FAQ 3 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      What platforms do you support?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    We support Shopify (OAuth), WordPress (REST API), and any custom website via our Magic.js connector. More platforms are being added regularly based on customer demand.
-                  </p>
-                </div>
-              </div>
-
-              {/* Column 2 */}
-              <div className="w-layout-vflex rt-nav-top-wrap-contain rt-right-gap">
-                {/* FAQ 4 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      What types of SEO issues can you fix?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    We detect and fix 50+ SEO issues including missing meta tags, duplicate content, broken links, poor image optimization, missing schema markup, heading structure problems, and much more.
-                  </p>
-                </div>
-
-                {/* FAQ 5 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      Do I need technical knowledge to use this?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    Not at all! SEOLOGY.AI is designed for marketers, business owners, and anyone who wants better SEO without touching code. The AI handles all the technical complexity for you.
-                  </p>
-                </div>
-
-                {/* FAQ 6 */}
-                <div className="card pd-24px---18px">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-12px">
-                    <div className="rt-icon-box">
-                      <HelpCircle className="w-5 h-5 color-accent-1" />
-                    </div>
-                    <div className="rt-nav-text">
-                      Can I try it before committing?
-                    </div>
-                  </div>
-                  <p className="text-100 color-neutral-600">
-                    Yes! All plans include a 14-day free trial with no credit card required. You get full access to all features during your trial period. Cancel anytime with no questions asked.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="rt-footer-four-title-main mg-top-32px">
-              <p className="text-100 color-neutral-600 mg-bottom-16px">
-                Still have questions?
-              </p>
-              <Link href="/pricing" className="btn-secondary large">
-                Contact Support
+              <Link
+                href="/pricing"
+                className="block w-full text-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-neutral-50 transition-colors mb-6"
+              >
+                Start Free Trial →
               </Link>
+              <div className="border-t border-blue-500 pt-6">
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">10 sites included</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">5,000 fixes per month</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">Priority support</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">Advanced analytics</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">Team collaboration</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-white flex-shrink-0" />
+                    <span className="text-blue-50">Custom reports</span>
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            {/* Scale */}
+            <div className="bg-white border border-neutral-200 rounded-xl p-8">
+              <div className="text-sm font-semibold text-neutral-600 mb-4">
+                SCALE
+              </div>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-5xl font-bold text-neutral-900">$299</span>
+                <span className="text-xl text-neutral-600">/mo</span>
+              </div>
+              <p className="text-neutral-600 mb-6">
+                Enterprise-grade solution
+              </p>
+              <Link
+                href="/pricing"
+                className="block w-full text-center px-6 py-3 bg-white text-neutral-700 rounded-lg font-semibold border-2 border-neutral-200 hover:border-neutral-300 transition-colors mb-6"
+              >
+                Contact Sales
+              </Link>
+              <div className="border-t border-neutral-200 pt-6">
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Unlimited sites</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Unlimited fixes</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Dedicated account manager</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">24/7 phone support</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">SLA guarantee</span>
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <Check className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <span className="text-neutral-700">Custom integrations</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/pricing"
+              className="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              View detailed pricing comparison →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Section - Already Using Radiant UI */}
-      <section className="rt-component-section rt-newsletter-blue-section">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            <div className="rt-footer-four-title-main">
-              <div className="rt-component-heading-two">
-                Stay Updated with <span className="color-accent-1">SEO Insights</span>
+      {/* FAQ Section - Centered */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 rounded-full bg-yellow-50 text-yellow-600 text-sm font-semibold mb-6">
+              FAQ
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-neutral-600">
+              Everything you need to know about SEOLOGY.AI
+            </p>
+          </div>
+
+          {/* FAQ Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* FAQ 1 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  How does SEOLOGY.AI actually fix SEO issues?
+                </h3>
               </div>
-              <div className="rt-component-heading-two">Delivered to Your Inbox</div>
-              <p className="text-200 color-neutral-600 mg-top-16px">
-                Get weekly tips on SEO automation, Claude AI updates, and success stories from our users
+              <p className="text-sm text-neutral-600 ml-8">
+                SEOLOGY.AI connects to your CMS using secure OAuth or API credentials. When issues are detected, our AI generates intelligent fixes and applies them directly to your site through the CMS API—just like a developer would, but automatically.
               </p>
             </div>
-            <div className="rt-footer-newsletter">
-              <div className="rt-form-block w-form">
-                <form method="get">
-                  <div className="rt-footer-newsletter-main">
-                    <input
-                      className="rt-footer-newsletter-input w-input"
-                      maxLength={256}
-                      name="email"
-                      placeholder="Enter your email address"
-                      type="email"
-                      required
-                    />
-                    <div className="rt-footer-newsletter-line rt-mobile-display-off"></div>
-                    <div className="rt-footer-newsletter-button">
-                      <div className="rt-footer-newsletter-button-text">
-                        <div className="rt-button-font">SUBSCRIBE</div>
-                      </div>
-                      <button type="submit" className="btn-primary large">
-                        Subscribe
-                      </button>
-                    </div>
-                  </div>
-                </form>
+
+            {/* FAQ 2 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  Is it safe? Can I rollback changes?
+                </h3>
               </div>
+              <p className="text-sm text-neutral-600 ml-8">
+                Absolutely. Every fix is stored with before/after snapshots and can be rolled back with one click for 90 days. We also offer three execution modes: automatic, plan review, or manual approval for maximum control.
+              </p>
             </div>
+
+            {/* FAQ 3 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  What platforms do you support?
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 ml-8">
+                We support Shopify (OAuth), WordPress (REST API), and any custom website via our Magic.js connector. More platforms are being added regularly based on customer demand.
+              </p>
+            </div>
+
+            {/* FAQ 4 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  What types of SEO issues can you fix?
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 ml-8">
+                We detect and fix 50+ SEO issues including missing meta tags, duplicate content, broken links, poor image optimization, missing schema markup, heading structure problems, and much more.
+              </p>
+            </div>
+
+            {/* FAQ 5 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  Do I need technical knowledge to use this?
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 ml-8">
+                Not at all! SEOLOGY.AI is designed for marketers, business owners, and anyone who wants better SEO without touching code. The AI handles all the technical complexity for you.
+              </p>
+            </div>
+
+            {/* FAQ 6 */}
+            <div className="bg-neutral-50 border border-neutral-200 rounded-xl p-6">
+              <div className="flex items-start gap-3 mb-3">
+                <HelpCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <h3 className="font-bold text-neutral-900">
+                  Can I try it before committing?
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600 ml-8">
+                Yes! All plans include a 14-day free trial with no credit card required. You get full access to all features during your trial period. Cancel anytime with no questions asked.
+              </p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <p className="text-neutral-600 mb-4">
+              Still have questions?
+            </p>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-700 rounded-lg font-semibold border-2 border-neutral-200 hover:border-neutral-300 transition-colors"
+            >
+              Contact Support
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Final CTA - Radiant UI CTA Structure */}
-      <section className="rt-component-section bg-neutral-800">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="rt-newsletter-wrap">
-            <div className="rt-footer-four-title-main">
-              {/* Badge */}
-              <div className="badge green mg-bottom-24px">
-                <div className="w-layout-hflex rt-text-icon-wrap">
-                  <Sparkles className="w-4 h-4" />
-                  <span>START TODAY</span>
-                </div>
-              </div>
+      {/* Newsletter Section - Centered */}
+      <section className="py-20 px-4 bg-neutral-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+            Stay Updated with <span className="text-blue-600">SEO Insights</span>
+          </h2>
+          <p className="text-lg text-neutral-600 mb-8">
+            Get weekly tips on SEO automation, AI updates, and success stories from our users
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-6 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <button
+              type="submit"
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
 
-              {/* Headline */}
-              <div className="rt-component-heading-two color-neutral-100">
-                Ready to Automate Your SEO?
-              </div>
-              <p className="text-200 color-neutral-100 mg-top-16px mg-bottom-32px">
-                Join hundreds of businesses already using SEOLOGY.AI to fix their SEO automatically. Get started in under 60 seconds.
-              </p>
+      {/* Final CTA - Centered */}
+      <section className="py-20 px-4 bg-neutral-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 text-green-400 text-sm font-medium mb-8">
+            <Sparkles className="w-4 h-4" />
+            <span>START TODAY</span>
+          </div>
 
-              {/* CTAs */}
-              <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-48px">
-                <Link href="/sign-up" className="btn-primary large white">
-                  <div className="w-layout-hflex rt-text-icon-wrap">
-                    <span>Start Free Trial</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </Link>
-                <Link href="/pricing" className="btn-secondary large white-outline">
-                  View Pricing Plans
-                </Link>
-              </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Automate Your SEO?
+          </h2>
+          <p className="text-xl text-neutral-300 mb-10">
+            Join hundreds of businesses already using SEOLOGY.AI to fix their SEO automatically. Get started in under 60 seconds.
+          </p>
 
-              {/* Trust Row */}
-              <div className="w-layout-hflex rt-nav-one-dropdown-upper-wrap">
-                <div className="card pd-24px card-dark">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <Check className="w-5 h-5 color-accent-1" />
-                    <div className="text-100 medium color-neutral-100">14-Day Free Trial</div>
-                  </div>
-                  <div className="text-50 color-neutral-400">No credit card required</div>
-                </div>
-                <div className="card pd-24px card-dark">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <Shield className="w-5 h-5 color-accent-1" />
-                    <div className="text-100 medium color-neutral-100">Enterprise Security</div>
-                  </div>
-                  <div className="text-50 color-neutral-400">SOC 2 compliant</div>
-                </div>
-                <div className="card pd-24px card-dark">
-                  <div className="w-layout-hflex rt-text-icon-wrap mg-bottom-8px">
-                    <RotateCcw className="w-5 h-5 color-accent-1" />
-                    <div className="text-100 medium color-neutral-100">90-Day Rollback</div>
-                  </div>
-                  <div className="text-50 color-neutral-400">Risk-free guarantee</div>
-                </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-900 rounded-lg font-semibold hover:bg-neutral-100 transition-colors shadow-lg"
+            >
+              <span>Start Free Trial</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white rounded-lg font-semibold border-2 border-white hover:bg-white/10 transition-colors"
+            >
+              View Pricing Plans
+            </Link>
+          </div>
+
+          {/* Trust Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <Check className="w-5 h-5 text-green-400" />
+                <div className="font-semibold text-white">14-Day Free Trial</div>
               </div>
+              <div className="text-sm text-neutral-400">No credit card required</div>
+            </div>
+            <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <Shield className="w-5 h-5 text-green-400" />
+                <div className="font-semibold text-white">Enterprise Security</div>
+              </div>
+              <div className="text-sm text-neutral-400">SOC 2 compliant</div>
+            </div>
+            <div className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <RotateCcw className="w-5 h-5 text-green-400" />
+                <div className="font-semibold text-white">90-Day Rollback</div>
+              </div>
+              <div className="text-sm text-neutral-400">Risk-free guarantee</div>
             </div>
           </div>
         </div>

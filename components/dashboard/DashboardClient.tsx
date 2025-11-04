@@ -5,6 +5,21 @@ import Link from 'next/link'
 import { ActivityTimeline, type ActivityItem } from './ActivityTimeline'
 import { LineChartPlaceholder, BarChartPlaceholder } from './ChartPlaceholder'
 import { DashflowDataTable, type TableColumn } from './DashflowDataTable'
+import { motion } from 'framer-motion'
+import {
+  Globe,
+  AlertCircle,
+  CheckCircle2,
+  TrendingUp,
+  Link2,
+  BarChart3,
+  Rocket,
+  ArrowRight,
+  Sparkles,
+  Clock,
+  Search,
+  Zap
+} from 'lucide-react'
 
 // Mock data for demonstration (will be replaced with real data from API)
 const mockActivityData: ActivityItem[] = [
@@ -145,18 +160,28 @@ export function DashboardClient({ userName }: { userName: string }) {
   // Show error state if API failed
   if (isError && !isLoading) {
     return (
-      <div className="w-layout-blockcontainer container-default w-container">
-        <div className="card pd-32px---44px">
-          <div className="flex-vertical gap-row-16px align-center text-center">
-            <div className="card-icon-square _40px neutral-icon">
-              <div className="text-400">⚠️</div>
-            </div>
-            <div>
-              <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">Unable to load dashboard</h2>
-              <p className="text-100 color-neutral-600">Please check your connection and try refreshing the page.</p>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-12 text-center shadow-lg"
+        >
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-900/20 mb-6">
+            <AlertCircle className="w-8 h-8 text-red-600 dark:text-red-400" />
           </div>
-        </div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+            Unable to load dashboard
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+            Please check your connection and try refreshing the page.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all duration-200 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
+          >
+            Refresh Page
+          </button>
+        </motion.div>
       </div>
     )
   }

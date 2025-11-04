@@ -3,7 +3,8 @@
     "allow": [
       "Bash(timeout 15 npm run dev:*)",
       "Bash(diff:*)",
-      "Bash(powershell -Command:*)"
+      "Bash(powershell -Command:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

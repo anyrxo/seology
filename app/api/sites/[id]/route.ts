@@ -75,7 +75,7 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
   }
 
   const body = await req.json()
-  const { displayName, status } = body
+  const { displayName, domain, status, credentials } = body
 
   // Get user from database
   const user = await db.user.findUnique({
@@ -86,17 +86,34 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
     return NextResponse.json({ error: 'User not found' }, { status: 404 })
   }
 
+  // Prepare update data
+  const updateData: Record<string, unknown> = {
+    updatedAt: new Date(),
+  }
+
+  if (displayName !== undefined) updateData.displayName = displayName
+  if (domain !== undefined) updateData.domain = domain
+  if (status !== undefined) {
+    // Validate status is a valid ConnectionStatus enum value
+    const validStatuses = ['PENDING', 'CONNECTED', 'ERROR', 'DISCONNECTED']
+    if (validStatuses.includes(status)) {
+      updateData.status = status
+    }
+  }
+
+  // Encrypt credentials if provided
+  if (credentials) {
+    const { encrypt } = await import('@/lib/encryption')
+    updateData.credentials = encrypt(JSON.stringify(credentials))
+  }
+
   // Update connection
   const connection = await db.connection.updateMany({
     where: {
       id,
       userId: user.id,
     },
-    data: {
-      ...(displayName && { displayName }),
-      ...(status && { status }),
-      updatedAt: new Date(),
-    },
+    data: updateData,
   })
 
   if (connection.count === 0) {
@@ -109,7 +126,12 @@ export async function PATCH(req: NextRequest, context: RouteContext) {
       userId: user.id,
       connectionId: id,
       action: 'CONNECTION_UPDATED',
-      details: JSON.stringify({ displayName, status }),
+      details: JSON.stringify({
+        displayName,
+        domain,
+        status,
+        credentialsUpdated: !!credentials,
+      }),
     },
   })
 

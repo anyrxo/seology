@@ -150,7 +150,7 @@ export function IssuesClient({ issues, stats, issuesByType }: IssuesClientProps)
             <h3 className="text-300 bold color-neutral-800 mg-bottom-24px">How It Works</h3>
             <div className="flex-vertical gap-row-24px">
               <HowItWorksStep icon="🔍" title="Automatic Scanning" description="We crawl your site and detect SEO issues using AI" />
-              <HowItWorksStep icon="🤖" title="AI Analysis" description="Claude AI analyzes each issue and generates fixes" />
+              <HowItWorksStep icon="🤖" title="AI Analysis" description="Our AI analyzes each issue and generates fixes" />
               <HowItWorksStep icon="✅" title="Auto-Apply" description="Fixes are applied automatically based on your execution mode" />
             </div>
           </div>

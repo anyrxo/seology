@@ -7,12 +7,12 @@
 import { useState } from 'react'
 
 interface ReviewIssuesStepProps {
-  siteId?: string
-  onNext: () => void
+  connectionId?: string
+  onNext: (data: { firstIssueId?: string }) => void
   onBack: () => void
 }
 
-export function ReviewIssuesStep({ siteId, onNext, onBack }: ReviewIssuesStepProps) {
+export function ReviewIssuesStep({ connectionId, onNext, onBack }: ReviewIssuesStepProps) {
   // Mock issues data
   const issues = [
     {
@@ -60,7 +60,7 @@ export function ReviewIssuesStep({ siteId, onNext, onBack }: ReviewIssuesStepPro
         <div className="text-5xl mb-4">📊</div>
         <h2 className="text-3xl font-bold text-white mb-2">We Found {issues.length} Issues</h2>
         <p className="text-gray-400">
-          Here's what Claude AI discovered on your site
+          Here's what our AI discovered on your site
         </p>
       </div>
 
@@ -110,7 +110,7 @@ export function ReviewIssuesStep({ siteId, onNext, onBack }: ReviewIssuesStepPro
           ← Back
         </button>
         <button
-          onClick={onNext}
+          onClick={() => onNext({ firstIssueId: issues[0]?.id })}
           className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
         >
           Continue →

@@ -11,7 +11,7 @@ export default function SignUpPage() {
               Start Fixing SEO Issues with <span className="color-accent--primary-1">AI</span>
             </h1>
             <p className="text-200 color-neutral-600">
-              Join thousands of businesses automating their SEO with Claude AI
+              Join thousands of businesses automating their SEO with SEOLOGY.AI
             </p>
           </div>
 

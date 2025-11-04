@@ -7,7 +7,7 @@ import "./responsive.css";
 
 export const metadata: Metadata = {
   title: "SEOLOGY.AI - AI-Powered SEO Automation That Actually Fixes Issues",
-  description: "The first SEO tool that doesn't just report problems—it fixes them. Connect your CMS and let Claude AI automatically optimize your SEO.",
+  description: "The first SEO tool that doesn't just report problems—it fixes them. Connect your CMS and let advanced AI automatically optimize your SEO.",
   metadataBase: new URL('https://seology.ai'),
   viewport: {
     width: 'device-width',
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "SEOLOGY.AI - AI-Powered SEO Automation",
-    description: "The first SEO tool that actually fixes issues automatically using Claude AI.",
+    description: "The first SEO tool that actually fixes issues automatically using advanced AI.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "SEOLOGY.AI - AI-Powered SEO Automation",
-    description: "The first SEO tool that actually fixes issues automatically using Claude AI.",
+    description: "The first SEO tool that actually fixes issues automatically using advanced AI.",
   },
 };
 

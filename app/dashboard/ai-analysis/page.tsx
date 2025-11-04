@@ -40,7 +40,7 @@ export default function AIAnalysisPage() {
     // Simulate AI thinking process
     const thinkingSteps = [
       '🔍 Fetching webpage content...',
-      '🧠 Analyzing HTML structure with Claude AI...',
+      '🧠 Analyzing HTML structure with AI...',
       '📊 Evaluating meta tags and descriptions...',
       '🔗 Checking internal and external links...',
       '🖼️ Scanning images for alt text...',
@@ -117,13 +117,13 @@ export default function AIAnalysisPage() {
       {/* Header */}
       <div className="text-center">
         <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
-          ✨ Powered by Claude AI
+          ✨ Powered by Advanced AI
         </div>
         <h1 className="text-4xl font-bold text-white mb-4">
           AI-Powered SEO Analysis
         </h1>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Get instant, intelligent SEO recommendations from Claude AI. Analyze any webpage
+          Get instant, intelligent SEO recommendations from our AI. Analyze any webpage
           and receive actionable fixes in seconds.
         </p>
       </div>
@@ -199,7 +199,7 @@ export default function AIAnalysisPage() {
             </div>
             <div className="flex-1">
               <h3 className="text-white font-semibold mb-3 flex items-center">
-                Claude AI is thinking...
+                AI is thinking...
                 <span className="ml-2 text-sm text-blue-400">
                   (This usually takes 3-5 seconds)
                 </span>
@@ -336,7 +336,7 @@ export default function AIAnalysisPage() {
               </div>
               <div className="flex-1">
                 <h3 className="text-white font-semibold mb-3">
-                  Claude AI Recommendations
+                  AI Recommendations
                 </h3>
                 <ul className="space-y-2">
                   {result.recommendations.map((rec, idx) => (
@@ -384,7 +384,7 @@ export default function AIAnalysisPage() {
       {!result && !analyzing && (
         <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
           <h2 className="text-2xl font-bold text-white mb-6 text-center">
-            How Claude AI Analyzes Your SEO
+            How Our AI Analyzes Your SEO
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
@@ -393,7 +393,7 @@ export default function AIAnalysisPage() {
               </div>
               <h3 className="text-white font-semibold mb-2">Deep Analysis</h3>
               <p className="text-gray-400 text-sm">
-                Claude AI scans your entire page structure, content, meta tags, and technical
+                Our AI scans your entire page structure, content, meta tags, and technical
                 SEO elements
               </p>
             </div>

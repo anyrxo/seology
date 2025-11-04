@@ -16,7 +16,6 @@ import {
   Lock,
   Sparkles,
 } from 'lucide-react'
-import CTASection from '@/components/marketing/CTASection'
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
@@ -33,7 +32,7 @@ export default function PricingPage() {
         { name: 'Up to 3 sites', included: true },
         { name: '500 SEO fixes per month', included: true },
         { name: 'Shopify & WordPress integration', included: true },
-        { name: 'Claude AI analysis', included: true },
+        { name: 'Advanced AI analysis', included: true },
         { name: 'Email support', included: true },
         { name: '90-day rollback', included: true },
         { name: 'Basic analytics', included: true },
@@ -99,273 +98,127 @@ export default function PricingPage() {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Hero Section - Radiant UI Component Section */}
-      <section className="rt-component-section">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="w-layout-vflex" style={{ alignItems: 'center' }}>
+      {/* Hero Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="w-layout-hflex rt-text-icon-wrap rt-icon-gap" style={{
-              backgroundColor: '#f4f4f4',
-              borderRadius: '20px',
-              padding: '8px 20px',
-              marginBottom: '30px'
-            }}>
-              <Sparkles className="w-4 h-4" style={{ color: '#3898ec' }} />
-              <div className="rt-button-font" style={{ textTransform: 'none', fontSize: '14px' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-blue-600" />
+              <span className="text-sm font-medium text-blue-600">
                 14-day free trial • No credit card required
-              </div>
+              </span>
             </div>
 
             {/* Heading */}
-            <div style={{ textAlign: 'center', maxWidth: '900px' }}>
-              <h1 className="rt-component-heading-two" style={{
-                fontSize: '60px',
-                lineHeight: '70px',
-                marginBottom: '20px',
-                fontWeight: 600
-              }}>
-                Simple, Transparent Pricing.
-                <br />
-                <span style={{ color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)' }}>
-                  No Hidden Fees.
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+              Simple, Transparent Pricing.
+              <br />
+              <span className="text-gray-600">No Hidden Fees.</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl">
+              Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
+            </p>
+
+            {/* Billing Toggle */}
+            <div className="inline-flex items-center gap-2 p-1 bg-gray-100 rounded-lg">
+              <button
+                onClick={() => setBillingCycle('monthly')}
+                className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+                  billingCycle === 'monthly'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingCycle('annual')}
+                className={`relative px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+                  billingCycle === 'annual'
+                    ? 'bg-white text-gray-900 shadow-sm'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Annual
+                <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full font-semibold">
+                  Save 17%
                 </span>
-              </h1>
-
-              <p style={{
-                color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                fontSize: '18px',
-                lineHeight: '30px',
-                marginBottom: '40px',
-                maxWidth: '700px',
-                margin: '0 auto 40px'
-              }}>
-                Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
-              </p>
-
-              {/* Billing Toggle - Radiant UI Style */}
-              <div className="w-layout-hflex" style={{
-                justifyContent: 'center',
-                gap: '10px',
-                backgroundColor: '#f4f4f4',
-                padding: '8px',
-                borderRadius: '10px',
-                display: 'inline-flex'
-              }}>
-                <button
-                  onClick={() => setBillingCycle('monthly')}
-                  className={`rt-button-font ${billingCycle === 'monthly' ? 'rt-active-toggle' : ''}`}
-                  style={{
-                    padding: '12px 30px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    backgroundColor: billingCycle === 'monthly' ? '#3898ec' : 'transparent',
-                    color: billingCycle === 'monthly' ? 'white' : 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                    transition: 'all 0.3s ease',
-                    textTransform: 'none',
-                    fontSize: '16px'
-                  }}
-                >
-                  Monthly
-                </button>
-                <button
-                  onClick={() => setBillingCycle('annual')}
-                  className={`rt-button-font ${billingCycle === 'annual' ? 'rt-active-toggle' : ''}`}
-                  style={{
-                    padding: '12px 30px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    backgroundColor: billingCycle === 'annual' ? '#3898ec' : 'transparent',
-                    color: billingCycle === 'annual' ? 'white' : 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    textTransform: 'none',
-                    fontSize: '16px'
-                  }}
-                >
-                  Annual
-                  <span style={{
-                    position: 'absolute',
-                    top: '-10px',
-                    right: '-10px',
-                    backgroundColor: '#3898ec',
-                    color: 'white',
-                    fontSize: '10px',
-                    padding: '4px 8px',
-                    borderRadius: '10px',
-                    fontWeight: 600
-                  }}>
-                    Save 17%
-                  </span>
-                </button>
-              </div>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards - Radiant UI Grid */}
-      <section className="rt-component-section" style={{ paddingTop: '40px' }}>
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="w-layout-hflex" style={{
-            gap: '30px',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
+      {/* Pricing Cards */}
+      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className="w-layout-vflex"
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '10px',
-                  padding: '40px 30px',
-                  border: plan.popular ? '2px solid #3898ec' : '1px solid #e5e5e5',
-                  boxShadow: plan.popular ? '0 4px 30px rgba(56, 152, 236, 0.2)' : '0 2px 10px rgba(0, 0, 0, 0.05)',
-                  position: 'relative',
-                  flex: '1',
-                  minWidth: '320px',
-                  maxWidth: '380px',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-5px)'
-                  e.currentTarget.style.boxShadow = plan.popular
-                    ? '0 8px 40px rgba(56, 152, 236, 0.3)'
-                    : '0 8px 30px rgba(0, 0, 0, 0.1)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = plan.popular
-                    ? '0 4px 30px rgba(56, 152, 236, 0.2)'
-                    : '0 2px 10px rgba(0, 0, 0, 0.05)'
-                }}
+                className={`relative flex flex-col bg-white rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+                  plan.popular
+                    ? 'border-2 border-blue-600 shadow-xl'
+                    : 'border border-gray-200 shadow-lg hover:shadow-xl'
+                }`}
               >
                 {plan.popular && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '-15px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    backgroundColor: '#3898ec',
-                    color: 'white',
-                    padding: '6px 20px',
-                    borderRadius: '20px',
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    letterSpacing: '0.5px'
-                  }}>
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full">
                     MOST POPULAR
                   </div>
                 )}
 
-                <div style={{ marginBottom: '30px' }}>
-                  <div className="rt-button-font" style={{
-                    color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                    marginBottom: '10px',
-                    fontSize: '14px',
-                    letterSpacing: '1px'
-                  }}>
+                {/* Plan Header */}
+                <div className="mb-8">
+                  <div className="text-sm font-semibold text-gray-500 tracking-wider mb-3">
                     {plan.name}
                   </div>
-                  <div className="w-layout-hflex" style={{ alignItems: 'baseline', marginBottom: '10px' }}>
-                    <span style={{
-                      fontSize: '48px',
-                      fontWeight: 600,
-                      color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                    }}>
+                  <div className="flex items-baseline mb-2">
+                    <span className="text-5xl font-bold text-gray-900">
                       ${getPrice(plan)}
                     </span>
-                    <span style={{
-                      fontSize: '18px',
-                      marginLeft: '8px',
-                      color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)'
-                    }}>
-                      /month
-                    </span>
+                    <span className="text-lg text-gray-500 ml-2">/month</span>
                   </div>
                   {billingCycle === 'annual' && (
-                    <div style={{
-                      color: '#22c55e',
-                      fontSize: '14px',
-                      fontWeight: 500,
-                      marginBottom: '10px'
-                    }}>
+                    <div className="text-sm text-green-600 font-medium mb-2">
                       Save ${getSavings(plan)}/year
                     </div>
                   )}
-                  <div style={{
-                    color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                    fontSize: '16px',
-                    lineHeight: '26px'
-                  }}>
+                  <div className="text-base text-gray-600">
                     {plan.description}
                   </div>
                 </div>
 
+                {/* CTA Button */}
                 <Link
                   href="/sign-up"
-                  className="w-inline-block"
-                  style={{
-                    backgroundColor: plan.popular ? '#3898ec' : '#f4f4f4',
-                    color: plan.popular ? 'white' : 'var(--radiant-ui-components-library-marketplace--color--heading-dark)',
-                    padding: '16px 32px',
-                    borderRadius: '8px',
-                    textAlign: 'center',
-                    fontSize: '16px',
-                    fontWeight: 500,
-                    textDecoration: 'none',
-                    marginBottom: '30px',
-                    transition: 'all 0.3s ease',
-                    display: 'block'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = plan.popular ? '#2a7bc4' : '#e5e5e5'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = plan.popular ? '#3898ec' : '#f4f4f4'
-                  }}
+                  className={`w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 mb-8 ${
+                    plan.popular
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
+                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                  }`}
                 >
-                  <div className="rt-button-font" style={{ textTransform: 'none' }}>
-                    {plan.cta}
-                  </div>
+                  {plan.cta}
                 </Link>
 
-                <div className="w-layout-vflex" style={{ gap: '15px' }}>
+                {/* Features List */}
+                <div className="space-y-4">
                   {plan.features.map((feature, i) => (
-                    <div
-                      key={i}
-                      className="w-layout-hflex rt-text-icon-wrap"
-                      style={{ gap: '12px', alignItems: 'flex-start' }}
-                    >
+                    <div key={i} className="flex items-start gap-3">
                       {feature.included ? (
-                        <Check
-                          className="w-5 h-5"
-                          style={{
-                            color: '#22c55e',
-                            flexShrink: 0,
-                            marginTop: '2px'
-                          }}
-                        />
+                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                       ) : (
-                        <X
-                          className="w-5 h-5"
-                          style={{
-                            color: '#d5d5d5',
-                            flexShrink: 0,
-                            marginTop: '2px'
-                          }}
-                        />
+                        <X className="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5" />
                       )}
-                      <span style={{
-                        fontSize: '15px',
-                        lineHeight: '24px',
-                        color: feature.included
-                          ? 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                          : 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                        opacity: feature.included ? 1 : 0.6
-                      }}>
+                      <span
+                        className={`text-sm ${
+                          feature.included
+                            ? 'text-gray-700'
+                            : 'text-gray-400'
+                        }`}
+                      >
                         {feature.name}
                       </span>
                     </div>
@@ -377,137 +230,84 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Feature Comparison Table - Radiant UI Section */}
-      <section className="rt-component-section" style={{
-        backgroundColor: '#fafafa',
-        borderTop: '1px solid #e5e5e5'
-      }}>
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 className="rt-component-heading-two" style={{ marginBottom: '15px' }}>
+      {/* Feature Comparison Table */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Compare All Features
             </h2>
-            <p style={{
-              color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-              fontSize: '18px'
-            }}>
+            <p className="text-lg text-gray-600">
               See exactly what is included in each plan
             </p>
           </div>
 
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '10px',
-            padding: '30px',
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-            overflowX: 'auto'
-          }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid #e5e5e5' }}>
-                  <th className="rt-button-font" style={{
-                    padding: '20px',
-                    textAlign: 'left',
-                    fontSize: '14px',
-                    color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)'
-                  }}>
-                    FEATURE
-                  </th>
-                  <th className="rt-button-font" style={{
-                    padding: '20px',
-                    textAlign: 'center',
-                    fontSize: '14px',
-                    color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                  }}>
-                    STARTER
-                  </th>
-                  <th className="rt-button-font" style={{
-                    padding: '20px',
-                    textAlign: 'center',
-                    fontSize: '14px',
-                    color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                  }}>
-                    GROWTH
-                  </th>
-                  <th className="rt-button-font" style={{
-                    padding: '20px',
-                    textAlign: 'center',
-                    fontSize: '14px',
-                    color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                  }}>
-                    SCALE
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: 'Sites', values: ['3', '10', 'Unlimited'] },
-                  { feature: 'SEO Fixes/Month', values: ['500', '5,000', 'Unlimited'] },
-                  { feature: 'Claude AI Analysis', values: [true, true, true] },
-                  { feature: 'Platform Integrations', values: [true, true, true] },
-                  { feature: '90-Day Rollback', values: [true, true, true] },
-                  { feature: 'Support', values: ['Email', 'Email & Chat', 'Phone & Slack'] },
-                  { feature: 'Analytics', values: ['Basic', 'Advanced', 'Advanced'] },
-                  { feature: 'API Access', values: [false, true, true] },
-                  { feature: 'Team Members', values: ['1', '5', 'Unlimited'] },
-                  { feature: 'Custom Integrations', values: [false, false, true] },
-                  { feature: 'White-Label', values: [false, false, true] },
-                  { feature: 'SLA Guarantee', values: [false, false, true] },
-                ].map((row, index) => (
-                  <tr
-                    key={index}
-                    style={{ borderBottom: '1px solid #f4f4f4' }}
-                  >
-                    <td style={{
-                      padding: '18px 20px',
-                      fontSize: '15px',
-                      color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                    }}>
-                      {row.feature}
-                    </td>
-                    {row.values.map((value, i) => (
-                      <td key={i} style={{ padding: '18px 20px', textAlign: 'center' }}>
-                        {typeof value === 'boolean' ? (
-                          value ? (
-                            <Check className="w-5 h-5" style={{
-                              color: '#22c55e',
-                              margin: '0 auto',
-                              display: 'block'
-                            }} />
-                          ) : (
-                            <X className="w-5 h-5" style={{
-                              color: '#d5d5d5',
-                              margin: '0 auto',
-                              display: 'block'
-                            }} />
-                          )
-                        ) : (
-                          <span style={{
-                            fontSize: '15px',
-                            fontWeight: 500,
-                            color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)'
-                          }}>
-                            {value}
-                          </span>
-                        )}
-                      </td>
-                    ))}
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
+                      FEATURE
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
+                      STARTER
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
+                      GROWTH
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
+                      SCALE
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {[
+                    { feature: 'Sites', values: ['3', '10', 'Unlimited'] },
+                    { feature: 'SEO Fixes/Month', values: ['500', '5,000', 'Unlimited'] },
+                    { feature: 'Advanced AI Analysis', values: [true, true, true] },
+                    { feature: 'Platform Integrations', values: [true, true, true] },
+                    { feature: '90-Day Rollback', values: [true, true, true] },
+                    { feature: 'Support', values: ['Email', 'Email & Chat', 'Phone & Slack'] },
+                    { feature: 'Analytics', values: ['Basic', 'Advanced', 'Advanced'] },
+                    { feature: 'API Access', values: [false, true, true] },
+                    { feature: 'Team Members', values: ['1', '5', 'Unlimited'] },
+                    { feature: 'Custom Integrations', values: [false, false, true] },
+                    { feature: 'White-Label', values: [false, false, true] },
+                    { feature: 'SLA Guarantee', values: [false, false, true] },
+                  ].map((row, index) => (
+                    <tr key={index} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                        {row.feature}
+                      </td>
+                      {row.values.map((value, i) => (
+                        <td key={i} className="px-6 py-4 text-center">
+                          {typeof value === 'boolean' ? (
+                            value ? (
+                              <Check className="w-5 h-5 text-green-600 mx-auto" />
+                            ) : (
+                              <X className="w-5 h-5 text-gray-300 mx-auto" />
+                            )
+                          ) : (
+                            <span className="text-sm font-medium text-gray-900">
+                              {value}
+                            </span>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Trust Badges - Radiant UI Icon Boxes */}
-      <section className="rt-component-section">
-        <div className="w-layout-blockcontainer rt-component-container w-container">
-          <div className="w-layout-hflex" style={{
-            gap: '30px',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
+      {/* Trust Badges */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { icon: Shield, title: 'Secure Payments', description: 'Powered by Stripe' },
               { icon: Lock, title: 'Bank-Level Security', description: 'AES-256 encryption' },
@@ -516,42 +316,13 @@ export default function PricingPage() {
             ].map((badge, index) => (
               <div
                 key={index}
-                className="w-layout-vflex"
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '10px',
-                  padding: '30px',
-                  border: '1px solid #e5e5e5',
-                  textAlign: 'center',
-                  flex: '1',
-                  minWidth: '220px',
-                  maxWidth: '280px',
-                  alignItems: 'center',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-5px)'
-                  e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.1)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
+                className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="rt-icon-box" style={{ marginBottom: '20px' }}>
-                  <badge.icon className="w-12 h-12" style={{ color: '#3898ec' }} />
-                </div>
-                <div className="rt-nav-text" style={{
-                  fontSize: '18px',
-                  marginBottom: '8px',
-                  fontWeight: 500
-                }}>
+                <badge.icon className="w-12 h-12 text-blue-600 mb-4" />
+                <div className="text-lg font-semibold text-gray-900 mb-1">
                   {badge.title}
                 </div>
-                <div style={{
-                  color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                  fontSize: '15px'
-                }}>
+                <div className="text-sm text-gray-600">
                   {badge.description}
                 </div>
               </div>
@@ -560,116 +331,51 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Enterprise Section - Radiant UI Call to Action */}
-      <section className="rt-component-section" style={{
-        backgroundColor: '#fafafa',
-        borderTop: '1px solid #e5e5e5'
-      }}>
-        <div className="w-layout-blockcontainer rt-component-container w-container" style={{ maxWidth: '900px' }}>
-          <div className="w-layout-vflex" style={{
-            alignItems: 'center',
-            backgroundColor: 'white',
-            borderRadius: '10px',
-            padding: '60px 40px',
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)'
-          }}>
-            <Users className="w-16 h-16" style={{
-              color: '#3898ec',
-              marginBottom: '30px'
-            }} />
+      {/* Enterprise Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <Users className="w-16 h-16 text-blue-600 mx-auto mb-6" />
 
-            <h2 className="rt-component-heading-two" style={{
-              textAlign: 'center',
-              marginBottom: '20px'
-            }}>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Need a Custom Enterprise Plan?
             </h2>
-            <p style={{
-              color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-              fontSize: '18px',
-              lineHeight: '30px',
-              textAlign: 'center',
-              maxWidth: '600px',
-              marginBottom: '40px'
-            }}>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               Get custom pricing, dedicated support, and tailored features for your agency or large organization. We will work with you to build the perfect solution.
             </p>
-            <div className="w-layout-hflex" style={{ gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/sign-up"
-                className="w-inline-block w-layout-hflex rt-text-icon-wrap"
-                style={{
-                  backgroundColor: '#3898ec',
-                  color: 'white',
-                  padding: '16px 32px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  transition: 'all 0.3s ease',
-                  alignItems: 'center',
-                  gap: '10px'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#2a7bc4'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#3898ec'
-                }}
+                className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300"
               >
-                <span className="rt-button-font" style={{ textTransform: 'none' }}>
-                  Contact Sales Team
-                </span>
-                <ArrowRight className="w-5 h-5" />
+                Contact Sales Team
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 href="/about"
-                className="w-inline-block"
-                style={{
-                  backgroundColor: '#f4f4f4',
-                  color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)',
-                  padding: '16px 32px',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontSize: '16px',
-                  fontWeight: 500,
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#e5e5e5'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#f4f4f4'
-                }}
+                className="inline-flex items-center justify-center px-8 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300"
               >
-                <span className="rt-button-font" style={{ textTransform: 'none' }}>
-                  Learn More About Us
-                </span>
+                Learn More About Us
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section - Radiant UI Accordion Style */}
-      <section className="rt-component-section">
-        <div className="w-layout-blockcontainer rt-component-container w-container" style={{ maxWidth: '900px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <div className="rt-icon-box" style={{ marginBottom: '30px' }}>
-              <HelpCircle className="w-16 h-16" style={{ color: '#3898ec', margin: '0 auto' }} />
-            </div>
-            <h2 className="rt-component-heading-two" style={{ marginBottom: '15px' }}>
+      {/* FAQ Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <HelpCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Pricing Questions?
             </h2>
-            <p style={{
-              color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-              fontSize: '18px'
-            }}>
+            <p className="text-lg text-gray-600">
               Common questions about billing and plans
             </p>
           </div>
 
-          <div className="w-layout-vflex" style={{ gap: '20px' }}>
+          <div className="space-y-4">
             {[
               {
                 question: 'What counts as an SEO fix?',
@@ -706,34 +412,12 @@ export default function PricingPage() {
             ].map((faq, index) => (
               <div
                 key={index}
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '10px',
-                  padding: '30px',
-                  border: '1px solid #e5e5e5',
-                  transition: 'box-shadow 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow duration-300"
               >
-                <h3 style={{
-                  fontSize: '20px',
-                  fontWeight: 500,
-                  color: 'var(--radiant-ui-components-library-marketplace--color--heading-dark)',
-                  marginBottom: '15px'
-                }}>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   {faq.question}
                 </h3>
-                <p style={{
-                  fontSize: '16px',
-                  lineHeight: '28px',
-                  color: 'var(--radiant-ui-components-library-marketplace--color--body-font-dark)',
-                  margin: 0
-                }}>
+                <p className="text-gray-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -743,12 +427,31 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA */}
-      <CTASection
-        title="Ready to Fix Your SEO Automatically?"
-        description="Start your 14-day free trial today. No credit card required."
-        primaryCTA={{ text: 'Start Free Trial', href: '/sign-up' }}
-        secondaryCTA={{ text: 'View Features', href: '/features' }}
-      />
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Fix Your SEO Automatically?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8">
+            Start your 14-day free trial today. No credit card required.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
+            >
+              Start Free Trial
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+            <Link
+              href="/features"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
+            >
+              View Features
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -14,16 +14,54 @@ interface Step {
 }
 
 interface ProgressIndicatorProps {
-  steps: Step[]
   currentStep: number
+  totalSteps?: number
   className?: string
 }
 
 export function ProgressIndicator({
-  steps,
   currentStep,
+  totalSteps = 7,
   className = '',
 }: ProgressIndicatorProps) {
+  // Simple dot progress for minimal UI
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`flex justify-center gap-2 mb-8 ${className}`}
+    >
+      {[...Array(totalSteps)].map((_, index) => {
+        const step = index + 1
+        return (
+          <div
+            key={step}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              step === currentStep
+                ? 'w-8 bg-white'
+                : step < currentStep
+                ? 'w-2 bg-white/60'
+                : 'w-2 bg-white/20'
+            }`}
+          />
+        )
+      })}
+    </motion.div>
+  )
+}
+
+// Keep the original complex version for reference
+export function ProgressIndicatorDetailed({
+  currentStep,
+  totalSteps = 7,
+  className = '',
+}: ProgressIndicatorProps) {
+  const steps = [...Array(totalSteps)].map((_, i) => ({
+    id: `step-${i + 1}`,
+    title: `Step ${i + 1}`,
+    icon: `${i + 1}`
+  }))
+
   return (
     <div className={`w-full ${className}`}>
       {/* Desktop: Horizontal Progress Bar */}

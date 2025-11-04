@@ -38,7 +38,7 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
     },
     PLAN: {
       label: 'Plan Mode',
-      description: 'Claude AI creates a plan of all fixes. You approve once, and all fixes execute together.',
+      description: 'Our AI creates a plan of all fixes. You approve once, and all fixes execute together.',
       icon: '📋'
     },
     APPROVE: {

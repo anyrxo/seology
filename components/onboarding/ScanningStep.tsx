@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 interface ScanningStepProps {
   siteId?: string
   siteName?: string
-  onNext: (data: { issuesFound: number }) => void
+  onNext: (data: { issuesFound?: number; firstIssueId?: string }) => void
   onBack: () => void
 }
 
@@ -24,7 +24,7 @@ export function ScanningStep({ siteId, siteName, onNext, onBack }: ScanningStepP
     const stages = [
       { progress: 20, status: 'Crawling pages...', duration: 2000 },
       { progress: 40, status: 'Analyzing content...', duration: 2000 },
-      { progress: 60, status: 'Running Claude AI analysis...', duration: 3000 },
+      { progress: 60, status: 'Running AI analysis...', duration: 3000 },
       { progress: 80, status: 'Identifying SEO issues...', duration: 2000 },
       { progress: 100, status: 'Scan complete!', duration: 1000 },
     ]
@@ -55,7 +55,7 @@ export function ScanningStep({ siteId, siteName, onNext, onBack }: ScanningStepP
         Scanning {siteName || 'Your Site'}
       </h2>
       <p className="text-gray-400 mb-8">
-        Claude AI is analyzing your site for SEO issues
+        Our AI is analyzing your site for SEO issues
       </p>
 
       <div className="mb-8">

@@ -7,13 +7,14 @@
 import { useState, useEffect } from 'react'
 
 interface FirstFixStepProps {
-  siteId?: string
+  connectionId?: string
+  issueId?: string
   executionMode?: 'AUTOMATIC' | 'PLAN' | 'APPROVE'
   onNext: () => void
   onBack: () => void
 }
 
-export function FirstFixStep({ siteId, executionMode, onNext, onBack }: FirstFixStepProps) {
+export function FirstFixStep({ connectionId, issueId, executionMode, onNext, onBack }: FirstFixStepProps) {
   const [isApplying, setIsApplying] = useState(false)
   const [isComplete, setIsComplete] = useState(false)
 
@@ -46,7 +47,7 @@ export function FirstFixStep({ siteId, executionMode, onNext, onBack }: FirstFix
       </h2>
       <p className="text-gray-400 mb-8">
         {isApplying
-          ? 'Claude AI is making changes to your site...'
+          ? 'Our AI is making changes to your site...'
           : isComplete
           ? 'Your site is now one step closer to perfect SEO'
           : 'Watch SEOLOGY.AI automatically fix an SEO issue'}
@@ -70,7 +71,7 @@ export function FirstFixStep({ siteId, executionMode, onNext, onBack }: FirstFix
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-300">
                 <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2" />
-                Analyzing page content with Claude AI...
+                Analyzing page content with AI...
               </div>
               <div className="flex items-center text-sm text-gray-300">
                 <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mr-2" />
@@ -113,7 +114,7 @@ export function FirstFixStep({ siteId, executionMode, onNext, onBack }: FirstFix
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">1.</span>
-                Claude AI analyzed your page content
+                Our AI analyzed your page content
               </li>
               <li className="flex items-start">
                 <span className="text-blue-500 mr-2">2.</span>

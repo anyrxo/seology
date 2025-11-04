@@ -58,7 +58,7 @@ export function SeologyChat() {
     {
       id: '1',
       role: 'assistant',
-      content: "Hi! I'm your Seology AI Assistant. I can help you audit your website, fix SEO issues, and optimize your content. What would you like to work on today?",
+      content: "Hi! I'm SEOLOGY's AI assistant. I can help you analyze your site's SEO issues, suggest fixes, and guide you through optimizing your content. Unlike other tools that just report problems, SEOLOGY actually fixes them automatically. What would you like to work on today?",
       timestamp: new Date(),
     },
   ])
@@ -236,10 +236,10 @@ export function SeologyChat() {
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-blue-400" />
-            Seology AI Assistant
+            SEOLOGY AI Assistant
           </h2>
           <p className="text-sm text-gray-400 mt-1">
-            Your intelligent SEO automation companion
+            AI-powered SEO analysis and automated fixes
           </p>
         </div>
         <Badge variant="success" dot pulse>

@@ -226,7 +226,7 @@ export function SettingsClient({ user }: SettingsClientProps) {
               <ExecutionModeOption
                 mode="PLAN"
                 title="Plan Mode"
-                description="Claude AI creates a plan of all fixes. You approve once, and all fixes execute together."
+                description="Our AI creates a plan of all fixes. You approve once, and all fixes execute together."
                 isActive={user.executionMode === 'PLAN'}
               />
 

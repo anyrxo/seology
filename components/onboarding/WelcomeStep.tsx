@@ -7,7 +7,7 @@
 import { motion } from 'framer-motion'
 
 interface WelcomeStepProps {
-  userName: string
+  userName?: string | null | undefined
   onNext: () => void
 }
 
@@ -19,7 +19,7 @@ const benefits = [
   },
   {
     icon: '🤖',
-    title: 'Powered by Claude AI',
+    title: 'Advanced AI Technology',
     description: 'State-of-the-art AI analyzes and optimizes your content'
   },
   {
@@ -31,7 +31,7 @@ const benefits = [
 
 const setupSteps = [
   'Connect your first website (Shopify, WordPress, or any site)',
-  'Let Claude AI scan and analyze your SEO',
+  'Let our AI scan and analyze your SEO',
   'Choose how you want fixes applied (automatic or manual approval)',
   'Watch your first SEO issue get fixed automatically'
 ]

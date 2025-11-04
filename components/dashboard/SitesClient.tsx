@@ -216,7 +216,7 @@ function EmptyState() {
               No sites connected yet
             </h2>
             <p className="rt-text-block text-200 color-neutral-600 mg-bottom-32px">
-              Connect your first website to start automating SEO fixes with Claude AI
+              Connect your first website to start automating SEO fixes with SEOLOGY.AI
             </p>
 
             <Link
@@ -241,7 +241,7 @@ function EmptyState() {
           />
           <FeatureCard
             title="AI-Powered Fixes"
-            description="Claude AI generates and applies fixes for every issue"
+            description="Our AI generates and applies fixes for every issue"
             icon="🤖"
             cardStyle="pd-32px---24px"
           />
@@ -293,7 +293,7 @@ function EmptyState() {
                 </div>
                 <div className="flex-vertical">
                   <div className="text-100 medium color-neutral-800">Apply Fixes</div>
-                  <div className="text-50 color-neutral-600">Claude fixes issues automatically</div>
+                  <div className="text-50 color-neutral-600">AI fixes issues automatically</div>
                 </div>
               </div>
             </div>
