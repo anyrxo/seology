@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Plus, ArrowRight } from 'lucide-react'
+import ConnectStoreButton from './ConnectStoreButton'
 
 interface Issue {
   id: string
@@ -54,15 +55,12 @@ export function SitesClient({ connections }: SitesClientProps) {
                 </p>
               </div>
             </div>
-            <Link
-              href="/dashboard/sites/connect"
-              className="btn-primary large rt-button-font"
-            >
+            <ConnectStoreButton className="btn-primary large rt-button-font">
               <div className="flex-horizontal gap-column-6px">
                 <Plus className="w-5 h-5" />
                 <div>Connect New Site</div>
               </div>
-            </Link>
+            </ConnectStoreButton>
           </div>
         </div>
 
@@ -220,15 +218,12 @@ function EmptyState() {
               Connect your first website to start automating SEO fixes with SEOLOGY.AI
             </p>
 
-            <Link
-              href="/dashboard/sites/connect"
-              className="btn-primary large rt-button-font"
-            >
+            <ConnectStoreButton className="btn-primary large rt-button-font">
               <div className="flex-horizontal gap-column-6px">
                 <Plus className="w-5 h-5" />
                 <div>Connect Your First Site</div>
               </div>
-            </Link>
+            </ConnectStoreButton>
           </div>
         </div>
 
