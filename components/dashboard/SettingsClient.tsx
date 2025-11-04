@@ -105,51 +105,49 @@ export function SettingsClient({ user }: SettingsClientProps) {
   }
 
   return (
-    <div className="bg-neutral-200 min-h-screen">
+    <div className="min-h-screen">
       <div className="container-default w-container">
         <div className="gap-row-24px">
           {/* Header */}
           <div className="rt-component-section gap-row-24px">
             <div className="flex-horizontal align-center gap-column-16px">
-              <div className="card-icon-square _40px flex-horizontal">
-                <Settings className="h-5 w-5" />
+              <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
+                <Settings className="h-6 w-6 text-blue-400" />
               </div>
               <div style={{ flex: 1 }}>
-                <h1 className="display-2 color-neutral-800">
+                <h1 className="text-3xl font-bold text-white">
                   Settings
                 </h1>
-                <p className="text-200 medium color-neutral-600">
+                <p className="text-base text-gray-400">
                   Manage your account preferences and execution mode
                 </p>
               </div>
               {/* User Avatar */}
-              <div className="avatar-circle _48px">
-                <div className="avatar-name-circle _48px">
-                  <div className="text-100 bold color-neutral-100">{initials}</div>
-                </div>
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                <div className="text-sm font-bold text-white">{initials}</div>
               </div>
             </div>
           </div>
 
           {/* Success/Error Messages */}
           {successMessage && (
-            <div className="card pd-24px" style={{ marginTop: '24px', backgroundColor: 'var(--system--green-100)', border: '1px solid var(--system--green-200)' }}>
+            <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4" style={{ marginTop: '24px' }}>
               <div className="flex-horizontal align-center gap-column-12px">
-                <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--system--green-200)' }}>
-                  <Check className="h-3 w-3" style={{ color: 'var(--system--green-400)' }} />
+                <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                  <Check className="h-3 w-3 text-green-400" />
                 </div>
-                <p className="text-100 medium color-neutral-800">{successMessage}</p>
+                <p className="text-sm font-medium text-green-400">{successMessage}</p>
               </div>
             </div>
           )}
 
           {errorMessage && (
-            <div className="card pd-24px" style={{ marginTop: '24px', backgroundColor: 'var(--system--red-100)', border: '1px solid var(--system--red-200)' }}>
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4" style={{ marginTop: '24px' }}>
               <div className="flex-horizontal align-center gap-column-12px">
-                <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--system--red-200)' }}>
-                  <X className="h-3 w-3" style={{ color: 'var(--system--red-400)' }} />
+                <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center">
+                  <X className="h-3 w-3 text-red-400" />
                 </div>
-                <p className="text-100 medium color-neutral-800">{errorMessage}</p>
+                <p className="text-sm font-medium text-red-400">{errorMessage}</p>
               </div>
             </div>
           )}
@@ -195,21 +193,19 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
           {/* Profile Section */}
           {activeTab === 'profile' && (
-            <div className="card pd-32px---44px" style={{ marginTop: '24px' }}>
+            <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
               <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
-                <div className="avatar-circle _40px">
-                  <div className="avatar-name-circle _40px">
-                    <div className="text-100 bold color-neutral-100">{initials}</div>
-                  </div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <div className="text-sm font-bold text-white">{initials}</div>
                 </div>
-                <h2 className="text-300 bold color-neutral-800">
+                <h2 className="text-xl font-bold text-white">
                   Profile Information
                 </h2>
               </div>
 
               <div className="grid-2-columns gap-row-24px gap-column-24px">
                 <div className="flex-vertical">
-                  <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
                     First Name
                     <div className="tooltip top" style={{ marginLeft: '4px', display: 'inline-block' }}>
                       <span style={{ cursor: 'help' }}>ℹ️</span>
@@ -217,11 +213,11 @@ export function SettingsClient({ user }: SettingsClientProps) {
                     </div>
                   </label>
                   <div className="input icon-inside-left" style={{ position: 'relative' }}>
-                    <UserIcon className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--neutral--600)' }} />
+                    <UserIcon className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
                     <input
                       type="text"
                       defaultValue={user.firstName || ''}
-                      className="input"
+                      className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full"
                       style={{ paddingLeft: '36px' }}
                       disabled
                     />
@@ -229,15 +225,15 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 </div>
 
                 <div className="flex-vertical">
-                  <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
                     Last Name
                   </label>
                   <div className="input icon-inside-left" style={{ position: 'relative' }}>
-                    <UserIcon className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--neutral--600)' }} />
+                    <UserIcon className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
                     <input
                       type="text"
                       defaultValue={user.lastName || ''}
-                      className="input"
+                      className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full"
                       style={{ paddingLeft: '36px' }}
                       disabled
                     />
@@ -245,15 +241,15 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 </div>
 
                 <div className="flex-vertical">
-                  <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
                     Email
                   </label>
                   <div className="input icon-inside-left" style={{ position: 'relative' }}>
-                    <Mail className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--neutral--600)' }} />
+                    <Mail className="h-4 w-4" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
                     <input
                       type="email"
                       defaultValue={user.email}
-                      className="input"
+                      className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full"
                       style={{ paddingLeft: '36px' }}
                       disabled
                     />
@@ -261,13 +257,13 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 </div>
 
                 <div className="flex-vertical">
-                  <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
                     User ID
                   </label>
                   <input
                     type="text"
                     defaultValue={user.userId}
-                    className="input"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full"
                     style={{
                       fontFamily: 'monospace',
                       fontSize: '14px'
@@ -277,18 +273,18 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 </div>
 
                 <div className="flex-vertical">
-                  <label className="text-100 medium color-neutral-600 mg-bottom-8px">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
                     Current Plan
                   </label>
                   <div className="flex-horizontal gap-column-12px">
                     <input
                       type="text"
                       defaultValue={planLabels[user.plan as keyof typeof planLabels]}
-                      className="input"
+                      className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
                       style={{ flex: 1 }}
                       disabled
                     />
-                    <span className="badge" style={{ alignSelf: 'center' }}>{user.plan}</span>
+                    <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full text-xs font-medium" style={{ alignSelf: 'center' }}>{user.plan}</span>
                   </div>
                 </div>
               </div>
@@ -297,36 +293,36 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
               {/* Quick Actions */}
               <div className="grid-2-columns gap-row-16px gap-column-16px mg-top-24px">
-                <div className="card pd-20px" style={{ backgroundColor: 'var(--neutral--200)' }}>
+                <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-5 hover:border-white/20 transition-colors">
                   <div className="flex-horizontal align-center gap-column-12px">
-                    <div className="avatar-circle _32px">
-                      <CreditCard className="h-4 w-4" />
+                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                      <CreditCard className="h-4 w-4 text-blue-400" />
                     </div>
                     <div style={{ flex: 1 }}>
-                      <p className="text-100 bold color-neutral-800 mg-bottom-4px">Billing & Usage</p>
-                      <p className="text-50 medium color-neutral-600">Manage subscription and view usage</p>
+                      <p className="text-sm font-semibold text-white mg-bottom-4px">Billing & Usage</p>
+                      <p className="text-xs text-gray-400">Manage subscription and view usage</p>
                     </div>
                     <button
                       onClick={() => router.push('/dashboard/billing')}
-                      className="btn-tertiary small"
+                      className="px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 text-xs font-medium rounded-lg border border-blue-500/20 transition-colors"
                     >
                       View
                     </button>
                   </div>
                 </div>
 
-                <div className="card pd-20px" style={{ backgroundColor: 'var(--neutral--200)' }}>
+                <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-5 hover:border-white/20 transition-colors">
                   <div className="flex-horizontal align-center gap-column-12px">
-                    <div className="avatar-circle _32px">
-                      <Database className="h-4 w-4" />
+                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+                      <Database className="h-4 w-4 text-purple-400" />
                     </div>
                     <div style={{ flex: 1 }}>
-                      <p className="text-100 bold color-neutral-800 mg-bottom-4px">Data Management</p>
-                      <p className="text-50 medium color-neutral-600">Export, import, and manage data</p>
+                      <p className="text-sm font-semibold text-white mg-bottom-4px">Data Management</p>
+                      <p className="text-xs text-gray-400">Export, import, and manage data</p>
                     </div>
                     <button
                       onClick={() => router.push('/dashboard/settings/data')}
-                      className="btn-tertiary small"
+                      className="px-3 py-1.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-xs font-medium rounded-lg border border-purple-500/20 transition-colors"
                     >
                       Manage
                     </button>
@@ -334,14 +330,14 @@ export function SettingsClient({ user }: SettingsClientProps) {
                 </div>
               </div>
 
-              <div className="card pd-20px mg-top-16px" style={{ backgroundColor: 'var(--system--blue-100)', border: '1px solid var(--system--blue-200)' }}>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5 mg-top-16px">
                 <div className="flex-horizontal align-center gap-column-12px">
-                  <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--system--blue-200)' }}>
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                     <span style={{ fontSize: '12px' }}>ℹ️</span>
                   </div>
-                  <p className="text-100 medium color-neutral-800">
+                  <p className="text-sm text-gray-300">
                     Profile information is managed through Clerk authentication. Changes to name and email should be made through your{' '}
-                    <a href="/user" className="text-100 medium color-accent-1 hover-opacity-85" style={{ textDecoration: 'underline' }}>
+                    <a href="/user" className="text-blue-400 hover:text-blue-300 transition-colors" style={{ textDecoration: 'underline' }}>
                       account settings
                     </a>
                   </p>
@@ -352,16 +348,16 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
           {/* Preferences Section - Execution Mode */}
           {activeTab === 'preferences' && (
-            <div className="card pd-32px---44px" style={{ marginTop: '24px' }}>
+            <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
             <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
-              <div className="card-icon-square _40px neutral-icon flex-horizontal">
-                <Settings className="h-5 w-5" />
+              <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
+                <Settings className="h-6 w-6 text-blue-400" />
               </div>
               <div>
-                <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                <h2 className="text-xl font-bold text-white mg-bottom-8px">
                   Fix Execution Mode
                 </h2>
-                <p className="text-100 medium color-neutral-600">
+                <p className="text-sm text-gray-400">
                   Choose how SEO fixes are applied to your sites
                 </p>
               </div>
@@ -394,13 +390,13 @@ export function SettingsClient({ user }: SettingsClientProps) {
             </div>
 
               <div className="divider card-small-divider mg-top-24px"></div>
-              <div className="card pd-24px" style={{ backgroundColor: 'var(--system--blue-100)', border: '1px solid var(--system--blue-200)' }}>
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5" style={{ marginTop: '24px' }}>
                 <div className="flex-horizontal align-center gap-column-12px">
-                  <div className="card-icon-square _26px flex-horizontal" style={{ flexShrink: 0 }}>
+                  <div className="w-7 h-7 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                     <span style={{ fontSize: '14px' }}>ℹ️</span>
                   </div>
-                  <p className="text-100 medium color-neutral-800">
-                    <strong>Note:</strong> All execution modes include 90-day rollback protection. You can safely revert any fix within 90 days.
+                  <p className="text-sm text-gray-300">
+                    <strong className="text-white">Note:</strong> All execution modes include 90-day rollback protection. You can safely revert any fix within 90 days.
                   </p>
                 </div>
               </div>
@@ -409,16 +405,16 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
           {/* Notifications Section */}
           {activeTab === 'notifications' && (
-            <div className="card pd-32px---44px" style={{ marginTop: '24px' }}>
+            <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
               <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
-                <div className="card-icon-square _40px neutral-icon flex-horizontal">
-                  <Bell className="h-5 w-5" />
+                <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
+                  <Bell className="h-6 w-6 text-purple-400" />
                 </div>
                 <div>
-                  <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                  <h2 className="text-xl font-bold text-white mg-bottom-8px">
                     Email Notifications
                   </h2>
-                  <p className="text-100 medium color-neutral-600">
+                  <p className="text-sm text-gray-400">
                     Choose what emails you want to receive
                   </p>
                 </div>
@@ -460,40 +456,40 @@ export function SettingsClient({ user }: SettingsClientProps) {
           {activeTab === 'integrations' && (
             <div className="gap-row-24px" style={{ marginTop: '24px' }}>
               {/* Connected Sites */}
-              <div className="card pd-32px---44px">
+              <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8">
                 <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-                  <div className="card-icon-square _40px neutral-icon flex-horizontal">
-                    <Link className="h-5 w-5" />
+                  <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
+                    <Link className="h-6 w-6 text-green-400" />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                    <h2 className="text-xl font-bold text-white mg-bottom-8px">
                       Connected Sites
                     </h2>
-                    <p className="text-100 medium color-neutral-600">
+                    <p className="text-sm text-gray-400">
                       Manage your connected websites and platforms
                     </p>
                   </div>
                   <button
                     onClick={() => router.push('/dashboard/sites/connect')}
-                    className="btn-primary medium"
+                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg text-sm font-medium transition-all duration-300"
                   >
                     Connect New Site
                   </button>
                 </div>
 
-                <div className="card pd-20px" style={{ backgroundColor: 'var(--neutral--200)' }}>
+                <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-5 hover:border-white/20 transition-colors">
                   <div className="flex-horizontal align-center gap-column-12px">
-                    <div className="avatar-circle _32px">
+                    <div className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center">
                       <span style={{ fontSize: '16px' }}>🔗</span>
                     </div>
                     <div style={{ flex: 1 }}>
-                      <p className="text-100 medium color-neutral-800">
+                      <p className="text-sm text-gray-300">
                         View and manage all your connected sites in the Data Management section
                       </p>
                     </div>
                     <button
                       onClick={() => router.push('/dashboard/settings/data')}
-                      className="btn-tertiary small"
+                      className="px-3 py-1.5 bg-green-500/10 hover:bg-green-500/20 text-green-400 text-xs font-medium rounded-lg border border-green-500/20 transition-colors"
                     >
                       Go to Data Management
                     </button>
@@ -502,31 +498,31 @@ export function SettingsClient({ user }: SettingsClientProps) {
               </div>
 
               {/* API Access */}
-              <div className="card pd-32px---44px">
+              <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
                 <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-                  <div className="card-icon-square _40px neutral-icon flex-horizontal">
-                    <Key className="h-5 w-5" />
+                  <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
+                    <Key className="h-6 w-6 text-yellow-400" />
                   </div>
                   <div>
-                    <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                    <h2 className="text-xl font-bold text-white mg-bottom-8px">
                       API Keys
                     </h2>
-                    <p className="text-100 medium color-neutral-600">
+                    <p className="text-sm text-gray-400">
                       Generate API keys to access SEOLOGY.AI programmatically
                     </p>
                   </div>
                 </div>
 
-                <div className="card pd-24px" style={{ backgroundColor: 'var(--system--blue-100)', border: '1px solid var(--system--blue-200)' }}>
+                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5">
                   <div className="flex-horizontal align-center gap-column-12px">
-                    <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--system--blue-200)' }}>
+                    <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <span style={{ fontSize: '12px' }}>🔒</span>
                     </div>
                     <div style={{ flex: 1 }}>
-                      <p className="text-100 medium color-neutral-800 mg-bottom-4px">
-                        <strong>API access coming soon</strong>
+                      <p className="text-sm font-semibold text-white mg-bottom-4px">
+                        API access coming soon
                       </p>
-                      <p className="text-100 medium color-neutral-600">
+                      <p className="text-sm text-gray-300">
                         API keys will allow you to integrate SEOLOGY.AI with your existing workflows and tools.
                       </p>
                     </div>
@@ -535,31 +531,31 @@ export function SettingsClient({ user }: SettingsClientProps) {
               </div>
 
               {/* Webhooks */}
-              <div className="card pd-32px---44px">
+              <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
                 <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-                  <div className="card-icon-square _40px neutral-icon flex-horizontal">
+                  <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl p-3 flex items-center justify-center">
                     <span style={{ fontSize: '20px' }}>🔔</span>
                   </div>
                   <div>
-                    <h2 className="text-300 bold color-neutral-800 mg-bottom-8px">
+                    <h2 className="text-xl font-bold text-white mg-bottom-8px">
                       Webhooks
                     </h2>
-                    <p className="text-100 medium color-neutral-600">
+                    <p className="text-sm text-gray-400">
                       Receive real-time notifications about SEO fixes and issues
                     </p>
                   </div>
                 </div>
 
-                <div className="card pd-24px" style={{ backgroundColor: 'var(--system--blue-100)', border: '1px solid var(--system--blue-200)' }}>
+                <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5">
                   <div className="flex-horizontal align-center gap-column-12px">
-                    <div className="avatar-circle _24px" style={{ backgroundColor: 'var(--system--blue-200)' }}>
+                    <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
                       <span style={{ fontSize: '12px' }}>🚀</span>
                     </div>
                     <div style={{ flex: 1 }}>
-                      <p className="text-100 medium color-neutral-800 mg-bottom-4px">
-                        <strong>Webhooks coming soon</strong>
+                      <p className="text-sm font-semibold text-white mg-bottom-4px">
+                        Webhooks coming soon
                       </p>
-                      <p className="text-100 medium color-neutral-600">
+                      <p className="text-sm text-gray-300">
                         Set up webhook endpoints to receive notifications when issues are detected or fixes are applied.
                       </p>
                     </div>
@@ -571,26 +567,25 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
           {/* Security Section - Danger Zone */}
           {activeTab === 'security' && (
-            <div className="card pd-32px---44px" style={{ marginTop: '24px', backgroundColor: 'var(--system--red-100)', border: '1px solid var(--system--red-200)' }}>
+            <div className="bg-gradient-to-br from-red-500/10 to-red-600/10 backdrop-blur-xl border border-red-500/30 rounded-2xl p-8" style={{ marginTop: '24px' }}>
               <div className="flex-horizontal align-center gap-column-16px mg-bottom-24px">
-                <div className="card-icon-square _40px flex-horizontal" style={{ flexShrink: 0, borderColor: 'var(--system--300)', backgroundColor: 'var(--system--red-100)' }}>
-                  <AlertTriangle className="h-5 w-5" style={{ color: 'var(--system--300)' }} />
+                <div className="bg-red-500/20 border border-red-500/30 rounded-xl p-3 flex items-center justify-center flex-shrink-0">
+                  <AlertTriangle className="h-6 w-6 text-red-400" />
                 </div>
-                <h2 className="text-300 bold" style={{ color: 'var(--system--red-400)' }}>
+                <h2 className="text-xl font-bold text-red-400">
                   Danger Zone
                 </h2>
               </div>
               <div className="flex-horizontal space-between align-center children-wrap gap-16px---8px">
                 <div className="flex-vertical">
-                  <p className="text-200 bold color-neutral-800 mg-bottom-4px">Delete Account</p>
-                  <p className="text-100 medium color-neutral-600">
+                  <p className="text-base font-semibold text-white mg-bottom-4px">Delete Account</p>
+                  <p className="text-sm text-gray-300">
                     Permanently delete your account and all associated data
                   </p>
                 </div>
                 <button
                   onClick={() => setShowDeleteModal(true)}
-                  className="btn-primary large"
-                  style={{ backgroundColor: 'var(--system--red-400)', borderColor: 'var(--system--red-400)' }}
+                  className="px-5 py-2.5 bg-red-600 hover:bg-red-500 text-white font-medium rounded-lg border border-red-500/50 transition-colors"
                 >
                   Delete Account
                 </button>
@@ -600,28 +595,25 @@ export function SettingsClient({ user }: SettingsClientProps) {
 
           {/* Delete Confirmation Modal */}
           {showDeleteModal && (
-            <div className="modal-wrapper">
-              <div className="modal-close-overlay" onClick={() => setShowDeleteModal(false)}></div>
-              <div className="modal-content">
-                <div className="card pd-32px---44px">
-                  <h3 className="text-300 bold color-neutral-800 mg-bottom-16px">Confirm Account Deletion</h3>
-                  <p className="text-100 medium color-neutral-600 mg-bottom-24px">
-                    This action cannot be undone. All your data will be permanently deleted.
-                  </p>
-                  <div className="flex-horizontal gap-column-12px">
-                    <button
-                      onClick={() => setShowDeleteModal(false)}
-                      className="btn-secondary large"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className="btn-primary large"
-                      style={{ backgroundColor: 'var(--system--red-400)', borderColor: 'var(--system--red-400)' }}
-                    >
-                      Yes, Delete My Account
-                    </button>
-                  </div>
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowDeleteModal(false)}></div>
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-md w-full shadow-2xl">
+                <h3 className="text-xl font-bold text-white mg-bottom-16px">Confirm Account Deletion</h3>
+                <p className="text-sm text-gray-300 mg-bottom-24px">
+                  This action cannot be undone. All your data will be permanently deleted.
+                </p>
+                <div className="flex-horizontal gap-column-12px">
+                  <button
+                    onClick={() => setShowDeleteModal(false)}
+                    className="flex-1 px-4 py-2 bg-white/5 hover:bg-white/10 text-white font-medium rounded-lg border border-white/10 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-500 text-white font-medium rounded-lg border border-red-500/50 transition-colors"
+                  >
+                    Yes, Delete My Account
+                  </button>
                 </div>
               </div>
             </div>
@@ -643,11 +635,10 @@ interface ExecutionModeOptionProps {
 function ExecutionModeOption({ mode, title, description, isActive, onChange }: ExecutionModeOptionProps) {
   return (
     <label
-      className="card pd-24px"
+      className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl rounded-xl p-6 hover:border-white/20 transition-all cursor-pointer"
       style={{
-        cursor: 'pointer',
-        border: isActive ? '2px solid var(--accent--primary-1)' : '1px solid var(--neutral--400)',
-        backgroundColor: isActive ? 'var(--secondary--color-3)' : 'var(--neutral--100)'
+        border: isActive ? '2px solid rgb(59 130 246)' : '1px solid rgba(255, 255, 255, 0.1)',
+        backgroundColor: isActive ? 'rgba(59, 130, 246, 0.1)' : undefined
       }}
       onClick={onChange}
     >
@@ -657,16 +648,16 @@ function ExecutionModeOption({ mode, title, description, isActive, onChange }: E
           name="execution_mode"
           value={mode}
           checked={isActive}
-          className="checkbox"
+          className="w-5 h-5 text-blue-500 border-white/10 focus:ring-blue-500"
           style={{ marginTop: '4px' }}
           readOnly
         />
         <div className="flex-vertical" style={{ flex: 1 }}>
           <div className="flex-horizontal space-between align-center mg-bottom-8px">
-            <p className="text-200 bold color-neutral-800">{title}</p>
-            {isActive && <span className="primary-badge light">Active</span>}
+            <p className="text-base font-semibold text-white">{title}</p>
+            {isActive && <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">Active</span>}
           </div>
-          <p className="text-100 medium color-neutral-600">{description}</p>
+          <p className="text-sm text-gray-400">{description}</p>
         </div>
       </div>
     </label>
@@ -682,14 +673,14 @@ interface NotificationToggleProps {
 
 function NotificationToggle({ label, description, enabled, onChange }: NotificationToggleProps) {
   return (
-    <div className="card pd-24px">
+    <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-xl border border-white/10 rounded-xl p-6 hover:border-white/20 transition-colors">
       <div className="flex-horizontal space-between align-center">
         <div className="flex-vertical" style={{ flex: 1 }}>
           <div className="flex-horizontal gap-column-12px align-center mg-bottom-4px">
-            <p className="text-200 bold color-neutral-800">{label}</p>
-            {enabled && <span className="color-badge green">Enabled</span>}
+            <p className="text-base font-semibold text-white">{label}</p>
+            {enabled && <span className="px-2 py-0.5 bg-green-500/10 text-green-400 text-xs font-medium rounded-full border border-green-500/20">Enabled</span>}
           </div>
-          <p className="text-100 medium color-neutral-600">{description}</p>
+          <p className="text-sm text-gray-400">{description}</p>
         </div>
         <button
           className="toggle-button-wrapper"
