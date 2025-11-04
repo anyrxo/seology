@@ -9,6 +9,8 @@ import { SEOWorkflowMap } from './SEOWorkflowMap'
 import { LiveActivityFeed } from './LiveActivityFeed'
 import { IssueSeverityCards, IssueSummary } from './IssueSeverityCards'
 import { AnimatedCounter, TrendIndicator } from './AnimatedCounter'
+import { SEOHealthScore } from './SEOHealthScore'
+import { SmartInsightsPanel } from './SmartInsightsPanel'
 import { motion } from 'framer-motion'
 import {
   Globe,
@@ -217,8 +219,20 @@ export function DashboardClient({ userName }: { userName: string }) {
           </div>
         </div>
 
-        {/* SEO Workflow Pipeline - Fluency-inspired real-time process visualization */}
-        <SEOWorkflowMap />
+        {/* Hero Section: Health Score + Workflow */}
+        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
+          <SEOHealthScore
+            score={Math.max(20, 100 - (stats.activeIssuesCount * 5))}
+            trend={stats.fixesThisMonth > 0 ? 'up' : 'stable'}
+            issues={{
+              critical: Math.floor(stats.activeIssuesCount * 0.2),
+              warning: Math.floor(stats.activeIssuesCount * 0.5),
+              info: Math.ceil(stats.activeIssuesCount * 0.3)
+            }}
+            sitesCount={stats.sitesCount}
+          />
+          <SEOWorkflowMap />
+        </div>
 
         {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
         <motion.div
@@ -238,7 +252,7 @@ export function DashboardClient({ userName }: { userName: string }) {
         >
           {/* Sites Connected Card */}
           <motion.div
-            className="card pd-24px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10"
+            className="card pd-24px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 group cursor-pointer"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -252,12 +266,25 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -6,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+              y: -8,
+              scale: 1.03,
+              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
             }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {/* Animated gradient overlay */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            {/* Animated shine effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">🌐</div>
@@ -279,7 +306,7 @@ export function DashboardClient({ userName }: { userName: string }) {
 
           {/* Issues Detected Card */}
           <motion.div
-            className="card pd-24px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-orange-500/10"
+            className="card pd-24px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 group cursor-pointer"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -293,12 +320,23 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -6,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+              y: -8,
+              scale: 1.03,
+              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
             }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">🔍</div>
@@ -322,7 +360,7 @@ export function DashboardClient({ userName }: { userName: string }) {
 
           {/* Fixes Applied Card */}
           <motion.div
-            className="card pd-22px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-green-500/10"
+            className="card pd-22px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-green-500/20 group cursor-pointer"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -336,12 +374,23 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -6,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+              y: -8,
+              scale: 1.03,
+              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
             }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px">
                 <div className="text-200">✅</div>
@@ -363,7 +412,7 @@ export function DashboardClient({ userName }: { userName: string }) {
 
           {/* Usage Card */}
           <motion.div
-            className="card pd-16px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10"
+            className="card pd-16px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 group cursor-pointer"
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.95 },
               visible: {
@@ -377,12 +426,23 @@ export function DashboardClient({ userName }: { userName: string }) {
               }
             }}
             whileHover={{
-              y: -6,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
+              y: -8,
+              scale: 1.03,
+              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
             }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+              initial={{ x: '-100%' }}
+              whileHover={{ x: '100%' }}
+              transition={{ duration: 0.6 }}
+            />
             <div className="flex-horizontal space-between align-center mg-bottom-16px">
               <div className="card-icon-square _26px neutral-icon">
                 <div className="text-200">📊</div>
@@ -505,22 +565,27 @@ export function DashboardClient({ userName }: { userName: string }) {
           </div>
         </div>
 
-        {/* Live Activity & Issue Summary - Fluency-inspired real-time dashboard */}
-        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
-          <LiveActivityFeed
-            activities={mockActivityData.map(activity => ({
-              id: activity.id,
-              type: activity.type === 'fix' ? 'fix' : activity.type === 'issue' ? 'issue' : activity.type === 'scan' ? 'scan' : 'connection',
-              title: activity.title,
-              description: activity.description || '',
-              site: activity.siteName || '',
-              timestamp: activity.timestamp,
-              severity: activity.status === 'warning' ? 'high' : activity.status === 'error' ? 'high' : 'low'
-            }))}
-            maxItems={6}
-            showTimestamp={true}
-            autoRefresh={false}
-          />
+        {/* Smart Insights - AI-powered recommendations */}
+        <SmartInsightsPanel />
+
+        {/* Three-column grid: Activity Feed, Issue Summary, Analytics */}
+        <div className="grid-3-columns _1-column-tablet gap-column-24px gap-row-24px">
+          <div className="col-span-2 _1-column-tablet">
+            <LiveActivityFeed
+              activities={mockActivityData.map(activity => ({
+                id: activity.id,
+                type: activity.type === 'fix' ? 'fix' : activity.type === 'issue' ? 'issue' : activity.type === 'scan' ? 'scan' : 'connection',
+                title: activity.title,
+                description: activity.description || '',
+                site: activity.siteName || '',
+                timestamp: activity.timestamp,
+                severity: activity.status === 'warning' ? 'high' : activity.status === 'error' ? 'high' : 'low'
+              }))}
+              maxItems={6}
+              showTimestamp={true}
+              autoRefresh={false}
+            />
+          </div>
           <IssueSummary
             counts={{
               critical: Math.floor(stats.activeIssuesCount * 0.2),
