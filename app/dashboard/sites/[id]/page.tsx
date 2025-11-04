@@ -66,6 +66,7 @@ export default async function SiteDetailPage({ params, searchParams }: PageProps
     SHOPIFY: '🛍️',
     WORDPRESS: '📝',
     WIX: '🎨',
+    GITHUB: '🐙',
     CUSTOM: '⚡',
   }[connection.platform] || '🌐'
 

@@ -9,6 +9,7 @@ export type PlanTier = 'STARTER' | 'GROWTH' | 'SCALE'
 export interface PlanLimits {
   sites: number
   fixesPerMonth: number
+  aiCreditsPerMonth: number // AI chat message credits
   usersPerSite: number
   analyticsRetention: number // days
   prioritySupport: boolean
@@ -38,18 +39,19 @@ export const PLANS: Record<PlanTier, Plan> = {
   STARTER: {
     id: 'STARTER',
     name: 'Starter',
-    description: 'Perfect for small businesses and personal projects',
+    description: 'Perfect for getting started - completely free',
     price: {
-      monthly: 29,
-      yearly: 290, // ~17% discount
+      monthly: 0,
+      yearly: 0,
     },
     stripePriceId: {
-      monthly: 'price_starter_monthly',
-      yearly: 'price_starter_yearly',
+      monthly: '', // No Stripe price needed for free tier
+      yearly: '',
     },
     limits: {
-      sites: 3,
-      fixesPerMonth: 500,
+      sites: 1,
+      fixesPerMonth: 100,
+      aiCreditsPerMonth: 10, // 10 AI chat messages per month
       usersPerSite: 1,
       analyticsRetention: 30,
       prioritySupport: false,
@@ -58,12 +60,13 @@ export const PLANS: Record<PlanTier, Plan> = {
       whiteLabel: false,
     },
     features: [
-      'Up to 3 connected sites',
-      '500 SEO fixes per month',
+      '1 connected site',
+      '100 SEO fixes per month',
       'Automatic fix execution',
       'Basic analytics',
       '30-day data retention',
-      'Email support',
+      'Community support',
+      'All platform integrations',
     ],
   },
   GROWTH: {
@@ -81,6 +84,7 @@ export const PLANS: Record<PlanTier, Plan> = {
     limits: {
       sites: 10,
       fixesPerMonth: 5000,
+      aiCreditsPerMonth: 100, // 100 AI chat messages per month
       usersPerSite: 5,
       analyticsRetention: 90,
       prioritySupport: true,
@@ -102,19 +106,20 @@ export const PLANS: Record<PlanTier, Plan> = {
   },
   SCALE: {
     id: 'SCALE',
-    name: 'Scale',
-    description: 'For enterprises and large agencies',
+    name: 'Enterprise',
+    description: 'Custom solutions for large organizations',
     price: {
-      monthly: 299,
-      yearly: 2990, // ~17% discount
+      monthly: -1, // Custom pricing - contact sales
+      yearly: -1,
     },
     stripePriceId: {
-      monthly: 'price_scale_monthly',
-      yearly: 'price_scale_yearly',
+      monthly: 'price_enterprise_monthly', // Custom quotes via sales
+      yearly: 'price_enterprise_yearly',
     },
     limits: {
       sites: -1, // unlimited
       fixesPerMonth: -1, // unlimited
+      aiCreditsPerMonth: -1, // unlimited AI chat messages
       usersPerSite: -1, // unlimited
       analyticsRetention: 365,
       prioritySupport: true,
@@ -126,14 +131,16 @@ export const PLANS: Record<PlanTier, Plan> = {
       'Unlimited connected sites',
       'Unlimited SEO fixes',
       'All execution modes',
-      'Enterprise analytics',
+      'Enterprise analytics & BI integrations',
       '365-day data retention',
-      'Dedicated support',
-      'Full API access',
+      'Dedicated success manager',
+      'Full API access with higher rate limits',
       'Unlimited team members',
-      'Custom domain',
-      'White-label option',
-      'SLA guarantee',
+      'Custom domain & white-label',
+      'SLA guarantee (99.9% uptime)',
+      'Custom integrations',
+      'SSO / SAML authentication',
+      'On-premise deployment option',
     ],
   },
 }

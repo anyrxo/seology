@@ -9,6 +9,8 @@ import { crawlSiteJob } from './crawl-job'
 import { analyzeSiteJob } from './analysis-job'
 import { cleanupRollbacksJob } from './cleanup-job'
 import { resetUsageJob } from './usage-reset-job'
+import { executeScanImagesJob, executeOptimizeImagesJob } from './image-job'
+import { executeDailyAutomationJob } from './daily-automation-job'
 
 /**
  * Initialize all job processors
@@ -19,6 +21,9 @@ export function initializeJobs() {
   registerProcessor('ANALYZE_SITE', analyzeSiteJob)
   registerProcessor('CLEANUP_ROLLBACKS', cleanupRollbacksJob)
   registerProcessor('RESET_USAGE', resetUsageJob)
+  registerProcessor('SCAN_IMAGES', executeScanImagesJob)
+  registerProcessor('OPTIMIZE_IMAGES', executeOptimizeImagesJob)
+  registerProcessor('DAILY_AUTOMATION', executeDailyAutomationJob)
 
   console.log('✓ Job processors initialized')
 }

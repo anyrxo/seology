@@ -3,6 +3,7 @@
 export const dynamic = 'force-dynamic'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   Check,
@@ -21,27 +22,31 @@ export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
     'monthly'
   )
+  const [hoveredPlan, setHoveredPlan] = useState<number | null>(null)
+  const [hoveredBadge, setHoveredBadge] = useState<number | null>(null)
+  const [hoveredFaq, setHoveredFaq] = useState<number | null>(null)
 
   const plans = [
     {
       name: 'STARTER',
-      description: 'Perfect for Small Businesses',
-      monthlyPrice: 29,
-      annualPrice: 24,
+      description: 'Perfect for Getting Started',
+      monthlyPrice: 0,
+      annualPrice: 0,
       features: [
-        { name: 'Up to 3 sites', included: true },
-        { name: '500 SEO fixes per month', included: true },
-        { name: 'Shopify & WordPress integration', included: true },
+        { name: '1 connected site', included: true },
+        { name: '100 SEO fixes per month', included: true },
+        { name: 'All platform integrations', included: true },
         { name: 'Advanced AI analysis', included: true },
-        { name: 'Email support', included: true },
+        { name: 'Community support', included: true },
         { name: '90-day rollback', included: true },
         { name: 'Basic analytics', included: true },
         { name: 'Priority support', included: false },
         { name: 'API access', included: false },
-        { name: 'Custom integrations', included: false },
+        { name: 'Team collaboration', included: false },
       ],
-      cta: 'Start Free Trial',
+      cta: 'Get Started Free',
       popular: false,
+      isFree: true,
     },
     {
       name: 'GROWTH',
@@ -62,34 +67,38 @@ export default function PricingPage() {
       ],
       cta: 'Start Free Trial',
       popular: true,
+      isFree: false,
     },
     {
-      name: 'SCALE',
-      description: 'For Enterprise Teams',
-      monthlyPrice: 299,
-      annualPrice: 249,
+      name: 'ENTERPRISE',
+      description: 'Custom Solutions',
+      monthlyPrice: null,
+      annualPrice: null,
       features: [
         { name: 'Unlimited sites', included: true },
         { name: 'Unlimited SEO fixes', included: true },
         { name: 'All Growth features', included: true },
-        { name: 'Dedicated account manager', included: true },
-        { name: 'White-label options', included: true },
+        { name: 'Dedicated success manager', included: true },
+        { name: 'White-label & custom domain', included: true },
         { name: '99.9% SLA guarantee', included: true },
         { name: 'Custom CMS integrations', included: true },
         { name: 'Phone & Slack support', included: true },
         { name: 'Unlimited team members', included: true },
-        { name: 'Custom contract terms', included: true },
+        { name: 'SSO / SAML authentication', included: true },
       ],
       cta: 'Contact Sales',
       popular: false,
+      isFree: false,
     },
   ]
 
   const getPrice = (plan: typeof plans[0]) => {
+    if (plan.monthlyPrice === null || plan.annualPrice === null) return null
     return billingCycle === 'monthly' ? plan.monthlyPrice : plan.annualPrice
   }
 
   const getSavings = (plan: typeof plans[0]) => {
+    if (plan.monthlyPrice === null || plan.annualPrice === null) return 0
     const monthlyCost = plan.monthlyPrice * 12
     const annualCost = plan.annualPrice * 12
     const savings = monthlyCost - annualCost
@@ -97,32 +106,95 @@ export default function PricingPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen relative overflow-hidden">
+      {/* Animated Background Gradient */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <motion.div
+          className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/30 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-500/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -50, 0],
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-1/2 h-1/2 bg-indigo-500/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -75, 0],
+            y: [0, 75, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-6">
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-6"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
+            >
               <Sparkles className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-medium text-blue-600">
                 14-day free trial • No credit card required
               </span>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Simple, Transparent Pricing.
               <br />
               <span className="text-gray-600">No Hidden Fees.</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl">
+            <motion.p
+              className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
-            </p>
+            </motion.p>
 
             {/* Billing Toggle */}
-            <div className="inline-flex items-center gap-2 p-1 bg-gray-100 rounded-lg">
+            <motion.div
+              className="inline-flex items-center gap-2 p-1 bg-gray-100 rounded-lg"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               <button
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
@@ -146,7 +218,7 @@ export default function PricingPage() {
                   Save 17%
                 </span>
               </button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -155,15 +227,28 @@ export default function PricingPage() {
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan) => (
-              <div
+            {plans.map((plan, index) => (
+              <motion.div
                 key={plan.name}
-                className={`relative flex flex-col bg-white rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+                className={`relative flex flex-col bg-white rounded-2xl p-8 transition-all duration-300 ${
                   plan.popular
                     ? 'border-2 border-blue-600 shadow-xl'
                     : 'border border-gray-200 shadow-lg hover:shadow-xl'
                 }`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredPlan(index)}
+                onHoverEnd={() => setHoveredPlan(null)}
               >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0"
+                  animate={{ opacity: hoveredPlan === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full">
                     MOST POPULAR
@@ -171,17 +256,25 @@ export default function PricingPage() {
                 )}
 
                 {/* Plan Header */}
-                <div className="mb-8">
+                <div className="mb-8 relative z-10">
                   <div className="text-sm font-semibold text-gray-500 tracking-wider mb-3">
                     {plan.name}
                   </div>
                   <div className="flex items-baseline mb-2">
-                    <span className="text-5xl font-bold text-gray-900">
-                      ${getPrice(plan)}
-                    </span>
-                    <span className="text-lg text-gray-500 ml-2">/month</span>
+                    {getPrice(plan) === null ? (
+                      <span className="text-3xl font-bold text-gray-900">
+                        Custom Pricing
+                      </span>
+                    ) : (
+                      <>
+                        <span className="text-5xl font-bold text-gray-900">
+                          ${getPrice(plan)}
+                        </span>
+                        <span className="text-lg text-gray-500 ml-2">/month</span>
+                      </>
+                    )}
                   </div>
-                  {billingCycle === 'annual' && (
+                  {billingCycle === 'annual' && getSavings(plan) > 0 && (
                     <div className="text-sm text-green-600 font-medium mb-2">
                       Save ${getSavings(plan)}/year
                     </div>
@@ -194,7 +287,7 @@ export default function PricingPage() {
                 {/* CTA Button */}
                 <Link
                   href="/sign-up"
-                  className={`w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 mb-8 ${
+                  className={`w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 mb-8 relative z-10 ${
                     plan.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
@@ -204,7 +297,7 @@ export default function PricingPage() {
                 </Link>
 
                 {/* Features List */}
-                <div className="space-y-4">
+                <div className="space-y-4 relative z-10">
                   {plan.features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
                       {feature.included ? (
@@ -224,25 +317,47 @@ export default function PricingPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+
+                {hoveredPlan === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-4 right-4 z-20"
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Compare All Features
             </h2>
             <p className="text-lg text-gray-600">
               See exactly what is included in each plan
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <motion.div
+            className="bg-white rounded-2xl shadow-lg overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-gray-50 border-b border-gray-200">
@@ -257,26 +372,34 @@ export default function PricingPage() {
                       GROWTH
                     </th>
                     <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
-                      SCALE
+                      ENTERPRISE
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {[
-                    { feature: 'Sites', values: ['3', '10', 'Unlimited'] },
-                    { feature: 'SEO Fixes/Month', values: ['500', '5,000', 'Unlimited'] },
+                    { feature: 'Sites', values: ['1', '10', 'Unlimited'] },
+                    { feature: 'SEO Fixes/Month', values: ['100', '5,000', 'Unlimited'] },
                     { feature: 'Advanced AI Analysis', values: [true, true, true] },
                     { feature: 'Platform Integrations', values: [true, true, true] },
                     { feature: '90-Day Rollback', values: [true, true, true] },
-                    { feature: 'Support', values: ['Email', 'Email & Chat', 'Phone & Slack'] },
-                    { feature: 'Analytics', values: ['Basic', 'Advanced', 'Advanced'] },
+                    { feature: 'Support', values: ['Community', 'Email & Chat', 'Dedicated Manager'] },
+                    { feature: 'Analytics', values: ['Basic', 'Advanced', 'Enterprise + BI'] },
                     { feature: 'API Access', values: [false, true, true] },
                     { feature: 'Team Members', values: ['1', '5', 'Unlimited'] },
                     { feature: 'Custom Integrations', values: [false, false, true] },
                     { feature: 'White-Label', values: [false, false, true] },
                     { feature: 'SLA Guarantee', values: [false, false, true] },
+                    { feature: 'SSO / SAML', values: [false, false, true] },
                   ].map((row, index) => (
-                    <tr key={index} className="hover:bg-gray-50 transition-colors">
+                    <motion.tr
+                      key={index}
+                      className="hover:bg-gray-50 transition-colors"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                    >
                       <td className="px-6 py-4 text-sm font-medium text-gray-900">
                         {row.feature}
                       </td>
@@ -295,12 +418,12 @@ export default function PricingPage() {
                           )}
                         </td>
                       ))}
-                    </tr>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -314,27 +437,62 @@ export default function PricingPage() {
               { icon: Clock, title: '14-Day Free Trial', description: 'No credit card needed' },
               { icon: CreditCard, title: 'Cancel Anytime', description: 'No long-term contracts' },
             ].map((badge, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+                className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredBadge(index)}
+                onHoverEnd={() => setHoveredBadge(null)}
               >
-                <badge.icon className="w-12 h-12 text-blue-600 mb-4" />
-                <div className="text-lg font-semibold text-gray-900 mb-1">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0"
+                  animate={{ opacity: hoveredBadge === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <motion.div
+                  animate={{
+                    rotate: hoveredBadge === index ? [0, -10, 10, 0] : 0,
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="relative z-10"
+                >
+                  <badge.icon className="w-12 h-12 text-blue-600 mb-4" />
+                </motion.div>
+                <div className="text-lg font-semibold text-gray-900 mb-1 relative z-10">
                   {badge.title}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 relative z-10">
                   {badge.description}
                 </div>
-              </div>
+                {hoveredBadge === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-2 right-2 z-20"
+                  >
+                    <Sparkles className="w-5 h-5 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Enterprise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <motion.div
+            className="bg-white rounded-2xl shadow-lg p-12 text-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <Users className="w-16 h-16 text-blue-600 mx-auto mb-6" />
 
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -344,28 +502,42 @@ export default function PricingPage() {
               Get custom pricing, dedicated support, and tailored features for your agency or large organization. We will work with you to build the perfect solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/sign-up"
-                className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
               >
-                Contact Sales Team
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-8 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300"
+                <Link
+                  href="/sign-up"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Contact Sales Team
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
               >
-                Learn More About Us
-              </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300"
+                >
+                  Learn More About Us
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <HelpCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Pricing Questions?
@@ -373,7 +545,7 @@ export default function PricingPage() {
             <p className="text-lg text-gray-600">
               Common questions about billing and plans
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-4">
             {[
@@ -391,7 +563,7 @@ export default function PricingPage() {
               },
               {
                 question: 'Do you offer refunds?',
-                answer: 'We offer a 14-day free trial, so you can test everything before paying. For paid plans, we offer a 30-day money-back guarantee if you are not satisfied.',
+                answer: 'Our Starter plan is completely free forever - no credit card required. For paid plans (Growth), we offer a 14-day free trial and a 30-day money-back guarantee if you are not satisfied.',
               },
               {
                 question: 'How does the annual billing discount work?',
@@ -399,7 +571,7 @@ export default function PricingPage() {
               },
               {
                 question: 'Can I add more team members?',
-                answer: 'Starter plans include 1 user. Growth plans include 5 users. Scale plans have unlimited users. You can add extra user seats to Growth plans for $15/user/month.',
+                answer: 'The free Starter plan includes 1 user. Growth plans include 5 users. Enterprise plans have unlimited users. You can add extra user seats to Growth plans for $15/user/month.',
               },
               {
                 question: 'What payment methods do you accept?',
@@ -410,46 +582,96 @@ export default function PricingPage() {
                 answer: 'No setup fees. No long-term contracts. You can cancel anytime and you will not be charged again. Your data remains accessible for 30 days after cancellation.',
               },
             ].map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-shadow duration-300"
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ x: 4, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredFaq(index)}
+                onHoverEnd={() => setHoveredFaq(null)}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0"
+                  animate={{ opacity: hoveredFaq === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Fix Your SEO Automatically?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Start your 14-day free trial today. No credit card required.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/sign-up"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link
-              href="/features"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
-            >
-              View Features
-            </Link>
-          </div>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600 relative overflow-hidden">
+        {/* Particle Dots */}
+        {Array.from({ length: 30 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Fix Your SEO Automatically?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Start your 14-day free trial today. No credit card required.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <Link
+                  href="/sign-up"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
+                >
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <Link
+                  href="/features"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
+                >
+                  View Features
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

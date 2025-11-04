@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   Zap,
@@ -35,40 +36,108 @@ export default function FeaturesPage() {
   const [activeTab, setActiveTab] = useState<
     'on-page' | 'technical' | 'content' | 'performance'
   >('on-page')
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
+  const [hoveredPlatform, setHoveredPlatform] = useState<number | null>(null)
+  const [hoveredUseCase, setHoveredUseCase] = useState<number | null>(null)
+  const [hoveredAdvanced, setHoveredAdvanced] = useState<number | null>(null)
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen relative overflow-hidden">
+      {/* Animated Background Gradient */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <motion.div
+          className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/30 rounded-full blur-3xl"
+          animate={{
+            x: [0, 100, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-500/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -50, 0],
+            y: [0, -100, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-1/2 h-1/2 bg-indigo-500/20 rounded-full blur-3xl"
+          animate={{
+            x: [0, -75, 0],
+            y: [0, 75, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6">
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full mb-6"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
+            >
               <Sparkles className="w-4 h-4 text-blue-600" />
               <span className="text-sm font-medium text-blue-600">
                 Powered by Advanced AI
               </span>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <motion.h1
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Everything You Need to
               <br />
               <span className="text-blue-600">Dominate Search</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            <motion.p
+              className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               SEOLOGY.AI combines AI analysis with automated fixes to give you the ultimate SEO advantage.
               Stop wasting time on manual tasks—let AI do the work.
-            </p>
+            </motion.p>
 
-            <Link
-              href="/sign-up"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg"
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+              <Link
+                href="/sign-up"
+                className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg"
+              >
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -76,7 +145,13 @@ export default function FeaturesPage() {
       {/* Core Features */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
               <Layers className="w-4 h-4 text-gray-600" />
               <span className="text-sm font-medium text-gray-600">Core Capabilities</span>
@@ -89,7 +164,7 @@ export default function FeaturesPage() {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Everything you need to automate and optimize your search presence
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -124,36 +199,71 @@ export default function FeaturesPage() {
                 description: 'Track traffic, rankings, and performance metrics. See the impact of every fix with detailed before/after comparisons.',
               },
             ].map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredFeature(index)}
+                onHoverEnd={() => setHoveredFeature(null)}
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                  <feature.icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0"
+                  animate={{ opacity: hoveredFeature === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300"
+                    animate={{
+                      rotate: hoveredFeature === index ? [0, -10, 10, 0] : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <feature.icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+                {hoveredFeature === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-4 right-4"
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Platform Integrations */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Connect Any Platform
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Seamless integration with your existing tools and workflows
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -200,30 +310,59 @@ export default function FeaturesPage() {
                 ],
               },
             ].map((platform, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredPlatform(index)}
+                onHoverEnd={() => setHoveredPlatform(null)}
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                  <platform.icon className="w-8 h-8 text-blue-600" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0"
+                  animate={{ opacity: hoveredPlatform === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
+                    animate={{
+                      rotate: hoveredPlatform === index ? [0, -10, 10, 0] : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <platform.icon className="w-8 h-8 text-blue-600" />
+                  </motion.div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {platform.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {platform.description}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {platform.features.map((feature, i) => (
+                      <li key={i} className="flex items-center text-gray-700">
+                        <CheckCircle2 className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {platform.title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {platform.description}
-                </p>
-
-                <ul className="space-y-3">
-                  {platform.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {hoveredPlatform === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-4 right-4"
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
@@ -232,14 +371,20 @@ export default function FeaturesPage() {
       {/* SEO Fix Types - Interactive Tabs */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Comprehensive SEO Fixes
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Automated optimization across every aspect of your site
             </p>
-          </div>
+          </motion.div>
 
           {/* Tab Navigation */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -249,7 +394,7 @@ export default function FeaturesPage() {
               { id: 'content', label: 'Content', icon: BookOpen },
               { id: 'performance', label: 'Performance', icon: Zap },
             ].map((tab) => (
-              <button
+              <motion.button
                 key={tab.id}
                 onClick={() =>
                   setActiveTab(
@@ -261,10 +406,12 @@ export default function FeaturesPage() {
                     ? 'bg-blue-600 text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+                whileTap={{ scale: 0.95 }}
               >
                 <tab.icon className="w-5 h-5 mr-2" />
                 {tab.label}
-              </button>
+              </motion.button>
             ))}
           </div>
 
@@ -282,13 +429,16 @@ export default function FeaturesPage() {
                   'URL structure optimization',
                   'Open Graph and Twitter Cards',
                 ].map((fix, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="flex items-start bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{fix}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </>
             )}
@@ -305,13 +455,16 @@ export default function FeaturesPage() {
                   'HTTPS enforcement',
                   'Mobile-friendliness fixes',
                 ].map((fix, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="flex items-start bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{fix}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </>
             )}
@@ -328,13 +481,16 @@ export default function FeaturesPage() {
                   'Thin content identification',
                   'Content gap analysis',
                 ].map((fix, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="flex items-start bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{fix}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </>
             )}
@@ -351,13 +507,16 @@ export default function FeaturesPage() {
                   'Browser caching headers',
                   'Minification of assets',
                 ].map((fix, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="flex items-start bg-white border border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:shadow-md transition-all duration-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{fix}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </>
             )}
@@ -366,16 +525,22 @@ export default function FeaturesPage() {
       </section>
 
       {/* Use Cases */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Built for Every Business
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Real results from real businesses across industries
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -407,56 +572,85 @@ export default function FeaturesPage() {
                 metricLabel: 'saved per week',
               },
             ].map((useCase, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredUseCase(index)}
+                onHoverEnd={() => setHoveredUseCase(null)}
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                  <useCase.icon className="w-8 h-8 text-blue-600" />
-                </div>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0"
+                  animate={{ opacity: hoveredUseCase === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6"
+                    animate={{
+                      rotate: hoveredUseCase === index ? [0, -10, 10, 0] : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <useCase.icon className="w-8 h-8 text-blue-600" />
+                  </motion.div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {useCase.title}
-                </h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    {useCase.title}
+                  </h3>
 
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-red-500" />
-                      <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                        The Problem
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-2 h-2 rounded-full bg-red-500" />
+                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                          The Problem
+                        </p>
+                      </div>
+                      <p className="text-gray-700">
+                        {useCase.problem}
                       </p>
                     </div>
-                    <p className="text-gray-700">
-                      {useCase.problem}
-                    </p>
-                  </div>
 
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-green-500" />
-                      <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                        The Solution
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                          The Solution
+                        </p>
+                      </div>
+                      <p className="text-gray-700">
+                        {useCase.solution}
                       </p>
                     </div>
-                    <p className="text-gray-700">
-                      {useCase.solution}
+                  </div>
+
+                  <div className="pt-6 border-t border-gray-200">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-blue-600">
+                        {useCase.metric}
+                      </span>
+                      <ChevronRight className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <p className="text-gray-600 mt-1">
+                      {useCase.metricLabel}
                     </p>
                   </div>
                 </div>
-
-                <div className="pt-6 border-t border-gray-200">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-blue-600">
-                      {useCase.metric}
-                    </span>
-                    <ChevronRight className="w-5 h-5 text-gray-400" />
-                  </div>
-                  <p className="text-gray-600 mt-1">
-                    {useCase.metricLabel}
-                  </p>
-                </div>
-              </div>
+                {hoveredUseCase === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-4 right-4"
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
@@ -465,14 +659,20 @@ export default function FeaturesPage() {
       {/* Advanced Features */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Enterprise-Grade Power
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Advanced capabilities for serious SEO teams
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -507,186 +707,119 @@ export default function FeaturesPage() {
                 description: 'Create custom fix rules and workflows. Tailor automation to your specific SEO strategy and requirements.',
               },
             ].map((feature, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+                onHoverStart={() => setHoveredAdvanced(index)}
+                onHoverEnd={() => setHoveredAdvanced(null)}
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                  <feature.icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0"
+                  animate={{ opacity: hoveredAdvanced === index ? 1 : 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300"
+                    animate={{
+                      rotate: hoveredAdvanced === index ? [0, -10, 10, 0] : 0,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <feature.icon className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                  </motion.div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Security Showcase */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-              <Lock className="w-8 h-8 text-blue-600" />
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Enterprise-Grade Security
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Your data and credentials are protected by industry-leading security measures
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: 'Encrypted Storage',
-                description:
-                  'All credentials encrypted at rest with AES-256. Encryption keys stored separately in secure vaults.',
-              },
-              {
-                title: 'OAuth Authentication',
-                description:
-                  'Industry-standard OAuth 2.0 for Shopify. Never store passwords—only secure tokens.',
-              },
-              {
-                title: 'SOC 2 Type II',
-                description:
-                  'Independently audited and certified for security, availability, and confidentiality.',
-              },
-              {
-                title: 'GDPR Compliant',
-                description:
-                  'Full compliance with EU data protection regulations. Data residency options available.',
-              },
-              {
-                title: 'Regular Audits',
-                description:
-                  'Quarterly security audits and penetration testing by third-party security firms.',
-              },
-              {
-                title: 'Zero-Knowledge Architecture',
-                description:
-                  'Credentials encrypted before reaching our servers. Only you can decrypt your data.',
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-500 hover:shadow-md transition-all duration-300"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Analytics Preview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-              <TrendingUp className="w-8 h-8 text-blue-600" />
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Track Every Metric
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive analytics to measure the impact of every fix
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Traffic Impact',
-                metrics: [
-                  'Organic traffic trends',
-                  'Page-level visits',
-                  'Conversion tracking',
-                  'Bounce rate analysis',
-                ],
-              },
-              {
-                title: 'Ranking Improvements',
-                metrics: [
-                  'Keyword position tracking',
-                  'SERP feature wins',
-                  'Visibility score',
-                  'Competitor comparison',
-                ],
-              },
-              {
-                title: 'Technical Metrics',
-                metrics: [
-                  'Page speed scores',
-                  'Core Web Vitals',
-                  'Mobile usability',
-                  'Indexability status',
-                ],
-              },
-            ].map((section, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  {section.title}
-                </h3>
-                <ul className="space-y-4">
-                  {section.metrics.map((metric, i) => (
-                    <li key={i} className="flex items-center text-gray-700">
-                      <BarChart3 className="w-4 h-4 text-blue-600 mr-3 flex-shrink-0" />
-                      {metric}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {hoveredAdvanced === index && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="absolute top-4 right-4"
+                  >
+                    <Sparkles className="w-6 h-6 text-yellow-400" />
+                  </motion.div>
+                )}
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Experience
-            <br />
-            The Future of SEO?
-          </h2>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600 relative overflow-hidden">
+        {/* Particle Dots */}
+        {Array.from({ length: 30 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
 
-          <p className="text-xl text-blue-100 mb-10">
-            Start automating your SEO today with a free trial. No credit card required.
-          </p>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Experience
+              <br />
+              The Future of SEO?
+            </h2>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/sign-up"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            <p className="text-xl text-blue-100 mb-10">
+              Start automating your SEO today with a free trial. No credit card required.
+            </p>
 
-            <Link
-              href="/pricing"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
-            >
-              View Pricing
-            </Link>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <Link
+                  href="/sign-up"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
+                >
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
+                >
+                  View Pricing
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

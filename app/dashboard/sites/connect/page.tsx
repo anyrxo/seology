@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { AlertCircle, X } from 'lucide-react'
 
-type Platform = 'SHOPIFY' | 'WORDPRESS' | 'CUSTOM' | null
+type Platform = 'SHOPIFY' | 'WORDPRESS' | 'GITHUB' | 'CUSTOM' | null
 
 export default function ConnectSitePage() {
   const router = useRouter()
@@ -31,7 +31,7 @@ export default function ConnectSitePage() {
 
       {/* Platform Selection */}
       {!selectedPlatform && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <PlatformCard
             title="Shopify Store"
             description="Connect your Shopify store via OAuth for seamless integration"
@@ -56,6 +56,18 @@ export default function ConnectSitePage() {
               'Schema markup fixes',
             ]}
             onClick={() => setSelectedPlatform('WORDPRESS')}
+          />
+          <PlatformCard
+            title="GitHub Pages"
+            description="Connect your GitHub repository and optimize static sites"
+            icon="🐙"
+            features={[
+              'OAuth integration',
+              'GitHub Pages support',
+              'Static site SEO',
+              'Automatic detection',
+            ]}
+            onClick={() => setSelectedPlatform('GITHUB')}
           />
           <PlatformCard
             title="Any Website"
@@ -97,6 +109,16 @@ export default function ConnectSitePage() {
           setLoading={setLoading}
           error={error}
           setError={setError}
+        />
+      )}
+
+      {/* GitHub Connection Flow */}
+      {selectedPlatform === 'GITHUB' && (
+        <GitHubConnectForm
+          onBack={() => {
+            setSelectedPlatform(null)
+            setError(null)
+          }}
         />
       )}
 
@@ -658,6 +680,95 @@ function CustomSiteConnectForm({
           {loading ? 'Creating...' : 'Create Site & Get Script'}
         </button>
       </div>
+    </div>
+  )
+}
+
+/**
+ * GitHub connection form
+ */
+function GitHubConnectForm({ onBack }: { onBack: () => void }) {
+  const handleConnect = () => {
+    // Redirect to GitHub OAuth flow
+    window.location.href = '/api/auth/github'
+  }
+
+  return (
+    <div className="bg-gray-900 rounded-lg border border-gray-800 p-8">
+      <button
+        onClick={onBack}
+        className="text-gray-400 hover:text-white mb-6 inline-flex items-center text-sm transition-colors"
+      >
+        ← Change Platform
+      </button>
+
+      <div className="flex items-start space-x-4 mb-6">
+        <div className="text-5xl">🐙</div>
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-2">Connect GitHub Repository</h2>
+          <p className="text-gray-400">
+            Connect your GitHub account to analyze and optimize your static sites hosted on GitHub Pages
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-4 mb-6">
+        <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-4">
+          <h4 className="text-white font-semibold mb-2">What we'll access:</h4>
+          <ul className="text-sm text-gray-300 space-y-1">
+            <li>• Your public and private repositories</li>
+            <li>• Repository metadata and settings</li>
+            <li>• GitHub Pages configuration</li>
+            <li>• Read/write access to repository content</li>
+          </ul>
+        </div>
+
+        <div className="bg-purple-900/20 border border-purple-700 rounded-lg p-4">
+          <h4 className="text-white font-semibold mb-2">Perfect for:</h4>
+          <ul className="text-sm text-gray-300 space-y-1">
+            <li>• GitHub Pages sites (username.github.io)</li>
+            <li>• Static site generators (Jekyll, Hugo, Next.js)</li>
+            <li>• Documentation sites</li>
+            <li>• Portfolio and project websites</li>
+          </ul>
+        </div>
+
+        <div className="bg-green-900/20 border border-green-700 rounded-lg p-4">
+          <h4 className="text-white font-semibold mb-2 flex items-center">
+            <svg
+              className="w-5 h-5 mr-2 text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            After connecting:
+          </h4>
+          <ul className="text-sm text-gray-300 space-y-1">
+            <li>• Select your repository with a published website</li>
+            <li>• We'll automatically detect your site URL</li>
+            <li>• AI will analyze your site for SEO issues</li>
+            <li>• Fixes can be committed directly to your repo</li>
+          </ul>
+        </div>
+      </div>
+
+      <button
+        onClick={handleConnect}
+        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
+      >
+        Connect with GitHub
+      </button>
+
+      <p className="text-xs text-gray-500 mt-4 text-center">
+        We use OAuth 2.0 for secure authentication. Your credentials are never stored.
+      </p>
     </div>
   )
 }

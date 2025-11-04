@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { db } from '@/lib/db'
 import { Platform, ExecutionMode, Plan, Severity } from '@prisma/client'
+import { hasAICredits, consumeAICredit, getAICreditBalance } from '@/lib/ai-credits'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -122,6 +123,29 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // Check AI credits before processing
+    const hasCredits = await hasAICredits(userId)
+    if (!hasCredits) {
+      const balance = await getAICreditBalance(userId)
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'INSUFFICIENT_CREDITS',
+            message: 'You have run out of AI chat credits. Please upgrade your plan or purchase additional credits to continue.',
+            details: {
+              monthlyUsed: balance.monthlyUsed,
+              monthlyLimit: balance.monthlyCredits,
+              purchasedCredits: balance.purchasedCredits,
+              upgradeUrl: '/dashboard/settings',
+              purchaseUrl: '/dashboard/credits/purchase',
+            },
+          },
+        },
+        { status: 402 } // Payment Required
+      )
+    }
+
     // Get user context from database
     let user
     try {
@@ -204,6 +228,22 @@ export async function POST(req: NextRequest) {
       role: 'user',
       content: message,
     })
+
+    // Consume AI credit BEFORE making the request
+    const creditResult = await consumeAICredit(userId)
+    if (!creditResult.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'CREDIT_CONSUMPTION_FAILED',
+            message: creditResult.error || 'Failed to process AI credit',
+            details: creditResult.balance,
+          },
+        },
+        { status: 402 }
+      )
+    }
 
     // Create streaming response
     const encoder = new TextEncoder()

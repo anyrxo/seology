@@ -243,6 +243,99 @@
   box-shadow: 0 4px 16px 0 rgba(20, 20, 43, 0.1);
 }
 
+/* ===========================
+   TEXT COLOR UTILITIES - Theme-aware
+   =========================== */
+
+/* Override hardcoded text-white to use theme colors */
+.text-white,
+.text-white *:not(.badge):not(.button) {
+  color: var(--neutral--800) !important;
+}
+
+/* Override hardcoded text-gray to use theme colors */
+.text-gray-400,
+.text-gray-500,
+.text-gray-600 {
+  color: var(--neutral--600) !important;
+}
+
+.text-gray-300 {
+  color: var(--neutral--700) !important;
+}
+
+.text-gray-200 {
+  color: var(--neutral--700) !important;
+}
+
+/* Heading colors */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2,
+.text-300.bold, .text-400.bold {
+  color: var(--neutral--800);
+}
+
+/* Body text colors */
+.text-100, .text-200 {
+  color: var(--neutral--700);
+}
+
+.text-100.medium,
+.text-200.medium {
+  color: var(--neutral--600);
+}
+
+/* Fix Tailwind dark: utilities that conflict */
+.dark .text-white,
+.dark .text-white *:not(.badge):not(.button) {
+  color: var(--neutral--800) !important;
+}
+
+.dark .text-gray-900 {
+  color: var(--neutral--800) !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: var(--neutral--600) !important;
+}
+
+/* Card amount colors need to stay bright */
+.card-amount-container {
+  color: var(--neutral--800);
+}
+
+/* ===========================
+   BACKGROUND COLOR FIXES
+   =========================== */
+
+/* Ensure proper card backgrounds */
+.card {
+  background-color: var(--neutral--100);
+  border-color: var(--neutral--400);
+  color: var(--neutral--700);
+}
+
+/* Dark mode backgrounds */
+.dark {
+  background-color: var(--neutral--100);
+  color: var(--neutral--700);
+}
+
+.dark body {
+  background-color: var(--neutral--100);
+}
+
+/* Fix glass morphism cards */
+.dark .bg-gradient-to-br.from-white\/\[0\.08\],
+.dark .bg-gradient-to-br.from-white\/\[0\.05\] {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

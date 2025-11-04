@@ -284,7 +284,7 @@ function extractPageData(html: string, url: string): PageData {
 export async function analyzeSiteForSEO(
   siteUrl: string,
   pageContent: string,
-  platform: 'SHOPIFY' | 'WORDPRESS' | 'WIX' | 'CUSTOM'
+  platform: 'SHOPIFY' | 'WORDPRESS' | 'WIX' | 'GITHUB' | 'CUSTOM'
 ): Promise<SEOAnalysisResult> {
   const prompt = `You are an expert SEO analyzer. Analyze the following website content and identify SEO issues.
 
@@ -376,7 +376,7 @@ export async function generateFixPlan(
     pageUrl: string
     description: string
   },
-  platform: 'SHOPIFY' | 'WORDPRESS' | 'WIX' | 'CUSTOM',
+  platform: 'SHOPIFY' | 'WORDPRESS' | 'WIX' | 'GITHUB' | 'CUSTOM',
   currentContent?: string
 ): Promise<{
   fixDescription: string
@@ -596,6 +596,10 @@ export async function generateFixImplementation(
     WIX: {
       language: 'JavaScript',
       context: 'Wix Velo (JavaScript) code'
+    },
+    GITHUB: {
+      language: 'HTML/JavaScript',
+      context: 'GitHub Pages static site, using HTML, CSS, and JavaScript'
     },
     CUSTOM: {
       language: 'JavaScript',
