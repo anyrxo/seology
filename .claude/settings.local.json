@@ -18,7 +18,8 @@
       "Bash(npm install:*)",
       "Bash(npx prisma:*)",
       "Bash(cat:*)",
-      "Bash(\"C:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\AI_CHAT_FIX_SUMMARY.md\")"
+      "Bash(\"C:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\AI_CHAT_FIX_SUMMARY.md\")",
+      "Bash(\"C:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\MAKE_USER_ADMIN_GUIDE.md\")"
     ],
     "deny": [],
     "ask": []

@@ -22,14 +22,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   const navItems = [
     { href: '/admin', icon: '📊', label: 'Dashboard' },
-    { href: '/admin/customers', icon: '👥', label: 'Customers' },
-    { href: '/admin/connections', icon: '🔗', label: 'Connections' },
-    { href: '/admin/invites', icon: '✉️', label: 'Invites' },
+    { href: '/admin/users', icon: '👥', label: 'Users' },
+    { href: '/admin/sites', icon: '🌐', label: 'Sites' },
+    { href: '/admin/connection-requests', icon: '🔗', label: 'Connection Requests' },
     { href: '/admin/issues', icon: '⚠️', label: 'Issues' },
-    { href: '/admin/fixes', icon: '✅', label: 'Fixes' },
-    { href: '/admin/jobs', icon: '⚙️', label: 'Jobs Queue' },
+    { href: '/admin/jobs', icon: '⚙️', label: 'Jobs' },
     { href: '/admin/analytics', icon: '📈', label: 'Analytics' },
-    { href: '/admin/system', icon: '🖥️', label: 'System' },
+    { href: '/admin/broadcast', icon: '📢', label: 'Broadcast' },
   ]
 
   return (

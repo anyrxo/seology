@@ -29,11 +29,16 @@ export default async function DashboardPage() {
         onboardingStep: 0,
       },
     })
+  }
 
-    // Redirect new users to onboarding
-    if (!dbUser.onboardingCompleted) {
-      redirect('/dashboard/onboarding')
-    }
+  // Redirect admins to admin panel
+  if (dbUser.role === 'ADMIN') {
+    redirect('/admin')
+  }
+
+  // Redirect new users to onboarding
+  if (!dbUser.onboardingCompleted) {
+    redirect('/dashboard/onboarding')
   }
 
   return (
