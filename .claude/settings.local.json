@@ -47,7 +47,20 @@
       "Bash(git checkout:*)",
       "Bash(node check-db.js:*)",
       "Bash(curl:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "Bash(/tmp/iimagined.html)",
+      "Bash(\"C:\\Users\\manna\\Downloads\\iimagined.webflow (1)\\temp_head.html\")",
+      "Bash(if grep -q \"application/ld+json\" temp_iimagined.html)",
+      "Bash(then echo \"✓ Present\")",
+      "Bash(else echo \"✗ Missing\")",
+      "Bash(if grep -q \"name=\"\"viewport\"\"\" temp_iimagined.html)",
+      "Bash(if grep -q \"lang=\"\"\" temp_iimagined.html)",
+      "Bash(if grep -q \"sitemap\" temp_iimagined.html)",
+      "Bash(then echo \"✓ Mentioned in content\")",
+      "Bash(else echo \"✗ Not found\")",
+      "Bash(if grep -q \"favicon\" temp_iimagined.html)",
+      "Bash(if grep -q \"twitter:card\" temp_iimagined.html)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

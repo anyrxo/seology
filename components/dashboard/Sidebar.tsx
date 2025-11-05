@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { UserButton } from '@clerk/nextjs'
-import { Menu, X } from 'lucide-react'
+import { UserButton, SignOutButton } from '@clerk/nextjs'
+import { Menu, X, LogOut } from 'lucide-react'
 import NotificationCenter from '@/components/notifications/NotificationCenter'
 
 interface SidebarLink {
@@ -98,6 +98,16 @@ export default function Sidebar() {
               </Link>
             )
           })}
+
+          {/* Logout Button */}
+          <SignOutButton redirectUrl="/">
+            <button
+              className="w-full flex items-center space-x-3 px-4 py-3.5 rounded-xl transition-all text-gray-300 hover:bg-red-900/20 hover:text-red-400 border border-transparent hover:border-red-800/30"
+            >
+              <LogOut className="h-5 w-5" />
+              <span className="font-semibold text-sm">Sign Out</span>
+            </button>
+          </SignOutButton>
         </nav>
 
         {/* User Profile */}

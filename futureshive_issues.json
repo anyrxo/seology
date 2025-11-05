@@ -1,0 +1,261 @@
+{
+  "siteUrl": "https://futureshive.com",
+  "platform": "CUSTOM",
+  "analyzedAt": "2025-11-05T00:00:00Z",
+  "summary": {
+    "totalIssues": 20,
+    "criticalIssues": 3,
+    "highIssues": 5,
+    "mediumIssues": 8,
+    "lowIssues": 4,
+    "overallScore": 72
+  },
+  "issues": [
+    {
+      "type": "ssl_certificate_error",
+      "severity": "CRITICAL",
+      "title": "SSL/TLS Certificate Mismatch",
+      "pageUrl": "https://futureshive.com",
+      "description": "The SSL certificate shows ERR_TLS_CERT_ALTNAME_INVALID error. Certificate is configured for futureshive.vercel.app but being accessed via futureshive.com, causing browser security warnings.",
+      "recommendation": "Update DNS settings to properly point futureshive.com to Vercel. Configure custom domain in Vercel dashboard and generate SSL certificate for futureshive.com.",
+      "fixCode": "1. Go to Vercel Dashboard > Project Settings > Domains\n2. Add futureshive.com as custom domain\n3. Update DNS A/CNAME records as instructed\n4. Wait for SSL certificate auto-provisioning\n5. Enable 'Redirect www to non-www' if needed",
+      "impactEstimate": "Can result in 30-50% traffic loss due to security warnings and reduced Google ranking",
+      "riskLevel": "HIGH"
+    },
+    {
+      "type": "canonical_url_mismatch",
+      "severity": "CRITICAL",
+      "title": "Canonical URL Domain Mismatch",
+      "pageUrl": "https://futureshive.com",
+      "description": "Canonical URL points to https://futureshive.vercel.app/ instead of https://futureshive.com. This splits PageRank and authority between two domains.",
+      "recommendation": "Update canonical URL and all Open Graph/Twitter URLs to use futureshive.com domain",
+      "fixCode": "<link rel=\"canonical\" href=\"https://futureshive.com/\">\n<meta property=\"og:url\" content=\"https://futureshive.com/\">\n<meta property=\"twitter:url\" content=\"https://futureshive.com/\">",
+      "impactEstimate": "Splitting authority between two domains, confusing search engines about primary domain",
+      "riskLevel": "HIGH"
+    },
+    {
+      "type": "multiple_h1",
+      "severity": "CRITICAL",
+      "title": "Multiple H1 Headings Detected",
+      "pageUrl": "https://futureshive.com",
+      "description": "Page has multiple H1 elements. Search engines prefer a single, clear H1 per page to understand main topic.",
+      "recommendation": "Keep only ONE H1 on the page. Convert other headings to H2.",
+      "fixCode": "<!-- Keep only ONE H1 -->\n<h1 class=\"hero-title\">Discover My Simple, Little-Known Trading Strategy</h1>\n\n<!-- Convert others to H2 -->\n<h2 class=\"section-title\">Real Results from Real Traders</h2>",
+      "impactEstimate": "Can reduce rankings by 10-15% due to unclear page focus",
+      "riskLevel": "MEDIUM"
+    },
+    {
+      "type": "suboptimal_title_length",
+      "severity": "HIGH",
+      "title": "Title Tag Length Not Optimal",
+      "pageUrl": "https://futureshive.com",
+      "description": "Title is 68 characters, exceeding optimal 50-60 character range. Google truncates display after ~60 characters.",
+      "recommendation": "Shorten title to 50-60 characters for better search result display",
+      "fixCode": "<title>FuturesHive: Proven Trading Strategy | 94% Success</title>",
+      "impactEstimate": "5-10% CTR improvement from better title display",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "missing_robots_txt",
+      "severity": "HIGH",
+      "title": "Missing Robots.txt File",
+      "pageUrl": "https://futureshive.com/robots.txt",
+      "description": "No robots.txt file detected. Search engines may crawl unwanted pages inefficiently.",
+      "recommendation": "Create robots.txt file with sitemap declaration and crawl directives",
+      "fixCode": "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /private/\n\nSitemap: https://futureshive.com/sitemap.xml",
+      "impactEstimate": "Improved crawl efficiency and indexing control",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "missing_sitemap",
+      "severity": "HIGH",
+      "title": "Missing XML Sitemap",
+      "pageUrl": "https://futureshive.com/sitemap.xml",
+      "description": "No sitemap.xml detected. This slows indexing and may cause pages to be missed by search engines.",
+      "recommendation": "Create and submit XML sitemap with all pages and language variants",
+      "fixCode": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://futureshive.com/</loc>\n    <lastmod>2025-11-05</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>",
+      "impactEstimate": "Faster indexing of new pages and content updates",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "analytics_not_configured",
+      "severity": "HIGH",
+      "title": "Google Analytics Placeholder ID",
+      "pageUrl": "https://futureshive.com",
+      "description": "Google Analytics tracking code uses placeholder ID 'G-XXXXXXXXXX' instead of real Measurement ID. No data is being collected.",
+      "recommendation": "Create Google Analytics 4 property and replace placeholder with actual Measurement ID",
+      "fixCode": "gtag('config', 'G-YOUR_ACTUAL_ID', {\n  'anonymize_ip': true,\n  'cookie_flags': 'SameSite=None;Secure'\n});",
+      "impactEstimate": "Enable tracking of user behavior, conversions, and traffic sources",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "thin_content",
+      "severity": "HIGH",
+      "title": "Thin Content / Low Word Count",
+      "pageUrl": "https://futureshive.com",
+      "description": "Page has only ~150-200 words of body content. Recommended minimum is 800-1000 words for service pages.",
+      "recommendation": "Add comprehensive content sections: How It Works, FAQ, Student Stories, Getting Started",
+      "fixCode": "Target word count: 1,200-1,500 words\n\nAdd sections:\n- How Our Strategy Works (200-300 words)\n- Who This Is For (150-200 words)\n- FAQ (400-500 words)\n- Student Success Stories (300-400 words)\n- Getting Started (200-300 words)",
+      "impactEstimate": "Increased topical authority and keyword coverage",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "poor_heading_hierarchy",
+      "severity": "MEDIUM",
+      "title": "Missing H2-H6 Heading Hierarchy",
+      "pageUrl": "https://futureshive.com",
+      "description": "Only H1 and one H2 detected. No H3-H6 usage. Limited semantic structure for content organization.",
+      "recommendation": "Implement proper heading hierarchy with H2, H3, H4 tags for better content structure",
+      "fixCode": "<h2>How the Strategy Works</h2>\n  <h3>Step 1: Market Analysis</h3>\n  <h3>Step 2: Entry Signals</h3>\n  <h3>Step 3: Risk Management</h3>",
+      "impactEstimate": "Better content understanding and featured snippet opportunities",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "excessive_hreflang",
+      "severity": "MEDIUM",
+      "title": "Excessive Hreflang Tags (30+ languages)",
+      "pageUrl": "https://futureshive.com",
+      "description": "30+ hreflang tags declared but no translated content exists. All URLs return 404. This can be seen as manipulation.",
+      "recommendation": "Remove all hreflang tags for non-existent pages. Only keep English.",
+      "fixCode": "<link rel=\"alternate\" hreflang=\"x-default\" href=\"https://futureshive.com/\">\n<link rel=\"alternate\" hreflang=\"en\" href=\"https://futureshive.com/\">",
+      "impactEstimate": "Avoid potential Google penalty for misleading international signals",
+      "riskLevel": "MEDIUM"
+    },
+    {
+      "type": "schema_spam",
+      "severity": "MEDIUM",
+      "title": "Over-Optimization of Schema Markup",
+      "pageUrl": "https://futureshive.com",
+      "description": "15+ schema types on single page including VideoObject with no video, Review with potentially fake review, and empty location data.",
+      "recommendation": "Remove schemas without supporting content: VideoObject, Review, AggregateRating with no review source",
+      "fixCode": "// REMOVE:\n- VideoObject (no video exists)\n- Review (unless verified)\n- AggregateRating (127 reviews claim)\n- FinancialService with lat/long = 0\n\n// KEEP:\n- Organization\n- WebSite\n- Course\n- BreadcrumbList",
+      "impactEstimate": "Avoid manual penalty for misleading structured data",
+      "riskLevel": "HIGH"
+    },
+    {
+      "type": "missing_alt_optimization",
+      "severity": "MEDIUM",
+      "title": "Generic Logo Alt Text",
+      "pageUrl": "https://futureshive.com",
+      "description": "Logo images use generic 'FuturesHive Logo' alt text instead of descriptive, context-specific text.",
+      "recommendation": "Use descriptive alt text that provides context",
+      "fixCode": "<img src=\"logo.png\" alt=\"FuturesHive - Proven Trading Strategy Education\" class=\"logo-image\">",
+      "impactEstimate": "Minor improvement in image SEO and accessibility",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "deprecated_meta_keywords",
+      "severity": "MEDIUM",
+      "title": "Meta Keywords Tag (Deprecated)",
+      "pageUrl": "https://futureshive.com",
+      "description": "Meta keywords tag is present but has been deprecated by Google since 2009. Provides no SEO value.",
+      "recommendation": "Remove meta keywords tag entirely",
+      "fixCode": "<!-- REMOVE THIS -->\n<meta name=\"keywords\" content=\"...\">",
+      "impactEstimate": "Clean up unnecessary code, prevent keyword strategy exposure",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "render_blocking_scripts",
+      "severity": "MEDIUM",
+      "title": "External Script Loading Performance",
+      "pageUrl": "https://futureshive.com",
+      "description": "Multiple external scripts may be render-blocking. Not all scripts use async/defer attributes.",
+      "recommendation": "Add defer attribute to all non-critical scripts and implement resource hints",
+      "fixCode": "<script src=\"script.js\" defer></script>\n<script src=\"core-web-vitals.js\" defer></script>\n<link rel=\"dns-prefetch\" href=\"https://unpkg.com\">",
+      "impactEstimate": "Improved page load speed and Core Web Vitals scores",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "social_tag_errors",
+      "severity": "MEDIUM",
+      "title": "Social Media Tag Inconsistencies",
+      "pageUrl": "https://futureshive.com",
+      "description": "Twitter card tags use 'property' instead of 'name' attribute. This may cause cards to not display properly.",
+      "recommendation": "Fix Twitter meta tags to use 'name' attribute instead of 'property'",
+      "fixCode": "<!-- CORRECT -->\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:title\" content=\"...\">\n\n<!-- INCORRECT -->\n<meta property=\"twitter:card\" content=\"summary_large_image\">",
+      "impactEstimate": "Proper display of content when shared on Twitter/X",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "duplicate_schemas",
+      "severity": "MEDIUM",
+      "title": "Duplicate/Conflicting Schema Types",
+      "pageUrl": "https://futureshive.com",
+      "description": "Organization schema appears multiple times with conflicting types: Organization, EducationalOrganization, FinancialService.",
+      "recommendation": "Choose ONE primary organization type and use @id to reference it",
+      "fixCode": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"EducationalOrganization\",\n  \"@id\": \"https://futureshive.com/#organization\",\n  \"name\": \"FuturesHive\"\n}",
+      "impactEstimate": "Clear, non-conflicting structured data signals",
+      "riskLevel": "MEDIUM"
+    },
+    {
+      "type": "missing_critical_preload",
+      "severity": "LOW",
+      "title": "Missing Preload for Critical Resources",
+      "pageUrl": "https://futureshive.com",
+      "description": "No preload hints for critical fonts or hero images that appear above the fold.",
+      "recommendation": "Add preload hints for critical fonts and hero background",
+      "fixCode": "<link rel=\"preload\" href=\"/fonts/primary-font.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n<link rel=\"preload\" href=\"/hero-background.webp\" as=\"image\">",
+      "impactEstimate": "Minor improvement in perceived load time",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "missing_favicon_sizes",
+      "severity": "LOW",
+      "title": "Missing Favicon Sizes",
+      "pageUrl": "https://futureshive.com",
+      "description": "Only single favicon declared. Missing multiple sizes for different devices and platforms.",
+      "recommendation": "Add favicon declarations for multiple sizes",
+      "fixCode": "<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">\n<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">",
+      "impactEstimate": "Better icon display across all devices",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "empty_internal_links",
+      "severity": "LOW",
+      "title": "Footer Links Missing Internal Link Optimization",
+      "pageUrl": "https://futureshive.com",
+      "description": "Many footer links point to # (nowhere) providing no SEO value or user experience benefit.",
+      "recommendation": "Either create these pages or remove the links",
+      "fixCode": "<!-- Instead of -->\n<a href=\"#\">Trading Strategy</a>\n\n<!-- Either create page -->\n<a href=\"/trading-strategy\">Trading Strategy</a>\n\n<!-- Or remove link -->\n<span>Trading Strategy</span>",
+      "impactEstimate": "Improved internal linking structure and user navigation",
+      "riskLevel": "LOW"
+    },
+    {
+      "type": "date_meta_formatting",
+      "severity": "LOW",
+      "title": "Date Meta Tags Formatting Issues",
+      "pageUrl": "https://futureshive.com",
+      "description": "Future dates used (2025-10-31 when current date is 2025-11-05) and inconsistent date formats.",
+      "recommendation": "Use consistent ISO 8601 format and ensure dates are logically correct",
+      "fixCode": "<meta name=\"date\" content=\"2024-01-15T00:00:00Z\">\n<meta name=\"revised\" content=\"2025-11-05T00:00:00Z\">\n<meta property=\"article:published_time\" content=\"2024-01-15T00:00:00Z\">\n<meta property=\"article:modified_time\" content=\"2025-11-05T00:00:00Z\">",
+      "impactEstimate": "Correct freshness signals to search engines",
+      "riskLevel": "LOW"
+    }
+  ],
+  "recommendations": [
+    "Fix SSL certificate configuration immediately to remove security warnings",
+    "Update all canonical and social meta URLs from vercel.app to futureshive.com",
+    "Consolidate to single H1 tag per page",
+    "Add 800-1,000 words of quality content to page",
+    "Remove misleading structured data (VideoObject, fake reviews, empty schemas)",
+    "Create robots.txt and XML sitemap files",
+    "Remove 30+ non-existent hreflang tags",
+    "Fix Google Analytics tracking ID",
+    "Implement proper heading hierarchy (H2, H3, H4)",
+    "Optimize page speed and Core Web Vitals"
+  ],
+  "strengths": [
+    "Excellent meta description (165 chars, compelling copy)",
+    "Mobile-friendly viewport configuration",
+    "Comprehensive Open Graph implementation",
+    "Semantic HTML5 structure",
+    "Image lazy loading on below-fold images",
+    "Descriptive image alt text",
+    "ARIA labels for accessibility",
+    "Proper language attribute",
+    "Resource hints (preconnect, dns-prefetch)",
+    "Structured data breadcrumbs",
+    "Well-structured FAQ schema",
+    "No intrusive interstitials"
+  ]
+}
