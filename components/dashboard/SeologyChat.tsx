@@ -66,7 +66,6 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
   const [attachedFiles, setAttachedFiles] = useState<AttachedFile[]>([])
   const [isUploadingFiles, setIsUploadingFiles] = useState(false)
   const [executionMode, setExecutionMode] = useState<ExecutionMode>('AUTO')
-  const [thinkingText] = useState('Thinking')
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const messagesContainerRef = useRef<HTMLDivElement>(null)
@@ -309,7 +308,7 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
   }
 
   return (
-    <div className="flex flex-col h-full max-w-4xl mx-auto">
+    <div className="flex flex-col h-[calc(100vh-120px)] max-w-5xl mx-auto px-4 sm:px-6">
       {/* Error Banner */}
       <AnimatePresence>
         {error && (
@@ -319,14 +318,14 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
             exit={{ opacity: 0, y: -10 }}
             className="mb-4"
           >
-            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 flex items-start gap-3">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-4 flex items-start gap-3 shadow-lg">
               <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-red-300 flex-1">{error}</p>
+              <p className="text-sm text-red-300 flex-1 leading-relaxed">{error}</p>
               <button
                 onClick={() => setError(null)}
-                className="text-red-400 hover:text-red-300 transition-colors"
+                className="text-red-400 hover:text-red-300 transition-colors p-1 hover:bg-red-500/10 rounded-lg"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" />
               </button>
             </div>
           </motion.div>
@@ -334,29 +333,57 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
       </AnimatePresence>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto mb-6" ref={messagesContainerRef}>
+      <div className="flex-1 overflow-y-auto -mx-4 px-4 sm:-mx-6 sm:px-6" ref={messagesContainerRef}>
         {isLoadingHistory ? (
           <div className="flex items-center justify-center h-full">
-            <div className="flex flex-col items-center gap-3">
-              <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-              <p className="text-sm text-gray-400">Loading conversation...</p>
+            <div className="flex flex-col items-center gap-4">
+              <div className="relative">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center">
+                  <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
+                </div>
+              </div>
+              <p className="text-sm text-gray-400 font-medium">Loading conversation...</p>
             </div>
           </div>
         ) : messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center px-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4">
-              <Sparkles className="h-8 w-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-2">
-              SEO Genius at Your Service
+          <div className="flex flex-col items-center justify-center h-full text-center px-4 py-12">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 shadow-xl shadow-blue-500/20"
+            >
+              <Sparkles className="h-10 w-10 text-white" />
+            </motion.div>
+            <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
+              AI-Powered SEO Assistant
             </h3>
-            <p className="text-gray-400 max-w-md">
-              Ask me anything about your site's SEO, content optimization, technical issues, or
-              get instant fixes applied.
+            <p className="text-gray-400 max-w-md leading-relaxed text-base">
+              Get instant SEO analysis, content optimization suggestions, and automated fixes for your website.
             </p>
+            <div className="flex flex-wrap gap-2 mt-8 justify-center">
+              <button
+                onClick={() => setInput('Analyze my site for SEO issues')}
+                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm text-gray-300 transition-all"
+              >
+                Analyze my site
+              </button>
+              <button
+                onClick={() => setInput('How can I improve my page speed?')}
+                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm text-gray-300 transition-all"
+              >
+                Improve page speed
+              </button>
+              <button
+                onClick={() => setInput('Generate meta descriptions for my products')}
+                className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm text-gray-300 transition-all"
+              >
+                Generate meta tags
+              </button>
+            </div>
           </div>
         ) : (
-          <div className="space-y-6 py-4">
+          <div className="space-y-8 py-6">
             <AnimatePresence mode="popLayout">
               {messages.map((message) => (
                 <MessageBubble key={message.id} message={message} />
@@ -368,7 +395,7 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-white/5 pt-4">
+      <div className="border-t border-white/5 pt-6 pb-4">
         {/* Attached Files Preview */}
         {attachedFiles.length > 0 && (
           <div className="mb-3 flex flex-wrap gap-2">
@@ -378,19 +405,19 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg"
+                className="flex items-center gap-2.5 px-3 py-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors"
               >
                 {file.type.startsWith('image/') ? (
-                  <ImageIcon className="h-4 w-4 text-blue-400" />
+                  <ImageIcon className="h-4 w-4 text-blue-400 flex-shrink-0" />
                 ) : (
-                  <FileText className="h-4 w-4 text-blue-400" />
+                  <FileText className="h-4 w-4 text-blue-400 flex-shrink-0" />
                 )}
-                <span className="text-sm text-gray-300 max-w-[200px] truncate">{file.name}</span>
+                <span className="text-sm text-gray-300 max-w-[200px] truncate font-medium">{file.name}</span>
                 <button
                   onClick={() => removeAttachedFile(index)}
-                  className="ml-2 text-gray-500 hover:text-red-400 transition-colors"
+                  className="ml-1 text-gray-500 hover:text-red-400 transition-colors p-1 hover:bg-red-500/10 rounded-lg"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-3.5 w-3.5" />
                 </button>
               </motion.div>
             ))}
@@ -398,20 +425,20 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
         )}
 
         {/* Input Box */}
-        <div className="relative bg-white/5 border border-white/10 rounded-2xl focus-within:border-white/20 transition-colors">
+        <div className="relative bg-white/5 border border-white/10 rounded-2xl focus-within:border-blue-500/50 focus-within:bg-white/[0.07] transition-all shadow-xl shadow-black/5">
           <textarea
             ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask me anything..."
+            placeholder="Ask anything about SEO, content optimization, or technical fixes..."
             rows={1}
             disabled={isLoading || isUploadingFiles}
-            className="w-full bg-transparent px-5 py-4 pr-24 text-white placeholder-gray-500 focus:outline-none resize-none max-h-[200px] text-base"
+            className="w-full bg-transparent px-5 py-4 pr-28 text-white placeholder-gray-500 focus:outline-none resize-none max-h-[200px] text-[15px] leading-relaxed"
           />
 
           {/* Action Buttons */}
-          <div className="absolute right-2 bottom-2 flex items-center gap-1">
+          <div className="absolute right-2 bottom-2 flex items-center gap-1.5">
             {/* File Attachment */}
             <input
               ref={fileInputRef}
@@ -434,7 +461,7 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
             <button
               onClick={handleSendMessage}
               disabled={(!input.trim() && attachedFiles.length === 0) || isLoading || isUploadingFiles}
-              className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-all disabled:bg-blue-600/50"
+              className="p-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-all shadow-lg shadow-blue-600/20 disabled:shadow-none"
               title="Send message"
             >
               {isLoading || isUploadingFiles ? (
@@ -447,8 +474,8 @@ export default function SeologyChat({ conversationId, siteId }: SeologyChatProps
         </div>
 
         {/* Info Text */}
-        <p className="text-xs text-gray-500 text-center mt-3">
-          Press Enter to send • Shift+Enter for new line
+        <p className="text-xs text-gray-500 text-center mt-3 font-medium">
+          Press <kbd className="px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-gray-400">Enter</kbd> to send • <kbd className="px-1.5 py-0.5 bg-white/5 border border-white/10 rounded text-gray-400">Shift+Enter</kbd> for new line
         </p>
       </div>
     </div>
@@ -468,46 +495,48 @@ function MessageBubble({ message }: { message: Message }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
       className="group"
     >
       <div className={cn('flex gap-4 items-start', isUser && 'flex-row-reverse')}>
         {/* Avatar */}
         <div
           className={cn(
-            'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center',
+            'flex-shrink-0 w-10 h-10 rounded-2xl flex items-center justify-center shadow-lg',
             isUser
-              ? 'bg-gradient-to-br from-purple-500 to-pink-600'
-              : 'bg-gradient-to-br from-blue-500 to-purple-600'
+              ? 'bg-gradient-to-br from-purple-500 to-pink-600 shadow-purple-500/20'
+              : 'bg-gradient-to-br from-blue-500 to-purple-600 shadow-blue-500/20'
           )}
         >
           {isUser ? (
-            <span className="text-sm font-semibold text-white">You</span>
+            <span className="text-xs font-bold text-white">You</span>
           ) : (
             <Sparkles className="h-5 w-5 text-white" />
           )}
         </div>
 
         {/* Content */}
-        <div className={cn('flex-1 space-y-2', isUser && 'flex flex-col items-end')}>
+        <div className={cn('flex-1 space-y-3 max-w-[85%]', isUser && 'flex flex-col items-end')}>
           {/* Streaming indicator */}
           {message.isStreaming && !message.content && (
-            <div className="flex items-center gap-2 px-4 py-3">
-              <div className="flex gap-1">
+            <div className="flex items-center gap-2.5 px-5 py-4 bg-white/5 rounded-2xl border border-white/10">
+              <div className="flex gap-1.5">
                 <div
                   className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
-                  style={{ animationDelay: '0ms' }}
+                  style={{ animationDelay: '0ms', animationDuration: '1s' }}
                 />
                 <div
                   className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
-                  style={{ animationDelay: '150ms' }}
+                  style={{ animationDelay: '200ms', animationDuration: '1s' }}
                 />
                 <div
                   className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
-                  style={{ animationDelay: '300ms' }}
+                  style={{ animationDelay: '400ms', animationDuration: '1s' }}
                 />
               </div>
+              <span className="text-sm text-gray-400 font-medium">Thinking...</span>
             </div>
           )}
 
@@ -515,14 +544,14 @@ function MessageBubble({ message }: { message: Message }) {
           {message.content && (
             <div
               className={cn(
-                'prose prose-invert max-w-none',
+                'prose prose-invert max-w-none transition-all',
                 isUser
-                  ? 'bg-blue-600 text-white px-5 py-3 rounded-2xl rounded-tr-md'
+                  ? 'bg-gradient-to-br from-blue-600 to-blue-500 text-white px-5 py-3.5 rounded-2xl rounded-tr-md shadow-lg shadow-blue-600/20'
                   : 'text-gray-200'
               )}
             >
               {isUser ? (
-                <p className="whitespace-pre-wrap text-base leading-relaxed m-0">
+                <p className="whitespace-pre-wrap text-[15px] leading-relaxed m-0">
                   {message.content}
                 </p>
               ) : (
@@ -536,37 +565,51 @@ function MessageBubble({ message }: { message: Message }) {
                           style={vscDarkPlus}
                           language={match[1]}
                           PreTag="div"
-                          className="rounded-xl my-4"
+                          className="rounded-xl my-4 !bg-black/40 border border-white/10 shadow-xl"
                         >
                           {String(children).replace(/\n$/, '')}
                         </SyntaxHighlighter>
                       ) : (
                         <code
-                          className="bg-white/10 px-1.5 py-0.5 rounded text-sm text-blue-300"
+                          className="bg-white/10 px-2 py-1 rounded-lg text-sm text-blue-300 font-mono border border-white/10"
                         >
                           {children}
                         </code>
                       )
                     },
                     p: ({ children }: { children?: React.ReactNode }) => (
-                      <p className="text-base leading-relaxed mb-4 last:mb-0">{children}</p>
+                      <p className="text-[15px] leading-relaxed mb-4 last:mb-0 text-gray-200">{children}</p>
                     ),
                     ul: ({ children }: { children?: React.ReactNode }) => (
-                      <ul className="list-disc list-inside space-y-1 mb-4">{children}</ul>
+                      <ul className="list-disc list-outside ml-5 space-y-2 mb-4 text-gray-300">{children}</ul>
                     ),
                     ol: ({ children }: { children?: React.ReactNode }) => (
-                      <ol className="list-decimal list-inside space-y-1 mb-4">{children}</ol>
+                      <ol className="list-decimal list-outside ml-5 space-y-2 mb-4 text-gray-300">{children}</ol>
                     ),
-                    li: ({ children }: { children?: React.ReactNode }) => <li className="text-gray-300">{children}</li>,
+                    li: ({ children }: { children?: React.ReactNode }) => <li className="text-gray-300 leading-relaxed">{children}</li>,
                     a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
                       <a
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 underline"
+                        className="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors"
                       >
                         {children}
                       </a>
+                    ),
+                    h1: ({ children }: { children?: React.ReactNode }) => (
+                      <h1 className="text-2xl font-bold text-white mb-4 mt-6">{children}</h1>
+                    ),
+                    h2: ({ children }: { children?: React.ReactNode }) => (
+                      <h2 className="text-xl font-bold text-white mb-3 mt-5">{children}</h2>
+                    ),
+                    h3: ({ children }: { children?: React.ReactNode }) => (
+                      <h3 className="text-lg font-semibold text-white mb-2 mt-4">{children}</h3>
+                    ),
+                    blockquote: ({ children }: { children?: React.ReactNode }) => (
+                      <blockquote className="border-l-4 border-blue-500/50 pl-4 italic text-gray-400 my-4">
+                        {children}
+                      </blockquote>
                     ),
                   }}
                 >
@@ -585,14 +628,14 @@ function MessageBubble({ message }: { message: Message }) {
                   href={attachment.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-2.5 px-3 py-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all shadow-lg"
                 >
                   {attachment.type.startsWith('image/') ? (
                     <ImageIcon className="h-4 w-4 text-blue-400" />
                   ) : (
                     <FileText className="h-4 w-4 text-blue-400" />
                   )}
-                  <span className="text-sm text-gray-300">{attachment.name}</span>
+                  <span className="text-sm text-gray-300 font-medium">{attachment.name}</span>
                 </a>
               ))}
             </div>
@@ -602,17 +645,17 @@ function MessageBubble({ message }: { message: Message }) {
           {!isUser && message.content && !message.isStreaming && (
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-all"
+              className="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-all px-3 py-1.5 rounded-lg hover:bg-white/5"
             >
               {copied ? (
                 <>
-                  <Check className="h-3.5 w-3.5" />
-                  <span>Copied!</span>
+                  <Check className="h-3.5 w-3.5 text-green-400" />
+                  <span className="font-medium">Copied!</span>
                 </>
               ) : (
                 <>
                   <Copy className="h-3.5 w-3.5" />
-                  <span>Copy</span>
+                  <span className="font-medium">Copy response</span>
                 </>
               )}
             </button>
