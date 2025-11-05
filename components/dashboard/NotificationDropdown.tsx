@@ -18,50 +18,88 @@ interface Notification {
 
 export function NotificationDropdown() {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [notifications, setNotifications] = React.useState<Notification[]>([
-    {
-      id: '1',
-      title: 'SEO Fix Applied',
-      message: 'Missing meta description fixed on Homepage',
-      type: 'success',
-      read: false,
-      createdAt: new Date(Date.now() - 1000 * 60 * 5),
-      link: '/dashboard/sites',
-    },
-    {
-      id: '2',
-      title: 'Site Scan Complete',
-      message: '23 new issues found on example.com',
-      type: 'info',
-      read: false,
-      createdAt: new Date(Date.now() - 1000 * 60 * 30),
-      link: '/dashboard/sites',
-    },
-    {
-      id: '3',
-      title: 'Usage Alert',
-      message: 'You have used 80% of your monthly fix quota',
-      type: 'warning',
-      read: true,
-      createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2),
-      link: '/dashboard/billing',
-    },
-  ])
+  const [notifications, setNotifications] = React.useState<Notification[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
+
+  // Load real notifications from API
+  React.useEffect(() => {
+    const loadNotifications = async () => {
+      try {
+        const response = await fetch('/api/notifications')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success && data.data) {
+            setNotifications(data.data.map((n: Record<string, unknown>) => ({
+              id: n.id as string,
+              title: n.title as string,
+              message: n.message as string,
+              type: n.type as Notification['type'],
+              read: n.read as boolean,
+              createdAt: new Date(n.createdAt as string),
+              link: n.actionUrl as string | undefined,
+            })))
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load notifications:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    loadNotifications()
+  }, [])
 
   const unreadCount = notifications.filter((n) => !n.read).length
 
-  const markAsRead = (id: string) => {
+  const markAsRead = async (id: string) => {
+    // Optimistic update
     setNotifications((prev) =>
       prev.map((n) => (n.id === id ? { ...n, read: true } : n))
     )
+
+    try {
+      await fetch(`/api/notifications/${id}/read`, {
+        method: 'POST',
+      })
+    } catch (error) {
+      console.error('Failed to mark notification as read:', error)
+      // Revert on error
+      setNotifications((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, read: false } : n))
+      )
+    }
   }
 
-  const markAllAsRead = () => {
+  const markAllAsRead = async () => {
+    // Optimistic update
+    const previousNotifications = notifications
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })))
+
+    try {
+      await fetch('/api/notifications/read-all', {
+        method: 'POST',
+      })
+    } catch (error) {
+      console.error('Failed to mark all as read:', error)
+      // Revert on error
+      setNotifications(previousNotifications)
+    }
   }
 
-  const removeNotification = (id: string) => {
+  const removeNotification = async (id: string) => {
+    // Optimistic update
+    const previousNotifications = notifications
     setNotifications((prev) => prev.filter((n) => n.id !== id))
+
+    try {
+      await fetch(`/api/notifications/${id}`, {
+        method: 'DELETE',
+      })
+    } catch (error) {
+      console.error('Failed to remove notification:', error)
+      // Revert on error
+      setNotifications(previousNotifications)
+    }
   }
 
   const getTimeAgo = (date: Date) => {
