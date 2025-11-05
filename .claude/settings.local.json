@@ -42,7 +42,10 @@
       "Bash(head:*)",
       "Bash(tail:*)",
       "Bash(grep:*)",
-      "Bash(node prisma/init-db.js:*)"
+      "Bash(node prisma/init-db.js:*)",
+      "Bash(curl -s https://www.seology.ai/api/notifications/unread-count)",
+      "Bash(git checkout:*)",
+      "Bash(node check-db.js:*)"
     ],
     "deny": [],
     "ask": []

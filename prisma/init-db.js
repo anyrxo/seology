@@ -9,7 +9,11 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function initDatabase() {
-  console.log('🔧 Initializing database schema...')
+  console.log('========================================')
+  console.log('🔧 INITIALIZING DATABASE SCHEMA')
+  console.log('========================================')
+  console.log('Database URL:', process.env.DATABASE_URL ? 'SET' : 'NOT SET')
+  console.log('Direct URL:', process.env.DIRECT_URL ? 'SET' : 'NOT SET')
 
   try {
     // Check if we need to add columns
@@ -72,7 +76,9 @@ async function initDatabase() {
       END $$;
     `)
 
-    console.log('✅ Database schema initialized successfully')
+    console.log('========================================')
+    console.log('✅ DATABASE SCHEMA INITIALIZED SUCCESSFULLY')
+    console.log('========================================')
   } catch (error) {
     console.error('❌ Error initializing database:', error)
     throw error
