@@ -121,16 +121,6 @@ export function DashboardHeader() {
 
             {/* Right: Header Actions - Push FAR RIGHT with auto margin */}
             <div className="flex items-center gap-2 md:gap-3 ml-auto pl-4">
-              {/* AI Credits - On Chat page only */}
-              {pathname === '/dashboard/chat' && !isLoadingCredits && credits && (
-                <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">
-                  <Sparkles className="h-3.5 w-3.5 text-blue-400" />
-                  <span className="text-xs font-medium text-white">
-                    {credits.isUnlimited ? 'Unlimited' : credits.totalAvailable}
-                  </span>
-                </div>
-              )}
-
               {/* Execution Mode - On Chat page only */}
               {pathname === '/dashboard/chat' && !isLoadingMode && (
                 <div className="hidden md:flex items-center gap-1 px-1 py-1 rounded-lg bg-white/5 border border-white/5">
