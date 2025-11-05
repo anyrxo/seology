@@ -26,6 +26,12 @@ export async function GET(request: Request) {
     await db.$executeRawUnsafe(`
       DO $$
       BEGIN
+          -- Create PurchaseStatus enum if it doesn't exist
+          IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'PurchaseStatus') THEN
+              CREATE TYPE "PurchaseStatus" AS ENUM ('PENDING', 'COMPLETED', 'FAILED', 'REFUNDED');
+              RAISE NOTICE 'Created enum type: PurchaseStatus';
+          END IF;
+
           -- User table columns
           -- dailyAutomationEnabled
           IF NOT EXISTS (
@@ -115,7 +121,7 @@ export async function GET(request: Request) {
                   "creditsRemaining" INTEGER NOT NULL,
                   "creditsUsed" INTEGER NOT NULL DEFAULT 0,
                   "expiresAt" TIMESTAMP(3),
-                  "status" TEXT NOT NULL DEFAULT 'PENDING',
+                  "status" "PurchaseStatus" NOT NULL DEFAULT 'PENDING',
                   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
                   "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
                   CONSTRAINT "AICreditPurchase_pkey" PRIMARY KEY ("id")
