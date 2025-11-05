@@ -10,17 +10,10 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     redirect('/sign-in?redirect_url=/admin')
   }
 
-  // TEMPORARY FIX: Admin check disabled due to connection pool exhaustion
-  // TODO: Update DATABASE_URL to use Supabase pooler (port 6543 + pgbouncer=true)
-  // See DATABASE_CONNECTION_FIX.md for instructions
-
-  // For now, relying on Clerk auth only (any authenticated user can access admin)
-  // Once DATABASE_URL is fixed, uncomment the admin role check below
-
+  // Admin role check - re-enabled after DATABASE_URL fix
   let userEmail = 'Admin User'
-  let isAdmin = true // Temporarily allowing all authenticated users
+  let isAdmin = false
 
-  /* UNCOMMENT AFTER FIXING DATABASE_URL:
   try {
     const user = await db.user.findUnique({
       where: { clerkId: userId },
@@ -37,7 +30,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     console.error('Admin layout auth error:', error)
     redirect('/dashboard')
   }
-  */
 
   const navItems = [
     { href: '/admin', icon: '📊', label: 'Dashboard' },
