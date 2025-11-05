@@ -174,6 +174,7 @@ export default function OnboardingPage() {
               <ConnectSiteStep
                 onNext={handleNext}
                 onBack={handleBack}
+                onSkip={handleSkip}
               />
             )}
 

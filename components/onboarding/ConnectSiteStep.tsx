@@ -262,7 +262,7 @@ export function ConnectSiteStep({ onNext, onBack, onSkip }: ConnectSiteStepProps
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          onClick={() => router.push('/dashboard')}
+          onClick={() => onSkip?.()}
           className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
           disabled={isConnecting}
         >
