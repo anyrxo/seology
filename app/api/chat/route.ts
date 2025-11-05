@@ -259,14 +259,28 @@ export async function POST(req: NextRequest) {
       // Add attachments first (images)
       for (const attachment of attachments) {
         if (attachment.type.startsWith('image/')) {
-          // For images, we need to convert to base64 and send as vision content
+          // For images, handle both data URLs and file paths
           try {
-            const fullUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${attachment.url}`
-            const imageResponse = await fetch(fullUrl)
-            const imageBuffer = await imageResponse.arrayBuffer()
-            const base64Image = Buffer.from(imageBuffer).toString('base64')
+            let base64Image: string
 
-            // Determine media type from file extension
+            // Check if it's already a data URL (base64 encoded)
+            if (attachment.url.startsWith('data:')) {
+              // Extract base64 data from data URL
+              const base64Match = attachment.url.match(/^data:[^;]+;base64,(.+)$/)
+              if (base64Match) {
+                base64Image = base64Match[1]
+              } else {
+                throw new Error('Invalid data URL format')
+              }
+            } else {
+              // Legacy path: fetch from file system
+              const fullUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${attachment.url}`
+              const imageResponse = await fetch(fullUrl)
+              const imageBuffer = await imageResponse.arrayBuffer()
+              base64Image = Buffer.from(imageBuffer).toString('base64')
+            }
+
+            // Determine media type from file type
             const mediaType = attachment.type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
 
             contentBlocks.push({

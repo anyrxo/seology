@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
-import { writeFile, mkdir } from 'fs/promises'
-import { join } from 'path'
-import { existsSync } from 'fs'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -10,6 +7,15 @@ export const dynamic = 'force-dynamic'
 // Maximum file size: 10MB
 const MAX_FILE_SIZE = 10 * 1024 * 1024
 
+/**
+ * File Upload API - Vercel Serverless Compatible
+ *
+ * Converts files to base64 data URLs for immediate use in chat.
+ * Works in serverless environments (no filesystem access needed).
+ *
+ * For production: Consider using S3, Cloudinary, or Vercel Blob storage
+ * for persistent file storage beyond the current session.
+ */
 export async function POST(req: NextRequest) {
   try {
     const { userId } = await auth()
@@ -84,31 +90,17 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Create uploads directory if it doesn't exist
-    const uploadDir = join(process.cwd(), 'public', 'uploads', userId)
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true })
-    }
-
-    // Generate unique filename
-    const timestamp = Date.now()
-    const randomStr = Math.random().toString(36).substring(2, 8)
-    const extension = file.name.split('.').pop()
-    const filename = `${timestamp}-${randomStr}.${extension}`
-    const filepath = join(uploadDir, filename)
-
-    // Convert file to buffer and save
+    // Convert file to base64 data URL (works in serverless)
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
-    await writeFile(filepath, buffer)
+    const base64 = buffer.toString('base64')
+    const dataUrl = `data:${file.type};base64,${base64}`
 
-    // Return public URL
-    const publicUrl = `/uploads/${userId}/${filename}`
-
+    // Return data URL for immediate use
     return NextResponse.json({
       success: true,
       data: {
-        url: publicUrl,
+        url: dataUrl, // base64 data URL instead of file path
         filename: file.name,
         size: file.size,
         type: file.type,

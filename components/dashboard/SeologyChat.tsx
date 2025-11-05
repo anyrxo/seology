@@ -521,7 +521,7 @@ export function SeologyChat() {
       }
 
       const data = await response.json()
-      return data.url
+      return data.data.url
     })
 
     return Promise.all(uploadPromises)
@@ -555,7 +555,7 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] bg-transparent">
+    <div className="flex flex-col h-full bg-transparent">
 
       {/* Error Banner */}
       <AnimatePresence>
@@ -580,11 +580,11 @@ export function SeologyChat() {
         )}
       </AnimatePresence>
 
-      {/* Messages Container - Proper Height */}
-      <div className="flex-1 min-h-0 overflow-hidden pb-4">
+      {/* Messages Container - Takes remaining space */}
+      <div className="flex-1 min-h-0 overflow-hidden">
         <div
           ref={messagesContainerRef}
-          className="h-full overflow-y-auto px-6 md:px-12 py-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="h-full overflow-y-auto px-6 md:px-12 py-6 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
