@@ -40,7 +40,8 @@
       "Bash(for dir in roadmap case-studies support partners security compliance contact)",
       "Bash(do echo \"=== $dir ===\")",
       "Bash(head:*)",
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []
