@@ -454,16 +454,24 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
           if (toolUses.length > 0) {
             console.log(`🔧 Claude requested ${toolUses.length} tool(s):`, toolUses.map(t => t.name))
 
-            // Send tool execution status to user
-            controller.enqueue(
-              encoder.encode(
-                `data: ${JSON.stringify({ content: '\n\n🔍 Analyzing...\n\n' })}\n\n`
-              )
-            )
-
-            // Execute all tool calls
+            // Execute tools with visual progress feedback
             const toolResults = await Promise.all(
-              toolUses.map(async (toolUse) => {
+              toolUses.map(async (toolUse, index) => {
+                // Show what tool is running
+                const toolDisplayNames: Record<string, string> = {
+                  analyze_website: '🌐 Analyzing website',
+                  get_site_issues: '🔍 Fetching site issues',
+                  check_page_speed: '⚡ Checking performance',
+                  get_user_sites: '📊 Loading your sites',
+                  create_fix_plan: '📋 Creating fix plan',
+                }
+
+                const displayName = toolDisplayNames[toolUse.name] || `🔧 Running ${toolUse.name}`
+                controller.enqueue(
+                  encoder.encode(
+                    `data: ${JSON.stringify({ content: `\n\n${displayName}...\n` })}\n\n`
+                  )
+                )
                 try {
                   const result = await handleToolCall(
                     toolUse.name,
@@ -472,6 +480,13 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
                       userId: user.id,
                       clerkId: userId,
                     }
+                  )
+
+                  // Show completion
+                  controller.enqueue(
+                    encoder.encode(
+                      `data: ${JSON.stringify({ content: '✓ Complete\n' })}\n\n`
+                    )
                   )
 
                   return {

@@ -7,6 +7,7 @@
 import { db } from './db'
 import { IssueStatus, Severity } from '@prisma/client'
 import Anthropic from '@anthropic-ai/sdk'
+import { deepTechnicalAudit, competitorAnalysis } from './ai-tools-advanced'
 
 // Initialize Anthropic client for website analysis
 const anthropic = new Anthropic({
@@ -41,12 +42,23 @@ interface ToolInputCreateFixPlan {
   issue_ids: string[]
 }
 
+interface ToolInputDeepTechnicalAudit {
+  url: string
+}
+
+interface ToolInputCompetitorAnalysis {
+  your_url: string
+  competitor_urls: string[]
+}
+
 export type ToolInput =
   | ToolInputAnalyzeWebsite
   | ToolInputGetSiteIssues
   | ToolInputCheckPageSpeed
   | ToolInputGetUserSites
   | ToolInputCreateFixPlan
+  | ToolInputDeepTechnicalAudit
+  | ToolInputCompetitorAnalysis
 
 interface SEOAnalysis {
   url: string
@@ -122,7 +134,7 @@ interface FixPlanData {
   next_step: string
 }
 
-interface ToolResult<T = unknown> {
+export interface ToolResult<T = unknown> {
   success: boolean
   data?: T
   error?: string
@@ -224,6 +236,41 @@ export const AI_TOOLS = [
       required: ['site_id', 'issue_ids'],
     },
   },
+  {
+    name: 'deep_technical_audit',
+    description:
+      'Perform a comprehensive technical SEO audit including robots.txt, sitemap.xml, security headers, structured data validation, mobile-friendliness, and Core Web Vitals analysis. Use this for in-depth technical SEO assessment.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        url: {
+          type: 'string' as const,
+          description: 'The website URL to audit',
+        },
+      },
+      required: ['url'],
+    },
+  },
+  {
+    name: 'competitor_analysis',
+    description:
+      'Compare your website against competitors to identify SEO gaps, content opportunities, and ranking factors. Analyzes meta tags, content quality, backlink potential, and technical implementation differences.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        your_url: {
+          type: 'string' as const,
+          description: 'Your website URL',
+        },
+        competitor_urls: {
+          type: 'array' as const,
+          items: { type: 'string' as const },
+          description: 'Array of competitor URLs to compare against (1-5 URLs)',
+        },
+      },
+      required: ['your_url', 'competitor_urls'],
+    },
+  },
 ]
 
 /**
@@ -271,6 +318,15 @@ export async function handleToolCall(
           (toolInput as ToolInputCreateFixPlan).site_id,
           (toolInput as ToolInputCreateFixPlan).issue_ids,
           context.userId
+        )
+
+      case 'deep_technical_audit':
+        return await deepTechnicalAudit((toolInput as ToolInputDeepTechnicalAudit).url)
+
+      case 'competitor_analysis':
+        return await competitorAnalysis(
+          (toolInput as ToolInputCompetitorAnalysis).your_url,
+          (toolInput as ToolInputCompetitorAnalysis).competitor_urls
         )
 
       default:
