@@ -2,31 +2,22 @@
 
 import * as React from 'react'
 import { usePathname } from 'next/navigation'
-import { Command, Bell, Search, Settings } from 'lucide-react'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
-import { GlobalSearch } from './GlobalSearch'
 import { NotificationDropdown } from './NotificationDropdown'
 import { UserMenu } from './UserMenu'
-import { CommandPalette } from './CommandPalette'
-import NotificationCenter from '@/components/notifications/NotificationCenter'
-import { ThemeToggle } from '@/components/theme/ThemeToggle'
 
 /**
  * DashboardHeader Component
- * Based on Dashflow X Webflow template header structure
+ * Simplified header with breadcrumbs, notifications, and user menu
  * Features:
  * - Sticky header with backdrop blur
  * - Dynamic breadcrumbs
- * - Global search
- * - Command palette (⌘K)
  * - Notifications dropdown
- * - User menu with avatar
- * - Theme toggle
+ * - User menu with full navigation
  * - Responsive mobile layout
  */
 export function DashboardHeader() {
   const pathname = usePathname()
-  const [commandPaletteOpen, setCommandPaletteOpen] = React.useState(false)
 
   // Generate breadcrumbs from pathname
   const breadcrumbItems = React.useMemo(() => {
@@ -36,18 +27,6 @@ export function DashboardHeader() {
       href: '/' + paths.slice(0, index + 1).join('/'),
     }))
   }, [pathname])
-
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setCommandPaletteOpen(true)
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
 
   return (
     <>
@@ -70,48 +49,21 @@ export function DashboardHeader() {
               </div>
             </div>
 
-            {/* Right: Header Actions - Mobile simplified */}
+            {/* Right: Header Actions - Simplified */}
             <div className="flex items-center gap-2 md:gap-3">
-              {/* Command Palette Trigger - Desktop only */}
-              <button
-                onClick={() => setCommandPaletteOpen(true)}
-                className="hidden lg:flex btn-secondary small items-center gap-2"
-                title="Quick actions (⌘K)"
-              >
-                <Command className="h-4 w-4" />
-                <span className="hidden xl:inline text-sm font-medium">Quick actions</span>
-                <kbd className="px-2 py-1 text-xs font-medium bg-white/5 rounded ml-2">
-                  ⌘K
-                </kbd>
-              </button>
-
-              {/* Desktop Search Bar */}
-              <div className="hidden lg:block">
-                <GlobalSearch />
+              {/* Notifications */}
+              <div className="relative">
+                <button className="p-2 hover:bg-white/5 rounded-lg transition-colors">
+                  <NotificationDropdown />
+                </button>
               </div>
 
-              {/* Mobile: Only show essential icons */}
-              <div className="flex items-center gap-1 md:gap-2">
-                {/* Notifications - Mobile optimized */}
-                <div className="relative">
-                  <button className="p-2 hover:bg-white/5 rounded-lg transition-colors">
-                    <NotificationDropdown />
-                  </button>
-                </div>
-
-                {/* User Menu - Mobile optimized */}
-                <UserMenu />
-              </div>
+              {/* User Menu with all navigation */}
+              <UserMenu />
             </div>
           </div>
         </div>
       </header>
-
-      {/* Command Palette Modal */}
-      <CommandPalette
-        isOpen={commandPaletteOpen}
-        onClose={() => setCommandPaletteOpen(false)}
-      />
     </>
   )
 }

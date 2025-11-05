@@ -1,6 +1,5 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
-import { DashboardClient } from '@/components/dashboard/DashboardClient'
 import { db } from '@/lib/db'
 
 export default async function DashboardPage() {
@@ -41,7 +40,6 @@ export default async function DashboardPage() {
     redirect('/dashboard/onboarding')
   }
 
-  return (
-    <DashboardClient userName={user?.firstName || 'there'} />
-  )
+  // Redirect to chat as the default landing page
+  redirect('/dashboard/chat')
 }
