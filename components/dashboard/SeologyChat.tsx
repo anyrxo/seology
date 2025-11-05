@@ -555,7 +555,7 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-transparent">
+    <div className="flex flex-col min-h-screen bg-transparent">
       {/* Error Banner */}
       <AnimatePresence>
         {error && (
@@ -580,10 +580,10 @@ export function SeologyChat() {
       </AnimatePresence>
 
       {/* Messages Container - Takes remaining space */}
-      <div className="flex-1 min-h-0 overflow-hidden">
+      <div className="flex-1">
         <div
           ref={messagesContainerRef}
-          className="h-full overflow-y-auto px-6 md:px-12 py-6 pb-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="px-6 md:px-12 py-6 pb-8 space-y-8"
         >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
