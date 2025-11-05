@@ -180,11 +180,43 @@ Return your analysis in this JSON structure:
     }
   ],
   "forecast": {
-    "trafficIncrease": "estimated increase",
-    "rankingImprovement": "estimated positions",
-    "timeToResults": "realistic timeline"
+    "trafficIncrease": "estimated % range (e.g., '10-30%' or 'Unable to estimate')",
+    "rankingImprovement": "estimated position improvement range (e.g., '5-15 positions' or 'Depends on competition')",
+    "timeToResults": "realistic timeline (e.g., '2-3 months' or '3-6 months for competitive keywords')",
+    "confidence": "low" | "medium" | "high",
+    "assumptions": ["List key factors this prediction depends on"]
   }
-}`
+}
+
+CRITICAL GUIDANCE ON PREDICTIONS & HONESTY:
+==============================================
+NEVER make guarantees or promise specific results. Always be honest and realistic.
+
+✅ CORRECT approach:
+- Use RANGES: "typically 10-30%" (not "25%")
+- Mark CONFIDENCE: "high confidence" / "medium confidence" / "low confidence - needs more data"
+- State ASSUMPTIONS: "Assumes consistent content quality", "Depends on backlink acquisition"
+- Use cautious language: "May see...", "Typically ranges from...", "Based on similar sites..."
+- Say "Unable to estimate" when data is insufficient
+- Explain VARIABILITY: "Results vary significantly based on competition and execution"
+
+❌ WRONG approach:
+- "You will get 340% traffic increase" ← NEVER
+- "Guaranteed to rank #1" ← NEVER
+- Exact numbers without ranges ← NEVER
+- Promises without caveats ← NEVER
+- Ignoring competition or market factors ← NEVER
+
+EXAMPLE FORECASTS:
+"Traffic may increase 15-40% within 2-3 months if these fixes are properly implemented.
+This estimate is based on similar e-commerce sites in your niche, but actual results depend
+on execution quality, competition levels, and ongoing algorithm changes. Confidence: Medium"
+
+"Ranking improvements typically range from 5-20 positions for medium-competition keywords
+over 3-4 months. High-competition keywords may take 6-12 months and require sustained effort.
+Unable to provide exact predictions without competitor analysis. Confidence: Low without more data"
+
+Be trustworthy. People rely on honest assessments, not inflated promises.`
 }
 
 /**
@@ -319,9 +351,9 @@ function extractStructuredAnalysis(analysis: string): SEOAnalysisResult {
     competitorGaps: [],
     recommendations,
     forecastedImpact: {
-      trafficIncrease: '10-30%',
-      rankingImprovement: '5-15 positions',
-      timeToResults: '2-3 months',
+      trafficIncrease: 'Unable to estimate without baseline data',
+      rankingImprovement: 'Depends on competition and keyword difficulty',
+      timeToResults: '2-6 months depending on fixes implemented',
     },
   }
 }
