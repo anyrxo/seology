@@ -104,8 +104,8 @@ export function DashboardHeader() {
       <header className="header-wrapper bg-gray-900/95 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50 shadow-lg shadow-black/10">
         <div className="container-default w-container px-3 md:px-6">
           <div className="header-content-wrapper flex items-center justify-between h-14 md:h-16">
-            {/* Left: Page Title */}
-            <div className="flex-1 min-w-0 mr-auto">
+            {/* Left: Page Title - Push FAR LEFT */}
+            <div className="flex-1 min-w-0">
               {/* Desktop: Show breadcrumbs */}
               <div className="hidden md:block">
                 <Breadcrumbs items={breadcrumbItems} />
@@ -119,8 +119,8 @@ export function DashboardHeader() {
               </div>
             </div>
 
-            {/* Right: Header Actions - Touch Optimized */}
-            <div className="flex items-center gap-2 md:gap-3 ml-auto">
+            {/* Right: Header Actions - Push FAR RIGHT with auto margin */}
+            <div className="flex items-center gap-2 md:gap-3 ml-auto pl-4">
               {/* AI Credits - On Chat page only */}
               {pathname === '/dashboard/chat' && !isLoadingCredits && credits && (
                 <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5">

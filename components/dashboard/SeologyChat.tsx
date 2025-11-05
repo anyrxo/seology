@@ -458,7 +458,7 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] bg-[#0a0a0a]">
+    <div className="flex flex-col h-screen bg-transparent">
 
       {/* Error Banner */}
       <AnimatePresence>
@@ -467,7 +467,7 @@ export function SeologyChat() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="mx-4 md:mx-6 mt-4"
+            className="mx-6 md:mx-12 mt-4"
           >
             <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 flex items-start gap-3">
               <AlertCircle className="h-4 w-4 text-red-400 flex-shrink-0 mt-0.5" />
@@ -483,11 +483,11 @@ export function SeologyChat() {
         )}
       </AnimatePresence>
 
-      {/* Messages Container - Ultra Clean */}
-      <div className="flex-1 overflow-hidden">
+      {/* Messages Container - Full Height, No Scroll Issues */}
+      <div className="flex-1 min-h-0 overflow-hidden">
         <div
           ref={messagesContainerRef}
-          className="h-full overflow-y-auto px-6 md:px-12 py-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/5 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="h-full overflow-y-auto px-6 md:px-16 lg:px-24 xl:px-32 py-12 space-y-10 scroll-smooth [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
@@ -516,11 +516,11 @@ export function SeologyChat() {
         </div>
       </div>
 
-      {/* Input Area - Ultra Minimal */}
-      <div className="border-t border-white/[0.03] bg-[#0a0a0a] flex-shrink-0">
-        <div className="px-6 md:px-12 py-4">
-          <div className="flex items-center gap-3 max-w-full">
-            {/* Text Input - Pure */}
+      {/* Input Area - Fixed Bottom, Transparent */}
+      <div className="border-t border-white/[0.06] bg-transparent flex-shrink-0">
+        <div className="px-6 md:px-16 lg:px-24 xl:px-32 py-5">
+          <div className="flex items-center gap-4 max-w-full">
+            {/* Text Input - Borderless */}
             <div className="flex-1 relative">
               <textarea
                 ref={textareaRef}
@@ -529,13 +529,13 @@ export function SeologyChat() {
                 onKeyDown={handleKeyDown}
                 placeholder="Ask a follow-up"
                 rows={1}
-                className="w-full bg-transparent border-0 px-0 py-3 text-[15px] text-white placeholder-gray-700 focus:outline-none resize-none max-h-40 leading-relaxed"
+                className="w-full bg-transparent border-0 px-0 py-3 text-[15px] text-gray-200 placeholder-gray-600 focus:outline-none resize-none max-h-40 leading-relaxed"
                 disabled={isLoading}
               />
             </div>
 
-            {/* Action Icons - Right Side */}
-            <div className="flex items-center gap-1.5">
+            {/* Action Icons - Far Right */}
+            <div className="flex items-center gap-2">
               {/* File Attachment */}
               <input
                 ref={fileInputRef}
@@ -599,25 +599,25 @@ function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: Mess
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 5 }}
+      initial={{ opacity: 0, y: 3 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.15 }}
-      className="group max-w-full"
+      transition={{ duration: 0.12 }}
+      className="group max-w-[900px]"
     >
-      {/* Pure Text Layout - No containers */}
-      <div className="flex gap-4 items-start">
-        {/* Tiny Avatar Icon */}
-        <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500/90 to-purple-600/90 flex items-center justify-center mt-0.5">
+      {/* Pure Text Layout - Wide, Spacious */}
+      <div className="flex gap-5 items-start">
+        {/* Minimal Avatar */}
+        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
           {isUser ? (
-            <span className="text-[10px] font-semibold text-white">U</span>
+            <span className="text-[11px] font-bold text-white">U</span>
           ) : (
-            <Sparkles className="h-3.5 w-3.5 text-white" />
+            <Sparkles className="h-4 w-4 text-white" />
           )}
         </div>
 
-        {/* Message Content - Pure Typography */}
-        <div className="flex-1 min-w-0 space-y-2">
+        {/* Message Content - Maximum Width */}
+        <div className="flex-1 min-w-0 space-y-3">
           {/* Streaming indicator - Subtle */}
           {message.isStreaming && isLast && !message.content && (
             <div className="flex items-center gap-2">
@@ -630,16 +630,16 @@ function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: Mess
             </div>
           )}
 
-          {/* Message Text - Beautiful Typography */}
+          {/* Message Text - Larger, Readable */}
           {message.content && (
-            <div className="text-[15px] text-gray-300 leading-[1.7] whitespace-pre-wrap font-light tracking-wide">
+            <div className="text-base text-gray-200 leading-[1.75] whitespace-pre-wrap font-normal">
               {message.content}
             </div>
           )}
 
-          {/* Action Bar - Below message, subtle */}
+          {/* Action Bar - Clean, Visible on Hover */}
           {!isUser && !message.isStreaming && message.content && (
-            <div className="flex items-center gap-3 pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <div className="flex items-center gap-4 pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
               {/* Copy button */}
               <button
                 onClick={() => onCopy(message.content, message.id)}
