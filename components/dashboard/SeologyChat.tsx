@@ -55,6 +55,13 @@ const suggestedPrompts: SuggestedPrompt[] = [
 
 type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
 
+interface CreditBalance {
+  monthlyCredits: number
+  monthlyUsed: number
+  monthlyRemaining: number
+  isUnlimited: boolean
+}
+
 export function SeologyChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -71,29 +78,57 @@ export function SeologyChat() {
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const [executionMode, setExecutionMode] = useState<ExecutionMode>('AUTOMATIC')
   const [isLoadingMode, setIsLoadingMode] = useState(true)
+  const [credits, setCredits] = useState<CreditBalance | null>(null)
+  const [isLoadingCredits, setIsLoadingCredits] = useState(true)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  // Load user's execution mode on mount
+  // Load user's execution mode and credits on mount
   useEffect(() => {
-    const loadExecutionMode = async () => {
+    const loadUserData = async () => {
       try {
-        const response = await fetch('/api/user/execution-mode')
-        if (response.ok) {
-          const data = await response.json()
-          if (data.success && data.data.executionMode) {
-            setExecutionMode(data.data.executionMode)
+        // Load execution mode
+        const modeResponse = await fetch('/api/user/execution-mode')
+        if (modeResponse.ok) {
+          const modeData = await modeResponse.json()
+          if (modeData.success && modeData.data.executionMode) {
+            setExecutionMode(modeData.data.executionMode)
+          }
+        }
+
+        // Load AI credits
+        const creditsResponse = await fetch('/api/user/ai-credits')
+        if (creditsResponse.ok) {
+          const creditsData = await creditsResponse.json()
+          if (creditsData.success && creditsData.data) {
+            setCredits(creditsData.data)
           }
         }
       } catch (error) {
-        console.error('Failed to load execution mode:', error)
+        console.error('Failed to load user data:', error)
       } finally {
         setIsLoadingMode(false)
+        setIsLoadingCredits(false)
       }
     }
-    loadExecutionMode()
+    loadUserData()
   }, [])
+
+  // Refresh credits after sending a message
+  const refreshCredits = async () => {
+    try {
+      const response = await fetch('/api/user/ai-credits')
+      if (response.ok) {
+        const data = await response.json()
+        if (data.success && data.data) {
+          setCredits(data.data)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to refresh credits:', error)
+    }
+  }
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -204,6 +239,9 @@ export function SeologyChat() {
         }
         return updated
       })
+
+      // Refresh credits after successful message
+      await refreshCredits()
     } catch (error) {
       console.error('Chat error:', error)
       const errorMessage = error instanceof Error ? error.message : 'Sorry, I encountered an error. Please try again.'
@@ -288,6 +326,27 @@ export function SeologyChat() {
           </p>
         </div>
         <div className="flex items-center gap-3">
+          {/* AI Credits Display */}
+          {!isLoadingCredits && credits && (
+            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-2">
+              <Sparkles className="h-4 w-4 text-blue-400" />
+              <div className="flex flex-col">
+                <span className="text-xs font-medium text-white">
+                  {credits.isUnlimited ? (
+                    'Unlimited Credits'
+                  ) : (
+                    <>
+                      {credits.monthlyRemaining} / {credits.monthlyCredits}
+                    </>
+                  )}
+                </span>
+                <span className="text-[10px] text-gray-400">
+                  {credits.isUnlimited ? 'Enterprise Plan' : 'AI Credits'}
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* Execution Mode Toggle */}
           {!isLoadingMode && (
             <div className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-1">
