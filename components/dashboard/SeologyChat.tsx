@@ -556,26 +556,6 @@ export function SeologyChat() {
 
   return (
     <div className="flex flex-col h-screen bg-transparent">
-      {/* Floating Header with Credits */}
-      <div className="sticky top-0 z-50 backdrop-blur-lg bg-gray-900/80 border-b border-white/10">
-        <div className="px-6 md:px-12 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Sparkles className="h-5 w-5 text-blue-400" />
-            <h1 className="text-lg font-semibold text-white">SEOLOGY AI Chat</h1>
-          </div>
-
-          {/* Credits Display */}
-          {!isLoadingCredits && credits && (
-            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-lg border border-white/10">
-              <div className="text-xs text-gray-400">Credits:</div>
-              <div className="text-sm font-semibold text-white">
-                {credits.isUnlimited ? '∞' : credits.totalAvailable.toLocaleString()}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Error Banner */}
       <AnimatePresence>
         {error && (
