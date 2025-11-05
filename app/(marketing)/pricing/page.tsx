@@ -2,8 +2,8 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import {
   Check,
@@ -13,74 +13,86 @@ import {
   CreditCard,
   Clock,
   HelpCircle,
-  Users,
   Lock,
   Sparkles,
+  Zap,
+  Globe,
+  Users,
+  TrendingUp,
+  ChevronDown,
+  Star,
+  Award,
 } from 'lucide-react'
 
 export default function PricingPage() {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>(
-    'monthly'
-  )
-  const [hoveredPlan, setHoveredPlan] = useState<number | null>(null)
-  const [hoveredBadge, setHoveredBadge] = useState<number | null>(null)
-  const [hoveredFaq, setHoveredFaq] = useState<number | null>(null)
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly')
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   const plans = [
     {
       name: 'STARTER',
-      description: 'Perfect for Getting Started',
-      monthlyPrice: 0,
-      annualPrice: 0,
+      tagline: 'For small businesses',
+      description: 'Perfect for testing and small projects',
+      monthlyPrice: 29,
+      annualPrice: 24,
+      icon: Globe,
       features: [
-        { name: '1 connected site', included: true },
-        { name: '100 SEO fixes per month', included: true },
+        { name: '3 connected sites', included: true },
+        { name: '500 SEO fixes per month', included: true },
         { name: 'All platform integrations', included: true },
         { name: 'Advanced AI analysis', included: true },
-        { name: 'Community support', included: true },
-        { name: '90-day rollback', included: true },
-        { name: 'Basic analytics', included: true },
+        { name: 'Email support', included: true },
+        { name: '90-day rollback protection', included: true },
+        { name: 'Basic analytics dashboard', included: true },
         { name: 'Priority support', included: false },
         { name: 'API access', included: false },
         { name: 'Team collaboration', included: false },
       ],
-      cta: 'Get Started Free',
+      cta: 'Start Free Trial',
       popular: false,
-      isFree: true,
+      gradient: 'from-gray-50 to-gray-100',
+      borderColor: 'border-gray-200',
+      buttonStyle: 'bg-gray-900 hover:bg-gray-800 text-white',
     },
     {
       name: 'GROWTH',
-      description: 'For Growing Companies',
+      tagline: 'For growing companies',
+      description: 'Most popular plan for scaling businesses',
       monthlyPrice: 99,
       annualPrice: 82,
+      icon: TrendingUp,
       features: [
-        { name: 'Up to 10 sites', included: true },
+        { name: '10 connected sites', included: true },
         { name: '5,000 SEO fixes per month', included: true },
         { name: 'All Starter features', included: true },
         { name: 'Priority email & chat support', included: true },
         { name: 'Advanced analytics & reporting', included: true },
-        { name: 'Custom fix rules', included: true },
+        { name: 'Custom SEO fix rules', included: true },
         { name: 'Full API access', included: true },
         { name: 'Team collaboration (5 users)', included: true },
-        { name: 'A/B testing', included: true },
-        { name: 'Scheduled fixes', included: true },
+        { name: 'A/B testing capabilities', included: true },
+        { name: 'Scheduled automated fixes', included: true },
       ],
       cta: 'Start Free Trial',
       popular: true,
-      isFree: false,
+      gradient: 'from-blue-50 via-indigo-50 to-purple-50',
+      borderColor: 'border-blue-500',
+      buttonStyle: 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white shadow-lg shadow-blue-500/50',
     },
     {
-      name: 'ENTERPRISE',
-      description: 'Custom Solutions',
-      monthlyPrice: null,
-      annualPrice: null,
+      name: 'SCALE',
+      tagline: 'For enterprises',
+      description: 'Unlimited power for large organizations',
+      monthlyPrice: 299,
+      annualPrice: 249,
+      icon: Award,
       features: [
-        { name: 'Unlimited sites', included: true },
+        { name: 'Unlimited connected sites', included: true },
         { name: 'Unlimited SEO fixes', included: true },
         { name: 'All Growth features', included: true },
         { name: 'Dedicated success manager', included: true },
-        { name: 'White-label & custom domain', included: true },
-        { name: '99.9% SLA guarantee', included: true },
+        { name: 'White-label capabilities', included: true },
+        { name: '99.9% uptime SLA guarantee', included: true },
         { name: 'Custom CMS integrations', included: true },
         { name: 'Phone & Slack support', included: true },
         { name: 'Unlimited team members', included: true },
@@ -88,29 +100,110 @@ export default function PricingPage() {
       ],
       cta: 'Contact Sales',
       popular: false,
-      isFree: false,
+      gradient: 'from-amber-50 to-orange-50',
+      borderColor: 'border-amber-300',
+      buttonStyle: 'bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white',
     },
   ]
 
   const getPrice = (plan: typeof plans[0]) => {
-    if (plan.monthlyPrice === null || plan.annualPrice === null) return null
     return billingCycle === 'monthly' ? plan.monthlyPrice : plan.annualPrice
   }
 
-  const getSavings = (plan: typeof plans[0]) => {
-    if (plan.monthlyPrice === null || plan.annualPrice === null) return 0
+  const getAnnualSavings = (plan: typeof plans[0]) => {
     const monthlyCost = plan.monthlyPrice * 12
     const annualCost = plan.annualPrice * 12
-    const savings = monthlyCost - annualCost
-    return savings
+    return monthlyCost - annualCost
   }
+
+  const faqs = [
+    {
+      question: 'What counts as an SEO fix?',
+      answer: 'A fix is any automated change we make to your website to improve SEO. This includes adding or optimizing meta descriptions, fixing alt text on images, correcting broken links, improving heading structure, adding structured data, optimizing page speed elements, and more. Each individual change counts as one fix.',
+    },
+    {
+      question: 'Can I upgrade or downgrade my plan at any time?',
+      answer: 'Absolutely! You can upgrade or downgrade your plan at any time from your dashboard settings. Upgrades take effect immediately and you get instant access to higher limits. Downgrades take effect at the end of your current billing period. We prorate all changes fairly.',
+    },
+    {
+      question: 'What happens if I exceed my monthly fix limit?',
+      answer: 'We send you notifications when you reach 80% and 90% of your limit. Once you hit 100%, automatic fixes will pause until the next billing cycle. You can upgrade to a higher plan at any time to continue getting fixes immediately. No fixes are ever lost - they queue until you have capacity.',
+    },
+    {
+      question: 'Do you offer refunds?',
+      answer: 'Yes! We offer a 14-day free trial for all paid plans (no credit card required). If you subscribe and are not satisfied, we offer a 30-day money-back guarantee. Just contact our support team and we will process your refund promptly.',
+    },
+    {
+      question: 'How does the annual billing discount work?',
+      answer: 'Annual plans save you approximately 17% compared to monthly billing. You are billed once per year and essentially get 2 months free. You get the exact same features and limits as monthly plans. Annual subscribers also get priority support queue access.',
+    },
+    {
+      question: 'Can I add more team members to my plan?',
+      answer: 'The Starter plan includes 1 user. Growth plans include 5 users. Scale plans have unlimited users. For Growth plans, you can add additional users for $15/user/month. Team members can collaborate on sites, approve fixes, and access analytics based on their role permissions.',
+    },
+    {
+      question: 'What payment methods do you accept?',
+      answer: 'We accept all major credit cards (Visa, Mastercard, American Express, Discover) processed securely through Stripe. Enterprise customers on Scale plans can also pay via ACH bank transfer or receive invoices for wire transfer.',
+    },
+    {
+      question: 'Is there a setup fee or long-term contract?',
+      answer: 'No setup fees ever. No long-term contracts. You can cancel your subscription at any time and you will not be charged again. Your account and data remain accessible for 30 days after cancellation, giving you time to export or review your information.',
+    },
+    {
+      question: 'What platforms and CMSs do you support?',
+      answer: 'We support Shopify, WordPress, Wix, Squarespace, Webflow, and any custom website via our Magic.js connector. We are constantly adding new integrations. If you need a specific platform, contact us and we can prioritize it.',
+    },
+    {
+      question: 'How does the 90-day rollback protection work?',
+      answer: 'Every fix we make is stored with before/after snapshots. If you ever want to undo a fix, you can roll it back with one click within 90 days. After 90 days, rollback data is archived for compliance but not instantly reversible. This protects you from any unintended changes.',
+    },
+  ]
+
+  const comparisonFeatures = [
+    { category: 'Core Features', features: [
+      { name: 'Connected Sites', starter: '3 sites', growth: '10 sites', scale: 'Unlimited' },
+      { name: 'SEO Fixes per Month', starter: '500', growth: '5,000', scale: 'Unlimited' },
+      { name: 'AI-Powered Analysis', starter: true, growth: true, scale: true },
+      { name: 'Platform Integrations', starter: true, growth: true, scale: true },
+      { name: '90-Day Rollback', starter: true, growth: true, scale: true },
+    ]},
+    { category: 'Support & Success', features: [
+      { name: 'Support Channel', starter: 'Email', growth: 'Email & Chat', scale: 'Phone & Slack' },
+      { name: 'Response Time', starter: '24 hours', growth: '4 hours', scale: '1 hour' },
+      { name: 'Dedicated Success Manager', starter: false, growth: false, scale: true },
+      { name: 'Onboarding Call', starter: false, growth: true, scale: true },
+      { name: 'Quarterly Business Reviews', starter: false, growth: false, scale: true },
+    ]},
+    { category: 'Analytics & Reporting', features: [
+      { name: 'Analytics Dashboard', starter: 'Basic', growth: 'Advanced', scale: 'Enterprise' },
+      { name: 'Custom Reports', starter: false, growth: true, scale: true },
+      { name: 'Data Export', starter: 'CSV', growth: 'CSV & API', scale: 'All formats' },
+      { name: 'Real-time Monitoring', starter: false, growth: true, scale: true },
+    ]},
+    { category: 'Advanced Features', features: [
+      { name: 'API Access', starter: false, growth: true, scale: true },
+      { name: 'Custom Fix Rules', starter: false, growth: true, scale: true },
+      { name: 'A/B Testing', starter: false, growth: true, scale: true },
+      { name: 'Scheduled Fixes', starter: false, growth: true, scale: true },
+      { name: 'White-Label', starter: false, growth: false, scale: true },
+      { name: 'Custom Integrations', starter: false, growth: false, scale: true },
+      { name: 'SSO / SAML', starter: false, growth: false, scale: true },
+      { name: 'SLA Guarantee', starter: false, growth: false, scale: '99.9%' },
+    ]},
+    { category: 'Team & Collaboration', features: [
+      { name: 'Team Members', starter: '1', growth: '5', scale: 'Unlimited' },
+      { name: 'Role-Based Access', starter: false, growth: true, scale: true },
+      { name: 'Activity Logs', starter: 'Basic', growth: 'Advanced', scale: 'Full Audit' },
+      { name: 'Approval Workflows', starter: false, growth: true, scale: true },
+    ]},
+  ]
 
   return (
     <div className="bg-white min-h-screen relative overflow-hidden">
       {/* Animated Background Gradient */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <motion.div
-          className="absolute -top-1/2 -left-1/2 w-full h-full bg-blue-500/30 rounded-full blur-3xl"
+          className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-full blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, 50, 0],
@@ -123,7 +216,7 @@ export default function PricingPage() {
           }}
         />
         <motion.div
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-purple-500/20 rounded-full blur-3xl"
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-500/15 via-pink-500/15 to-blue-500/15 rounded-full blur-3xl"
           animate={{
             x: [0, -50, 0],
             y: [0, -100, 0],
@@ -135,71 +228,66 @@ export default function PricingPage() {
             ease: 'linear',
           }}
         />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-1/2 h-1/2 bg-indigo-500/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, -75, 0],
-            y: [0, 75, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
       </div>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+      <section className="pt-20 pb-12 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            {/* Badge */}
+            {/* Trust Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-6"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 rounded-full mb-8 shadow-sm"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
               <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-600">
+              <span className="text-sm font-semibold text-blue-900">
                 14-day free trial • No credit card required
               </span>
             </motion.div>
 
-            {/* Heading */}
+            {/* Main Heading */}
             <motion.h1
-              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
-              initial={{ opacity: 0, y: 50 }}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
             >
-              Simple, Transparent Pricing.
-              <br />
-              <span className="text-gray-600">No Hidden Fees.</span>
+              Simple, Transparent Pricing
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-gray-600 mb-10 max-w-3xl"
-              initial={{ opacity: 0, y: 50 }}
+              className="text-xl sm:text-2xl text-gray-600 mb-4"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime. All plans include AI-powered SEO fixes, secure integrations, and 90-day rollback protection.
+              No hidden fees. No surprises.
             </motion.p>
 
-            {/* Billing Toggle */}
-            <motion.div
-              className="inline-flex items-center gap-2 p-1 bg-gray-100 rounded-lg"
-              initial={{ opacity: 0, y: 50 }}
+            <motion.p
+              className="text-base sm:text-lg text-gray-500 mb-12 max-w-2xl"
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime.
+              All plans include AI-powered SEO fixes and 90-day rollback protection.
+            </motion.p>
+
+            {/* Billing Cycle Toggle */}
+            <motion.div
+              className="inline-flex items-center gap-3 p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-xl shadow-inner"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
               <button
                 onClick={() => setBillingCycle('monthly')}
-                className={`px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+                className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'monthly'
-                    ? 'bg-white text-gray-900 shadow-sm'
+                    ? 'bg-white text-gray-900 shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -207,16 +295,20 @@ export default function PricingPage() {
               </button>
               <button
                 onClick={() => setBillingCycle('annual')}
-                className={`relative px-6 py-2.5 rounded-md text-sm font-medium transition-all ${
+                className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'annual'
-                    ? 'bg-white text-gray-900 shadow-sm'
+                    ? 'bg-white text-gray-900 shadow-md'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
                 Annual
-                <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 text-white text-xs rounded-full font-semibold">
+                <motion.span
+                  className="absolute -top-3 -right-3 px-2.5 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs rounded-full font-bold shadow-lg"
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
                   Save 17%
-                </span>
+                </motion.span>
               </button>
             </motion.div>
           </div>
@@ -226,199 +318,313 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
+            {plans.map((plan, index) => {
+              const PlanIcon = plan.icon
+              return (
+                <motion.div
+                  key={plan.name}
+                  className={`relative flex flex-col bg-gradient-to-br ${plan.gradient} rounded-3xl p-8 transition-all duration-500 ${
+                    plan.popular
+                      ? `border-4 ${plan.borderColor} shadow-2xl shadow-blue-500/20 lg:scale-105 z-10`
+                      : `border-2 ${plan.borderColor} shadow-xl hover:shadow-2xl`
+                  }`}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{
+                    y: plan.popular ? -4 : -8,
+                    transition: { type: 'spring', stiffness: 300, damping: 20 }
+                  }}
+                >
+                  {/* Popular Badge */}
+                  {plan.popular && (
+                    <motion.div
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 200, delay: 0.5 }}
+                    >
+                      <Star className="w-4 h-4 fill-current" />
+                      MOST POPULAR
+                    </motion.div>
+                  )}
+
+                  {/* Plan Header */}
+                  <div className="mb-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`p-3 rounded-xl ${
+                        plan.popular
+                          ? 'bg-gradient-to-br from-blue-600 to-purple-600'
+                          : 'bg-gray-900'
+                      }`}>
+                        <PlanIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-bold text-gray-500 tracking-widest uppercase">
+                          {plan.name}
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          {plan.tagline}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Price */}
+                    <div className="mb-4">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-6xl font-black text-gray-900">
+                          ${getPrice(plan)}
+                        </span>
+                        <span className="text-xl text-gray-500 font-medium">/month</span>
+                      </div>
+                      {billingCycle === 'annual' && (
+                        <motion.div
+                          className="flex items-center gap-2 mt-2"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                        >
+                          <Zap className="w-4 h-4 text-green-600" />
+                          <span className="text-sm text-green-600 font-bold">
+                            Save ${getAnnualSavings(plan)}/year
+                          </span>
+                        </motion.div>
+                      )}
+                      {billingCycle === 'monthly' && (
+                        <div className="text-sm text-gray-500 mt-2">
+                          Billed monthly
+                        </div>
+                      )}
+                    </div>
+
+                    <p className="text-sm text-gray-600">
+                      {plan.description}
+                    </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Link
+                    href={plan.name === 'SCALE' ? '/contact' : '/sign-up'}
+                    className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 ${plan.buttonStyle}`}
+                  >
+                    {plan.cta}
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  {/* Features List */}
+                  <div className="space-y-4 flex-1">
+                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+                      What's included:
+                    </div>
+                    {plan.features.map((feature, i) => (
+                      <motion.div
+                        key={i}
+                        className="flex items-start gap-3"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 }}
+                      >
+                        {feature.included ? (
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center mt-0.5">
+                            <Check className="w-3 h-3 text-white font-bold" />
+                          </div>
+                        ) : (
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center mt-0.5">
+                            <X className="w-3 h-3 text-gray-400" />
+                          </div>
+                        )}
+                        <span
+                          className={`text-sm font-medium ${
+                            feature.included
+                              ? 'text-gray-900'
+                              : 'text-gray-400 line-through'
+                          }`}
+                        >
+                          {feature.name}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Glow Effect on Hover */}
+                  {plan.popular && (
+                    <motion.div
+                      className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      style={{ filter: 'blur(20px)' }}
+                    />
+                  )}
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Signals */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: '100% Secure',
+                description: 'Bank-level encryption',
+                color: 'text-blue-600',
+                bg: 'bg-blue-50'
+              },
+              {
+                icon: Clock,
+                title: '14-Day Trial',
+                description: 'No credit card needed',
+                color: 'text-green-600',
+                bg: 'bg-green-50'
+              },
+              {
+                icon: CreditCard,
+                title: 'Cancel Anytime',
+                description: 'No long-term contracts',
+                color: 'text-purple-600',
+                bg: 'bg-purple-50'
+              },
+              {
+                icon: Lock,
+                title: 'Money Back',
+                description: '30-day guarantee',
+                color: 'text-amber-600',
+                bg: 'bg-amber-50'
+              },
+            ].map((badge, index) => (
               <motion.div
-                key={plan.name}
-                className={`relative flex flex-col bg-white rounded-2xl p-8 transition-all duration-300 ${
-                  plan.popular
-                    ? 'border-2 border-blue-600 shadow-xl'
-                    : 'border border-gray-200 shadow-lg hover:shadow-xl'
-                }`}
-                initial={{ opacity: 0, y: 50 }}
+                key={index}
+                className="group relative flex flex-col items-center text-center p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-gray-200 transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
-                onHoverStart={() => setHoveredPlan(index)}
-                onHoverEnd={() => setHoveredPlan(null)}
+                whileHover={{ y: -4, scale: 1.02 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0"
-                  animate={{ opacity: hoveredPlan === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full">
-                    MOST POPULAR
-                  </div>
-                )}
-
-                {/* Plan Header */}
-                <div className="mb-8 relative z-10">
-                  <div className="text-sm font-semibold text-gray-500 tracking-wider mb-3">
-                    {plan.name}
-                  </div>
-                  <div className="flex items-baseline mb-2">
-                    {getPrice(plan) === null ? (
-                      <span className="text-3xl font-bold text-gray-900">
-                        Custom Pricing
-                      </span>
-                    ) : (
-                      <>
-                        <span className="text-5xl font-bold text-gray-900">
-                          ${getPrice(plan)}
-                        </span>
-                        <span className="text-lg text-gray-500 ml-2">/month</span>
-                      </>
-                    )}
-                  </div>
-                  {billingCycle === 'annual' && getSavings(plan) > 0 && (
-                    <div className="text-sm text-green-600 font-medium mb-2">
-                      Save ${getSavings(plan)}/year
-                    </div>
-                  )}
-                  <div className="text-base text-gray-600">
-                    {plan.description}
-                  </div>
+                <div className={`p-4 ${badge.bg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <badge.icon className={`w-7 h-7 ${badge.color}`} />
                 </div>
-
-                {/* CTA Button */}
-                <Link
-                  href="/sign-up"
-                  className={`w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 mb-8 relative z-10 ${
-                    plan.popular
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
-
-                {/* Features List */}
-                <div className="space-y-4 relative z-10">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      {feature.included ? (
-                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                      ) : (
-                        <X className="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5" />
-                      )}
-                      <span
-                        className={`text-sm ${
-                          feature.included
-                            ? 'text-gray-700'
-                            : 'text-gray-400'
-                        }`}
-                      >
-                        {feature.name}
-                      </span>
-                    </div>
-                  ))}
+                <div className="text-base font-bold text-gray-900 mb-1">
+                  {badge.title}
                 </div>
-
-                {hoveredPlan === index && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute top-4 right-4 z-20"
-                  >
-                    <Sparkles className="w-6 h-6 text-yellow-400" />
-                  </motion.div>
-                )}
+                <div className="text-sm text-gray-600">
+                  {badge.description}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Feature Comparison Table */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
+      {/* Detailed Feature Comparison Table */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
               Compare All Features
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               See exactly what is included in each plan
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-2xl shadow-lg overflow-hidden"
+            className="bg-white rounded-3xl shadow-2xl border-2 border-gray-100 overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700">
-                      FEATURE
+                    <th className="px-6 py-5 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                      Feature
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
-                      STARTER
+                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
+                      Starter
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
-                      GROWTH
+                    <th className="px-6 py-5 text-center text-sm font-bold text-blue-700 uppercase tracking-wider bg-blue-50">
+                      Growth
                     </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700">
-                      ENTERPRISE
+                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
+                      Scale
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {[
-                    { feature: 'Sites', values: ['1', '10', 'Unlimited'] },
-                    { feature: 'SEO Fixes/Month', values: ['100', '5,000', 'Unlimited'] },
-                    { feature: 'Advanced AI Analysis', values: [true, true, true] },
-                    { feature: 'Platform Integrations', values: [true, true, true] },
-                    { feature: '90-Day Rollback', values: [true, true, true] },
-                    { feature: 'Support', values: ['Community', 'Email & Chat', 'Dedicated Manager'] },
-                    { feature: 'Analytics', values: ['Basic', 'Advanced', 'Enterprise + BI'] },
-                    { feature: 'API Access', values: [false, true, true] },
-                    { feature: 'Team Members', values: ['1', '5', 'Unlimited'] },
-                    { feature: 'Custom Integrations', values: [false, false, true] },
-                    { feature: 'White-Label', values: [false, false, true] },
-                    { feature: 'SLA Guarantee', values: [false, false, true] },
-                    { feature: 'SSO / SAML', values: [false, false, true] },
-                  ].map((row, index) => (
-                    <motion.tr
-                      key={index}
-                      className="hover:bg-gray-50 transition-colors"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                        {row.feature}
-                      </td>
-                      {row.values.map((value, i) => (
-                        <td key={i} className="px-6 py-4 text-center">
-                          {typeof value === 'boolean' ? (
-                            value ? (
-                              <Check className="w-5 h-5 text-green-600 mx-auto" />
-                            ) : (
-                              <X className="w-5 h-5 text-gray-300 mx-auto" />
-                            )
-                          ) : (
-                            <span className="text-sm font-medium text-gray-900">
-                              {value}
-                            </span>
-                          )}
+                <tbody>
+                  {comparisonFeatures.map((category, catIndex) => (
+                    <React.Fragment key={catIndex}>
+                      <tr className="bg-gray-50">
+                        <td colSpan={4} className="px-6 py-3">
+                          <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                            {category.category}
+                          </div>
                         </td>
+                      </tr>
+                      {category.features.map((feature, featureIndex) => (
+                        <motion.tr
+                          key={featureIndex}
+                          className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: featureIndex * 0.03 }}
+                        >
+                          <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                            {feature.name}
+                          </td>
+                          <td className="px-6 py-4 text-center">
+                            {typeof feature.starter === 'boolean' ? (
+                              feature.starter ? (
+                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm font-semibold text-gray-900">
+                                {feature.starter}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4 text-center bg-blue-50/50">
+                            {typeof feature.growth === 'boolean' ? (
+                              feature.growth ? (
+                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm font-semibold text-gray-900">
+                                {feature.growth}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4 text-center">
+                            {typeof feature.scale === 'boolean' ? (
+                              feature.scale ? (
+                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm font-semibold text-gray-900">
+                                {feature.scale}
+                              </span>
+                            )}
+                          </td>
+                        </motion.tr>
                       ))}
-                    </motion.tr>
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>
@@ -427,250 +633,143 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { icon: Shield, title: 'Secure Payments', description: 'Powered by Stripe' },
-              { icon: Lock, title: 'Bank-Level Security', description: 'AES-256 encryption' },
-              { icon: Clock, title: '14-Day Free Trial', description: 'No credit card needed' },
-              { icon: CreditCard, title: 'Cancel Anytime', description: 'No long-term contracts' },
-            ].map((badge, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center text-center p-6 bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
-                onHoverStart={() => setHoveredBadge(index)}
-                onHoverEnd={() => setHoveredBadge(null)}
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0"
-                  animate={{ opacity: hoveredBadge === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div
-                  animate={{
-                    rotate: hoveredBadge === index ? [0, -10, 10, 0] : 0,
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="relative z-10"
-                >
-                  <badge.icon className="w-12 h-12 text-blue-600 mb-4" />
-                </motion.div>
-                <div className="text-lg font-semibold text-gray-900 mb-1 relative z-10">
-                  {badge.title}
-                </div>
-                <div className="text-sm text-gray-600 relative z-10">
-                  {badge.description}
-                </div>
-                {hoveredBadge === index && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="absolute top-2 right-2 z-20"
-                  >
-                    <Sparkles className="w-5 h-5 text-yellow-400" />
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Enterprise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="bg-white rounded-2xl shadow-lg p-12 text-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Users className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Need a Custom Enterprise Plan?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Get custom pricing, dedicated support, and tailored features for your agency or large organization. We will work with you to build the perfect solution.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div
-                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
-              >
-                <Link
-                  href="/sign-up"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Contact Sales Team
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
-              >
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-colors duration-300"
-                >
-                  Learn More About Us
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <HelpCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Pricing Questions?
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6">
+              <HelpCircle className="w-8 h-8 text-blue-600" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
             </h2>
             <p className="text-lg text-gray-600">
-              Common questions about billing and plans
+              Everything you need to know about our pricing
             </p>
           </motion.div>
 
           <div className="space-y-4">
-            {[
-              {
-                question: 'What counts as an SEO fix?',
-                answer: 'A fix is any change applied to your website, such as adding meta descriptions, fixing alt text, correcting broken links, optimizing headings, or updating structured data. Each individual change counts as one fix.',
-              },
-              {
-                question: 'Can I upgrade or downgrade my plan?',
-                answer: 'Yes! You can upgrade or downgrade at any time from your dashboard. Changes take effect immediately, and we will prorate the difference. Upgrades give you instant access to higher limits.',
-              },
-              {
-                question: 'What happens if I exceed my monthly fix limit?',
-                answer: 'We will notify you when you are approaching your limit (at 80% and 90%). Once you hit your limit, automatic fixes pause until next month or you can upgrade immediately to continue.',
-              },
-              {
-                question: 'Do you offer refunds?',
-                answer: 'Our Starter plan is completely free forever - no credit card required. For paid plans (Growth), we offer a 14-day free trial and a 30-day money-back guarantee if you are not satisfied.',
-              },
-              {
-                question: 'How does the annual billing discount work?',
-                answer: 'Annual plans save you 17% compared to monthly billing. You are billed once per year and get 2 months free. All annual plans come with the same features and limits as monthly plans.',
-              },
-              {
-                question: 'Can I add more team members?',
-                answer: 'The free Starter plan includes 1 user. Growth plans include 5 users. Enterprise plans have unlimited users. You can add extra user seats to Growth plans for $15/user/month.',
-              },
-              {
-                question: 'What payment methods do you accept?',
-                answer: 'We accept all major credit cards (Visa, Mastercard, Amex, Discover) via Stripe. Enterprise customers can pay via ACH transfer or invoice.',
-              },
-              {
-                question: 'Is there a setup fee or long-term contract?',
-                answer: 'No setup fees. No long-term contracts. You can cancel anytime and you will not be charged again. Your data remains accessible for 30 days after cancellation.',
-              },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300 relative overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
+                className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ x: 4, transition: { type: 'spring', stiffness: 300 } }}
-                onHoverStart={() => setHoveredFaq(index)}
-                onHoverEnd={() => setHoveredFaq(null)}
+                transition={{ delay: index * 0.05 }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0"
-                  animate={{ opacity: hoveredFaq === index ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <div className="relative z-10">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                >
+                  <span className="text-base font-semibold text-gray-900 pr-4">
                     {faq.question}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
+                  </span>
+                  <motion.div
+                    animate={{ rotate: openFaq === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                  </motion.div>
+                </button>
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600 relative overflow-hidden">
-        {/* Particle Dots */}
-        {Array.from({ length: 30 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-white/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+      {/* Final CTA Section */}
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700" />
+
+        {/* Animated Particles */}
+        <div className="absolute inset-0">
+          {Array.from({ length: 40 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.2, 0.8, 0.2],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ready to Fix Your SEO Automatically?
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+              Ready to Automate Your SEO?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Start your 14-day free trial today. No credit card required.
+            <p className="text-xl sm:text-2xl text-blue-100 mb-10 leading-relaxed">
+              Join thousands of businesses using AI to fix their SEO automatically.
+              <br className="hidden sm:block" />
+              Start your free trial today - no credit card required.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.div
-                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Link
                   href="/sign-up"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
+                  className="group inline-flex items-center justify-center px-10 py-5 bg-white text-blue-600 font-black rounded-xl hover:bg-blue-50 transition-all duration-300 text-lg shadow-2xl shadow-blue-900/30"
                 >
                   Start Free Trial
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Link
-                  href="/features"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition-colors duration-300 text-lg"
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/20 transition-all duration-300 text-lg border-2 border-white/30"
                 >
-                  View Features
+                  Talk to Sales
                 </Link>
               </motion.div>
             </div>
+            <p className="text-blue-200 text-sm mt-6">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
           </motion.div>
         </div>
       </section>

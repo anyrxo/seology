@@ -1,7 +1,7 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import { db } from '@/lib/db'
-import { SitesClient } from '@/components/dashboard/SitesClient'
+import { SitesManagement } from '@/components/dashboard/SitesManagement'
 
 export default async function SitesPage() {
   const { userId } = await auth()
@@ -10,7 +10,7 @@ export default async function SitesPage() {
     redirect('/sign-in')
   }
 
-  // Get user and their connections
+  // Get user and their connections with comprehensive data
   const user = await db.user.findUnique({
     where: { clerkId: userId },
     include: {
@@ -18,10 +18,13 @@ export default async function SitesPage() {
         include: {
           issues: {
             where: { status: { not: 'FIXED' } },
+            orderBy: { detectedAt: 'desc' },
           },
           _count: {
             select: {
-              issues: true,
+              issues: {
+                where: { status: { not: 'FIXED' } }
+              },
               fixes: true,
             },
           },
@@ -31,7 +34,11 @@ export default async function SitesPage() {
     },
   })
 
-  const connections = user?.connections || []
+  if (!user) {
+    redirect('/sign-in')
+  }
 
-  return <SitesClient connections={connections} />
+  const connections = user.connections || []
+
+  return <SitesManagement connections={connections} />
 }

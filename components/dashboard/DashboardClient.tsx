@@ -1,674 +1,736 @@
 'use client'
 
-import { useDashboardStats } from '@/lib/hooks/useDashboardStats'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { ActivityTimeline, type ActivityItem } from './ActivityTimeline'
-import { LineChartPlaceholder, BarChartPlaceholder } from './ChartPlaceholder'
-import { DashflowDataTable, type TableColumn } from './DashflowDataTable'
-import { SEOWorkflowMap } from './SEOWorkflowMap'
-import { LiveActivityFeed } from './LiveActivityFeed'
-import { IssueSeverityCards, IssueSummary } from './IssueSeverityCards'
-import { AnimatedCounter, TrendIndicator } from './AnimatedCounter'
-import { SEOHealthScore } from './SEOHealthScore'
-import { SmartInsightsPanel } from './SmartInsightsPanel'
-import { motion } from 'framer-motion'
 import {
   Globe,
   AlertCircle,
   CheckCircle2,
   TrendingUp,
-  Link2,
+  TrendingDown,
   BarChart3,
-  Rocket,
-  ArrowRight,
   Sparkles,
+  ArrowRight,
+  Plus,
+  Zap,
+  Activity,
   Clock,
-  Search,
-  Zap
+  Target,
 } from 'lucide-react'
+import { AnimatedCounter } from './AnimatedCounter'
+import { format, parseISO, formatDistanceToNow } from 'date-fns'
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 
-// Activity data will be fetched from API in production
-
-interface IssueRow extends Record<string, unknown> {
-  id: string
-  type: string
-  page: string
-  severity: string
-  detected: string
+interface DashboardData {
+  user: {
+    name: string
+    email: string
+    plan: string
+    executionMode: string
+  }
+  stats: {
+    totalSites: number
+    totalIssuesOpen: number
+    totalFixesApplied: number
+    aiCreditsUsed: number
+    aiCreditsLimit: number
+    issuesTrend: number
+    fixesTrend: number
+  }
+  connections: Array<{
+    id: string
+    domain: string
+    displayName: string | null
+    platform: string
+    healthStatus: string
+    pageCount: number
+    issueCount: number
+    lastCrawlAt: string | null
+  }>
+  recentActivity: Array<{
+    id: string
+    type: 'fix' | 'issue' | 'scan' | 'connection' | 'analysis'
+    title: string
+    description: string
+    timestamp: string
+    siteName: string
+    status: 'success' | 'warning' | 'error' | 'info'
+  }>
+  insights: Array<{
+    id: string
+    type: string
+    title: string
+    description: string
+    recommendation: string
+    priority: string
+    estimatedImpact: number | null
+    siteName: string
+  }>
+  metrics: {
+    traffic: Array<{ date: string; value: number }>
+    issues: Array<{ date: string; value: number }>
+    fixes: Array<{ date: string; value: number }>
+    health: Array<{
+      date: string
+      overall: number
+      technical: number
+      content: number
+      performance: number
+    }>
+  }
+  notifications: Array<{
+    id: string
+    type: string
+    title: string
+    message: string
+    createdAt: string
+  }>
 }
 
-interface FixRow extends Record<string, unknown> {
-  id: string
-  description: string
-  site: string
-  status: string
-  applied: string
-}
+export function DashboardClient({ data }: { data: DashboardData }) {
+  const [timeRange, setTimeRange] = useState<'7d' | '30d'>('30d')
 
-const issueColumns: TableColumn<IssueRow>[] = [
-  { key: 'type', label: 'Type', sortable: true },
-  { key: 'page', label: 'Page', sortable: true },
-  {
-    key: 'severity',
-    label: 'Severity',
-    sortable: true,
-    render: (value) => {
-      const severity = String(value)
-      return (
-        <div className={`badge ${severity === 'High' ? 'red' : severity === 'Medium' ? 'orange' : 'neutral'}`}>
-          <div className="text-50 medium">{severity}</div>
-        </div>
-      ) as React.ReactNode
-    },
-  },
-  { key: 'detected', label: 'Detected', sortable: true },
-]
-
-const fixColumns: TableColumn<FixRow>[] = [
-  { key: 'description', label: 'Fix', sortable: true },
-  { key: 'site', label: 'Site', sortable: true },
-  {
-    key: 'status',
-    label: 'Status',
-    sortable: true,
-    render: (value) => {
-      const status = String(value)
-      return (
-        <div className={`badge ${status === 'Applied' ? 'green' : 'neutral'}`}>
-          <div className="text-50 medium">{status}</div>
-        </div>
-      ) as React.ReactNode
-    },
-  },
-  { key: 'applied', label: 'Applied', sortable: true },
-]
-
-// Issues and fixes will be fetched from API in production
-
-export function DashboardClient({ userName }: { userName: string }) {
-  const { stats, isLoading, isError } = useDashboardStats()
-
-  // Show error state if API failed
-  if (isError && !isLoading) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-12 text-center shadow-lg"
-        >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-900/20 mb-6">
-            <AlertCircle className="w-8 h-8 text-red-600 dark:text-red-400" />
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-            Unable to load dashboard
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-            Please check your connection and try refreshing the page.
-          </p>
-          <button
-            onClick={() => window.location.reload()}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-medium transition-all duration-200 shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
-          >
-            Refresh Page
-          </button>
-        </motion.div>
-      </div>
-    )
-  }
-
-  // Show loading skeleton
-  if (isLoading || !stats) {
-    return <DashboardSkeleton />
-  }
+  const usagePercent = Math.round(
+    (data.stats.aiCreditsUsed / data.stats.aiCreditsLimit) * 100
+  )
 
   return (
     <div className="w-layout-blockcontainer container-default w-container">
       <div className="grid-1-column gap-row-32px">
-        {/* Welcome Header using Dashflow X typography with Radiant UI components */}
-        <div className="rt-component-section mg-bottom-48px">
-          <div className="flex-vertical gap-row-12px">
-            <div className="w-layout-hflex flex-horizontal gap-column-16px align-center">
-              <div className="card-icon-square _40px neutral-icon">
-                <div className="text-400">👋</div>
-              </div>
-              <div className="flex-vertical">
-                <h1 className="rt-component-heading-two display-1 text-white">
-                  Welcome back, {userName}!
-                </h1>
-                <p className="rt-text-block text-200 text-gray-400">
-                  Here's what's happening with your SEO automation
-                </p>
-              </div>
+        {/* Welcome Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex-vertical gap-row-12px"
+        >
+          <div className="flex-horizontal gap-column-16px align-center">
+            <div className="card-icon-square _40px">
+              <div className="text-400">👋</div>
+            </div>
+            <div className="flex-vertical">
+              <h1 className="display-1 text-white">
+                Welcome back, {data.user.name}!
+              </h1>
+              <p className="text-200 text-gray-400">
+                Here's what's happening with your SEO automation
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Hero Section: Health Score + Workflow */}
-        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
-          <SEOHealthScore
-            score={Math.max(20, 100 - (stats.activeIssuesCount * 5))}
-            trend={stats.fixesThisMonth > 0 ? 'up' : 'stable'}
-            issues={{
-              critical: Math.floor(stats.activeIssuesCount * 0.2),
-              warning: Math.floor(stats.activeIssuesCount * 0.5),
-              info: Math.ceil(stats.activeIssuesCount * 0.3)
-            }}
-            sitesCount={stats.sitesCount}
-          />
-          <SEOWorkflowMap />
-        </div>
-
-        {/* Stats Grid using actual Dashflow X cards with card-icon-square and card-amount-container */}
+        {/* Hero Stats Grid */}
         <motion.div
-          className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px"
+          className="grid-4-columns _1-column-tablet gap-row-24px gap-column-12px"
+          initial="hidden"
+          animate="visible"
           variants={{
             hidden: { opacity: 0 },
             visible: {
               opacity: 1,
-              transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.1
-              }
-            }
+              transition: { staggerChildren: 0.1 },
+            },
           }}
-          initial="hidden"
-          animate="visible"
         >
-          {/* Sites Connected Card */}
-          <motion.div
-            className="card pd-24px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 group cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 20, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.4,
-                  ease: [0.4, 0, 0.2, 1]
-                }
-              }
-            }}
-            whileHover={{
-              y: -8,
-              scale: 1.03,
-              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {/* Animated gradient overlay */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            {/* Animated shine effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
-            />
-            <div className="flex-horizontal space-between align-center mg-bottom-16px">
-              <div className="card-icon-square _26px">
-                <div className="text-200">🌐</div>
-              </div>
-              <div className="badge green">
-                <div className="text-50 medium">{stats.sitesCount > 0 ? 'Active' : 'Get started'}</div>
-              </div>
-            </div>
-            <div className="flex-vertical gap-row-12px relative z-10">
-              <div className="text-100 medium text-gray-400">Sites Connected</div>
-              <div className="card-amount-container green">
-                <AnimatedCounter value={stats.sitesCount} className="display-2 text-white" />
-              </div>
-              {stats.sitesCount > 0 && (
-                <TrendIndicator value={stats.sitesCount} direction="up" label="active" />
-              )}
-            </div>
-          </motion.div>
+          {/* Total Sites */}
+          <StatCard
+            title="Sites Connected"
+            value={data.stats.totalSites}
+            icon={<Globe className="w-5 h-5" />}
+            trend={null}
+            gradient="from-blue-500/20 to-cyan-500/20"
+            color="blue"
+          />
 
-          {/* Issues Detected Card */}
-          <motion.div
-            className="card pd-24px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-orange-500/20 group cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 20, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.4,
-                  ease: [0.4, 0, 0.2, 1]
-                }
-              }
-            }}
-            whileHover={{
-              y: -8,
-              scale: 1.03,
-              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
-            />
-            <div className="flex-horizontal space-between align-center mg-bottom-16px">
-              <div className="card-icon-square _26px neutral-icon">
-                <div className="text-200">🔍</div>
-              </div>
-              <div className={`badge ${stats.activeIssuesCount > 0 ? 'red' : 'green'}`}>
-                <div className="text-50 medium">
-                  {stats.activeIssuesCount > 0 ? 'Needs attention' : 'All clear'}
-                </div>
-              </div>
-            </div>
-            <div className="flex-vertical gap-row-12px relative z-10">
-              <div className="text-100 medium text-gray-400">Issues Detected</div>
-              <div className={`card-amount-container ${stats.activeIssuesCount > 0 ? 'red' : 'green'}`}>
-                <AnimatedCounter value={stats.activeIssuesCount} className="display-2 text-white" />
-              </div>
-              {stats.activeIssuesCount > 0 && (
-                <TrendIndicator value={stats.activeIssuesCount} direction="down" label="needs fixing" />
-              )}
-            </div>
-          </motion.div>
+          {/* Issues Found */}
+          <StatCard
+            title="Issues Found"
+            value={data.stats.totalIssuesOpen}
+            icon={<AlertCircle className="w-5 h-5" />}
+            trend={
+              data.stats.issuesTrend !== 0
+                ? {
+                    value: data.stats.issuesTrend,
+                    label: 'vs last week',
+                    positive: data.stats.issuesTrend < 0,
+                  }
+                : null
+            }
+            gradient="from-orange-500/20 to-red-500/20"
+            color="orange"
+          />
 
-          {/* Fixes Applied Card */}
-          <motion.div
-            className="card pd-22px---18px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-green-500/20 group cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 20, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.4,
-                  ease: [0.4, 0, 0.2, 1]
-                }
-              }
-            }}
-            whileHover={{
-              y: -8,
-              scale: 1.03,
-              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
-            />
-            <div className="flex-horizontal space-between align-center mg-bottom-16px">
-              <div className="card-icon-square _26px">
-                <div className="text-200">✅</div>
-              </div>
-              <div className="badge green">
-                <div className="text-50 medium">This month</div>
-              </div>
-            </div>
-            <div className="flex-vertical gap-row-12px relative z-10">
-              <div className="text-100 medium text-gray-400">Fixes Applied</div>
-              <div className="card-amount-container green">
-                <AnimatedCounter value={stats.fixesThisMonth} className="display-2 text-white" />
-              </div>
-              {stats.fixesThisMonth > 0 && (
-                <TrendIndicator value={stats.fixesThisMonth} direction="up" label="this month" />
-              )}
-            </div>
-          </motion.div>
+          {/* Fixes Applied */}
+          <StatCard
+            title="Fixes Applied"
+            value={data.stats.totalFixesApplied}
+            icon={<CheckCircle2 className="w-5 h-5" />}
+            trend={
+              data.stats.fixesTrend !== 0
+                ? {
+                    value: data.stats.fixesTrend,
+                    label: 'vs last week',
+                    positive: data.stats.fixesTrend > 0,
+                  }
+                : null
+            }
+            gradient="from-green-500/20 to-emerald-500/20"
+            color="green"
+          />
 
-          {/* Usage Card */}
-          <motion.div
-            className="card pd-16px relative overflow-hidden bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 group cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 20, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                transition: {
-                  duration: 0.4,
-                  ease: [0.4, 0, 0.2, 1]
-                }
-              }
-            }}
-            whileHover={{
-              y: -8,
-              scale: 1.03,
-              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0"
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
-            />
-            <div className="flex-horizontal space-between align-center mg-bottom-16px">
-              <div className="card-icon-square _26px neutral-icon">
-                <div className="text-200">📊</div>
-              </div>
-              <div className={`badge ${stats.usagePercent < 80 ? 'green' : 'orange'}`}>
-                <div className="text-50 medium">
-                  {stats.fixesThisMonth}/{stats.fixLimit}
-                </div>
-              </div>
-            </div>
-            <div className="flex-vertical gap-row-12px relative z-10">
-              <div className="text-100 medium text-gray-400">Usage This Month</div>
-              <div className={`card-amount-container ${stats.usagePercent >= 90 ? 'red' : 'green'}`}>
-                <AnimatedCounter value={stats.usagePercent} suffix="%" className="display-2 text-white" />
-              </div>
-              {stats.usagePercent > 0 && (
-                <TrendIndicator
-                  value={stats.usagePercent}
-                  direction={stats.usagePercent >= 90 ? 'up' : 'neutral'}
-                  label="of limit"
-                />
-              )}
-            </div>
-          </motion.div>
+          {/* AI Credits */}
+          <StatCard
+            title="AI Credits Used"
+            value={`${data.stats.aiCreditsUsed}/${data.stats.aiCreditsLimit}`}
+            icon={<Sparkles className="w-5 h-5" />}
+            trend={null}
+            gradient="from-purple-500/20 to-pink-500/20"
+            color="purple"
+            subtitle={`${usagePercent}% of monthly limit`}
+          />
         </motion.div>
 
-        {/* Issue Severity Cards - Fluency-inspired severity breakdown */}
-        {stats.activeIssuesCount > 0 && (
-          <IssueSeverityCards
-            counts={{
-              critical: Math.floor(stats.activeIssuesCount * 0.2),
-              warning: Math.floor(stats.activeIssuesCount * 0.5),
-              info: Math.ceil(stats.activeIssuesCount * 0.3)
-            }}
-          />
-        )}
-
-        {/* Usage Progress Bar with card-icon-square */}
-        {stats.usagePercent > 0 && (
-          <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
-            <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-16px">
-              <div className="flex-horizontal gap-column-12px align-center">
-                <div className="card-icon-square _40px">
-                  <div className="text-300">📈</div>
-                </div>
-                <h3 className="text-300 bold text-white">Monthly Usage</h3>
-              </div>
-              <div className={`badge ${
-                stats.usagePercent >= 90 ? 'red' :
-                stats.usagePercent >= 70 ? 'orange' : 'green'
-              }`}>
-                <div className="text-100 medium">
-                  {stats.fixesThisMonth} / {stats.fixLimit} fixes
-                </div>
-              </div>
-            </div>
-            <div className="progress-bar-wrapper">
-              <div className="progress-bar-bg">
-                <div
-                  className={`progress-bar ${
-                    stats.usagePercent >= 90 ? 'red' :
-                    stats.usagePercent >= 70 ? 'orange' : 'green'
-                  }`}
-                  style={{ width: `${stats.usagePercent}%` }}
-                ></div>
-              </div>
-            </div>
-            {stats.usagePercent >= 90 && (
-              <p className="rt-text-block text-100 text-gray-400 mg-top-12px">
-                You're approaching your monthly limit. Consider upgrading your plan.
-              </p>
-            )}
-          </div>
-        )}
-
-        {/* Quick Actions using Dashflow X buttons with card-icon-square */}
-        <div className="rt-component-section card pd-32px---44px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
-          <div className="flex-horizontal gap-column-16px align-center mg-bottom-32px">
-            <div className="card-icon-square _40px neutral-icon">
-              <div className="text-300">⚡</div>
+        {/* Quick Actions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg"
+        >
+          <div className="flex-horizontal gap-column-16px align-center mg-bottom-24px">
+            <div className="card-icon-square _40px">
+              <Zap className="w-6 h-6 text-yellow-400" />
             </div>
             <h2 className="text-400 bold text-white">Quick Actions</h2>
           </div>
-          <div className="w-layout-vflex flex-vertical gap-row-24px">
-            <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
-              <Link href="/dashboard/sites/connect" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/20 hover:border-blue-500/30">
-                <div className="flex-vertical gap-row-16px">
-                  <div className="card-icon-square _40px">
-                    <div className="text-300">🔗</div>
-                  </div>
-                  <div className="flex-vertical gap-row-8px relative z-10">
-                    <div className="text-200 bold text-white">Connect Site</div>
-                    <div className="text-100 text-gray-400">Link your first website</div>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/dashboard/analytics" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 hover:border-purple-500/30">
-                <div className="flex-vertical gap-row-16px">
-                  <div className="card-icon-square _40px neutral-icon">
-                    <div className="text-300">📊</div>
-                  </div>
-                  <div className="flex-vertical gap-row-8px relative z-10">
-                    <div className="text-200 bold text-white">View Analytics</div>
-                    <div className="text-100 text-gray-400">Track performance</div>
-                  </div>
-                </div>
-              </Link>
-              <Link href="/dashboard/billing" className="card pd-24px hover-card-link group relative overflow-hidden bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:border-green-500/30">
-                <div className="flex-vertical gap-row-16px">
-                  <div className="card-icon-square _40px">
-                    <div className="text-300">🚀</div>
-                  </div>
-                  <div className="flex-vertical gap-row-8px relative z-10">
-                    <div className="text-200 bold text-white">Upgrade Plan</div>
-                    <div className="text-100 text-gray-400">Unlock more features</div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Smart Insights - AI-powered recommendations */}
-        <SmartInsightsPanel />
-
-        {/* Three-column grid: Activity Feed, Issue Summary, Analytics */}
-        <div className="grid-3-columns _1-column-tablet gap-column-24px gap-row-24px">
-          <div className="col-span-2 _1-column-tablet">
-            <LiveActivityFeed
-              activities={[]}
-              maxItems={6}
-              showTimestamp={true}
-              autoRefresh={false}
+          <div className="grid-3-columns _1-column-mbl gap-row-16px gap-column-12px">
+            <QuickActionCard
+              icon={<Plus className="w-5 h-5" />}
+              title="Add New Site"
+              description="Connect another website"
+              href="/dashboard/sites/connect"
+              color="blue"
+            />
+            <QuickActionCard
+              icon={<Activity className="w-5 h-5" />}
+              title="Run AI Analysis"
+              description="Scan for SEO issues"
+              href="/dashboard/ai-analysis"
+              color="purple"
+            />
+            <QuickActionCard
+              icon={<BarChart3 className="w-5 h-5" />}
+              title="View Reports"
+              description="Performance insights"
+              href="/dashboard/reports"
+              color="green"
             />
           </div>
-          <IssueSummary
-            counts={{
-              critical: Math.floor(stats.activeIssuesCount * 0.2),
-              warning: Math.floor(stats.activeIssuesCount * 0.5),
-              info: Math.ceil(stats.activeIssuesCount * 0.3)
-            }}
-          />
-        </div>
+        </motion.div>
 
-        {/* Analytics Charts Section - Dashflow X Style */}
-        <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
-          <LineChartPlaceholder
-            title="SEO Performance"
-            subtitle="Last 30 days"
-            icon="📈"
-            trend={{ value: 12.5, direction: 'up', label: 'vs last month' }}
-          />
-          <BarChartPlaceholder
-            title="Fixes by Type"
-            subtitle="This month"
-            icon="🔧"
-            value={stats.fixesThisMonth.toString()}
-          />
-        </div>
-
-        {/* Recent Activity Timeline - Enhanced with ActivityTimeline component */}
-        <div className="rt-component-section card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
-          <div className="w-layout-hflex flex-horizontal space-between align-center mg-bottom-24px">
-            <div className="flex-horizontal gap-column-12px align-center">
-              <div className="card-icon-square _40px">
-                <div className="text-300">⏱️</div>
-              </div>
-              <h2 className="text-400 bold text-white">Recent Activity</h2>
-            </div>
-            <Link href="/dashboard/sites" className="rt-nav-text text-100 medium color-accent-1 hover-neutral-800">
-              View All <ArrowRight className="inline w-4 h-4" />
-            </Link>
-          </div>
-          <ActivityTimeline
-            activities={[]}
-            maxItems={5}
-            showSiteName={true}
-          />
-        </div>
-
-        {/* Recent Issues & Fixes Tables - Dashflow X Data Tables */}
-        {stats.sitesCount > 0 && (
-          <div className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px">
-            {/* Recent Issues */}
-            <div>
-              <div className="flex-horizontal gap-column-12px align-center mg-bottom-16px">
-                <div className="card-icon-square _26px neutral-icon">
-                  <div className="text-200">🔍</div>
+        {/* Recent Activity Feed */}
+        {data.recentActivity.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg"
+          >
+            <div className="flex-horizontal space-between align-center mg-bottom-24px">
+              <div className="flex-horizontal gap-column-12px align-center">
+                <div className="card-icon-square _40px">
+                  <Clock className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="text-300 bold text-white">Recent Issues</h3>
+                <h2 className="text-400 bold text-white">Recent Activity</h2>
               </div>
-              <DashflowDataTable
-                data={[]}
-                columns={issueColumns}
-                emptyIcon="✨"
-                emptyTitle="No issues found"
-                emptyMessage="Great! Your sites are looking good."
-                pageSize={5}
-                showPagination={false}
-              />
+              <Link
+                href="/dashboard/sites"
+                className="text-100 medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
+              >
+                View All <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-
-            {/* Recent Fixes */}
-            <div>
-              <div className="flex-horizontal gap-column-12px align-center mg-bottom-16px">
-                <div className="card-icon-square _26px">
-                  <div className="text-200">✅</div>
-                </div>
-                <h3 className="text-300 bold text-white">Recent Fixes</h3>
-              </div>
-              <DashflowDataTable
-                data={[]}
-                columns={fixColumns}
-                emptyIcon="🔧"
-                emptyTitle="No fixes yet"
-                emptyMessage="Issues will be fixed automatically as they're detected."
-                pageSize={5}
-                showPagination={false}
-              />
+            <div className="flex-vertical gap-row-12px">
+              <AnimatePresence>
+                {data.recentActivity.slice(0, 8).map((activity, index) => (
+                  <motion.div
+                    key={activity.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="card pd-16px hover-card-link bg-white/[0.02] border border-white/5"
+                  >
+                    <div className="flex-horizontal gap-column-16px align-start">
+                      <div
+                        className={`card-icon-square _40px ${
+                          activity.status === 'success'
+                            ? ''
+                            : activity.status === 'error'
+                            ? 'red-icon'
+                            : activity.status === 'warning'
+                            ? 'orange-icon'
+                            : 'neutral-icon'
+                        }`}
+                      >
+                        <div className="text-200">
+                          {activity.type === 'fix'
+                            ? '✅'
+                            : activity.type === 'issue'
+                            ? '🔍'
+                            : activity.type === 'scan'
+                            ? '🔄'
+                            : activity.type === 'connection'
+                            ? '🔗'
+                            : '🤖'}
+                        </div>
+                      </div>
+                      <div className="flex-vertical flex-1 min-w-0">
+                        <div className="flex-horizontal space-between align-center gap-column-12px mg-bottom-4px">
+                          <p className="text-100 medium text-white truncate">
+                            {activity.title}
+                          </p>
+                          <div
+                            className={`badge ${
+                              activity.status === 'success'
+                                ? 'green'
+                                : activity.status === 'error'
+                                ? 'red'
+                                : activity.status === 'warning'
+                                ? 'orange'
+                                : 'neutral'
+                            }`}
+                          >
+                            <div className="text-50 medium">{activity.status}</div>
+                          </div>
+                        </div>
+                        {activity.description && (
+                          <p className="text-50 text-gray-400 mg-bottom-4px line-clamp-2">
+                            {activity.description}
+                          </p>
+                        )}
+                        <div className="flex-horizontal gap-column-8px align-center">
+                          <span className="text-50 text-gray-500">{activity.siteName}</span>
+                          <span className="text-50 text-gray-600">•</span>
+                          <span className="text-50 text-gray-500">
+                            {formatDistanceToNow(parseISO(activity.timestamp), {
+                              addSuffix: true,
+                            })}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
-          </div>
+          </motion.div>
         )}
 
-        {/* Getting Started Checklist with multiple card padding variants */}
-        {stats.sitesCount === 0 && (
-          <div className="card pd-32px---44px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
+        {/* Sites Overview Grid */}
+        {data.connections.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg"
+          >
+            <div className="flex-horizontal space-between align-center mg-bottom-24px">
+              <div className="flex-horizontal gap-column-12px align-center">
+                <div className="card-icon-square _40px">
+                  <Globe className="w-6 h-6 text-blue-400" />
+                </div>
+                <h2 className="text-400 bold text-white">Your Sites</h2>
+              </div>
+              <Link
+                href="/dashboard/sites"
+                className="text-100 medium text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
+              >
+                Manage Sites <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid-3-columns _1-column-tablet gap-row-16px gap-column-12px">
+              {data.connections.map((site, index) => (
+                <motion.div
+                  key={site.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + index * 0.05 }}
+                >
+                  <Link
+                    href={`/dashboard/sites/${site.id}`}
+                    className="card pd-24px hover-card-link group bg-white/[0.02] border border-white/5 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+                  >
+                    <div className="flex-vertical gap-row-16px">
+                      <div className="flex-horizontal space-between align-center">
+                        <div className="card-icon-square _40px">
+                          <div className="text-200">
+                            {site.platform === 'SHOPIFY'
+                              ? '🛍️'
+                              : site.platform === 'WORDPRESS'
+                              ? '📝'
+                              : site.platform === 'GITHUB'
+                              ? '💻'
+                              : '🌐'}
+                          </div>
+                        </div>
+                        <div
+                          className={`badge ${
+                            site.healthStatus === 'healthy'
+                              ? 'green'
+                              : site.healthStatus === 'warning'
+                              ? 'orange'
+                              : site.healthStatus === 'error'
+                              ? 'red'
+                              : 'neutral'
+                          }`}
+                        >
+                          <div className="text-50 medium">
+                            {site.healthStatus === 'healthy'
+                              ? 'Healthy'
+                              : site.healthStatus === 'warning'
+                              ? 'Warning'
+                              : site.healthStatus === 'error'
+                              ? 'Issues'
+                              : 'Unknown'}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex-vertical gap-row-8px">
+                        <h3 className="text-200 bold text-white truncate">
+                          {site.displayName || site.domain}
+                        </h3>
+                        <p className="text-50 text-gray-400 truncate">{site.domain}</p>
+                      </div>
+                      <div className="flex-horizontal gap-column-16px">
+                        <div className="flex-vertical gap-row-4px">
+                          <span className="text-50 text-gray-500">Pages</span>
+                          <span className="text-100 medium text-white">
+                            {site.pageCount}
+                          </span>
+                        </div>
+                        <div className="flex-vertical gap-row-4px">
+                          <span className="text-50 text-gray-500">Issues</span>
+                          <span className="text-100 medium text-white">
+                            {site.issueCount}
+                          </span>
+                        </div>
+                      </div>
+                      {site.lastCrawlAt && (
+                        <p className="text-50 text-gray-500">
+                          Scanned{' '}
+                          {formatDistanceToNow(parseISO(site.lastCrawlAt), {
+                            addSuffix: true,
+                          })}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* AI Insights Panel */}
+        {data.insights.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="card pd-32px---24px bg-gradient-to-br from-purple-500/10 via-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-purple-500/20 shadow-lg shadow-purple-500/5"
+          >
             <div className="flex-horizontal gap-column-16px align-center mg-bottom-24px">
               <div className="card-icon-square _40px">
-                <div className="text-300">🎯</div>
+                <Sparkles className="w-6 h-6 text-purple-400" />
               </div>
-              <h2 className="text-300 bold text-white">
-                Getting Started
-              </h2>
+              <div>
+                <h2 className="text-400 bold text-white">AI Recommendations</h2>
+                <p className="text-100 text-gray-400">
+                  Smart suggestions based on your site data
+                </p>
+              </div>
             </div>
-            <div className="grid-2-columns gap-row-16px gap-column-12px">
-              <ChecklistItem completed={false} text="Connect your first site" icon="🔗" />
-              <ChecklistItem completed={false} text="Run your first SEO analysis" icon="🔍" />
-              <ChecklistItem completed={false} text="Apply AI-powered fixes" icon="🤖" />
-              <ChecklistItem completed={false} text="Review your analytics" icon="📊" />
+            <div className="flex-vertical gap-row-12px">
+              {data.insights.slice(0, 3).map((insight, index) => (
+                <motion.div
+                  key={insight.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 + index * 0.1 }}
+                  className="card pd-20px bg-white/[0.05] border border-white/10 hover:border-purple-500/30 transition-all duration-300 cursor-pointer group"
+                >
+                  <div className="flex-horizontal gap-column-16px align-start">
+                    <div
+                      className={`card-icon-square _40px ${
+                        insight.priority === 'CRITICAL'
+                          ? 'red-icon'
+                          : insight.priority === 'HIGH'
+                          ? 'orange-icon'
+                          : ''
+                      }`}
+                    >
+                      <Target className="w-5 h-5" />
+                    </div>
+                    <div className="flex-vertical flex-1 gap-row-8px">
+                      <div className="flex-horizontal space-between align-center">
+                        <h3 className="text-200 medium text-white">{insight.title}</h3>
+                        <div
+                          className={`badge ${
+                            insight.priority === 'CRITICAL'
+                              ? 'red'
+                              : insight.priority === 'HIGH'
+                              ? 'orange'
+                              : 'neutral'
+                          }`}
+                        >
+                          <div className="text-50 medium">{insight.priority}</div>
+                        </div>
+                      </div>
+                      <p className="text-100 text-gray-400 line-clamp-2">
+                        {insight.description}
+                      </p>
+                      <p className="text-100 text-gray-300">{insight.recommendation}</p>
+                      {insight.estimatedImpact && (
+                        <div className="flex-horizontal gap-column-8px align-center">
+                          <TrendingUp className="w-4 h-4 text-green-400" />
+                          <span className="text-50 text-green-400 medium">
+                            +{insight.estimatedImpact}% estimated traffic increase
+                          </span>
+                        </div>
+                      )}
+                      <span className="text-50 text-gray-500">{insight.siteName}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
+        )}
+
+        {/* Performance Charts */}
+        {data.metrics.traffic.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="grid-2-columns _1-column-tablet gap-column-24px gap-row-24px"
+          >
+            {/* Traffic Chart */}
+            <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
+              <div className="flex-horizontal space-between align-center mg-bottom-24px">
+                <div className="flex-horizontal gap-column-12px align-center">
+                  <div className="card-icon-square _40px">
+                    <TrendingUp className="w-6 h-6 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-300 bold text-white">Organic Traffic</h3>
+                    <p className="text-50 text-gray-500">Last 30 days</p>
+                  </div>
+                </div>
+              </div>
+              <ResponsiveContainer width="100%" height={250}>
+                <AreaChart data={data.metrics.traffic.map((m) => ({
+                  date: format(parseISO(m.date), 'MMM d'),
+                  traffic: m.value,
+                }))}>
+                  <defs>
+                    <linearGradient id="trafficGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.1} />
+                  <XAxis dataKey="date" stroke="#9ca3af" fontSize={12} />
+                  <YAxis stroke="#9ca3af" fontSize={12} />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#1f2937',
+                      border: '1px solid #374151',
+                      borderRadius: '8px',
+                      color: '#fff',
+                    }}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="traffic"
+                    stroke="#10b981"
+                    strokeWidth={2}
+                    fill="url(#trafficGradient)"
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Issues & Fixes Chart */}
+            <div className="card pd-32px---24px bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg">
+              <div className="flex-horizontal space-between align-center mg-bottom-24px">
+                <div className="flex-horizontal gap-column-12px align-center">
+                  <div className="card-icon-square _40px">
+                    <BarChart3 className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-300 bold text-white">Issues vs Fixes</h3>
+                    <p className="text-50 text-gray-500">Last 30 days</p>
+                  </div>
+                </div>
+              </div>
+              <ResponsiveContainer width="100%" height={250}>
+                <LineChart
+                  data={data.metrics.issues.map((m, i) => ({
+                    date: format(parseISO(m.date), 'MMM d'),
+                    issues: m.value,
+                    fixes: data.metrics.fixes[i]?.value || 0,
+                  }))}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.1} />
+                  <XAxis dataKey="date" stroke="#9ca3af" fontSize={12} />
+                  <YAxis stroke="#9ca3af" fontSize={12} />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#1f2937',
+                      border: '1px solid #374151',
+                      borderRadius: '8px',
+                      color: '#fff',
+                    }}
+                  />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="issues"
+                    stroke="#f59e0b"
+                    strokeWidth={2}
+                    dot={{ fill: '#f59e0b', r: 4 }}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="fixes"
+                    stroke="#10b981"
+                    strokeWidth={2}
+                    dot={{ fill: '#10b981', r: 4 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Empty State - Getting Started */}
+        {data.stats.totalSites === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="card pd-48px text-center bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 shadow-lg"
+          >
+            <div className="card-icon-square _56px mx-auto mg-bottom-24px">
+              <Globe className="w-8 h-8 text-blue-400" />
+            </div>
+            <h2 className="text-400 bold text-white mg-bottom-12px">
+              Get Started with SEOLOGY.AI
+            </h2>
+            <p className="text-200 text-gray-400 mg-bottom-32px max-w-2xl mx-auto">
+              Connect your first website to start automatically detecting and fixing SEO
+              issues with AI-powered automation.
+            </p>
+            <Link
+              href="/dashboard/sites/connect"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-2xl font-medium transition-all shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40"
+            >
+              <Plus className="w-5 h-5" />
+              Connect Your First Site
+            </Link>
+          </motion.div>
         )}
       </div>
     </div>
   )
 }
 
-interface ChecklistItemProps {
-  completed: boolean
-  text: string
-  icon: string
+// Stat Card Component
+interface StatCardProps {
+  title: string
+  value: number | string
+  icon: React.ReactNode
+  trend: {
+    value: number
+    label: string
+    positive: boolean
+  } | null
+  gradient: string
+  color: string
+  subtitle?: string
 }
 
-function ChecklistItem({ completed, text, icon }: ChecklistItemProps) {
+function StatCard({ title, value, icon, trend, gradient, color, subtitle }: StatCardProps) {
   return (
-    <div className="card pd-16px bg-gradient-to-br from-white/[0.05] to-white/[0.01] backdrop-blur-lg border border-white/10">
-      <div className="flex-horizontal gap-column-12px align-center">
-        <div className="card-icon-square _26px neutral-icon">
-          <div className="text-100">{icon}</div>
-        </div>
-        <div className={`checkbox ${completed ? 'checked' : ''}`}>
-          {completed && <span className="text-50">✓</span>}
-        </div>
-        <span className={`text-100 medium ${completed ? 'text-gray-500' : 'text-gray-300'}`}>
-          {text}
-        </span>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20, scale: 0.95 },
+        visible: { opacity: 1, y: 0, scale: 1 },
+      }}
+      whileHover={{ y: -4, scale: 1.02 }}
+      className={`card pd-24px relative overflow-hidden bg-gradient-to-br ${gradient} backdrop-blur-xl border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group`}
+    >
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+        initial={{ x: '-100%' }}
+        whileHover={{ x: '100%' }}
+        transition={{ duration: 0.6 }}
+      />
+      <div className="flex-horizontal space-between align-center mg-bottom-16px relative z-10">
+        <div className={`card-icon-square _40px text-${color}-400`}>{icon}</div>
+        {trend && (
+          <div className={`badge ${trend.positive ? 'green' : 'red'}`}>
+            <div className="flex-horizontal gap-column-4px align-center">
+              {trend.positive ? (
+                <TrendingUp className="w-3 h-3" />
+              ) : (
+                <TrendingDown className="w-3 h-3" />
+              )}
+              <span className="text-50 medium">
+                {Math.abs(trend.value)}%
+              </span>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
+      <div className="flex-vertical gap-row-12px relative z-10">
+        <div className="text-100 medium text-gray-400">{title}</div>
+        <div className="display-2 text-white">
+          {typeof value === 'number' ? <AnimatedCounter value={value} /> : value}
+        </div>
+        {subtitle && <p className="text-50 text-gray-500">{subtitle}</p>}
+        {trend && <p className="text-50 text-gray-500">{trend.label}</p>}
+      </div>
+    </motion.div>
   )
 }
 
-function DashboardSkeleton() {
+// Quick Action Card Component
+interface QuickActionCardProps {
+  icon: React.ReactNode
+  title: string
+  description: string
+  href: string
+  color: string
+}
+
+function QuickActionCard({ icon, title, description, href, color }: QuickActionCardProps) {
   return (
-    <div className="container-default w-container">
-      <div className="grid-1-column gap-row-32px">
-        {/* Header skeleton */}
-        <div>
-          <div className="skeleton-box" style={{ height: '48px', width: '400px', marginBottom: '12px' }}></div>
-          <div className="skeleton-box" style={{ height: '24px', width: '320px' }}></div>
+    <Link
+      href={href}
+      className="card pd-20px hover-card-link group bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all duration-300"
+    >
+      <div className="flex-horizontal gap-column-16px align-center">
+        <div className={`card-icon-square _40px text-${color}-400`}>{icon}</div>
+        <div className="flex-vertical gap-row-4px flex-1">
+          <h3 className="text-200 medium text-white group-hover:text-blue-400 transition-colors">
+            {title}
+          </h3>
+          <p className="text-50 text-gray-500">{description}</p>
         </div>
-
-        {/* Stats grid skeleton */}
-        <div className="grid-4-columns _1-column-tablet gap-row-32px gap-column-12px">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="card pd-24px">
-              <div className="skeleton-box" style={{ height: '16px', width: '120px', marginBottom: '16px' }}></div>
-              <div className="skeleton-box" style={{ height: '64px', width: '80px' }}></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Actions skeleton */}
-        <div className="card pd-32px---24px">
-          <div className="skeleton-box" style={{ height: '32px', width: '160px', marginBottom: '32px' }}></div>
-          <div className="grid-3-columns _1-column-mbl gap-row-24px gap-column-12px">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="skeleton-box" style={{ height: '48px' }}></div>
-            ))}
-          </div>
-        </div>
+        <ArrowRight className="w-5 h-5 text-gray-600 group-hover:text-blue-400 transition-colors" />
       </div>
-    </div>
+    </Link>
   )
 }
