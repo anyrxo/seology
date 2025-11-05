@@ -626,7 +626,7 @@ export default function AboutPage() {
               href="/sign-up"
               className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors duration-300 text-lg"
             >
-              Start Your Free Trial
+              Get Started Free
               <ArrowRight className="ml-3 w-6 h-6" />
             </Link>
           </motion.div>
@@ -677,7 +677,7 @@ export default function AboutPage() {
                   href="/sign-up"
                   className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-colors duration-300 text-lg"
                 >
-                  Start Free Trial
+                  Get Started Free
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </motion.div>

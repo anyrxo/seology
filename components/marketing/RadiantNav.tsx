@@ -160,7 +160,7 @@ export default function RadiantNav() {
     {
       title: 'Careers',
       description: 'Join our growing team',
-      href: '/about/careers',
+      href: '/careers',
       icon: <Users className="w-5 h-5" />
     },
     {
