@@ -469,7 +469,8 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
 
           // Collect tool uses and text content
           let fullTextContent = ''
-          const toolUses: Array<{ id: string; name: string; input: unknown }> = []
+          const toolUses: Array<{ id: string; name: string; input: any }> = []
+          const toolInputs: Record<string, string> = {}
 
           for await (const event of response) {
             // Stream text content
@@ -479,13 +480,36 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
               controller.enqueue(encoder.encode(`data: ${data}\n\n`))
             }
 
-            // Collect tool use requests
+            // Collect tool use requests - capture ID and name
             if (event.type === 'content_block_start' && event.content_block.type === 'tool_use') {
-              toolUses.push({
+              const toolUse = {
                 id: event.content_block.id,
                 name: event.content_block.name,
-                input: event.content_block.input,
-              })
+                input: {},
+              }
+              toolUses.push(toolUse)
+              toolInputs[toolUse.id] = ''
+            }
+
+            // Collect tool input JSON progressively
+            if (event.type === 'content_block_delta' && event.delta.type === 'input_json_delta') {
+              const toolUse = toolUses[toolUses.length - 1]
+              if (toolUse) {
+                toolInputs[toolUse.id] += event.delta.partial_json
+              }
+            }
+
+            // Parse complete tool input when block stops
+            if (event.type === 'content_block_stop') {
+              const toolUse = toolUses[toolUses.length - 1]
+              if (toolUse && toolInputs[toolUse.id]) {
+                try {
+                  toolUse.input = JSON.parse(toolInputs[toolUse.id])
+                } catch (e) {
+                  console.error('Failed to parse tool input:', e)
+                  toolUse.input = {}
+                }
+              }
             }
           }
 
@@ -603,12 +627,30 @@ Remember: Hide all technical details. No mention of tools, APIs, or backend proc
             })
 
             // Stream the follow-up response
+            let followUpContentSent = false
             for await (const event of followUpResponse) {
               if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+                followUpContentSent = true
                 const data = JSON.stringify({ content: event.delta.text })
                 controller.enqueue(encoder.encode(`data: ${data}\n\n`))
               }
             }
+
+            // Safety check: if no content was sent after tool execution, send error message
+            if (!followUpContentSent) {
+              console.error('⚠️ No content received from follow-up response after tool execution')
+              const fallbackMessage = JSON.stringify({
+                content: "\n\nI analyzed your request but encountered an issue presenting the results. Please try again or rephrase your question."
+              })
+              controller.enqueue(encoder.encode(`data: ${fallbackMessage}\n\n`))
+            }
+          } else if (fullTextContent.trim().length === 0) {
+            // Safety check: if no tools were called AND no text was sent, send a default message
+            console.error('⚠️ No tools called and no text content sent')
+            const fallbackMessage = JSON.stringify({
+              content: "I'm here to help! Could you please clarify what you'd like me to analyze or assist with?"
+            })
+            controller.enqueue(encoder.encode(`data: ${fallbackMessage}\n\n`))
           }
 
           // Send completion signal
