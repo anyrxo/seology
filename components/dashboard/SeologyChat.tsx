@@ -74,6 +74,7 @@ export function SeologyChat() {
   const [input, setInput] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [thinkingText, setThinkingText] = useState('Thinking')
   const [error, setError] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
   const [executionMode, setExecutionMode] = useState<ExecutionMode>('AUTOMATIC')
@@ -142,6 +143,31 @@ export function SeologyChat() {
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`
     }
   }, [input])
+
+  // Cool thinking animation - Claude style
+  useEffect(() => {
+    if (!isLoading) return
+
+    const thinkingStates = [
+      'Thinking',
+      'Analyzing',
+      'Processing',
+      'Contemplating',
+      'Discombobulating',
+      'Cogitating',
+      'Ruminating',
+      'Pondering',
+      'Deliberating',
+    ]
+
+    let currentIndex = 0
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % thinkingStates.length
+      setThinkingText(thinkingStates[currentIndex])
+    }, 800)
+
+    return () => clearInterval(interval)
+  }, [isLoading])
 
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return
@@ -406,9 +432,9 @@ export function SeologyChat() {
         blur="xl"
         padding="none"
         hover="none"
-        className="flex-1 flex flex-col overflow-hidden mb-4 min-h-0"
+        className="flex-1 flex flex-col mb-4 min-h-0 max-h-[calc(100vh-400px)]"
       >
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain">
           <AnimatePresence mode="popLayout">
             {messages.map((message, index) => (
               <MessageBubble
@@ -417,6 +443,7 @@ export function SeologyChat() {
                 onCopy={copyToClipboard}
                 isCopied={copiedId === message.id}
                 isLast={index === messages.length - 1}
+                thinkingText={thinkingText}
               />
             ))}
           </AnimatePresence>
@@ -536,9 +563,10 @@ interface MessageBubbleProps {
   onCopy: (content: string, id: string) => void
   isCopied: boolean
   isLast: boolean
+  thinkingText?: string
 }
 
-function MessageBubble({ message, onCopy, isCopied, isLast }: MessageBubbleProps) {
+function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: MessageBubbleProps) {
   const isUser = message.role === 'user'
 
   return (
@@ -565,12 +593,15 @@ function MessageBubble({ message, onCopy, isCopied, isLast }: MessageBubbleProps
             : 'bg-white/5 backdrop-blur-xl border border-white/10 text-gray-100'
         )}
       >
-        {/* Streaming indicator */}
-        {message.isStreaming && isLast && (
-          <div className="flex items-center gap-1 mb-2">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+        {/* Streaming indicator with thinking text */}
+        {message.isStreaming && isLast && !message.content && (
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+            </div>
+            <span className="text-sm text-gray-400 italic">{thinkingText}...</span>
           </div>
         )}
 

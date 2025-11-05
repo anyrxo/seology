@@ -88,7 +88,12 @@ async function fetchRobotsTxt(url: string): Promise<{
 }> {
   try {
     const robotsUrl = new URL('/robots.txt', url).toString()
-    const response = await fetch(robotsUrl)
+    const response = await fetch(robotsUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SeologyBot/1.0; +https://seology.ai)',
+      },
+      redirect: 'follow',
+    })
 
     if (!response.ok) {
       return {
@@ -129,8 +134,8 @@ async function fetchRobotsTxt(url: string): Promise<{
   } catch (error) {
     return {
       exists: false,
-      issues: ['Error fetching robots.txt'],
-      recommendations: ['Ensure robots.txt is accessible at root domain'],
+      issues: [`Error fetching robots.txt: ${error instanceof Error ? error.message : 'Network error'}`],
+      recommendations: ['Ensure robots.txt is accessible at root domain', 'Check if the site allows cross-origin requests'],
     }
   }
 }
@@ -254,15 +259,29 @@ export async function deepTechnicalAudit(
   url: string
 ): Promise<ToolResult<TechnicalAuditData>> {
   try {
-    // Fetch HTML for analysis
-    const response = await fetch(url)
+    // Ensure URL has protocol
+    const fullUrl = url.startsWith('http') ? url : `https://${url}`
+
+    // Fetch HTML for analysis with proper headers
+    const response = await fetch(fullUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SeologyBot/1.0; +https://seology.ai)',
+        'Accept': 'text/html',
+      },
+      redirect: 'follow',
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
+
     const html = await response.text()
 
     // Run parallel checks
     const [robotsTxt, sitemap, securityHeaders] = await Promise.all([
-      fetchRobotsTxt(url),
-      checkSitemap(url),
-      checkSecurityHeaders(url),
+      fetchRobotsTxt(fullUrl),
+      checkSitemap(fullUrl),
+      checkSecurityHeaders(fullUrl),
     ])
 
     // Check structured data
@@ -328,7 +347,7 @@ export async function deepTechnicalAudit(
     if (securityHeaders.issues.length > 2) { score -= 15; warnings++ }
 
     const auditData: TechnicalAuditData = {
-      url,
+      url: fullUrl,
       robots_txt: robotsTxt,
       sitemap,
       security_headers: securityHeaders,
@@ -345,9 +364,10 @@ export async function deepTechnicalAudit(
       data: auditData,
     }
   } catch (error) {
+    console.error('Deep technical audit error:', error)
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Technical audit failed',
+      error: `Failed to audit site: ${error instanceof Error ? error.message : 'Network error'}. The site may be blocking automated requests or have CORS restrictions.`,
     }
   }
 }
@@ -360,22 +380,50 @@ export async function competitorAnalysis(
   competitorUrls: string[]
 ): Promise<ToolResult<CompetitorComparisonData>> {
   try {
+    // Ensure URLs have protocol
+    const fullYourUrl = yourUrl.startsWith('http') ? yourUrl : `https://${yourUrl}`
+    const fullCompetitorUrls = competitorUrls.map(url =>
+      url.startsWith('http') ? url : `https://${url}`
+    )
+
     // Limit to 5 competitors
-    const competitors = competitorUrls.slice(0, 5)
+    const competitors = fullCompetitorUrls.slice(0, 5)
 
     // Analyze your site
-    const yourResponse = await fetch(yourUrl)
+    const yourResponse = await fetch(fullYourUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SeologyBot/1.0; +https://seology.ai)',
+        'Accept': 'text/html',
+      },
+      redirect: 'follow',
+    })
+
+    if (!yourResponse.ok) {
+      throw new Error(`Failed to fetch your site: HTTP ${yourResponse.status}`)
+    }
+
     const yourHtml = await yourResponse.text()
-    const yourSite = analyzeSiteForComparison(yourUrl, yourHtml)
+    const yourSite = analyzeSiteForComparison(fullYourUrl, yourHtml)
 
     // Analyze competitors in parallel
     const competitorAnalyses = await Promise.all(
       competitors.map(async (url) => {
         try {
-          const response = await fetch(url)
+          const response = await fetch(url, {
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (compatible; SeologyBot/1.0; +https://seology.ai)',
+              'Accept': 'text/html',
+            },
+            redirect: 'follow',
+          })
+          if (!response.ok) {
+            console.warn(`Failed to fetch competitor ${url}: HTTP ${response.status}`)
+            return null
+          }
           const html = await response.text()
           return analyzeSiteForComparison(url, html)
         } catch (error) {
+          console.warn(`Error fetching competitor ${url}:`, error)
           return null
         }
       })
@@ -435,9 +483,10 @@ export async function competitorAnalysis(
       data: comparisonData,
     }
   } catch (error) {
+    console.error('Competitor analysis error:', error)
     return {
       success: false,
-      error: error instanceof Error ? error.message : 'Competitor analysis failed',
+      error: `Failed to analyze competitors: ${error instanceof Error ? error.message : 'Network error'}. Some sites may be blocking automated requests.`,
     }
   }
 }

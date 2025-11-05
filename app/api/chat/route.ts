@@ -276,6 +276,8 @@ You can perform REAL actions using these tools:
 3. **check_page_speed** - Analyze page performance and get optimization recommendations
 4. **get_user_sites** - List all the user's connected sites with their current stats
 5. **create_fix_plan** - Create an SEO fix plan for specific issues
+6. **deep_technical_audit** - Comprehensive technical SEO audit (robots.txt, sitemap, security headers, Schema.org, mobile optimization, accessibility)
+7. **competitor_analysis** - Compare a site against competitors to identify SEO gaps and opportunities
 
 **WHEN TO USE TOOLS:**
 - User asks "analyze example.com" → Use analyze_website tool immediately
@@ -283,6 +285,8 @@ You can perform REAL actions using these tools:
 - User asks "check my site speed" → Use check_page_speed tool
 - User asks "what sites do I have" → Use get_user_sites tool
 - User wants to fix issues → Use create_fix_plan tool
+- User wants deep technical analysis → Use deep_technical_audit tool
+- User wants competitor comparison → Use competitor_analysis tool
 
 **HOW TO USE TOOLS:**
 1. ALWAYS use tools when the user asks for analysis, site checking, or wants to see their data
@@ -464,6 +468,8 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
                   check_page_speed: '⚡ Checking performance',
                   get_user_sites: '📊 Loading your sites',
                   create_fix_plan: '📋 Creating fix plan',
+                  deep_technical_audit: '🔬 Running deep technical audit',
+                  competitor_analysis: '📊 Analyzing competitors',
                 }
 
                 const displayName = toolDisplayNames[toolUse.name] || `🔧 Running ${toolUse.name}`
