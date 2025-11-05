@@ -39,7 +39,8 @@
       "Bash(do if [ -f \"app/(marketing)/$dir/page.tsx\" ])",
       "Bash(for dir in roadmap case-studies support partners security compliance contact)",
       "Bash(do echo \"=== $dir ===\")",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "Bash(tail:*)"
     ],
     "deny": [],
     "ask": []
