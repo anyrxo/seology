@@ -59,6 +59,8 @@ interface CreditBalance {
   monthlyCredits: number
   monthlyUsed: number
   monthlyRemaining: number
+  purchasedCredits: number
+  totalAvailable: number
   isUnlimited: boolean
 }
 
@@ -380,12 +382,12 @@ export function SeologyChat() {
                     'Unlimited Credits'
                   ) : (
                     <>
-                      {credits.monthlyRemaining} / {credits.monthlyCredits}
+                      {credits.totalAvailable} {credits.purchasedCredits > 0 && <span className="text-green-400">(+{credits.purchasedCredits})</span>}
                     </>
                   )}
                 </span>
                 <span className="text-[10px] text-gray-400">
-                  {credits.isUnlimited ? 'Enterprise Plan' : 'AI Credits'}
+                  {credits.isUnlimited ? 'Enterprise Plan' : 'AI Credits Available'}
                 </span>
               </div>
             </div>
