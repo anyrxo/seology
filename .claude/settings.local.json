@@ -33,7 +33,13 @@
       "Bash(timeout:*)",
       "Bash(exit 0)",
       "Bash(npx next build)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(tee:*)",
+      "Bash(for dir in team roadmap case-studies support partners security compliance)",
+      "Bash(do if [ -f \"app/(marketing)/$dir/page.tsx\" ])",
+      "Bash(for dir in roadmap case-studies support partners security compliance contact)",
+      "Bash(do echo \"=== $dir ===\")",
+      "Bash(head:*)"
     ],
     "deny": [],
     "ask": []
