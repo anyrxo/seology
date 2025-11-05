@@ -73,15 +73,19 @@ export function ConnectSiteStep({ onNext, onBack, onSkip }: ConnectSiteStepProps
   ]
 
   const handleConnect = async (platformId: string) => {
+    console.log('handleConnect called with:', platformId)
     setIsConnecting(true)
     setSelectedPlatform(platformId)
 
     // Redirect to connection flow
     if (platformId === 'shopify') {
+      console.log('Redirecting to Shopify connect...')
       router.push('/dashboard/sites/connect?platform=shopify&onboarding=true')
     } else if (platformId === 'wordpress') {
+      console.log('Redirecting to WordPress connect...')
       router.push('/dashboard/sites/connect?platform=wordpress&onboarding=true')
     } else {
+      console.log('Redirecting to Custom connect...')
       router.push('/dashboard/sites/connect?platform=custom&onboarding=true')
     }
   }
@@ -262,7 +266,13 @@ export function ConnectSiteStep({ onNext, onBack, onSkip }: ConnectSiteStepProps
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          onClick={() => onSkip?.()}
+          onClick={() => {
+            if (onSkip) {
+              onSkip()
+            } else {
+              router.push('/dashboard')
+            }
+          }}
           className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
           disabled={isConnecting}
         >
