@@ -51,6 +51,27 @@ interface ToolInputCompetitorAnalysis {
   competitor_urls: string[]
 }
 
+interface ToolInputAnalyzeRobotsTxt {
+  url: string
+}
+
+interface ToolInputAnalyzeSitemap {
+  url: string
+}
+
+interface ToolInputMultiPageAnalysis {
+  base_url: string
+  paths: string[]
+}
+
+interface ToolInputExtractNavigation {
+  url: string
+}
+
+interface ToolInputValidateSchemaMarkup {
+  url: string
+}
+
 export type ToolInput =
   | ToolInputAnalyzeWebsite
   | ToolInputGetSiteIssues
@@ -59,6 +80,11 @@ export type ToolInput =
   | ToolInputCreateFixPlan
   | ToolInputDeepTechnicalAudit
   | ToolInputCompetitorAnalysis
+  | ToolInputAnalyzeRobotsTxt
+  | ToolInputAnalyzeSitemap
+  | ToolInputMultiPageAnalysis
+  | ToolInputExtractNavigation
+  | ToolInputValidateSchemaMarkup
 
 interface SEOAnalysis {
   url: string
@@ -271,6 +297,86 @@ export const AI_TOOLS = [
       required: ['your_url', 'competitor_urls'],
     },
   },
+  {
+    name: 'analyze_robots_txt',
+    description:
+      'Fetch and analyze a website\'s robots.txt file to check for crawl directives, blocked paths, sitemap references, crawl-delay settings, and bot-specific rules. Identifies syntax errors and best practices violations.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        url: {
+          type: 'string' as const,
+          description: 'The website URL (robots.txt will be fetched from domain.com/robots.txt)',
+        },
+      },
+      required: ['url'],
+    },
+  },
+  {
+    name: 'analyze_sitemap',
+    description:
+      'Fetch and analyze a website\'s sitemap.xml to extract all URLs, check last modified dates, validate XML structure, and identify issues like broken links or missing pages.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        url: {
+          type: 'string' as const,
+          description: 'The sitemap URL (e.g., domain.com/sitemap.xml or full URL)',
+        },
+      },
+      required: ['url'],
+    },
+  },
+  {
+    name: 'multi_page_analysis',
+    description:
+      'Fetch and analyze multiple pages from a website simultaneously to compare metadata (titles, descriptions, H1s), identify duplicate content, and assess consistency across pages. Useful for auditing key pages.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        base_url: {
+          type: 'string' as const,
+          description: 'The base website URL',
+        },
+        paths: {
+          type: 'array' as const,
+          items: { type: 'string' as const },
+          description: 'Array of page paths to analyze (e.g., ["/", "/about", "/pricing"])',
+        },
+      },
+      required: ['base_url', 'paths'],
+    },
+  },
+  {
+    name: 'extract_navigation',
+    description:
+      'Extract and analyze website navigation structure including main menu, footer links, breadcrumbs, and internal linking patterns. Evaluates navigation SEO and UX.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        url: {
+          type: 'string' as const,
+          description: 'The website URL to analyze navigation from',
+        },
+      },
+      required: ['url'],
+    },
+  },
+  {
+    name: 'validate_schema_markup',
+    description:
+      'Extract and validate all Schema.org structured data (JSON-LD) from a webpage. Checks for required fields, syntax errors, fake reviews, and Rich Results eligibility.',
+    input_schema: {
+      type: 'object' as const,
+      properties: {
+        url: {
+          type: 'string' as const,
+          description: 'The webpage URL to extract schema from',
+        },
+      },
+      required: ['url'],
+    },
+  },
 ]
 
 /**
@@ -328,6 +434,24 @@ export async function handleToolCall(
           (toolInput as ToolInputCompetitorAnalysis).your_url,
           (toolInput as ToolInputCompetitorAnalysis).competitor_urls
         )
+
+      case 'analyze_robots_txt':
+        return await analyzeRobotsTxt((toolInput as ToolInputAnalyzeRobotsTxt).url)
+
+      case 'analyze_sitemap':
+        return await analyzeSitemap((toolInput as ToolInputAnalyzeSitemap).url)
+
+      case 'multi_page_analysis':
+        return await multiPageAnalysis(
+          (toolInput as ToolInputMultiPageAnalysis).base_url,
+          (toolInput as ToolInputMultiPageAnalysis).paths
+        )
+
+      case 'extract_navigation':
+        return await extractNavigation((toolInput as ToolInputExtractNavigation).url)
+
+      case 'validate_schema_markup':
+        return await validateSchemaMarkup((toolInput as ToolInputValidateSchemaMarkup).url)
 
       default:
         throw new Error(`Unknown tool: ${toolName}`)
@@ -812,5 +936,194 @@ async function createFixPlan(
   return {
     success: true,
     data: plan,
+  }
+}
+
+/**
+ * Tool: Analyze robots.txt
+ */
+async function analyzeRobotsTxt(url: string): Promise<ToolResult<string>> {
+  try {
+    // Normalize URL to get robots.txt
+    let robotsUrl = url
+    if (!robotsUrl.endsWith('/robots.txt')) {
+      const urlObj = new URL(url.startsWith('http') ? url : `https://${url}`)
+      robotsUrl = `${urlObj.origin}/robots.txt`
+    }
+
+    const response = await fetch(robotsUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SEOBot/1.0; +https://seology.ai)',
+      },
+    })
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: `robots.txt not found (${response.status} ${response.statusText})`,
+      }
+    }
+
+    const robotsTxt = await response.text()
+
+    return {
+      success: true,
+      data: `robots.txt from ${robotsUrl} (${robotsTxt.length} bytes):\n\n${robotsTxt}`,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to fetch robots.txt',
+    }
+  }
+}
+
+/**
+ * Tool: Analyze sitemap.xml
+ */
+async function analyzeSitemap(url: string): Promise<ToolResult<string>> {
+  try {
+    // Normalize URL to get sitemap.xml
+    let sitemapUrl = url
+    if (!sitemapUrl.includes('sitemap')) {
+      const urlObj = new URL(url.startsWith('http') ? url : `https://${url}`)
+      sitemapUrl = `${urlObj.origin}/sitemap.xml`
+    } else if (!sitemapUrl.startsWith('http')) {
+      sitemapUrl = `https://${sitemapUrl}`
+    }
+
+    const response = await fetch(sitemapUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SEOBot/1.0; +https://seology.ai)',
+      },
+    })
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: `sitemap.xml not found (${response.status} ${response.statusText})`,
+      }
+    }
+
+    const sitemapXml = await response.text()
+
+    return {
+      success: true,
+      data: `sitemap.xml from ${sitemapUrl} (${sitemapXml.length} bytes):\n\n${sitemapXml.substring(0, 50000)}`,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to fetch sitemap.xml',
+    }
+  }
+}
+
+/**
+ * Tool: Multi-page analysis
+ */
+async function multiPageAnalysis(baseUrl: string, paths: string[]): Promise<ToolResult<string>> {
+  try {
+    const normalizedBase = baseUrl.startsWith('http') ? baseUrl : `https://${baseUrl}`
+    const results: string[] = []
+
+    for (const path of paths.slice(0, 10)) {
+      // Limit to 10 pages
+      const fullUrl = `${normalizedBase}${path}`
+      try {
+        const response = await fetch(fullUrl, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (compatible; SEOBot/1.0; +https://seology.ai)',
+          },
+        })
+
+        if (response.ok) {
+          const html = await response.text()
+          results.push(`PAGE: ${fullUrl}\nStatus: ${response.status}\nHTML (first 5000 chars):\n${html.substring(0, 5000)}\n---`)
+        } else {
+          results.push(`PAGE: ${fullUrl}\nStatus: ${response.status} ${response.statusText}\n---`)
+        }
+      } catch (error) {
+        results.push(`PAGE: ${fullUrl}\nError: ${error instanceof Error ? error.message : 'Failed to fetch'}\n---`)
+      }
+    }
+
+    return {
+      success: true,
+      data: `Multi-page analysis of ${baseUrl} (${paths.length} pages):\n\n${results.join('\n\n')}`,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Multi-page analysis failed',
+    }
+  }
+}
+
+/**
+ * Tool: Extract navigation
+ */
+async function extractNavigation(url: string): Promise<ToolResult<string>> {
+  try {
+    const normalizedUrl = url.startsWith('http') ? url : `https://${url}`
+
+    const response = await fetch(normalizedUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SEOBot/1.0; +https://seology.ai)',
+      },
+    })
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: `Failed to fetch page (${response.status} ${response.statusText})`,
+      }
+    }
+
+    const html = await response.text()
+
+    return {
+      success: true,
+      data: `Navigation structure from ${normalizedUrl}:\n\nHTML (first 100000 chars for navigation extraction):\n${html.substring(0, 100000)}`,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Navigation extraction failed',
+    }
+  }
+}
+
+/**
+ * Tool: Validate schema markup
+ */
+async function validateSchemaMarkup(url: string): Promise<ToolResult<string>> {
+  try {
+    const normalizedUrl = url.startsWith('http') ? url : `https://${url}`
+
+    const response = await fetch(normalizedUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SEOBot/1.0; +https://seology.ai)',
+      },
+    })
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: `Failed to fetch page (${response.status} ${response.statusText})`,
+      }
+    }
+
+    const html = await response.text()
+
+    return {
+      success: true,
+      data: `Schema markup validation for ${normalizedUrl}:\n\nHTML (first 100000 chars for schema extraction):\n${html.substring(0, 100000)}`,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Schema validation failed',
+    }
   }
 }
