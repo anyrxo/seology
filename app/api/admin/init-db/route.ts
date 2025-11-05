@@ -138,10 +138,12 @@ export async function GET(request: Request) {
                   SELECT 1 FROM information_schema.columns
                   WHERE table_name = 'AICreditPurchase' AND column_name = 'status' AND data_type = 'text'
               ) THEN
-                  -- Convert existing TEXT column to enum type
+                  -- Drop default first, then convert type, then re-add default
+                  ALTER TABLE "AICreditPurchase" ALTER COLUMN "status" DROP DEFAULT;
                   ALTER TABLE "AICreditPurchase"
                       ALTER COLUMN "status" TYPE "PurchaseStatus"
                       USING "status"::"PurchaseStatus";
+                  ALTER TABLE "AICreditPurchase" ALTER COLUMN "status" SET DEFAULT 'PENDING'::"PurchaseStatus";
                   RAISE NOTICE 'Converted AICreditPurchase.status from TEXT to PurchaseStatus enum';
               END IF;
           END IF;
