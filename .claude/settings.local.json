@@ -46,7 +46,8 @@
       "Bash(curl -s https://www.seology.ai/api/notifications/unread-count)",
       "Bash(git checkout:*)",
       "Bash(node check-db.js:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": [],
     "ask": []

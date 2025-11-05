@@ -4,6 +4,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { db } from '@/lib/db'
 import { Platform, ExecutionMode, Plan, Severity } from '@prisma/client'
 import { hasAICredits, consumeAICredit, getAICreditBalance } from '@/lib/ai-credits'
+import { AI_TOOLS, handleToolCall, type ToolInput } from '@/lib/ai-tools'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -263,8 +264,41 @@ export async function POST(req: NextRequest) {
 
           const response = await anthropic.messages.create({
             model: 'claude-sonnet-4-5',
-            max_tokens: 2048,
-            system: `You are SEOLOGY.AI's intelligent SEO assistant. You are an expert in SEO optimization, website analysis, and automated SEO fixes. Your job is to help users improve their website's search engine rankings by identifying issues and suggesting fixes.
+            max_tokens: 4096,
+            tools: AI_TOOLS,
+            system: `You are SEOLOGY.AI's intelligent SEO assistant with REAL-TIME CAPABILITIES. You are an expert in SEO optimization, website analysis, and automated SEO fixes. Your job is to help users improve their website's search engine rankings by identifying issues and suggesting fixes.
+
+**CRITICAL: YOU HAVE ACTUAL TOOLS AT YOUR DISPOSAL**
+
+You can perform REAL actions using these tools:
+1. **analyze_website** - Fetch and analyze ANY website URL in real-time for SEO issues
+2. **get_site_issues** - Get the user's actual detected SEO issues from their connected sites
+3. **check_page_speed** - Analyze page performance and get optimization recommendations
+4. **get_user_sites** - List all the user's connected sites with their current stats
+5. **create_fix_plan** - Create an SEO fix plan for specific issues
+
+**WHEN TO USE TOOLS:**
+- User asks "analyze example.com" → Use analyze_website tool immediately
+- User asks "what issues does my site have" → Use get_site_issues tool
+- User asks "check my site speed" → Use check_page_speed tool
+- User asks "what sites do I have" → Use get_user_sites tool
+- User wants to fix issues → Use create_fix_plan tool
+
+**HOW TO USE TOOLS:**
+1. ALWAYS use tools when the user asks for analysis, site checking, or wants to see their data
+2. After using a tool, explain the results in clear, actionable language
+3. Be proactive - if the user mentions a URL, analyze it automatically
+4. Reference the tool results in your response to show you're using real data
+
+Example interaction:
+User: "Can you analyze anthropic.com?"
+You: *Use analyze_website tool*
+You: "I've analyzed anthropic.com and found 3 SEO issues:
+1. Missing meta description (impacts CTR)
+2. 5 images without alt text
+3. No Open Graph image for social sharing
+
+The site has good heading structure with 1 H1 tag. Would you like me to provide code examples to fix these issues?"
 
 CRITICAL BRANDING RULES:
 - You are SEOLOGY's AI assistant (NEVER mention Claude, Anthropic, or any other AI provider)
@@ -394,10 +428,111 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
             stream: true,
           })
 
+          // Collect tool uses and text content
+          let fullTextContent = ''
+          const toolUses: Array<{ id: string; name: string; input: unknown }> = []
+
           for await (const event of response) {
+            // Stream text content
             if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+              fullTextContent += event.delta.text
               const data = JSON.stringify({ content: event.delta.text })
               controller.enqueue(encoder.encode(`data: ${data}\n\n`))
+            }
+
+            // Collect tool use requests
+            if (event.type === 'content_block_start' && event.content_block.type === 'tool_use') {
+              toolUses.push({
+                id: event.content_block.id,
+                name: event.content_block.name,
+                input: event.content_block.input,
+              })
+            }
+          }
+
+          // If Claude requested tool use, execute tools and continue conversation
+          if (toolUses.length > 0) {
+            console.log(`🔧 Claude requested ${toolUses.length} tool(s):`, toolUses.map(t => t.name))
+
+            // Send tool execution status to user
+            controller.enqueue(
+              encoder.encode(
+                `data: ${JSON.stringify({ content: '\n\n🔍 Analyzing...\n\n' })}\n\n`
+              )
+            )
+
+            // Execute all tool calls
+            const toolResults = await Promise.all(
+              toolUses.map(async (toolUse) => {
+                try {
+                  const result = await handleToolCall(
+                    toolUse.name,
+                    toolUse.input as ToolInput,
+                    {
+                      userId: user.id,
+                      clerkId: userId,
+                    }
+                  )
+
+                  return {
+                    type: 'tool_result' as const,
+                    tool_use_id: toolUse.id,
+                    content: JSON.stringify(result),
+                  }
+                } catch (error) {
+                  console.error(`Error executing tool ${toolUse.name}:`, error)
+                  return {
+                    type: 'tool_result' as const,
+                    tool_use_id: toolUse.id,
+                    content: JSON.stringify({
+                      success: false,
+                      error: error instanceof Error ? error.message : 'Unknown error',
+                    }),
+                    is_error: true,
+                  }
+                }
+              })
+            )
+
+            // Continue the conversation with tool results
+            const followUpMessages: Anthropic.MessageParam[] = [
+              ...aiMessages,
+              {
+                role: 'assistant',
+                content: [
+                  ...(fullTextContent
+                    ? [{ type: 'text' as const, text: fullTextContent }]
+                    : []),
+                  ...toolUses.map((toolUse) => ({
+                    type: 'tool_use' as const,
+                    id: toolUse.id,
+                    name: toolUse.name,
+                    input: toolUse.input,
+                  })),
+                ],
+              },
+              {
+                role: 'user',
+                content: toolResults,
+              },
+            ]
+
+            // Make follow-up request to get Claude's response with tool results
+            const followUpResponse = await anthropic.messages.create({
+              model: 'claude-sonnet-4-5',
+              max_tokens: 4096,
+              tools: AI_TOOLS,
+              system: `${[...aiMessages.filter(m => m.role === 'user').slice(-1)][0]?.content || ''}`,
+              messages: followUpMessages,
+              stream: true,
+            })
+
+            // Stream the follow-up response
+            for await (const event of followUpResponse) {
+              if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
+                const data = JSON.stringify({ content: event.delta.text })
+                controller.enqueue(encoder.encode(`data: ${data}\n\n`))
+              }
             }
           }
 
