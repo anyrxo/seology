@@ -613,7 +613,7 @@ export function SeologyChat() {
       </div>
 
       {/* Input Area - Visible with Border */}
-      <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0">
+      <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0 pb-[25vh]">
         <div className="px-6 md:px-12 py-4">
           {/* Attached Files Preview */}
           {attachedFiles.length > 0 && (
@@ -686,20 +686,6 @@ export function SeologyChat() {
                 title="Attach images, PDFs, or documents"
               >
                 <Paperclip className="h-4 w-4" />
-              </button>
-
-              <button
-                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
-                aria-label="Search web"
-              >
-                <Globe className="h-4 w-4" />
-              </button>
-
-              <button
-                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
-                aria-label="Code"
-              >
-                <Code className="h-4 w-4" />
               </button>
 
               {/* Send Button */}
