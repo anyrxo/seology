@@ -458,52 +458,53 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-full max-h-[calc(100vh-12rem)]">
-      {/* Chat Header */}
-      <div className="flex items-center justify-between mb-6 flex-shrink-0 relative z-10">
-        <div>
-          <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-blue-400" />
-            SEOLOGY AI Assistant
+    <div className="flex flex-col h-full max-h-[calc(100vh-8rem)] md:max-h-[calc(100vh-12rem)]">
+      {/* Chat Header - Mobile Optimized */}
+      <div className="flex items-start md:items-center justify-between mb-3 md:mb-6 flex-shrink-0 relative z-10 gap-2">
+        <div className="flex-1 min-w-0">
+          <h2 className="text-lg md:text-2xl font-bold text-white flex items-center gap-2">
+            <Sparkles className="h-5 w-5 md:h-6 md:w-6 text-blue-400 flex-shrink-0" />
+            <span className="truncate">SEOLOGY AI</span>
           </h2>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-xs md:text-sm text-gray-400 mt-0.5 md:mt-1 hidden sm:block">
             AI-powered SEO analysis and automated fixes
           </p>
         </div>
-        <div className="flex items-center gap-3">
-          {/* AI Credits Display */}
+        <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+          {/* AI Credits Display - Compact on mobile */}
           {!isLoadingCredits && credits && (
-            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-2">
-              <Sparkles className="h-4 w-4 text-blue-400" />
+            <div className="flex items-center gap-1.5 md:gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-2 md:px-4 py-1.5 md:py-2">
+              <Sparkles className="h-3.5 w-3.5 md:h-4 md:w-4 text-blue-400 flex-shrink-0" />
               <div className="flex flex-col">
-                <span className="text-xs font-medium text-white">
+                <span className="text-[10px] md:text-xs font-medium text-white whitespace-nowrap">
                   {credits.isUnlimited ? (
-                    'Unlimited Credits'
+                    <span className="hidden sm:inline">Unlimited</span>
                   ) : (
                     <>
-                      {credits.totalAvailable} {credits.purchasedCredits > 0 && <span className="text-green-400">(+{credits.purchasedCredits})</span>}
+                      {credits.totalAvailable}
+                      {credits.purchasedCredits > 0 && <span className="text-green-400 text-[9px] md:text-[10px]"> (+{credits.purchasedCredits})</span>}
                     </>
                   )}
                 </span>
-                <span className="text-[10px] text-gray-400">
-                  {credits.isUnlimited ? 'Enterprise Plan' : 'AI Credits Available'}
+                <span className="text-[8px] md:text-[10px] text-gray-400 hidden md:block">
+                  {credits.isUnlimited ? 'Enterprise' : 'AI Credits'}
                 </span>
               </div>
             </div>
           )}
 
-          {/* Execution Mode Toggle */}
+          {/* Execution Mode Toggle - Hidden on smallest screens */}
           {!isLoadingMode && (
-            <div className="flex items-center gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-1">
+            <div className="hidden sm:flex items-center gap-1 md:gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-0.5 md:p-1">
               {(['AUTOMATIC', 'PLAN', 'APPROVE'] as ExecutionMode[]).map((mode) => (
                 <button
                   key={mode}
                   onClick={() => handleExecutionModeChange(mode)}
                   className={cn(
-                    'px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300',
+                    'px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-[10px] md:text-xs font-medium transition-all duration-300 whitespace-nowrap',
                     executionMode === mode
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5 active:scale-95'
                   )}
                 >
                   {mode === 'AUTOMATIC' && 'Auto'}
@@ -513,7 +514,7 @@ export function SeologyChat() {
               ))}
             </div>
           )}
-          <Badge variant="success" dot pulse>
+          <Badge variant="success" dot pulse className="hidden md:flex">
             Online
           </Badge>
         </div>
@@ -545,15 +546,15 @@ export function SeologyChat() {
         )}
       </AnimatePresence>
 
-      {/* Messages Container */}
+      {/* Messages Container - Mobile Optimized */}
       <GlassCard
         variant="medium"
         blur="xl"
         padding="none"
         hover="none"
-        className="flex-1 flex flex-col mb-4 min-h-0 overflow-hidden"
+        className="flex-1 flex flex-col mb-3 md:mb-4 min-h-0 overflow-hidden"
       >
-        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 space-y-3 md:space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-1.5 md:[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
               <div className="flex flex-col items-center gap-3">
@@ -580,14 +581,14 @@ export function SeologyChat() {
           )}
         </div>
 
-        {/* Suggested Prompts (show when no messages from user) */}
+        {/* Suggested Prompts - Mobile Optimized */}
         {messages.length === 1 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="px-4 sm:px-6 pb-4"
+            className="px-3 sm:px-4 md:px-6 pb-3 md:pb-4"
           >
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 md:gap-2">
               {suggestedPrompts.map((prompt, index) => (
                 <motion.button
                   key={index}
@@ -595,12 +596,12 @@ export function SeologyChat() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => handlePromptClick(prompt)}
-                  className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/50 rounded-xl text-sm text-gray-300 hover:text-white transition-all duration-300 group"
+                  className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 bg-white/5 active:bg-white/10 md:hover:bg-white/10 border border-white/10 active:border-blue-500/50 md:hover:border-blue-500/50 rounded-xl text-xs md:text-sm text-gray-300 active:text-white md:hover:text-white transition-all duration-300 group active:scale-95"
                 >
-                  <span className="text-blue-400 group-hover:scale-110 transition-transform">
+                  <span className="text-blue-400 group-hover:scale-110 transition-transform flex-shrink-0">
                     {prompt.icon}
                   </span>
-                  {prompt.text}
+                  <span className="truncate">{prompt.text}</span>
                 </motion.button>
               ))}
             </div>
@@ -608,7 +609,7 @@ export function SeologyChat() {
         )}
       </GlassCard>
 
-      {/* Input Area - Lovable Style */}
+      {/* Input Area - Mobile Optimized */}
       <div className="relative flex-shrink-0">
         <GlassCard
           variant="medium"
@@ -617,9 +618,9 @@ export function SeologyChat() {
           hover="glow"
           className="overflow-hidden"
         >
-          <div className="p-4 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5">
-            <div className="flex items-end gap-3">
-              {/* File Attachment */}
+          <div className="p-2.5 md:p-4 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5">
+            <div className="flex items-end gap-2 md:gap-3">
+              {/* File Attachment - Hidden on smallest screens */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -629,13 +630,13 @@ export function SeologyChat() {
               />
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all duration-300 hover:scale-105 active:scale-95"
+                className="hidden sm:flex p-2.5 rounded-xl bg-white/5 active:bg-white/10 md:hover:bg-white/10 text-gray-400 active:text-white md:hover:text-white transition-all duration-300 md:hover:scale-105 active:scale-95 touch-manipulation"
                 aria-label="Attach file"
               >
                 <Paperclip className="h-5 w-5" />
               </button>
 
-              {/* Text Input */}
+              {/* Text Input - Touch Optimized */}
               <div className="flex-1 relative">
                 <textarea
                   ref={textareaRef}
@@ -644,16 +645,18 @@ export function SeologyChat() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask me anything about SEO..."
                   rows={1}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent resize-none max-h-32 transition-all duration-300"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent resize-none max-h-32 transition-all duration-300 touch-manipulation"
+                  style={{ minHeight: '44px' }}
                   disabled={isLoading}
                 />
               </div>
 
-              {/* Send Button - Gradient Style */}
+              {/* Send Button - Touch Optimized */}
               <Button
                 onClick={handleSendMessage}
                 disabled={!input.trim() || isLoading}
-                className="h-11 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 disabled:from-gray-700 disabled:to-gray-700 text-white shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-50"
+                className="h-11 md:h-11 w-11 md:w-auto md:px-6 flex-shrink-0 bg-gradient-to-r from-blue-600 to-purple-600 active:from-blue-500 active:to-purple-500 md:hover:from-blue-500 md:hover:to-purple-500 disabled:from-gray-700 disabled:to-gray-700 text-white shadow-lg shadow-blue-500/20 active:shadow-blue-500/40 md:hover:shadow-blue-500/40 transition-all duration-300 md:hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-50 touch-manipulation"
+                style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 {isLoading ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -665,8 +668,8 @@ export function SeologyChat() {
           </div>
         </GlassCard>
 
-        {/* Keyboard Shortcut Hint */}
-        <div className="absolute -top-8 right-0 text-xs text-gray-500">
+        {/* Keyboard Shortcut Hint - Desktop only */}
+        <div className="hidden md:block absolute -top-8 right-0 text-xs text-gray-500">
           Press <kbd className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Enter</kbd> to send
         </div>
       </div>
