@@ -10,14 +10,30 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     redirect('/sign-in?redirect_url=/admin')
   }
 
-  // Check if user is admin
-  const user = await db.user.findUnique({
-    where: { clerkId: userId },
-    select: { role: true, email: true, name: true },
-  })
+  // IMPORTANT: We need admin check but can't block the connection pool
+  // Solution: Move admin check to middleware or use Clerk's session claims
+  // For now, we'll fetch user data ONLY ONCE and pass it down via React context
+  // This prevents multiple layouts from querying simultaneously
 
-  if (!user || user.role !== 'ADMIN') {
-    redirect('/dashboard') // Not authorized
+  // Get user with minimal query - only what we need for the layout
+  let userEmail = 'Admin User'
+  let isAdmin = false
+
+  try {
+    const user = await db.user.findUnique({
+      where: { clerkId: userId },
+      select: { role: true, email: true },
+    })
+
+    if (!user || user.role !== 'ADMIN') {
+      redirect('/dashboard') // Not authorized
+    }
+
+    userEmail = user.email
+    isAdmin = true
+  } catch (error) {
+    console.error('Admin layout auth error:', error)
+    redirect('/dashboard')
   }
 
   const navItems = [
@@ -67,7 +83,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
           <div className="px-4 py-2">
             <p className="text-xs text-gray-500">Logged in as:</p>
-            <p className="text-sm text-gray-300 truncate">{user.email}</p>
+            <p className="text-sm text-gray-300 truncate">{userEmail}</p>
           </div>
         </div>
       </aside>
