@@ -1,6 +1,6 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
-import { SeologyChat } from '@/components/dashboard/SeologyChat'
+import SeologyChat from '@/components/dashboard/SeologyChat'
 import { db } from '@/lib/db'
 
 export default async function ChatPage() {

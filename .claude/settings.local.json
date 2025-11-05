@@ -61,7 +61,10 @@
       "Bash(if grep -q \"favicon\" temp_iimagined.html)",
       "Bash(if grep -q \"twitter:card\" temp_iimagined.html)",
       "Bash(node:*)",
-      "Bash(del:*)"
+      "Bash(del:*)",
+      "Bash(if [ -f \".env.local\" ])",
+      "Bash(then cat .env.local)",
+      "Bash(else echo \"No .env.local file found\")"
     ],
     "deny": [],
     "ask": []
