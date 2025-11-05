@@ -2,6 +2,7 @@ import { auth } from '@clerk/nextjs/server'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
 import { db } from '@/lib/db'
+import { CopyButton } from './CopyButton'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -423,12 +424,7 @@ function MagicScriptSection({ siteId }: { siteId: string }) {
           <pre className="bg-gray-950 border border-gray-700 rounded p-4 text-sm text-gray-300 overflow-x-auto">
             {scriptCode}
           </pre>
-          <button
-            onClick={() => navigator.clipboard.writeText(scriptCode)}
-            className="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors"
-          >
-            Copy to Clipboard
-          </button>
+          <CopyButton text={scriptCode} />
         </div>
       </div>
     </div>

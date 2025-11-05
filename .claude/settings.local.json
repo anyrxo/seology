@@ -60,7 +60,8 @@
       "Bash(else echo \"✗ Not found\")",
       "Bash(if grep -q \"favicon\" temp_iimagined.html)",
       "Bash(if grep -q \"twitter:card\" temp_iimagined.html)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(del:*)"
     ],
     "deny": [],
     "ask": []

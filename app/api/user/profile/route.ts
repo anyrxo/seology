@@ -112,7 +112,7 @@ export async function PATCH(req: NextRequest) {
 
   try {
     const body = await req.json()
-    const { name, executionMode } = body
+    const { name, executionMode, onboardingCompleted } = body
 
     // Validate input
     if (executionMode && !['AUTOMATIC', 'PLAN', 'APPROVE'].includes(executionMode)) {
@@ -152,6 +152,7 @@ export async function PATCH(req: NextRequest) {
       data: {
         ...(name !== undefined && { name }),
         ...(executionMode && { executionMode }),
+        ...(onboardingCompleted !== undefined && { onboardingCompleted }),
       },
     })
 
@@ -166,6 +167,7 @@ export async function PATCH(req: NextRequest) {
           changes: {
             ...(name !== undefined && { name }),
             ...(executionMode && { executionMode }),
+            ...(onboardingCompleted !== undefined && { onboardingCompleted }),
           }
         }),
       },
