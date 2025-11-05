@@ -9,12 +9,6 @@ export const metadata: Metadata = {
   title: "SEOLOGY.AI - AI-Powered SEO Automation That Actually Fixes Issues",
   description: "The first SEO tool that doesn't just report problems—it fixes them. Connect your CMS and let advanced AI automatically optimize your SEO.",
   metadataBase: new URL('https://seology.ai'),
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
     title: "SEOLOGY.AI - AI-Powered SEO Automation",
     description: "The first SEO tool that actually fixes issues automatically using advanced AI.",
@@ -25,6 +19,13 @@ export const metadata: Metadata = {
     title: "SEOLOGY.AI - AI-Powered SEO Automation",
     description: "The first SEO tool that actually fixes issues automatically using advanced AI.",
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({

@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { getCreditUsageStats } from '@/lib/ai-credits'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/credits/balance
  * Get user's current AI credit balance and usage statistics

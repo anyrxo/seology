@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { isAdmin } from '@/lib/middleware/admin-guard'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 // POST /api/admin/broadcasts/[id]/send - Send broadcast
 export async function POST(
   request: NextRequest,

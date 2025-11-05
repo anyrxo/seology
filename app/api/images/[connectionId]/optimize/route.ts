@@ -8,6 +8,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { createJob } from '@/lib/queue'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 export async function POST(
   request: NextRequest,
   { params }: { params: { connectionId: string } }

@@ -13,6 +13,9 @@ const anthropic = new Anthropic({
 // Edge runtime doesn't support Node.js APIs that Prisma requires
 // export const runtime = 'edge'
 
+// Force dynamic rendering for this API route to prevent static optimization issues
+export const dynamic = 'force-dynamic'
+
 interface Message {
   role: 'user' | 'assistant'
   content: string

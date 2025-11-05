@@ -2,6 +2,9 @@ import { auth } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 /**
  * PATCH /api/settings/business-profile
  * Update user's business profile information

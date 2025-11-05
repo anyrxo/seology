@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { approveFix } from '@/lib/execution-modes'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 /**
  * POST /api/reports/[id]/approve
  * Approve and execute pending fixes from a daily report

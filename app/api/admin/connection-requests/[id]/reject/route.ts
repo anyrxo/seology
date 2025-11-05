@@ -2,6 +2,9 @@ import { auth } from '@clerk/nextjs/server'
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 // POST /api/admin/connection-requests/[id]/reject - Reject connection request
 export async function POST(
   req: NextRequest,

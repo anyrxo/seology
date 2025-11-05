@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { Prisma } from '@prisma/client'
 
+// Mark this route as dynamic (uses auth/headers and searchParams)
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/reports
  * List user's daily reports with pagination

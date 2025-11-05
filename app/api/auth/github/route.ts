@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs/server'
 import { getGitHubAuthUrl } from '@/lib/github'
 
+// Mark this route as dynamic (uses auth/headers)
+export const dynamic = 'force-dynamic'
+
 /**
  * GitHub OAuth - Initiate
  * Redirects user to GitHub authorization page

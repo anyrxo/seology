@@ -12,6 +12,9 @@ import { db } from '@/lib/db'
 import { getImageStats } from '@/lib/image-scanner'
 import { createJob } from '@/lib/queue'
 
+// Mark this route as dynamic (uses auth/headers and searchParams)
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/images/[connectionId]
  * Get images for a connection with stats

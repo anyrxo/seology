@@ -8,6 +8,9 @@ import {
   GitHubRepository,
 } from '@/lib/github'
 
+// Mark this route as dynamic (uses auth/headers and searchParams)
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/github/repositories
  * Fetch user's GitHub repositories

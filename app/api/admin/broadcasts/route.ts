@@ -3,6 +3,9 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { isAdmin } from '@/lib/middleware/admin-guard'
 
+// Mark this route as dynamic (uses auth/headers and searchParams)
+export const dynamic = 'force-dynamic'
+
 // GET /api/admin/broadcasts - List all broadcasts
 export async function GET(request: NextRequest) {
   try {

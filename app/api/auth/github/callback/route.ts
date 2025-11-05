@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { exchangeGitHubCode, getGitHubUser } from '@/lib/github'
 
+// Mark this route as dynamic (uses searchParams)
+export const dynamic = 'force-dynamic'
+
 /**
  * GitHub OAuth - Callback
  * Handles the OAuth callback from GitHub
