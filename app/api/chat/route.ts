@@ -289,8 +289,8 @@ export async function POST(req: NextRequest) {
 
 YOU MUST EXECUTE THIS FLOW EXACTLY:
 
-1. User mentions URL/site → INSTANTLY call tool (NO TEXT FIRST)
-2. Brief casual response WHILE tool runs: "Checking that out..."
+1. User mentions URL/site → Brief message like "Taking a look..." THEN call tool immediately
+2. Tool executes in background
 3. Present results naturally after tool completes
 
 **MANDATORY TOOL TRIGGERS:**
@@ -313,13 +313,12 @@ User says: "validate schema" → YOU CALL: validate_schema_markup(url)
 
 **CORRECT EXECUTION PATTERN:**
 ✅ User: "analyze futureshive.com"
-✅ You: [IMMEDIATELY call analyze_website tool with NO TEXT]
-✅ You: "Taking a quick look..." [brief casual text WHILE tool runs]
-✅ Tool completes → You present findings naturally
+✅ You: "Taking a look..." [brief text + tool call together]
+✅ Tool executes → You present findings naturally
 
 **WRONG EXECUTION (FORBIDDEN):**
 ❌ User: "analyze futureshive.com"
-❌ You: "Let me analyze that site for you! I'll check..." [NO TOOL CALLED = FAILURE]
+❌ You: "Let me analyze that site for you! I'll check all the pages and..." [NO TOOL CALLED = FAILURE]
 
 The difference between SUCCESS and FAILURE:
 - SUCCESS = Tool called immediately, results presented
@@ -493,6 +492,12 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
           // If Claude requested tool use, execute tools and continue conversation
           if (toolUses.length > 0) {
             console.log(`🔧 Claude requested ${toolUses.length} tool(s):`, toolUses.map(t => t.name))
+
+            // If no text was streamed yet, send a brief message so user knows we're working
+            if (fullTextContent.trim().length === 0) {
+              const workingMessage = JSON.stringify({ content: 'Taking a look...' })
+              controller.enqueue(encoder.encode(`data: ${workingMessage}\n\n`))
+            }
 
             // Execute tools silently in the background - no progress indicators
             // The AI will naturally communicate what it's doing in conversational language
