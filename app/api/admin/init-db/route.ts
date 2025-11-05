@@ -132,6 +132,18 @@ export async function GET(request: Request) {
                   FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
               RAISE NOTICE 'Created table: AICreditPurchase';
+          ELSE
+              -- Table exists, convert status column from TEXT to enum if needed
+              IF EXISTS (
+                  SELECT 1 FROM information_schema.columns
+                  WHERE table_name = 'AICreditPurchase' AND column_name = 'status' AND data_type = 'text'
+              ) THEN
+                  -- Convert existing TEXT column to enum type
+                  ALTER TABLE "AICreditPurchase"
+                      ALTER COLUMN "status" TYPE "PurchaseStatus"
+                      USING "status"::"PurchaseStatus";
+                  RAISE NOTICE 'Converted AICreditPurchase.status from TEXT to PurchaseStatus enum';
+              END IF;
           END IF;
       END $$;
     `)
