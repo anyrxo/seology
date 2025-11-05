@@ -458,7 +458,7 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-transparent">
+    <div className="flex flex-col h-[calc(100vh-4rem)] bg-transparent">
 
       {/* Error Banner */}
       <AnimatePresence>
@@ -483,11 +483,11 @@ export function SeologyChat() {
         )}
       </AnimatePresence>
 
-      {/* Messages Container - Full Height, No Scroll Issues */}
-      <div className="flex-1 min-h-0 overflow-hidden">
+      {/* Messages Container - Proper Height */}
+      <div className="flex-1 min-h-0 overflow-hidden pb-4">
         <div
           ref={messagesContainerRef}
-          className="h-full overflow-y-auto px-6 md:px-16 lg:px-24 xl:px-32 py-12 space-y-10 scroll-smooth [&::-webkit-scrollbar]:w-[2px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="h-full overflow-y-auto px-6 md:px-12 py-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
@@ -516,11 +516,11 @@ export function SeologyChat() {
         </div>
       </div>
 
-      {/* Input Area - Fixed Bottom, Transparent */}
-      <div className="border-t border-white/[0.06] bg-transparent flex-shrink-0">
-        <div className="px-6 md:px-16 lg:px-24 xl:px-32 py-5">
-          <div className="flex items-center gap-4 max-w-full">
-            {/* Text Input - Borderless */}
+      {/* Input Area - Visible with Border */}
+      <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0">
+        <div className="px-6 md:px-12 py-4">
+          <div className="flex items-center gap-3 border border-white/10 rounded-xl px-4 py-2 bg-white/5">
+            {/* Text Input - Visible */}
             <div className="flex-1 relative">
               <textarea
                 ref={textareaRef}
@@ -529,13 +529,13 @@ export function SeologyChat() {
                 onKeyDown={handleKeyDown}
                 placeholder="Ask a follow-up"
                 rows={1}
-                className="w-full bg-transparent border-0 px-0 py-3 text-[15px] text-gray-200 placeholder-gray-600 focus:outline-none resize-none max-h-40 leading-relaxed"
+                className="w-full bg-transparent border-0 px-0 py-2 text-[15px] text-white placeholder-gray-500 focus:outline-none resize-none max-h-32 leading-relaxed"
                 disabled={isLoading}
               />
             </div>
 
-            {/* Action Icons - Far Right */}
-            <div className="flex items-center gap-2">
+            {/* Action Icons */}
+            <div className="flex items-center gap-1.5">
               {/* File Attachment */}
               <input
                 ref={fileInputRef}
