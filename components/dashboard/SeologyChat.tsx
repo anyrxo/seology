@@ -339,9 +339,9 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-12rem)]">
+    <div className="flex flex-col h-full max-h-[calc(100vh-12rem)]">
       {/* Chat Header */}
-      <div className="flex items-center justify-between mb-6 flex-shrink-0">
+      <div className="flex items-center justify-between mb-6 flex-shrink-0 relative z-10">
         <div>
           <h2 className="text-2xl font-bold text-white flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-blue-400" />
@@ -432,7 +432,7 @@ export function SeologyChat() {
         blur="xl"
         padding="none"
         hover="none"
-        className="flex-1 flex flex-col mb-4 min-h-0 max-h-[calc(100vh-400px)]"
+        className="flex-1 flex flex-col mb-4 min-h-0 overflow-hidden"
       >
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain">
           <AnimatePresence mode="popLayout">
