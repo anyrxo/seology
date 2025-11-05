@@ -35,7 +35,7 @@ export function DashboardHeader() {
         <div className="container-default w-container px-3 md:px-6">
           <div className="header-content-wrapper flex items-center justify-between h-14 md:h-16">
             {/* Left: Page Title */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 mr-auto">
               {/* Desktop: Show breadcrumbs */}
               <div className="hidden md:block">
                 <Breadcrumbs items={breadcrumbItems} />
@@ -50,7 +50,7 @@ export function DashboardHeader() {
             </div>
 
             {/* Right: Header Actions - Touch Optimized */}
-            <div className="flex items-center gap-1 md:gap-3">
+            <div className="flex items-center gap-1 md:gap-3 ml-auto">
               {/* Notifications - Touch Friendly */}
               <div className="relative">
                 <button

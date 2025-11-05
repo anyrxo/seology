@@ -458,83 +458,20 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-full max-h-[calc(100vh-8rem)] md:max-h-[calc(100vh-12rem)]">
-      {/* Chat Header - Mobile Optimized */}
-      <div className="flex items-start md:items-center justify-between mb-3 md:mb-6 flex-shrink-0 relative z-10 gap-2">
-        <div className="flex-1 min-w-0">
-          <h2 className="text-lg md:text-2xl font-bold text-white flex items-center gap-2">
-            <Sparkles className="h-5 w-5 md:h-6 md:w-6 text-blue-400 flex-shrink-0" />
-            <span className="truncate">SEOLOGY AI</span>
-          </h2>
-          <p className="text-xs md:text-sm text-gray-400 mt-0.5 md:mt-1 hidden sm:block">
-            AI-powered SEO analysis and automated fixes
-          </p>
-        </div>
-        <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-          {/* AI Credits Display - Compact on mobile */}
-          {!isLoadingCredits && credits && (
-            <div className="flex items-center gap-1.5 md:gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl px-2 md:px-4 py-1.5 md:py-2">
-              <Sparkles className="h-3.5 w-3.5 md:h-4 md:w-4 text-blue-400 flex-shrink-0" />
-              <div className="flex flex-col">
-                <span className="text-[10px] md:text-xs font-medium text-white whitespace-nowrap">
-                  {credits.isUnlimited ? (
-                    <span className="hidden sm:inline">Unlimited</span>
-                  ) : (
-                    <>
-                      {credits.totalAvailable}
-                      {credits.purchasedCredits > 0 && <span className="text-green-400 text-[9px] md:text-[10px]"> (+{credits.purchasedCredits})</span>}
-                    </>
-                  )}
-                </span>
-                <span className="text-[8px] md:text-[10px] text-gray-400 hidden md:block">
-                  {credits.isUnlimited ? 'Enterprise' : 'AI Credits'}
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Execution Mode Toggle - Hidden on smallest screens */}
-          {!isLoadingMode && (
-            <div className="hidden sm:flex items-center gap-1 md:gap-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-0.5 md:p-1">
-              {(['AUTOMATIC', 'PLAN', 'APPROVE'] as ExecutionMode[]).map((mode) => (
-                <button
-                  key={mode}
-                  onClick={() => handleExecutionModeChange(mode)}
-                  className={cn(
-                    'px-2 md:px-3 py-1 md:py-1.5 rounded-lg text-[10px] md:text-xs font-medium transition-all duration-300 whitespace-nowrap',
-                    executionMode === mode
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5 active:scale-95'
-                  )}
-                >
-                  {mode === 'AUTOMATIC' && 'Auto'}
-                  {mode === 'PLAN' && 'Plan'}
-                  {mode === 'APPROVE' && 'Approve'}
-                </button>
-              ))}
-            </div>
-          )}
-          <Badge variant="success" dot pulse className="hidden md:flex">
-            Online
-          </Badge>
-        </div>
-      </div>
+    <div className="flex flex-col h-[calc(100vh-4rem)] bg-[#0a0a0a]">
 
       {/* Error Banner */}
       <AnimatePresence>
         {error && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="mb-4"
+            exit={{ opacity: 0, y: -10 }}
+            className="mx-4 md:mx-6 mt-4"
           >
-            <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
-              <AlertCircle className="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" />
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold text-red-400 mb-1">Error</h3>
-                <p className="text-sm text-red-300">{error}</p>
-              </div>
+            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 flex items-start gap-3">
+              <AlertCircle className="h-4 w-4 text-red-400 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-300 flex-1">{error}</p>
               <button
                 onClick={() => setError(null)}
                 className="text-red-400 hover:text-red-300 transition-colors"
@@ -546,20 +483,17 @@ export function SeologyChat() {
         )}
       </AnimatePresence>
 
-      {/* Messages Container - Mobile Optimized */}
-      <GlassCard
-        variant="medium"
-        blur="xl"
-        padding="none"
-        hover="none"
-        className="flex-1 flex flex-col mb-3 md:mb-4 min-h-0 overflow-hidden"
-      >
-        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 space-y-3 md:space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-1.5 md:[&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
+      {/* Messages Container - Ultra Clean */}
+      <div className="flex-1 overflow-hidden">
+        <div
+          ref={messagesContainerRef}
+          className="h-full overflow-y-auto px-6 md:px-12 py-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/5 [&::-webkit-scrollbar-thumb]:rounded-full"
+        >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
               <div className="flex flex-col items-center gap-3">
-                <Loader2 className="h-8 w-8 text-blue-400 animate-spin" />
-                <p className="text-sm text-gray-400">Loading chat history...</p>
+                <Loader2 className="h-6 w-6 text-blue-500 animate-spin" />
+                <p className="text-sm text-gray-600">Loading...</p>
               </div>
             </div>
           ) : (
@@ -580,47 +514,29 @@ export function SeologyChat() {
             </>
           )}
         </div>
+      </div>
 
-        {/* Suggested Prompts - Mobile Optimized */}
-        {messages.length === 1 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="px-3 sm:px-4 md:px-6 pb-3 md:pb-4"
-          >
-            <div className="flex flex-wrap gap-1.5 md:gap-2">
-              {suggestedPrompts.map((prompt, index) => (
-                <motion.button
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => handlePromptClick(prompt)}
-                  className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 bg-white/5 active:bg-white/10 md:hover:bg-white/10 border border-white/10 active:border-blue-500/50 md:hover:border-blue-500/50 rounded-xl text-xs md:text-sm text-gray-300 active:text-white md:hover:text-white transition-all duration-300 group active:scale-95"
-                >
-                  <span className="text-blue-400 group-hover:scale-110 transition-transform flex-shrink-0">
-                    {prompt.icon}
-                  </span>
-                  <span className="truncate">{prompt.text}</span>
-                </motion.button>
-              ))}
+      {/* Input Area - Ultra Minimal */}
+      <div className="border-t border-white/[0.03] bg-[#0a0a0a] flex-shrink-0">
+        <div className="px-6 md:px-12 py-4">
+          <div className="flex items-center gap-3 max-w-full">
+            {/* Text Input - Pure */}
+            <div className="flex-1 relative">
+              <textarea
+                ref={textareaRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Ask a follow-up"
+                rows={1}
+                className="w-full bg-transparent border-0 px-0 py-3 text-[15px] text-white placeholder-gray-700 focus:outline-none resize-none max-h-40 leading-relaxed"
+                disabled={isLoading}
+              />
             </div>
-          </motion.div>
-        )}
-      </GlassCard>
 
-      {/* Input Area - Mobile Optimized */}
-      <div className="relative flex-shrink-0">
-        <GlassCard
-          variant="medium"
-          blur="xl"
-          padding="none"
-          hover="glow"
-          className="overflow-hidden"
-        >
-          <div className="p-2.5 md:p-4 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5">
-            <div className="flex items-end gap-2 md:gap-3">
-              {/* File Attachment - Hidden on smallest screens */}
+            {/* Action Icons - Right Side */}
+            <div className="flex items-center gap-1.5">
+              {/* File Attachment */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -630,47 +546,40 @@ export function SeologyChat() {
               />
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="hidden sm:flex p-2.5 rounded-xl bg-white/5 active:bg-white/10 md:hover:bg-white/10 text-gray-400 active:text-white md:hover:text-white transition-all duration-300 md:hover:scale-105 active:scale-95 touch-manipulation"
-                aria-label="Attach file"
+                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
+                aria-label="Attach"
               >
-                <Paperclip className="h-5 w-5" />
+                <Paperclip className="h-4 w-4" />
               </button>
 
-              {/* Text Input - Touch Optimized */}
-              <div className="flex-1 relative">
-                <textarea
-                  ref={textareaRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  placeholder="Ask me anything about SEO..."
-                  rows={1}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent resize-none max-h-32 transition-all duration-300 touch-manipulation"
-                  style={{ minHeight: '44px' }}
-                  disabled={isLoading}
-                />
-              </div>
+              <button
+                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
+                aria-label="Search web"
+              >
+                <Globe className="h-4 w-4" />
+              </button>
 
-              {/* Send Button - Touch Optimized */}
-              <Button
+              <button
+                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
+                aria-label="Code"
+              >
+                <Code className="h-4 w-4" />
+              </button>
+
+              {/* Send Button */}
+              <button
                 onClick={handleSendMessage}
                 disabled={!input.trim() || isLoading}
-                className="h-11 md:h-11 w-11 md:w-auto md:px-6 flex-shrink-0 bg-gradient-to-r from-blue-600 to-purple-600 active:from-blue-500 active:to-purple-500 md:hover:from-blue-500 md:hover:to-purple-500 disabled:from-gray-700 disabled:to-gray-700 text-white shadow-lg shadow-blue-500/20 active:shadow-blue-500/40 md:hover:shadow-blue-500/40 transition-all duration-300 md:hover:scale-105 active:scale-95 disabled:scale-100 disabled:opacity-50 touch-manipulation"
-                style={{ minWidth: '44px', minHeight: '44px' }}
+                className="p-2 rounded-md hover:bg-white/5 disabled:opacity-30 text-gray-600 hover:text-white disabled:hover:text-gray-600 transition-colors"
               >
                 {isLoading ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <Send className="h-5 w-5" />
+                  <Send className="h-4 w-4" />
                 )}
-              </Button>
+              </button>
             </div>
           </div>
-        </GlassCard>
-
-        {/* Keyboard Shortcut Hint - Desktop only */}
-        <div className="hidden md:block absolute -top-8 right-0 text-xs text-gray-500">
-          Press <kbd className="px-2 py-0.5 bg-white/5 rounded border border-white/10">Enter</kbd> to send
         </div>
       </div>
     </div>
@@ -690,70 +599,98 @@ function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: Mess
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
-      className={cn('flex gap-3', isUser ? 'justify-end' : 'justify-start')}
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.15 }}
+      className="group max-w-full"
     >
-      {/* Avatar */}
-      {!isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-          <Sparkles className="h-4 w-4 text-white" />
+      {/* Pure Text Layout - No containers */}
+      <div className="flex gap-4 items-start">
+        {/* Tiny Avatar Icon */}
+        <div className="flex-shrink-0 w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500/90 to-purple-600/90 flex items-center justify-center mt-0.5">
+          {isUser ? (
+            <span className="text-[10px] font-semibold text-white">U</span>
+          ) : (
+            <Sparkles className="h-3.5 w-3.5 text-white" />
+          )}
         </div>
-      )}
 
-      {/* Message Content */}
-      <div
-        className={cn(
-          'max-w-[80%] rounded-2xl px-4 py-3 group relative',
-          isUser
-            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20'
-            : 'bg-white/5 backdrop-blur-xl border border-white/10 text-gray-100'
-        )}
-      >
-        {/* Streaming indicator with thinking text */}
-        {message.isStreaming && isLast && !message.content && (
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+        {/* Message Content - Pure Typography */}
+        <div className="flex-1 min-w-0 space-y-2">
+          {/* Streaming indicator - Subtle */}
+          {message.isStreaming && isLast && !message.content && (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+              </div>
+              <span className="text-xs text-gray-600 italic">{thinkingText}...</span>
             </div>
-            <span className="text-sm text-gray-400 italic">{thinkingText}...</span>
-          </div>
-        )}
+          )}
 
-        <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
+          {/* Message Text - Beautiful Typography */}
+          {message.content && (
+            <div className="text-[15px] text-gray-300 leading-[1.7] whitespace-pre-wrap font-light tracking-wide">
+              {message.content}
+            </div>
+          )}
 
-        {/* Timestamp & Actions */}
-        <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/10">
-          <span className="text-xs opacity-60">
-            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </span>
+          {/* Action Bar - Below message, subtle */}
+          {!isUser && !message.isStreaming && message.content && (
+            <div className="flex items-center gap-3 pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {/* Copy button */}
+              <button
+                onClick={() => onCopy(message.content, message.id)}
+                className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-gray-400 transition-colors"
+                aria-label="Copy"
+              >
+                {isCopied ? (
+                  <>
+                    <Check className="h-3 w-3" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-3 w-3" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
 
-          {!isUser && !message.isStreaming && (
-            <button
-              onClick={() => onCopy(message.content, message.id)}
-              className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-white/10 transition-all"
-              aria-label="Copy message"
-            >
-              {isCopied ? (
-                <Check className="h-3 w-3 text-green-400" />
-              ) : (
-                <Copy className="h-3 w-3" />
-              )}
-            </button>
+              {/* Share button */}
+              <button className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-gray-400 transition-colors">
+                <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                </svg>
+                <span>Share</span>
+              </button>
+
+              {/* Feedback buttons */}
+              <div className="flex items-center gap-1 ml-auto">
+                <button className="p-1.5 hover:bg-white/5 rounded text-gray-600 hover:text-gray-400 transition-colors" aria-label="Good response">
+                  <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                  </svg>
+                </button>
+                <button className="p-1.5 hover:bg-white/5 rounded text-gray-600 hover:text-gray-400 transition-colors" aria-label="Bad response">
+                  <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Timestamp - Subtle, bottom right for user messages */}
+          {isUser && (
+            <div className="text-[10px] text-gray-700 text-right">
+              {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </div>
           )}
         </div>
       </div>
-
-      {/* User Avatar */}
-      {isUser && (
-        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 flex items-center justify-center">
-          <span className="text-sm font-medium text-white">U</span>
-        </div>
-      )}
     </motion.div>
   )
 }
