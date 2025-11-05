@@ -434,7 +434,7 @@ export function SeologyChat() {
         hover="none"
         className="flex-1 flex flex-col mb-4 min-h-0 overflow-hidden"
       >
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
           <AnimatePresence mode="popLayout">
             {messages.map((message, index) => (
               <MessageBubble
