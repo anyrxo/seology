@@ -15,6 +15,15 @@ import {
 } from '@tanstack/react-table'
 import { format } from 'date-fns'
 
+interface CreditBalance {
+  monthlyCredits: number
+  monthlyUsed: number
+  monthlyRemaining: number
+  purchasedCredits: number
+  totalAvailable: number
+  isUnlimited: boolean
+}
+
 interface User {
   id: string
   name: string | null
@@ -23,6 +32,7 @@ interface User {
   role: string
   connectionsCount: number
   createdAt: string
+  credits: CreditBalance | null
 }
 
 interface UsersManagementClientProps {
@@ -39,12 +49,17 @@ export default function UsersManagementClient({
   users: initialUsers,
   stats,
 }: UsersManagementClientProps) {
-  const [users] = useState<User[]>(initialUsers)
+  const [users, setUsers] = useState<User[]>(initialUsers)
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [globalFilter, setGlobalFilter] = useState('')
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set())
   const [userDetailModal, setUserDetailModal] = useState<User | null>(null)
+  const [creditModalUser, setCreditModalUser] = useState<User | null>(null)
+  const [creditAction, setCreditAction] = useState<'ADD' | 'SET' | 'RESET'>('ADD')
+  const [creditAmount, setCreditAmount] = useState('')
+  const [creditReason, setCreditReason] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const columns = useMemo<ColumnDef<User>[]>(
     () => [
@@ -131,6 +146,33 @@ export default function UsersManagementClient({
         ),
       },
       {
+        accessorKey: 'credits',
+        header: 'AI Credits',
+        cell: ({ row }) => {
+          const credits = row.original.credits
+          if (!credits) {
+            return <span className="text-gray-500 text-sm">N/A</span>
+          }
+          if (credits.isUnlimited) {
+            return <span className="text-green-400 font-semibold">Unlimited</span>
+          }
+          const percentUsed = credits.monthlyCredits > 0
+            ? Math.round((credits.monthlyUsed / credits.monthlyCredits) * 100)
+            : 0
+          const isLow = percentUsed > 80
+          return (
+            <div className="flex flex-col">
+              <span className={`text-sm font-medium ${isLow ? 'text-yellow-400' : 'text-gray-300'}`}>
+                {credits.totalAvailable} available
+              </span>
+              <span className="text-xs text-gray-500">
+                {credits.monthlyUsed}/{credits.monthlyCredits} used
+              </span>
+            </div>
+          )
+        },
+      },
+      {
         accessorKey: 'createdAt',
         header: 'Joined',
         cell: ({ row }) => (
@@ -149,6 +191,12 @@ export default function UsersManagementClient({
               className="text-blue-400 hover:text-blue-300 text-sm font-medium px-3 py-1 rounded hover:bg-blue-900/20 transition-colors"
             >
               View
+            </button>
+            <button
+              onClick={() => setCreditModalUser(row.original)}
+              className="text-green-400 hover:text-green-300 text-sm font-medium px-3 py-1 rounded hover:bg-green-900/20 transition-colors"
+            >
+              Credits
             </button>
             <button className="text-purple-400 hover:text-purple-300 text-sm font-medium px-3 py-1 rounded hover:bg-purple-900/20 transition-colors">
               Edit
@@ -204,6 +252,47 @@ export default function UsersManagementClient({
     a.download = `users-${format(new Date(), 'yyyy-MM-dd')}.csv`
     a.click()
     URL.revokeObjectURL(url)
+  }
+
+  const handleCreditAdjustment = async () => {
+    if (!creditModalUser) return
+
+    setIsSubmitting(true)
+    try {
+      const response = await fetch(`/api/admin/users/${creditModalUser.id}/credits`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: creditAction,
+          credits: parseInt(creditAmount) || 0,
+          reason: creditReason,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        // Update local state with new balance
+        setUsers(users.map(u =>
+          u.id === creditModalUser.id
+            ? { ...u, credits: data.data.balance }
+            : u
+        ))
+
+        // Close modal and reset form
+        setCreditModalUser(null)
+        setCreditAmount('')
+        setCreditReason('')
+        alert(`Credits ${creditAction.toLowerCase()}ed successfully!`)
+      } else {
+        alert(`Error: ${data.error?.message || 'Failed to adjust credits'}`)
+      }
+    } catch (error) {
+      console.error('Credit adjustment error:', error)
+      alert('Failed to adjust credits. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -415,6 +504,121 @@ export default function UsersManagementClient({
           user={userDetailModal}
           onClose={() => setUserDetailModal(null)}
         />
+      )}
+
+      {/* Credit Management Modal */}
+      {creditModalUser && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg border border-gray-800 max-w-lg w-full">
+            <div className="p-6 border-b border-gray-800 flex items-center justify-between">
+              <h3 className="text-xl font-bold text-white">Manage AI Credits</h3>
+              <button
+                onClick={() => setCreditModalUser(null)}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="p-6 space-y-6">
+              {/* User Info */}
+              <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                <p className="text-white font-medium">{creditModalUser.name || 'No name'}</p>
+                <p className="text-gray-400 text-sm">{creditModalUser.email}</p>
+                <p className="text-gray-500 text-xs mt-2">Plan: {creditModalUser.plan}</p>
+              </div>
+
+              {/* Current Credits */}
+              {creditModalUser.credits && (
+                <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700">
+                  <h4 className="text-white font-medium mb-2">Current Balance</h4>
+                  <div className="space-y-1 text-sm">
+                    {creditModalUser.credits.isUnlimited ? (
+                      <p className="text-green-400 font-semibold">Unlimited Credits</p>
+                    ) : (
+                      <>
+                        <p className="text-gray-300">
+                          <span className="text-gray-500">Monthly:</span>{' '}
+                          {creditModalUser.credits.monthlyRemaining} / {creditModalUser.credits.monthlyCredits}
+                        </p>
+                        <p className="text-gray-300">
+                          <span className="text-gray-500">Purchased:</span>{' '}
+                          {creditModalUser.credits.purchasedCredits}
+                        </p>
+                        <p className="text-white font-medium mt-2">
+                          Total Available: {creditModalUser.credits.totalAvailable}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Action Selection */}
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">Action</label>
+                <select
+                  value={creditAction}
+                  onChange={(e) => setCreditAction(e.target.value as 'ADD' | 'SET' | 'RESET')}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-purple-500"
+                >
+                  <option value="ADD">Add credits (grant free credits)</option>
+                  <option value="SET">Set monthly usage (adjust current month)</option>
+                  <option value="RESET">Reset monthly usage to 0</option>
+                </select>
+              </div>
+
+              {/* Credit Amount */}
+              {creditAction !== 'RESET' && (
+                <div>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                    {creditAction === 'ADD' ? 'Credits to Add' : 'Set Usage To'}
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={creditAmount}
+                    onChange={(e) => setCreditAmount(e.target.value)}
+                    placeholder="Enter amount"
+                    className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                  />
+                </div>
+              )}
+
+              {/* Reason */}
+              <div>
+                <label className="block text-gray-300 text-sm font-medium mb-2">
+                  Reason (optional)
+                </label>
+                <textarea
+                  value={creditReason}
+                  onChange={(e) => setCreditReason(e.target.value)}
+                  placeholder="Why are you adjusting credits?"
+                  rows={3}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                />
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setCreditModalUser(null)}
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white px-4 py-2 rounded-lg transition-colors disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleCreditAdjustment}
+                  disabled={isSubmitting || (creditAction !== 'RESET' && !creditAmount)}
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-4 py-2 rounded-lg transition-colors disabled:opacity-50 font-medium"
+                >
+                  {isSubmitting ? 'Processing...' : 'Apply Changes'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )
