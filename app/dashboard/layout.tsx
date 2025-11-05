@@ -40,7 +40,7 @@ export default async function DashboardLayout({
       <DashboardHeader />
 
       {/* Main Content Area - Full width, no sidebar */}
-      <main className="flex-1 overflow-auto pb-20 md:pb-6 pt-2 md:pt-0 relative z-10">
+      <main className="flex-1 pb-20 md:pb-6 pt-2 md:pt-0 relative z-10">
         <div className="w-full px-4 md:px-6 lg:px-10 py-4 md:py-6 max-w-[100vw] overflow-x-hidden">
           {children}
         </div>

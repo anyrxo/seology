@@ -613,7 +613,7 @@ export function SeologyChat() {
       </div>
 
       {/* Input Area - Visible with Border */}
-      <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0 pb-[25vh]">
+      <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0">
         <div className="px-6 md:px-12 py-4">
           {/* Attached Files Preview */}
           {attachedFiles.length > 0 && (
