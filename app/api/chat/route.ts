@@ -170,9 +170,22 @@ export async function POST(req: NextRequest) {
     }
 
     // Check AI credits before processing (use database ID, not Clerk ID)
+    const balance = await getAICreditBalance(user.id)
+    console.log('[CREDIT CHECK]', {
+      userId: user.id,
+      email: user.email,
+      plan: user.plan,
+      balance: {
+        totalAvailable: balance.totalAvailable,
+        monthlyRemaining: balance.monthlyRemaining,
+        purchasedCredits: balance.purchasedCredits,
+        isUnlimited: balance.isUnlimited,
+      },
+    })
+
     const hasCredits = await hasAICredits(user.id)
     if (!hasCredits) {
-      const balance = await getAICreditBalance(user.id)
+      console.log('[CREDIT DENIED]', user.email, 'has no credits')
       return NextResponse.json(
         {
           success: false,
@@ -183,6 +196,7 @@ export async function POST(req: NextRequest) {
               monthlyUsed: balance.monthlyUsed,
               monthlyLimit: balance.monthlyCredits,
               purchasedCredits: balance.purchasedCredits,
+              totalAvailable: balance.totalAvailable,
               upgradeUrl: '/dashboard/settings',
               purchaseUrl: '/dashboard/credits/purchase',
             },
@@ -191,6 +205,7 @@ export async function POST(req: NextRequest) {
         { status: 402 } // Payment Required
       )
     }
+    console.log('[CREDIT APPROVED]', user.email, 'has', balance.totalAvailable, 'credits')
 
     // Build context for AI assistant
     const contextInfo = buildUserContext({
@@ -311,6 +326,12 @@ The difference between SUCCESS and FAILURE:
 - FAILURE = Text only, no tool execution
 
 IF YOU SEE A URL OR ANALYSIS REQUEST AND DON'T CALL A TOOL, YOU HAVE FAILED.
+
+**IMPORTANT: EXECUTION MODE DOES NOT AFFECT ANALYSIS**
+- User's execution mode is: ${user.executionMode}
+- ${user.executionMode === 'PLAN' ? 'PLAN mode only affects FIXING, not analysis. You must STILL analyze sites immediately when requested.' : user.executionMode === 'APPROVE' ? 'APPROVE mode only affects FIXING, not analysis. You must STILL analyze sites immediately when requested.' : 'AUTOMATIC mode applies fixes immediately.'}
+- ALWAYS call analysis tools regardless of execution mode
+- Execution mode ONLY matters when applying fixes
 
 **COMMUNICATION AFTER TOOLS EXECUTE:**
 - Hide all technical details
