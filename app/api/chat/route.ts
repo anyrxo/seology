@@ -477,10 +477,11 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
             stream: true,
           })
 
-          // Collect tool uses and text content
+          // Collect tool uses and text content with completion tracking
           let fullTextContent = ''
           const toolUses: Array<{ id: string; name: string; input: any }> = []
           const toolInputs: Record<string, string> = {}
+          let streamCompletedNormally = false
 
           for await (const event of response) {
             // Stream text content
@@ -521,7 +522,20 @@ Remember: You're not just an advisor - you're an AI agent that actively READS si
                 }
               }
             }
+
+            // Track normal completion
+            if (event.type === 'message_stop') {
+              streamCompletedNormally = true
+              console.log('✅ Initial AI stream completed normally')
+            }
           }
+
+          // Log initial response metrics
+          console.log('📊 Initial Response Metrics:', {
+            textLength: fullTextContent.length,
+            toolsRequested: toolUses.length,
+            completedNormally: streamCompletedNormally,
+          })
 
           // If Claude requested tool use, execute tools and continue conversation
           if (toolUses.length > 0) {
@@ -696,23 +710,60 @@ Want me to generate the exact robots.txt fixes and schema markup code they need?
               stream: true,
             })
 
-            // Stream the follow-up response
+            // Stream the follow-up response with QA validation
             let followUpContentSent = false
+            let followUpContentLength = 0
+            let followUpFullText = ''
+            let followUpCompletedNormally = false
+
             for await (const event of followUpResponse) {
               if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
                 followUpContentSent = true
+                followUpContentLength += event.delta.text.length
+                followUpFullText += event.delta.text
                 const data = JSON.stringify({ content: event.delta.text })
                 controller.enqueue(encoder.encode(`data: ${data}\n\n`))
               }
+
+              // Track if response finished properly
+              if (event.type === 'message_stop') {
+                followUpCompletedNormally = true
+                console.log('✅ Follow-up AI response completed normally')
+              }
             }
 
-            // Safety check: if no content was sent after tool execution, send error message
-            if (!followUpContentSent) {
-              console.error('⚠️ No content received from follow-up response after tool execution')
-              const fallbackMessage = JSON.stringify({
-                content: "\n\nI analyzed your request but encountered an issue presenting the results. Please try again or rephrase your question."
+            // QA VALIDATION LAYER - Ensure response is complete and substantial
+            const isResponseComplete = followUpContentSent && followUpContentLength > 50 // At least 50 chars
+            const hasSubstantiveContent = followUpFullText.trim().length > 100 // At least 100 chars of actual content
+            const isNotJustThinking = !followUpFullText.includes('Taking a look') || followUpContentLength > 200
+            const completedProperly = followUpCompletedNormally
+
+            // Log QA metrics
+            console.log('📊 Response QA Metrics:', {
+              contentSent: followUpContentSent,
+              contentLength: followUpContentLength,
+              hasSubstantiveContent,
+              isNotJustThinking,
+              completedNormally: followUpCompletedNormally,
+              toolsExecuted: toolUses.length,
+            })
+
+            // If response is incomplete or too short, send error
+            if (!isResponseComplete || !hasSubstantiveContent || !isNotJustThinking || !completedProperly) {
+              console.error('⚠️ INCOMPLETE RESPONSE DETECTED - Failed QA validation')
+              console.error('QA Failure Details:', {
+                isResponseComplete,
+                hasSubstantiveContent,
+                isNotJustThinking,
+                completedProperly,
+                contentLength: followUpContentLength,
               })
-              controller.enqueue(encoder.encode(`data: ${fallbackMessage}\n\n`))
+              console.error('Response snippet:', followUpFullText.substring(0, 200))
+
+              const errorMessage = JSON.stringify({
+                content: "\n\n---\n\n⚠️ **Response Quality Check Failed**\n\nI started analyzing but didn't deliver a complete response. This shouldn't happen - please try your request again. If this persists, try rephrasing your question or asking for one specific aspect at a time."
+              })
+              controller.enqueue(encoder.encode(`data: ${errorMessage}\n\n`))
             }
           } else if (fullTextContent.trim().length === 0) {
             // Safety check: if no tools were called AND no text was sent, send a default message

@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   Send,
   Paperclip,
-  Mic,
-  MicOff,
   Sparkles,
   Code,
   Copy,
@@ -64,18 +62,18 @@ interface CreditBalance {
   isUnlimited: boolean
 }
 
+interface SavedMessage {
+  id: string
+  role: string
+  content: string
+  timestamp: string
+}
+
 export function SeologyChat() {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      role: 'assistant',
-      content: "Hi! I'm SEOLOGY's AI assistant. I can help you analyze your site's SEO issues, suggest fixes, and guide you through optimizing your content. Unlike other tools that just report problems, SEOLOGY actually fixes them automatically. What would you like to work on today?",
-      timestamp: new Date(),
-    },
-  ])
+  const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
-  const [isRecording, setIsRecording] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingHistory, setIsLoadingHistory] = useState(true)
   const [thinkingText, setThinkingText] = useState('Thinking')
   const [error, setError] = useState<string | null>(null)
   const [copiedId, setCopiedId] = useState<string | null>(null)
@@ -83,9 +81,57 @@ export function SeologyChat() {
   const [isLoadingMode, setIsLoadingMode] = useState(true)
   const [credits, setCredits] = useState<CreditBalance | null>(null)
   const [isLoadingCredits, setIsLoadingCredits] = useState(true)
+  const [conversationId, setConversationId] = useState<string | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const shouldAutoScrollRef = useRef(true)
+
+  // Load chat history on mount
+  useEffect(() => {
+    const loadChatHistory = async () => {
+      try {
+        const response = await fetch('/api/chat-history')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success && data.data) {
+            setConversationId(data.data.conversationId)
+
+            // If there are saved messages, load them; otherwise show welcome message
+            if (data.data.messages && data.data.messages.length > 0) {
+              setMessages(data.data.messages.map((msg: SavedMessage) => ({
+                id: msg.id,
+                role: msg.role as 'user' | 'assistant',
+                content: msg.content,
+                timestamp: new Date(msg.timestamp),
+              })))
+            } else {
+              // Show welcome message for new conversations
+              setMessages([{
+                id: 'welcome',
+                role: 'assistant',
+                content: "Hi! I'm SEOLOGY's AI assistant. I can help you analyze your site's SEO issues, suggest fixes, and guide you through optimizing your content. Unlike other tools that just report problems, SEOLOGY actually fixes them automatically. What would you like to work on today?",
+                timestamp: new Date(),
+              }])
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load chat history:', error)
+        // Show welcome message on error
+        setMessages([{
+          id: 'welcome',
+          role: 'assistant',
+          content: "Hi! I'm SEOLOGY's AI assistant. I can help you analyze your site's SEO issues, suggest fixes, and guide you through optimizing your content. Unlike other tools that just report problems, SEOLOGY actually fixes them automatically. What would you like to work on today?",
+          timestamp: new Date(),
+        }])
+      } finally {
+        setIsLoadingHistory(false)
+      }
+    }
+    loadChatHistory()
+  }, [])
 
   // Load user's execution mode and credits on mount
   useEffect(() => {
@@ -136,6 +182,29 @@ export function SeologyChat() {
     return () => clearInterval(creditPollInterval)
   }, [])
 
+  // Save a message to the database
+  const saveMessage = async (role: 'user' | 'assistant', content: string) => {
+    if (!conversationId) {
+      console.warn('No conversation ID available, skipping message save')
+      return
+    }
+
+    try {
+      await fetch('/api/chat-history', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          conversationId,
+          role,
+          content,
+        }),
+      })
+    } catch (error) {
+      console.error('Failed to save message:', error)
+      // Don't throw - saving to DB is non-critical for UX
+    }
+  }
+
   // Refresh credits after sending a message
   const refreshCredits = async () => {
     try {
@@ -151,10 +220,34 @@ export function SeologyChat() {
     }
   }
 
-  // Auto-scroll to bottom
+  // Smart auto-scroll - only scroll if user is near bottom or just sent a message
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (!messagesContainerRef.current || !messagesEndRef.current) return
+
+    const container = messagesContainerRef.current
+    const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 100
+
+    // Auto-scroll if user is near bottom OR if shouldAutoScroll flag is set (user just sent a message)
+    if (isNearBottom || shouldAutoScrollRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
+      shouldAutoScrollRef.current = false
+    }
   }, [messages])
+
+  // Track user scroll to detect manual scrolling
+  useEffect(() => {
+    const container = messagesContainerRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      // If user manually scrolls, check if they're at bottom
+      const isAtBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 50
+      shouldAutoScrollRef.current = isAtBottom
+    }
+
+    container.addEventListener('scroll', handleScroll)
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Auto-resize textarea
   useEffect(() => {
@@ -203,6 +296,10 @@ export function SeologyChat() {
     setInput('')
     setIsLoading(true)
     setError(null)
+    shouldAutoScrollRef.current = true // Always scroll when user sends a message
+
+    // Save user message to database (non-blocking)
+    saveMessage('user', input)
 
     try {
       const response = await fetch('/api/chat', {
@@ -276,15 +373,22 @@ export function SeologyChat() {
         }
       }
 
-      // Mark streaming as complete
+      // Mark streaming as complete and save assistant message
+      let assistantContent = ''
       setMessages((prev) => {
         const updated = [...prev]
         const lastMessage = updated[updated.length - 1]
         if (lastMessage.role === 'assistant') {
           lastMessage.isStreaming = false
+          assistantContent = lastMessage.content
         }
         return updated
       })
+
+      // Save assistant message to database (non-blocking)
+      if (assistantContent) {
+        saveMessage('assistant', assistantContent)
+      }
 
       // Refresh credits after successful message
       await refreshCredits()
@@ -324,11 +428,6 @@ export function SeologyChat() {
       // TODO: Handle file upload for screenshot analysis
       console.log('File uploaded:', file.name)
     }
-  }
-
-  const handleVoiceInput = () => {
-    setIsRecording(!isRecording)
-    // TODO: Implement voice recording
   }
 
   const handleExecutionModeChange = async (newMode: ExecutionMode) => {
@@ -454,20 +553,31 @@ export function SeologyChat() {
         hover="none"
         className="flex-1 flex flex-col mb-4 min-h-0 overflow-hidden"
       >
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
-          <AnimatePresence mode="popLayout">
-            {messages.map((message, index) => (
-              <MessageBubble
-                key={message.id}
-                message={message}
-                onCopy={copyToClipboard}
-                isCopied={copiedId === message.id}
-                isLast={index === messages.length - 1}
-                thinkingText={thinkingText}
-              />
-            ))}
-          </AnimatePresence>
-          <div ref={messagesEndRef} />
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scroll-smooth overscroll-contain [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/30">
+          {isLoadingHistory ? (
+            <div className="flex items-center justify-center h-full">
+              <div className="flex flex-col items-center gap-3">
+                <Loader2 className="h-8 w-8 text-blue-400 animate-spin" />
+                <p className="text-sm text-gray-400">Loading chat history...</p>
+              </div>
+            </div>
+          ) : (
+            <>
+              <AnimatePresence mode="popLayout">
+                {messages.map((message, index) => (
+                  <MessageBubble
+                    key={message.id}
+                    message={message}
+                    onCopy={copyToClipboard}
+                    isCopied={copiedId === message.id}
+                    isLast={index === messages.length - 1}
+                    thinkingText={thinkingText}
+                  />
+                ))}
+              </AnimatePresence>
+              <div ref={messagesEndRef} />
+            </>
+          )}
         </div>
 
         {/* Suggested Prompts (show when no messages from user) */}
@@ -538,20 +648,6 @@ export function SeologyChat() {
                   disabled={isLoading}
                 />
               </div>
-
-              {/* Voice Input */}
-              <button
-                onClick={handleVoiceInput}
-                className={cn(
-                  'p-2.5 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95',
-                  isRecording
-                    ? 'bg-red-500 text-white animate-pulse'
-                    : 'bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white'
-                )}
-                aria-label="Voice input"
-              >
-                {isRecording ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
-              </button>
 
               {/* Send Button - Gradient Style */}
               <Button

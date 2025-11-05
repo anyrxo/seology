@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { CheckCircle2, Clock, RotateCcw, Settings } from 'lucide-react'
+import { CheckCircle2, Clock, RotateCcw, Settings, AlertTriangle, Loader2 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 interface Fix {
   id: string
@@ -30,6 +32,37 @@ interface FixesClientProps {
 }
 
 export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
+  const router = useRouter()
+  const [rollbackConfirm, setRollbackConfirm] = useState<{ fixId: string; fixDescription: string } | null>(null)
+  const [isRollingBack, setIsRollingBack] = useState(false)
+  const [rollbackError, setRollbackError] = useState<string | null>(null)
+
+  const handleRollback = async (fixId: string) => {
+    setIsRollingBack(true)
+    setRollbackError(null)
+
+    try {
+      const response = await fetch(`/api/fixes/${fixId}/rollback`, {
+        method: 'POST',
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error?.message || 'Failed to rollback fix')
+      }
+
+      // Close modal and refresh page
+      setRollbackConfirm(null)
+      router.refresh()
+    } catch (error) {
+      console.error('Rollback error:', error)
+      setRollbackError(error instanceof Error ? error.message : 'Failed to rollback fix')
+    } finally {
+      setIsRollingBack(false)
+    }
+  }
+
   const executionModeConfig = {
     AUTOMATIC: {
       label: 'Automatic',
@@ -128,7 +161,11 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
         ) : (
           <div className="space-y-3">
             {fixes.map((fix) => (
-              <FixRow key={fix.id} fix={fix} />
+              <FixRow
+                key={fix.id}
+                fix={fix}
+                onRollback={() => setRollbackConfirm({ fixId: fix.id, fixDescription: fix.description })}
+              />
             ))}
           </div>
         )}
@@ -166,6 +203,65 @@ export function FixesClient({ fixes, stats, executionMode }: FixesClientProps) {
           ))}
         </div>
       </div>
+
+      {/* Rollback Confirmation Modal */}
+      {rollbackConfirm && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 rounded-2xl p-6 max-w-md w-full shadow-2xl">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20">
+                <AlertTriangle className="w-6 h-6 text-red-400" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Confirm Rollback</h3>
+            </div>
+
+            <p className="text-gray-300 mb-4">
+              Are you sure you want to rollback this fix? This will restore the original content before the fix was applied.
+            </p>
+
+            <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+              <p className="text-sm text-gray-400 mb-1">Fix:</p>
+              <p className="text-sm text-white font-medium">{rollbackConfirm.fixDescription}</p>
+            </div>
+
+            {rollbackError && (
+              <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 mb-4">
+                <p className="text-sm text-red-400">{rollbackError}</p>
+              </div>
+            )}
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setRollbackConfirm(null)
+                  setRollbackError(null)
+                }}
+                disabled={isRollingBack}
+                className="flex-1 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all duration-300 disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => handleRollback(rollbackConfirm.fixId)}
+                disabled={isRollingBack}
+                className="flex-1 px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-red-500/20 disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isRollingBack ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Rolling back...</span>
+                  </>
+                ) : (
+                  <>
+                    <RotateCcw className="w-4 h-4" />
+                    <span>Rollback Fix</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -186,7 +282,7 @@ function StatCard({ title, value, icon }: { title: string; value: number; icon: 
   )
 }
 
-function FixRow({ fix }: { fix: Fix }) {
+function FixRow({ fix, onRollback }: { fix: Fix; onRollback: () => void }) {
   const statusBadge = {
     PENDING: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
     APPLIED: 'bg-green-500/10 text-green-400 border-green-500/20',
@@ -238,7 +334,10 @@ function FixRow({ fix }: { fix: Fix }) {
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
           {fix.status === 'APPLIED' && daysLeftForRollback && daysLeftForRollback > 0 ? (
-            <button className="px-4 py-2 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10">
+            <button
+              onClick={onRollback}
+              className="px-4 py-2 rounded-xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
+            >
               <div className="flex items-center gap-2">
                 <RotateCcw className="w-4 h-4" />
                 <div className="text-sm font-medium">Rollback</div>
