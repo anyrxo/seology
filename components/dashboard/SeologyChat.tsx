@@ -555,7 +555,26 @@ export function SeologyChat() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-transparent">
+    <div className="flex flex-col h-screen bg-transparent">
+      {/* Floating Header with Credits */}
+      <div className="sticky top-0 z-50 backdrop-blur-lg bg-gray-900/80 border-b border-white/10">
+        <div className="px-6 md:px-12 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Sparkles className="h-5 w-5 text-blue-400" />
+            <h1 className="text-lg font-semibold text-white">SEOLOGY AI Chat</h1>
+          </div>
+
+          {/* Credits Display */}
+          {!isLoadingCredits && credits && (
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-lg border border-white/10">
+              <div className="text-xs text-gray-400">Credits:</div>
+              <div className="text-sm font-semibold text-white">
+                {credits.isUnlimited ? '∞' : credits.totalAvailable.toLocaleString()}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Error Banner */}
       <AnimatePresence>
@@ -584,7 +603,7 @@ export function SeologyChat() {
       <div className="flex-1 min-h-0 overflow-hidden">
         <div
           ref={messagesContainerRef}
-          className="h-full overflow-y-auto px-6 md:px-12 py-6 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
+          className="h-full overflow-y-auto px-6 md:px-12 py-6 pb-8 space-y-8 scroll-smooth [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/20 [&::-webkit-scrollbar-thumb]:rounded-full"
         >
           {isLoadingHistory ? (
             <div className="flex items-center justify-center h-full">
@@ -740,12 +759,20 @@ function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: Mess
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.12 }}
-      className="group max-w-[900px]"
+      className={cn("group w-full", isUser && "flex justify-end")}
     >
       {/* Pure Text Layout - Wide, Spacious */}
-      <div className="flex gap-5 items-start">
+      <div className={cn(
+        "flex gap-5 items-start max-w-[900px]",
+        isUser && "flex-row-reverse"
+      )}>
         {/* Minimal Avatar */}
-        <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+        <div className={cn(
+          "flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center",
+          isUser
+            ? "bg-gradient-to-br from-purple-500 to-pink-600"
+            : "bg-gradient-to-br from-blue-500 to-purple-600"
+        )}>
           {isUser ? (
             <span className="text-[11px] font-bold text-white">U</span>
           ) : (
