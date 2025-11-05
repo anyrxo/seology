@@ -247,6 +247,23 @@ export async function POST(
       },
     })
 
+    // Create notification for user
+    const notificationMessage = action === 'ADD'
+      ? `🎉 You've received ${credits} AI chat credits${reason ? `: ${reason}` : '!'}`
+      : action === 'SET'
+        ? `Your AI chat credits have been adjusted to ${credits}${reason ? `: ${reason}` : ''}`
+        : `Your AI chat credits have been reset${reason ? `: ${reason}` : ''}`
+
+    await db.notification.create({
+      data: {
+        userId: params.userId,
+        title: 'AI Credits Updated',
+        message: notificationMessage,
+        type: 'INFO',
+        read: false,
+      },
+    })
+
     // Get updated balance
     const updatedBalance = await getAICreditBalance(params.userId)
 
