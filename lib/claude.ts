@@ -15,7 +15,7 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 })
 
-const CLAUDE_MODEL = 'claude-3-5-sonnet-20241022'
+const CLAUDE_MODEL = 'claude-sonnet-4-5'
 const MAX_RETRIES = 3
 const RETRY_DELAY_MS = 1000
 const REQUEST_TIMEOUT_MS = 60000
@@ -320,7 +320,7 @@ Format your response as a JSON object with this structure:
 }`
 
   const message = await anthropic.messages.create({
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5',
     max_tokens: 4096,
     messages: [
       {
@@ -406,7 +406,7 @@ Format your response as JSON:
 }`
 
   const message = await anthropic.messages.create({
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5',
     max_tokens: 2048,
     messages: [
       {

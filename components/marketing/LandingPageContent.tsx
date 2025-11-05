@@ -177,7 +177,7 @@ export default function LandingPageContent() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600 mb-16"
           >
-            {['14-day free trial', 'No credit card required', 'Cancel anytime'].map((text, i) => (
+            {['Free forever plan available', 'No credit card required', 'Cancel anytime'].map((text, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 10 }}
@@ -545,16 +545,16 @@ export default function LandingPageContent() {
                 href="/sign-up"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-neutral-50 transition-colors shadow-lg"
               >
-                <span>Start Free Trial</span>
+                <span>Get Started Free</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="#how-it-works"
+                href="/features"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white rounded-lg font-semibold border-2 border-white hover:bg-white/10 transition-colors"
               >
-                Watch Demo
+                View Features
               </Link>
             </motion.div>
           </motion.div>
@@ -845,17 +845,17 @@ export default function LandingPageContent() {
             {[
               {
                 name: 'STARTER',
-                price: '$29',
+                price: 'FREE',
                 desc: 'Perfect for small businesses and startups',
-                cta: 'Start Free Trial →',
+                cta: 'Get Started Free →',
                 highlight: false,
-                features: ['3 sites included', '500 fixes per month', 'Email support', 'Basic analytics', '90-day rollback'],
+                features: ['1 site included', '100 fixes per month', 'Email support', 'Basic analytics', '90-day rollback'],
               },
               {
                 name: 'GROWTH',
                 price: '$99',
                 desc: 'For growing teams and agencies',
-                cta: 'Start Free Trial →',
+                cta: 'Get Started →',
                 highlight: true,
                 badge: 'MOST POPULAR',
                 features: [
@@ -1035,7 +1035,7 @@ export default function LandingPageContent() {
               },
               {
                 q: 'Can I try it before committing?',
-                a: 'Yes! All plans include a 14-day free trial with no credit card required. You get full access to all features during your trial period. Cancel anytime with no questions asked.',
+                a: 'Yes! We offer a completely free STARTER plan with no credit card required. You get 1 site and 100 fixes per month forever. Upgrade anytime to unlock more sites and fixes. Cancel anytime with no questions asked.',
               },
             ].map((faq, i) => (
               <motion.div
@@ -1234,7 +1234,7 @@ export default function LandingPageContent() {
                 href="/sign-up"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-neutral-900 rounded-lg font-semibold hover:bg-neutral-100 transition-colors shadow-lg"
               >
-                <span>Start Free Trial</span>
+                <span>Get Started Free</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>
@@ -1251,7 +1251,7 @@ export default function LandingPageContent() {
           {/* Trust Row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              { icon: Check, title: '14-Day Free Trial', desc: 'No credit card required' },
+              { icon: Check, title: 'Free Forever Plan', desc: 'No credit card required' },
               { icon: Shield, title: 'Enterprise Security', desc: 'SOC 2 compliant' },
               { icon: RotateCcw, title: '90-Day Rollback', desc: 'Risk-free guarantee' },
             ].map((trust, i) => (

@@ -85,14 +85,7 @@ export function RadiantFooter() {
         <div className="w-layout-blockcontainer rt-component-container w-container">
           <div className="rt-newsletter-wrap">
             <div className="rt-footer-four-title-main text-center">
-              <img
-                loading="lazy"
-                src="/images/icons/email.svg"
-                alt="Email Icon"
-                className="rt-margin-bottom-ten inline-block"
-                width={32}
-                height={32}
-              />
+              <Mail className="w-8 h-8 text-[#3898ec] mx-auto mb-4" />
               <div className="rt-component-heading-two">
                 Get the latest <span className="text-[#3898ec]">stories</span>
               </div>

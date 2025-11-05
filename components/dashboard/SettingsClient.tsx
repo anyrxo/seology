@@ -1,6 +1,6 @@
 'use client'
 
-import { Settings, Bell, AlertTriangle, User as UserIcon, Mail, Key, Link, Database, CreditCard, Check, X } from 'lucide-react'
+import { Settings, Bell, AlertTriangle, User as UserIcon, Mail, Key, Link, Database, CreditCard, Check, X, Building2 } from 'lucide-react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -11,6 +11,10 @@ interface User {
   userId: string
   plan: string
   executionMode: string
+  businessName: string | null
+  businessType: string | null
+  businessStage: string | null
+  platform: string | null
 }
 
 interface SettingsClientProps {
@@ -19,12 +23,21 @@ interface SettingsClientProps {
 
 export function SettingsClient({ user }: SettingsClientProps) {
   const router = useRouter()
-  const [activeTab, setActiveTab] = useState<'profile' | 'security' | 'notifications' | 'preferences' | 'integrations'>('profile')
+  const [activeTab, setActiveTab] = useState<'profile' | 'business' | 'security' | 'notifications' | 'preferences' | 'integrations'>('profile')
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [savingExecutionMode, setSavingExecutionMode] = useState(false)
   const [savingNotifications, setSavingNotifications] = useState(false)
+  const [savingBusinessProfile, setSavingBusinessProfile] = useState(false)
   const [successMessage, setSuccessMessage] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+  // Business profile state
+  const [businessProfile, setBusinessProfile] = useState({
+    businessName: user.businessName || '',
+    businessType: user.businessType || '',
+    businessStage: user.businessStage || '',
+    platform: user.platform || '',
+  })
 
   // Notification preferences state
   const [notificationPrefs, setNotificationPrefs] = useState({
@@ -90,6 +103,33 @@ export function SettingsClient({ user }: SettingsClientProps) {
       console.error('Error saving notification preference:', error)
     } finally {
       setSavingNotifications(false)
+    }
+  }
+
+  // Handle business profile save
+  const handleBusinessProfileSave = async () => {
+    setSavingBusinessProfile(true)
+    setErrorMessage(null)
+    setSuccessMessage(null)
+
+    try {
+      const response = await fetch('/api/settings/business-profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(businessProfile),
+      })
+
+      if (response.ok) {
+        setSuccessMessage('Business profile saved successfully!')
+        setTimeout(() => setSuccessMessage(null), 3000)
+        router.refresh()
+      } else {
+        setErrorMessage('Failed to save business profile')
+      }
+    } catch (error) {
+      setErrorMessage('An error occurred. Please try again.')
+    } finally {
+      setSavingBusinessProfile(false)
     }
   }
 
@@ -160,6 +200,13 @@ export function SettingsClient({ user }: SettingsClientProps) {
             >
               <UserIcon className="h-4 w-4" style={{ marginRight: '8px' }} />
               Profile
+            </button>
+            <button
+              onClick={() => setActiveTab('business')}
+              className={`tab-menu-underline-link ${activeTab === 'business' ? 'w--current' : ''}`}
+            >
+              <Building2 className="h-4 w-4" style={{ marginRight: '8px' }} />
+              Business Profile
             </button>
             <button
               onClick={() => setActiveTab('preferences')}
@@ -340,6 +387,120 @@ export function SettingsClient({ user }: SettingsClientProps) {
                     <a href="/user" className="text-blue-400 hover:text-blue-300 transition-colors" style={{ textDecoration: 'underline' }}>
                       account settings
                     </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Business Profile Section */}
+          {activeTab === 'business' && (
+            <div className="bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-8" style={{ marginTop: '24px' }}>
+              <div className="flex-horizontal align-center gap-column-16px mg-bottom-32px">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <Building2 className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-white mg-bottom-8px">
+                    Business Profile
+                  </h2>
+                  <p className="text-sm text-gray-400">
+                    Tell our AI about your business so it can provide personalized SEO recommendations
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid-2-columns gap-row-24px gap-column-24px">
+                <div className="flex-vertical">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    value={businessProfile.businessName}
+                    onChange={(e) => setBusinessProfile(prev => ({ ...prev, businessName: e.target.value }))}
+                    placeholder="Enter your business name"
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full focus:border-blue-500 focus:outline-none transition-colors"
+                  />
+                </div>
+
+                <div className="flex-vertical">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
+                    Business Type
+                  </label>
+                  <select
+                    value={businessProfile.businessType}
+                    onChange={(e) => setBusinessProfile(prev => ({ ...prev, businessType: e.target.value }))}
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full focus:border-blue-500 focus:outline-none transition-colors"
+                  >
+                    <option value="">Select business type</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="SaaS">SaaS</option>
+                    <option value="Local Business">Local Business</option>
+                    <option value="Blog/Content">Blog/Content</option>
+                    <option value="Agency">Agency</option>
+                    <option value="Portfolio">Portfolio</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div className="flex-vertical">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
+                    Business Stage
+                  </label>
+                  <select
+                    value={businessProfile.businessStage}
+                    onChange={(e) => setBusinessProfile(prev => ({ ...prev, businessStage: e.target.value }))}
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full focus:border-blue-500 focus:outline-none transition-colors"
+                  >
+                    <option value="">Select business stage</option>
+                    <option value="Just Starting">Just Starting</option>
+                    <option value="Growing">Growing</option>
+                    <option value="Established">Established</option>
+                  </select>
+                </div>
+
+                <div className="flex-vertical">
+                  <label className="text-sm font-medium text-gray-400 mg-bottom-8px">
+                    Platform
+                  </label>
+                  <select
+                    value={businessProfile.platform}
+                    onChange={(e) => setBusinessProfile(prev => ({ ...prev, platform: e.target.value }))}
+                    className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white w-full focus:border-blue-500 focus:outline-none transition-colors"
+                  >
+                    <option value="">Select platform</option>
+                    <option value="Shopify">Shopify</option>
+                    <option value="WordPress">WordPress</option>
+                    <option value="WooCommerce">WooCommerce</option>
+                    <option value="Wix">Wix</option>
+                    <option value="Squarespace">Squarespace</option>
+                    <option value="Custom">Custom</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="divider card-small-divider mg-top-24px"></div>
+
+              {/* Save Button */}
+              <div className="flex-horizontal gap-column-12px mg-top-24px">
+                <button
+                  onClick={handleBusinessProfileSave}
+                  disabled={savingBusinessProfile}
+                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {savingBusinessProfile ? 'Saving...' : 'Save Business Profile'}
+                </button>
+              </div>
+
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-5 mg-top-24px">
+                <div className="flex-horizontal align-center gap-column-12px">
+                  <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                    <span style={{ fontSize: '12px' }}>💡</span>
+                  </div>
+                  <p className="text-sm text-gray-300">
+                    This information helps our AI provide personalized SEO recommendations based on your industry, business stage, and platform. Your data is stored securely and used only for improving your SEO analysis.
                   </p>
                 </div>
               </div>
