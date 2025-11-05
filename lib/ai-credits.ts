@@ -19,6 +19,7 @@ export interface CreditBalance {
 
 /**
  * Get user's current AI credit balance
+ * @param userId - The user's database ID (not Clerk ID)
  */
 export async function getAICreditBalance(userId: string): Promise<CreditBalance> {
   // Get user's plan

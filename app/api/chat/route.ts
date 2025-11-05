@@ -126,30 +126,7 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Check AI credits before processing
-    const hasCredits = await hasAICredits(userId)
-    if (!hasCredits) {
-      const balance = await getAICreditBalance(userId)
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'INSUFFICIENT_CREDITS',
-            message: 'You have run out of AI chat credits. Please upgrade your plan or purchase additional credits to continue.',
-            details: {
-              monthlyUsed: balance.monthlyUsed,
-              monthlyLimit: balance.monthlyCredits,
-              purchasedCredits: balance.purchasedCredits,
-              upgradeUrl: '/dashboard/settings',
-              purchaseUrl: '/dashboard/credits/purchase',
-            },
-          },
-        },
-        { status: 402 } // Payment Required
-      )
-    }
-
-    // Get user context from database
+    // Get user context from database (including ID for credit checks)
     let user
     try {
       user = await db.user.findUnique({
@@ -188,6 +165,29 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found in database. Please visit /dashboard first.' } },
         { status: 404 }
+      )
+    }
+
+    // Check AI credits before processing (use database ID, not Clerk ID)
+    const hasCredits = await hasAICredits(user.id)
+    if (!hasCredits) {
+      const balance = await getAICreditBalance(user.id)
+      return NextResponse.json(
+        {
+          success: false,
+          error: {
+            code: 'INSUFFICIENT_CREDITS',
+            message: 'You have run out of AI chat credits. Please upgrade your plan or purchase additional credits to continue.',
+            details: {
+              monthlyUsed: balance.monthlyUsed,
+              monthlyLimit: balance.monthlyCredits,
+              purchasedCredits: balance.purchasedCredits,
+              upgradeUrl: '/dashboard/settings',
+              purchaseUrl: '/dashboard/credits/purchase',
+            },
+          },
+        },
+        { status: 402 } // Payment Required
       )
     }
 
@@ -232,8 +232,8 @@ export async function POST(req: NextRequest) {
       content: message,
     })
 
-    // Consume AI credit BEFORE making the request
-    const creditResult = await consumeAICredit(userId)
+    // Consume AI credit BEFORE making the request (use database ID)
+    const creditResult = await consumeAICredit(user.id)
     if (!creditResult.success) {
       return NextResponse.json(
         {
