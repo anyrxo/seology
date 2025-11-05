@@ -1,6 +1,5 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
-import { db } from '@/lib/db'
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import { AdminHeader } from '@/components/admin/AdminHeader'
 
@@ -15,14 +14,9 @@ export default async function AdminLayout({
     redirect('/sign-in')
   }
 
-  // Get user from database
-  const user = await db.user.findUnique({
-    where: { clerkId: userId },
-  })
-
-  // Check if user is admin (you can implement your own admin check logic)
-  // For now, we'll check if there's a custom claim or use a simple check
-  // TODO: Implement proper admin role checking with Clerk metadata
+  // NOTE: Admin role checking should be done in middleware or API routes
+  // Don't query database here - it causes connection pool exhaustion
+  // Each page makes its own queries, and this layout query blocks the pool
 
   return (
     <div className="flex min-h-screen bg-gray-950 flex-col lg:flex-row">
