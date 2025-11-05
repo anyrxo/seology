@@ -231,6 +231,12 @@ function NotificationItem({
         return '⚠️'
       case 'billing_updated':
         return '💳'
+      case 'INFO':
+        // Check if it's about credits based on title
+        if (notification.title.toLowerCase().includes('credit')) {
+          return '✨'
+        }
+        return '📬'
       default:
         return '📬'
     }

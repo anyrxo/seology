@@ -114,6 +114,24 @@ export function SeologyChat() {
       }
     }
     loadUserData()
+
+    // Poll for credit updates every 30 seconds
+    const creditPollInterval = setInterval(async () => {
+      try {
+        const response = await fetch('/api/user/ai-credits')
+        if (response.ok) {
+          const data = await response.json()
+          if (data.success && data.data) {
+            setCredits(data.data)
+          }
+        }
+      } catch (error) {
+        // Silent fail - don't disrupt user experience
+        console.debug('Credit poll failed:', error)
+      }
+    }, 30000) // Poll every 30 seconds
+
+    return () => clearInterval(creditPollInterval)
   }, [])
 
   // Refresh credits after sending a message
