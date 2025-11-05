@@ -92,6 +92,17 @@ export default function OnboardingPage() {
   }
 
   const handleSkip = async () => {
+    // Mark onboarding as complete when skipping
+    try {
+      await fetch('/api/user/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ onboardingCompleted: true })
+      })
+    } catch (error) {
+      console.error('Failed to mark onboarding complete:', error)
+    }
+
     router.push('/dashboard')
   }
 
