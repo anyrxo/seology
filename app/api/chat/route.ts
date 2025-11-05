@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { message, history = [] } = body
+    const { message, history = [], attachments = [] } = body
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json(
@@ -242,11 +242,73 @@ export async function POST(req: NextRequest) {
       })
     })
 
-    // Add current message
-    aiMessages.push({
-      role: 'user',
-      content: message,
-    })
+    // Add current message with attachments if any
+    if (attachments && attachments.length > 0) {
+      const contentBlocks: Array<
+        | { type: 'text'; text: string }
+        | {
+            type: 'image'
+            source: {
+              type: 'base64'
+              media_type: 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
+              data: string
+            }
+          }
+      > = []
+
+      // Add attachments first (images)
+      for (const attachment of attachments) {
+        if (attachment.type.startsWith('image/')) {
+          // For images, we need to convert to base64 and send as vision content
+          try {
+            const fullUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${attachment.url}`
+            const imageResponse = await fetch(fullUrl)
+            const imageBuffer = await imageResponse.arrayBuffer()
+            const base64Image = Buffer.from(imageBuffer).toString('base64')
+
+            // Determine media type from file extension
+            const mediaType = attachment.type as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp'
+
+            contentBlocks.push({
+              type: 'image',
+              source: {
+                type: 'base64',
+                media_type: mediaType,
+                data: base64Image,
+              },
+            })
+          } catch (error) {
+            console.error('Failed to process image attachment:', error)
+            // Continue without this image
+          }
+        } else {
+          // For non-image files, just mention them in the text
+          contentBlocks.push({
+            type: 'text',
+            text: `[User attached file: ${attachment.name} (${(attachment.size / 1024).toFixed(1)}KB)]`,
+          })
+        }
+      }
+
+      // Add message text
+      if (message && message.trim()) {
+        contentBlocks.push({
+          type: 'text',
+          text: message,
+        })
+      }
+
+      aiMessages.push({
+        role: 'user',
+        content: contentBlocks,
+      })
+    } else {
+      // No attachments - simple text message
+      aiMessages.push({
+        role: 'user',
+        content: message,
+      })
+    }
 
     // Consume AI credit BEFORE making the request (use database ID)
     const creditResult = await consumeAICredit(user.id)

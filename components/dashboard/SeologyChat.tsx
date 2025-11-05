@@ -13,6 +13,8 @@ import {
   Globe,
   AlertCircle,
   X,
+  FileText,
+  Image as ImageIcon,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -25,6 +27,12 @@ interface Message {
   content: string
   timestamp: Date
   isStreaming?: boolean
+  attachments?: {
+    name: string
+    type: string
+    size: number
+    url: string
+  }[]
 }
 
 interface SuggestedPrompt {
@@ -82,6 +90,8 @@ export function SeologyChat() {
   const [credits, setCredits] = useState<CreditBalance | null>(null)
   const [isLoadingCredits, setIsLoadingCredits] = useState(true)
   const [conversationId, setConversationId] = useState<string | null>(null)
+  const [attachedFiles, setAttachedFiles] = useState<File[]>([])
+  const [isUploadingFiles, setIsUploadingFiles] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -283,31 +293,58 @@ export function SeologyChat() {
   }, [isLoading])
 
   const handleSendMessage = async () => {
-    if (!input.trim() || isLoading) return
+    if ((!input.trim() && attachedFiles.length === 0) || isLoading) return
 
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      role: 'user',
-      content: input,
-      timestamp: new Date(),
-    }
-
-    setMessages((prev) => [...prev, userMessage])
-    setInput('')
     setIsLoading(true)
     setError(null)
-    shouldAutoScrollRef.current = true // Always scroll when user sends a message
-
-    // Save user message to database (non-blocking)
-    saveMessage('user', input)
+    shouldAutoScrollRef.current = true
 
     try {
+      // Upload files first if any
+      let fileUrls: string[] = []
+      let attachments: { name: string; type: string; size: number; url: string }[] = []
+
+      if (attachedFiles.length > 0) {
+        setIsUploadingFiles(true)
+        try {
+          fileUrls = await uploadFilesToServer(attachedFiles)
+          attachments = attachedFiles.map((file, index) => ({
+            name: file.name,
+            type: file.type,
+            size: file.size,
+            url: fileUrls[index],
+          }))
+        } catch (error) {
+          setError('Failed to upload files. Please try again.')
+          setIsLoading(false)
+          setIsUploadingFiles(false)
+          return
+        }
+        setIsUploadingFiles(false)
+      }
+
+      const userMessage: Message = {
+        id: Date.now().toString(),
+        role: 'user',
+        content: input,
+        timestamp: new Date(),
+        attachments: attachments.length > 0 ? attachments : undefined,
+      }
+
+      setMessages((prev) => [...prev, userMessage])
+      setInput('')
+      setAttachedFiles([])
+
+      // Save user message to database (non-blocking)
+      saveMessage('user', input)
+
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: input,
-          history: messages.slice(-10), // Send last 10 messages for context
+          history: messages.slice(-10),
+          attachments: attachments.length > 0 ? attachments : undefined,
         }),
       })
 
@@ -422,12 +459,72 @@ export function SeologyChat() {
     }
   }
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      // TODO: Handle file upload for screenshot analysis
-      console.log('File uploaded:', file.name)
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (!files || files.length === 0) return
+
+    const newFiles = Array.from(files)
+    const maxSize = 10 * 1024 * 1024 // 10MB
+    const allowedTypes = [
+      'image/jpeg',
+      'image/png',
+      'image/gif',
+      'image/webp',
+      'application/pdf',
+      'text/plain',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    ]
+
+    // Validate files
+    const validFiles = newFiles.filter((file) => {
+      if (file.size > maxSize) {
+        setError(`File "${file.name}" is too large. Maximum size is 10MB.`)
+        return false
+      }
+      if (!allowedTypes.includes(file.type)) {
+        setError(`File type "${file.type}" is not supported.`)
+        return false
+      }
+      return true
+    })
+
+    if (validFiles.length > 0) {
+      setAttachedFiles((prev) => [...prev, ...validFiles])
+      setError(null)
     }
+
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
+
+  const removeAttachedFile = (index: number) => {
+    setAttachedFiles((prev) => prev.filter((_, i) => i !== index))
+  }
+
+  const uploadFilesToServer = async (files: File[]): Promise<string[]> => {
+    const uploadPromises = files.map(async (file) => {
+      const formData = new FormData()
+      formData.append('file', file)
+
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error(`Failed to upload ${file.name}`)
+      }
+
+      const data = await response.json()
+      return data.url
+    })
+
+    return Promise.all(uploadPromises)
   }
 
   const handleExecutionModeChange = async (newMode: ExecutionMode) => {
@@ -519,18 +616,55 @@ export function SeologyChat() {
       {/* Input Area - Visible with Border */}
       <div className="border-t border-white/10 bg-gray-900/50 backdrop-blur-sm flex-shrink-0">
         <div className="px-6 md:px-12 py-4">
+          {/* Attached Files Preview */}
+          {attachedFiles.length > 0 && (
+            <div className="mb-3 flex flex-wrap gap-2">
+              {attachedFiles.map((file, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg"
+                >
+                  {file.type.startsWith('image/') ? (
+                    <ImageIcon className="h-4 w-4 text-blue-400" />
+                  ) : (
+                    <FileText className="h-4 w-4 text-blue-400" />
+                  )}
+                  <span className="text-xs text-gray-300 max-w-[150px] truncate">{file.name}</span>
+                  <span className="text-xs text-gray-500">({(file.size / 1024).toFixed(1)}KB)</span>
+                  <button
+                    onClick={() => removeAttachedFile(index)}
+                    className="ml-1 text-gray-500 hover:text-red-400 transition-colors"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
           <div className="flex items-center gap-3 border border-white/10 rounded-xl px-4 py-2 bg-white/5">
-            {/* Text Input - Visible */}
+            {/* Text Input - Visible with Dynamic Placeholder */}
             <div className="flex-1 relative">
               <textarea
                 ref={textareaRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask a follow-up"
+                placeholder={
+                  isUploadingFiles
+                    ? 'Uploading files...'
+                    : messages.length === 0
+                    ? 'Ask me anything about SEO, site audits, or content optimization...'
+                    : attachedFiles.length > 0
+                    ? 'Add a message about these files...'
+                    : 'Ask a follow-up or request a new analysis...'
+                }
                 rows={1}
                 className="w-full bg-transparent border-0 px-0 py-2 text-[15px] text-white placeholder-gray-500 focus:outline-none resize-none max-h-32 leading-relaxed"
-                disabled={isLoading}
+                disabled={isLoading || isUploadingFiles}
               />
             </div>
 
@@ -540,14 +674,17 @@ export function SeologyChat() {
               <input
                 ref={fileInputRef}
                 type="file"
-                accept="image/*"
+                accept="image/*,.pdf,.doc,.docx,.txt,.xls,.xlsx"
                 onChange={handleFileUpload}
                 className="hidden"
+                multiple
               />
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 transition-colors"
-                aria-label="Attach"
+                disabled={isLoading || isUploadingFiles}
+                className="p-2 rounded-md hover:bg-white/5 text-gray-600 hover:text-gray-400 disabled:opacity-30 disabled:hover:text-gray-600 transition-colors"
+                aria-label="Attach files"
+                title="Attach images, PDFs, or documents"
               >
                 <Paperclip className="h-4 w-4" />
               </button>
@@ -569,10 +706,10 @@ export function SeologyChat() {
               {/* Send Button */}
               <button
                 onClick={handleSendMessage}
-                disabled={!input.trim() || isLoading}
+                disabled={(!input.trim() && attachedFiles.length === 0) || isLoading || isUploadingFiles}
                 className="p-2 rounded-md hover:bg-white/5 disabled:opacity-30 text-gray-600 hover:text-white disabled:hover:text-gray-600 transition-colors"
               >
-                {isLoading ? (
+                {isLoading || isUploadingFiles ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
                   <Send className="h-4 w-4" />
@@ -634,6 +771,29 @@ function MessageBubble({ message, onCopy, isCopied, isLast, thinkingText }: Mess
           {message.content && (
             <div className="text-base text-gray-200 leading-[1.75] whitespace-pre-wrap font-normal">
               {message.content}
+            </div>
+          )}
+
+          {/* Attachments Display */}
+          {message.attachments && message.attachments.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {message.attachments.map((attachment, index) => (
+                <a
+                  key={index}
+                  href={attachment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                >
+                  {attachment.type.startsWith('image/') ? (
+                    <ImageIcon className="h-4 w-4 text-blue-400" />
+                  ) : (
+                    <FileText className="h-4 w-4 text-blue-400" />
+                  )}
+                  <span className="text-xs text-gray-300 max-w-[150px] truncate">{attachment.name}</span>
+                  <span className="text-xs text-gray-500">({(attachment.size / 1024).toFixed(1)}KB)</span>
+                </a>
+              ))}
             </div>
           )}
 
