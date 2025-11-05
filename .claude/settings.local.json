@@ -41,7 +41,8 @@
       "Bash(do echo \"=== $dir ===\")",
       "Bash(head:*)",
       "Bash(tail:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(node prisma/init-db.js:*)"
     ],
     "deny": [],
     "ask": []
