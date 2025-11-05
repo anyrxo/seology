@@ -346,6 +346,10 @@ export async function handleToolCall(
  */
 async function fetchWebsiteHTML(url: string): Promise<string> {
   try {
+    if (!url) {
+      throw new Error('URL is required')
+    }
+
     const response = await fetch(url, {
       headers: {
         'User-Agent':
@@ -353,18 +357,42 @@ async function fetchWebsiteHTML(url: string): Promise<string> {
         Accept: 'text/html',
       },
       redirect: 'follow',
+      signal: AbortSignal.timeout(10000), // 10 second timeout
     })
+
+    if (!response) {
+      throw new Error('No response received from server')
+    }
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`)
     }
 
-    return await response.text()
+    const text = await response.text()
+
+    if (!text) {
+      throw new Error('Empty response received')
+    }
+
+    return text
   } catch (error) {
-    console.error('Error fetching website:', error)
-    throw new Error(
-      `Failed to fetch URL: ${error instanceof Error ? error.message : 'Unknown error'}`
-    )
+    console.error('Error fetching website:', {
+      url,
+      error: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined
+    })
+
+    // Provide more specific error messages
+    let errorMessage = 'Unknown error'
+    if (error instanceof Error) {
+      errorMessage = error.message
+    } else if (error && typeof error === 'object') {
+      errorMessage = JSON.stringify(error)
+    } else if (error) {
+      errorMessage = String(error)
+    }
+
+    throw new Error(`Failed to fetch URL: ${errorMessage}`)
   }
 }
 
@@ -419,6 +447,19 @@ async function analyzeWebsite(
   includeSubpages: boolean = false
 ): Promise<ToolResult<SEOAnalysis>> {
   try {
+    // Validate URL
+    if (!url) {
+      return {
+        success: false,
+        error: 'URL is required',
+      }
+    }
+
+    // Normalize URL
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url
+    }
+
     // Fetch the HTML
     const html = await fetchWebsiteHTML(url)
 
