@@ -22,7 +22,7 @@ const services = [
   {
     name: 'AI Analysis',
     status: 'operational',
-    description: 'Claude AI SEO analysis',
+    description: 'AI-powered SEO analysis',
     uptime: '99.95%',
   },
   {

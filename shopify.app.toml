@@ -1,0 +1,57 @@
+# Shopify App Configuration
+# Learn more: https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "SEOLOGY.AI - SEO Automation"
+client_id = "0b87ac78cf0783fd1dd829bf5421fae5"
+application_url = "https://seology.ai"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "your-development-store.myshopify.com"
+
+[access_scopes]
+# Required scopes for SEOLOGY functionality
+scopes = "read_products,write_products,read_content,write_content,read_themes,write_themes,read_online_store_pages,write_online_store_pages"
+
+[auth]
+redirect_urls = [
+  "https://seology.ai/api/auth/shopify/callback",
+  "https://seology.ai/dashboard"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+# Subscriptions
+[[webhooks.subscriptions]]
+topics = ["app/uninstalled"]
+uri = "/api/webhooks/shopify"
+
+[[webhooks.subscriptions]]
+topics = ["app_subscriptions/update"]
+uri = "/api/webhooks/shopify"
+
+[[webhooks.subscriptions]]
+topics = ["shop/update"]
+uri = "/api/webhooks/shopify"
+
+[[webhooks.subscriptions]]
+topics = ["products/create", "products/update", "products/delete"]
+uri = "/api/webhooks/shopify"
+
+# GDPR webhooks (required)
+[[webhooks.subscriptions]]
+topics = ["customers/data_request"]
+uri = "/api/webhooks/shopify/gdpr/customers-data-request"
+
+[[webhooks.subscriptions]]
+topics = ["customers/redact"]
+uri = "/api/webhooks/shopify/gdpr/customers-redact"
+
+[[webhooks.subscriptions]]
+topics = ["shop/redact"]
+uri = "/api/webhooks/shopify/gdpr/shop-redact"
+
+[pos]
+embedded = false

@@ -84,7 +84,7 @@ export default function LandingPageContent() {
     {
       icon: Sparkles,
       title: 'AI-Powered Intelligence',
-      desc: 'Leveraging Claude AI for the most intelligent SEO decisions possible.',
+      desc: 'Leveraging advanced AI for the most intelligent SEO decisions possible.',
       gradient: 'from-indigo-400 to-purple-500',
     },
     {
@@ -174,7 +174,7 @@ export default function LandingPageContent() {
               <Sparkles className="w-4 h-4 text-blue-400" />
             </motion.div>
             <span className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Powered by Claude AI - The World's Most Advanced AI
+              Powered by Advanced AI - The World's Most Intelligent SEO Platform
             </span>
           </motion.div>
 
@@ -493,7 +493,7 @@ export default function LandingPageContent() {
                 num: '02',
                 icon: Cpu,
                 title: 'AI Analyzes & Plans',
-                desc: 'Our Claude AI scans your entire site for 50+ SEO issues, identifies problems, and generates intelligent fix plans.',
+                desc: 'Our AI scans your entire site for 50+ SEO issues, identifies problems, and generates intelligent fix plans.',
                 items: ['Full site crawl & analysis', '50+ issue types detected', 'Smart fix generation with AI'],
                 gradient: 'from-purple-500 to-pink-500',
               },

@@ -2,6 +2,62 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Development Workflow - Claudia (Opcode) Integration
+
+This project uses **[Claudia (Opcode)](https://github.com/winfunc/opcode)** - an open-source desktop GUI for managing Claude Code sessions.
+
+### Claudia Features
+
+**What is Claudia?**
+Claudia is a Tauri desktop app that provides a visual command center for Claude Code, making AI-assisted development more intuitive and manageable.
+
+**Key Features in Use:**
+
+1. **Custom AI Agents** (`.claude/agents/`)
+   - Specialized agents for different development tasks
+   - Shopify integration agent
+   - Database schema designer agent
+   - API development agent
+   - Isolated background execution with full history tracking
+
+2. **Session Management with Timeline**
+   - Visual timeline of all development sessions
+   - Checkpoint system for version snapshots
+   - Branch navigation through session history
+   - One-click restoration to previous states
+   - Diff viewer showing changes between checkpoints
+
+3. **Usage Analytics Dashboard**
+   - Real-time API usage monitoring
+   - Token consumption breakdowns by model, project, and time
+   - Cost tracking and budget optimization
+   - Visual charts showing usage trends
+   - Data export for financial reporting
+
+4. **MCP Server Management**
+   - Centralized UI for Model Context Protocol servers
+   - Configuration import from Claude Desktop
+   - Connection verification and health checks
+   - Easy server activation/deactivation
+
+5. **CLAUDE.md Live Editor**
+   - Built-in markdown editor with syntax highlighting
+   - Live preview of rendered markdown
+   - Real-time project configuration updates
+   - Version history tracking
+
+**Privacy & Security:**
+- All operations run locally - no data collection
+- Process isolation for agent execution
+- Configurable permissions per agent
+- Full control over AI interactions
+
+**Integration with SEOLOGY:**
+- Project sessions tracked with checkpoints before major changes
+- Custom agents for Shopify SEO optimization tasks
+- Usage analytics to optimize AI API costs
+- Timeline branching for experimenting with different approaches
+
 ## Project Overview
 
 SEOLOGY.AI is an AI-powered SEO automation SaaS that automatically fixes SEO issues instead of just reporting them. The platform connects to CMSs (Shopify, WordPress, custom sites via JavaScript) and uses Claude AI to analyze, plan, and execute SEO fixes automatically.

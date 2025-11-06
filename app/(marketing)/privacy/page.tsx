@@ -286,7 +286,7 @@ export default function PrivacyPage() {
                 </ul>
                 <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
                   <p className="text-blue-300">
-                    <strong>AI Processing:</strong> We use Claude AI (Anthropic) to analyze your website content and generate SEO recommendations. This processing is done securely and in accordance with our data protection standards.
+                    <strong>AI Processing:</strong> We use advanced AI services (Anthropic) to analyze your website content and generate SEO recommendations. This processing is done securely and in accordance with our data protection standards.
                   </p>
                 </div>
               </Section>
@@ -331,7 +331,7 @@ export default function PrivacyPage() {
                   <li><strong>Email services:</strong> Resend</li>
                   <li><strong>Analytics:</strong> Vercel Analytics</li>
                   <li><strong>Authentication:</strong> Clerk</li>
-                  <li><strong>AI services:</strong> Anthropic (Claude AI)</li>
+                  <li><strong>AI services:</strong> Anthropic</li>
                 </ul>
                 <p className="mt-4">
                   These providers are contractually obligated to protect your data and use it only for providing services to us.

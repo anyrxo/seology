@@ -30,7 +30,7 @@ export default function CareersPage() {
       location: 'Remote',
       type: 'Full-time',
       description:
-        'Build the future of SEO automation with Next.js, PostgreSQL, and Claude AI. Work on complex systems that automatically fix SEO issues at scale.',
+        'Build the future of SEO automation with Next.js, PostgreSQL, and advanced AI. Work on complex systems that automatically fix SEO issues at scale.',
       requirements: [
         '5+ years full-stack development',
         'Expert in React/Next.js and TypeScript',
@@ -44,7 +44,7 @@ export default function CareersPage() {
       location: 'Remote',
       type: 'Full-time',
       description:
-        'Design and optimize AI systems that analyze websites and generate intelligent SEO fixes. Work with Claude AI and cutting-edge language models.',
+        'Design and optimize AI systems that analyze websites and generate intelligent SEO fixes. Work with cutting-edge language models and advanced AI.',
       requirements: [
         '3+ years in AI/ML engineering',
         'Experience with LLMs (GPT, Claude, etc.)',

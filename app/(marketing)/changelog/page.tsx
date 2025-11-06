@@ -51,7 +51,7 @@ const changes = [
         type: 'improvement',
         icon: Zap,
         title: 'Enhanced AI Analysis',
-        description: 'Upgraded to Claude 3.5 Sonnet for more accurate SEO recommendations',
+        description: 'Upgraded AI engine for more accurate SEO recommendations',
       },
     ],
   },

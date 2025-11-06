@@ -128,7 +128,7 @@ export default function SignUpPage() {
               {
                 number: '02',
                 title: 'AI Analyzes Everything',
-                description: 'Claude AI scans your site for SEO opportunities'
+                description: 'Our AI scans your site for SEO opportunities'
               },
               {
                 number: '03',

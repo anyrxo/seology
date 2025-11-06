@@ -436,7 +436,7 @@ export default function AboutPage() {
             {[
               {
                 icon: Brain,
-                name: 'Claude AI',
+                name: 'Advanced AI Engine',
                 description:
                   'State-of-the-art AI technology for intelligent SEO analysis and fix generation.',
                 tag: 'AI Engine',

@@ -1,8 +1,11 @@
 /**
- * Centralized Logging System
+ * Centralized Logging System with Pino
  *
- * Provides structured logging with different levels and optional persistence
+ * Production-grade structured logging with Pino backend
+ * Provides different levels, optional persistence, and domain-specific loggers
  */
+
+import pino from 'pino'
 
 export type LogLevel = 'DEBUG' | 'INFO' | 'WARN' | 'ERROR' | 'CRITICAL'
 export type LogCategory =
@@ -14,6 +17,8 @@ export type LogCategory =
   | 'ADMIN'
   | 'JOBS'
   | 'PAYMENT'
+  | 'SHOPIFY'
+  | 'WEBHOOK'
   | 'GENERAL'
 
 // Type for primitive log values
@@ -45,10 +50,57 @@ interface LogEntry {
   error?: Error
 }
 
+// Initialize Pino logger
+const pinoLogger = pino({
+  level: process.env.LOG_LEVEL || (process.env.NODE_ENV !== 'production' ? 'debug' : 'info'),
+
+  // Pretty print in development, JSON in production
+  transport: process.env.NODE_ENV !== 'production'
+    ? {
+        target: 'pino-pretty',
+        options: {
+          colorize: true,
+          translateTime: 'HH:MM:ss',
+          ignore: 'pid,hostname',
+          singleLine: false,
+        },
+      }
+    : undefined,
+
+  // Base fields
+  base: {
+    env: process.env.NODE_ENV || 'development',
+    revision: process.env.VERCEL_GIT_COMMIT_SHA || 'local',
+  },
+
+  // Redact sensitive fields
+  redact: {
+    paths: [
+      'accessToken',
+      'password',
+      'apiKey',
+      'secret',
+      'token',
+      '*.accessToken',
+      '*.password',
+      '*.apiKey',
+      '*.secret',
+      '*.token',
+    ],
+    remove: true,
+  },
+
+  // Serialize errors
+  serializers: {
+    err: pino.stdSerializers.err,
+  },
+})
+
 class Logger {
   private isDevelopment = process.env.NODE_ENV !== 'production'
   private logToConsole = true
   private logToDatabase = process.env.LOG_TO_DATABASE === 'true'
+  private pino = pinoLogger
 
   /**
    * Format log entry for console output
@@ -96,16 +148,25 @@ class Logger {
   }
 
   /**
-   * Output log entry to console
+   * Output log entry to console using Pino
    */
   private outputToConsole(entry: LogEntry): void {
     if (!this.logToConsole) return
 
-    const color = this.getConsoleColor(entry.level)
-    const reset = '\x1b[0m'
-    const formattedLog = this.formatConsoleLog(entry)
+    // Map our log levels to Pino levels
+    const pinoLevel = entry.level.toLowerCase() as 'debug' | 'info' | 'warn' | 'error'
+    const level = entry.level === 'CRITICAL' ? 'fatal' : pinoLevel
 
-    console.log(`${color}${formattedLog}${reset}`)
+    // Prepare log data
+    const logData: Record<string, unknown> = {
+      category: entry.category,
+      ...(entry.data || {}),
+      ...(entry.userId && { userId: entry.userId }),
+      ...(entry.error && { err: entry.error }),
+    }
+
+    // Log using Pino
+    this.pino[level](logData, entry.message)
   }
 
   /**

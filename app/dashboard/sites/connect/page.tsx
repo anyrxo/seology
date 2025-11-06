@@ -275,7 +275,7 @@ function HowItWorksSection() {
       icon: Sparkles,
       iconColor: 'text-purple-400',
       title: 'AI Analysis',
-      description: 'Our Claude AI scans your site and identifies SEO issues automatically.',
+      description: 'Our AI scans your site and identifies SEO issues automatically.',
     },
     {
       icon: Zap,

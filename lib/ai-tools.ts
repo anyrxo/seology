@@ -8,6 +8,7 @@ import { db } from './db'
 import { IssueStatus, Severity } from '@prisma/client'
 import Anthropic from '@anthropic-ai/sdk'
 import { deepTechnicalAudit, competitorAnalysis } from './ai-tools-advanced'
+import { shopifyTools, analyzeShopifyProducts, getProductDetails, fixProductSEO, analyzeShopifyCollections, fixCollectionSEO, getStoreOverview } from './ai-tools/shopify-tools'
 
 // Initialize Anthropic client for website analysis
 const anthropic = new Anthropic({
@@ -72,6 +73,42 @@ interface ToolInputValidateSchemaMarkup {
   url: string
 }
 
+interface ToolInputAnalyzeShopifyProducts {
+  limit?: number
+}
+
+interface ToolInputGetProductDetails {
+  productId: string
+}
+
+interface ToolInputFixProductSEO {
+  productId: string
+  fixes: {
+    title?: string
+    description?: string
+    metaTitle?: string
+    metaDescription?: string
+  }
+}
+
+interface ToolInputAnalyzeShopifyCollections {
+  limit?: number
+}
+
+interface ToolInputFixCollectionSEO {
+  collectionId: string
+  fixes: {
+    title?: string
+    description?: string
+    metaTitle?: string
+    metaDescription?: string
+  }
+}
+
+interface ToolInputGetStoreOverview {
+  // No parameters
+}
+
 export type ToolInput =
   | ToolInputAnalyzeWebsite
   | ToolInputGetSiteIssues
@@ -85,6 +122,12 @@ export type ToolInput =
   | ToolInputMultiPageAnalysis
   | ToolInputExtractNavigation
   | ToolInputValidateSchemaMarkup
+  | ToolInputAnalyzeShopifyProducts
+  | ToolInputGetProductDetails
+  | ToolInputFixProductSEO
+  | ToolInputAnalyzeShopifyCollections
+  | ToolInputFixCollectionSEO
+  | ToolInputGetStoreOverview
 
 interface SEOAnalysis {
   url: string
@@ -377,6 +420,8 @@ export const AI_TOOLS = [
       required: ['url'],
     },
   },
+  // Add Shopify-specific tools
+  ...shopifyTools,
 ]
 
 /**
@@ -452,6 +497,140 @@ export async function handleToolCall(
 
       case 'validate_schema_markup':
         return await validateSchemaMarkup((toolInput as ToolInputValidateSchemaMarkup).url)
+
+      // Shopify-specific tools
+      case 'analyze_shopify_products': {
+        // Get user's Shopify connection
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected. Please connect your Shopify store first.',
+          }
+        }
+
+        return await analyzeShopifyProducts(
+          { userId: context.userId, connectionId: connection.id },
+          toolInput as ToolInputAnalyzeShopifyProducts
+        )
+      }
+
+      case 'get_product_details': {
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected.',
+          }
+        }
+
+        return await getProductDetails(
+          { userId: context.userId, connectionId: connection.id },
+          toolInput as ToolInputGetProductDetails
+        )
+      }
+
+      case 'fix_product_seo': {
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected.',
+          }
+        }
+
+        return await fixProductSEO(
+          { userId: context.userId, connectionId: connection.id },
+          toolInput as ToolInputFixProductSEO
+        )
+      }
+
+      case 'analyze_shopify_collections': {
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected.',
+          }
+        }
+
+        return await analyzeShopifyCollections(
+          { userId: context.userId, connectionId: connection.id },
+          toolInput as ToolInputAnalyzeShopifyCollections
+        )
+      }
+
+      case 'fix_collection_seo': {
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected.',
+          }
+        }
+
+        return await fixCollectionSEO(
+          { userId: context.userId, connectionId: connection.id },
+          toolInput as ToolInputFixCollectionSEO
+        )
+      }
+
+      case 'get_store_overview': {
+        const connection = await db.connection.findFirst({
+          where: {
+            userId: context.userId,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+
+        if (!connection) {
+          return {
+            success: false,
+            error: 'No Shopify store connected.',
+          }
+        }
+
+        return await getStoreOverview({
+          userId: context.userId,
+          connectionId: connection.id,
+        })
+      }
 
       default:
         throw new Error(`Unknown tool: ${toolName}`)

@@ -1,116 +1,89 @@
+﻿/**
+ * Shopify OAuth Callback Route
+ *
+ * Handles the OAuth callback from Shopify after merchant authorizes
+ */
+
 import { NextRequest, NextResponse } from 'next/server'
+import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
+import { verifyShopifyHMAC } from '@/lib/shopify-hmac'
 import { encrypt } from '@/lib/encryption'
-import { validateOAuthState } from '@/lib/csrf'
-
-// Mark this route as dynamic
-export const dynamic = 'force-dynamic'
-
-// Shopify API response types
-interface ShopifyShopData {
-  id?: number
-  name?: string
-  email?: string
-  domain?: string
-  myshopify_domain?: string
-  primary_domain?: { host: string }
-  currency?: string
-  iana_timezone?: string
-  money_format?: string
-  weight_unit?: string
-  shop_owner?: string
-  phone?: string
-  address1?: string
-  address2?: string
-  city?: string
-  province?: string
-  country?: string
-  zip?: string
-  plan_name?: string
-  plan_display_name?: string
-  has_storefront?: boolean
-  has_discounts?: boolean
-  has_gift_cards?: boolean
-  multi_location_enabled?: boolean
-  setup_required?: boolean
-  taxes_included?: boolean
-  tax_shipping?: boolean
-  county_taxes?: boolean
-}
-
-interface ShopMetadata {
-  shopId?: number
-  name?: string
-  email?: string
-  domain?: string
-  myshopifyDomain?: string
-  primaryDomain?: string
-  currency?: string
-  timezone?: string
-  moneyFormat?: string
-  weightUnit?: string
-  shopOwner?: string
-  phone?: string
-  address?: {
-    address1?: string
-    address2?: string
-    city?: string
-    province?: string
-    country?: string
-    zip?: string
-  }
-  planName?: string
-  planDisplayName?: string
-  productCount?: number
-  collectionCount?: number
-  customerCount?: number
-  hasStorefront?: boolean
-  hasDiscounts?: boolean
-  hasGiftCards?: boolean
-  multiLocationEnabled?: boolean
-  setupRequired?: boolean
-  taxesIncluded?: boolean
-  taxShipping?: boolean
-  countyTaxes?: boolean
-  connectedAt?: string
-}
 
 export async function GET(req: NextRequest) {
-  const searchParams = req.nextUrl.searchParams
-  const code = searchParams.get('code')
-  const shop = searchParams.get('shop')
-  const state = searchParams.get('state')
-  const hmac = searchParams.get('hmac')
-
-  if (!code || !shop || !state) {
-    return NextResponse.redirect(
-      new URL('/dashboard/sites?error=missing_params', req.url)
-    )
-  }
-
-  // Validate CSRF-protected state parameter
-  const stateValidation = await validateOAuthState(state, 'SHOPIFY')
-
-  if (!stateValidation.valid || !stateValidation.userId) {
-    return NextResponse.redirect(
-      new URL('/dashboard/sites?error=invalid_state', req.url)
-    )
-  }
-
-  const userId = stateValidation.userId
-
-  // Exchange code for access token
-  const clientId = process.env.SHOPIFY_CLIENT_ID || '0b87ac78cf0783fd1dd829bf5421fae5'
-  const clientSecret = process.env.SHOPIFY_CLIENT_SECRET || ''
-
-  if (!clientSecret) {
-    return NextResponse.redirect(
-      new URL('/dashboard/sites?error=config_error', req.url)
-    )
-  }
-
   try {
-    const tokenResponse = await fetch(`https://${shop}/admin/oauth/access_token`, {
+    const { userId } = await auth()
+
+    if (!userId) {
+      return NextResponse.redirect(new URL('/sign-in?error=unauthorized', req.url))
+    }
+
+    // Get query parameters
+    const code = req.nextUrl.searchParams.get('code')
+    const hmac = req.nextUrl.searchParams.get('hmac')
+    const shop = req.nextUrl.searchParams.get('shop')
+    const state = req.nextUrl.searchParams.get('state')
+
+    if (!code || !hmac || !shop || !state) {
+      return NextResponse.redirect(
+        new URL('/dashboard?error=missing_params', req.url)
+      )
+    }
+
+    // Verify CSRF state token
+    const csrfToken = await db.cSRFToken.findUnique({
+      where: { token: state },
+    })
+
+    if (!csrfToken || csrfToken.userId !== userId) {
+      return NextResponse.redirect(
+        new URL('/dashboard?error=invalid_state', req.url)
+      )
+    }
+
+    // Check if token is expired
+    if (csrfToken.expiresAt < new Date()) {
+      await db.cSRFToken.delete({ where: { id: csrfToken.id } })
+      return NextResponse.redirect(
+        new URL('/dashboard?error=expired_state', req.url)
+      )
+    }
+
+    // Delete used token
+    await db.cSRFToken.delete({ where: { id: csrfToken.id } })
+
+    // Verify HMAC signature
+    const clientSecret = process.env.SHOPIFY_CLIENT_SECRET
+
+    if (!clientSecret) {
+      throw new Error('SHOPIFY_CLIENT_SECRET not configured')
+    }
+
+    const queryParams: Record<string, string> = {}
+    req.nextUrl.searchParams.forEach((value, key) => {
+      if (key !== 'hmac') {
+        queryParams[key] = value
+      }
+    })
+    queryParams.hmac = hmac
+
+    const isValid = verifyShopifyHMAC(queryParams, clientSecret)
+
+    if (!isValid) {
+      return NextResponse.redirect(
+        new URL('/dashboard?error=invalid_hmac', req.url)
+      )
+    }
+
+    // Exchange code for access token
+    const clientId = process.env.SHOPIFY_CLIENT_ID
+
+    if (!clientId) {
+      throw new Error('SHOPIFY_CLIENT_ID not configured')
+    }
+
+    const tokenUrl = `https://${shop}/admin/oauth/access_token`
+    const tokenResponse = await fetch(tokenUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -128,6 +101,24 @@ export async function GET(req: NextRequest) {
 
     const tokenData = await tokenResponse.json()
     const accessToken = tokenData.access_token
+    const scope = tokenData.scope
+
+    // Fetch shop information from Shopify
+    const shopInfoResponse = await fetch(
+      `https://${shop}/admin/api/2024-01/shop.json`,
+      {
+        headers: {
+          'X-Shopify-Access-Token': accessToken,
+        },
+      }
+    )
+
+    if (!shopInfoResponse.ok) {
+      throw new Error('Failed to fetch shop information')
+    }
+
+    const shopInfo = await shopInfoResponse.json()
+    const shopData = shopInfo.shop
 
     // Get user from database
     const user = await db.user.findUnique({
@@ -135,215 +126,177 @@ export async function GET(req: NextRequest) {
     })
 
     if (!user) {
-      return NextResponse.redirect(
-        new URL('/dashboard/sites?error=user_not_found', req.url)
-      )
+      throw new Error('User not found')
     }
 
-    // Encrypt access token before storing
+    // Encrypt access token
     const encryptedToken = encrypt(accessToken)
 
-    // Fetch comprehensive shop data from Shopify API
-    console.log('Fetching shop data from Shopify API...')
-    const shopDataResponse = await fetch(`https://${shop}/admin/api/2024-01/shop.json`, {
-      headers: {
-        'X-Shopify-Access-Token': accessToken,
-        'Content-Type': 'application/json',
-      },
-    })
-
-    let shopData: ShopifyShopData = {}
-    let shopMetadata: ShopMetadata = {}
-
-    if (shopDataResponse.ok) {
-      const data = await shopDataResponse.json()
-      shopData = data.shop || {}
-
-      // Extract key shop information
-      shopMetadata = {
-        shopId: shopData.id,
-        name: shopData.name,
-        email: shopData.email,
-        domain: shopData.domain,
-        myshopifyDomain: shopData.myshopify_domain,
-        primaryDomain: shopData.primary_domain?.host || shop,
-        currency: shopData.currency,
-        timezone: shopData.iana_timezone,
-        moneyFormat: shopData.money_format,
-        weightUnit: shopData.weight_unit,
-
-        // Business info
-        shopOwner: shopData.shop_owner,
-        phone: shopData.phone,
-        address: {
-          address1: shopData.address1,
-          address2: shopData.address2,
-          city: shopData.city,
-          province: shopData.province,
-          country: shopData.country,
-          zip: shopData.zip,
-        },
-
-        // Plan info
-        planName: shopData.plan_name,
-        planDisplayName: shopData.plan_display_name,
-
-        // Store counts (useful for AI context)
-        productCount: 0, // Will fetch separately
-        collectionCount: 0,
-        customerCount: 0,
-
-        // Features
-        hasStorefront: shopData.has_storefront,
-        hasDiscounts: shopData.has_discounts,
-        hasGiftCards: shopData.has_gift_cards,
-        multiLocationEnabled: shopData.multi_location_enabled,
-
-        // Setup
-        setupRequired: shopData.setup_required,
-        taxesIncluded: shopData.taxes_included,
-        taxShipping: shopData.tax_shipping,
-        countyTaxes: shopData.county_taxes,
-
-        // Connected at
-        connectedAt: new Date().toISOString(),
-      }
-
-      console.log('Shop data fetched successfully:', shopMetadata.name)
-    } else {
-      console.warn('Failed to fetch shop data, proceeding with basic info')
-    }
-
-    // Fetch product count for AI context
-    try {
-      const productsCountResponse = await fetch(
-        `https://${shop}/admin/api/2024-01/products/count.json`,
-        {
-          headers: {
-            'X-Shopify-Access-Token': accessToken,
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      if (productsCountResponse.ok) {
-        const countData = await productsCountResponse.json()
-        shopMetadata.productCount = countData.count || 0
-      }
-    } catch (error) {
-      console.warn('Failed to fetch product count:', error)
-    }
-
-    // Fetch collection count
-    try {
-      const collectionsCountResponse = await fetch(
-        `https://${shop}/admin/api/2024-01/custom_collections/count.json`,
-        {
-          headers: {
-            'X-Shopify-Access-Token': accessToken,
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      if (collectionsCountResponse.ok) {
-        const countData = await collectionsCountResponse.json()
-        shopMetadata.collectionCount = countData.count || 0
-      }
-    } catch (error) {
-      console.warn('Failed to fetch collection count:', error)
-    }
-
-    // Fetch customer count
-    try {
-      const customersCountResponse = await fetch(
-        `https://${shop}/admin/api/2024-01/customers/count.json`,
-        {
-          headers: {
-            'X-Shopify-Access-Token': accessToken,
-            'Content-Type': 'application/json',
-          },
-        }
-      )
-      if (customersCountResponse.ok) {
-        const countData = await customersCountResponse.json()
-        shopMetadata.customerCount = countData.count || 0
-      }
-    } catch (error) {
-      console.warn('Failed to fetch customer count:', error)
-    }
-
-    // Create connection in database with enriched data
-    const connection = await db.connection.create({
-      data: {
+    // Check if connection already exists
+    const existingConnection = await db.connection.findFirst({
+      where: {
         userId: user.id,
         platform: 'SHOPIFY',
-        domain: shopMetadata.primaryDomain || shop,
-        displayName: shopMetadata.name || shop.replace('.myshopify.com', ''),
-        accessToken: encryptedToken, // Encrypted using AES-256-GCM
-        status: 'CONNECTED',
-        credentials: JSON.stringify(shopMetadata), // Store all shop metadata
-        lastSync: new Date(),
+        domain: shop,
       },
     })
+
+    if (existingConnection) {
+      // Update existing connection
+      await db.connection.update({
+        where: { id: existingConnection.id },
+        data: {
+          accessToken: encryptedToken,
+          status: 'CONNECTED',
+          lastSync: new Date(),
+          credentials: JSON.stringify({
+            shopId: shopData.id,
+            name: shopData.name,
+            email: shopData.email,
+            domain: shopData.domain,
+            myshopifyDomain: shopData.myshopify_domain,
+            primaryDomain: shopData.primary_domain?.host || shopData.domain,
+            currency: shopData.currency,
+            timezone: shopData.timezone,
+            productCount: shopData.product_count || 0,
+            collectionCount: shopData.collection_count || 0,
+            customerCount: shopData.customer_count || 0,
+            planName: shopData.plan_name,
+            planDisplayName: shopData.plan_display_name,
+            shopOwner: shopData.shop_owner,
+            phone: shopData.phone,
+            address: {
+              address1: shopData.address1,
+              address2: shopData.address2,
+              city: shopData.city,
+              province: shopData.province,
+              country: shopData.country_name,
+              zip: shopData.zip,
+            },
+            scopes: scope,
+          }),
+        },
+      })
+    } else {
+      // Create new connection
+      await db.connection.create({
+        data: {
+          userId: user.id,
+          platform: 'SHOPIFY',
+          domain: shop,
+          displayName: shopData.name,
+          accessToken: encryptedToken,
+          status: 'CONNECTED',
+          lastSync: new Date(),
+          credentials: JSON.stringify({
+            shopId: shopData.id,
+            name: shopData.name,
+            email: shopData.email,
+            domain: shopData.domain,
+            myshopifyDomain: shopData.myshopify_domain,
+            primaryDomain: shopData.primary_domain?.host || shopData.domain,
+            currency: shopData.currency,
+            timezone: shopData.timezone,
+            productCount: shopData.product_count || 0,
+            collectionCount: shopData.collection_count || 0,
+            customerCount: shopData.customer_count || 0,
+            planName: shopData.plan_name,
+            planDisplayName: shopData.plan_display_name,
+            shopOwner: shopData.shop_owner,
+            phone: shopData.phone,
+            address: {
+              address1: shopData.address1,
+              address2: shopData.address2,
+              city: shopData.city,
+              province: shopData.province,
+              country: shopData.country_name,
+              zip: shopData.zip,
+            },
+            scopes: scope,
+          }),
+        },
+      })
+    }
 
     // Create audit log
     await db.auditLog.create({
       data: {
         userId: user.id,
-        connectionId: connection.id,
         action: 'SHOPIFY_CONNECTED',
+        resource: 'connection',
         details: JSON.stringify({
           shop,
-          shopName: shopMetadata.name,
-          productCount: shopMetadata.productCount,
-          planName: shopMetadata.planName,
+          shopName: shopData.name,
+          scopes: scope,
         }),
       },
     })
 
-    // Create notification with comprehensive shop details
-    const shopDetails = [
-      shopMetadata.productCount ? `${shopMetadata.productCount} products` : null,
-      shopMetadata.collectionCount ? `${shopMetadata.collectionCount} collections` : null,
-      shopMetadata.customerCount ? `${shopMetadata.customerCount} customers` : null,
-    ].filter(Boolean).join(', ')
-
+    // Create notification
     await db.notification.create({
       data: {
         userId: user.id,
-        type: 'connection_success',
-        title: 'Shopify Store Connected',
-        message: `Successfully connected ${shopMetadata.name || shop}${shopDetails ? ` with ${shopDetails}` : ''}. Your site is now being analyzed for SEO opportunities.`,
-        actionUrl: `/dashboard/sites/${connection.id}`,
+        type: 'SUCCESS',
+        title: 'Shopify Store Connected!',
+        message: `Successfully connected ${shopData.name}. We're analyzing your store now.`,
+        actionUrl: '/dashboard',
+        icon: '🛍️',
+        color: 'green',
       },
     })
 
-    // Automatically trigger a crawl job to analyze the site
-    console.log('Creating crawl job for new Shopify store...')
-    await db.job.create({
-      data: {
-        type: 'CRAWL_SITE',
-        status: 'PENDING',
-        priority: 1, // High priority for new connections
-        payload: JSON.stringify({
-          connectionId: connection.id,
-          url: `https://${shopMetadata.primaryDomain || shop}`,
-          fullCrawl: true,
-        }),
-        connectionId: connection.id,
-        userId: user.id,
-      },
-    })
+    // Register webhooks automatically after successful OAuth
+    const webhooks = [
+      { topic: 'products/update', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/products/update` },
+      { topic: 'products/delete', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/products/delete` },
+      { topic: 'app/uninstalled', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/app/uninstalled` },
+      { topic: 'customers/data_request', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/customers-data-request` },
+      { topic: 'customers/redact', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/customers-redact` },
+      { topic: 'shop/redact', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/shop-redact` },
+    ]
 
-    console.log('Shopify connection complete, redirecting to site details')
+    console.log('[WEBHOOK] Registering webhooks for', shop)
 
-    // Redirect to site details page
+    for (const webhook of webhooks) {
+      try {
+        const webhookResponse = await fetch(
+          `https://${shop}/admin/api/2025-10/webhooks.json`,
+          {
+            method: 'POST',
+            headers: {
+              'X-Shopify-Access-Token': accessToken,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              webhook: {
+                topic: webhook.topic,
+                address: webhook.address,
+                format: 'json',
+              },
+            }),
+          }
+        )
+
+        if (!webhookResponse.ok) {
+          const errorText = await webhookResponse.text()
+          console.error(`[WEBHOOK] Failed to register ${webhook.topic}:`, errorText)
+        } else {
+          console.log(`[WEBHOOK] ✅ Registered: ${webhook.topic}`)
+        }
+      } catch (error) {
+        console.error(`[WEBHOOK] Error registering ${webhook.topic}:`, error)
+        // Continue with other webhooks even if one fails
+      }
+    }
+
+    // Redirect to dashboard with success message
     return NextResponse.redirect(
-      new URL(`/dashboard/sites/${connection.id}?success=shopify_connected&scanning=true`, req.url)
+      new URL('/dashboard?shopify_connected=true', req.url)
     )
   } catch (error) {
-    console.error('Shopify OAuth error:', error)
+    console.error('Shopify OAuth callback error:', error)
     return NextResponse.redirect(
-      new URL('/dashboard/sites?error=oauth_failed', req.url)
+      new URL('/dashboard?error=connection_failed', req.url)
     )
   }
 }

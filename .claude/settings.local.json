@@ -67,7 +67,13 @@
       "Bash(else echo \"No .env.local file found\")",
       "Bash(while read file)",
       "Bash(do echo \"=== $file ===\")",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(bun add:*)",
+      "Bash(npm run tauri:*)",
+      "Bash(where cargo:*)",
+      "Bash(export PATH=\"/c/Users/manna/.cargo/bin:$PATH\")",
+      "Bash(cargo --version:*)",
+      "Bash(cargo build:*)"
     ],
     "deny": [],
     "ask": []

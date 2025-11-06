@@ -235,7 +235,7 @@ export default function TermsPage() {
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-slate-300 ml-4">
                   <li>Automated SEO analysis and website scanning</li>
-                  <li>AI-powered issue detection and prioritization using Claude AI</li>
+                  <li>AI-powered issue detection and prioritization using advanced AI</li>
                   <li>Automatic application of SEO fixes to your websites</li>
                   <li>Integration with CMS platforms (Shopify, WordPress, custom sites via Magic.js)</li>
                   <li>Comprehensive reporting and analytics dashboards</li>

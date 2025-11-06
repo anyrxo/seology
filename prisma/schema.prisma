@@ -123,6 +123,8 @@ model Connection {
   contentSuggestions ContentSuggestion[] // Content optimization
   healthScores       SiteHealthScore[] // Site health tracking
   imageAssets        ImageAsset[] // Image SEO tracking
+  shopifyProducts    ShopifyProduct[] // Shopify products
+  shopifyCollections ShopifyCollection[] // Shopify collections
 
   @@index([userId])
   @@index([teamId])
@@ -1409,5 +1411,105 @@ model AutomationSnapshot {
   @@index([canRollback])
 }
 
-// Add ImageAsset relation to User
-// (Already handled by the relation above)
+// ==================== SHOPIFY-SPECIFIC MODELS ====================
+
+// Shopify Products (for product-level SEO optimization)
+model ShopifyProduct {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  // Shopify product identification
+  shopifyProductId String // Shopify's product.id (numeric as string)
+  shopifyHandle    String // URL-friendly handle
+
+  // Basic product info
+  title       String
+  bodyHtml    String? @db.Text
+  vendor      String?
+  productType String?
+  tags        String? @db.Text // Comma-separated tags
+  status      String // 'active', 'draft', 'archived'
+
+  // SEO fields
+  metaTitle       String?
+  metaDescription String?
+
+  // Variants and images (stored as JSON for MVP simplicity)
+  variants String? @db.Text // JSON array of variants
+  images   String? @db.Text // JSON array of images with src, alt, etc.
+
+  // Sales data (for revenue-aware prioritization)
+  salesLast30Days Int?   @default(0) // Number of sales in last 30 days
+  revenue30Days   Float? @default(0) // Revenue in last 30 days (USD)
+  price           Float? // Current price
+  currency        String? @default("USD")
+
+  // Analytics
+  pageViews       Int?   @default(0)
+  conversionRate  Float? // Percentage
+  avgTimeOnPage   Float? // Seconds
+
+  // SEO analysis
+  lastAnalyzedAt DateTime?
+  seoScore       Int?     @default(0) // 0-100
+  issuesCount    Int      @default(0)
+
+  // Issues breakdown (JSON for MVP)
+  seoIssues String @default("{}") // JSON object with issue types and counts
+
+  // Priority for fixes (calculated based on revenue + SEO issues)
+  fixPriority      Int?   @default(5) // 1=highest, 10=lowest
+  estimatedImpact  Float? // Estimated revenue impact from SEO fixes
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, shopifyProductId])
+  @@index([connectionId])
+  @@index([seoScore])
+  @@index([fixPriority])
+  @@index([salesLast30Days])
+  @@index([lastAnalyzedAt])
+}
+
+// Shopify Collections (for collection page optimization)
+model ShopifyCollection {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  // Shopify collection identification
+  shopifyCollectionId String // Shopify's collection.id
+  shopifyHandle       String // URL-friendly handle
+
+  // Basic info
+  title       String
+  bodyHtml    String? @db.Text
+  sortOrder   String? // manual, best-selling, alpha-asc, etc.
+  productCount Int    @default(0)
+
+  // SEO fields
+  metaTitle       String?
+  metaDescription String?
+
+  // Image
+  image String? // JSON object with src, alt
+
+  // Analytics
+  pageViews      Int?   @default(0)
+  conversionRate Float?
+
+  // SEO analysis
+  lastAnalyzedAt DateTime?
+  seoScore       Int?     @default(0) // 0-100
+  issuesCount    Int      @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, shopifyCollectionId])
+  @@index([connectionId])
+  @@index([seoScore])
+  @@index([lastAnalyzedAt])
+}
