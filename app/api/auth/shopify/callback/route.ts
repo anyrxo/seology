@@ -11,6 +11,9 @@ import { verifyShopifyHMAC } from '@/lib/shopify-hmac'
 import { encrypt } from '@/lib/encryption'
 
 export async function GET(req: NextRequest) {
+  // Get shop parameter early for error handling
+  const shop = req.nextUrl.searchParams.get('shop')
+
   try {
     const { userId } = await auth()
 
@@ -21,7 +24,6 @@ export async function GET(req: NextRequest) {
     // Get query parameters
     const code = req.nextUrl.searchParams.get('code')
     const hmac = req.nextUrl.searchParams.get('hmac')
-    const shop = req.nextUrl.searchParams.get('shop')
     const state = req.nextUrl.searchParams.get('state')
 
     if (!code || !hmac || !shop || !state) {
@@ -289,14 +291,13 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // Redirect to dashboard with success message
-    return NextResponse.redirect(
-      new URL('/dashboard?shopify_connected=true', req.url)
-    )
+    // Redirect to Shopify onboarding or dashboard
+    const redirectUrl = new URL(`/shopify/onboarding?shop=${shop}`, req.url)
+    return NextResponse.redirect(redirectUrl)
   } catch (error) {
     console.error('Shopify OAuth callback error:', error)
     return NextResponse.redirect(
-      new URL('/dashboard?error=connection_failed', req.url)
+      new URL(`/shopify/dashboard?shop=${shop}&error=connection_failed`, req.url)
     )
   }
 }
