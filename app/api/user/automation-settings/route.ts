@@ -1,32 +1,41 @@
-import { NextRequest, NextResponse } from 'next/server'
+/**
+ * API Route: User Automation Settings
+ * GET/PUT /api/user/automation-settings
+ *
+ * Manages user's automation preferences including:
+ * - Daily automation schedule
+ * - Execution mode (AUTOMATIC, PLAN, APPROVE)
+ * - Notification preferences
+ */
+
 import { auth } from '@clerk/nextjs/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 
-// Mark this route as dynamic (uses auth/headers)
+// Mark this route as dynamic
 export const dynamic = 'force-dynamic'
 
-/**
- * GET /api/user/automation-settings
- * Get user's automation settings
- */
-export async function GET() {
+// GET - Fetch user's automation settings
+export async function GET(request: NextRequest) {
   try {
-    const { userId: clerkId } = await auth()
+    const { userId } = await auth()
 
-    if (!clerkId) {
+    if (!userId) {
       return NextResponse.json(
         { success: false, error: { code: 'UNAUTHORIZED', message: 'Not authenticated' } },
         { status: 401 }
       )
     }
 
-    const user = await db.user.findUnique({
-      where: { clerkId },
+    const user = await db.user.findFirst({
+      where: { clerkId: userId },
       select: {
+        executionMode: true,
         dailyAutomationEnabled: true,
         dailyAutomationTime: true,
         dailyAutomationTimezone: true,
-        executionMode: true,
+        dailyReportEmail: true,
+        dailyReportDashboard: true,
       },
     })
 
@@ -40,35 +49,32 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       data: {
-        dailyAutomationEnabled: user.dailyAutomationEnabled || false,
-        dailyAutomationTime: user.dailyAutomationTime || '09:00',
-        dailyAutomationTimezone: user.dailyAutomationTimezone || 'America/New_York',
         executionMode: user.executionMode,
-        emailReportsEnabled: true, // Always enabled for now
-        dashboardNotificationsEnabled: true, // Always enabled for now
+        dailyAutomationEnabled: user.dailyAutomationEnabled,
+        dailyAutomationTime: user.dailyAutomationTime || '09:00',
+        dailyAutomationTimezone: user.dailyAutomationTimezone || 'UTC',
+        emailReportsEnabled: user.dailyReportEmail,
+        dashboardNotificationsEnabled: user.dailyReportDashboard,
       },
     })
   } catch (error) {
-    console.error('Failed to get automation settings:', error)
+    console.error('Error fetching automation settings:', error)
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'INTERNAL_ERROR', message: 'Failed to get automation settings' },
+        error: { code: 'INTERNAL_ERROR', message: 'Failed to fetch settings' },
       },
       { status: 500 }
     )
   }
 }
 
-/**
- * PUT /api/user/automation-settings
- * Update user's automation settings
- */
+// PUT - Update user's automation settings
 export async function PUT(request: NextRequest) {
   try {
-    const { userId: clerkId } = await auth()
+    const { userId } = await auth()
 
-    if (!clerkId) {
+    if (!userId) {
       return NextResponse.json(
         { success: false, error: { code: 'UNAUTHORIZED', message: 'Not authenticated' } },
         { status: 401 }
@@ -77,42 +83,58 @@ export async function PUT(request: NextRequest) {
 
     const body = await request.json()
     const {
+      executionMode,
       dailyAutomationEnabled,
       dailyAutomationTime,
       dailyAutomationTimezone,
-      executionMode,
+      emailReportsEnabled,
+      dashboardNotificationsEnabled,
     } = body
 
-    // Validate execution mode
+    // Validate execution mode if provided
     if (executionMode && !['AUTOMATIC', 'PLAN', 'APPROVE'].includes(executionMode)) {
       return NextResponse.json(
-        {
-          success: false,
-          error: { code: 'INVALID_INPUT', message: 'Invalid execution mode' },
-        },
+        { success: false, error: { code: 'INVALID_INPUT', message: 'Invalid execution mode. Must be AUTOMATIC, PLAN, or APPROVE' } },
         { status: 400 }
       )
     }
 
-    // Validate time format (HH:MM)
+    // Validate time format if provided
     if (dailyAutomationTime && !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(dailyAutomationTime)) {
       return NextResponse.json(
-        {
-          success: false,
-          error: { code: 'INVALID_INPUT', message: 'Invalid time format. Use HH:MM' },
-        },
+        { success: false, error: { code: 'INVALID_INPUT', message: 'Invalid time format. Use HH:MM (24-hour format)' } },
         { status: 400 }
       )
     }
 
+    // Build update data (only include fields that were provided)
+    const updateData: {
+      executionMode?: 'AUTOMATIC' | 'PLAN' | 'APPROVE'
+      dailyAutomationEnabled?: boolean
+      dailyAutomationTime?: string
+      dailyAutomationTimezone?: string
+      dailyReportEmail?: boolean
+      dailyReportDashboard?: boolean
+    } = {}
+
+    if (executionMode !== undefined) updateData.executionMode = executionMode
+    if (dailyAutomationEnabled !== undefined) updateData.dailyAutomationEnabled = dailyAutomationEnabled
+    if (dailyAutomationTime !== undefined) updateData.dailyAutomationTime = dailyAutomationTime
+    if (dailyAutomationTimezone !== undefined) updateData.dailyAutomationTimezone = dailyAutomationTimezone
+    if (emailReportsEnabled !== undefined) updateData.dailyReportEmail = emailReportsEnabled
+    if (dashboardNotificationsEnabled !== undefined) updateData.dailyReportDashboard = dashboardNotificationsEnabled
+
     const user = await db.user.update({
-      where: { clerkId },
-      data: {
-        dailyAutomationEnabled:
-          dailyAutomationEnabled !== undefined ? dailyAutomationEnabled : undefined,
-        dailyAutomationTime: dailyAutomationTime || undefined,
-        dailyAutomationTimezone: dailyAutomationTimezone || undefined,
-        executionMode: executionMode || undefined,
+      where: { clerkId: userId },
+      data: updateData,
+      select: {
+        id: true,
+        executionMode: true,
+        dailyAutomationEnabled: true,
+        dailyAutomationTime: true,
+        dailyAutomationTimezone: true,
+        dailyReportEmail: true,
+        dailyReportDashboard: true,
       },
     })
 
@@ -121,32 +143,31 @@ export async function PUT(request: NextRequest) {
       data: {
         userId: user.id,
         action: 'SETTINGS_UPDATED',
-        resource: 'user',
-        resourceId: user.id,
+        resource: 'user_settings',
         details: JSON.stringify({
-          dailyAutomationEnabled,
-          dailyAutomationTime,
-          dailyAutomationTimezone,
-          executionMode,
-        }),
-      },
-    })
+          settingsChanged: Object.keys(updateData),
+          executionMode: user.executionMode
+        })
+      }
+    }).catch(err => console.error('Failed to create audit log:', err))
 
     return NextResponse.json({
       success: true,
       data: {
+        executionMode: user.executionMode,
         dailyAutomationEnabled: user.dailyAutomationEnabled,
         dailyAutomationTime: user.dailyAutomationTime,
         dailyAutomationTimezone: user.dailyAutomationTimezone,
-        executionMode: user.executionMode,
+        emailReportsEnabled: user.dailyReportEmail,
+        dashboardNotificationsEnabled: user.dailyReportDashboard,
       },
     })
   } catch (error) {
-    console.error('Failed to update automation settings:', error)
+    console.error('Error updating automation settings:', error)
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'INTERNAL_ERROR', message: 'Failed to update automation settings' },
+        error: { code: 'INTERNAL_ERROR', message: 'Failed to update settings' },
       },
       { status: 500 }
     )
