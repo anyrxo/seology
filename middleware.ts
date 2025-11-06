@@ -96,14 +96,14 @@ function addSecurityHeaders(req: NextRequest, response: NextResponse): NextRespo
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
-    "frame-ancestors 'none'",
+    "frame-ancestors 'self' https://*.myshopify.com https://admin.shopify.com",
     "upgrade-insecure-requests",
   ].join('; ')
 
   headers.set('Content-Security-Policy', cspDirectives)
 
-  // Prevent clickjacking attacks
-  headers.set('X-Frame-Options', 'DENY')
+  // Prevent clickjacking attacks - Allow Shopify to embed the app
+  headers.set('X-Frame-Options', 'ALLOW-FROM https://admin.shopify.com')
 
   // Prevent MIME type sniffing
   headers.set('X-Content-Type-Options', 'nosniff')
