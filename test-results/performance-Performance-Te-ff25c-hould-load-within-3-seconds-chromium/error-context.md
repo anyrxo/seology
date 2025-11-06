@@ -1,0 +1,96 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - link "SEOLOGY.AI" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - heading "SEOLOGY.AI" [level=2] [ref=e8]
+      - generic [ref=e9]:
+        - heading "Welcome Back" [level=1] [ref=e10]
+        - paragraph [ref=e11]: Sign in to continue optimizing your SEO automatically
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - button "Sign in with Google Continue with Google" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]:
+              - img "Sign in with Google" [ref=e22]
+              - generic [ref=e23]: Continue with Google
+          - paragraph [ref=e26]: or
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e32]:
+                - generic [ref=e34]: Email address
+                - textbox "Email address" [ref=e35]:
+                  - /placeholder: Enter your email address
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Password
+                    - generic:
+                      - textbox "Password":
+                        - /placeholder: Enter your password
+                      - button "Show password":
+                        - img
+            - button "Continue" [ref=e37] [cursor=pointer]:
+              - generic [ref=e38]:
+                - text: Continue
+                - img [ref=e39]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: Don’t have an account?
+            - link "Sign up" [ref=e44] [cursor=pointer]:
+              - /url: https://seology-5t6h1kx0l-iimagined.vercel.app/sign-up#/?redirect_url=https%3A%2F%2Fseology-5t6h1kx0l-iimagined.vercel.app%2Fshopify%2Fagents%3Fshop%3Dtest-store.myshopify.com
+          - generic [ref=e46]:
+            - generic [ref=e48]:
+              - paragraph [ref=e49]: Secured by
+              - link "Clerk logo" [ref=e50] [cursor=pointer]:
+                - /url: https://go.clerk.com/components
+                - img [ref=e51]
+            - paragraph [ref=e56]: Development mode
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - generic [ref=e62]: SSL Encrypted
+          - generic [ref=e63]:
+            - img [ref=e64]
+            - generic [ref=e66]: Privacy Protected
+        - paragraph [ref=e67]:
+          - text: By signing in, you agree to our
+          - link "Terms of Service" [ref=e68] [cursor=pointer]:
+            - /url: /terms
+          - text: and
+          - link "Privacy Policy" [ref=e69] [cursor=pointer]:
+            - /url: /privacy
+    - generic [ref=e74]:
+      - heading "AI-Powered SEO Automation" [level=2] [ref=e75]
+      - paragraph [ref=e76]: The first platform that actually fixes your SEO issues automatically, not just reports them.
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - img [ref=e80]
+          - generic [ref=e82]:
+            - heading "Automatic Fixes" [level=3] [ref=e83]
+            - paragraph [ref=e84]: AI applies SEO fixes directly to your CMS
+        - generic [ref=e85]:
+          - img [ref=e87]
+          - generic [ref=e89]:
+            - heading "Verified Results" [level=3] [ref=e90]
+            - paragraph [ref=e91]: Track improvements with real-time metrics
+        - generic [ref=e92]:
+          - img [ref=e94]
+          - generic [ref=e96]:
+            - heading "Enterprise Security" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Bank-level encryption for all connections
+        - generic [ref=e99]:
+          - img [ref=e101]
+          - generic [ref=e103]:
+            - heading "Proven Growth" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Average 40% increase in organic traffic
+      - generic [ref=e106]:
+        - generic [ref=e113]: +10,000 users
+        - paragraph [ref=e114]: "\"SEOLOGY.AI increased our organic traffic by 60% in just 3 months\""
+        - paragraph [ref=e115]: "- Sarah Johnson, Marketing Director"
+```
