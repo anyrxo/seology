@@ -2,9 +2,40 @@
 
 Complete documentation for the SEOLOGY.AI platform - an AI-powered SEO automation SaaS that automatically fixes SEO issues instead of just reporting them.
 
+## New: Comprehensive Production Documentation
+
+### Essential Guides (Root Level)
+
+- **[DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)** - Complete deployment instructions for production
+- **[API-DOCUMENTATION.md](./API-DOCUMENTATION.md)** - Complete API reference (51 endpoints)
+- **[USER-GUIDE.md](./USER-GUIDE.md)** - End-user manual and feature walkthrough
+- **[DEVELOPER-GUIDE.md](./DEVELOPER-GUIDE.md)** - Architecture, patterns, and contribution guide
+- **[SHOPIFY-PARTNER-SETUP.md](./SHOPIFY-PARTNER-SETUP.md)** - Shopify Partner Dashboard configuration
+- **[SECURITY.md](./SECURITY.md)** - Security features and vulnerability reporting
+- **[CHANGELOG.md](./CHANGELOG.md)** - Version history and roadmap
+- **[FAQ.md](./FAQ.md)** - Frequently asked questions
+
 ## Documentation Structure
 
-This documentation is organized into six main categories:
+This documentation is organized into eight main categories:
+
+### 0. Production Documentation (Root Level)
+
+Essential documentation for deploying and using SEOLOGY.AI in production.
+
+**For Developers & Deployers:**
+- [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md) - Prerequisites, environment setup, Vercel deployment, Shopify configuration
+- [API-DOCUMENTATION.md](./API-DOCUMENTATION.md) - All 51 endpoints with examples, authentication, rate limits
+- [DEVELOPER-GUIDE.md](./DEVELOPER-GUIDE.md) - Architecture, design patterns, adding features, testing
+- [SHOPIFY-PARTNER-SETUP.md](./SHOPIFY-PARTNER-SETUP.md) - Partner Dashboard setup, scopes, webhooks, app listing
+- [SECURITY.md](./SECURITY.md) - Security architecture, OWASP compliance, encryption, vulnerability reporting
+
+**For End Users:**
+- [USER-GUIDE.md](./USER-GUIDE.md) - Complete walkthrough of all features, onboarding, troubleshooting
+- [FAQ.md](./FAQ.md) - Common questions about features, billing, technical compatibility
+
+**Project Information:**
+- [CHANGELOG.md](./CHANGELOG.md) - Release notes, version history, roadmap
 
 ### 1. Guides (`guides/`)
 Implementation guides for major features and systems.
@@ -81,12 +112,25 @@ Quick reference guides for developers.
 
 ## Getting Started
 
-If you're new to the project, start with these documents in order:
+### For End Users (Installing the App)
+
+1. **[USER-GUIDE.md](./USER-GUIDE.md)** - Start here! Complete walkthrough
+2. **[FAQ.md](./FAQ.md)** - Common questions and answers
+
+### For Developers (Deploying the App)
+
+1. **[DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)** - Complete deployment instructions
+2. **[SHOPIFY-PARTNER-SETUP.md](./SHOPIFY-PARTNER-SETUP.md)** - Configure Shopify Partner Dashboard
+3. **[DEVELOPER-GUIDE.md](./DEVELOPER-GUIDE.md)** - Architecture and development guide
+4. **[API-DOCUMENTATION.md](./API-DOCUMENTATION.md)** - API reference
+5. **[SECURITY.md](./SECURITY.md)** - Security best practices
+
+### For Contributors (Extending the App)
 
 1. **[../README.md](../README.md)** - Project overview and setup
 2. **[../CLAUDE.md](../CLAUDE.md)** - Claude Code instructions and patterns
-3. **[../breakdown.txt](../breakdown.txt)** - Complete product specification
-4. **[quick-reference/QUICK_START.md](quick-reference/QUICK_START.md)** - Developer quick start
+3. **[DEVELOPER-GUIDE.md](./DEVELOPER-GUIDE.md)** - Adding features, testing, contributing
+4. **[../breakdown.txt](../breakdown.txt)** - Complete product specification
 5. **[../BUILD_STATUS.md](../BUILD_STATUS.md)** - Current build status
 
 ## Developer Resources
@@ -154,6 +198,34 @@ For questions about the documentation or the project:
 
 This documentation is part of the SEOLOGY.AI project.
 
+## Quick Links by Use Case
+
+### "I want to deploy SEOLOGY to production"
+→ [DEPLOYMENT-GUIDE.md](./DEPLOYMENT-GUIDE.md)
+
+### "I want to configure the Shopify Partner Dashboard"
+→ [SHOPIFY-PARTNER-SETUP.md](./SHOPIFY-PARTNER-SETUP.md)
+
+### "I want to learn how to use SEOLOGY"
+→ [USER-GUIDE.md](./USER-GUIDE.md)
+
+### "I want to integrate with the API"
+→ [API-DOCUMENTATION.md](./API-DOCUMENTATION.md)
+
+### "I want to understand the architecture"
+→ [DEVELOPER-GUIDE.md](./DEVELOPER-GUIDE.md)
+
+### "I want to add a new feature"
+→ [DEVELOPER-GUIDE.md#adding-new-features](./DEVELOPER-GUIDE.md#adding-new-features)
+
+### "I have a question"
+→ [FAQ.md](./FAQ.md)
+
+### "I found a security issue"
+→ [SECURITY.md#reporting-vulnerabilities](./SECURITY.md#reporting-vulnerabilities)
+
 ---
 
-Last Updated: 2025-11-03
+**Documentation Version**: 1.0.0
+**Last Updated**: 2025-11-07
+**Next Review**: 2025-12-07

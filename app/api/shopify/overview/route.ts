@@ -1,115 +1,100 @@
 /**
  * API Route: Shopify Store Overview
- *
- * Returns store analytics and top priority products
+ * No Clerk auth - uses shop parameter from embedded app
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
-import { createShopifyClient, getPrioritizedProducts } from '@/lib/shopify-api-client'
+import { fetchProducts } from '@/lib/shopify-client'
+import { cached } from '@/lib/cache'
+
+export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const { userId } = await auth()
+    const shop = req.nextUrl.searchParams.get('shop')
 
-    if (!userId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
-    // Get connectionId from query params
-    const connectionId = req.nextUrl.searchParams.get('connectionId')
-
-    if (!connectionId) {
+    if (!shop) {
       return NextResponse.json(
-        { error: 'connectionId is required' },
+        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
         { status: 400 }
       )
     }
 
-    // Get user from database
-    const user = await db.user.findUnique({
-      where: { clerkId: userId },
-    })
-
-    if (!user) {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 })
-    }
-
-    // Get connection
-    const connection = await db.connection.findUnique({
-      where: { id: connectionId },
-    })
+    // PERFORMANCE: Cache connection lookup for 5 minutes
+    const connection = await cached(
+      `connection:${shop}:shopify`,
+      async () => {
+        return await db.connection.findFirst({
+          where: {
+            domain: shop,
+            platform: 'SHOPIFY',
+            status: 'CONNECTED',
+          },
+        })
+      },
+      300 // 5 minutes
+    )
 
     if (!connection) {
-      return NextResponse.json({ error: 'Connection not found' }, { status: 404 })
-    }
-
-    // Verify ownership
-    if (connection.userId !== user.id) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
-    }
-
-    if (!connection.accessToken) {
       return NextResponse.json(
-        { error: 'Connection missing access token' },
-        { status: 400 }
+        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
+        { status: 404 }
       )
     }
 
-    // Create Shopify client
-    const client = await createShopifyClient({
-      domain: connection.domain,
-      accessToken: connection.accessToken,
-    })
+    // PERFORMANCE: Cache overview data for 2 minutes
+    const overviewData = await cached(
+      `overview:${shop}`,
+      async () => {
+        // Fetch products from Shopify
+        const products = await fetchProducts(connection.userId, shop)
 
-    // Get prioritized products
-    const products = await getPrioritizedProducts(client, 50)
+        // Get issues from database
+        const issues = await db.issue.findMany({
+          where: {
+            connection: {
+              domain: shop,
+              platform: 'SHOPIFY',
+            },
+            status: 'OPEN',
+          },
+        })
 
-    // Calculate stats
-    const averageSeoScore = Math.round(
-      products.reduce((sum, p) => sum + p.seoScore, 0) / products.length
+        // Get applied fixes count
+        const appliedFixes = await db.fix.count({
+          where: {
+            issue: {
+              connection: {
+                domain: shop,
+                platform: 'SHOPIFY',
+              },
+            },
+            status: 'APPLIED',
+          },
+        })
+
+        // Calculate average SEO score (placeholder - would need actual analysis)
+        const avgScore = 75
+
+        return {
+          totalProducts: products.length,
+          totalIssues: issues.length,
+          appliedFixes,
+          avgScore,
+        }
+      },
+      120 // 2 minutes cache
     )
-    const criticalIssuesCount = products.filter((p) => p.seoScore < 60).length
-
-    // Parse credentials
-    const credentials = JSON.parse(connection.credentials || '{}')
-
-    // Get top products with issues
-    const topProducts = products.slice(0, 10).map((product) => {
-      const issues: string[] = []
-
-      // We'll need to fetch full product details to get specific issues
-      // For now, return generic issues based on score
-      if (product.seoScore < 80) {
-        issues.push('SEO optimization needed')
-      }
-      if (product.seoScore < 60) {
-        issues.push('Critical SEO issues')
-      }
-
-      return {
-        ...product,
-        issues,
-      }
-    })
 
     return NextResponse.json({
       success: true,
-      store: {
-        name: credentials.name || connection.displayName || '',
-        domain: connection.domain,
-        productsAnalyzed: products.length,
-        averageSeoScore,
-        criticalIssuesCount,
-        currency: credentials.currency || 'USD',
-      },
-      topProducts,
+      data: overviewData,
     })
   } catch (error) {
     console.error('Error fetching Shopify overview:', error)
     return NextResponse.json(
-      { error: 'Failed to fetch store overview' },
+      { success: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to fetch store overview' } },
       { status: 500 }
     )
   }

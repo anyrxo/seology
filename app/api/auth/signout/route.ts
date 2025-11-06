@@ -1,6 +1,8 @@
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 
+export const dynamic = 'force-dynamic'
+
 export async function POST() {
   const { userId } = await auth()
 

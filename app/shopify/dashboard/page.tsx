@@ -41,32 +41,33 @@ export default function ShopifyDashboardPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Initialize Shopify App Bridge with navigation menu
-    if (typeof window !== 'undefined') {
-      const script = document.createElement('script')
-      script.src = 'https://cdn.shopify.com/shopifycloud/app-bridge.js'
-      script.async = true
-      script.onload = () => {
-        if (window.shopify?.app) {
-          window.shopify.app.init({
-            apiKey: process.env.NEXT_PUBLIC_SHOPIFY_CLIENT_ID || '0b87ac78cf0783fd1dd829bf5421fae5',
-            shop: shop || '',
-          })
-        }
+    // Initialize Shopify App Bridge - script already loaded in layout
+    if (typeof window !== 'undefined' && window.shopify?.app && shop) {
+      const apiKey = process.env.NEXT_PUBLIC_SHOPIFY_CLIENT_ID
+      if (!apiKey) {
+        console.error('NEXT_PUBLIC_SHOPIFY_CLIENT_ID environment variable is not set')
+        return
       }
-      document.head.appendChild(script)
+      window.shopify.app.init({
+        apiKey: apiKey,
+        shop: shop,
+      })
     }
 
     // Fetch dashboard overview
-    fetch('/api/shopify/overview')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setOverview(data.data)
-        }
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false))
+    if (shop) {
+      fetch(`/api/shopify/overview?shop=${shop}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setOverview(data.data)
+          }
+        })
+        .catch(console.error)
+        .finally(() => setLoading(false))
+    } else {
+      setLoading(false)
+    }
   }, [shop])
 
   if (loading) {
@@ -84,7 +85,12 @@ export default function ShopifyDashboardPage() {
       <ui-nav-menu>
         <a href={`/shopify/dashboard?shop=${shop}`} rel="home">Dashboard</a>
         <a href={`/shopify/products?shop=${shop}`}>Products</a>
+        <a href={`/shopify/analytics?shop=${shop}`}>Analytics</a>
+        <a href={`/shopify/timeline?shop=${shop}`}>Timeline</a>
+        <a href={`/shopify/agents?shop=${shop}`}>AI Agents</a>
+        <a href={`/shopify/monitor?shop=${shop}`}>Monitor</a>
         <a href={`/shopify/reports?shop=${shop}`}>SEO Reports</a>
+        <a href={`/shopify/chat?shop=${shop}`}>AI Chat</a>
         <a href={`/shopify/settings?shop=${shop}`}>Settings</a>
         <a href={`/shopify/support?shop=${shop}`}>Support</a>
         {/* @ts-expect-error - Shopify App Bridge web component not in type definitions */}

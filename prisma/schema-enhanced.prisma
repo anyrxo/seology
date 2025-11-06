@@ -1,0 +1,2158 @@
+// SEOLOGY.AI - ENHANCED Database Schema with Advanced SEO Features
+// This is an enhanced version with support for:
+// - Image optimization tracking
+// - Schema.org structured data
+// - Meta robots tags
+// - Canonical URLs
+// - Open Graph and Twitter Card metadata
+// - Google Search Console integration
+// - Traffic impact tracking
+// - Ranking position monitoring
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ==================== CORE ENUMS ====================
+
+enum ExecutionMode {
+  AUTOMATIC
+  PLAN
+  APPROVE
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  STARTER
+  GROWTH
+  SCALE
+}
+
+enum Platform {
+  SHOPIFY
+  WORDPRESS
+  WIX
+  GITHUB
+  CUSTOM
+}
+
+enum ConnectionStatus {
+  PENDING
+  CONNECTED
+  ERROR
+  DISCONNECTED
+}
+
+enum Severity {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum IssueStatus {
+  OPEN
+  IN_PROGRESS
+  FIXED
+  FAILED
+  IGNORED
+  DETECTED
+  FIXING
+}
+
+enum FixMethod {
+  AUTOMATIC
+  MANUAL
+  PENDING
+}
+
+enum FixStatus {
+  PENDING
+  APPLIED
+  ROLLED_BACK
+  FAILED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  PAST_DUE
+  TRIALING
+}
+
+enum CrawlStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum TeamRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
+}
+
+enum PurchaseStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum JobType {
+  CRAWL_SITE
+  ANALYZE_SITE
+  APPLY_FIX
+  ROLLBACK_FIX
+  CLEANUP_ROLLBACKS
+  RESET_USAGE
+  SYNC_METRICS
+  GENERATE_REPORT
+  SCAN_IMAGES
+  OPTIMIZE_IMAGES
+  DAILY_AUTOMATION
+  SYNC_GSC_DATA
+  VALIDATE_STRUCTURED_DATA
+  CHECK_CANONICAL_URLS
+  MEASURE_TRAFFIC_IMPACT
+  UPDATE_RANKING_POSITIONS
+}
+
+enum JobStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+  RETRYING
+}
+
+enum PlanStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXECUTING
+  COMPLETED
+  FAILED
+}
+
+enum BroadcastStatus {
+  DRAFT
+  SCHEDULED
+  SENDING
+  SENT
+  FAILED
+  CANCELLED
+}
+
+enum PageType {
+  HOMEPAGE
+  PRODUCT
+  CATEGORY
+  BLOG_POST
+  BLOG_INDEX
+  LANDING_PAGE
+  CHECKOUT
+  CART
+  ACCOUNT
+  CONTACT
+  ABOUT
+  LEGAL
+  OTHER
+}
+
+enum KeywordIntent {
+  INFORMATIONAL
+  NAVIGATIONAL
+  TRANSACTIONAL
+  COMMERCIAL
+}
+
+enum InsightType {
+  MISSING_CONTENT
+  KEYWORD_OPPORTUNITY
+  TECHNICAL_ISSUE
+  LINK_BUILDING
+  CONTENT_REFRESH
+  PERFORMANCE_ISSUE
+  COMPETITOR_GAP
+  TRENDING_TOPIC
+  SEASONAL_OPPORTUNITY
+}
+
+enum Priority {
+  CRITICAL
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum InsightStatus {
+  NEW
+  REVIEWED
+  IN_PROGRESS
+  IMPLEMENTED
+  DISMISSED
+}
+
+enum SuggestionStatus {
+  PENDING
+  APPROVED
+  IMPLEMENTED
+  REJECTED
+}
+
+enum ConnectionRequestStatus {
+  PENDING
+  APPROVED
+  LINK_SENT
+  CONNECTED
+  REJECTED
+  EXPIRED
+}
+
+enum ImageStatus {
+  DETECTED
+  ANALYZING
+  NEEDS_ALT_TEXT
+  NEEDS_OPTIMIZATION
+  OPTIMIZING
+  OPTIMIZED
+  FAILED
+  IGNORED
+}
+
+enum BatchStatus {
+  PENDING
+  RUNNING
+  PAUSED
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+// ==================== NEW SEO ENUMS ====================
+
+enum RobotsDirective {
+  INDEX
+  NOINDEX
+  FOLLOW
+  NOFOLLOW
+  NOARCHIVE
+  NOSNIPPET
+  NOIMAGEINDEX
+  NOTRANSLATE
+  MAX_SNIPPET
+  MAX_IMAGE_PREVIEW
+  MAX_VIDEO_PREVIEW
+}
+
+enum SchemaType {
+  ORGANIZATION
+  WEBSITE
+  WEBPAGE
+  ARTICLE
+  BLOG_POSTING
+  NEWS_ARTICLE
+  PRODUCT
+  OFFER
+  AGGREGATE_RATING
+  REVIEW
+  BREADCRUMB_LIST
+  FAQ_PAGE
+  HOW_TO
+  RECIPE
+  EVENT
+  LOCAL_BUSINESS
+  PERSON
+  VIDEO_OBJECT
+  IMAGE_OBJECT
+  SEARCH_ACTION
+  SITE_NAVIGATION_ELEMENT
+}
+
+enum CanonicalStatus {
+  VALID
+  MISSING
+  INVALID
+  SELF
+  DUPLICATE
+  CONFLICT
+  HTTPS_ISSUE
+}
+
+enum OpenGraphType {
+  WEBSITE
+  ARTICLE
+  PRODUCT
+  VIDEO
+  BOOK
+  PROFILE
+  MUSIC_SONG
+  MUSIC_ALBUM
+  MUSIC_PLAYLIST
+  VIDEO_MOVIE
+  VIDEO_EPISODE
+  VIDEO_TV_SHOW
+  VIDEO_OTHER
+}
+
+enum TwitterCardType {
+  SUMMARY
+  SUMMARY_LARGE_IMAGE
+  APP
+  PLAYER
+}
+
+enum GSCDataType {
+  WEB
+  IMAGE
+  VIDEO
+  NEWS
+  DISCOVER
+  GOOGLE_NEWS
+}
+
+enum MetricChangeType {
+  IMPROVEMENT
+  DECLINE
+  STABLE
+  VOLATILE
+}
+
+enum SchemaStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+  DEPRECATED
+  INVALID
+}
+
+// ==================== CORE MODELS (UNCHANGED) ====================
+
+model User {
+  id      String  @id @default(uuid())
+  clerkId String  @unique
+  email   String  @unique
+  name    String?
+  plan    Plan    @default(STARTER)
+  role    Role    @default(USER)
+
+  executionMode ExecutionMode @default(AUTOMATIC)
+
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+
+  dailyAutomationEnabled  Boolean   @default(false)
+  dailyAutomationTime     String?   @default("09:00")
+  dailyAutomationTimezone String?   @default("UTC")
+  dailyReportEmail        Boolean   @default(true)
+  dailyReportDashboard    Boolean   @default(true)
+  lastAutomationRun       DateTime?
+
+  onboardingCompleted Boolean @default(false)
+  onboardingStep      Int     @default(0)
+  businessType        String?
+  businessName        String?
+  businessStage       String?
+  platform            String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  connections          Connection[]
+  aiConversations      AIConversation[]
+  auditLogs            AuditLog[]
+  subscriptions        Subscription[]
+  notifications        Notification[]
+  webhooks             Webhook[]
+  teamMemberships      TeamMember[]
+  ownedTeams           Team[]               @relation("TeamOwner")
+  sentInvitations      TeamInvitation[]     @relation("InvitationSender")
+  usageRecords         UsageRecord[]
+  aiCreditPurchases    AICreditPurchase[]
+  pendingPlans         PendingPlan[]
+  connectionRequests   ConnectionRequest[]
+  dailyReports         DailyReport[]
+  automationSnapshots  AutomationSnapshot[]
+
+  @@index([email])
+  @@index([plan])
+}
+
+model Connection {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  teamId String?
+  team   Team?   @relation("TeamConnections", fields: [teamId], references: [id], onDelete: SetNull)
+
+  platform    Platform
+  domain      String
+  displayName String?
+
+  accessToken  String?
+  refreshToken String?
+  credentials  String?
+
+  status   ConnectionStatus @default(PENDING)
+  lastSync DateTime?
+
+  healthStatus   String    @default("unknown")
+  pageCount      Int       @default(0)
+  issueCount     Int       @default(0)
+  lastCrawlAt    DateTime?
+  lastAnalysisAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  issues                  Issue[]
+  fixes                   Fix[]
+  metrics                 Metric[]
+  crawls                  Crawl[]
+  pages                   Page[]
+  keywords                Keyword[]
+  aiInsights              AIInsight[]
+  contentSuggestions      ContentSuggestion[]
+  healthScores            SiteHealthScore[]
+  imageAssets             ImageAsset[]
+  shopifyProducts         ShopifyProduct[]
+  shopifyCollections      ShopifyCollection[]
+  canonicalMappings       CanonicalMapping[]
+  googleSearchConsoleData GoogleSearchConsoleData[]
+  googleSearchConsoleConnection GoogleSearchConsoleConnection?
+  rankingPositions        RankingPosition[]
+
+  @@index([userId])
+  @@index([teamId])
+  @@index([platform])
+  @@index([status])
+  @@index([domain])
+}
+
+// ==================== ENHANCED SEO MODELS ====================
+
+model Issue {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  type           String
+  title          String
+  severity       Severity
+  pageUrl        String
+  details        String
+  recommendation String?
+
+  status IssueStatus @default(DETECTED)
+
+  impactScore      Float?  @default(0)
+  estimatedTraffic Int?
+  elementSelector  String?
+
+  // ENHANCED: Canonical URL issues
+  canonicalUrl      String?
+  canonicalStatus   CanonicalStatus?
+  canonicalTarget   String?
+
+  // ENHANCED: Robots meta issues
+  robotsDirectives  String @default("[]")
+  recommendedRobots String @default("[]")
+
+  // ENHANCED: Structured data issues
+  missingSchemaTypes  String @default("[]")
+  invalidSchemaMarkup String @default("{}")
+
+  // ENHANCED: Social media metadata
+  ogIssues      String @default("{}")
+  twitterIssues String @default("{}")
+
+  // ENHANCED: Image optimization
+  imageCount         Int @default(0)
+  imagesWithoutAlt   Int @default(0)
+  imagesNeedOptimize Int @default(0)
+  largeImagesBytes   Int @default(0)
+
+  // ENHANCED: Tracking data
+  affectedUrls String @default("[]")
+
+  detectedAt DateTime  @default(now())
+  fixedAt    DateTime?
+  createdAt  DateTime  @default(now())
+
+  fixes Fix[]
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([severity])
+  @@index([type])
+  @@index([connectionId, status, severity, impactScore])
+  @@index([connectionId, type, status])
+}
+
+model Fix {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  issueId String?
+  issue   Issue?  @relation(fields: [issueId], references: [id])
+
+  description String
+  type        String  @default("seo_fix")
+  targetUrl   String?
+
+  changes     String
+  beforeState String @default("{}")
+  afterState  String @default("{}")
+
+  method FixMethod @default(AUTOMATIC)
+  status FixStatus @default(PENDING)
+
+  appliedAt        DateTime?
+  rolledBackAt     DateTime?
+  rollbackDeadline DateTime?
+
+  impactMetrics String  @default("{}")
+  platform      String?
+
+  planId String?
+  plan   PendingPlan? @relation(fields: [planId], references: [id])
+
+  // ENHANCED: Pre/post metrics for comparison
+  metricsSnapshot String @default("{}")
+
+  // ENHANCED: Traffic impact
+  trafficBefore7d   Int?
+  trafficAfter7d    Int?
+  trafficBefore30d  Int?
+  trafficAfter30d   Int?
+  clicksBefore      Int?
+  clicksAfter       Int?
+  impressionsBefore Int?
+  impressionsAfter  Int?
+
+  // ENHANCED: Ranking impact
+  rankingsBefore    String @default("{}")
+  rankingsAfter     String @default("{}")
+  avgPositionChange Float?
+
+  // ENHANCED: Performance impact
+  loadTimeBefore Float?
+  loadTimeAfter  Float?
+  seoScoreBefore Float?
+  seoScoreAfter  Float?
+
+  // ENHANCED: Metadata
+  fixCategory      String?
+  affectedUrls     String @default("[]")
+  metricsLastUpdated DateTime?
+  nextMetricUpdate DateTime?
+
+  createdAt DateTime @default(now())
+
+  trafficImpactMeasurements TrafficImpactMeasurement[]
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([appliedAt])
+  @@index([rollbackDeadline])
+  @@index([planId])
+  @@index([fixCategory])
+  @@index([metricsLastUpdated])
+  @@index([connectionId, status, appliedAt])
+  @@index([connectionId, fixCategory, status])
+  @@index([issueId, status])
+}
+
+model Page {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  url         String
+  title       String?
+  description String?
+  canonical   String?
+
+  pageType PageType @default(OTHER)
+  slug     String?
+  path     String?
+
+  wordCount    Int?
+  readingTime  Int?
+  languageCode String @default("en")
+
+  metaTags        String  @default("{}")
+  openGraphTags   String  @default("{}")
+  twitterCardTags String  @default("{}")
+  schemaMarkup    String?
+
+  h1Count          Int     @default(0)
+  h2Count          Int     @default(0)
+  h3Count          Int     @default(0)
+  h1Text           String?
+  headingStructure String  @default("{}")
+
+  totalImages      Int    @default(0)
+  imagesWithAlt    Int    @default(0)
+  missingAltImages String @default("[]")
+
+  internalLinks Int    @default(0)
+  externalLinks Int    @default(0)
+  brokenLinks   String @default("[]")
+
+  loadTime    Float?
+  pageSize    Int?
+  httpStatus  Int?
+  isIndexable Boolean @default(true)
+  robotsMeta  String?
+
+  mobileScore  Float?
+  mobileIssues String @default("[]")
+
+  lcp  Float?
+  fid  Float?
+  cls  Float?
+  fcp  Float?
+  ttfb Float?
+
+  readabilityScore Float?
+  keywordDensity   String  @default("{}")
+  contentQuality   String?
+
+  seoScore       Float?
+  scoreBreakdown String @default("{}")
+
+  pageViews     Int?
+  bounceRate    Float?
+  avgTimeOnPage Float?
+
+  // ENHANCED: Canonical URL tracking
+  canonicalUrl    String?
+  canonicalStatus CanonicalStatus @default(VALID)
+  canonicalIssues String          @default("[]")
+
+  // ENHANCED: Robots meta tags
+  robotsDirectives String  @default("[]")
+  robotsMetaTag    String?
+  hasNoindex       Boolean @default(false)
+  hasNofollow      Boolean @default(false)
+
+  // ENHANCED: Open Graph metadata
+  ogType        OpenGraphType?
+  ogTitle       String?
+  ogDescription String?
+  ogImage       String?
+  ogImageWidth  Int?
+  ogImageHeight Int?
+  ogUrl         String?
+  ogSiteName    String?
+  ogLocale      String?
+
+  // ENHANCED: Twitter Card metadata
+  twitterCard        TwitterCardType?
+  twitterTitle       String?
+  twitterDescription String?
+  twitterImage       String?
+  twitterSite        String?
+  twitterCreator     String?
+
+  // ENHANCED: Structured data
+  structuredDataTypes  String      @default("[]")
+  structuredDataValid  Boolean     @default(true)
+  structuredDataErrors String      @default("[]")
+  primarySchemaType    SchemaType?
+
+  // ENHANCED: Traffic data
+  clicks7d      Int?
+  clicks30d     Int?
+  impressions7d Int?
+  impressions30d Int?
+  avgPosition   Float?
+  ctr           Float?
+
+  // ENHANCED: Change tracking
+  lastContentChange DateTime?
+  lastMetaChange    DateTime?
+  lastSchemaChange  DateTime?
+  contentChangeHash String?
+
+  lastCrawled  DateTime?
+  lastModified DateTime?
+  firstSeen    DateTime  @default(now())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  PageKeyword         PageKeyword[]
+  PageImprovement     PageImprovement[]
+  PageSnapshot        PageSnapshot[]
+  structuredData      StructuredData[]
+  robotsMetaTags      RobotsMetaTag?
+  openGraphMetadata   OpenGraphMetadata?
+  twitterCardMetadata TwitterCardMetadata?
+  rankingPositions    RankingPosition[]
+
+  @@unique([connectionId, url])
+  @@index([connectionId])
+  @@index([pageType])
+  @@index([seoScore])
+  @@index([lastCrawled])
+  @@index([canonicalStatus])
+  @@index([hasNoindex])
+  @@index([primarySchemaType])
+  @@index([avgPosition])
+  @@index([clicks30d])
+  @@index([connectionId, canonicalStatus])
+  @@index([connectionId, hasNoindex])
+  @@index([connectionId, primarySchemaType])
+  @@index([connectionId, avgPosition, clicks30d])
+}
+
+model ImageAsset {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String?
+
+  url      String
+  filename String?
+  format   String?
+  sizeBytes Int?
+  width    Int?
+  height   Int?
+
+  altText          String?
+  suggestedAltText String?
+  title            String?
+  caption          String?
+
+  status          ImageStatus @default(DETECTED)
+  hasAltText      Boolean     @default(false)
+  isOptimized     Boolean     @default(false)
+  hasLazyLoading  Boolean     @default(false)
+  isResponsive    Boolean     @default(false)
+
+  optimizedUrl       String?
+  optimizedSizeBytes Int?
+  compressionRatio   Float?
+  webpUrl            String?
+
+  loadingAttribute String?
+  srcset           String?
+  isDecorative     Boolean @default(false)
+
+  aiDescription String?
+  aiConfidence  Float?
+  aiTags        String  @default("[]")
+
+  impactScore    Float? @default(0)
+  priority       Int    @default(5)
+  estimatedValue Float?
+
+  context String?
+  pageUrl String?
+
+  // ENHANCED: Schema.org ImageObject support
+  schemaMarkup         String?
+  contentUrl           String?
+  thumbnailUrl         String?
+  representativeOfPage Boolean @default(false)
+
+  // ENHANCED: Additional SEO context
+  imageContext       String?
+  associatedProduct  String?
+  associatedKeywords String  @default("[]")
+
+  // ENHANCED: Accessibility
+  hasAriaLabel Boolean @default(false)
+  ariaLabel    String?
+  isFigure     Boolean @default(false)
+  figCaption   String?
+
+  // ENHANCED: Advanced optimization
+  hasWebP            Boolean @default(false)
+  hasAvif            Boolean @default(false)
+  modernFormatUrls   String  @default("{}")
+  cdnUrl             String?
+  compressionQuality Int?
+
+  // ENHANCED: Performance metrics
+  estimatedLoadTime Float?
+  impactOnLCP       Boolean @default(false)
+
+  lastScanned       DateTime?
+  lastOptimized     DateTime?
+  optimizationError String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, url])
+  @@index([connectionId])
+  @@index([pageId])
+  @@index([status])
+  @@index([hasAltText])
+  @@index([isOptimized])
+  @@index([priority])
+  @@index([imageContext])
+  @@index([associatedProduct])
+  @@index([impactOnLCP])
+  @@index([connectionId, status, priority])
+  @@index([connectionId, hasAltText, isOptimized])
+  @@index([connectionId, imageContext, impactOnLCP])
+}
+
+model ShopifyProduct {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  shopifyProductId String
+  shopifyHandle    String
+
+  title       String
+  bodyHtml    String? @db.Text
+  vendor      String?
+  productType String?
+  tags        String? @db.Text
+  status      String
+
+  metaTitle       String?
+  metaDescription String?
+
+  variants String? @db.Text
+  images   String? @db.Text
+
+  salesLast30Days Int?   @default(0)
+  revenue30Days   Float? @default(0)
+  price           Float?
+  currency        String? @default("USD")
+
+  pageViews      Int?   @default(0)
+  conversionRate Float?
+  avgTimeOnPage  Float?
+
+  lastAnalyzedAt DateTime?
+  seoScore       Int?     @default(0)
+  issuesCount    Int      @default(0)
+
+  seoIssues String @default("{}")
+
+  fixPriority     Int?   @default(5)
+  estimatedImpact Float?
+
+  // ENHANCED: Structured data
+  hasProductSchema Boolean @default(false)
+  schemaMarkup     String?
+  schemaValid      Boolean @default(true)
+  schemaErrors     String  @default("[]")
+
+  // ENHANCED: Product identifiers for schema
+  gtin  String?
+  mpn   String?
+  sku   String?
+  brand String?
+
+  // ENHANCED: Offer schema data
+  availability String?
+  condition    String @default("NewCondition")
+
+  // ENHANCED: Rating/Review schema
+  hasAggregateRating Boolean @default(false)
+  ratingValue        Float?
+  reviewCount        Int?
+  bestRating         Float   @default(5)
+  worstRating        Float   @default(1)
+
+  // ENHANCED: Breadcrumb schema
+  hasBreadcrumbSchema Boolean @default(false)
+  breadcrumbPath      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, shopifyProductId])
+  @@index([connectionId])
+  @@index([seoScore])
+  @@index([fixPriority])
+  @@index([salesLast30Days])
+  @@index([lastAnalyzedAt])
+  @@index([hasProductSchema])
+  @@index([hasAggregateRating])
+  @@index([availability])
+}
+
+// ==================== NEW SEO MODELS ====================
+
+model StructuredData {
+  id     String @id @default(uuid())
+  pageId String
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  schemaType    SchemaType
+  schemaVersion String     @default("schema.org")
+
+  schemaJson    String @db.Text
+  schemaContext String @default("https://schema.org")
+
+  isValid            Boolean @default(true)
+  validationErrors   String  @default("[]")
+  validationWarnings String  @default("[]")
+  lastValidated      DateTime?
+
+  status      SchemaStatus @default(ACTIVE)
+  isGenerated Boolean      @default(false)
+
+  richResultTypes String  @default("[]")
+  isEligible      Boolean @default(true)
+
+  parentSchemaId String?
+  relatedSchemas String  @default("[]")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId])
+  @@index([schemaType])
+  @@index([status])
+  @@index([isValid])
+  @@index([isEligible])
+  @@index([pageId, schemaType, status])
+  @@index([schemaType, isValid, isEligible])
+}
+
+model CanonicalMapping {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  sourceUrl    String
+  canonicalUrl String
+
+  status     CanonicalStatus @default(VALID)
+  httpStatus Int?
+
+  isSelfReferencing Boolean @default(false)
+  isDuplicate       Boolean @default(false)
+  isChained         Boolean @default(false)
+  chainLength       Int?
+
+  issues         String  @default("[]")
+  recommendation String?
+
+  isCrossDomain Boolean @default(false)
+  targetDomain  String?
+
+  hasProtocolMismatch Boolean @default(false)
+  sourceProtocol      String?
+  targetProtocol      String?
+
+  affectsIndexing Boolean @default(false)
+  estimatedImpact Float?
+
+  firstDetected     DateTime @default(now())
+  lastVerified      DateTime @default(now())
+  verificationCount Int      @default(1)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, sourceUrl])
+  @@index([connectionId])
+  @@index([status])
+  @@index([canonicalUrl])
+  @@index([isDuplicate])
+  @@index([lastVerified])
+  @@index([connectionId, status, isDuplicate])
+  @@index([connectionId, canonicalUrl])
+}
+
+model RobotsMetaTag {
+  id     String @id @default(uuid())
+  pageId String @unique
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  directives String  @default("[]")
+  rawContent String?
+
+  isIndexable     Boolean @default(true)
+  isFollowable    Boolean @default(true)
+  hasNoArchive    Boolean @default(false)
+  hasNoSnippet    Boolean @default(false)
+  hasNoImageIndex Boolean @default(false)
+
+  maxSnippet      Int?
+  maxImagePreview String?
+  maxVideoPreview Int?
+
+  hasHttpHeader   Boolean @default(false)
+  httpHeaderValue String?
+
+  hasConflict     Boolean @default(false)
+  conflictDetails String?
+
+  hasIssues      Boolean @default(false)
+  issues         String  @default("[]")
+  recommendation String?
+
+  blocksIndexing  Boolean @default(false)
+  blocksSnippets  Boolean @default(false)
+  isIntentional   Boolean @default(true)
+  estimatedImpact Float?
+
+  lastChecked DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([pageId])
+  @@index([blocksIndexing])
+  @@index([hasConflict])
+  @@index([hasIssues])
+}
+
+model OpenGraphMetadata {
+  id     String @id @default(uuid())
+  pageId String @unique
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  ogType        OpenGraphType?
+  ogTitle       String?
+  ogDescription String?        @db.Text
+  ogUrl         String?
+  ogImage       String?
+  ogSiteName    String?
+
+  ogImageUrl       String?
+  ogImageSecureUrl String?
+  ogImageType      String?
+  ogImageWidth     Int?
+  ogImageHeight    Int?
+  ogImageAlt       String?
+
+  ogImages String @default("[]")
+
+  ogLocale          String @default("en_US")
+  ogLocaleAlternate String @default("[]")
+
+  articlePublishedTime  DateTime?
+  articleModifiedTime   DateTime?
+  articleExpirationTime DateTime?
+  articleAuthor         String?
+  articleSection        String?
+  articleTag            String   @default("[]")
+
+  productPrice        Float?
+  productCurrency     String?
+  productBrand        String?
+  productAvailability String?
+
+  videoUrl         String?
+  videoDuration    Int?
+  videoReleaseDate DateTime?
+
+  isComplete       Boolean @default(false)
+  isValid          Boolean @default(true)
+  validationIssues String  @default("[]")
+
+  qualityScore    Float?
+  hasOptimalImage Boolean @default(false)
+  hasAllRequired  Boolean @default(false)
+  hasMissingTags  String  @default("[]")
+
+  lastTestedUrl String?
+  lastScraped   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId])
+  @@index([ogType])
+  @@index([isComplete])
+  @@index([qualityScore])
+  @@index([isComplete, qualityScore])
+  @@index([ogType, hasOptimalImage])
+}
+
+model TwitterCardMetadata {
+  id     String @id @default(uuid())
+  pageId String @unique
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  twitterCard        TwitterCardType?
+  twitterTitle       String?
+  twitterDescription String?          @db.Text
+  twitterImage       String?
+  twitterImageAlt    String?
+
+  twitterSite    String?
+  twitterCreator String?
+
+  twitterAppNameIPhone     String?
+  twitterAppIdIPhone       String?
+  twitterAppNameIPad       String?
+  twitterAppIdIPad         String?
+  twitterAppNameGooglePlay String?
+  twitterAppIdGooglePlay   String?
+
+  twitterPlayer       String?
+  twitterPlayerWidth  Int?
+  twitterPlayerHeight Int?
+  twitterPlayerStream String?
+
+  imageUrl    String?
+  imageWidth  Int?
+  imageHeight Int?
+
+  isValid          Boolean @default(true)
+  hasAllRequired   Boolean @default(false)
+  validationIssues String  @default("[]")
+
+  qualityScore   Float?
+  imageMeetsSpec Boolean @default(false)
+
+  fallsBackToOG Boolean @default(false)
+
+  lastValidated DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([pageId])
+  @@index([twitterCard])
+  @@index([isValid])
+  @@index([qualityScore])
+  @@index([twitterCard, isValid, qualityScore])
+}
+
+model GoogleSearchConsoleData {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String?
+
+  date     DateTime
+  dataType GSCDataType @default(WEB)
+
+  clicks      Int   @default(0)
+  impressions Int   @default(0)
+  ctr         Float?
+  position    Float?
+
+  query         String?
+  queryPosition Int?
+
+  deviceType String?
+
+  country String?
+
+  searchAppearance String?
+
+  url String?
+
+  clicksChange       Int?
+  impressionsChange  Int?
+  ctrChange          Float?
+  positionChange     Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, date, url, query, deviceType, country])
+  @@index([connectionId])
+  @@index([date])
+  @@index([pageId])
+  @@index([query])
+  @@index([clicks])
+  @@index([impressions])
+  @@index([position])
+  @@index([connectionId, date, dataType])
+  @@index([connectionId, pageId, date])
+  @@index([connectionId, query, date])
+  @@index([date, dataType, deviceType])
+}
+
+model GoogleSearchConsoleConnection {
+  id           String     @id @default(uuid())
+  connectionId String     @unique
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  accessToken  String
+  refreshToken String?
+  tokenExpiry  DateTime?
+
+  siteUrl            String
+  verificationMethod String?
+
+  permissionLevel String @default("siteOwner")
+
+  status        ConnectionStatus @default(CONNECTED)
+  lastSync      DateTime?
+  lastSyncError String?
+  syncEnabled   Boolean          @default(true)
+
+  earliestDataDate DateTime?
+  latestDataDate   DateTime?
+
+  autoSyncEnabled  Boolean @default(true)
+  syncFrequency    String  @default("daily")
+  lastSyncDuration Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([lastSync])
+}
+
+model TrafficImpactMeasurement {
+  id    String @id @default(uuid())
+  fixId String
+  fix   Fix    @relation(fields: [fixId], references: [id], onDelete: Cascade)
+
+  measurementDate   DateTime @default(now())
+  daysSinceFix      Int
+  measurementPeriod String   @default("7d")
+
+  clicks      Int
+  impressions Int
+  ctr         Float
+  avgPosition Float
+
+  baselineClicks      Int
+  baselineImpressions Int
+  baselineCtr         Float
+  baselineAvgPosition Float
+
+  clicksChange             Int
+  clicksChangePercent      Float
+  impressionsChange        Int
+  impressionsChangePercent Float
+  ctrChange                Float
+  positionChange           Float
+
+  changeType      MetricChangeType @default(STABLE)
+  isSignificant   Boolean          @default(false)
+  confidenceLevel Float?
+
+  estimatedRevenueImpact Float?
+  conversionRate         Float?
+  actualRevenue          Float?
+
+  affectedPages    Int    @default(0)
+  affectedKeywords String @default("[]")
+  topImprovements  String @default("[]")
+
+  notes     String?
+  isAnomaly Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([fixId])
+  @@index([measurementDate])
+  @@index([daysSinceFix])
+  @@index([changeType])
+  @@index([isSignificant])
+  @@index([fixId, measurementDate, daysSinceFix])
+  @@index([changeType, isSignificant])
+}
+
+model RankingPosition {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  keywordId String?
+  keyword   Keyword? @relation(fields: [keywordId], references: [id], onDelete: SetNull)
+  pageId    String?
+  page      Page?    @relation(fields: [pageId], references: [id], onDelete: SetNull)
+
+  keywordText String
+  url         String
+
+  position         Int
+  previousPosition Int?
+  positionChange   Int?
+
+  searchEngine String @default("google")
+  locale       String @default("en-US")
+  location     String?
+  device       String @default("desktop")
+
+  hasFeaturedSnippet Boolean @default(false)
+  hasVideoCarousel   Boolean @default(false)
+  hasImagePack       Boolean @default(false)
+  hasPeopleAlsoAsk   Boolean @default(false)
+  hasLocalPack       Boolean @default(false)
+  hasKnowledgePanel  Boolean @default(false)
+  hasRelatedSearches Boolean @default(false)
+  serpFeatures       String  @default("[]")
+
+  topCompetitors     String @default("[]")
+  domainsSameKeyword Int?
+
+  estimatedTraffic Int?
+  searchVolume     Int?
+  difficulty       Float?
+
+  bestPosition  Int?
+  worstPosition Int?
+  avgPosition30d Float?
+  volatility    Float?
+
+  measuredAt         DateTime  @default(now())
+  nextCheckScheduled DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([connectionId])
+  @@index([keywordId])
+  @@index([pageId])
+  @@index([keywordText])
+  @@index([position])
+  @@index([measuredAt])
+  @@index([searchEngine, locale])
+  @@index([connectionId, keywordText, measuredAt])
+  @@index([connectionId, position, measuredAt])
+  @@index([pageId, measuredAt])
+}
+
+model SchemaValidationRule {
+  id String @id @default(uuid())
+
+  schemaType SchemaType
+  ruleCode   String     @unique
+  ruleName   String
+
+  severity Severity @default(MEDIUM)
+  category String
+
+  fieldPath      String
+  validator      String
+  validatorValue String?
+
+  description     String @db.Text
+  fixInstructions String @db.Text
+  documentation   String?
+
+  affectsRichResults Boolean @default(false)
+  richResultTypes    String  @default("[]")
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([schemaType])
+  @@index([severity])
+  @@index([isActive])
+}
+
+// ==================== REMAINING MODELS (UNCHANGED) ====================
+
+model Metric {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  date DateTime @default(now())
+
+  organicTraffic Int?
+  rankings       String?
+  pageSpeed      Float?
+  issuesCount    Int?
+  fixesCount     Int?
+
+  createdAt DateTime @default(now())
+
+  @@unique([connectionId, date])
+  @@index([connectionId])
+  @@index([date])
+}
+
+model AIConversation {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  connectionId String?
+
+  title      String?
+  context    String?
+  isArchived Boolean @default(false)
+
+  messages ChatMessage[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, isArchived])
+}
+
+model ChatMessage {
+  id             String         @id @default(uuid())
+  conversationId String
+  conversation   AIConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  role     String
+  content  String  @db.Text
+  metadata String?
+
+  createdAt DateTime @default(now())
+
+  @@index([conversationId])
+  @@index([conversationId, createdAt])
+}
+
+model AuditLog {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  connectionId String?
+
+  action     String
+  resource   String?
+  resourceId String?
+  details    String  @default("{}")
+  ipAddress  String?
+  userAgent  String?
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([action])
+  @@index([connectionId])
+}
+
+model Subscription {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  stripeSubscriptionId String             @unique
+  plan                 Plan
+  status               SubscriptionStatus
+
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+
+  trialEnd          DateTime?
+  cancelAtPeriodEnd Boolean   @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Crawl {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  status      CrawlStatus @default(PENDING)
+  pagesFound  Int?
+  issuesFound Int?
+
+  startedAt   DateTime?
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([connectionId])
+  @@index([status])
+}
+
+model Notification {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  type      String
+  title     String
+  message   String
+  actionUrl String?
+  icon      String?
+  color     String?
+
+  read Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([read])
+  @@index([createdAt])
+}
+
+model Webhook {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  url     String
+  events  String
+  secret  String
+  enabled Boolean @default(true)
+
+  failureCount    Int       @default(0)
+  lastTriggeredAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([enabled])
+}
+
+model Team {
+  id          String  @id @default(uuid())
+  name        String
+  description String?
+
+  ownerId String
+  owner   User   @relation("TeamOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  plan Plan @default(STARTER)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members     TeamMember[]
+  invitations TeamInvitation[]
+  connections Connection[]     @relation("TeamConnections")
+
+  @@index([ownerId])
+}
+
+model TeamMember {
+  id     String @id @default(uuid())
+  teamId String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  role TeamRole @default(MEMBER)
+
+  joinedAt DateTime @default(now())
+
+  @@unique([teamId, userId])
+  @@index([teamId])
+  @@index([userId])
+}
+
+model TeamInvitation {
+  id     String @id @default(uuid())
+  teamId String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  email String
+  role  TeamRole @default(MEMBER)
+
+  invitedBy String
+  inviter   User   @relation("InvitationSender", fields: [invitedBy], references: [id])
+
+  status InvitationStatus @default(PENDING)
+  token  String           @unique
+
+  expiresAt  DateTime
+  acceptedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@unique([teamId, email])
+  @@index([teamId])
+  @@index([email])
+  @@index([token])
+}
+
+model CSRFToken {
+  id        String   @id @default(uuid())
+  userId    String
+  token     String   @unique
+  provider  String
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@index([userId])
+  @@index([token])
+  @@index([expiresAt])
+}
+
+model UsageRecord {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  period DateTime
+
+  sitesUsed      Int @default(0)
+  fixesApplied   Int @default(0)
+  crawlsExecuted Int @default(0)
+  apiCallsMade   Int @default(0)
+  aiCreditsUsed  Int @default(0)
+
+  sitesLimit     Int
+  fixesLimit     Int
+  aiCreditsLimit Int
+
+  overageOccurred   Boolean @default(false)
+  limitWarningShown Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, period])
+  @@index([userId])
+  @@index([period])
+}
+
+model AICreditPurchase {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  creditsAmount   Int
+  pricePerCredit  Float
+  totalPrice      Float
+  stripePaymentId String?
+
+  creditsRemaining Int
+  creditsUsed      Int       @default(0)
+  expiresAt        DateTime?
+
+  status PurchaseStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([expiresAt])
+}
+
+model Job {
+  id String @id @default(uuid())
+
+  type     JobType
+  status   JobStatus @default(PENDING)
+  priority Int       @default(5)
+
+  payload String
+  result  String?
+  error   String?
+
+  attempts            Int       @default(0)
+  maxAttempts         Int       @default(3)
+  progress            Float     @default(0)
+  estimatedCompletion DateTime?
+
+  scheduledFor DateTime  @default(now())
+  startedAt    DateTime?
+  completedAt  DateTime?
+  failedAt     DateTime?
+
+  connectionId String?
+  userId       String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([scheduledFor])
+  @@index([priority])
+  @@index([type])
+  @@index([connectionId])
+  @@index([userId])
+}
+
+model PendingPlan {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  connectionId String
+
+  title           String
+  description     String
+  estimatedImpact String @default("{}")
+
+  status PlanStatus @default(PENDING)
+
+  approvedAt      DateTime?
+  rejectedAt      DateTime?
+  executedAt      DateTime?
+  rejectionReason String?
+
+  fixes Fix[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Broadcast {
+  id String @id @default(uuid())
+
+  type        String
+  title       String
+  message     String
+  richMessage String?
+  actionUrl   String?
+  actionText  String?
+
+  targetAudience String @default("all")
+  targetPlans    String @default("[]")
+  targetRoles    String @default("[]")
+  targetUserIds  String @default("[]")
+
+  scheduledFor    DateTime?
+  sendImmediately Boolean   @default(true)
+
+  status         BroadcastStatus @default(DRAFT)
+  sentAt         DateTime?
+  recipientCount Int             @default(0)
+  deliveredCount Int             @default(0)
+  openedCount    Int             @default(0)
+  clickedCount   Int             @default(0)
+
+  isTemplate   Boolean @default(false)
+  templateName String?
+
+  createdBy String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([scheduledFor])
+}
+
+model Keyword {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  keyword      String
+  searchVolume Int?
+  difficulty   Float?
+  cpc          Float?
+  intent       KeywordIntent?
+  category     String?
+
+  isTracking Boolean @default(true)
+  priority   Int     @default(5)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  rankings         KeywordRanking[]
+  pages            PageKeyword[]
+  rankingPositions RankingPosition[]
+
+  @@unique([connectionId, keyword])
+  @@index([connectionId])
+  @@index([searchVolume])
+  @@index([difficulty])
+}
+
+model KeywordRanking {
+  id        String  @id @default(uuid())
+  keywordId String
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  position     Int
+  url          String
+  searchEngine String  @default("google")
+  location     String?
+  device       String  @default("desktop")
+
+  hasFeaturedSnippet Boolean @default(false)
+  hasLocalPack       Boolean @default(false)
+  hasPeopleAlsoAsk   Boolean @default(false)
+  hasImagePack       Boolean @default(false)
+
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([keywordId])
+  @@index([date])
+  @@index([position])
+}
+
+model PageKeyword {
+  id        String  @id @default(uuid())
+  pageId    String
+  page      Page    @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  keywordId String
+  keyword   Keyword @relation(fields: [keywordId], references: [id], onDelete: Cascade)
+
+  relevanceScore Float?
+  density        Float?
+  position       String?
+
+  isTarget Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([pageId, keywordId])
+  @@index([pageId])
+  @@index([keywordId])
+}
+
+model AIInsight {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String?
+
+  type        InsightType
+  category    String
+  title       String
+  description String
+  insight     String      @db.Text
+
+  recommendation  String  @db.Text
+  estimatedImpact Float?
+  estimatedEffort String?
+
+  priority   Priority @default(MEDIUM)
+  confidence Float    @default(80)
+
+  status InsightStatus @default(NEW)
+
+  implementedAt DateTime?
+  actualImpact  Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([priority])
+  @@index([type])
+}
+
+model ContentSuggestion {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  pageId String
+
+  suggestionType String
+  title          String
+  description    String @db.Text
+
+  suggestedContent String  @db.Text
+  targetLocation   String?
+
+  targetKeywords String @default("[]")
+
+  currentWordCount   Int?
+  suggestedWordCount Int?
+  currentReadability Float?
+  targetReadability  Float?
+
+  status SuggestionStatus @default(PENDING)
+
+  implementedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([pageId])
+  @@index([status])
+}
+
+model PageImprovement {
+  id     String @id @default(uuid())
+  pageId String
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  improvementType String
+  description     String
+
+  beforeValue String? @db.Text
+  afterValue  String? @db.Text
+
+  seoScoreBefore Float?
+  seoScoreAfter  Float?
+  rankingBefore  Int?
+  rankingAfter   Int?
+  trafficBefore  Int?
+  trafficAfter   Int?
+
+  implementedAt DateTime  @default(now())
+  measuredAt    DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([pageId])
+  @@index([implementedAt])
+}
+
+model SiteHealthScore {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  date DateTime @default(now())
+
+  overallScore     Float
+  technicalScore   Float
+  contentScore     Float
+  performanceScore Float
+  securityScore    Float
+
+  totalPages     Int
+  indexablePages Int
+  brokenLinks    Int
+  avgLoadTime    Float
+  avgSeoScore    Float
+
+  criticalIssues Int
+  highIssues     Int
+  mediumIssues   Int
+  lowIssues      Int
+
+  avgKeywordPosition Float?
+  topKeywordsCount   Int?
+
+  organicTraffic Int?
+  organicClicks  Int?
+
+  createdAt DateTime @default(now())
+
+  @@unique([connectionId, date])
+  @@index([connectionId])
+  @@index([date])
+  @@index([overallScore])
+}
+
+model PageSnapshot {
+  id     String @id @default(uuid())
+  pageId String
+  page   Page   @relation(fields: [pageId], references: [id], onDelete: Cascade)
+
+  seoScore   Float?
+  wordCount  Int?
+  loadTime   Float?
+  httpStatus Int?
+  lcp        Float?
+  fid        Float?
+  cls        Float?
+
+  contentHash String?
+
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([pageId])
+  @@index([date])
+}
+
+model ConnectionRequest {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  platform  Platform
+  storeUrl  String
+  storeName String?
+  message   String?
+
+  status ConnectionRequestStatus @default(PENDING)
+
+  oauthUrl String?
+
+  connectionId    String?
+  rejectionReason String?
+
+  reviewedBy String?
+  reviewedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model ImageOptimizationBatch {
+  id           String @id @default(uuid())
+  connectionId String
+
+  totalImages     Int
+  processedImages Int @default(0)
+  optimizedImages Int @default(0)
+  failedImages    Int @default(0)
+  skippedImages   Int @default(0)
+
+  status   BatchStatus @default(PENDING)
+  progress Float       @default(0)
+
+  totalBytesSaved     Int?
+  avgCompressionRatio Float?
+
+  settings String @default("{}")
+
+  startedAt           DateTime?
+  completedAt         DateTime?
+  estimatedCompletion DateTime?
+
+  error String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([connectionId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model DailyReport {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  date          DateTime      @default(now())
+  reportType    String        @default("DAILY_AUTOMATION")
+  executionMode ExecutionMode
+
+  sitesScanned    Int @default(0)
+  pagesAnalyzed   Int @default(0)
+  issuesFound     Int @default(0)
+  issuesFixed     Int @default(0)
+  issuesPending   Int @default(0)
+  imagesOptimized Int @default(0)
+
+  fixesApplied    String @default("[]")
+  pendingApproval String @default("[]")
+  beforeAfter     String @default("[]")
+
+  estimatedTrafficImpact Float?
+  seoScoreChange         Float?
+  priorityIssuesResolved Int    @default(0)
+
+  emailSent      Boolean   @default(false)
+  emailSentAt    DateTime?
+  dashboardViewed Boolean @default(false)
+  dashboardViewedAt DateTime?
+
+  reportData String @default("{}")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  snapshots AutomationSnapshot[]
+
+  @@index([userId])
+  @@index([date])
+  @@index([reportType])
+  @@index([emailSent])
+}
+
+model AutomationSnapshot {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  reportId String?
+  report   DailyReport? @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime @default(now())
+  snapshotType String   @default("DAILY_AUTOMATION")
+  description  String?
+
+  completeState String @db.Text
+
+  siteSnapshots String @db.Text
+
+  canRollback    Boolean   @default(true)
+  rollbackExpiry DateTime?
+  rolledBackAt   DateTime?
+  rollbackReason String?
+
+  sitesAffected   Int @default(0)
+  fixesApplied    Int @default(0)
+  imagesOptimized Int @default(0)
+
+  @@index([userId])
+  @@index([reportId])
+  @@index([createdAt])
+  @@index([canRollback])
+}
+
+model ShopifyCollection {
+  id           String     @id @default(uuid())
+  connectionId String
+  connection   Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  shopifyCollectionId String
+  shopifyHandle       String
+
+  title        String
+  bodyHtml     String? @db.Text
+  sortOrder    String?
+  productCount Int     @default(0)
+
+  metaTitle       String?
+  metaDescription String?
+
+  image String?
+
+  pageViews      Int?   @default(0)
+  conversionRate Float?
+
+  lastAnalyzedAt DateTime?
+  seoScore       Int?     @default(0)
+  issuesCount    Int      @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([connectionId, shopifyCollectionId])
+  @@index([connectionId])
+  @@index([seoScore])
+  @@index([lastAnalyzedAt])
+}

@@ -9,6 +9,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyShopifyWebhook } from '@/lib/shopify-hmac';
 import { db } from '@/lib/db';
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   try {
     // Verify webhook

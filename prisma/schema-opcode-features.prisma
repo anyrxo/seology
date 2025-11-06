@@ -1,0 +1,445 @@
+// ==================== OPCODE-INSPIRED FEATURES ====================
+// Advanced AI agent system, checkpoints, usage analytics, and execution monitoring
+// Append these models to the main schema.prisma
+
+// Custom AI Agents - Specialized SEO experts
+model SEOAgent {
+  id           String @id @default(uuid())
+  userId       String
+  connectionId String
+
+  // Agent identification
+  name        String
+  description String @db.Text
+  specialty   String // 'title_optimizer', 'meta_description', 'schema_org', 'alt_text', 'custom'
+  icon        String? // Icon identifier
+  color       String @default("#3b82f6") // Brand color for UI
+
+  // Agent configuration
+  systemPrompt String @db.Text // Custom prompt that defines agent behavior
+  model        String @default("claude-3-5-sonnet-20241022")
+  temperature  Float  @default(0.7)
+  maxTokens    Int    @default(2000)
+
+  // Agent type
+  isTemplate   Boolean @default(false) // If true, this is a reusable template
+  isPublic     Boolean @default(false) // If true, visible in marketplace
+  isActive     Boolean @default(true)
+
+  // Performance metrics
+  totalRuns           Int   @default(0)
+  successfulRuns      Int   @default(0)
+  failedRuns          Int   @default(0)
+  avgExecutionTime    Float? // Average execution time in seconds
+  avgTokensUsed       Int?
+  avgCostPerRun       Float? // Average cost in USD
+
+  // User ratings (if public)
+  rating        Float? // 0-5 star rating
+  ratingCount   Int    @default(0)
+  downloads     Int    @default(0) // Times copied by other users
+
+  // Configuration
+  targetIssueTypes String @default("[]") // JSON array of issue types this agent handles
+  autoApply        Boolean @default(false) // Auto-apply fixes without approval
+
+  // Metadata
+  createdBy String? // Original creator if copied from template
+  version   String  @default("1.0.0")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  executions AgentExecution[]
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([specialty])
+  @@index([isTemplate])
+  @@index([isPublic])
+  @@index([rating])
+}
+
+// Agent Execution History - Track every agent run
+model AgentExecution {
+  id       String   @id @default(uuid())
+  agentId  String
+  agent    SEOAgent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  userId       String
+  connectionId String
+
+  // Execution context
+  targetType   String // 'product', 'collection', 'page', 'image', 'batch'
+  targetId     String? // Shopify product ID, etc.
+  targetUrl    String?
+  batchSize    Int     @default(1)
+
+  // Execution status
+  status      AgentExecutionStatus @default(PENDING)
+  startedAt   DateTime?
+  completedAt DateTime?
+  duration    Float? // Execution time in seconds
+
+  // Input/Output
+  input  String @db.Text // JSON input data
+  output String @db.Text // JSON output data
+  error  String? @db.Text
+
+  // Claude API metrics
+  tokensUsed       Int?
+  tokensInput      Int?
+  tokensOutput     Int?
+  costUSD          Float?
+  modelUsed        String?
+
+  // Results
+  issuesFound      Int    @default(0)
+  fixesGenerated   Int    @default(0)
+  fixesApplied     Int    @default(0)
+  fixesFailed      Int    @default(0)
+
+  // Quality metrics
+  userRating       Int? // 1-5 rating after execution
+  userFeedback     String? @db.Text
+  wasReverted      Boolean @default(false)
+  revertedAt       DateTime?
+
+  createdAt DateTime @default(now())
+
+  @@index([agentId])
+  @@index([userId])
+  @@index([connectionId])
+  @@index([status])
+  @@index([startedAt])
+  @@index([createdAt])
+  // Compound index for agent performance queries
+  @@index([agentId, status, completedAt])
+}
+
+enum AgentExecutionStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  CANCELLED
+  PARTIALLY_COMPLETED
+}
+
+// Timeline Checkpoints - Save states for time-travel and rollback
+model TimelineCheckpoint {
+  id           String @id @default(uuid())
+  userId       String
+  connectionId String
+
+  // Checkpoint metadata
+  name        String
+  description String? @db.Text
+  type        CheckpointType @default(MANUAL)
+
+  // State snapshot
+  completeState String @db.Text // Full JSON snapshot of all data at this point
+
+  // What changed since last checkpoint
+  changesSummary String @db.Text // JSON summary of changes
+  fixesIncluded  String @default("[]") // JSON array of fix IDs
+
+  // Statistics at checkpoint time
+  totalProducts    Int @default(0)
+  totalIssues      Int @default(0)
+  totalFixes       Int @default(0)
+  avgSeoScore      Float?
+
+  // Rollback metadata
+  canRollback      Boolean   @default(true)
+  rollbackExpiry   DateTime? // 90 days from creation
+  rolledBackAt     DateTime?
+  rollbackReason   String?
+  restoredFromId   String? // If this checkpoint restored from another
+
+  // Branching support
+  parentCheckpointId String? // Parent checkpoint in timeline
+  branchName         String? // If this starts a new branch
+
+  // Agent execution tracking
+  agentExecutionIds String @default("[]") // JSON array of execution IDs
+
+  // Tags for organization
+  tags String @default("[]") // JSON array of tags
+
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([type])
+  @@index([createdAt])
+  @@index([canRollback])
+  // Compound index for timeline queries
+  @@index([connectionId, createdAt])
+}
+
+enum CheckpointType {
+  MANUAL // User-created checkpoint
+  AUTO_DAILY // Daily automation checkpoint
+  PRE_AGENT_RUN // Before agent execution
+  POST_AGENT_RUN // After agent execution
+  PRE_MAJOR_CHANGE // Before bulk operations
+  MILESTONE // Important milestone marker
+}
+
+// Usage Analytics - Track Claude API usage with fine granularity
+model UsageEvent {
+  id           String @id @default(uuid())
+  userId       String
+  connectionId String?
+
+  // Event identification
+  eventType     UsageEventType
+  resourceType  String? // 'product', 'collection', 'image', 'agent'
+  resourceId    String?
+
+  // Claude API metrics
+  model         String
+  tokensInput   Int
+  tokensOutput  Int
+  tokensTotal   Int
+  costUSD       Float // Cost in USD
+
+  // Execution context
+  executionTime Float? // Milliseconds
+  agentId       String? // If executed by agent
+  jobId         String? // If part of background job
+
+  // Request details
+  requestId     String? // Claude API request ID
+  prompt        String? @db.Text // Prompt used (optional, for analysis)
+  response      String? @db.Text // Response received (optional)
+
+  // Outcome
+  success       Boolean @default(true)
+  errorMessage  String?
+
+  // Metadata
+  metadata      String  @default("{}") // JSON additional context
+
+  timestamp DateTime @default(now())
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([eventType])
+  @@index([agentId])
+  @@index([timestamp])
+  // Compound index for cost analysis queries
+  @@index([userId, timestamp])
+  @@index([connectionId, timestamp])
+}
+
+enum UsageEventType {
+  PRODUCT_ANALYSIS // Analyzing a product
+  IMAGE_ALT_TEXT // Generating image alt text
+  AGENT_EXECUTION // Custom agent run
+  CHAT_MESSAGE // AI chat interaction
+  BULK_OPTIMIZATION // Batch operations
+  SCHEMA_GENERATION // Schema.org generation
+  META_TAG_GENERATION // Meta tag generation
+  CONTENT_SUGGESTION // Content recommendations
+  SEO_AUDIT // Full SEO audit
+}
+
+// Usage Budget - Set spending limits and alerts
+model UsageBudget {
+  id     String @id @default(uuid())
+  userId String
+
+  // Budget period
+  periodStart DateTime
+  periodEnd   DateTime
+
+  // Budget limits
+  monthlyLimitUSD Float // Maximum spend per month
+  dailyLimitUSD   Float? // Optional daily limit
+
+  // Current usage
+  currentSpendUSD Float @default(0)
+
+  // Alert thresholds
+  alertAt50Percent  Boolean @default(true)
+  alertAt75Percent  Boolean @default(true)
+  alertAt90Percent  Boolean @default(true)
+  alertAt100Percent Boolean @default(true)
+
+  // Alert status
+  alert50Sent  Boolean @default(false)
+  alert75Sent  Boolean @default(false)
+  alert90Sent  Boolean @default(false)
+  alert100Sent Boolean @default(false)
+
+  // Budget status
+  isActive     Boolean @default(true)
+  pausedAt     DateTime?
+  pauseReason  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, periodStart])
+  @@index([userId])
+  @@index([periodStart])
+  @@index([isActive])
+}
+
+// Agent Marketplace - Share and discover agents
+model AgentMarketplaceListing {
+  id      String @id @default(uuid())
+  agentId String // Reference to SEOAgent with isPublic=true
+
+  // Listing details
+  title       String
+  description String @db.Text
+  category    String // 'title_optimization', 'meta_tags', 'images', 'schema', 'comprehensive'
+
+  // Media
+  thumbnailUrl String?
+  screenshots  String @default("[]") // JSON array of screenshot URLs
+
+  // Pricing (future feature)
+  isFree      Boolean @default(true)
+  price       Float?  // USD
+
+  // Performance showcase
+  avgRating           Float?
+  totalRatings        Int    @default(0)
+  totalInstalls       Int    @default(0)
+  avgImprovementScore Float? // Average SEO score improvement
+
+  // Publisher info
+  publisherId   String // User ID of publisher
+  publisherName String
+  verified      Boolean @default(false) // Verified by SEOLOGY team
+
+  // Status
+  status        MarketplaceStatus @default(PENDING)
+  publishedAt   DateTime?
+  rejectedAt    DateTime?
+  rejectionReason String?
+
+  // Featured
+  isFeatured    Boolean   @default(false)
+  featuredUntil DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+  @@index([status])
+  @@index([avgRating])
+  @@index([isFeatured])
+  @@index([publisherId])
+}
+
+enum MarketplaceStatus {
+  PENDING // Awaiting review
+  APPROVED // Live in marketplace
+  REJECTED // Rejected by moderation
+  UNLISTED // Publisher unlisted
+}
+
+// Agent Reviews - User reviews for marketplace agents
+model AgentReview {
+  id      String @id @default(uuid())
+  agentId String
+  userId  String
+
+  // Review content
+  rating  Int // 1-5 stars
+  title   String?
+  review  String? @db.Text
+
+  // Metrics
+  wouldRecommend Boolean @default(true)
+
+  // Moderation
+  isVisible Boolean @default(true)
+  flagged   Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([agentId, userId])
+  @@index([agentId])
+  @@index([userId])
+  @@index([rating])
+}
+
+// Execution Monitor - Live background job tracking
+model ExecutionMonitor {
+  id           String @id @default(uuid())
+  userId       String
+  connectionId String
+
+  // Monitor metadata
+  name        String
+  description String?
+  type        ExecutionMonitorType @default(AUTOMATION)
+
+  // Execution details
+  status      MonitorStatus @default(RUNNING)
+  startedAt   DateTime      @default(now())
+  completedAt DateTime?
+
+  // Progress tracking
+  totalTasks      Int   @default(0)
+  completedTasks  Int   @default(0)
+  failedTasks     Int   @default(0)
+  skippedTasks    Int   @default(0)
+  progressPercent Float @default(0)
+
+  // Current state
+  currentTask     String? // What's being processed now
+  currentTaskId   String?
+  estimatedTimeRemaining Int? // Seconds
+
+  // Results summary
+  issuesFound    Int @default(0)
+  fixesGenerated Int @default(0)
+  fixesApplied   Int @default(0)
+
+  // Cost tracking
+  totalTokensUsed Int    @default(0)
+  totalCostUSD    Float  @default(0)
+
+  // Logs (JSON array of log entries)
+  logs String @default("[]") // JSON array
+
+  // Error tracking
+  errors      String  @default("[]") // JSON array of errors
+  errorCount  Int     @default(0)
+
+  // Agent executions in this monitor
+  agentExecutionIds String @default("[]") // JSON array
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([connectionId])
+  @@index([status])
+  @@index([startedAt])
+  @@index([type])
+}
+
+enum ExecutionMonitorType {
+  AUTOMATION // Daily automation
+  AGENT_RUN // Single agent execution
+  BULK_OPTIMIZATION // Batch processing
+  MANUAL_SCAN // User-initiated scan
+}
+
+enum MonitorStatus {
+  RUNNING
+  PAUSED
+  COMPLETED
+  FAILED
+  CANCELLED
+}

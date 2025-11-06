@@ -9,6 +9,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { verifyWebhook } from '@/lib/shopify-webhook'
 
+export const dynamic = 'force-dynamic'
+
 interface AppUninstalledPayload {
   id: number
   name: string

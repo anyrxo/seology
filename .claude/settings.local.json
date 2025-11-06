@@ -77,7 +77,14 @@
       "Bash(vercel --version:*)",
       "Bash(vercel:*)",
       "Bash(shopify app deploy:*)",
-      "Bash(npx @shopify/cli app deploy:*)"
+      "Bash(npx @shopify/cli app deploy:*)",
+      "Bash(if [ -f vercel.json ])",
+      "Bash(then cat vercel.json)",
+      "Bash(else echo \"File does not exist\")",
+      "Bash(npm test:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsx:*)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []

@@ -9,6 +9,8 @@ import { auth } from '@clerk/nextjs/server'
 import crypto from 'crypto'
 import { db } from '@/lib/db'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest) {
   try {
     const { userId } = await auth()

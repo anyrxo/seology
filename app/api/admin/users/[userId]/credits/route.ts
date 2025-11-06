@@ -4,6 +4,8 @@ import { db } from '@/lib/db'
 import { getAICreditBalance } from '@/lib/ai-credits'
 import { AICreditPurchase, UsageRecord } from '@prisma/client'
 
+export const dynamic = 'force-dynamic'
+
 type CreditAdjustmentResult = AICreditPurchase | UsageRecord | { count: number }
 
 /**

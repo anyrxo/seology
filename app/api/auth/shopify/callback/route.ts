@@ -11,6 +11,8 @@ import { verifyShopifyHMAC } from '@/lib/shopify-hmac'
 import { encrypt } from '@/lib/encryption'
 import { isReturningUser } from '@/lib/shopify-session-storage'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest) {
   // Get shop parameter early for error handling
   const shop = req.nextUrl.searchParams.get('shop')

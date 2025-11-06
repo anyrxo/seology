@@ -1,0 +1,280 @@
+// ==================== GOOGLE SEARCH CONSOLE INTEGRATION ====================
+// Add these models to the main schema.prisma file
+
+// Google Search Console Connection
+model GoogleSearchConsole {
+  id            String   @id @default(uuid())
+  connectionId  String   @unique
+  connection    Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  siteUrl       String // GSC verified site URL
+  propertyType  String @default("sc-domain") // 'sc-domain' or 'URL'
+
+  // OAuth tokens (encrypted)
+  accessToken   String   @db.Text // Encrypted
+  refreshToken  String   @db.Text // Encrypted
+  expiresAt     DateTime
+
+  // Connection status
+  isConnected   Boolean  @default(true)
+  lastSync      DateTime?
+  lastSyncStatus String? @default("success") // 'success', 'partial', 'error'
+  syncError     String? @db.Text
+
+  // Verification status
+  isVerified    Boolean @default(false)
+  verificationMethod String? // 'DNS_TXT', 'HTML_FILE', 'HTML_TAG', etc.
+
+  // Sync settings
+  syncFrequency String @default("daily") // 'hourly', 'daily', 'weekly'
+  lookbackDays  Int @default(30) // How many days of data to sync
+
+  // Statistics
+  totalImpressions Int @default(0)
+  totalClicks      Int @default(0)
+  avgCTR           Float @default(0)
+  avgPosition      Float @default(0)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  analytics     SearchAnalytics[]
+  syncHistory   GSCSyncHistory[]
+
+  @@index([connectionId])
+  @@index([isConnected])
+  @@index([lastSync])
+}
+
+// Search Analytics Data from GSC
+model SearchAnalytics {
+  id            String   @id @default(uuid())
+  gscId         String
+  gsc           GoogleSearchConsole @relation(fields: [gscId], references: [id], onDelete: Cascade)
+
+  connectionId  String
+  connection    Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  // Dimensions
+  date          DateTime
+  url           String   // Page URL
+  query         String?  // Search query (nullable for URL-only aggregates)
+  country       String?  // Country code (e.g., 'USA', 'GBR')
+  device        String?  // 'DESKTOP', 'MOBILE', 'TABLET'
+
+  // Metrics
+  impressions   Int
+  clicks        Int
+  ctr           Float    // Click-through rate (0-1)
+  position      Float    // Average position (1-100)
+
+  // Context
+  page          String?  // Normalized page path
+  pageType      String?  // 'product', 'collection', 'blog', 'page'
+
+  // Link to fix if this data is after a fix was applied
+  fixId         String?
+  fix           Fix?     @relation(fields: [fixId], references: [id], onDelete: SetNull)
+
+  // Aggregation level
+  aggregationType String @default("page_query") // 'page_query', 'page', 'query', 'site'
+
+  createdAt     DateTime @default(now())
+
+  @@unique([gscId, date, url, query, country, device, aggregationType])
+  @@index([gscId])
+  @@index([connectionId])
+  @@index([date])
+  @@index([url])
+  @@index([query])
+  @@index([fixId])
+  @@index([pageType])
+  // Compound index for performance queries
+  @@index([connectionId, date, url])
+  @@index([gscId, date, aggregationType])
+}
+
+// GSC Sync History (audit trail)
+model GSCSyncHistory {
+  id            String   @id @default(uuid())
+  gscId         String
+  gsc           GoogleSearchConsole @relation(fields: [gscId], references: [id], onDelete: Cascade)
+
+  // Sync details
+  syncType      String   // 'manual', 'auto', 'initial'
+  status        String   // 'success', 'partial', 'error'
+
+  // Date range synced
+  startDate     DateTime
+  endDate       DateTime
+
+  // Results
+  rowsSynced    Int @default(0)
+  queriesSynced Int @default(0)
+  urlsSynced    Int @default(0)
+
+  // Duration and performance
+  durationMs    Int? // Milliseconds
+  apiCalls      Int @default(0)
+
+  // Error tracking
+  error         String? @db.Text
+  warningsCount Int @default(0)
+  warnings      String @default("[]") // JSON array of warning messages
+
+  // Metadata
+  triggeredBy   String? // User ID or 'cron'
+
+  startedAt     DateTime @default(now())
+  completedAt   DateTime?
+
+  @@index([gscId])
+  @@index([status])
+  @@index([startedAt])
+}
+
+// GSC Performance Snapshots (daily rollups for faster queries)
+model GSCPerformanceSnapshot {
+  id            String   @id @default(uuid())
+  connectionId  String
+  connection    Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  date          DateTime
+
+  // Aggregated metrics
+  totalImpressions Int
+  totalClicks      Int
+  avgCTR           Float
+  avgPosition      Float
+
+  // Top performers
+  topQueries       String @db.Text // JSON array of top 10 queries
+  topPages         String @db.Text // JSON array of top 10 pages
+  topCountries     String @db.Text // JSON array of top countries
+
+  // Device breakdown
+  desktopImpressions Int @default(0)
+  mobileImpressions  Int @default(0)
+  tabletImpressions  Int @default(0)
+  desktopClicks      Int @default(0)
+  mobileClicks       Int @default(0)
+  tabletClicks       Int @default(0)
+
+  // Trends (vs. previous period)
+  impressionsChange Float? // Percentage change
+  clicksChange      Float?
+  ctrChange         Float?
+  positionChange    Float?
+
+  createdAt     DateTime @default(now())
+
+  @@unique([connectionId, date])
+  @@index([connectionId])
+  @@index([date])
+}
+
+// GSC Query Intelligence (query-level insights)
+model GSCQueryInsight {
+  id            String   @id @default(uuid())
+  connectionId  String
+  connection    Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  query         String
+
+  // Query characteristics
+  searchVolume  Int? // Estimated monthly search volume
+  competitiveness Float? // 0-1 score
+  intent        String? // 'informational', 'transactional', 'navigational'
+
+  // Current performance
+  avgPosition   Float
+  avgCTR        Float
+  totalImpressions Int
+  totalClicks   Int
+
+  // Opportunity analysis
+  opportunityScore Float @default(0) // 0-100
+  recommendedAction String? // 'create_content', 'optimize_existing', 'ignore'
+
+  // Target page
+  currentBestPage String? // Page ranking highest for this query
+  recommendedPage String? // Page that should target this query
+
+  // Status
+  isTracking    Boolean @default(false)
+  isOpportunity Boolean @default(false) // High volume, low ranking = opportunity
+
+  // AI insights
+  aiAnalysis    String? @db.Text // Claude's analysis of this query
+  suggestedKeywords String @default("[]") // JSON array of related keywords
+
+  lastUpdated   DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  @@unique([connectionId, query])
+  @@index([connectionId])
+  @@index([opportunityScore])
+  @@index([isOpportunity])
+  @@index([avgPosition])
+}
+
+// GSC Page Performance (page-level rollups)
+model GSCPagePerformance {
+  id            String   @id @default(uuid())
+  connectionId  String
+  connection    Connection @relation(fields: [connectionId], references: [id], onDelete: Cascade)
+
+  url           String
+  pageType      String? // 'product', 'collection', 'blog', 'page'
+
+  // Time period
+  periodStart   DateTime
+  periodEnd     DateTime
+
+  // Aggregated metrics
+  totalImpressions Int
+  totalClicks      Int
+  avgCTR           Float
+  avgPosition      Float
+
+  // Top queries for this page
+  topQueries    String @db.Text // JSON array
+  queryCount    Int @default(0) // Number of unique queries
+
+  // Trends
+  impressionsTrend String @default("[]") // JSON array of daily values
+  clicksTrend      String @default("[]")
+  positionTrend    String @default("[]")
+
+  // Comparison with previous period
+  impressionsChange Float?
+  clicksChange      Float?
+  ctrChange         Float?
+  positionChange    Float?
+
+  // Link to fix (if page was optimized)
+  fixId         String?
+  fix           Fix?     @relation(fields: [fixId], references: [id], onDelete: SetNull)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([connectionId, url, periodStart, periodEnd])
+  @@index([connectionId])
+  @@index([url])
+  @@index([fixId])
+  @@index([periodStart])
+}
+
+// Add relations to existing models:
+// Connection model needs these new relations added:
+//   googleSearchConsole GoogleSearchConsole?
+//   searchAnalytics     SearchAnalytics[]
+//   gscSnapshots        GSCPerformanceSnapshot[]
+//   gscQueryInsights    GSCQueryInsight[]
+//   gscPagePerformance  GSCPagePerformance[]
+//
+// Fix model needs:
+//   searchAnalytics SearchAnalytics[]
+//   gscPagePerformance GSCPagePerformance[]
