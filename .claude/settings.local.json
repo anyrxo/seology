@@ -73,7 +73,11 @@
       "Bash(where cargo:*)",
       "Bash(export PATH=\"/c/Users/manna/.cargo/bin:$PATH\")",
       "Bash(cargo --version:*)",
-      "Bash(cargo build:*)"
+      "Bash(cargo build:*)",
+      "Bash(vercel --version:*)",
+      "Bash(vercel:*)",
+      "Bash(shopify app deploy:*)",
+      "Bash(npx @shopify/cli app deploy:*)"
     ],
     "deny": [],
     "ask": []

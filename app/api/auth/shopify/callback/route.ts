@@ -9,6 +9,7 @@ import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { verifyShopifyHMAC } from '@/lib/shopify-hmac'
 import { encrypt } from '@/lib/encryption'
+import { isReturningUser } from '@/lib/shopify-session-storage'
 
 export async function GET(req: NextRequest) {
   // Get shop parameter early for error handling
@@ -291,8 +292,10 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // Redirect to Shopify onboarding or dashboard
-    const redirectUrl = new URL(`/shopify/onboarding?shop=${shop}`, req.url)
+    // Redirect to Shopify onboarding or dashboard based on user status
+    const isReturning = await isReturningUser(user.id, shop)
+    const redirectPath = isReturning ? '/shopify/dashboard' : '/shopify/onboarding'
+    const redirectUrl = new URL(`${redirectPath}?shop=${shop}`, req.url)
     return NextResponse.redirect(redirectUrl)
   } catch (error) {
     console.error('Shopify OAuth callback error:', error)

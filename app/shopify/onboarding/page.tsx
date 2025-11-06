@@ -41,7 +41,18 @@ export default function ShopifyOnboardingPage() {
     }
   }
 
-  const handleComplete = () => {
+  const handleComplete = async () => {
+    try {
+      // Mark onboarding as complete
+      await fetch('/api/onboarding', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ completed: true }),
+      })
+    } catch (error) {
+      console.error('Error completing onboarding:', error)
+    }
+
     // Redirect to main dashboard
     router.push(`/shopify/dashboard?shop=${shop}`)
   }
