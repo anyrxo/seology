@@ -3,7 +3,7 @@
 
 name = "SEOLOGY.AI - SEO Automation"
 client_id = "0b87ac78cf0783fd1dd829bf5421fae5"
-application_url = "https://seology.ai"
+application_url = "https://seology.ai/shopify/dashboard"
 embedded = true
 
 [build]
