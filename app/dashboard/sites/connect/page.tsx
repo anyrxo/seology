@@ -453,7 +453,14 @@ function ShopifyConnectForm({
     setLoading(true)
 
     try {
-      window.location.href = `/api/auth/shopify?shop=${shopDomain}`
+      // Normalize shop domain (add .myshopify.com if not present)
+      const normalizedShop = shopDomain.includes('.myshopify.com')
+        ? shopDomain
+        : `${shopDomain}.myshopify.com`
+
+      // Use the automatic install route for custom distribution
+      // This works with custom Shopify apps (non-App Store)
+      window.location.href = `/api/auth/shopify/install?shop=${normalizedShop}`
     } catch (err) {
       console.error('Shopify connection error:', err)
       setError('Failed to connect to Shopify. Please try again.')

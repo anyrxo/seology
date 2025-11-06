@@ -7,18 +7,21 @@ export const dynamic = 'force-dynamic'
 /**
  * Shopify App Install Entry Point
  *
- * This route is called when a user clicks "Add App" in the Shopify App Store.
- * It initiates the OAuth flow by redirecting to Shopify's authorization page.
+ * This route handles Shopify OAuth initialization for custom distribution apps.
+ * It works for both:
+ * 1. New users installing from external links (no account yet)
+ * 2. Existing users connecting from dashboard (already signed in)
  *
  * Flow:
- * 1. User clicks "Add App" in Shopify App Store
- * 2. Shopify redirects to this route with ?shop=store.myshopify.com
+ * 1. User clicks install link or enters store in dashboard
+ * 2. This route receives ?shop=store.myshopify.com
  * 3. We generate secure state and redirect to Shopify OAuth
  * 4. User authorizes (grants permissions)
  * 5. Shopify redirects to /api/auth/shopify/callback
+ * 6. Callback creates connection and redirects to dashboard
  *
- * Note: We use a temporary state token here since the user account doesn't exist yet.
- * The callback route will handle account creation and proper state validation.
+ * Note: This route works for custom distribution (non-App Store) apps.
+ * The OAuth flow is the same whether user has an account or not.
  */
 export async function GET(req: NextRequest) {
   const shop = req.nextUrl.searchParams.get('shop')
@@ -28,7 +31,7 @@ export async function GET(req: NextRequest) {
       {
         success: false,
         error: 'Missing shop parameter',
-        message: 'Please install SEOLOGY from the Shopify App Store'
+        message: 'Please provide your Shopify store URL'
       },
       { status: 400 }
     )
@@ -48,7 +51,8 @@ export async function GET(req: NextRequest) {
 
   try {
     // Generate secure state token for CSRF protection
-    // Using crypto.randomBytes since we don't have a user yet (account created in callback)
+    // For custom distribution, we use a simple state token
+    // The callback will verify the user's Clerk session
     const state = crypto.randomBytes(32).toString('base64url')
 
     // Shopify OAuth configuration

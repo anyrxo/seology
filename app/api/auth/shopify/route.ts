@@ -1,35 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
-import { generateOAuthState } from '@/lib/csrf'
 
 // Mark this route as dynamic
 export const dynamic = 'force-dynamic'
 
+/**
+ * Legacy Shopify OAuth route - redirects to /install for consistency
+ *
+ * This route exists for backward compatibility but now redirects to
+ * the unified install route which handles both new and existing users.
+ *
+ * @deprecated Use /api/auth/shopify/install directly
+ */
 export async function GET(req: NextRequest) {
-  const session = await auth()
-
-  if (!session.userId) {
-    return NextResponse.redirect(new URL('/sign-in', req.url))
-  }
-
   const searchParams = req.nextUrl.searchParams
   const shop = searchParams.get('shop')
 
   if (!shop) {
-    return NextResponse.json({ error: 'Missing shop parameter' }, { status: 400 })
+    return NextResponse.json({
+      error: 'Missing shop parameter',
+      message: 'Please provide your Shopify store URL'
+    }, { status: 400 })
   }
 
-  // Shopify OAuth configuration
-  const clientId = process.env.SHOPIFY_CLIENT_ID || '0b87ac78cf0783fd1dd829bf5421fae5'
-  const scopes = 'read_products,write_products,read_content,write_content,read_themes,write_themes'
-  const redirectUri = `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/shopify/callback`
-
-  // Generate cryptographically secure CSRF-protected state
-  const state = await generateOAuthState(session.userId, 'SHOPIFY', { shop })
-
-  // Build Shopify OAuth URL
+  // Normalize shop domain
   const shopifyDomain = shop.includes('.myshopify.com') ? shop : `${shop}.myshopify.com`
-  const authUrl = `https://${shopifyDomain}/admin/oauth/authorize?client_id=${clientId}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}`
 
-  return NextResponse.redirect(authUrl)
+  // Redirect to the unified install route
+  // This handles OAuth for both new and existing users
+  const installUrl = new URL('/api/auth/shopify/install', req.url)
+  installUrl.searchParams.set('shop', shopifyDomain)
+
+  return NextResponse.redirect(installUrl)
 }
