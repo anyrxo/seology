@@ -593,3 +593,220 @@ Located at `/admin`:
 - Manual user upgrades
 
 Protected by Clerk role checks (admin role required).
+
+---
+
+## Design Review & Visual Development
+
+SEOLOGY.AI follows **S-Tier SaaS Dashboard standards** as defined in the [OneRedOak design review framework](https://github.com/OneRedOak/claude-code-workflows/tree/main/design-review).
+
+### Design Documentation
+
+All visual development must reference these documents:
+
+1. **[Design Principles](context/design-principles.md)** - S-Tier standards for all UI/UX decisions
+2. **[Style Guide](context/style-guide.md)** - SEOLOGY.AI brand-specific styling
+
+### Quick Visual Check Process
+
+Before committing UI changes, verify:
+
+```bash
+# ✅ Accessibility
+- [ ] 4.5:1 color contrast minimum (text)
+- [ ] 3:1 color contrast minimum (large text, UI components)
+- [ ] 44x44px minimum touch targets
+- [ ] Focus indicators visible (2px outline + 4px shadow)
+- [ ] Keyboard navigation works
+- [ ] Screen reader labels present (aria-label, aria-labelledby)
+- [ ] Semantic HTML used (<header>, <nav>, <main>, <button>, etc.)
+
+# ✅ Responsiveness
+- [ ] Desktop (1440px) - optimal layout
+- [ ] Tablet (768px) - responsive adaptations
+- [ ] Mobile (375px) - mobile-first view
+- [ ] No horizontal scroll at any breakpoint
+- [ ] Text remains readable (16px minimum on mobile)
+- [ ] Touch targets 44x44px on mobile
+
+# ✅ Design System Compliance
+- [ ] Uses 8px grid system (gap-2, gap-4, gap-8)
+- [ ] Colors from design tokens (--brand-primary-*, --neutral-*)
+- [ ] Typography scale followed (text-h1, text-h2, text-body)
+- [ ] Consistent border radius (rounded-lg, rounded-xl)
+- [ ] Glassmorphism for cards (bg-white/5 backdrop-blur-xl)
+
+# ✅ Data Tables (if applicable)
+- [ ] Numeric columns right-aligned with monospace font
+- [ ] Mobile card view enabled (mobileCardView={true})
+- [ ] Sortable columns have sort indicators
+- [ ] Pagination present for >10 rows
+- [ ] Search functionality if >20 rows
+
+# ✅ Dark Mode
+- [ ] Never pure black backgrounds (use #0a0f1f)
+- [ ] Sufficient contrast on dark backgrounds
+- [ ] Glassmorphism effects work on dark
+- [ ] No pure white text (use #ffffff with opacity or #d1d5db)
+```
+
+### Comprehensive Design Review
+
+For new features or major UI changes, run a full design review:
+
+```bash
+# Run the design review slash command
+/design-review
+```
+
+This triggers a **7-phase review process**:
+
+1. **Phase 0: Preparation** - Gather context from git diff and design docs
+2. **Phase 1: Interaction & User Flow** - Test user journeys and interactions
+3. **Phase 2: Responsiveness** - Verify layouts at 1440px, 768px, 375px
+4. **Phase 3: Visual Polish** - Check spacing, alignment, typography, colors
+5. **Phase 4: Accessibility** - WCAG 2.1 AA compliance audit
+6. **Phase 5: Robustness** - Edge cases, long content, empty states
+7. **Phase 6: Code Health** - Component quality, maintainability
+8. **Phase 7: Content & Console** - Copy quality, browser console errors
+
+The review generates a detailed report with:
+- Overall grade (A-F, S-Tier if 95+)
+- Phase-by-phase scores
+- Specific issues found
+- Actionable recommendations
+- Priority levels (Critical, High, Medium, Low)
+
+### Design Review Agent
+
+You can also invoke the specialized design review agent manually:
+
+```typescript
+// In Claude Code
+Use the Task tool with subagent_type="design-review-agent"
+```
+
+This agent:
+- Takes screenshots at multiple breakpoints using Playwright
+- Analyzes visual quality against design principles
+- Validates accessibility with automated tools
+- Provides specific code suggestions
+- Tracks issues across multiple review sessions
+
+### When to Run Design Reviews
+
+**Always review before:**
+- Merging to main branch
+- Deploying to production
+- Marking features as "complete"
+- Major refactors or redesigns
+
+**Quick checks during development:**
+- After adding new components
+- When changing layouts
+- After updating responsive breakpoints
+- When modifying color schemes or typography
+
+### Common Design Issues to Avoid
+
+❌ **Don't:**
+- Use pure black (#000000) or pure white (#ffffff) backgrounds
+- Skip focus indicators
+- Hardcode colors (use design tokens)
+- Left-align numeric table columns
+- Skip mobile testing
+- Use small touch targets (<44px)
+- Break 8px grid system
+- Add animations without checking prefers-reduced-motion
+
+✅ **Do:**
+- Use design tokens (--brand-primary-500, --neutral-600)
+- Test all breakpoints (1440px, 768px, 375px)
+- Right-align numbers with monospace font
+- Add aria-labels to interactive elements
+- Use semantic HTML
+- Follow 4.5:1 contrast ratio minimum
+- Implement mobile card views for tables
+- Provide skip links for keyboard navigation
+
+### Integration with Development Workflow
+
+The design review system integrates with your workflow:
+
+1. **During Development**: Quick checks using design principles doc
+2. **Before Commit**: Run `/design-review` for comprehensive audit
+3. **In Code Review**: Reference design review report in PR
+4. **Continuous**: Design review agent monitors visual quality
+
+### Design Tokens Quick Reference
+
+```css
+/* Most-used tokens */
+--brand-primary-500: #3b82f6    /* Primary CTAs, links */
+--brand-secondary-500: #a855f7  /* Accents, highlights */
+--brand-accent-500: #06b6d4     /* AI features, tech elements */
+
+--neutral-50: #0a0f1f           /* Base background */
+--neutral-100: #1f2d54          /* Card backgrounds */
+--neutral-600: #9ca3af          /* Accessible gray text */
+--neutral-1000: #ffffff         /* White text/elements */
+
+--semantic-success: #14ca74
+--semantic-error: #ff5a65
+--semantic-warning: #ff9e2c
+--semantic-info: #1d88fe
+```
+
+### Accessibility Minimum Requirements
+
+All UI must meet these non-negotiable standards:
+
+- **WCAG 2.1 Level AA** compliance
+- **4.5:1 contrast ratio** for normal text
+- **3:1 contrast ratio** for large text (18px+) and UI components
+- **44x44px minimum** touch targets on mobile
+- **Keyboard navigation** fully functional
+- **Screen reader support** with ARIA labels
+- **Focus indicators** visible (2px solid outline + 4px shadow)
+- **Semantic HTML** for all content structure
+- **Alt text** for all meaningful images
+- **Form labels** for all inputs
+
+### Mobile-First Development
+
+SEOLOGY.AI uses mobile-first responsive design:
+
+```tsx
+// Default styles are mobile (375px)
+<div className="flex flex-col gap-4 p-4">
+
+// Tablet breakpoint (768px+)
+<div className="md:flex-row md:gap-6 md:p-6">
+
+// Desktop breakpoint (1440px+)
+<div className="lg:gap-8 lg:p-8">
+```
+
+**Breakpoints:**
+- Mobile: 375px - 767px (default)
+- Tablet: 768px - 991px (md:)
+- Desktop: 992px - 1440px (lg:)
+- Large Desktop: 1441px+ (xl:)
+
+### Design System Component Library
+
+Reusable components are in `components/ui/`:
+
+- **Button** - Primary, secondary, destructive, ghost variants
+- **Input** - Text, with icons, error states
+- **Card** - Standard, hoverable, featured variants
+- **DataTable** - Sortable, searchable, mobile-responsive
+- **Badge** - Status indicators (success, warning, error, info)
+- **Modal** - Overlays with backdrop blur
+- **Tooltip** - Hover information
+- **EmptyState** - No-data scenarios
+- **LoadingSpinner** - Loading indicators
+
+All components follow design principles and include full accessibility support.
+
+---
