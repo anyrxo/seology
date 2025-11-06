@@ -86,7 +86,8 @@
       "Bash(npx tsx:*)",
       "Bash(test:*)",
       "Bash(npx playwright install chromium)",
-      "Bash(npx playwright test:*)"
+      "Bash(npx playwright test:*)",
+      "Bash(npm run test:update-snapshots:*)"
     ],
     "deny": [],
     "ask": []
