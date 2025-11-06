@@ -247,11 +247,8 @@
    TEXT COLOR UTILITIES - Theme-aware
    =========================== */
 
-/* Override hardcoded text-white to use theme colors */
-.text-white,
-.text-white *:not(.badge):not(.button) {
-  color: var(--neutral--800) !important;
-}
+/* Allow text-white to render as actual white for dark backgrounds */
+/* Removed override - text-white should remain white (#ffffff) */
 
 /* Override hardcoded text-gray to use theme colors */
 .text-gray-400,
