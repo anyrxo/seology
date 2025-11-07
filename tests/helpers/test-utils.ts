@@ -70,9 +70,79 @@ export async function waitForAPIResponse(
 }
 
 /**
+ * Mock API responses for testing
+ */
+export async function mockAPIResponses(page: Page, shop: string) {
+  // Mock overview API
+  await page.route('**/api/shopify/overview**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: true,
+        data: {
+          totalProducts: 42,
+          totalIssues: 8,
+          appliedFixes: 15,
+          avgScore: 85
+        }
+      })
+    })
+  })
+
+  // Mock products API
+  await page.route('**/api/shopify/products**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: true,
+        data: [
+          {
+            id: 'gid://shopify/Product/1',
+            title: 'Test Product 1',
+            description: 'A great product for testing',
+            handle: 'test-product-1',
+            seo: {
+              title: 'Test Product 1 - Best Product Ever',
+              description: 'This is a test product description for SEO'
+            },
+            featuredImage: {
+              url: 'https://cdn.shopify.com/test-product-1.jpg',
+              altText: 'Test Product 1 Image'
+            },
+            issues: ['Missing H1 tag', 'Meta description too short'],
+            seoScore: 65
+          },
+          {
+            id: 'gid://shopify/Product/2',
+            title: 'Test Product 2',
+            description: 'Another great product',
+            handle: 'test-product-2',
+            seo: {
+              title: 'Test Product 2 - Amazing Product',
+              description: 'This is another test product with good SEO'
+            },
+            featuredImage: {
+              url: 'https://cdn.shopify.com/test-product-2.jpg',
+              altText: 'Test Product 2 Image'
+            },
+            issues: [],
+            seoScore: 92
+          }
+        ]
+      })
+    })
+  })
+}
+
+/**
  * Mock Shopify OAuth for testing
  */
 export async function mockShopifyAuth(page: Page, shop: string) {
+  // Set up API mocking before navigation
+  await mockAPIResponses(page, shop)
+
   // Set shop parameter in URL
   await page.goto(`${BASE_URL}/shopify/dashboard?shop=${shop}`)
 

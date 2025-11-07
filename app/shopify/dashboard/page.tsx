@@ -31,6 +31,7 @@ export default function ShopifyDashboardPage() {
   const shop = searchParams.get('shop')
   const [overview, setOverview] = useState<ShopifyOverview | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     // Initialize Shopify App Bridge - script already loaded in layout
@@ -53,9 +54,15 @@ export default function ShopifyDashboardPage() {
         .then(data => {
           if (data.success) {
             setOverview(data.data)
+            setError(null)
+          } else {
+            setError(data.error?.message || 'Failed to load dashboard data')
           }
         })
-        .catch(console.error)
+        .catch(err => {
+          console.error('Dashboard API error:', err)
+          setError('Failed to connect to server. Please try again.')
+        })
         .finally(() => setLoading(false))
     } else {
       setLoading(false)
@@ -85,8 +92,33 @@ export default function ShopifyDashboardPage() {
           </p>
         </header>
 
+        {/* Error State */}
+        {error && (
+          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-8">
+            <div className="flex items-start">
+              <svg className="w-6 h-6 text-red-600 dark:text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <h3 className="text-lg font-semibold text-red-900 dark:text-red-100 mb-1">
+                  Failed to Load Dashboard
+                </h3>
+                <p className="text-red-700 dark:text-red-300 mb-3">
+                  {error}
+                </p>
+                <button
+                  onClick={() => window.location.reload()}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                >
+                  Retry
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Stats Grid */}
-        {overview && (
+        {overview && !error && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6" data-testid="stat-card">
               <div className="flex items-center justify-between">

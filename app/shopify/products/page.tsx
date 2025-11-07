@@ -36,6 +36,7 @@ export default function ShopifyProductsPage() {
   const [loading, setLoading] = useState(true)
   const [analyzing, setAnalyzing] = useState(false)
   const [filter, setFilter] = useState<'all' | 'issues' | 'good'>('all')
+  const [error, setError] = useState<string | null>(null)
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -44,9 +45,13 @@ export default function ShopifyProductsPage() {
 
       if (data.success) {
         setProducts(data.data)
+        setError(null)
+      } else {
+        setError(data.error?.message || 'Failed to load products')
       }
     } catch (error) {
       console.error('Error fetching products:', error)
+      setError('Failed to connect to server. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -150,8 +155,37 @@ export default function ShopifyProductsPage() {
             </button>
           </div>
 
+          {/* Error State */}
+          {error && (
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-4">
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-red-600 dark:text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <h3 className="text-lg font-semibold text-red-900 dark:text-red-100 mb-1">
+                    Failed to Load Products
+                  </h3>
+                  <p className="text-red-700 dark:text-red-300 mb-3">
+                    {error}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setError(null)
+                      setLoading(true)
+                      fetchProducts()
+                    }}
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                  >
+                    Retry
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Filters */}
-          <div className="flex gap-2">
+          {!error && <div className="flex gap-2">
           <button
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-lg font-medium transition-colors ${
@@ -182,11 +216,11 @@ export default function ShopifyProductsPage() {
           >
             Optimized ({products.filter((p) => p.seoScore >= 80).length})
           </button>
-          </div>
+        </div>}
         </header>
 
       {/* Products Grid */}
-      {filteredProducts.length === 0 ? (
+      {!error && filteredProducts.length === 0 ? (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
           <p className="text-gray-600 dark:text-gray-400">
             {products.length === 0
