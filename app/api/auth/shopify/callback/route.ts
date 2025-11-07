@@ -108,13 +108,38 @@ export async function GET(req: NextRequest) {
     const accessToken = tokenData.access_token
     const scope = tokenData.scope
 
-    // Fetch shop information from Shopify
+    // Fetch shop information from Shopify using GraphQL
+    const shopQuery = `
+      query {
+        shop {
+          id
+          name
+          email
+          myshopifyDomain
+          primaryDomain {
+            host
+            url
+          }
+          currencyCode
+          ianaTimezone
+          plan {
+            displayName
+            partnerDevelopment
+            shopifyPlus
+          }
+        }
+      }
+    `
+
     const shopInfoResponse = await fetch(
-      `https://${shop}/admin/api/2024-01/shop.json`,
+      `https://${shop}/admin/api/2025-10/graphql.json`,
       {
+        method: 'POST',
         headers: {
           'X-Shopify-Access-Token': accessToken,
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ query: shopQuery }),
       }
     )
 
@@ -123,7 +148,22 @@ export async function GET(req: NextRequest) {
     }
 
     const shopInfo = await shopInfoResponse.json()
-    const shopData = shopInfo.shop
+    const shopData = shopInfo.data.shop
+
+    // Transform GraphQL response to match expected format
+    const shopDataFormatted = {
+      id: shopData.id,
+      name: shopData.name,
+      email: shopData.email,
+      domain: shopData.myshopifyDomain,
+      myshopify_domain: shopData.myshopifyDomain,
+      primary_domain: shopData.primaryDomain,
+      currency: shopData.currencyCode,
+      timezone: shopData.ianaTimezone,
+      plan_name: shopData.plan?.displayName,
+      plan_display_name: shopData.plan?.displayName,
+      shop_owner: shopData.email, // Owner email, fallback
+    }
 
     // Get user from database
     const user = await db.user.findUnique({
@@ -155,29 +195,17 @@ export async function GET(req: NextRequest) {
           status: 'CONNECTED',
           lastSync: new Date(),
           credentials: JSON.stringify({
-            shopId: shopData.id,
-            name: shopData.name,
-            email: shopData.email,
-            domain: shopData.domain,
-            myshopifyDomain: shopData.myshopify_domain,
-            primaryDomain: shopData.primary_domain?.host || shopData.domain,
-            currency: shopData.currency,
-            timezone: shopData.timezone,
-            productCount: shopData.product_count || 0,
-            collectionCount: shopData.collection_count || 0,
-            customerCount: shopData.customer_count || 0,
-            planName: shopData.plan_name,
-            planDisplayName: shopData.plan_display_name,
-            shopOwner: shopData.shop_owner,
-            phone: shopData.phone,
-            address: {
-              address1: shopData.address1,
-              address2: shopData.address2,
-              city: shopData.city,
-              province: shopData.province,
-              country: shopData.country_name,
-              zip: shopData.zip,
-            },
+            shopId: shopDataFormatted.id,
+            name: shopDataFormatted.name,
+            email: shopDataFormatted.email,
+            domain: shopDataFormatted.domain,
+            myshopifyDomain: shopDataFormatted.myshopify_domain,
+            primaryDomain: shopDataFormatted.primary_domain?.host || shopDataFormatted.domain,
+            currency: shopDataFormatted.currency,
+            timezone: shopDataFormatted.timezone,
+            planName: shopDataFormatted.plan_name,
+            planDisplayName: shopDataFormatted.plan_display_name,
+            shopOwner: shopDataFormatted.shop_owner,
             scopes: scope,
           }),
         },
@@ -189,34 +217,22 @@ export async function GET(req: NextRequest) {
           userId: user.id,
           platform: 'SHOPIFY',
           domain: shop,
-          displayName: shopData.name,
+          displayName: shopDataFormatted.name,
           accessToken: encryptedToken,
           status: 'CONNECTED',
           lastSync: new Date(),
           credentials: JSON.stringify({
-            shopId: shopData.id,
-            name: shopData.name,
-            email: shopData.email,
-            domain: shopData.domain,
-            myshopifyDomain: shopData.myshopify_domain,
-            primaryDomain: shopData.primary_domain?.host || shopData.domain,
-            currency: shopData.currency,
-            timezone: shopData.timezone,
-            productCount: shopData.product_count || 0,
-            collectionCount: shopData.collection_count || 0,
-            customerCount: shopData.customer_count || 0,
-            planName: shopData.plan_name,
-            planDisplayName: shopData.plan_display_name,
-            shopOwner: shopData.shop_owner,
-            phone: shopData.phone,
-            address: {
-              address1: shopData.address1,
-              address2: shopData.address2,
-              city: shopData.city,
-              province: shopData.province,
-              country: shopData.country_name,
-              zip: shopData.zip,
-            },
+            shopId: shopDataFormatted.id,
+            name: shopDataFormatted.name,
+            email: shopDataFormatted.email,
+            domain: shopDataFormatted.domain,
+            myshopifyDomain: shopDataFormatted.myshopify_domain,
+            primaryDomain: shopDataFormatted.primary_domain?.host || shopDataFormatted.domain,
+            currency: shopDataFormatted.currency,
+            timezone: shopDataFormatted.timezone,
+            planName: shopDataFormatted.plan_name,
+            planDisplayName: shopDataFormatted.plan_display_name,
+            shopOwner: shopDataFormatted.shop_owner,
             scopes: scope,
           }),
         },
@@ -231,7 +247,7 @@ export async function GET(req: NextRequest) {
         resource: 'connection',
         details: JSON.stringify({
           shop,
-          shopName: shopData.name,
+          shopName: shopDataFormatted.name,
           scopes: scope,
         }),
       },
@@ -243,7 +259,7 @@ export async function GET(req: NextRequest) {
         userId: user.id,
         type: 'SUCCESS',
         title: 'Shopify Store Connected!',
-        message: `Successfully connected ${shopData.name}. We're analyzing your store now.`,
+        message: `Successfully connected ${shopDataFormatted.name}. We're analyzing your store now.`,
         actionUrl: '/dashboard',
         icon: '🛍️',
         color: 'green',

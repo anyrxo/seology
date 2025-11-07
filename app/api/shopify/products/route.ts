@@ -1,10 +1,11 @@
 /**
  * API Route: Shopify Products List
  * Fetches all products with SEO analysis
+ * Uses session token authentication for embedded apps
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 import { fetchProducts } from '@/lib/shopify-client'
 
 export const dynamic = 'force-dynamic'
@@ -96,33 +97,17 @@ function identifyIssues(product: ProductForAnalysis): string[] {
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Verify session token or shop parameter
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
 
     // Fetch products from Shopify
-    const products = await fetchProducts(connection.userId, shop)
+    const products = await fetchProducts(context.userId, context.shop)
 
     // Calculate SEO scores and identify issues
     const productsWithScores = products.map((product) => ({

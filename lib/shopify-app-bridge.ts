@@ -245,3 +245,36 @@ export async function openResourcePicker(options: {
   }
   return null
 }
+
+/**
+ * Make an authenticated API request with session token
+ * Automatically adds Authorization header with session token
+ *
+ * @example
+ * const data = await authenticatedFetch<{ products: Product[] }>('/api/shopify/products?shop=my-store.myshopify.com')
+ * console.log(data.products)
+ */
+export async function authenticatedFetch<T = unknown>(
+  url: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const token = await getSessionToken()
+
+  // If we have a session token, use it for authentication
+  // Otherwise, fall back to shop parameter (for development/testing)
+  const headers = new Headers(options.headers)
+  if (token) {
+    headers.set('Authorization', `Bearer ${token}`)
+  }
+
+  const response = await fetch(url, {
+    ...options,
+    headers,
+  })
+
+  if (!response.ok) {
+    throw new Error(`API request failed: ${response.statusText}`)
+  }
+
+  return response.json()
+}
