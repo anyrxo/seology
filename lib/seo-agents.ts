@@ -4,15 +4,20 @@
  */
 
 import { db } from '@/lib/db'
-import Anthropic from '@anthropic-ai/sdk'
+// DO NOT import Anthropic at top level - causes browser errors
+// Dynamic import is used in getAnthropicClient() to prevent client-side bundling
+import type Anthropic from '@anthropic-ai/sdk'
 
 // Lazy initialization to prevent client-side errors
 // Only initialize when actually executing agents (server-side only)
+// Import is done dynamically inside the function
 let anthropicClient: Anthropic | null = null
 
-function getAnthropicClient(): Anthropic {
+async function getAnthropicClient(): Promise<Anthropic> {
   if (!anthropicClient) {
-    anthropicClient = new Anthropic({
+    // Dynamic import to prevent client-side bundling
+    const { default: AnthropicSDK } = await import('@anthropic-ai/sdk')
+    anthropicClient = new AnthropicSDK({
       apiKey: process.env.ANTHROPIC_API_KEY,
     })
   }
@@ -319,7 +324,7 @@ export async function executeAgent(input: AgentExecutionInput): Promise<AgentExe
     const userPrompt = JSON.stringify(input.targetData, null, 2)
 
     // Call Claude API
-    const anthropic = getAnthropicClient()
+    const anthropic = await getAnthropicClient()
     const response = await anthropic.messages.create({
       model: agent.model,
       max_tokens: agent.maxTokens,
