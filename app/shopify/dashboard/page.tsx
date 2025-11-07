@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { ShopifyChat } from '@/components/shopify/ShopifyChat'
 import {
   setContextualActions,
   clearContextualActions,
@@ -76,6 +77,7 @@ export default function ShopifyDashboardPage() {
   return (
     <>
       <ShopifyNav shop={shop} />
+      <ShopifyChat />
 
       <main className="p-8 max-w-7xl mx-auto">
         {/* Header */}

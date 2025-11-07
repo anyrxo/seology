@@ -9,6 +9,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { sanitizeURL, escapeHTML } from '@/lib/sanitize'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { ShopifyChat } from '@/components/shopify/ShopifyChat'
 import {
   showSuccessToast,
   showErrorToast,
@@ -164,6 +165,7 @@ export default function ShopifyProductsPage() {
   return (
     <>
       <ShopifyNav shop={shop} />
+      <ShopifyChat />
       <main className="p-8 max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8" role="banner">
