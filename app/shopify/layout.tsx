@@ -6,7 +6,8 @@
 
 import Script from "next/script";
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
-import { Toaster } from 'sonner'
+// TODO: Replace sonner with compatible toast library
+// import { Toaster } from 'sonner'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import "../globals.css";
 import "../responsive.css";
@@ -84,7 +85,8 @@ export default function ShopifyLayout({
         <ErrorBoundary>
           <ThemeProvider>
             {children}
-            <Toaster position="top-right" richColors />
+            {/* TODO: Re-add Toaster after replacing sonner with compatible library */}
+            {/* <Toaster position="top-right" richColors /> */}
           </ThemeProvider>
         </ErrorBoundary>
         {/* Webflow interactions - load after interactive */}
