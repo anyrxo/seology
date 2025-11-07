@@ -6,9 +6,18 @@
 import { db } from '@/lib/db'
 import Anthropic from '@anthropic-ai/sdk'
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-})
+// Lazy initialization to prevent client-side errors
+// Only initialize when actually executing agents (server-side only)
+let anthropicClient: Anthropic | null = null
+
+function getAnthropicClient(): Anthropic {
+  if (!anthropicClient) {
+    anthropicClient = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    })
+  }
+  return anthropicClient
+}
 
 // ==================== TYPE DEFINITIONS ====================
 
@@ -310,6 +319,7 @@ export async function executeAgent(input: AgentExecutionInput): Promise<AgentExe
     const userPrompt = JSON.stringify(input.targetData, null, 2)
 
     // Call Claude API
+    const anthropic = getAnthropicClient()
     const response = await anthropic.messages.create({
       model: agent.model,
       max_tokens: agent.maxTokens,
