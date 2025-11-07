@@ -17,7 +17,7 @@ scopes = "read_products,write_products,read_content,write_content,read_themes,wr
 [auth]
 redirect_urls = [
   "https://seology.ai/api/auth/shopify/callback",
-  "https://seology.ai/dashboard"
+  "https://seology.ai/shopify"
 ]
 
 [webhooks]
