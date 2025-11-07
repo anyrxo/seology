@@ -6,7 +6,7 @@
 import { Page, expect } from '@playwright/test'
 
 // Base URL from environment or default to production
-export const BASE_URL = process.env.PLAYWRIGHT_TEST_BASE_URL || 'https://seology-a4ebd1nfs-iimagined.vercel.app'
+export const BASE_URL = process.env.PLAYWRIGHT_TEST_BASE_URL || 'https://seology-q1x1t8rpv-iimagined.vercel.app'
 
 // Test shop domain (use environment variable for real testing)
 export const TEST_SHOP = process.env.TEST_SHOP_DOMAIN || 'test-store.myshopify.com'
