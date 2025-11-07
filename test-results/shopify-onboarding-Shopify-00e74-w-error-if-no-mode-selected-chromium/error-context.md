@@ -1,0 +1,74 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation "Main navigation" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Dashboard home" [ref=e4] [cursor=pointer]:
+        - /url: /shopify/dashboard?shop=null
+        - text: Dashboard
+      - link "Products page" [ref=e5] [cursor=pointer]:
+        - /url: /shopify/products?shop=null
+        - text: Products
+      - link "Analytics page" [ref=e6] [cursor=pointer]:
+        - /url: /shopify/analytics?shop=null
+        - text: Analytics
+      - link "Timeline page" [ref=e7] [cursor=pointer]:
+        - /url: /shopify/timeline?shop=null
+        - text: Timeline
+      - link "AI Agents page" [ref=e8] [cursor=pointer]:
+        - /url: /shopify/agents?shop=null
+        - text: AI Agents
+      - link "Monitor page" [ref=e9] [cursor=pointer]:
+        - /url: /shopify/monitor?shop=null
+        - text: Monitor
+      - link "SEO Reports page" [ref=e10] [cursor=pointer]:
+        - /url: /shopify/reports?shop=null
+        - text: SEO Reports
+      - link "AI Chat page" [ref=e11] [cursor=pointer]:
+        - /url: /shopify/chat?shop=null
+        - text: AI Chat
+      - link "Settings page" [ref=e12] [cursor=pointer]:
+        - /url: /shopify/settings?shop=null
+        - text: Settings
+      - link "Support page" [ref=e13] [cursor=pointer]:
+        - /url: /shopify/support?shop=null
+        - text: Support
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - banner [ref=e16]:
+        - img [ref=e18]
+        - heading "Welcome to SEOLOGY.AI" [level=1] [ref=e20]
+        - paragraph [ref=e21]: Let's get your store optimized for search engines
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]: "1"
+          - generic [ref=e25]: Setup
+        - generic [ref=e27]:
+          - generic [ref=e28]: "2"
+          - generic [ref=e29]: Complete
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "Choose Your SEO Automation Mode" [level=2] [ref=e32]
+          - paragraph [ref=e33]: How would you like SEOLOGY to handle SEO fixes?
+        - generic [ref=e34]:
+          - button "AutomaticRecommended SEOLOGY applies all SEO fixes automatically without approval. Best for hands-off automation." [ref=e35] [cursor=pointer]:
+            - generic [ref=e36]:
+              - img [ref=e38]
+              - generic [ref=e40]:
+                - heading "AutomaticRecommended" [level=3] [ref=e41]
+                - paragraph [ref=e42]: SEOLOGY applies all SEO fixes automatically without approval. Best for hands-off automation.
+          - button "Plan Mode SEOLOGY creates a batch of fixes, you review the plan once, then all fixes apply together." [ref=e43] [cursor=pointer]:
+            - generic [ref=e44]:
+              - img [ref=e46]
+              - generic [ref=e48]:
+                - heading "Plan Mode" [level=3] [ref=e49]
+                - paragraph [ref=e50]: SEOLOGY creates a batch of fixes, you review the plan once, then all fixes apply together.
+          - button "Manual Approve Review and approve each SEO fix individually before it's applied. Maximum control." [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]:
+              - img [ref=e54]
+              - generic [ref=e56]:
+                - heading "Manual Approve" [level=3] [ref=e57]
+                - paragraph [ref=e58]: Review and approve each SEO fix individually before it's applied. Maximum control.
+  - region "Notifications alt+T" [ref=e59]
+```

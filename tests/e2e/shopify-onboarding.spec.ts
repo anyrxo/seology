@@ -4,11 +4,12 @@
  */
 
 import { test, expect } from '@playwright/test'
+import { BASE_URL } from '../helpers/test-utils'
 
 test.describe('Shopify Onboarding Flow', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to Shopify onboarding page
-    await page.goto('/shopify/onboarding')
+    await page.goto(`${BASE_URL}/shopify/onboarding`)
   })
 
   test('should display onboarding welcome screen', async ({ page }) => {
@@ -102,7 +103,7 @@ test.describe('Shopify Onboarding Flow', () => {
 
 test.describe('Shopify Onboarding - Error Handling', () => {
   test('should show error if no mode selected', async ({ page }) => {
-    await page.goto('/shopify/onboarding')
+    await page.goto(`${BASE_URL}/shopify/onboarding`)
 
     // Try to continue without selecting
     await page.getByRole('button', { name: /complete|get started|continue/i }).click()
@@ -123,7 +124,7 @@ test.describe('Shopify Onboarding - Error Handling', () => {
       })
     })
 
-    await page.goto('/shopify/onboarding')
+    await page.goto(`${BASE_URL}/shopify/onboarding`)
     await page.getByRole('button', { name: /automatic/i }).click()
     await page.getByRole('button', { name: /complete|get started|continue/i }).click()
 
