@@ -13,12 +13,6 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const { userId } = await auth()
-
-    if (!userId) {
-      return NextResponse.redirect(new URL('/sign-in', req.url))
-    }
-
     // Get shop parameter from query
     const shop = req.nextUrl.searchParams.get('shop')
 
@@ -52,10 +46,15 @@ export async function GET(req: NextRequest) {
     // Generate state token for CSRF protection
     const state = crypto.randomBytes(32).toString('hex')
 
+    // Check if user is logged in
+    const { userId } = await auth()
+
     // Store state token in database with expiry
+    // For Shopify OAuth, we use a placeholder userId for non-authenticated installs
+    // The shop domain will be retrieved from callback parameters
     await db.cSRFToken.create({
       data: {
-        userId,
+        userId: userId || 'shopify_install', // Use placeholder for non-authenticated installs
         token: state,
         provider: 'SHOPIFY',
         expiresAt: new Date(Date.now() + 10 * 60 * 1000), // 10 minutes

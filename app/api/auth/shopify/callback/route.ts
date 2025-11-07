@@ -18,12 +18,6 @@ export async function GET(req: NextRequest) {
   const shop = req.nextUrl.searchParams.get('shop')
 
   try {
-    const { userId } = await auth()
-
-    if (!userId) {
-      return NextResponse.redirect(new URL('/sign-in?error=unauthorized', req.url))
-    }
-
     // Get query parameters
     const code = req.nextUrl.searchParams.get('code')
     const hmac = req.nextUrl.searchParams.get('hmac')
@@ -40,9 +34,29 @@ export async function GET(req: NextRequest) {
       where: { token: state },
     })
 
-    if (!csrfToken || csrfToken.userId !== userId) {
+    if (!csrfToken) {
       return NextResponse.redirect(
         new URL('/dashboard?error=invalid_state', req.url)
+      )
+    }
+
+    // Check if user is logged in
+    const { userId: clerkUserId } = await auth()
+
+    // For Shopify installs, CSRF token userId might be 'shopify_install' placeholder
+    const isNewShopifyInstall = csrfToken.userId === 'shopify_install'
+
+    // Verify CSRF token matches user (or is new install)
+    if (!isNewShopifyInstall && csrfToken.userId !== clerkUserId) {
+      return NextResponse.redirect(
+        new URL('/dashboard?error=invalid_state', req.url)
+      )
+    }
+
+    // If new install and no user logged in, redirect to sign up with shop parameter
+    if (isNewShopifyInstall && !clerkUserId) {
+      return NextResponse.redirect(
+        new URL(`/sign-up?shopify_install=true&shop=${shop}&code=${code}&hmac=${hmac}&state=${state}`, req.url)
       )
     }
 
@@ -166,8 +180,13 @@ export async function GET(req: NextRequest) {
     }
 
     // Get user from database
+    // For new Shopify installs, clerkUserId will exist after sign-up redirect
+    if (!clerkUserId) {
+      throw new Error('User authentication required')
+    }
+
     const user = await db.user.findUnique({
-      where: { clerkId: userId },
+      where: { clerkId: clerkUserId },
     })
 
     if (!user) {
