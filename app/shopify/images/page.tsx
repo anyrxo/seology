@@ -427,6 +427,7 @@ export default function ShopifyImagesPage() {
                         src={image.url}
                         alt={image.altText || 'Product image'}
                         className="w-20 h-20 object-cover rounded-lg"
+                        loading="lazy"
                       />
                     </td>
                     <td className="px-6 py-4">

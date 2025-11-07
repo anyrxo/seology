@@ -210,6 +210,7 @@ export default function ShopifyProductsPage() {
                         src={sanitizeURL(product.featuredImage.url)}
                         alt={escapeHTML(product.featuredImage.altText || product.title)}
                         className="w-24 h-24 object-cover rounded-lg"
+                        loading="lazy"
                         onError={(e) => {
                           e.currentTarget.src = '/placeholder-product.png'
                           e.currentTarget.onerror = null
