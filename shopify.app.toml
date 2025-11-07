@@ -40,18 +40,5 @@ uri = "/api/webhooks/shopify"
 topics = ["products/create", "products/update", "products/delete"]
 uri = "/api/webhooks/shopify"
 
-# GDPR webhooks (required)
-[[webhooks.subscriptions]]
-topics = ["customers/data_request"]
-uri = "/api/webhooks/shopify/gdpr/customers-data-request"
-
-[[webhooks.subscriptions]]
-topics = ["customers/redact"]
-uri = "/api/webhooks/shopify/gdpr/customers-redact"
-
-[[webhooks.subscriptions]]
-topics = ["shop/redact"]
-uri = "/api/webhooks/shopify/gdpr/shop-redact"
-
 [pos]
 embedded = false
