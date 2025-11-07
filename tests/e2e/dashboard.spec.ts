@@ -8,7 +8,7 @@ import {
   BASE_URL,
   TEST_SHOP,
   waitForPageReady,
-  mockShopifyAuth,
+  mockAPIResponses,
   takeTimestampedScreenshot,
   waitForLoadingComplete,
   checkBasicAccessibility,
@@ -17,8 +17,22 @@ import {
 
 test.describe('Shopify Dashboard', () => {
   test.beforeEach(async ({ page }) => {
-    // Navigate to dashboard with test shop
-    await mockShopifyAuth(page, TEST_SHOP)
+    // Set up API mocking before navigation
+    await mockAPIResponses(page, TEST_SHOP)
+
+    // Navigate directly to dashboard page
+    await page.goto(`${BASE_URL}/shopify/dashboard?shop=${TEST_SHOP}`, {
+      waitUntil: 'domcontentloaded'
+    })
+
+    // Wait for the overview API call to complete
+    await page.waitForResponse(response =>
+      response.url().includes('/api/shopify/overview') && response.status() === 200,
+      { timeout: 10000 }
+    ).catch(() => {})
+
+    // Wait for page to be interactive
+    await page.waitForLoadState('domcontentloaded')
   })
 
   test('should load dashboard successfully', async ({ page }) => {
@@ -39,12 +53,12 @@ test.describe('Shopify Dashboard', () => {
   test('should display overview statistics', async ({ page }) => {
     await waitForLoadingComplete(page)
 
-    // Check for key metrics
+    // Check for key metrics (using actual labels from dashboard)
     const metrics = [
       'Total Products',
-      'Total Issues',
-      'Applied Fixes',
-      'SEO Score',
+      'SEO Issues',
+      'Fixes Applied',
+      'Avg SEO Score',
     ]
 
     for (const metric of metrics) {
