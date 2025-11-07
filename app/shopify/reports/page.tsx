@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { sanitizeJSON } from '@/lib/sanitize'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 interface Fix {
   id: string
@@ -75,26 +76,30 @@ export default function ShopifyReportsPage() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              SEO Reports
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Track your SEO improvements and impact
-            </p>
+    <>
+      <ShopifyNav shop={shop} />
+
+      <main className="p-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="mb-8" role="banner">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                SEO Reports
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                Track your SEO improvements and impact
+              </p>
+            </div>
+            <button
+              onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
+              className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              aria-label="Back to Dashboard"
+            >
+              ← Back to Dashboard
+            </button>
           </div>
-          <button
-            onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
-            className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-          >
-            ← Back to Dashboard
-          </button>
-        </div>
-      </div>
+        </header>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -202,17 +207,18 @@ export default function ShopifyReportsPage() {
         </div>
       </div>
 
-      {/* Impact Message */}
-      {report.totalFixes > 0 && (
-        <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-            🎉 Great Progress!
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300">
-            You've improved {report.issuesResolved} SEO issues across your store. SEO improvements typically take 2-4 weeks to show results in search rankings. Keep monitoring your analytics!
-          </p>
-        </div>
-      )}
-    </div>
+        {/* Impact Message */}
+        {report.totalFixes > 0 && (
+          <div className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-lg p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              🎉 Great Progress!
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300">
+              You've improved {report.issuesResolved} SEO issues across your store. SEO improvements typically take 2-4 weeks to show results in search rankings. Keep monitoring your analytics!
+            </p>
+          </div>
+        )}
+      </main>
+    </>
   )
 }
