@@ -38,6 +38,8 @@ const isPublicRoute = createRouteMatcher([
   '/api/health',
   '/api/webhooks/clerk',
   '/api/billing/webhook',
+  '/api/webhooks/shopify(.*)', // Shopify webhooks - no auth
+  '/api/auth/shopify(.*)', // Shopify OAuth routes - MUST be public
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/test-dashflow',
@@ -46,7 +48,7 @@ const isPublicRoute = createRouteMatcher([
   '/guides(.*)',
   '/blog(.*)',
   '/shopify(.*)', // Shopify embedded app routes - use Shopify OAuth instead of Clerk
-  '/api/shopify(.*)', // Shopify API routes - no Clerk auth required
+  '/api/shopify(.*)', // Shopify API routes - use session tokens for auth
 ])
 
 // Define cron routes that use CRON_SECRET for auth
