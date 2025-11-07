@@ -6,6 +6,7 @@
 
 import Script from "next/script";
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
+import { AppBridgeProvider } from '@/components/shopify/AppBridgeProvider'
 // TODO: Replace sonner with compatible toast library
 // import { Toaster } from 'sonner'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
@@ -86,11 +87,13 @@ export default function ShopifyLayout({
       </head>
       <body>
         <ErrorBoundary>
-          <ThemeProvider>
-            {children}
-            {/* TODO: Re-add Toaster after replacing sonner with compatible library */}
-            {/* <Toaster position="top-right" richColors /> */}
-          </ThemeProvider>
+          <AppBridgeProvider>
+            <ThemeProvider>
+              {children}
+              {/* TODO: Re-add Toaster after replacing sonner with compatible library */}
+              {/* <Toaster position="top-right" richColors /> */}
+            </ThemeProvider>
+          </AppBridgeProvider>
         </ErrorBoundary>
         {/* Webflow interactions - load after interactive */}
         <Script src="/js/webflow.js" strategy="lazyOnload" />

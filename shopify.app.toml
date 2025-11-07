@@ -1,14 +1,14 @@
 # Shopify App Configuration
 # Learn more: https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "SEOLOGY.AI - SEO Automation"
-client_id = "0b87ac78cf0783fd1dd829bf5421fae5"
-application_url = "https://seology.ai/shopify/dashboard"
+name = "SEOLOGY"
+client_id = "c906708ae27d7e173c553e373c5b877d"
+application_url = "https://seology.ai/shopify"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = true
-dev_store_url = "your-development-store.myshopify.com"
+dev_store_url = "seology-3.myshopify.com"
 
 [access_scopes]
 # Required scopes for SEOLOGY functionality
