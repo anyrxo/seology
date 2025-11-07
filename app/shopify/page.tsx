@@ -20,9 +20,26 @@ export default function ShopifyAppEntryPoint() {
 
   useEffect(() => {
     const checkOnboardingStatus = async () => {
+      // Debug: Log all URL parameters
+      console.log('[Shopify Entry] Current URL:', window.location.href)
+      console.log('[Shopify Entry] All URL params:', Object.fromEntries(searchParams.entries()))
+
       if (!shop) {
         console.error('[Shopify Entry] No shop parameter provided')
-        // If no shop, go to onboarding which will handle the error
+
+        // Try to get shop from sessionStorage (set by AppBridgeProvider)
+        const storedShop = sessionStorage.getItem('shopify_shop')
+        console.log('[Shopify Entry] Stored shop from session:', storedShop)
+
+        if (storedShop) {
+          // Redirect with shop parameter
+          const params = new URLSearchParams(window.location.search)
+          params.set('shop', storedShop)
+          router.push(`/shopify?${params.toString()}`)
+          return
+        }
+
+        // If no shop anywhere, show error
         router.push('/shopify/onboarding')
         return
       }
