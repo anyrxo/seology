@@ -8,8 +8,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { AGENT_TEMPLATES } from '@/lib/seo-agent-templates'
-// TODO: Fix toast library compatibility issue and re-enable
-// import { toast, confirmDialog } from '@/lib/toast'
+import { showSuccessToast, showErrorToast, confirmDialog } from '@/lib/shopify-app-bridge'
 import {
   Sparkles, FileText, Code, Image, ClipboardCheck,
   Plus, Play, Edit, Trash2, TrendingUp, Clock, DollarSign,
@@ -159,7 +158,13 @@ export default function AgentsPage() {
 
   // Handle agent deletion
   const handleDeleteAgent = async (agentId: string) => {
-    const confirmed = window.confirm('Are you sure you want to delete this agent?')
+    const confirmed = await confirmDialog({
+      title: 'Delete Agent',
+      message: 'Are you sure you want to delete this agent? This action cannot be undone.',
+      primaryAction: { label: 'Delete', destructive: true },
+      secondaryAction: { label: 'Cancel' }
+    })
+
     if (!confirmed) return
 
     try {
@@ -170,11 +175,12 @@ export default function AgentsPage() {
 
       if (data.success) {
         setCustomAgents(prev => prev.filter(a => a.id !== agentId))
-        console.log('[SUCCESS] Agent deleted successfully')
+        showSuccessToast('Agent deleted successfully')
       } else {
-        console.error('[ERROR]', data.error?.message || 'Failed to delete agent')
+        showErrorToast(data.error?.message || 'Failed to delete agent')
       }
     } catch (error) {
+      showErrorToast('Failed to delete agent')
       console.error('Failed to delete agent:', error)
     }
   }
@@ -550,12 +556,13 @@ function CreateAgentModal({
       const data = await res.json()
 
       if (data.success) {
-        console.log('[SUCCESS]', editingAgent ? 'Agent updated successfully' : 'Agent created successfully')
+        showSuccessToast(editingAgent ? 'Agent updated successfully' : 'Agent created successfully')
         onSuccess(data.data)
       } else {
-        console.error('[ERROR]', data.error?.message || `Failed to ${editingAgent ? 'update' : 'create'} agent`)
+        showErrorToast(data.error?.message || `Failed to ${editingAgent ? 'update' : 'create'} agent`)
       }
     } catch (error) {
+      showErrorToast(`Failed to ${editingAgent ? 'update' : 'create'} agent`)
       console.error(`Failed to ${editingAgent ? 'update' : 'create'} agent:`, error)
     } finally {
       setLoading(false)

@@ -7,23 +7,14 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+// Import to get global Window type extension
+import '@/lib/shopify-app-bridge'
 
 interface ShopifyOverview {
   totalProducts: number
   totalIssues: number
   appliedFixes: number
   avgScore: number
-}
-
-// Extend Window for Shopify App Bridge
-declare global {
-  interface Window {
-    shopify?: {
-      app?: {
-        init: (config: { apiKey: string; shop: string }) => void
-      }
-    }
-  }
 }
 
 export default function ShopifyDashboardPage() {

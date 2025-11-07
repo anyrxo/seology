@@ -20,6 +20,9 @@ export default function ShopifyLayout({
   return (
     <html lang="en">
       <head>
+        {/* Shopify App Bridge Configuration - MUST BE FIRST */}
+        <meta name="shopify-api-key" content={process.env.NEXT_PUBLIC_SHOPIFY_CLIENT_ID || process.env.SHOPIFY_CLIENT_ID || ''} />
+
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
