@@ -36,10 +36,10 @@ export default function ShopifyOnboardingPage() {
 
     try {
       // Save the selected execution mode
-      const response = await fetch('/api/shopify/settings', {
+      const response = await fetch(`/api/shopify/settings?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ executionMode: selectedMode, shop }),
+        body: JSON.stringify({ executionMode: selectedMode }),
       })
 
       if (!response.ok) {
@@ -60,10 +60,10 @@ export default function ShopifyOnboardingPage() {
   const handleComplete = async () => {
     try {
       // Mark onboarding as complete
-      await fetch('/api/onboarding', {
+      await fetch(`/api/shopify/onboarding?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ completed: true, shop }),
+        body: JSON.stringify({ completed: true }),
       })
     } catch (error) {
       console.error('Error completing onboarding:', error)
