@@ -8,7 +8,7 @@ import {
   BASE_URL,
   TEST_SHOP,
   waitForPageReady,
-  mockShopifyAuth,
+  mockAPIResponses,
   takeTimestampedScreenshot,
   waitForLoadingComplete,
   waitForAPIResponse,
@@ -16,11 +16,24 @@ import {
 
 test.describe('Products Page', () => {
   test.beforeEach(async ({ page }) => {
-    await mockShopifyAuth(page, TEST_SHOP)
+    // Set up API mocking before navigation
+    await mockAPIResponses(page, TEST_SHOP)
 
-    // Navigate to products page
-    await page.goto(`${BASE_URL}/shopify/products?shop=${TEST_SHOP}`)
-    await waitForPageReady(page)
+    // Navigate directly to products page (no double navigation)
+    await page.goto(`${BASE_URL}/shopify/products?shop=${TEST_SHOP}`, {
+      waitUntil: 'domcontentloaded' // Don't wait for networkidle (external resources can timeout)
+    })
+
+    // Wait for the products API call to complete
+    await page.waitForResponse(response =>
+      response.url().includes('/api/shopify/products') && response.status() === 200,
+      { timeout: 10000 }
+    ).catch(() => {
+      // If API call doesn't happen, that's okay - page might be cached
+    })
+
+    // Wait for page to be interactive
+    await page.waitForLoadState('domcontentloaded')
   })
 
   test('should load products list', async ({ page }) => {

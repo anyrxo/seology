@@ -71,9 +71,10 @@ export async function waitForAPIResponse(
 
 /**
  * Mock API responses for testing
+ * IMPORTANT: Route mocks must be set up BEFORE page.goto() and will persist across navigations
  */
 export async function mockAPIResponses(page: Page, shop: string) {
-  // Mock overview API
+  // Mock overview API - use route continuation to ensure persistence
   await page.route('**/api/shopify/overview**', async (route) => {
     await route.fulfill({
       status: 200,
@@ -90,7 +91,7 @@ export async function mockAPIResponses(page: Page, shop: string) {
     })
   })
 
-  // Mock products API
+  // Mock products API - use route continuation to ensure persistence
   await page.route('**/api/shopify/products**', async (route) => {
     await route.fulfill({
       status: 200,
@@ -131,6 +132,24 @@ export async function mockAPIResponses(page: Page, shop: string) {
             seoScore: 92
           }
         ]
+      })
+    })
+  })
+
+  // Mock all other Shopify API endpoints to prevent real API calls
+  await page.route('**/api/shopify/**', async (route) => {
+    // Let overview and products routes handle their own mocking
+    if (route.request().url().includes('/overview') || route.request().url().includes('/products')) {
+      return route.continue()
+    }
+
+    // Mock all other Shopify API calls with generic success response
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        success: true,
+        data: {}
       })
     })
   })

@@ -87,7 +87,9 @@
       "Bash(test:*)",
       "Bash(npx playwright install chromium)",
       "Bash(npx playwright test:*)",
-      "Bash(npm run test:update-snapshots:*)"
+      "Bash(npm run test:update-snapshots:*)",
+      "Bash(npm run lint)",
+      "Bash(full-test-results-final.txt)"
     ],
     "deny": [],
     "ask": []

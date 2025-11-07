@@ -7,8 +7,7 @@ import { test, expect } from '@playwright/test'
 import {
   BASE_URL,
   TEST_SHOP,
-  waitForPageReady,
-  mockShopifyAuth,
+  mockAPIResponses,
   takeTimestampedScreenshot,
   waitForLoadingComplete,
   waitForAPIResponse,
@@ -16,9 +15,16 @@ import {
 
 test.describe('AI Agents Page', () => {
   test.beforeEach(async ({ page }) => {
-    await mockShopifyAuth(page, TEST_SHOP)
-    await page.goto(`${BASE_URL}/shopify/agents?shop=${TEST_SHOP}`)
-    await waitForPageReady(page)
+    // Set up API mocking before navigation
+    await mockAPIResponses(page, TEST_SHOP)
+
+    // Navigate directly to agents page (no double navigation)
+    await page.goto(`${BASE_URL}/shopify/agents?shop=${TEST_SHOP}`, {
+      waitUntil: 'domcontentloaded' // Don't wait for networkidle (external resources can timeout)
+    })
+
+    // Wait for page to be interactive
+    await page.waitForLoadState('domcontentloaded')
   })
 
   test('should load agents library', async ({ page }) => {

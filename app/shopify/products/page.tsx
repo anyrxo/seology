@@ -229,11 +229,12 @@ export default function ShopifyProductsPage() {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 gap-6" data-testid="products-list">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
               className="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow"
+              data-testid="product-card"
             >
               <div className="p-6">
                 <div className="flex gap-6">
@@ -319,6 +320,7 @@ export default function ShopifyProductsPage() {
                         onClick={() => analyzeProduct(product.id)}
                         disabled={analyzing}
                         className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+                        data-testid="analyze-button"
                       >
                         {analyzing ? 'Analyzing...' : 'Analyze SEO'}
                       </button>
@@ -327,6 +329,7 @@ export default function ShopifyProductsPage() {
                         <button
                           onClick={() => applyFixes(product.id)}
                           className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                          data-testid="fix-button"
                         >
                           Apply Fixes
                         </button>
