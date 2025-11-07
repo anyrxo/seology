@@ -45,6 +45,8 @@ const isPublicRoute = createRouteMatcher([
   '/integrations(.*)',
   '/guides(.*)',
   '/blog(.*)',
+  '/shopify(.*)', // Shopify embedded app routes - use Shopify OAuth instead of Clerk
+  '/api/shopify(.*)', // Shopify API routes - no Clerk auth required
 ])
 
 // Define cron routes that use CRON_SECRET for auth
