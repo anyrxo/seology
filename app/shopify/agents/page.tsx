@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { AGENT_TEMPLATES } from '@/lib/seo-agents'
+import { AGENT_TEMPLATES } from '@/lib/seo-agent-templates'
 import { toast, confirmDialog } from '@/lib/toast'
 import {
   Sparkles, FileText, Code, Image, ClipboardCheck,
