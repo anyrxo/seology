@@ -5,10 +5,22 @@
  * Includes rate limiting, error handling, and type-safe operations
  *
  * Documentation: context/shopify-docs/07-admin-graphql-api.md
+ *
+ * ENHANCED: Now includes automatic retry logic with exponential backoff
+ * and comprehensive Shopify-specific error handling
  */
 
 import { Connection } from '@prisma/client'
 import { decrypt } from './encryption'
+import { trackGraphQLCost } from './monitoring'
+import {
+  ShopifyRateLimitError,
+  ShopifyAuthenticationError,
+  ShopifyGraphQLError,
+  ShopifyNetworkError,
+  ShopifyValidationError,
+} from './shopify-errors'
+import { retryGraphQL } from './shopify-retry'
 
 // GraphQL API version
 const API_VERSION = '2025-10'
@@ -64,41 +76,56 @@ export async function shopifyGraphQL<T = unknown>(
   shop: string,
   accessToken: string,
   query: string,
-  variables?: Record<string, unknown>
+  variables?: Record<string, unknown>,
+  options?: { userId?: string }
 ): Promise<T> {
   const url = `https://${shop}/admin/api/${API_VERSION}/graphql.json`
+  const startTime = Date.now()
 
   // Check rate limit before making request
   await checkRateLimit(shop)
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Access-Token': accessToken,
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  })
+  let response: Response
+  try {
+    response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Access-Token': accessToken,
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    })
+  } catch (error) {
+    // Network errors
+    throw new ShopifyNetworkError(
+      error instanceof Error ? error.message : 'Network request failed'
+    )
+  }
 
   if (!response.ok) {
-    // Handle HTTP errors
+    // Handle HTTP errors with proper Shopify error types
     if (response.status === 429) {
       const retryAfter = response.headers.get('Retry-After')
-      const waitTime = retryAfter ? parseInt(retryAfter) * 1000 : 2000
-      await new Promise(resolve => setTimeout(resolve, waitTime))
-      // Retry once
-      return shopifyGraphQL<T>(shop, accessToken, query, variables)
+      const retryAfterSeconds = retryAfter ? parseInt(retryAfter) : 2
+      throw new ShopifyRateLimitError(retryAfterSeconds)
     }
 
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    if (response.status === 401 || response.status === 403) {
+      throw new ShopifyAuthenticationError(
+        `Authentication failed: ${response.statusText}`
+      )
+    }
+
+    throw new ShopifyNetworkError(`HTTP ${response.status}: ${response.statusText}`)
   }
 
   const result: GraphQLResponse<T> = await response.json()
+  const duration = Date.now() - startTime
 
-  // Update rate limit state
+  // Update rate limit state and track cost
   if (result.extensions?.cost?.throttleStatus) {
     const throttle = result.extensions.cost.throttleStatus
     rateLimits.set(shop, {
@@ -107,16 +134,60 @@ export async function shopifyGraphQL<T = unknown>(
       restoreRate: throttle.restoreRate,
       lastUpdate: Date.now(),
     })
+
+    // Track GraphQL cost for monitoring
+    trackGraphQLCost({
+      shop,
+      query: query.substring(0, 100), // First 100 chars for identification
+      cost: result.extensions.cost.actualQueryCost,
+      duration,
+      throttleStatus: throttle,
+      timestamp: new Date(),
+      userId: options?.userId,
+    }).catch(err => {
+      // Fail silently - monitoring shouldn't break app
+      console.error('[Monitoring] Failed to track GraphQL cost:', err)
+    })
   }
 
-  // Handle GraphQL errors
+  // Handle GraphQL errors with proper error types
   if (result.errors && result.errors.length > 0) {
-    const error = result.errors[0]
-    throw new Error(`GraphQL Error: ${error.message}${error.extensions?.code ? ` (${error.extensions.code})` : ''}`)
+    const firstError = result.errors[0]
+    const errorCode = firstError.extensions?.code?.toLowerCase()
+
+    // Check if it's a validation error
+    const isValidationError = errorCode?.includes('invalid') ||
+                               errorCode?.includes('validation') ||
+                               firstError.message.toLowerCase().includes('invalid')
+
+    if (isValidationError) {
+      throw new ShopifyValidationError(
+        firstError.message,
+        result.errors.map(e => ({
+          field: e.path || [],
+          message: e.message,
+        }))
+      )
+    }
+
+    // Throw as GraphQL error with all errors included
+    throw new ShopifyGraphQLError(
+      firstError.message,
+      result.errors.map(e => ({
+        message: e.message,
+        path: e.path,
+        extensions: e.extensions,
+      })),
+      false // GraphQL errors are typically not retryable
+    )
   }
 
   if (!result.data) {
-    throw new Error('GraphQL response has no data')
+    throw new ShopifyGraphQLError(
+      'GraphQL response has no data',
+      [{ message: 'Empty data response' }],
+      false
+    )
   }
 
   return result.data
@@ -461,4 +532,69 @@ export async function getShopInfo(connection: Connection): Promise<ShopInfo> {
   `
 
   return await shopifyGraphQLWithConnection<ShopInfo>(connection, query)
+}
+
+// =============================================================================
+// RETRY-ENABLED WRAPPERS
+// =============================================================================
+
+/**
+ * Execute GraphQL query with automatic retry logic
+ *
+ * This is the recommended way to make GraphQL requests as it includes:
+ * - Automatic retry on rate limits and network errors
+ * - Exponential backoff
+ * - Proper error classification
+ *
+ * @example
+ * ```typescript
+ * const result = await shopifyGraphQLWithRetry(
+ *   shop,
+ *   token,
+ *   query,
+ *   variables,
+ *   { maxRetries: 3 }
+ * )
+ * ```
+ */
+export async function shopifyGraphQLWithRetry<T = unknown>(
+  shop: string,
+  accessToken: string,
+  query: string,
+  variables?: Record<string, unknown>,
+  options?: { userId?: string; maxRetries?: number }
+): Promise<T> {
+  return retryGraphQL(
+    () => shopifyGraphQL<T>(shop, accessToken, query, variables, options),
+    { maxRetries: options?.maxRetries }
+  )
+}
+
+/**
+ * Execute GraphQL query using Connection with automatic retry
+ *
+ * @example
+ * ```typescript
+ * const products = await shopifyGraphQLWithConnectionRetry(
+ *   connection,
+ *   query,
+ *   variables
+ * )
+ * ```
+ */
+export async function shopifyGraphQLWithConnectionRetry<T = unknown>(
+  connection: Connection,
+  query: string,
+  variables?: Record<string, unknown>,
+  options?: { maxRetries?: number }
+): Promise<T> {
+  if (!connection.accessToken) {
+    throw new ShopifyAuthenticationError('Connection has no access token')
+  }
+
+  const accessToken = decrypt(connection.accessToken)
+  return retryGraphQL(
+    () => shopifyGraphQL<T>(connection.domain, accessToken, query, variables),
+    { maxRetries: options?.maxRetries }
+  )
 }

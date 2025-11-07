@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { fetchProducts } from '@/lib/shopify-client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 import Anthropic from '@anthropic-ai/sdk'
 
 export const dynamic = 'force-dynamic'
@@ -16,33 +17,25 @@ const anthropic = new Anthropic({
 
 export async function POST(req: NextRequest) {
   try {
-    const { shop, productId } = await req.json()
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop || !productId) {
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const { productId } = await req.json()
+
+    if (!productId) {
       return NextResponse.json(
-        { success: false, error: { code: 'MISSING_PARAMS', message: 'Shop and productId required' } },
+        { success: false, error: { code: 'MISSING_PARAMS', message: 'productId required' } },
         { status: 400 }
       )
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
-
-    // Fetch products
-    const products = await fetchProducts(connection.userId, shop)
+    // Fetch products using authenticated context
+    const products = await fetchProducts(context.userId, context.shop)
     const product = products.find((p) => p.id === productId)
 
     if (!product) {
@@ -110,7 +103,7 @@ Return ONLY valid JSON, no additional text.`
     for (const issue of analysis.issues) {
       await db.issue.create({
         data: {
-          connectionId: connection.id,
+          connectionId: context.connection.id,
           type: issue.type,
           severity: issue.severity.toUpperCase(),
           title: issue.title,
@@ -120,7 +113,7 @@ Return ONLY valid JSON, no additional text.`
             productTitle: product.title,
           }),
           recommendation: issue.recommendation,
-          pageUrl: `https://${shop}/products/${product.handle}`,
+          pageUrl: `https://${context.shop}/products/${product.handle}`,
           status: 'DETECTED',
         },
       })

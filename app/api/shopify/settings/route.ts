@@ -5,26 +5,25 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
+    const { context } = authResult
+
+    // Find connection with user data
     const connection = await db.connection.findFirst({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        id: context.connection.id,
       },
       include: {
         user: true,
@@ -55,11 +54,19 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { shop, executionMode } = await req.json()
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop || !executionMode) {
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const { executionMode } = await req.json()
+
+    if (!executionMode) {
       return NextResponse.json(
-        { success: false, error: { code: 'MISSING_PARAMS', message: 'Shop and executionMode required' } },
+        { success: false, error: { code: 'MISSING_PARAMS', message: 'executionMode required' } },
         { status: 400 }
       )
     }
@@ -72,36 +79,20 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
-
     // Update user settings
     await db.user.update({
-      where: { id: connection.userId },
+      where: { id: context.userId },
       data: { executionMode },
     })
 
     // Create audit log
     await db.auditLog.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId: context.userId,
+        connectionId: context.connection.id,
         action: 'SETTINGS_UPDATED',
         resource: 'settings',
-        resourceId: connection.userId,
+        resourceId: context.userId,
         details: JSON.stringify({
           setting: 'executionMode',
           newValue: executionMode,

@@ -105,6 +105,11 @@ secrets/
 *.tsbuildinfo
 next-env.d.ts
 
+# GraphQL Code Generator
+graphql.schema.json
+types/shopify-graphql.generated.ts
+types/shopify-graphql.schema.json
+
 # Cache
 .cache/
 .parcel-cache

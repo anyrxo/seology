@@ -1,0 +1,50 @@
+# GraphQL Code Generator Configuration
+# Generates TypeScript types from Shopify Admin GraphQL API schema
+# Documentation: https://the-guild.dev/graphql/codegen
+
+overwrite: true
+
+# Schema source - using Shopify Admin API 2025-10
+schema:
+  # Use introspection from local schema file
+  - ./graphql.schema.json
+
+# Output configuration
+generates:
+  # Generate TypeScript types for the schema
+  types/shopify-graphql.generated.ts:
+    plugins:
+      # Generate base TypeScript types for schema
+      - typescript
+    config:
+      # Configuration options
+      skipTypename: false # Include __typename in types
+      enumsAsTypes: true # Use union types instead of enums
+      futureProofEnums: true # Add unknown option to enums
+      avoidOptionals: false # Keep optional fields optional
+      immutableTypes: false # Allow mutation of types
+      maybeValue: "T | null | undefined" # Type for nullable fields
+
+      # Shopify-specific optimizations
+      scalars:
+        DateTime: string
+        Money: string
+        Decimal: string
+        URL: string
+        HTML: string
+        JSON: string
+
+      # Naming conventions
+      namingConvention:
+        typeNames: pascal-case#pascalCase
+        enumValues: keep
+
+      # Make generated code more readable
+      useTypeImports: true
+
+  # Generate introspection schema for tooling
+  types/shopify-graphql.schema.json:
+    plugins:
+      - introspection
+    config:
+      minify: false

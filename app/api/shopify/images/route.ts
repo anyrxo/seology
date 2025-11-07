@@ -5,55 +5,32 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { scanConnectionImages, storeScannedImages, getImageStats } from '@/lib/image-scanner'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 import { ImageStatus, Prisma } from '@prisma/client'
 
 export async function GET(request: NextRequest) {
   try {
-    const { userId } = await auth()
-    if (!userId) {
-      return NextResponse.json(
-        { success: false, error: { code: 'UNAUTHORIZED', message: 'Not authenticated' } },
-        { status: 401 }
-      )
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(request)
+
+    if (!authResult.success) {
+      return authResult.response
     }
 
+    const { context } = authResult
+
     const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
     const status = searchParams.get('status')
     const limit = parseInt(searchParams.get('limit') || '50')
     const page = parseInt(searchParams.get('page') || '1')
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'INVALID_INPUT', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        userId,
-        domain: shop,
-        platform: 'SHOPIFY',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NOT_FOUND', message: 'Connection not found' } },
-        { status: 404 }
-      )
-    }
-
     // Build filter
     const where: Prisma.ImageAssetWhereInput = {
-      connectionId: connection.id,
+      connectionId: context.connection.id,
       ...(status && Object.values(ImageStatus).includes(status as ImageStatus)
         ? { status: status as ImageStatus }
         : {}),
@@ -68,7 +45,7 @@ export async function GET(request: NextRequest) {
         take: limit,
       }),
       db.imageAsset.count({ where }),
-      getImageStats(connection.id),
+      getImageStats(context.connection.id),
     ])
 
     return NextResponse.json({
@@ -95,48 +72,23 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const { userId } = await auth()
-    if (!userId) {
-      return NextResponse.json(
-        { success: false, error: { code: 'UNAUTHORIZED', message: 'Not authenticated' } },
-        { status: 401 }
-      )
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(request)
+
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    const body = await request.json()
-    const { shop } = body
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'INVALID_INPUT', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        userId,
-        domain: shop,
-        platform: 'SHOPIFY',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NOT_FOUND', message: 'Connection not found' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
 
     // Trigger image scan
-    const scanResult = await scanConnectionImages(connection.id)
+    const scanResult = await scanConnectionImages(context.connection.id)
 
     // Store scanned images
-    await storeScannedImages(connection.id, scanResult.images)
+    await storeScannedImages(context.connection.id, scanResult.images)
 
     // Get updated stats
-    const stats = await getImageStats(connection.id)
+    const stats = await getImageStats(context.connection.id)
 
     return NextResponse.json({
       success: true,

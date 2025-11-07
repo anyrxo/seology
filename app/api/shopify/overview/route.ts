@@ -1,60 +1,39 @@
 /**
  * API Route: Shopify Store Overview
- * No Clerk auth - uses shop parameter from embedded app
+ * Uses session token authentication
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { fetchProducts } from '@/lib/shopify-client'
 import { cached } from '@/lib/cache'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // PERFORMANCE: Cache connection lookup for 5 minutes
-    const connection = await cached(
-      `connection:${shop}:shopify`,
-      async () => {
-        return await db.connection.findFirst({
-          where: {
-            domain: shop,
-            platform: 'SHOPIFY',
-            status: 'CONNECTED',
-          },
-        })
-      },
-      300 // 5 minutes
-    )
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
 
     // PERFORMANCE: Cache overview data for 2 minutes
     const overviewData = await cached(
-      `overview:${shop}`,
+      `overview:${context.shop}`,
       async () => {
         // Fetch products from Shopify
-        const products = await fetchProducts(connection.userId, shop)
+        const products = await fetchProducts(context.userId, context.shop)
 
         // Get issues from database
         const issues = await db.issue.findMany({
           where: {
             connection: {
-              domain: shop,
+              domain: context.shop,
               platform: 'SHOPIFY',
             },
             status: 'OPEN',
@@ -66,7 +45,7 @@ export async function GET(req: NextRequest) {
           where: {
             issue: {
               connection: {
-                domain: shop,
+                domain: context.shop,
                 platform: 'SHOPIFY',
               },
             },

@@ -7,8 +7,11 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
-// Import to get global Window type extension
-import '@/lib/shopify-app-bridge'
+import {
+  setContextualActions,
+  clearContextualActions,
+  setLoading,
+} from '@/lib/shopify-app-bridge'
 
 interface ShopifyOverview {
   totalProducts: number
@@ -24,40 +27,42 @@ export default function ShopifyDashboardPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    // Initialize Shopify App Bridge - script already loaded in layout
-    if (typeof window !== 'undefined' && window.shopify?.app && shop) {
-      const apiKey = process.env.NEXT_PUBLIC_SHOPIFY_CLIENT_ID
-      if (!apiKey) {
-        console.error('NEXT_PUBLIC_SHOPIFY_CLIENT_ID environment variable is not set')
-        return
-      }
-      window.shopify.app.init({
-        apiKey: apiKey,
-        shop: shop,
-      })
-    }
+  const fetchData = async () => {
+    if (!shop) return
 
-    // Fetch dashboard overview
-    if (shop) {
-      fetch(`/api/shopify/overview?shop=${shop}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.success) {
-            setOverview(data.data)
-            setError(null)
-          } else {
-            setError(data.error?.message || 'Failed to load dashboard data')
-          }
-        })
-        .catch(err => {
-          console.error('Dashboard API error:', err)
-          setError('Failed to connect to server. Please try again.')
-        })
-        .finally(() => setLoading(false))
-    } else {
+    setLoading(true)
+    try {
+      const res = await fetch(`/api/shopify/overview?shop=${shop}`)
+      const data = await res.json()
+
+      if (data.success) {
+        setOverview(data.data)
+        setError(null)
+      } else {
+        setError(data.error?.message || 'Failed to load dashboard data')
+      }
+    } catch (err) {
+      console.error('Dashboard API error:', err)
+      setError('Failed to connect to server. Please try again.')
+    } finally {
       setLoading(false)
     }
+  }
+
+  useEffect(() => {
+    // Set up contextual actions in title bar
+    setContextualActions([
+      {
+        label: 'Refresh Data',
+        onAction: () => fetchData(),
+      },
+    ])
+
+    // Initial data fetch
+    fetchData()
+
+    // Cleanup contextual actions on unmount
+    return () => clearContextualActions()
   }, [shop])
 
   if (loading) {

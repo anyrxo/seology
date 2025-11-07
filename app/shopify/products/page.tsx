@@ -8,8 +8,16 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { sanitizeURL, escapeHTML } from '@/lib/sanitize'
-import { toast, confirmDialog } from '@/lib/toast'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import {
+  showSuccessToast,
+  showErrorToast,
+  confirmDialog,
+  setLoading,
+  setContextualActions,
+  clearContextualActions,
+  navigateToProduct,
+} from '@/lib/shopify-app-bridge'
 
 interface Product {
   id: string
@@ -63,11 +71,23 @@ export default function ShopifyProductsPage() {
       return
     }
 
+    // Set up contextual actions
+    setContextualActions([
+      {
+        label: 'Refresh Products',
+        onAction: () => fetchProducts(),
+      },
+    ])
+
     fetchProducts()
+
+    // Cleanup
+    return () => clearContextualActions()
   }, [shop, fetchProducts])
 
   const analyzeProduct = async (productId: string) => {
     setAnalyzing(true)
+    setLoading(true)
     try {
       const response = await fetch('/api/shopify/analyze', {
         method: 'POST',
@@ -80,22 +100,29 @@ export default function ShopifyProductsPage() {
       if (data.success) {
         // Refresh products list
         await fetchProducts()
-        toast.success('Analysis complete! Issues have been identified.')
+        showSuccessToast('Analysis complete! Issues have been identified.')
       } else {
-        toast.error('Analysis failed: ' + (data.error?.message || 'Unknown error'))
+        showErrorToast('Analysis failed: ' + (data.error?.message || 'Unknown error'))
       }
     } catch (error) {
       console.error('Error analyzing product:', error)
-      toast.error('Failed to analyze product')
+      showErrorToast('Failed to analyze product')
     } finally {
       setAnalyzing(false)
+      setLoading(false)
     }
   }
 
   const applyFixes = async (productId: string) => {
-    const confirmed = await confirmDialog('Apply all SEO fixes to this product?')
+    const confirmed = await confirmDialog({
+      title: 'Apply SEO Fixes',
+      message: 'Apply all SEO fixes to this product?',
+      primaryAction: { label: 'Apply Fixes' },
+      secondaryAction: { label: 'Cancel' },
+    })
     if (!confirmed) return
 
+    setLoading(true)
     try {
       const response = await fetch('/api/shopify/fix', {
         method: 'POST',
@@ -108,13 +135,15 @@ export default function ShopifyProductsPage() {
       if (data.success) {
         // Refresh products list
         await fetchProducts()
-        toast.success('Fixes applied successfully!')
+        showSuccessToast('Fixes applied successfully!')
       } else {
-        toast.error('Failed to apply fixes: ' + (data.error?.message || 'Unknown error'))
+        showErrorToast('Failed to apply fixes: ' + (data.error?.message || 'Unknown error'))
       }
     } catch (error) {
       console.error('Error applying fixes:', error)
-      toast.error('Failed to apply fixes')
+      showErrorToast('Failed to apply fixes')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -335,14 +364,12 @@ export default function ShopifyProductsPage() {
                         </button>
                       )}
 
-                      <a
-                        href={`https://${shop}/admin/products/${product.id.split('/').pop()}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={() => navigateToProduct(product.id)}
                         className="px-4 py-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:border-gray-400 dark:hover:border-gray-500 transition-colors text-sm font-medium"
                       >
                         View in Shopify
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

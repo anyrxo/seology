@@ -2175,3 +2175,33 @@ model SupportTicket {
   @@index([connectionId, status])
   @@index([userId, status])
 }
+
+// ==================== WEBHOOK DEDUPLICATION ====================
+
+// Webhook Event Tracking - Prevent duplicate webhook processing
+model WebhookEvent {
+  id String @id @default(uuid())
+
+  // Webhook identification
+  webhookId String @unique // Shopify webhook ID or generated hash
+  shop      String // Shop domain (e.g., mystore.myshopify.com)
+  topic     String // Webhook topic (e.g., products/update)
+
+  // Webhook details
+  payload     String? @db.Text // Optional: store full payload for debugging
+  headers     String? @db.Text // Optional: store headers (JSON)
+
+  // Processing status
+  processed   Boolean  @default(true) // Whether webhook was successfully processed
+  error       String? // Error message if processing failed
+  attempts    Int      @default(1) // Number of times this webhook was received
+
+  // Timestamps
+  processedAt DateTime @default(now())
+  expiresAt   DateTime // Auto-cleanup after 24 hours
+
+  @@index([webhookId])
+  @@index([shop, topic])
+  @@index([expiresAt]) // For cleanup queries
+  @@index([shop, topic, processedAt]) // For recent webhook queries
+}

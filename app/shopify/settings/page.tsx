@@ -7,8 +7,9 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { toast } from '@/lib/toast'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { SaveBar, useSaveBar } from '@/components/shopify/SaveBar'
+import { showSuccessToast, showErrorToast } from '@/lib/shopify-app-bridge'
 
 type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
 
@@ -17,8 +18,37 @@ export default function ShopifySettingsPage() {
   const router = useRouter()
   const shop = searchParams.get('shop')
   const [executionMode, setExecutionMode] = useState<ExecutionMode>('PLAN')
+  const [originalMode, setOriginalMode] = useState<ExecutionMode>('PLAN')
   const [loading, setLoading] = useState(true)
-  const [saving, setSaving] = useState(false)
+
+  const { hasChanges, setHasChanges, saving, save, discard } = useSaveBar({
+    onSave: async () => {
+      try {
+        const response = await fetch('/api/shopify/settings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ shop, executionMode }),
+        })
+
+        const data = await response.json()
+
+        if (data.success) {
+          setOriginalMode(executionMode)
+          showSuccessToast('Settings saved successfully!')
+        } else {
+          showErrorToast('Failed to save settings: ' + (data.error?.message || 'Unknown error'))
+          throw new Error('Save failed')
+        }
+      } catch (error) {
+        console.error('Error saving settings:', error)
+        showErrorToast('Failed to save settings')
+        throw error
+      }
+    },
+    onDiscard: () => {
+      setExecutionMode(originalMode)
+    },
+  })
 
   useEffect(() => {
     if (!shop) {
@@ -31,35 +61,18 @@ export default function ShopifySettingsPage() {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setExecutionMode(data.data.executionMode || 'PLAN')
+          const mode = data.data.executionMode || 'PLAN'
+          setExecutionMode(mode)
+          setOriginalMode(mode)
         }
       })
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [shop])
 
-  const handleSave = async () => {
-    setSaving(true)
-    try {
-      const response = await fetch('/api/shopify/settings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, executionMode }),
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        toast.success('Settings saved successfully!')
-      } else {
-        toast.error('Failed to save settings: ' + (data.error?.message || 'Unknown error'))
-      }
-    } catch (error) {
-      console.error('Error saving settings:', error)
-      toast.error('Failed to save settings')
-    } finally {
-      setSaving(false)
-    }
+  const handleModeChange = (mode: ExecutionMode) => {
+    setExecutionMode(mode)
+    setHasChanges(mode !== originalMode)
   }
 
   if (loading) {
@@ -72,6 +85,7 @@ export default function ShopifySettingsPage() {
 
   return (
     <>
+      <SaveBar show={hasChanges} onSave={save} onDiscard={discard} loading={saving} />
       <ShopifyNav shop={shop} />
       <main className="p-8 max-w-4xl mx-auto">
         {/* Header */}
@@ -106,7 +120,7 @@ export default function ShopifySettingsPage() {
         <div className="space-y-4">
           {/* Automatic Mode */}
           <button
-            onClick={() => setExecutionMode('AUTOMATIC')}
+            onClick={() => handleModeChange('AUTOMATIC')}
             className={`w-full text-left p-6 border-2 rounded-lg transition-all ${
               executionMode === 'AUTOMATIC'
                 ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
@@ -143,7 +157,7 @@ export default function ShopifySettingsPage() {
 
           {/* Plan Mode */}
           <button
-            onClick={() => setExecutionMode('PLAN')}
+            onClick={() => handleModeChange('PLAN')}
             className={`w-full text-left p-6 border-2 rounded-lg transition-all ${
               executionMode === 'PLAN'
                 ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
@@ -180,7 +194,7 @@ export default function ShopifySettingsPage() {
 
           {/* Approve Mode */}
           <button
-            onClick={() => setExecutionMode('APPROVE')}
+            onClick={() => handleModeChange('APPROVE')}
             className={`w-full text-left p-6 border-2 rounded-lg transition-all ${
               executionMode === 'APPROVE'
                 ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
@@ -213,17 +227,6 @@ export default function ShopifySettingsPage() {
                 </p>
               </div>
             </div>
-          </button>
-        </div>
-
-        {/* Save Button */}
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-          <button
-            onClick={handleSave}
-            disabled={saving}
-            className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
-          >
-            {saving ? 'Saving...' : 'Save Settings'}
           </button>
         </div>
       </div>

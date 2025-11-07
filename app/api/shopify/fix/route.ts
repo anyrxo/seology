@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { fetchProducts, updateProductSEO } from '@/lib/shopify-client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 import Anthropic from '@anthropic-ai/sdk'
 
 export const dynamic = 'force-dynamic'
@@ -16,33 +17,25 @@ const anthropic = new Anthropic({
 
 export async function POST(req: NextRequest) {
   try {
-    const { shop, productId } = await req.json()
+    // Authenticate with session token middleware
+    const authResult = await withShopifyAuth(req)
 
-    if (!shop || !productId) {
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const { productId } = await req.json()
+
+    if (!productId) {
       return NextResponse.json(
-        { success: false, error: { code: 'MISSING_PARAMS', message: 'Shop and productId required' } },
+        { success: false, error: { code: 'MISSING_PARAMS', message: 'productId required' } },
         { status: 400 }
       )
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
-
-    // Fetch products
-    const products = await fetchProducts(connection.userId, shop)
+    // Fetch products using authenticated context
+    const products = await fetchProducts(context.userId, context.shop)
     const product = products.find((p) => p.id === productId)
 
     if (!product) {
@@ -98,7 +91,7 @@ Return ONLY valid JSON:
     }
 
     // Apply fix to Shopify
-    await updateProductSEO(connection.userId, shop, product.id, {
+    await updateProductSEO(context.userId, context.shop, product.id, {
       title: optimizedSEO.seoTitle,
       description: optimizedSEO.seoDescription,
     })
@@ -106,8 +99,8 @@ Return ONLY valid JSON:
     // Get open issues for this product
     const issues = await db.issue.findMany({
       where: {
-        connectionId: connection.id,
-        pageUrl: `https://${shop}/products/${product.handle}`,
+        connectionId: context.connection.id,
+        pageUrl: `https://${context.shop}/products/${product.handle}`,
         status: 'DETECTED',
       },
     })
@@ -116,7 +109,7 @@ Return ONLY valid JSON:
     for (const issue of issues) {
       await db.fix.create({
         data: {
-          connectionId: connection.id,
+          connectionId: context.connection.id,
           issueId: issue.id,
           type: 'SEO_OPTIMIZATION',
           description: `Optimized SEO title and description`,
@@ -133,7 +126,7 @@ Return ONLY valid JSON:
             seoTitle: optimizedSEO.seoTitle,
             seoDescription: optimizedSEO.seoDescription,
           }),
-          targetUrl: `https://${shop}/products/${product.handle}`,
+          targetUrl: `https://${context.shop}/products/${product.handle}`,
           method: 'AUTOMATIC',
           status: 'APPLIED',
           appliedAt: new Date(),
@@ -154,8 +147,8 @@ Return ONLY valid JSON:
     // Create audit log
     await db.auditLog.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId: context.userId,
+        connectionId: context.connection.id,
         action: 'FIX_APPLIED',
         resource: 'product',
         resourceId: product.id,

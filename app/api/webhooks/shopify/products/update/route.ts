@@ -8,6 +8,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { verifyWebhook, type ProductWebhookPayload } from '@/lib/shopify-webhook'
+import {
+  extractWebhookId,
+  isWebhookDuplicate,
+  markWebhookProcessed,
+} from '@/lib/webhook-deduplication'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,7 +23,7 @@ export async function POST(req: NextRequest) {
     const shop = req.headers.get('x-shopify-shop-domain')
     const topic = req.headers.get('x-shopify-topic')
 
-    if (!hmac || !shop) {
+    if (!hmac || !shop || !topic) {
       return NextResponse.json({ error: 'Missing webhook headers' }, { status: 400 })
     }
 
@@ -36,6 +41,16 @@ export async function POST(req: NextRequest) {
     if (!isValid) {
       console.error('Invalid webhook signature from', shop)
       return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+    }
+
+    // Check for duplicate webhook
+    const webhookId = extractWebhookId(req.headers, body)
+    if (webhookId) {
+      const isDuplicate = await isWebhookDuplicate(webhookId, shop, topic)
+      if (isDuplicate) {
+        console.log(`[WEBHOOK DUPLICATE] Skipping duplicate webhook ${webhookId} for ${shop}/${topic}`)
+        return NextResponse.json({ success: true, message: 'Duplicate webhook ignored' })
+      }
     }
 
     // Parse payload
@@ -114,9 +129,30 @@ export async function POST(req: NextRequest) {
       },
     })
 
+    // Mark webhook as processed
+    if (webhookId) {
+      await markWebhookProcessed(webhookId, shop, topic, {
+        payload: body,
+      })
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Error processing products/update webhook:', error)
+
+    // Mark webhook as failed if we have the ID
+    const shop = req.headers.get('x-shopify-shop-domain')
+    const topic = req.headers.get('x-shopify-topic')
+    const body = await req.text().catch(() => '')
+    const webhookId = extractWebhookId(req.headers, body)
+
+    if (webhookId && shop && topic) {
+      await markWebhookProcessed(webhookId, shop, topic, {
+        processed: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+      })
+    }
+
     // Return 200 to prevent Shopify from retrying on our errors
     return NextResponse.json({ success: false, error: 'Internal error' }, { status: 200 })
   }

@@ -33,6 +33,40 @@ interface ShopifyConfig {
   locale: string
 }
 
+interface ShopifyRedirect {
+  admin: (path: string) => void
+  remote: (url: string) => void
+}
+
+interface ShopifySaveBarAction {
+  label: string
+  loading?: boolean
+  disabled?: boolean
+  onAction: () => void
+}
+
+interface ShopifySaveBar {
+  show: (options: {
+    saveAction: ShopifySaveBarAction
+    discardAction: ShopifySaveBarAction
+  }) => void
+  hide: () => void
+}
+
+interface ShopifyTitleBarButton {
+  label: string
+  onAction: () => void
+}
+
+interface ShopifyTitleBar {
+  update: (options: {
+    buttons?: {
+      primary?: ShopifyTitleBarButton[]
+      secondary?: ShopifyTitleBarButton[]
+    }
+  }) => void
+}
+
 interface ShopifyAppBridge {
   toast: ShopifyToast
   modal: ShopifyModal
@@ -43,6 +77,9 @@ interface ShopifyAppBridge {
     type: 'product' | 'collection' | 'variant'
     multiple?: boolean
   }) => Promise<any[]>
+  redirect: ShopifyRedirect
+  saveBar: ShopifySaveBar
+  titleBar: ShopifyTitleBar
   // Legacy app.init method (deprecated but may be used by some pages)
   app?: {
     init: (config: { apiKey: string; shop: string }) => void
@@ -277,4 +314,103 @@ export async function authenticatedFetch<T = unknown>(
   }
 
   return response.json()
+}
+
+/**
+ * Navigate to a Shopify Admin page
+ * Uses App Bridge navigation if available, falls back to direct URL
+ *
+ * @example
+ * navigateToShopifyAdmin('products')
+ * navigateToShopifyAdmin('products/123')
+ */
+export function navigateToShopifyAdmin(path: string): void {
+  if (isAppBridgeAvailable()) {
+    try {
+      window.shopify!.redirect.admin(path)
+    } catch (error) {
+      console.error('App Bridge navigation failed:', error)
+      // Fallback to direct URL (requires shop domain)
+      const config = getShopConfig()
+      if (config) {
+        window.location.href = `https://${config.shop}/admin/${path}`
+      }
+    }
+  } else {
+    console.warn('App Bridge not available, cannot navigate')
+  }
+}
+
+/**
+ * Navigate to a product in Shopify Admin
+ * Extracts numeric ID from GraphQL ID if needed
+ *
+ * @example
+ * navigateToProduct('gid://shopify/Product/123')
+ * navigateToProduct('123')
+ */
+export function navigateToProduct(productId: string): void {
+  // Extract numeric ID from GraphQL GID if needed
+  const numericId = productId.includes('/') ? productId.split('/').pop() : productId
+  navigateToShopifyAdmin(`products/${numericId}`)
+}
+
+/**
+ * Navigate to a collection in Shopify Admin
+ *
+ * @example
+ * navigateToCollection('gid://shopify/Collection/456')
+ */
+export function navigateToCollection(collectionId: string): void {
+  const numericId = collectionId.includes('/') ? collectionId.split('/').pop() : collectionId
+  navigateToShopifyAdmin(`collections/${numericId}`)
+}
+
+/**
+ * Set contextual action buttons in Shopify Admin title bar
+ * Buttons appear in the top-right of the embedded app
+ *
+ * @example
+ * setContextualActions([
+ *   { label: 'Refresh Data', onAction: () => fetchData() },
+ *   { label: 'Export Report', onAction: () => exportReport() }
+ * ])
+ */
+export function setContextualActions(
+  actions: Array<{
+    label: string
+    onAction: () => void
+  }>
+): void {
+  if (isAppBridgeAvailable()) {
+    try {
+      window.shopify!.titleBar.update({
+        buttons: {
+          secondary: actions.map((action) => ({
+            label: action.label,
+            onAction: action.onAction,
+          })),
+        },
+      })
+    } catch (error) {
+      console.error('Failed to set contextual actions:', error)
+    }
+  }
+}
+
+/**
+ * Clear contextual action buttons
+ */
+export function clearContextualActions(): void {
+  if (isAppBridgeAvailable()) {
+    try {
+      window.shopify!.titleBar.update({
+        buttons: {
+          secondary: [],
+        },
+      })
+    } catch (error) {
+      console.error('Failed to clear contextual actions:', error)
+    }
+  }
 }
