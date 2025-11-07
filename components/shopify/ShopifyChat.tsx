@@ -98,30 +98,41 @@ export function ShopifyChat() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-110 z-50"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/50 transition-all hover:scale-110 z-50 animate-pulse-slow group"
         title="Open SEO Assistant"
+        aria-label="Open SEO Assistant Chat"
       >
-        <Sparkles className="w-6 h-6 text-white" />
+        <Sparkles className="w-7 h-7 text-white animate-spin-slow group-hover:rotate-180 transition-transform duration-700" />
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-ping"></span>
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></span>
       </button>
     )
   }
 
   return (
-    <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-200 dark:border-gray-700">
+    <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex flex-col z-50 border border-gray-200 dark:border-gray-700 animate-slide-up">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="relative w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-lg">
+            <Sparkles className="w-5 h-5 text-white animate-pulse" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">SEO Assistant</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Powered by Claude AI</p>
+            <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+              SEO Assistant
+              <span className="px-2 py-0.5 text-[10px] bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-semibold">AI</span>
+            </h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              Online • Claude AI
+            </p>
           </div>
         </div>
         <button
           onClick={() => setIsOpen(false)}
-          className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+          className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 p-2 hover:bg-white/50 dark:hover:bg-gray-700/50 rounded-lg transition-all hover:rotate-90"
+          aria-label="Close chat"
         >
           <X className="w-5 h-5" />
         </button>
