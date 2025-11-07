@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sanitizeJSON } from '@/lib/sanitize'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 // ==================== TYPES ====================
 
@@ -338,28 +339,18 @@ export default function PendingFixesPage() {
 
   return (
     <>
-      {/* Shopify Navigation Menu */}
-      {/* @ts-expect-error - Shopify App Bridge web component */}
-      <ui-nav-menu>
-        <a href={`/shopify/dashboard?shop=${shop}`} rel="home">Dashboard</a>
-        <a href={`/shopify/products?shop=${shop}`}>Products</a>
-        <a href={`/shopify/fixes/pending?shop=${shop}`}>Pending Fixes</a>
-        <a href={`/shopify/reports?shop=${shop}`}>SEO Reports</a>
-        <a href={`/shopify/chat?shop=${shop}`}>AI Chat</a>
-        <a href={`/shopify/settings?shop=${shop}`}>Settings</a>
-        {/* @ts-expect-error - Shopify App Bridge web component */}
-      </ui-nav-menu>
+      <ShopifyNav shop={shop} />
 
-      <div className="p-8 max-w-7xl mx-auto">
+      <main className="p-8 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <header className="mb-8" role="banner">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             Pending Fixes
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
             Review and approve SEO fixes before they are applied to your store
           </p>
-        </div>
+        </header>
 
         {/* Execution Mode Badge */}
         <div className="mb-6">
@@ -498,7 +489,7 @@ export default function PendingFixesPage() {
             </div>
           )
         )}
-      </div>
+      </main>
 
       {/* Preview Modal */}
       {showModal && modalData && (

@@ -7,6 +7,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 interface Message {
   id: string
@@ -102,33 +103,37 @@ export default function ShopifyChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
-        <div className="flex items-center justify-between max-w-4xl mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-              </svg>
+    <>
+      <ShopifyNav shop={shop} />
+
+      <main className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900">
+        {/* Header */}
+        <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4" role="banner">
+          <div className="flex items-center justify-between max-w-4xl mx-auto">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              </div>
+              <div>
+                <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  SEO Assistant
+                </h1>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Powered by Claude AI
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
-                SEO Assistant
-              </h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Powered by Claude AI
-              </p>
-            </div>
+            <button
+              onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
+              className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              aria-label="Back to Dashboard"
+            >
+              ← Back to Dashboard
+            </button>
           </div>
-          <button
-            onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
-            className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-          >
-            ← Back to Dashboard
-          </button>
-        </div>
-      </div>
+        </header>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4">
@@ -240,6 +245,7 @@ export default function ShopifyChatPage() {
           </div>
         </div>
       </div>
-    </div>
+      </main>
+    </>
   )
 }

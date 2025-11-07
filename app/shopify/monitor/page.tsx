@@ -25,6 +25,7 @@ import {
   Server,
   Database,
 } from 'lucide-react'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 // ==================== TYPES ====================
 
@@ -298,18 +299,21 @@ export default function MonitorPage() {
   }
 
   return (
-    <div className="p-8 max-w-[1600px] mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Live Execution Monitor
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Real-time monitoring of AI agent executions
-            </p>
-          </div>
+    <>
+      <ShopifyNav shop={shop} />
+
+      <main className="p-8 max-w-[1600px] mx-auto">
+        {/* Header */}
+        <header className="mb-8" role="banner">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                Live Execution Monitor
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                Real-time monitoring of AI agent executions
+              </p>
+            </div>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
@@ -392,7 +396,7 @@ export default function MonitorPage() {
             </div>
           </div>
         )}
-      </div>
+        </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: Live Executions Feed */}
@@ -614,6 +618,7 @@ export default function MonitorPage() {
           )}
         </div>
       </div>
-    </div>
+      </main>
+    </>
   )
 }

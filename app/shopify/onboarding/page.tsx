@@ -8,6 +8,7 @@
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ExecutionMode } from '@prisma/client'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 export default function ShopifyOnboardingPage() {
   const router = useRouter()
@@ -58,22 +59,25 @@ export default function ShopifyOnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
-      <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Welcome to SEOLOGY.AI
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            Let's get your store optimized for search engines
-          </p>
-        </div>
+    <>
+      <ShopifyNav shop={shop} />
+
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
+        <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
+          {/* Header */}
+          <header className="text-center mb-8" role="banner">
+            <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              Welcome to SEOLOGY.AI
+            </h1>
+            <p className="text-gray-600 dark:text-gray-300">
+              Let's get your store optimized for search engines
+            </p>
+          </header>
 
         {/* Progress Steps */}
         <div className="flex items-center justify-center mb-8">
@@ -223,6 +227,7 @@ export default function ShopifyOnboardingPage() {
           </div>
         )}
       </div>
-    </div>
+      </main>
+    </>
   )
 }
