@@ -1,0 +1,1653 @@
+
+Running 160 tests using 11 workers
+
+Products headings: { h1: [33m1[39m, h2: [33m0[39m, h3: [33m1[39m, h4: [33m0[39m }
+  ok   3 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Dashboard accessibility › should have alt text on all images (17.8s)
+Dashboard headings: { h1: [33m1[39m, h2: [33m2[39m, h3: [33m1[39m, h4: [33m0[39m }
+  ok   1 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Dashboard accessibility › should have proper heading hierarchy (19.1s)
+  ok   6 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Dashboard accessibility › should have visible focus indicators (18.4s)
+  ok   2 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Dashboard accessibility › should have proper ARIA attributes (19.5s)
+  ok   7 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Dashboard accessibility › should support skip links (19.7s)
+  ok   4 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Dashboard accessibility › should have labels for form inputs (20.3s)
+  ok  10 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Products accessibility › should have proper heading hierarchy (20.9s)
+  ok   9 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Dashboard accessibility › should have sufficient color contrast (21.8s)
+  ok   5 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Dashboard accessibility › should support keyboard navigation (22.7s)
+  ok  11 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Products accessibility › should have alt text on all images (23.1s)
+Dashboard landmarks: { main: [33m1[39m, navigation: [33m1[39m, banner: [33m1[39m }
+  ok   8 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Dashboard accessibility › should have proper landmark roles (25.9s)
+  ok  12 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Products accessibility › should have labels for form inputs (10.3s)
+  ok  15 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Products accessibility › should have visible focus indicators (10.1s)
+  ok  16 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Products accessibility › should have sufficient color contrast (10.2s)
+  ok  17 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Products accessibility › should support skip links (10.4s)
+Products landmarks: { main: [33m1[39m, navigation: [33m1[39m, banner: [33m1[39m }
+  ok  18 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Products accessibility › should have proper landmark roles (11.3s)
+Agents headings: { h1: [33m0[39m, h2: [33m0[39m, h3: [33m0[39m, h4: [33m0[39m }
+  ok  21 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Agents accessibility › should have labels for form inputs (11.7s)
+  ok  22 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Agents accessibility › should have proper ARIA attributes (9.8s)
+  x   19 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Agents accessibility › should have proper heading hierarchy (11.1s)
+  ok  20 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Agents accessibility › should have alt text on all images (14.3s)
+  x   23 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Agents accessibility › should support keyboard navigation (9.6s)
+  ok  13 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Products accessibility › should have proper ARIA attributes (22.6s)
+  ok  26 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Agents accessibility › should support skip links (10.9s)
+  ok  14 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Products accessibility › should support keyboard navigation (23.4s)
+  ok  25 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Agents accessibility › should have sufficient color contrast (13.3s)
+Agents landmarks: { main: [33m0[39m, navigation: [33m0[39m, banner: [33m0[39m }
+  x   24 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Agents accessibility › should have visible focus indicators (11.2s)
+Timeline headings: { h1: [33m0[39m, h2: [33m1[39m, h3: [33m0[39m, h4: [33m0[39m }
+  ok  29 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Timeline accessibility › should have alt text on all images (10.1s)
+  ok  30 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Timeline accessibility › should have proper ARIA attributes (11.2s)
+  x   27 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Agents accessibility › should have proper landmark roles (11.7s)
+  x   28 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Timeline accessibility › should have proper heading hierarchy (10.5s)
+  ok  33 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Timeline accessibility › should have labels for form inputs (8.9s)
+Timeline landmarks: { main: [33m0[39m, navigation: [33m0[39m, banner: [33m0[39m }
+  ok  32 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Timeline accessibility › should have sufficient color contrast (12.2s)
+  ok  31 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Timeline accessibility › should have visible focus indicators (13.4s)
+  ok  34 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Timeline accessibility › should support skip links (13.2s)
+Analytics headings: { h1: [33m0[39m, h2: [33m1[39m, h3: [33m0[39m, h4: [33m0[39m }
+  ok  40 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Analytics accessibility › should have visible focus indicators (10.6s)
+  ok  37 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Analytics accessibility › should have alt text on all images (16.4s)
+  x   39 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Analytics accessibility › should have proper heading hierarchy (10.6s)
+  ok  38 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Analytics accessibility › should have labels for form inputs (14.6s)
+  x   36 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Timeline accessibility › should support keyboard navigation (14.3s)
+  x   35 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Timeline accessibility › should have proper landmark roles (8.9s)
+  ok  41 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Analytics accessibility › should have sufficient color contrast (10.0s)
+  ok  44 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Analytics accessibility › should have proper ARIA attributes (11.7s)
+  ok  49 [chromium] › tests\e2e\accessibility.spec.ts:168:11 › Accessibility Tests › Settings accessibility › should have sufficient color contrast (8.8s)
+Settings headings: { h1: [33m1[39m, h2: [33m1[39m, h3: [33m4[39m, h4: [33m0[39m }
+  ok  46 [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Settings accessibility › should have proper heading hierarchy (10.8s)
+  x   43 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Analytics accessibility › should support keyboard navigation (12.8s)
+Analytics landmarks: { main: [33m0[39m, navigation: [33m0[39m, banner: [33m0[39m }
+  ok  48 [chromium] › tests\e2e\accessibility.spec.ts:76:11 › Accessibility Tests › Settings accessibility › should have proper ARIA attributes (12.8s)
+  ok  42 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Analytics accessibility › should support skip links (21.1s)
+  ok  47 [chromium] › tests\e2e\accessibility.spec.ts:51:11 › Accessibility Tests › Settings accessibility › should have alt text on all images (17.2s)
+  ok  50 [chromium] › tests\e2e\accessibility.spec.ts:60:11 › Accessibility Tests › Settings accessibility › should have labels for form inputs (10.9s)
+  x   45 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Analytics accessibility › should have proper landmark roles (19.3s)
+  x   57 [chromium] › tests\e2e\agent-execution.spec.ts:13:7 › Agent Execution › should display available agents (3.9s)
+  ok  53 [chromium] › tests\e2e\accessibility.spec.ts:196:11 › Accessibility Tests › Settings accessibility › should support skip links (12.9s)
+  ok  52 [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Settings accessibility › should have visible focus indicators (11.6s)
+Settings landmarks: { main: [33m1[39m, navigation: [33m1[39m, banner: [33m1[39m }
+  ok  54 [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Settings accessibility › should have proper landmark roles (10.4s)
+  ok  51 [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Settings accessibility › should support keyboard navigation (12.1s)
+  x   60 [chromium] › tests\e2e\agent-execution.spec.ts:34:7 › Agent Execution › should allow executing an agent on a product (5.3s)
+  x   63 [chromium] › tests\e2e\agent-execution.spec.ts:104:7 › Agent Execution - Performance › should display token usage (3.7s)
+  x   59 [chromium] › tests\e2e\agent-execution.spec.ts:23:7 › Agent Execution › should show agent details when clicked (5.0s)
+  x   62 [chromium] › tests\e2e\agent-execution.spec.ts:97:7 › Agent Execution - Performance › should show execution time (3.6s)
+  x   61 [chromium] › tests\e2e\agent-execution.spec.ts:81:7 › Agent Execution › should allow retrying failed execution (4.2s)
+  ok  55 [chromium] › tests\e2e\accessibility.spec.ts:240:9 › Accessibility Tests › Interactive element accessibility › buttons should be keyboard activatable (14.9s)
+  ok  58 [chromium] › tests\e2e\accessibility.spec.ts:267:9 › Accessibility Tests › Interactive element accessibility › modals should trap focus (9.9s)
+  ok  56 [chromium] › tests\e2e\accessibility.spec.ts:295:9 › Accessibility Tests › Interactive element accessibility › forms should show validation errors accessibly (15.1s)
+  x   65 [chromium] › tests\e2e\agent-execution.spec.ts:57:7 › Agent Execution › should display agent execution history (3.9s)
+  x   66 [chromium] › tests\e2e\agent-execution.spec.ts:68:7 › Agent Execution › should show cost breakdown for execution (4.0s)
+  ok  71 [chromium] › tests\e2e\agents.spec.ts:61:7 › AI Agents Page › should execute an agent (3.3s)
+  ok  72 [chromium] › tests\e2e\agents.spec.ts:116:7 › AI Agents Page › should create custom agent (3.4s)
+  ok  73 [chromium] › tests\e2e\agents.spec.ts:99:7 › AI Agents Page › should filter agents by category (3.6s)
+  x   68 [chromium] › tests\e2e\budget-alerts.spec.ts:13:7 › Budget Alerts › should display current usage (4.5s)
+  x   69 [chromium] › tests\e2e\agents.spec.ts:43:7 › AI Agents Page › should display pre-built agent templates (3.0s)
+  x   70 [chromium] › tests\e2e\budget-alerts.spec.ts:19:7 › Budget Alerts › should allow setting monthly budget (3.5s)
+  x   67 [chromium] › tests\e2e\agents.spec.ts:138:7 › AI Agents Page › should be responsive on mobile (7.9s)
+  x   64 [chromium] › tests\e2e\agents.spec.ts:30:7 › AI Agents Page › should load agents library (14.3s)
+  x   78 [chromium] › tests\e2e\budget-alerts.spec.ts:69:7 › Budget Alerts › should export usage data (3.4s)
+  x   77 [chromium] › tests\e2e\budget-alerts.spec.ts:57:7 › Budget Alerts › should show usage breakdown by model (3.3s)
+  x   76 [chromium] › tests\e2e\budget-alerts.spec.ts:39:7 › Budget Alerts › should display alert when approaching limit (3.4s)
+  x   75 [chromium] › tests\e2e\budget-alerts.spec.ts:33:7 › Budget Alerts › should show budget progress bar (3.7s)
+  x   79 [chromium] › tests\e2e\budget-alerts.spec.ts:85:7 › Budget Alerts › should filter usage by date range (3.8s)
+  x   80 [chromium] › tests\e2e\budget-alerts.spec.ts:104:7 › Budget Alerts - Notifications › should enable email alerts for budget limits (3.7s)
+  x   81 [chromium] › tests\e2e\budget-alerts.spec.ts:121:7 › Budget Alerts - Notifications › should set alert thresholds (5.0s)
+  x   74 [chromium] › tests\e2e\agents.spec.ts:81:7 › AI Agents Page › should view agent details (15.6s)
+  x   83 [chromium] › tests\e2e\dashboard.spec.ts:53:7 › Shopify Dashboard › should display overview statistics (13.3s)
+Dashboard load time: 7122ms
+  ok  87 [chromium] › tests\e2e\dashboard.spec.ts:100:7 › Shopify Dashboard › should be responsive on mobile (15.0s)
+  ok  86 [chromium] › tests\e2e\dashboard.spec.ts:123:7 › Shopify Dashboard › should be responsive on tablet (15.0s)
+  x   91 [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Dashboard should load within 3 seconds (8.3s)
+  ok  89 [chromium] › tests\e2e\dashboard.spec.ts:166:7 › Shopify Dashboard › should pass basic accessibility checks (14.7s)
+  ok  84 [chromium] › tests\e2e\dashboard.spec.ts:72:7 › Shopify Dashboard › should navigate to products page (16.8s)
+  ok  85 [chromium] › tests\e2e\dashboard.spec.ts:86:7 › Shopify Dashboard › should navigate to settings page (16.2s)
+  ok  88 [chromium] › tests\e2e\dashboard.spec.ts:137:7 › Shopify Dashboard › should handle API errors gracefully (16.0s)
+Dashboard metrics: {
+  domContentLoaded: [33m511.09999999962747[39m,
+  loadComplete: [33m2022[39m,
+  firstByte: [33m51.60000000009313[39m,
+  domInteractive: [33m511.09999999962747[39m
+}
+  ok  92 [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Dashboard should have good performance metrics (8.8s)
+Agents load time: 7519ms
+Dashboard render-blocking resources: { stylesheets: [33m17[39m, blockingScripts: [33m13[39m }
+Agents metrics: {
+  domContentLoaded: [33m826.7999999998137[39m,
+  loadComplete: [33m1432[39m,
+  firstByte: [33m67.5[39m,
+  domInteractive: [33m826.6999999997206[39m
+}
+Products load time: 8798ms
+  ok  97 [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Agents should have good performance metrics (8.9s)
+  ok  90 [chromium] › tests\e2e\dashboard.spec.ts:171:7 › Shopify Dashboard › should not have console errors (19.8s)
+  x   82 [chromium] › tests\e2e\dashboard.spec.ts:38:7 › Shopify Dashboard › should load dashboard successfully (29.1s)
+Timeline load time: 9979ms
+Timeline metrics: {
+  domContentLoaded: [33m530.1000000000931[39m,
+  loadComplete: [33m1920.3000000002794[39m,
+  firstByte: [33m60.8000000002794[39m,
+  domInteractive: [33m530[39m
+}
+  x   96 [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Agents should load within 3 seconds (8.3s)
+  x   93 [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Dashboard should have minimal render-blocking resources (10.4s)
+  ok 100 [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Timeline should have good performance metrics (10.4s)
+Products metrics: {
+  domContentLoaded: [33m1706[39m,
+  loadComplete: [33m2838.5[39m,
+  firstByte: [33m675.3999999999069[39m,
+  domInteractive: [33m1705.9000000003725[39m
+}
+Agents render-blocking resources: { stylesheets: [33m10[39m, blockingScripts: [33m10[39m }
+  x   94 [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Products should load within 3 seconds (10.5s)
+  x   99 [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Timeline should load within 3 seconds (10.5s)
+  x   95 [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Products should have good performance metrics (12.6s)
+Timeline render-blocking resources: { stylesheets: [33m17[39m, blockingScripts: [33m13[39m }
+  x   98 [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Agents should have minimal render-blocking resources (12.2s)
+Products render-blocking resources: { stylesheets: [33m17[39m, blockingScripts: [33m13[39m }
+Analytics load time: 8181ms
+  x  102 [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Timeline should have minimal render-blocking resources (8.3s)
+  x  103 [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Analytics should load within 3 seconds (10.7s)
+  x  101 [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Products should have minimal render-blocking resources (12.6s)
+Analytics metrics: {
+  domContentLoaded: [33m328.5[39m,
+  loadComplete: [33m834.3999999999069[39m,
+  firstByte: [33m61.89999999990687[39m,
+  domInteractive: [33m328.39999999990687[39m
+}
+  ok 105 [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Analytics should have good performance metrics (8.9s)
+  x  110 [chromium] › tests\e2e\product-analysis.spec.ts:14:7 › Product Analysis › should display products list (3.9s)
+Analytics render-blocking resources: { stylesheets: [33m17[39m, blockingScripts: [33m13[39m }
+Rapid interaction time: 791ms
+  x  106 [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Analytics should have minimal render-blocking resources (9.6s)
+  ok 107 [chromium] › tests\e2e\performance.spec.ts:87:7 › Performance Tests › Dashboard should handle multiple rapid interactions (10.3s)
+  x  111 [chromium] › tests\e2e\product-analysis.spec.ts:23:7 › Product Analysis › should show SEO scores for each product (3.8s)
+  x  112 [chromium] › tests\e2e\product-analysis.spec.ts:74:7 › Product Analysis › should allow analyzing a single product (3.6s)
+Found 0 images
+0 images use lazy loading
+  x  113 [chromium] › tests\e2e\product-analysis.spec.ts:32:7 › Product Analysis › should sort products by SEO score (3.4s)
+  ok 109 [chromium] › tests\e2e\performance.spec.ts:184:7 › Performance Tests › Images should be optimized (9.2s)
+  x  114 [chromium] › tests\e2e\product-analysis.spec.ts:51:7 › Product Analysis › should show product details when clicked (3.4s)
+API call https://seology-q1x1t8rpv-iimagined.vercel.app/api/shopify/overview?shop=test-store.myshopify.com: 1530ms
+API call https://seology-q1x1t8rpv-iimagined.vercel.app/api/shopify/overview?shop=test-store.myshopify.com: 1618ms
+  ok 108 [chromium] › tests\e2e\performance.spec.ts:148:7 › Performance Tests › API responses should be fast (12.0s)
+  x  115 [chromium] › tests\e2e\product-analysis.spec.ts:134:7 › Product Analysis - Accessibility › should be keyboard navigable (3.4s)
+  x  116 [chromium] › tests\e2e\product-analysis.spec.ts:62:7 › Product Analysis › should display SEO issues list (3.3s)
+  x  117 [chromium] › tests\e2e\product-analysis.spec.ts:92:7 › Product Analysis › should filter products by issue type (3.7s)
+  x  119 [chromium] › tests\e2e\product-analysis.spec.ts:113:7 › Product Analysis › should search products by name (3.7s)
+  x  121 [chromium] › tests\e2e\product-analysis.spec.ts:149:7 › Product Analysis - Accessibility › should have proper ARIA labels (3.5s)
+Memory metrics after navigation: {
+  usedJSHeapSize: [33m31.566619873046875[39m,
+  totalJSHeapSize: [33m42.629241943359375[39m,
+  jsHeapSizeLimit: [33m3585.8154296875[39m
+}
+  ok 104 [chromium] › tests\e2e\performance.spec.ts:109:7 › Performance Tests › Should not have memory leaks on repeated navigation (23.3s)
+  x  127 [chromium] › tests\e2e\shopify-onboarding.spec.ts:14:7 › Shopify Onboarding Flow › should display onboarding welcome screen (3.4s)
+  ok 118 [chromium] › tests\e2e\products.spec.ts:72:7 › Products Page › should allow analyzing a product (14.0s)
+  ok 120 [chromium] › tests\e2e\products.spec.ts:118:7 › Products Page › should filter products by status (14.0s)
+  ok 123 [chromium] › tests\e2e\products.spec.ts:53:7 › Products Page › should display product cards with SEO scores (13.2s)
+  x  132 [chromium] › tests\e2e\shopify-onboarding.spec.ts:33:7 › Shopify Onboarding Flow › should allow selecting PLAN execution mode (3.1s)
+  ok 124 [chromium] › tests\e2e\products.spec.ts:93:7 › Products Page › should allow fixing SEO issues (13.4s)
+  x  131 [chromium] › tests\e2e\shopify-onboarding.spec.ts:24:7 › Shopify Onboarding Flow › should allow selecting AUTOMATIC execution mode (3.3s)
+  x  133 [chromium] › tests\e2e\shopify-onboarding.spec.ts:42:7 › Shopify Onboarding Flow › should allow selecting APPROVE execution mode (3.1s)
+  ok 125 [chromium] › tests\e2e\products.spec.ts:138:7 › Products Page › should search products (13.5s)
+  ok 126 [chromium] › tests\e2e\products.spec.ts:157:7 › Products Page › should paginate products (13.9s)
+  x  134 [chromium] › tests\e2e\shopify-onboarding.spec.ts:51:7 › Shopify Onboarding Flow › should show mode comparison tooltips (3.1s)
+  x  135 [chromium] › tests\e2e\shopify-onboarding.spec.ts:70:7 › Shopify Onboarding Flow › should be keyboard accessible (3.2s)
+  ok 130 [chromium] › tests\e2e\products.spec.ts:222:7 › Products Page › should be responsive on mobile (13.9s)
+  x  136 [chromium] › tests\e2e\shopify-onboarding.spec.ts:114:7 › Shopify Onboarding - Error Handling › should handle connection errors gracefully (3.7s)
+  ok 128 [chromium] › tests\e2e\products.spec.ts:179:7 › Products Page › should handle empty products list (15.7s)
+  ok 129 [chromium] › tests\e2e\products.spec.ts:200:7 › Products Page › should handle API errors gracefully (15.3s)
+  x  138 [chromium] › tests\e2e\shopify-onboarding.spec.ts:59:7 › Shopify Onboarding Flow › should navigate to dashboard after completion (3.5s)
+  x  139 [chromium] › tests\e2e\shopify-onboarding.spec.ts:83:7 › Shopify Onboarding Flow › should be mobile responsive (3.8s)
+  x  140 [chromium] › tests\e2e\shopify-onboarding.spec.ts:104:7 › Shopify Onboarding - Error Handling › should show error if no mode selected (3.5s)
+  ok 137 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › dashboard page screenshots › should match desktop screenshot (10.2s)
+  ok 143 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › agents page screenshots › should match desktop screenshot (8.8s)
+  ok 142 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › products page screenshots › should match mobile screenshot (9.6s)
+  ok 144 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › dashboard page screenshots › should match tablet screenshot (11.0s)
+  x  122 [chromium] › tests\e2e\products.spec.ts:39:7 › Products Page › should load products list (32.9s)
+  ok 141 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › products page screenshots › should match desktop screenshot (14.5s)
+  ok 146 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › products page screenshots › should match tablet screenshot (11.4s)
+  ok 145 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › dashboard page screenshots › should match mobile screenshot (14.7s)
+  ok 149 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › timeline page screenshots › should match tablet screenshot (10.8s)
+  ok 147 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › agents page screenshots › should match tablet screenshot (12.3s)
+  ok 148 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › agents page screenshots › should match mobile screenshot (11.7s)
+  ok 150 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › timeline page screenshots › should match desktop screenshot (11.1s)
+  ok 151 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › timeline page screenshots › should match mobile screenshot (10.0s)
+  ok 152 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › analytics page screenshots › should match desktop screenshot (13.1s)
+  ok 153 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › analytics page screenshots › should match tablet screenshot (11.4s)
+  ok 154 [chromium] › tests\e2e\visual-regression.spec.ts:35:11 › Visual Regression Tests › settings page screenshots › should match desktop screenshot (10.7s)
+  ok 155 [chromium] › tests\e2e\visual-regression.spec.ts:46:11 › Visual Regression Tests › settings page screenshots › should match tablet screenshot (9.9s)
+  ok 158 [chromium] › tests\e2e\visual-regression.spec.ts:78:9 › Visual Regression Tests › Component screenshots › should match stat cards (9.4s)
+  ok 156 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › settings page screenshots › should match mobile screenshot (10.1s)
+  ok 159 [chromium] › tests\e2e\visual-regression.spec.ts:89:9 › Visual Regression Tests › Component screenshots › should match navigation (9.9s)
+  ok 157 [chromium] › tests\e2e\visual-regression.spec.ts:57:11 › Visual Regression Tests › analytics page screenshots › should match mobile screenshot (11.5s)
+  ok 160 [chromium] › tests\e2e\visual-regression.spec.ts:117:9 › Visual Regression Tests › Dark mode screenshots › should match dashboard dark mode (11.8s)
+
+
+  1) [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Agents accessibility › should have proper heading hierarchy 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:47:29)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-3587f-ve-proper-heading-hierarchy-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-3587f-ve-proper-heading-hierarchy-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Agents accessibility › should support keyboard navigation 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:143:28)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-106ca-support-keyboard-navigation-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-106ca-support-keyboard-navigation-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Agents accessibility › should have visible focus indicators 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:165:30)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-185a3-ve-visible-focus-indicators-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-185a3-ve-visible-focus-indicators-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Agents accessibility › should have proper landmark roles 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:227:32)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-ccd15--have-proper-landmark-roles-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-ccd15--have-proper-landmark-roles-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Timeline accessibility › should have proper heading hierarchy 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:47:29)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-d6f1c-ve-proper-heading-hierarchy-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-d6f1c-ve-proper-heading-hierarchy-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-d6f1c-ve-proper-heading-hierarchy-chromium\error-context.md
+
+  6) [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Timeline accessibility › should support keyboard navigation 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:143:28)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-2cae0-support-keyboard-navigation-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-2cae0-support-keyboard-navigation-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-2cae0-support-keyboard-navigation-chromium\error-context.md
+
+  7) [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Timeline accessibility › should have proper landmark roles 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:227:32)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-d6e62--have-proper-landmark-roles-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-d6e62--have-proper-landmark-roles-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-d6e62--have-proper-landmark-roles-chromium\error-context.md
+
+  8) [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Analytics accessibility › should have proper heading hierarchy 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:47:29)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-1bee6-ve-proper-heading-hierarchy-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-1bee6-ve-proper-heading-hierarchy-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-1bee6-ve-proper-heading-hierarchy-chromium\error-context.md
+
+  9) [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Analytics accessibility › should support keyboard navigation 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:143:28)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-48d52-support-keyboard-navigation-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-48d52-support-keyboard-navigation-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-48d52-support-keyboard-navigation-chromium\error-context.md
+
+  10) [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Analytics accessibility › should have proper landmark roles 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\accessibility.spec.ts:227:32)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-27f07--have-proper-landmark-roles-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\accessibility-Accessibilit-27f07--have-proper-landmark-roles-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\accessibility-Accessibilit-27f07--have-proper-landmark-roles-chromium\error-context.md
+
+  11) [chromium] › tests\e2e\agent-execution.spec.ts:13:7 › Agent Execution › should display available agents 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-f821d-ld-display-available-agents-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-f821d-ld-display-available-agents-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) [chromium] › tests\e2e\agent-execution.spec.ts:23:7 › Agent Execution › should show agent details when clicked 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-944da--agent-details-when-clicked-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-944da--agent-details-when-clicked-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) [chromium] › tests\e2e\agent-execution.spec.ts:34:7 › Agent Execution › should allow executing an agent on a product 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-db33b-uting-an-agent-on-a-product-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-db33b-uting-an-agent-on-a-product-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) [chromium] › tests\e2e\agent-execution.spec.ts:57:7 › Agent Execution › should display agent execution history 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-63d9a-lay-agent-execution-history-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-63d9a-lay-agent-execution-history-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) [chromium] › tests\e2e\agent-execution.spec.ts:68:7 › Agent Execution › should show cost breakdown for execution 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-0300b-ost-breakdown-for-execution-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-0300b-ost-breakdown-for-execution-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) [chromium] › tests\e2e\agent-execution.spec.ts:81:7 › Agent Execution › should allow retrying failed execution 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/dashboard?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-91653-w-retrying-failed-execution-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-91653-w-retrying-failed-execution-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) [chromium] › tests\e2e\agent-execution.spec.ts:97:7 › Agent Execution - Performance › should show execution time 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/monitor/executions?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/monitor/executions?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:98:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-8f0de--should-show-execution-time-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-8f0de--should-show-execution-time-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) [chromium] › tests\e2e\agent-execution.spec.ts:104:7 › Agent Execution - Performance › should display token usage 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/monitor/executions?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/monitor/executions?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agent-execution.spec.ts:105:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-50ed5--should-display-token-usage-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agent-execution-Agent-Exec-50ed5--should-display-token-usage-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) [chromium] › tests\e2e\agents.spec.ts:30:7 › AI Agents Page › should load agents library ─────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-testid="agents-list"], .agents-grid').first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('[data-testid="agents-list"], .agents-grid').first()[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agents.spec.ts:38:43)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-load-agents-library-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-load-agents-library-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) [chromium] › tests\e2e\agents.spec.ts:43:7 › AI Agents Page › should display pre-built agent templates 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agents.spec.ts:51:19)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-shou-ce692-y-pre-built-agent-templates-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-shou-ce692-y-pre-built-agent-templates-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) [chromium] › tests\e2e\agents.spec.ts:81:7 › AI Agents Page › should view agent details ──────
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-testid="agent-card"], .agent-card').first()[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agents.spec.ts:86:21)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-view-agent-details-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-view-agent-details-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) [chromium] › tests\e2e\agents.spec.ts:138:7 › AI Agents Page › should be responsive on mobile 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('main, [role="main"]').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('main, [role="main"]').first()[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\agents.spec.ts:144:39)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-be-responsive-on-mobile-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\agents-AI-Agents-Page-should-be-responsive-on-mobile-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) [chromium] › tests\e2e\budget-alerts.spec.ts:13:7 › Budget Alerts › should display current usage 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-display-current-usage-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-display-current-usage-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) [chromium] › tests\e2e\budget-alerts.spec.ts:19:7 › Budget Alerts › should allow setting monthly budget 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-1e8fa-llow-setting-monthly-budget-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-1e8fa-llow-setting-monthly-budget-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) [chromium] › tests\e2e\budget-alerts.spec.ts:33:7 › Budget Alerts › should show budget progress bar 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-show-budget-progress-bar-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-show-budget-progress-bar-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) [chromium] › tests\e2e\budget-alerts.spec.ts:39:7 › Budget Alerts › should display alert when approaching limit 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-c7d13-lert-when-approaching-limit-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-c7d13-lert-when-approaching-limit-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) [chromium] › tests\e2e\budget-alerts.spec.ts:57:7 › Budget Alerts › should show usage breakdown by model 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-e61a9-ow-usage-breakdown-by-model-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-e61a9-ow-usage-breakdown-by-model-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) [chromium] › tests\e2e\budget-alerts.spec.ts:69:7 › Budget Alerts › should export usage data ─
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-export-usage-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alerts-should-export-usage-data-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) [chromium] › tests\e2e\budget-alerts.spec.ts:85:7 › Budget Alerts › should filter usage by date range 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:10:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-ff24f--filter-usage-by-date-range-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-ff24f--filter-usage-by-date-range-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) [chromium] › tests\e2e\budget-alerts.spec.ts:104:7 › Budget Alerts - Notifications › should enable email alerts for budget limits 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:105:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-51589-il-alerts-for-budget-limits-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-51589-il-alerts-for-budget-limits-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) [chromium] › tests\e2e\budget-alerts.spec.ts:121:7 › Budget Alerts - Notifications › should set alert thresholds 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/analytics/budget?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\budget-alerts.spec.ts:122:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-211ed-should-set-alert-thresholds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\budget-alerts-Budget-Alert-211ed-should-set-alert-thresholds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) [chromium] › tests\e2e\dashboard.spec.ts:38:7 › Shopify Dashboard › should load dashboard successfully 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('[data-testid="stat-card"], .stat-card, .dashboard-card').first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('[data-testid="stat-card"], .stat-card, .dashboard-card').first()[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\dashboard.spec.ts:47:38)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\dashboard-Shopify-Dashboar-1fa1c-load-dashboard-successfully-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\dashboard-Shopify-Dashboar-1fa1c-load-dashboard-successfully-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\dashboard-Shopify-Dashboar-1fa1c-load-dashboard-successfully-chromium\error-context.md
+
+  33) [chromium] › tests\e2e\dashboard.spec.ts:53:7 › Shopify Dashboard › should display overview statistics 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\dashboard.spec.ts:68:21)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\dashboard-Shopify-Dashboar-39c68-display-overview-statistics-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\dashboard-Shopify-Dashboar-39c68-display-overview-statistics-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\dashboard-Shopify-Dashboar-39c68-display-overview-statistics-chromium\error-context.md
+
+  34) [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Dashboard should load within 3 seconds 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m6000[39m
+    Received:   [31m7122[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:34:24)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7d06a-hould-load-within-3-seconds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7d06a-hould-load-within-3-seconds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-7d06a-hould-load-within-3-seconds-chromium\error-context.md
+
+  35) [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Dashboard should have minimal render-blocking resources 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m5[39m
+    Received:   [31m13[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:83:55)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7ea94-l-render-blocking-resources-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7ea94-l-render-blocking-resources-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-7ea94-l-render-blocking-resources-chromium\error-context.md
+
+  36) [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Products should load within 3 seconds 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m6000[39m
+    Received:   [31m8798[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:34:24)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7a246-hould-load-within-3-seconds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-7a246-hould-load-within-3-seconds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-7a246-hould-load-within-3-seconds-chromium\error-context.md
+
+  37) [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Products should have good performance metrics 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m600[39m
+    Received:   [31m675.3999999999069[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:59:33)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-31ec6-ve-good-performance-metrics-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-31ec6-ve-good-performance-metrics-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-31ec6-ve-good-performance-metrics-chromium\error-context.md
+
+  38) [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Products should have minimal render-blocking resources 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m5[39m
+    Received:   [31m13[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:83:55)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-2b2f2-l-render-blocking-resources-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-2b2f2-l-render-blocking-resources-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-2b2f2-l-render-blocking-resources-chromium\error-context.md
+
+  39) [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Agents should load within 3 seconds 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m6000[39m
+    Received:   [31m7519[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:34:24)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-ff25c-hould-load-within-3-seconds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-ff25c-hould-load-within-3-seconds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  40) [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Agents should have minimal render-blocking resources 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m5[39m
+    Received:   [31m10[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:83:55)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-d54bf-l-render-blocking-resources-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-d54bf-l-render-blocking-resources-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  41) [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Timeline should load within 3 seconds 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m6000[39m
+    Received:   [31m9979[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:34:24)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-6e75f-hould-load-within-3-seconds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-6e75f-hould-load-within-3-seconds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-6e75f-hould-load-within-3-seconds-chromium\error-context.md
+
+  42) [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Timeline should have minimal render-blocking resources 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m5[39m
+    Received:   [31m13[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:83:55)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-d578e-l-render-blocking-resources-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-d578e-l-render-blocking-resources-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-d578e-l-render-blocking-resources-chromium\error-context.md
+
+  43) [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Analytics should load within 3 seconds 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m6000[39m
+    Received:   [31m8181[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:34:24)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-56f99-hould-load-within-3-seconds-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-56f99-hould-load-within-3-seconds-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-56f99-hould-load-within-3-seconds-chromium\error-context.md
+
+  44) [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Analytics should have minimal render-blocking resources 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m5[39m
+    Received:   [31m13[39m
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\performance.spec.ts:83:55)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-9138d-l-render-blocking-resources-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\performance-Performance-Te-9138d-l-render-blocking-resources-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\performance-Performance-Te-9138d-l-render-blocking-resources-chromium\error-context.md
+
+  45) [chromium] › tests\e2e\product-analysis.spec.ts:14:7 › Product Analysis › should display products list 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-e7f1e-hould-display-products-list-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-e7f1e-hould-display-products-list-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  46) [chromium] › tests\e2e\product-analysis.spec.ts:23:7 › Product Analysis › should show SEO scores for each product 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-80e61-SEO-scores-for-each-product-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-80e61-SEO-scores-for-each-product-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  47) [chromium] › tests\e2e\product-analysis.spec.ts:32:7 › Product Analysis › should sort products by SEO score 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-383e0--sort-products-by-SEO-score-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-383e0--sort-products-by-SEO-score-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  48) [chromium] › tests\e2e\product-analysis.spec.ts:51:7 › Product Analysis › should show product details when clicked 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-ecca0-roduct-details-when-clicked-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-ecca0-roduct-details-when-clicked-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  49) [chromium] › tests\e2e\product-analysis.spec.ts:62:7 › Product Analysis › should display SEO issues list 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-96d99-uld-display-SEO-issues-list-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-96d99-uld-display-SEO-issues-list-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  50) [chromium] › tests\e2e\product-analysis.spec.ts:74:7 › Product Analysis › should allow analyzing a single product 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-10524--analyzing-a-single-product-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-10524--analyzing-a-single-product-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  51) [chromium] › tests\e2e\product-analysis.spec.ts:92:7 › Product Analysis › should filter products by issue type 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-91612-lter-products-by-issue-type-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-91612-lter-products-by-issue-type-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  52) [chromium] › tests\e2e\product-analysis.spec.ts:113:7 › Product Analysis › should search products by name 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-30d23-uld-search-products-by-name-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-30d23-uld-search-products-by-name-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  53) [chromium] › tests\e2e\product-analysis.spec.ts:134:7 › Product Analysis - Accessibility › should be keyboard navigable 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:135:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-2a335-hould-be-keyboard-navigable-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-2a335-hould-be-keyboard-navigable-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  54) [chromium] › tests\e2e\product-analysis.spec.ts:149:7 › Product Analysis - Accessibility › should have proper ARIA labels 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/products?shop=test-shop.myshopify.com
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/products?shop=test-shop.myshopify.com", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\product-analysis.spec.ts:150:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-89ef2-uld-have-proper-ARIA-labels-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\product-analysis-Product-A-89ef2-uld-have-proper-ARIA-labels-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  55) [chromium] › tests\e2e\products.spec.ts:39:7 › Products Page › should load products list ─────
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  locator('[data-testid="products-list"], .products-grid, .product-list').first()
+    Expected: visible
+    Received: hidden
+    Timeout:  15000ms
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 15000ms[22m
+    [2m  - waiting for locator('[data-testid="products-list"], .products-grid, .product-list').first()[22m
+    [2m    18 × locator resolved to <div data-testid="products-list" class="grid grid-cols-1 gap-6"></div>[22m
+    [2m       - unexpected value "hidden"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\products.spec.ts:47:45)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\products-Products-Page-should-load-products-list-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\products-Products-Page-should-load-products-list-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\products-Products-Page-should-load-products-list-chromium\error-context.md
+
+  56) [chromium] › tests\e2e\shopify-onboarding.spec.ts:14:7 › Shopify Onboarding Flow › should display onboarding welcome screen 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-1b484-y-onboarding-welcome-screen-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-1b484-y-onboarding-welcome-screen-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  57) [chromium] › tests\e2e\shopify-onboarding.spec.ts:24:7 › Shopify Onboarding Flow › should allow selecting AUTOMATIC execution mode 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-5dbc4-ng-AUTOMATIC-execution-mode-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-5dbc4-ng-AUTOMATIC-execution-mode-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  58) [chromium] › tests\e2e\shopify-onboarding.spec.ts:33:7 › Shopify Onboarding Flow › should allow selecting PLAN execution mode 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-6f345-lecting-PLAN-execution-mode-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-6f345-lecting-PLAN-execution-mode-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  59) [chromium] › tests\e2e\shopify-onboarding.spec.ts:42:7 › Shopify Onboarding Flow › should allow selecting APPROVE execution mode 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-39ce1-ting-APPROVE-execution-mode-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-39ce1-ting-APPROVE-execution-mode-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  60) [chromium] › tests\e2e\shopify-onboarding.spec.ts:51:7 › Shopify Onboarding Flow › should show mode comparison tooltips 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-c28da-ow-mode-comparison-tooltips-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-c28da-ow-mode-comparison-tooltips-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  61) [chromium] › tests\e2e\shopify-onboarding.spec.ts:59:7 › Shopify Onboarding Flow › should navigate to dashboard after completion 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-2a739--dashboard-after-completion-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-2a739--dashboard-after-completion-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  62) [chromium] › tests\e2e\shopify-onboarding.spec.ts:70:7 › Shopify Onboarding Flow › should be keyboard accessible 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-68e36-ould-be-keyboard-accessible-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-68e36-ould-be-keyboard-accessible-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  63) [chromium] › tests\e2e\shopify-onboarding.spec.ts:83:7 › Shopify Onboarding Flow › should be mobile responsive 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:11:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\fixtureRunner.js:228:52)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:469:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:302:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:298:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-08df5-should-be-mobile-responsive-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-08df5-should-be-mobile-responsive-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  64) [chromium] › tests\e2e\shopify-onboarding.spec.ts:104:7 › Shopify Onboarding - Error Handling › should show error if no mode selected 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:105:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:15)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:17)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:22)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-00e74-w-error-if-no-mode-selected-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-00e74-w-error-if-no-mode-selected-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  65) [chromium] › tests\e2e\shopify-onboarding.spec.ts:114:7 › Shopify Onboarding - Error Handling › should handle connection errors gracefully 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/shopify/onboarding
+    Call log:
+    [2m  - navigating to "http://localhost:3000/shopify/onboarding", waiting until "load"[22m
+
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\tests\e2e\shopify-onboarding.spec.ts:126:16)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:310:9)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\testInfo.js:305:11)
+        at C:\Users\manna\Downloads\iimagined.webflow (1)\node_modules\playwright\lib\worker\workerMain.js:308:7)
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-41d28-onnection-errors-gracefully-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\shopify-onboarding-Shopify-41d28-onnection-errors-gracefully-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  65 failed
+    [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Agents accessibility › should have proper heading hierarchy 
+    [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Agents accessibility › should support keyboard navigation 
+    [chromium] › tests\e2e\accessibility.spec.ts:146:11 › Accessibility Tests › Agents accessibility › should have visible focus indicators 
+    [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Agents accessibility › should have proper landmark roles 
+    [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Timeline accessibility › should have proper heading hierarchy 
+    [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Timeline accessibility › should support keyboard navigation 
+    [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Timeline accessibility › should have proper landmark roles 
+    [chromium] › tests\e2e\accessibility.spec.ts:34:11 › Accessibility Tests › Analytics accessibility › should have proper heading hierarchy 
+    [chromium] › tests\e2e\accessibility.spec.ts:114:11 › Accessibility Tests › Analytics accessibility › should support keyboard navigation 
+    [chromium] › tests\e2e\accessibility.spec.ts:215:11 › Accessibility Tests › Analytics accessibility › should have proper landmark roles 
+    [chromium] › tests\e2e\agent-execution.spec.ts:13:7 › Agent Execution › should display available agents 
+    [chromium] › tests\e2e\agent-execution.spec.ts:23:7 › Agent Execution › should show agent details when clicked 
+    [chromium] › tests\e2e\agent-execution.spec.ts:34:7 › Agent Execution › should allow executing an agent on a product 
+    [chromium] › tests\e2e\agent-execution.spec.ts:57:7 › Agent Execution › should display agent execution history 
+    [chromium] › tests\e2e\agent-execution.spec.ts:68:7 › Agent Execution › should show cost breakdown for execution 
+    [chromium] › tests\e2e\agent-execution.spec.ts:81:7 › Agent Execution › should allow retrying failed execution 
+    [chromium] › tests\e2e\agent-execution.spec.ts:97:7 › Agent Execution - Performance › should show execution time 
+    [chromium] › tests\e2e\agent-execution.spec.ts:104:7 › Agent Execution - Performance › should display token usage 
+    [chromium] › tests\e2e\agents.spec.ts:30:7 › AI Agents Page › should load agents library ───────
+    [chromium] › tests\e2e\agents.spec.ts:43:7 › AI Agents Page › should display pre-built agent templates 
+    [chromium] › tests\e2e\agents.spec.ts:81:7 › AI Agents Page › should view agent details ────────
+    [chromium] › tests\e2e\agents.spec.ts:138:7 › AI Agents Page › should be responsive on mobile ──
+    [chromium] › tests\e2e\budget-alerts.spec.ts:13:7 › Budget Alerts › should display current usage 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:19:7 › Budget Alerts › should allow setting monthly budget 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:33:7 › Budget Alerts › should show budget progress bar 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:39:7 › Budget Alerts › should display alert when approaching limit 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:57:7 › Budget Alerts › should show usage breakdown by model 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:69:7 › Budget Alerts › should export usage data ───
+    [chromium] › tests\e2e\budget-alerts.spec.ts:85:7 › Budget Alerts › should filter usage by date range 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:104:7 › Budget Alerts - Notifications › should enable email alerts for budget limits 
+    [chromium] › tests\e2e\budget-alerts.spec.ts:121:7 › Budget Alerts - Notifications › should set alert thresholds 
+    [chromium] › tests\e2e\dashboard.spec.ts:38:7 › Shopify Dashboard › should load dashboard successfully 
+    [chromium] › tests\e2e\dashboard.spec.ts:53:7 › Shopify Dashboard › should display overview statistics 
+    [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Dashboard should load within 3 seconds 
+    [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Dashboard should have minimal render-blocking resources 
+    [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Products should load within 3 seconds 
+    [chromium] › tests\e2e\performance.spec.ts:37:9 › Performance Tests › Products should have good performance metrics 
+    [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Products should have minimal render-blocking resources 
+    [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Agents should load within 3 seconds 
+    [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Agents should have minimal render-blocking resources 
+    [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Timeline should load within 3 seconds 
+    [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Timeline should have minimal render-blocking resources 
+    [chromium] › tests\e2e\performance.spec.ts:24:9 › Performance Tests › Analytics should load within 3 seconds 
+    [chromium] › tests\e2e\performance.spec.ts:64:9 › Performance Tests › Analytics should have minimal render-blocking resources 
+    [chromium] › tests\e2e\product-analysis.spec.ts:14:7 › Product Analysis › should display products list 
+    [chromium] › tests\e2e\product-analysis.spec.ts:23:7 › Product Analysis › should show SEO scores for each product 
+    [chromium] › tests\e2e\product-analysis.spec.ts:32:7 › Product Analysis › should sort products by SEO score 
+    [chromium] › tests\e2e\product-analysis.spec.ts:51:7 › Product Analysis › should show product details when clicked 
+    [chromium] › tests\e2e\product-analysis.spec.ts:62:7 › Product Analysis › should display SEO issues list 
+    [chromium] › tests\e2e\product-analysis.spec.ts:74:7 › Product Analysis › should allow analyzing a single product 
+    [chromium] › tests\e2e\product-analysis.spec.ts:92:7 › Product Analysis › should filter products by issue type 
+    [chromium] › tests\e2e\product-analysis.spec.ts:113:7 › Product Analysis › should search products by name 
+    [chromium] › tests\e2e\product-analysis.spec.ts:134:7 › Product Analysis - Accessibility › should be keyboard navigable 
+    [chromium] › tests\e2e\product-analysis.spec.ts:149:7 › Product Analysis - Accessibility › should have proper ARIA labels 
+    [chromium] › tests\e2e\products.spec.ts:39:7 › Products Page › should load products list ───────
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:14:7 › Shopify Onboarding Flow › should display onboarding welcome screen 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:24:7 › Shopify Onboarding Flow › should allow selecting AUTOMATIC execution mode 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:33:7 › Shopify Onboarding Flow › should allow selecting PLAN execution mode 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:42:7 › Shopify Onboarding Flow › should allow selecting APPROVE execution mode 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:51:7 › Shopify Onboarding Flow › should show mode comparison tooltips 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:59:7 › Shopify Onboarding Flow › should navigate to dashboard after completion 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:70:7 › Shopify Onboarding Flow › should be keyboard accessible 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:83:7 › Shopify Onboarding Flow › should be mobile responsive 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:104:7 › Shopify Onboarding - Error Handling › should show error if no mode selected 
+    [chromium] › tests\e2e\shopify-onboarding.spec.ts:114:7 › Shopify Onboarding - Error Handling › should handle connection errors gracefully 
+  95 passed (3.4m)
