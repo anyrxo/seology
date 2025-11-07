@@ -7,6 +7,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 interface ImageAsset {
   id: string
@@ -205,16 +206,19 @@ export default function ShopifyImagesPage() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-          Image SEO Optimization
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300">
-          AI-powered alt text generation and image optimization for better search rankings
-        </p>
-      </div>
+    <>
+      <ShopifyNav shop={shop} />
+
+      <main className="p-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="mb-8" role="banner">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Image SEO Optimization
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300">
+            AI-powered alt text generation and image optimization for better search rankings
+          </p>
+        </header>
 
       {/* Stats Cards */}
       {stats && (
@@ -490,6 +494,7 @@ export default function ShopifyImagesPage() {
           </div>
         </div>
       )}
-    </div>
+      </main>
+    </>
   )
 }
