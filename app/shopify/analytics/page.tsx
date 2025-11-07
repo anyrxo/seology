@@ -35,6 +35,7 @@ import {
   CheckCircle,
   Settings,
 } from 'lucide-react'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 interface OverviewData {
   totalCalls: number
@@ -223,32 +224,34 @@ export default function ShopifyAnalyticsPage() {
   const chartData = [...usageData.historical, ...usageData.forecast]
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Usage Analytics</h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            Track your Claude AI API usage and costs
-          </p>
-        </div>
-        <div className="flex gap-2">
-          <button
-            onClick={() => handleExport('csv')}
-            className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-          >
-            <Download className="w-4 h-4" />
-            Export CSV
-          </button>
-          <button
-            onClick={() => handleExport('pdf')}
-            className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-          >
-            <Download className="w-4 h-4" />
-            Print Report
-          </button>
-        </div>
-      </div>
+    <>
+      <ShopifyNav shop={shop} />
+      <main className="p-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="flex items-center justify-between mb-8" role="banner">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Usage Analytics</h1>
+            <p className="text-gray-600 dark:text-gray-300">
+              Track your Claude AI API usage and costs
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => handleExport('csv')}
+              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Export CSV
+            </button>
+            <button
+              onClick={() => handleExport('pdf')}
+              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Print Report
+            </button>
+          </div>
+        </header>
 
       {/* Overview Cards */}
       {overview && (
@@ -660,6 +663,7 @@ export default function ShopifyAnalyticsPage() {
           </div>
         </div>
       )}
-    </div>
+      </main>
+    </>
   )
 }

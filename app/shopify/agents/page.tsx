@@ -14,6 +14,7 @@ import {
   Plus, Play, Edit, Trash2, TrendingUp, Clock, DollarSign,
   Filter, Search, Star, Download, Users
 } from 'lucide-react'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 // Type definitions
 interface AgentTemplate {
@@ -188,29 +189,18 @@ export default function AgentsPage() {
 
   return (
     <>
-      {/* Shopify Navigation Menu */}
-      {/* @ts-expect-error - Shopify App Bridge web component */}
-      <ui-nav-menu>
-        <a href={`/shopify/dashboard?shop=${shop}`}>Dashboard</a>
-        <a href={`/shopify/products?shop=${shop}`}>Products</a>
-        <a href={`/shopify/agents?shop=${shop}`} rel="home">AI Agents</a>
-        <a href={`/shopify/reports?shop=${shop}`}>SEO Reports</a>
-        <a href={`/shopify/chat?shop=${shop}`}>AI Chat</a>
-        <a href={`/shopify/settings?shop=${shop}`}>Settings</a>
-        <a href={`/shopify/support?shop=${shop}`}>Support</a>
-        {/* @ts-expect-error - Shopify App Bridge web component */}
-      </ui-nav-menu>
+      <ShopifyNav shop={shop} />
 
-      <div className="p-8 max-w-7xl mx-auto">
+      <main className="p-8 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <header className="mb-8" role="banner">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             AI Agent Library
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
             Specialized AI agents for automated SEO optimization
           </p>
-        </div>
+        </header>
 
         {/* Tabs */}
         <div className="flex gap-2 mb-6 border-b border-gray-200 dark:border-gray-700">
@@ -336,7 +326,7 @@ export default function AgentsPage() {
         {activeTab === 'marketplace' && filteredPublicAgents.length === 0 && (
           <EmptyState message="No public agents available yet" />
         )}
-      </div>
+    </main>
 
       {/* Modals */}
       {showCreateModal && (
