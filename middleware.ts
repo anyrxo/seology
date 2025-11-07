@@ -63,6 +63,15 @@ export default clerkMiddleware(async (auth, req: NextRequest) => {
     return response
   }
 
+  // CRITICAL: Skip Clerk auth entirely for Shopify OAuth and webhook routes
+  // These routes MUST be public for Shopify app installation to work
+  if (
+    req.nextUrl.pathname.startsWith('/api/auth/shopify') ||
+    req.nextUrl.pathname.startsWith('/api/webhooks/shopify')
+  ) {
+    return response
+  }
+
   // Allow public routes
   if (isPublicRoute(req)) {
     return response
