@@ -50,8 +50,11 @@ export default function ShopifyLayout({
         <link href="/radiant/webflow.css" rel="stylesheet" type="text/css" />
         <link href="/radiant/radiant-ui.css" rel="stylesheet" type="text/css" />
 
-        {/* Shopify App Bridge - MUST BE FIRST, NO ASYNC/DEFER */}
-        <script src="https://cdn.shopify.com/shopifycloud/app-bridge.js"></script>
+        {/* Shopify App Bridge - MUST BE FIRST, LOADED BEFORE INTERACTIVE */}
+        <Script
+          src="https://cdn.shopify.com/shopifycloud/app-bridge.js"
+          strategy="beforeInteractive"
+        />
 
         {/* Webflow modernizr script - critical for layout */}
         <Script id="webflow-modernizr" strategy="beforeInteractive">
