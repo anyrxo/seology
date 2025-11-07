@@ -9,6 +9,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sanitizeJSON, escapeHTML } from '@/lib/sanitize'
 import { toast, confirmDialog } from '@/lib/toast'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 import {
   Clock,
   GitBranch,
@@ -254,36 +255,38 @@ export default function TimelinePage() {
   }
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Fix History Timeline
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Track all SEO fixes with checkpoints and branching
-            </p>
+    <>
+      <ShopifyNav shop={shop} />
+      <main className="p-8 max-w-7xl mx-auto">
+        {/* Header */}
+        <header className="mb-8" role="banner">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                Fix History Timeline
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                Track all SEO fixes with checkpoints and branching
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={exportTimeline}
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+              >
+                <Download className="w-4 h-4" />
+                Export
+              </button>
+              <button
+                onClick={() => setShowCheckpointModal(true)}
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+              >
+                <Bookmark className="w-4 h-4" />
+                Create Checkpoint
+              </button>
+            </div>
           </div>
-          <div className="flex gap-3">
-            <button
-              onClick={exportTimeline}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
-            >
-              <Download className="w-4 h-4" />
-              Export
-            </button>
-            <button
-              onClick={() => setShowCheckpointModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
-            >
-              <Bookmark className="w-4 h-4" />
-              Create Checkpoint
-            </button>
-          </div>
-        </div>
-      </div>
+        </header>
 
       {/* Filters */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-6">
@@ -671,6 +674,7 @@ export default function TimelinePage() {
           </div>
         </div>
       )}
-    </div>
+      </main>
+    </>
   )
 }

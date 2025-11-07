@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { toast } from '@/lib/toast'
+import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
 
@@ -70,28 +71,30 @@ export default function ShopifySettingsPage() {
   }
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Settings
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Configure how SEOLOGY.AI handles SEO fixes
-            </p>
+    <>
+      <ShopifyNav shop={shop} />
+      <main className="p-8 max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="mb-8" role="banner">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                Settings
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                Configure how SEOLOGY.AI handles SEO fixes
+              </p>
+            </div>
+            <button
+              onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
+              className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+            >
+              ← Back to Dashboard
+            </button>
           </div>
-          <button
-            onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
-            className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-          >
-            ← Back to Dashboard
-          </button>
-        </div>
-      </div>
+        </header>
 
-      {/* Execution Mode Settings */}
+        {/* Execution Mode Settings */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-6">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
           Execution Mode
@@ -237,6 +240,7 @@ export default function ShopifySettingsPage() {
           <li>• Your products are never deleted, only optimized</li>
         </ul>
       </div>
-    </div>
+      </main>
+    </>
   )
 }
