@@ -17,26 +17,41 @@ export default function ShopifyOnboardingPage() {
   const [step, setStep] = useState(1)
   const [selectedMode, setSelectedMode] = useState<ExecutionMode | null>(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [showTooltip, setShowTooltip] = useState<string | null>(null)
 
-  const handleModeSelect = async (mode: ExecutionMode) => {
+  const handleModeSelect = (mode: ExecutionMode) => {
     setSelectedMode(mode)
+    setError(null)
+  }
+
+  const handleContinue = async () => {
+    if (!selectedMode) {
+      setError('Please select an execution mode to continue')
+      return
+    }
+
     setLoading(true)
+    setError(null)
 
     try {
       // Save the selected execution mode
-      const response = await fetch('/api/automation/settings', {
+      const response = await fetch('/api/shopify/settings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ executionMode: mode }),
+        body: JSON.stringify({ executionMode: selectedMode, shop }),
       })
 
-      if (!response.ok) throw new Error('Failed to save settings')
+      if (!response.ok) {
+        const data = await response.json()
+        throw new Error(data.error?.message || 'Failed to save settings')
+      }
 
       // Move to next step
       setStep(2)
     } catch (error) {
       console.error('Error saving execution mode:', error)
-      alert('Failed to save settings. Please try again.')
+      setError(error instanceof Error ? error.message : 'Connection failed. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -114,9 +129,12 @@ export default function ShopifyOnboardingPage() {
               <button
                 onClick={() => handleModeSelect('AUTOMATIC')}
                 disabled={loading}
+                data-mode="AUTOMATIC"
+                data-selected={selectedMode === 'AUTOMATIC'}
+                aria-selected={selectedMode === 'AUTOMATIC'}
                 className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
                   selectedMode === 'AUTOMATIC'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
                     : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
                 } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
               >
@@ -127,10 +145,29 @@ export default function ShopifyOnboardingPage() {
                     </svg>
                   </div>
                   <div className="ml-4 flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                      Automatic
-                      <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Recommended</span>
-                    </h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Automatic
+                      </h3>
+                      <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Recommended</span>
+                      <button
+                        type="button"
+                        data-tooltip="AUTOMATIC"
+                        onMouseEnter={() => setShowTooltip('AUTOMATIC')}
+                        onMouseLeave={() => setShowTooltip(null)}
+                        className="relative ml-auto"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {showTooltip === 'AUTOMATIC' && (
+                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
+                            Automatically applies all fixes without approval
+                          </div>
+                        )}
+                      </button>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       SEOLOGY applies all SEO fixes automatically without approval. Best for hands-off automation.
                     </p>
@@ -142,9 +179,12 @@ export default function ShopifyOnboardingPage() {
               <button
                 onClick={() => handleModeSelect('PLAN')}
                 disabled={loading}
+                data-mode="PLAN"
+                data-selected={selectedMode === 'PLAN'}
+                aria-selected={selectedMode === 'PLAN'}
                 className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
                   selectedMode === 'PLAN'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
                     : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
                 } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
               >
@@ -155,9 +195,28 @@ export default function ShopifyOnboardingPage() {
                     </svg>
                   </div>
                   <div className="ml-4 flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                      Plan Mode
-                    </h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Plan
+                      </h3>
+                      <button
+                        type="button"
+                        data-tooltip="PLAN"
+                        onMouseEnter={() => setShowTooltip('PLAN')}
+                        onMouseLeave={() => setShowTooltip(null)}
+                        className="relative ml-auto"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {showTooltip === 'PLAN' && (
+                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
+                            Creates batch of fixes, review once, apply together
+                          </div>
+                        )}
+                      </button>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       SEOLOGY creates a batch of fixes, you review the plan once, then all fixes apply together.
                     </p>
@@ -169,9 +228,12 @@ export default function ShopifyOnboardingPage() {
               <button
                 onClick={() => handleModeSelect('APPROVE')}
                 disabled={loading}
+                data-mode="APPROVE"
+                data-selected={selectedMode === 'APPROVE'}
+                aria-selected={selectedMode === 'APPROVE'}
                 className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
                   selectedMode === 'APPROVE'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
                     : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
                 } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
               >
@@ -182,9 +244,28 @@ export default function ShopifyOnboardingPage() {
                     </svg>
                   </div>
                   <div className="ml-4 flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                      Manual Approve
-                    </h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Approve
+                      </h3>
+                      <button
+                        type="button"
+                        data-tooltip="APPROVE"
+                        onMouseEnter={() => setShowTooltip('APPROVE')}
+                        onMouseLeave={() => setShowTooltip(null)}
+                        className="relative ml-auto"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {showTooltip === 'APPROVE' && (
+                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
+                            Review and approve each fix individually
+                          </div>
+                        )}
+                      </button>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       Review and approve each SEO fix individually before it's applied. Maximum control.
                     </p>
@@ -193,11 +274,21 @@ export default function ShopifyOnboardingPage() {
               </button>
             </div>
 
-            {loading && (
-              <div className="text-center text-sm text-gray-600 dark:text-gray-300">
-                Saving your preferences...
+            {/* Error Display */}
+            {error && (
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
+
+            {/* Continue Button */}
+            <button
+              onClick={handleContinue}
+              disabled={loading}
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            >
+              {loading ? 'Setting up...' : 'Complete Setup'}
+            </button>
           </div>
         )}
 

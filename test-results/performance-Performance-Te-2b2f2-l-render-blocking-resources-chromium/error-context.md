@@ -1,0 +1,51 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation "Main navigation" [ref=e2]:
+    - generic [ref=e3]:
+      - link "Dashboard home" [ref=e4] [cursor=pointer]:
+        - /url: /shopify/dashboard?shop=test-store.myshopify.com
+        - text: Dashboard
+      - link "Products page" [ref=e5] [cursor=pointer]:
+        - /url: /shopify/products?shop=test-store.myshopify.com
+        - text: Products
+      - link "Analytics page" [ref=e6] [cursor=pointer]:
+        - /url: /shopify/analytics?shop=test-store.myshopify.com
+        - text: Analytics
+      - link "Timeline page" [ref=e7] [cursor=pointer]:
+        - /url: /shopify/timeline?shop=test-store.myshopify.com
+        - text: Timeline
+      - link "AI Agents page" [ref=e8] [cursor=pointer]:
+        - /url: /shopify/agents?shop=test-store.myshopify.com
+        - text: AI Agents
+      - link "Monitor page" [ref=e9] [cursor=pointer]:
+        - /url: /shopify/monitor?shop=test-store.myshopify.com
+        - text: Monitor
+      - link "SEO Reports page" [ref=e10] [cursor=pointer]:
+        - /url: /shopify/reports?shop=test-store.myshopify.com
+        - text: SEO Reports
+      - link "AI Chat page" [ref=e11] [cursor=pointer]:
+        - /url: /shopify/chat?shop=test-store.myshopify.com
+        - text: AI Chat
+      - link "Settings page" [ref=e12] [cursor=pointer]:
+        - /url: /shopify/settings?shop=test-store.myshopify.com
+        - text: Settings
+      - link "Support page" [ref=e13] [cursor=pointer]:
+        - /url: /shopify/support?shop=test-store.myshopify.com
+        - text: Support
+  - main [ref=e14]:
+    - banner [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - heading "Products" [level=1] [ref=e18]
+          - paragraph [ref=e19]: Analyze and optimize your product SEO
+        - button "← Back to Dashboard" [ref=e20] [cursor=pointer]
+      - generic [ref=e22]:
+        - img [ref=e23]
+        - generic [ref=e25]:
+          - heading "Failed to Load Products" [level=3] [ref=e26]
+          - paragraph [ref=e27]: Shop not connected
+          - button "Retry" [ref=e28] [cursor=pointer]
+  - region "Notifications alt+T" [ref=e29]
+```
