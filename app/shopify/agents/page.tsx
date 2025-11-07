@@ -8,7 +8,8 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { AGENT_TEMPLATES } from '@/lib/seo-agent-templates'
-import { toast, confirmDialog } from '@/lib/toast'
+// TODO: Fix toast library compatibility issue and re-enable
+// import { toast, confirmDialog } from '@/lib/toast'
 import {
   Sparkles, FileText, Code, Image, ClipboardCheck,
   Plus, Play, Edit, Trash2, TrendingUp, Clock, DollarSign,
@@ -158,7 +159,7 @@ export default function AgentsPage() {
 
   // Handle agent deletion
   const handleDeleteAgent = async (agentId: string) => {
-    const confirmed = await confirmDialog('Are you sure you want to delete this agent?')
+    const confirmed = window.confirm('Are you sure you want to delete this agent?')
     if (!confirmed) return
 
     try {
@@ -169,13 +170,12 @@ export default function AgentsPage() {
 
       if (data.success) {
         setCustomAgents(prev => prev.filter(a => a.id !== agentId))
-        toast.success('Agent deleted successfully')
+        console.log('[SUCCESS] Agent deleted successfully')
       } else {
-        toast.error(data.error?.message || 'Failed to delete agent')
+        console.error('[ERROR]', data.error?.message || 'Failed to delete agent')
       }
     } catch (error) {
       console.error('Failed to delete agent:', error)
-      toast.error('Failed to delete agent')
     }
   }
 
@@ -550,14 +550,13 @@ function CreateAgentModal({
       const data = await res.json()
 
       if (data.success) {
-        toast.success(editingAgent ? 'Agent updated successfully' : 'Agent created successfully')
+        console.log('[SUCCESS]', editingAgent ? 'Agent updated successfully' : 'Agent created successfully')
         onSuccess(data.data)
       } else {
-        toast.error(data.error?.message || `Failed to ${editingAgent ? 'update' : 'create'} agent`)
+        console.error('[ERROR]', data.error?.message || `Failed to ${editingAgent ? 'update' : 'create'} agent`)
       }
     } catch (error) {
       console.error(`Failed to ${editingAgent ? 'update' : 'create'} agent:`, error)
-      toast.error(`Failed to ${editingAgent ? 'update' : 'create'} agent`)
     } finally {
       setLoading(false)
     }
