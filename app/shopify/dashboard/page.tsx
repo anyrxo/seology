@@ -51,7 +51,20 @@ export default function ShopifyDashboardPage() {
       if (response.ok) {
         const data = await response.json()
         if (data.success) {
-          setStats(data.data)
+          // Map API response to dashboard stats format
+          setStats({
+            productCount: data.data.productCount || 0,
+            issueCount: data.data.issueCount || 0,
+            fixesApplied: data.data.fixesApplied || 0,
+            executionMode: data.data.executionMode || 'PLAN',
+            planName: data.data.planName || 'GROWTH',
+            usageStats: {
+              fixesUsed: data.data.credits?.used || 0,
+              fixesLimit: data.data.credits?.limit || 5000,
+              aiCreditsUsed: 0, // TODO: Add AI credits tracking
+              aiCreditsLimit: 100,
+            },
+          })
           // Mock recent activity for now
           setRecentActivity([
             {
@@ -70,6 +83,8 @@ export default function ShopifyDashboardPage() {
             },
           ])
         }
+      } else {
+        console.error('Failed to fetch context:', await response.text())
       }
     } catch (error) {
       console.error('Error fetching dashboard data:', error)

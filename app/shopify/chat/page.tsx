@@ -8,6 +8,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 
 interface Message {
   id: string
@@ -26,6 +27,8 @@ interface StoreContext {
   executionMode: 'AUTOMATIC' | 'PLAN' | 'APPROVE'
   productCount: number
   issueCount: number
+  fixesApplied: number
+  pendingFixes: number
   planName: string
 }
 
@@ -47,6 +50,7 @@ export default function ShopifyChatPage() {
   const [loading, setLoading] = useState(false)
   const [credits, setCredits] = useState<CreditInfo | null>(null)
   const [storeContext, setStoreContext] = useState<StoreContext | null>(null)
+  const [showModeModal, setShowModeModal] = useState(false)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -121,20 +125,49 @@ export default function ShopifyChatPage() {
           setCredits(data.data.credits)
         }
       } else {
+        // Enhanced error message display
+        let errorContent = `❌ **${data.error?.message || 'An error occurred'}**`
+
+        if (data.error?.details) {
+          errorContent += `\n\n${data.error.details}`
+        }
+
+        if (data.error?.action) {
+          errorContent += `\n\n**What to do:**\n${data.error.action}`
+        }
+
+        if (data.error?.link) {
+          errorContent += `\n\n[Take Action →](${data.error.link})`
+        }
+
+        if (data.error?.errorId) {
+          errorContent += `\n\n*Error ID: ${data.error.errorId}*`
+        }
+
         const errorMessage: Message = {
           id: (Date.now() + 1).toString(),
           role: 'system',
-          content: `Error: ${data.error?.message || 'Failed to send message'}`,
+          content: errorContent,
           timestamp: new Date(),
         }
         setMessages((prev) => [...prev, errorMessage])
       }
     } catch (error) {
       console.error('Error sending message:', error)
+
+      // Network error - provide helpful guidance
+      let errorContent = '❌ **Network Error**\n\n'
+      errorContent += 'Could not connect to SEOLOGY servers.\n\n'
+      errorContent += '**What to do:**\n'
+      errorContent += '1. Check your internet connection\n'
+      errorContent += '2. Refresh the page and try again\n'
+      errorContent += '3. If the problem persists, our servers may be experiencing issues\n\n'
+      errorContent += `*Error Time: ${new Date().toLocaleTimeString()}*`
+
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'system',
-        content: 'Failed to send message. Please try again.',
+        content: errorContent,
         timestamp: new Date(),
       }
       setMessages((prev) => [...prev, errorMessage])
@@ -150,6 +183,71 @@ export default function ShopifyChatPage() {
     }
   }
 
+  const changeExecutionMode = async (mode: 'AUTOMATIC' | 'PLAN' | 'APPROVE') => {
+    try {
+      const response = await fetch('/api/shopify/execution-mode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ shop, executionMode: mode }),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        if (data.success) {
+          // Update local state immediately
+          setStoreContext((prev) => prev ? { ...prev, executionMode: mode } : null)
+          setShowModeModal(false)
+
+          // Add system message with explanation
+          const modeDescriptions = {
+            AUTOMATIC: 'Fixes will now be applied automatically without approval.',
+            PLAN: 'Fixes will now be grouped into plans that require batch approval.',
+            APPROVE: 'Each fix will now require individual approval before being applied.',
+          }
+
+          const systemMessage: Message = {
+            id: Date.now().toString(),
+            role: 'system',
+            content: `✅ Execution mode changed to **${mode}**\n\n${modeDescriptions[mode]}`,
+            timestamp: new Date(),
+          }
+          setMessages((prev) => [...prev, systemMessage])
+
+          // Refresh store context to ensure consistency
+          fetchStoreContext()
+        } else {
+          // API returned error
+          const errorData = await response.json()
+          const errorMessage: Message = {
+            id: Date.now().toString(),
+            role: 'system',
+            content: `❌ Failed to change execution mode: ${errorData.error?.message || 'Unknown error'}`,
+            timestamp: new Date(),
+          }
+          setMessages((prev) => [...prev, errorMessage])
+        }
+      } else {
+        // HTTP error
+        const errorMessage: Message = {
+          id: Date.now().toString(),
+          role: 'system',
+          content: `❌ Failed to change execution mode. Please try again.`,
+          timestamp: new Date(),
+        }
+        setMessages((prev) => [...prev, errorMessage])
+      }
+    } catch (error) {
+      console.error('Error changing execution mode:', error)
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        role: 'system',
+        content: `❌ Network error while changing execution mode. Please check your connection and try again.`,
+        timestamp: new Date(),
+      }
+      setMessages((prev) => [...prev, errorMessage])
+    }
+  }
+
   if (!shop) {
     return (
       <div className="flex items-center justify-center h-screen bg-[#191A1B]">
@@ -160,8 +258,11 @@ export default function ShopifyChatPage() {
 
   return (
     <div className="h-screen bg-[#191A1B] flex">
+      {/* Navigation Sidebar */}
+      <ShopifyAppNav />
+
       {/* LEFT PANEL - Store Context */}
-      <div className="w-1/2 border-r border-gray-700 flex flex-col">
+      <div className="w-3/4 border-r border-gray-700 flex flex-col">
         {/* Header */}
         <div className="bg-[#262A2B] border-b border-gray-700 p-6">
           <div className="flex items-center justify-between">
@@ -183,15 +284,23 @@ export default function ShopifyChatPage() {
           {/* Execution Mode */}
           <div className="mb-6">
             <h3 className="text-gray-400 text-xs uppercase tracking-wide mb-3">Execution Mode</h3>
-            <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <div className={`w-2 h-2 rounded-full ${
-                  storeContext?.executionMode === 'AUTOMATIC' ? 'bg-green-500' :
-                  storeContext?.executionMode === 'PLAN' ? 'bg-blue-500' : 'bg-yellow-500'
-                }`} />
-                <span className="text-white font-medium">
-                  {storeContext?.executionMode || 'PLAN'}
-                </span>
+            <button
+              onClick={() => setShowModeModal(true)}
+              className="w-full bg-[#262A2B] border border-gray-700 hover:border-blue-500 rounded-lg p-4 text-left transition-all"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <div className={`w-2 h-2 rounded-full ${
+                    storeContext?.executionMode === 'AUTOMATIC' ? 'bg-green-500' :
+                    storeContext?.executionMode === 'PLAN' ? 'bg-blue-500' : 'bg-yellow-500'
+                  }`} />
+                  <span className="text-white font-medium">
+                    {storeContext?.executionMode || 'PLAN'}
+                  </span>
+                </div>
+                <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
               <p className="text-gray-400 text-sm">
                 {storeContext?.executionMode === 'AUTOMATIC' && 'Fixes applied automatically'}
@@ -199,7 +308,7 @@ export default function ShopifyChatPage() {
                 {storeContext?.executionMode === 'APPROVE' && 'Individual approval required'}
                 {!storeContext?.executionMode && 'Loading...'}
               </p>
-            </div>
+            </button>
           </div>
 
           {/* Store Metrics */}
@@ -217,6 +326,27 @@ export default function ShopifyChatPage() {
                 {storeContext?.issueCount || 0}
               </div>
             </div>
+
+            <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-4">
+              <div className="text-gray-400 text-xs uppercase tracking-wide mb-1">Fixes Applied</div>
+              <div className="text-white text-2xl font-semibold">
+                {storeContext?.fixesApplied || 0}
+              </div>
+            </div>
+
+            {storeContext?.pendingFixes ? (
+              <div className="bg-[#262A2B] border border-yellow-700 rounded-lg p-4">
+                <div className="text-yellow-400 text-xs uppercase tracking-wide mb-1">Pending Fixes</div>
+                <div className="text-white text-2xl font-semibold">
+                  {storeContext.pendingFixes}
+                </div>
+              </div>
+            ) : (
+              <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-4">
+                <div className="text-gray-400 text-xs uppercase tracking-wide mb-1">Pending Fixes</div>
+                <div className="text-white text-2xl font-semibold">0</div>
+              </div>
+            )}
           </div>
 
           {/* Usage Stats */}
@@ -241,42 +371,6 @@ export default function ShopifyChatPage() {
             </div>
           )}
 
-          {/* Quick Actions */}
-          <div className="mb-6">
-            <h3 className="text-gray-400 text-xs uppercase tracking-wide mb-3">Quick Actions</h3>
-            <div className="space-y-2">
-              <button
-                onClick={() => setInput('Analyze my products')}
-                className="w-full bg-[#262A2B] border border-gray-700 hover:border-blue-500 text-white text-sm rounded-lg p-3 text-left transition-all"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-blue-500">🔍</span>
-                  <span>Analyze Products</span>
-                </div>
-              </button>
-
-              <button
-                onClick={() => setInput('Fix my store')}
-                className="w-full bg-[#262A2B] border border-gray-700 hover:border-green-500 text-white text-sm rounded-lg p-3 text-left transition-all"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-green-500">🔧</span>
-                  <span>Fix Store Issues</span>
-                </div>
-              </button>
-
-              <button
-                onClick={() => setInput('Audit my content')}
-                className="w-full bg-[#262A2B] border border-gray-700 hover:border-purple-500 text-white text-sm rounded-lg p-3 text-left transition-all"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-purple-500">📄</span>
-                  <span>Audit Content</span>
-                </div>
-              </button>
-            </div>
-          </div>
-
           {/* Plan Info */}
           <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-4">
             <div className="text-gray-400 text-xs uppercase tracking-wide mb-2">Current Plan</div>
@@ -286,7 +380,7 @@ export default function ShopifyChatPage() {
       </div>
 
       {/* RIGHT PANEL - Chat */}
-      <div className="w-1/2 flex flex-col">
+      <div className="w-1/4 flex flex-col">
         {/* Chat Header */}
         <div className="bg-[#262A2B] border-b border-gray-700 p-6">
           <div className="flex items-center gap-3">
@@ -349,7 +443,7 @@ export default function ShopifyChatPage() {
 
         {/* Input */}
         <div className="bg-[#262A2B] border-t border-gray-700 p-4">
-          <div className="flex gap-3">
+          <div className="flex gap-3 mb-3">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -367,8 +461,107 @@ export default function ShopifyChatPage() {
               {loading ? 'Sending...' : 'Send'}
             </button>
           </div>
+
+          {/* Quick Actions */}
+          <div className="space-y-2">
+            <button
+              onClick={() => setInput('Analyze my products')}
+              className="w-full bg-[#191A1B] border border-gray-700 hover:border-blue-500 text-white text-xs rounded-lg p-2 text-left transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">🔍</span>
+                <span>Analyze Products</span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setInput('Fix my store')}
+              className="w-full bg-[#191A1B] border border-gray-700 hover:border-green-500 text-white text-xs rounded-lg p-2 text-left transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">🔧</span>
+                <span>Fix Store Issues</span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setInput('Audit my content')}
+              className="w-full bg-[#191A1B] border border-gray-700 hover:border-purple-500 text-white text-xs rounded-lg p-2 text-left transition-all"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-purple-500">📄</span>
+                <span>Audit Content</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Execution Mode Modal */}
+      {showModeModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-6 w-[500px] max-w-[90%]">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-white font-semibold text-lg">Change Execution Mode</h3>
+              <button
+                onClick={() => setShowModeModal(false)}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              <button
+                onClick={() => changeExecutionMode('AUTOMATIC')}
+                className={`w-full p-4 rounded-lg border transition-all text-left ${
+                  storeContext?.executionMode === 'AUTOMATIC'
+                    ? 'border-green-500 bg-green-500/10'
+                    : 'border-gray-700 hover:border-green-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-white font-medium">AUTOMATIC</span>
+                </div>
+                <p className="text-gray-400 text-sm">Fixes applied automatically without approval</p>
+              </button>
+
+              <button
+                onClick={() => changeExecutionMode('PLAN')}
+                className={`w-full p-4 rounded-lg border transition-all text-left ${
+                  storeContext?.executionMode === 'PLAN'
+                    ? 'border-blue-500 bg-blue-500/10'
+                    : 'border-gray-700 hover:border-blue-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-blue-500" />
+                  <span className="text-white font-medium">PLAN</span>
+                </div>
+                <p className="text-gray-400 text-sm">Batch approval required - review all fixes together</p>
+              </button>
+
+              <button
+                onClick={() => changeExecutionMode('APPROVE')}
+                className={`w-full p-4 rounded-lg border transition-all text-left ${
+                  storeContext?.executionMode === 'APPROVE'
+                    ? 'border-yellow-500 bg-yellow-500/10'
+                    : 'border-gray-700 hover:border-yellow-500/50'
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-yellow-500" />
+                  <span className="text-white font-medium">APPROVE</span>
+                </div>
+                <p className="text-gray-400 text-sm">Individual approval required for each fix</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

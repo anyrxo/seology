@@ -457,7 +457,7 @@ export const ShopifyChat = memo(() => {
             </h3>
             <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              Online • Claude AI
+              Online • SEOLOGY AI
               {credits && <CreditDisplay credits={credits} />}
             </p>
           </div>

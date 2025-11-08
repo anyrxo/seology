@@ -1,6 +1,6 @@
 /**
  * Shopify Timeline Page - Fix History Timeline with Checkpoints
- * Opcode (Claudia) integration for SEOLOGY.AI
+ * Atlas dark theme UI (#191A1B, #262A2B)
  */
 
 'use client'
@@ -9,7 +9,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sanitizeJSON, escapeHTML } from '@/lib/sanitize'
 import { toast, confirmDialog } from '@/lib/toast'
-import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 import {
   Clock,
   GitBranch,
@@ -248,38 +248,38 @@ export default function TimelinePage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen bg-[#191A1B]">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     )
   }
 
   return (
-    <>
-      <ShopifyNav shop={shop} />
-      <main className="p-8 max-w-7xl mx-auto">
+    <div className="flex h-screen bg-[#191A1B]">
+      <ShopifyAppNav />
+      <main className="flex-1 overflow-y-auto p-8">
         {/* Header */}
         <header className="mb-8" role="banner">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-3xl font-bold text-white mb-2">
                 Fix History Timeline
               </h1>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-400">
                 Track all SEO fixes with checkpoints and branching
               </p>
             </div>
             <div className="flex gap-3">
               <button
                 onClick={exportTimeline}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#262A2B] border border-gray-700 rounded-lg hover:border-blue-500 transition-all"
               >
                 <Download className="w-4 h-4" />
                 Export
               </button>
               <button
                 onClick={() => setShowCheckpointModal(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
               >
                 <Bookmark className="w-4 h-4" />
                 Create Checkpoint
@@ -289,7 +289,7 @@ export default function TimelinePage() {
         </header>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-6">
+      <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-6 mb-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -298,14 +298,14 @@ export default function TimelinePage() {
               placeholder="Search fixes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              className="w-full pl-10 pr-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
 
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
           >
             <option value="all">All Types</option>
             <option value="title">Title Fixes</option>
@@ -318,7 +318,7 @@ export default function TimelinePage() {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
           >
             <option value="all">All Status</option>
             <option value="APPLIED">Applied</option>
@@ -330,7 +330,7 @@ export default function TimelinePage() {
           <select
             value={groupBy}
             onChange={(e) => setGroupBy(e.target.value as 'day' | 'week' | 'month')}
-            className="px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+            className="px-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
           >
             <option value="day">Group by Day</option>
             <option value="week">Group by Week</option>
@@ -340,10 +340,10 @@ export default function TimelinePage() {
       </div>
 
       {/* Timeline */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+      <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-6">
         <div className="relative">
           {/* Vertical timeline line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-700"></div>
 
           <div className="space-y-6">
             {/* Checkpoints and Fixes */}
@@ -359,58 +359,58 @@ export default function TimelinePage() {
                 <div key={checkpoint.id}>
                   {/* Checkpoint */}
                   <div className="relative flex items-start gap-4 mb-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center z-10">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center z-10 shadow-lg">
                       <Bookmark className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex-1 bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border-2 border-purple-200 dark:border-purple-800">
+                    <div className="flex-1 bg-purple-900/20 rounded-lg p-4 border-2 border-purple-700 backdrop-blur-sm">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                            <h3 className="text-lg font-semibold text-white">
                               {checkpoint.name}
                             </h3>
-                            <span className="text-xs text-purple-600 dark:text-purple-400 font-medium">
+                            <span className="text-xs text-purple-400 font-medium">
                               {checkpoint.type.replace(/_/g, ' ')}
                             </span>
                             {checkpoint.branchName && (
-                              <span className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded dark:bg-blue-900/20 dark:text-blue-400">
+                              <span className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-blue-900/40 text-blue-300 rounded border border-blue-700">
                                 <GitBranch className="w-3 h-3" />
                                 {checkpoint.branchName}
                               </span>
                             )}
                           </div>
                           {checkpoint.description && (
-                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <p className="text-sm text-gray-400 mb-3">
                               {checkpoint.description}
                             </p>
                           )}
                           <div className="grid grid-cols-4 gap-4 text-sm">
                             <div>
-                              <span className="text-gray-500 dark:text-gray-400">Products:</span>
-                              <span className="ml-2 font-medium text-gray-900 dark:text-white">
+                              <span className="text-gray-400">Products:</span>
+                              <span className="ml-2 font-medium text-white">
                                 {checkpoint.totalProducts}
                               </span>
                             </div>
                             <div>
-                              <span className="text-gray-500 dark:text-gray-400">Issues:</span>
-                              <span className="ml-2 font-medium text-gray-900 dark:text-white">
+                              <span className="text-gray-400">Issues:</span>
+                              <span className="ml-2 font-medium text-white">
                                 {checkpoint.totalIssues}
                               </span>
                             </div>
                             <div>
-                              <span className="text-gray-500 dark:text-gray-400">Fixes:</span>
-                              <span className="ml-2 font-medium text-gray-900 dark:text-white">
+                              <span className="text-gray-400">Fixes:</span>
+                              <span className="ml-2 font-medium text-white">
                                 {checkpoint.totalFixes}
                               </span>
                             </div>
                             <div>
-                              <span className="text-gray-500 dark:text-gray-400">Avg Score:</span>
-                              <span className="ml-2 font-medium text-gray-900 dark:text-white">
+                              <span className="text-gray-400">Avg Score:</span>
+                              <span className="ml-2 font-medium text-white">
                                 {checkpoint.avgSeoScore || 0}%
                               </span>
                             </div>
                           </div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                          <div className="text-xs text-gray-400 mt-2">
                             {new Date(checkpoint.createdAt).toLocaleString()}
                           </div>
                         </div>
@@ -418,14 +418,14 @@ export default function TimelinePage() {
                           {checkpoint.canRollback && (
                             <button
                               onClick={() => restoreCheckpoint(checkpoint.id)}
-                              className="px-3 py-1 text-sm text-purple-700 bg-purple-100 rounded hover:bg-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:hover:bg-purple-900/50"
+                              className="px-3 py-1 text-sm text-purple-300 bg-purple-900/40 rounded hover:bg-purple-900/60 border border-purple-700 transition-all"
                             >
                               Restore
                             </button>
                           )}
                           <button
                             onClick={() => branchFromCheckpoint(checkpoint.id)}
-                            className="px-3 py-1 text-sm text-blue-700 bg-blue-100 rounded hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50"
+                            className="px-3 py-1 text-sm text-blue-300 bg-blue-900/40 rounded hover:bg-blue-900/60 border border-blue-700 transition-all"
                           >
                             Branch
                           </button>
@@ -441,17 +441,17 @@ export default function TimelinePage() {
                         <div
                           key={fix.id}
                           onClick={() => setSelectedFix(fix)}
-                          className="relative flex items-start gap-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg p-3 transition-colors"
+                          className="relative flex items-start gap-4 cursor-pointer hover:bg-[#191A1B] rounded-lg p-3 transition-colors border border-transparent hover:border-gray-700"
                         >
                           <div className={`flex-shrink-0 w-3 h-3 ${getFixTypeColor(fix.type)} rounded-full mt-1.5`}></div>
                           <div className="flex-1">
                             <div className="flex items-start justify-between mb-1">
                               <div className="flex-1">
-                                <h4 className="text-sm font-medium text-gray-900 dark:text-white">
+                                <h4 className="text-sm font-medium text-white">
                                   {fix.description}
                                 </h4>
                                 {fix.issue && (
-                                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                  <p className="text-xs text-gray-400 mt-1">
                                     {fix.issue.title}
                                   </p>
                                 )}
@@ -461,7 +461,7 @@ export default function TimelinePage() {
                                 {getStatusBadge(fix.status)}
                               </div>
                             </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                            <div className="text-xs text-gray-400">
                               {fix.appliedAt ? new Date(fix.appliedAt).toLocaleString() : 'Not applied'}
                             </div>
                           </div>
@@ -485,19 +485,19 @@ export default function TimelinePage() {
               <div
                 key={fix.id}
                 onClick={() => setSelectedFix(fix)}
-                className="relative flex items-start gap-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg p-3 transition-colors"
+                className="relative flex items-start gap-4 cursor-pointer hover:bg-[#191A1B] rounded-lg p-3 transition-colors border border-transparent hover:border-gray-700"
               >
-                <div className={`flex-shrink-0 w-10 h-10 ${getFixTypeColor(fix.type)} rounded-full flex items-center justify-center z-10`}>
+                <div className={`flex-shrink-0 w-10 h-10 ${getFixTypeColor(fix.type)} rounded-full flex items-center justify-center z-10 shadow-lg`}>
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-1">
                     <div className="flex-1">
-                      <h4 className="text-sm font-medium text-gray-900 dark:text-white">
+                      <h4 className="text-sm font-medium text-white">
                         {fix.description}
                       </h4>
                       {fix.issue && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        <p className="text-xs text-gray-400 mt-1">
                           {fix.issue.title}
                         </p>
                       )}
@@ -507,7 +507,7 @@ export default function TimelinePage() {
                       {getStatusBadge(fix.status)}
                     </div>
                   </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                  <div className="text-xs text-gray-400">
                     {fix.appliedAt ? new Date(fix.appliedAt).toLocaleString() : 'Not applied'}
                   </div>
                 </div>
@@ -517,8 +517,8 @@ export default function TimelinePage() {
 
           {filteredFixes.length === 0 && (
             <div className="text-center py-12">
-              <Clock className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 dark:text-gray-400">
+              <Clock className="w-12 h-12 text-gray-600 mx-auto mb-4" />
+              <p className="text-gray-400">
                 No fixes found. Start analyzing products to see your timeline!
               </p>
             </div>
@@ -528,14 +528,14 @@ export default function TimelinePage() {
 
       {/* Checkpoint Modal */}
       {showCheckpointModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4">
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-[#262A2B] border border-gray-700 rounded-lg p-6 max-w-md w-full mx-4 shadow-2xl">
+            <h2 className="text-xl font-bold text-white mb-4">
               Create Checkpoint
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Checkpoint Name
                 </label>
                 <input
@@ -543,11 +543,11 @@ export default function TimelinePage() {
                   value={checkpointName}
                   onChange={(e) => setCheckpointName(e.target.value)}
                   placeholder="e.g., Before holiday season changes"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full px-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Description (Optional)
                 </label>
                 <textarea
@@ -555,7 +555,7 @@ export default function TimelinePage() {
                   onChange={(e) => setCheckpointDescription(e.target.value)}
                   placeholder="Add notes about this checkpoint..."
                   rows={3}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className="w-full px-4 py-2 bg-[#191A1B] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
                 />
               </div>
             </div>
@@ -566,14 +566,14 @@ export default function TimelinePage() {
                   setCheckpointName('')
                   setCheckpointDescription('')
                 }}
-                className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-[#191A1B] border border-gray-700 rounded-lg hover:border-gray-600 transition-all"
               >
                 Cancel
               </button>
               <button
                 onClick={createCheckpoint}
                 disabled={!checkpointName}
-                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 Create
               </button>
@@ -584,24 +584,24 @@ export default function TimelinePage() {
 
       {/* Diff Viewer Modal */}
       {selectedFix && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-[#262A2B] border border-gray-700 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="sticky top-0 bg-[#262A2B] border-b border-gray-700 p-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h2 className="text-xl font-bold text-white mb-2">
                     {selectedFix.description}
                   </h2>
                   <div className="flex items-center gap-3">
                     {getStatusBadge(selectedFix.status)}
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                    <span className="text-sm text-gray-400">
                       {selectedFix.appliedAt ? new Date(selectedFix.appliedAt).toLocaleString() : 'Not applied'}
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedFix(null)}
-                  className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  className="text-gray-400 hover:text-white transition-colors"
                 >
                   <XCircle className="w-6 h-6" />
                 </button>
@@ -611,21 +611,21 @@ export default function TimelinePage() {
             <div className="p-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <h3 className="text-sm font-semibold text-gray-300 mb-3">
                     Before
                   </h3>
-                  <div className="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-lg p-4">
-                    <pre className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-words">
+                  <div className="bg-red-900/20 border border-red-800 rounded-lg p-4">
+                    <pre className="text-sm text-gray-100 whitespace-pre-wrap break-words font-mono">
                       {sanitizeJSON(selectedFix.beforeState)}
                     </pre>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  <h3 className="text-sm font-semibold text-gray-300 mb-3">
                     After
                   </h3>
-                  <div className="bg-green-50 dark:bg-green-900/10 border border-green-200 dark:border-green-800 rounded-lg p-4">
-                    <pre className="text-sm text-gray-900 dark:text-gray-100 whitespace-pre-wrap break-words">
+                  <div className="bg-green-900/20 border border-green-800 rounded-lg p-4">
+                    <pre className="text-sm text-gray-100 whitespace-pre-wrap break-words font-mono">
                       {sanitizeJSON(selectedFix.afterState)}
                     </pre>
                   </div>
@@ -633,7 +633,7 @@ export default function TimelinePage() {
               </div>
 
               {selectedFix.status === 'APPLIED' && (
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-6 pt-6 border-t border-gray-700">
                   <button
                     onClick={async () => {
                       const confirmed = await confirmDialog('Are you sure you want to rollback this fix?')
@@ -663,7 +663,7 @@ export default function TimelinePage() {
                       }
                     }}
                     disabled={isRollingBack}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   >
                     <RotateCcw className="w-4 h-4" />
                     {isRollingBack ? 'Rolling back...' : 'Rollback This Fix'}
@@ -675,6 +675,6 @@ export default function TimelinePage() {
         </div>
       )}
       </main>
-    </>
+    </div>
   )
 }

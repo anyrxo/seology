@@ -61,6 +61,22 @@ export async function GET(req: NextRequest) {
       },
     })
 
+    // Get fixes applied count
+    const fixesApplied = await db.fix.count({
+      where: {
+        connectionId: connection.id,
+        status: 'APPLIED',
+      },
+    })
+
+    // Get pending fixes count
+    const pendingFixes = await db.fix.count({
+      where: {
+        connectionId: connection.id,
+        status: 'PENDING',
+      },
+    })
+
     // Get credit info
     const credits = await getRemainingCredits(connection.userId)
 
@@ -70,6 +86,8 @@ export async function GET(req: NextRequest) {
         executionMode: connection.user.executionMode,
         productCount,
         issueCount,
+        fixesApplied,
+        pendingFixes,
         planName: connection.user.plan,
         credits,
       },

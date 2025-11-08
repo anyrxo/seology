@@ -58,7 +58,7 @@ const scanStages: ScanStage[] = [
     id: 'ai-analysis',
     icon: Zap,
     title: 'Running AI analysis',
-    description: 'Claude AI is identifying SEO opportunities...',
+    description: 'AI is identifying SEO opportunities...',
     progress: 75,
     duration: 3000,
     color: 'text-yellow-400',

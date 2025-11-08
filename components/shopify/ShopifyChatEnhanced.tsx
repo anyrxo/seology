@@ -491,7 +491,7 @@ export function ShopifyChatEnhanced() {
               </h3>
               <p className="text-xs text-neutral-400 flex items-center gap-1">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                Online • Claude 3.5
+                Online • SEOLOGY AI
                 {credits && (
                   <>
                     <span className="mx-1">•</span>

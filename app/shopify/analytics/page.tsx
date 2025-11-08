@@ -35,7 +35,7 @@ import {
   CheckCircle,
   Settings,
 } from 'lucide-react'
-import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 
 interface OverviewData {
   totalCalls: number
@@ -214,7 +214,7 @@ export default function ShopifyAnalyticsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="min-h-screen bg-[#191A1B] flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     )
@@ -224,28 +224,28 @@ export default function ShopifyAnalyticsPage() {
   const chartData = [...usageData.historical, ...usageData.forecast]
 
   return (
-    <>
-      <ShopifyNav shop={shop} />
-      <main className="p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#191A1B] flex">
+      <ShopifyAppNav />
+      <main className="flex-1 p-8">
         {/* Header */}
         <header className="flex items-center justify-between mb-8" role="banner">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Usage Analytics</h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Track your Claude AI API usage and costs
+            <h1 className="text-3xl font-bold text-white mb-2">Usage Analytics</h1>
+            <p className="text-gray-400">
+              Track your AI API usage and costs
             </p>
           </div>
           <div className="flex gap-2">
             <button
               onClick={() => handleExport('csv')}
-              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#262A2B] border border-white/5 rounded-lg hover:border-white/10 transition-colors text-white"
             >
               <Download className="w-4 h-4" />
               Export CSV
             </button>
             <button
               onClick={() => handleExport('pdf')}
-              className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:opacity-90 transition-opacity text-white"
             >
               <Download className="w-4 h-4" />
               Print Report
@@ -256,54 +256,54 @@ export default function ShopifyAnalyticsPage() {
       {/* Overview Cards */}
       {overview && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Total API Calls</p>
+              <p className="text-sm text-gray-400">Total API Calls</p>
               <Activity className="w-5 h-5 text-blue-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white">
               {overview.totalCalls.toLocaleString()}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Total Cost</p>
+              <p className="text-sm text-gray-400">Total Cost</p>
               <DollarSign className="w-5 h-5 text-green-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white">
               ${overview.totalCost.toFixed(2)}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Total Tokens</p>
+              <p className="text-sm text-gray-400">Total Tokens</p>
               <Zap className="w-5 h-5 text-purple-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white">
               {overview.totalTokens.toLocaleString()}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Avg Cost/Call</p>
+              <p className="text-sm text-gray-400">Avg Cost/Call</p>
               <TrendingUp className="w-5 h-5 text-orange-600" />
             </div>
-            <p className="text-2xl font-bold text-gray-900 dark:text-white">
+            <p className="text-2xl font-bold text-white">
               ${overview.avgCostPerCall.toFixed(4)}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-gray-600 dark:text-gray-400">Budget</p>
-              <Settings className="w-5 h-5 text-gray-600" />
+              <p className="text-sm text-gray-400">Budget</p>
+              <Settings className="w-5 h-5 text-gray-400" />
             </div>
             {overview.budget ? (
               <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                <p className="text-2xl font-bold text-white">
                   ${overview.budget.remaining.toFixed(2)}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
@@ -327,8 +327,8 @@ export default function ShopifyAnalyticsPage() {
         <div
           className={`mb-6 p-4 rounded-lg flex items-start gap-3 ${
             overview.budget.percentUsed >= 100
-              ? 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
-              : 'bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800'
+              ? 'bg-red-900/20 border border-red-800'
+              : 'bg-yellow-900/20 border border-yellow-800'
           }`}
         >
           <AlertCircle
@@ -337,10 +337,10 @@ export default function ShopifyAnalyticsPage() {
             }`}
           />
           <div>
-            <p className="font-medium text-gray-900 dark:text-white">
+            <p className="font-medium text-white">
               {overview.budget.percentUsed >= 100 ? 'Budget Exceeded' : 'Budget Warning'}
             </p>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-400 mt-1">
               You've used {overview.budget.percentUsed.toFixed(1)}% of your monthly budget ($
               {overview.budget.spent.toFixed(2)} / ${overview.budget.limit})
             </p>
@@ -349,20 +349,20 @@ export default function ShopifyAnalyticsPage() {
       )}
 
       {/* Usage Over Time Chart */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
+      <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 mb-8 hover:border-white/10 transition-colors">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Usage Over Time</h2>
+          <h2 className="text-xl font-semibold text-white">Usage Over Time</h2>
           <div className="flex gap-2">
             {/* Date Range Selector */}
-            <div className="flex gap-1 bg-gray-100 dark:bg-gray-900 rounded-lg p-1">
+            <div className="flex gap-1 bg-[#191A1B] rounded-lg p-1">
               {(['7d', '30d', '90d', 'all'] as const).map((range) => (
                 <button
                   key={range}
                   onClick={() => setDateRange(range)}
                   className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                     dateRange === range
-                      ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                      ? 'bg-[#262A2B] text-white shadow'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   {range === 'all' ? 'All' : range.toUpperCase()}
@@ -371,15 +371,15 @@ export default function ShopifyAnalyticsPage() {
             </div>
 
             {/* Metric Selector */}
-            <div className="flex gap-1 bg-gray-100 dark:bg-gray-900 rounded-lg p-1">
+            <div className="flex gap-1 bg-[#191A1B] rounded-lg p-1">
               {(['calls', 'cost', 'tokens'] as const).map((m) => (
                 <button
                   key={m}
                   onClick={() => setMetric(m)}
                   className={`px-3 py-1 rounded text-sm font-medium capitalize transition-colors ${
                     metric === m
-                      ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                      ? 'bg-[#262A2B] text-white shadow'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   {m}
@@ -444,7 +444,7 @@ export default function ShopifyAnalyticsPage() {
           </AreaChart>
         </ResponsiveContainer>
 
-        <div className="flex items-center gap-2 mt-4 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex items-center gap-2 mt-4 text-sm text-gray-400">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-blue-500 rounded"></div>
             <span>Historical</span>
@@ -458,8 +458,8 @@ export default function ShopifyAnalyticsPage() {
 
       {/* Breakdown by Endpoint */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
+          <h2 className="text-xl font-semibold text-white mb-6">
             Cost by Endpoint
           </h2>
           <ResponsiveContainer width="100%" height={250}>
@@ -497,19 +497,19 @@ export default function ShopifyAnalyticsPage() {
             {endpointData.map((endpoint, index) => (
               <div
                 key={endpoint.endpoint}
-                className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-900 rounded-lg"
+                className="flex items-center justify-between p-3 bg-[#191A1B] rounded-lg"
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: COLORS[index % COLORS.length] }}
                   ></div>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="font-medium text-white">
                     {endpoint.endpoint}
                   </span>
                 </div>
                 <div className="text-right text-sm">
-                  <p className="font-semibold text-gray-900 dark:text-white">
+                  <p className="font-semibold text-white">
                     ${endpoint.cost.toFixed(2)}
                   </p>
                   <p className="text-gray-500">
@@ -522,8 +522,8 @@ export default function ShopifyAnalyticsPage() {
         </div>
 
         {/* Model Usage */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 hover:border-white/10 transition-colors">
+          <h2 className="text-xl font-semibold text-white mb-6">
             Usage by Model
           </h2>
           <ResponsiveContainer width="100%" height={250}>
@@ -562,25 +562,25 @@ export default function ShopifyAnalyticsPage() {
           <div className="mt-6 space-y-2">
             {modelData.map((model, index) => {
               const modelName = model.model.includes('sonnet')
-                ? 'Claude 3.5 Sonnet'
+                ? 'SEOLOGY AI Pro'
                 : model.model.includes('opus')
-                ? 'Claude 3 Opus'
-                : 'Claude 3 Haiku'
+                ? 'SEOLOGY AI Advanced'
+                : 'SEOLOGY AI Standard'
 
               return (
                 <div
                   key={model.model}
-                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-900 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-[#191A1B] rounded-lg"
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-3 h-3 rounded-full"
                       style={{ backgroundColor: COLORS[index % COLORS.length] }}
                     ></div>
-                    <span className="font-medium text-gray-900 dark:text-white">{modelName}</span>
+                    <span className="font-medium text-white">{modelName}</span>
                   </div>
                   <div className="text-right text-sm">
-                    <p className="font-semibold text-gray-900 dark:text-white">
+                    <p className="font-semibold text-white">
                       ${model.cost.toFixed(2)}
                     </p>
                     <p className="text-gray-500">
@@ -596,8 +596,8 @@ export default function ShopifyAnalyticsPage() {
 
       {/* Cost by Product */}
       {productData.length > 0 && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+        <div className="bg-[#262A2B] border border-white/5 rounded-lg p-6 mb-8 hover:border-white/10 transition-colors">
+          <h2 className="text-xl font-semibold text-white mb-6">
             Top Products by API Cost
           </h2>
           <ResponsiveContainer width="100%" height={300}>
@@ -630,11 +630,11 @@ export default function ShopifyAnalyticsPage() {
       {/* Budget Modal */}
       {showBudgetModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          <div className="bg-[#262A2B] border border-white/5 rounded-lg shadow-xl p-6 w-full max-w-md">
+            <h3 className="text-xl font-semibold text-white mb-4">
               Set Monthly Budget
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Get notified when you reach 50%, 75%, 90%, and 100% of your budget.
             </p>
             <input
@@ -644,18 +644,18 @@ export default function ShopifyAnalyticsPage() {
               value={budgetAmount}
               onChange={(e) => setBudgetAmount(e.target.value)}
               placeholder="Enter amount in USD"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white mb-4"
+              className="w-full px-4 py-2 border border-white/5 rounded-lg bg-[#191A1B] text-white placeholder-gray-500 mb-4 focus:border-blue-500 focus:outline-none"
             />
             <div className="flex gap-2 justify-end">
               <button
                 onClick={() => setShowBudgetModal(false)}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="px-4 py-2 border border-white/5 rounded-lg hover:border-white/10 transition-colors text-white"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSetBudget}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity"
               >
                 Set Budget
               </button>
@@ -664,6 +664,6 @@ export default function ShopifyAnalyticsPage() {
         </div>
       )}
       </main>
-    </>
+    </div>
   )
 }

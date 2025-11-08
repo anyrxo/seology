@@ -39,7 +39,7 @@ const benefits: Benefit[] = [
     iconColor: 'text-purple-400',
     bgColor: 'from-purple-500/20 to-purple-600/10',
     title: 'Advanced AI Technology',
-    description: 'State-of-the-art Claude AI analyzes and optimizes your content'
+    description: 'State-of-the-art AI analyzes and optimizes your content'
   },
   {
     icon: Zap,
@@ -57,7 +57,7 @@ const setupSteps: SetupStep[] = [
   },
   {
     text: 'Let our AI scan and analyze',
-    detail: 'Advanced Claude AI detects SEO issues'
+    detail: 'Advanced AI detects SEO issues'
   },
   {
     text: 'Choose your execution mode',

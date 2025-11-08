@@ -432,7 +432,7 @@ export function ShopifyChatStreaming() {
                 className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
                 aria-hidden="true"
               ></span>
-              Online • Claude AI
+              Online • SEOLOGY AI
               {credits && (
                 <>
                   <span className="mx-1" aria-hidden="true">

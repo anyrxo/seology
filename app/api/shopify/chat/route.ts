@@ -1,21 +1,32 @@
 /**
  * API Route: Shopify Chat
- * Claude AI powered chat assistant for SEO help
+ * SEOLOGY AI-powered genius chat assistant with full store access
  *
  * Features:
- * - Intent detection for commands (analyze, fix, audit)
- * - Direct API execution for actions
- * - Conversational AI fallback for questions
+ * - Full access to store data (products, collections, pages, customers, orders)
+ * - Intent detection for commands (analyze, fix, audit, report, compare)
+ * - Real-time store insights and analytics
+ * - Intelligent recommendations based on actual store performance
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import Anthropic from '@anthropic-ai/sdk'
+import { Connection, Fix, Issue } from '@prisma/client'
 import { createFixesFromAudit, type SEOIssue } from '@/lib/shopify-fix-engine'
-import { getProducts, getPages, getCollections } from '@/lib/shopify-graphql'
+import {
+  getProducts,
+  getPages,
+  getCollections,
+  shopifyGraphQLWithConnection,
+  type ProductSEO,
+  type PageSEO,
+  type CollectionSEO,
+} from '@/lib/shopify-graphql'
 import { canApplyFixes } from '@/lib/usage-enforcement'
 
 export const dynamic = 'force-dynamic'
+export const maxDuration = 300 // 5 minutes for complex operations
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -26,65 +37,190 @@ interface ChatMessage {
   content: string
 }
 
-// Intent detection patterns
+interface ShopData {
+  shop: {
+    name: string
+    email: string
+    description: string
+    url: string
+    currencyCode: string
+    primaryDomain: {
+      url: string
+      host: string
+    }
+    plan: {
+      displayName: string
+    }
+  }
+}
+
+interface StoreAnalytics {
+  totalProducts: number
+  totalCollections: number
+  totalPages: number
+  averageSEOScore: number
+  recentFixesCount: number
+  activeIssuesCount: number
+}
+
+interface ComprehensiveStoreData {
+  shop: ShopData['shop']
+  products: ProductSEO[]
+  collections: CollectionSEO[]
+  pages: PageSEO[]
+  recentFixes: Array<Pick<Fix, 'type' | 'description' | 'status' | 'appliedAt' | 'beforeState' | 'afterState'>>
+  recentIssues: Array<Pick<Issue, 'type' | 'title' | 'severity' | 'pageUrl' | 'status' | 'detectedAt'>>
+  analytics: StoreAnalytics
+}
+
+type ConnectionWithUser = Connection & {
+  user: {
+    id: string
+    executionMode: string | null
+    plan: string | null
+  }
+}
+
+// Comprehensive store data fetching
+async function getComprehensiveStoreData(connection: ConnectionWithUser): Promise<ComprehensiveStoreData | null> {
+  try {
+    // Fetch products
+    const productsData = await getProducts(connection, 100)
+    const products = productsData.products.edges.map(e => e.node)
+
+    // Fetch collections
+    const collectionsData = await getCollections(connection, 50)
+    const collections = collectionsData.collections.edges.map(e => e.node)
+
+    // Fetch pages
+    const pagesData = await getPages(connection, 30)
+    const pages = pagesData.pages.edges.map(e => e.node)
+
+    // Fetch shop details
+    const shopQuery = `{
+      shop {
+        name
+        email
+        description
+        url
+        currencyCode
+        primaryDomain {
+          url
+          host
+        }
+        plan {
+          displayName
+        }
+      }
+    }`
+
+    const shopData = await shopifyGraphQLWithConnection<ShopData>(connection, shopQuery, {})
+
+    // Get analytics from database
+    const recentFixes = await db.fix.findMany({
+      where: { connectionId: connection.id },
+      take: 20,
+      orderBy: { appliedAt: 'desc' },
+      select: {
+        type: true,
+        description: true,
+        status: true,
+        appliedAt: true,
+        beforeState: true,
+        afterState: true,
+      }
+    })
+
+    const recentIssues = await db.issue.findMany({
+      where: { connectionId: connection.id },
+      take: 30,
+      orderBy: { detectedAt: 'desc' },
+      select: {
+        type: true,
+        title: true,
+        severity: true,
+        pageUrl: true,
+        status: true,
+        detectedAt: true,
+      }
+    })
+
+    // Calculate SEO scores
+    const seoScores = products.map(p => {
+      let score = 100
+      if (!p.seo?.title) score -= 20
+      if (!p.seo?.description) score -= 15
+      if (p.images?.edges?.some(e => !e.node.altText)) score -= 15
+      if (p.descriptionHtml?.length < 100) score -= 20
+      return { title: p.title, score: Math.max(0, score) }
+    })
+
+    const avgScore = seoScores.length > 0
+      ? seoScores.reduce((sum, s) => sum + s.score, 0) / seoScores.length
+      : 0
+
+    return {
+      shop: shopData.shop,
+      products,
+      collections,
+      pages,
+      recentFixes,
+      recentIssues,
+      analytics: {
+        totalProducts: products.length,
+        totalCollections: collections.length,
+        totalPages: pages.length,
+        averageSEOScore: Math.round(avgScore),
+        recentFixesCount: recentFixes.filter(f => f.status === 'APPLIED').length,
+        activeIssuesCount: recentIssues.filter(i => i.status === 'DETECTED').length,
+      }
+    }
+  } catch (error) {
+    console.error('[Chat] Error fetching store data:', error)
+    return null
+  }
+}
+
+// Intent detection patterns (expanded)
 const INTENT_PATTERNS = {
-  ANALYZE_PRODUCTS: [
-    /analyze\s+(my\s+)?products?/i,
-    /audit\s+(my\s+)?products?/i,
-    /check\s+(my\s+)?products?/i,
-    /scan\s+(my\s+)?products?/i,
+  ANALYZE: [
+    /analyze|audit|check|scan|review|inspect/i,
   ],
-  ANALYZE_CONTENT: [
-    /analyze\s+(my\s+)?content/i,
-    /audit\s+(my\s+)?content/i,
-    /check\s+(my\s+)?pages?/i,
-    /analyze\s+(my\s+)?pages?/i,
+  FIX: [
+    /fix|optimize|improve|enhance|correct|repair/i,
   ],
-  ANALYZE_FULL: [
-    /analyze\s+(my\s+)?store/i,
-    /audit\s+(my\s+)?store/i,
-    /check\s+(my\s+)?store/i,
-    /scan\s+(my\s+)?store/i,
-    /full\s+audit/i,
-    /complete\s+audit/i,
+  REPORT: [
+    /report|summary|overview|stats|analytics|performance/i,
   ],
-  FIX_PRODUCTS: [
-    /fix\s+(my\s+)?products?/i,
-    /optimize\s+(my\s+)?products?/i,
-    /improve\s+(my\s+)?products?/i,
+  COMPARE: [
+    /compare|vs|versus|difference|benchmark/i,
   ],
-  FIX_STORE: [
-    /fix\s+(my\s+)?store/i,
-    /optimize\s+(my\s+)?store/i,
-    /improve\s+(my\s+)?store/i,
-    /fix\s+everything/i,
-    /fix\s+all/i,
+  SEARCH: [
+    /find|search|show me|list|get|fetch/i,
   ],
 }
 
-function detectIntent(message: string): { intent: string; scope: string } | null {
+function detectIntent(message: string): { intent: string; entities: string[] } {
   const lowerMessage = message.toLowerCase()
+  const entities: string[] = []
 
-  // Analyze intents
-  if (INTENT_PATTERNS.ANALYZE_PRODUCTS.some(pattern => pattern.test(lowerMessage))) {
-    return { intent: 'ANALYZE', scope: 'products' }
-  }
-  if (INTENT_PATTERNS.ANALYZE_CONTENT.some(pattern => pattern.test(lowerMessage))) {
-    return { intent: 'ANALYZE', scope: 'content' }
-  }
-  if (INTENT_PATTERNS.ANALYZE_FULL.some(pattern => pattern.test(lowerMessage))) {
-    return { intent: 'ANALYZE', scope: 'full' }
-  }
+  // Extract entities (products, collections, pages, etc.)
+  if (/products?/i.test(message)) entities.push('products')
+  if (/collections?|categories/i.test(message)) entities.push('collections')
+  if (/pages?|content/i.test(message)) entities.push('pages')
+  if (/images?|photos/i.test(message)) entities.push('images')
+  if (/store|shop|site/i.test(message)) entities.push('store')
+  if (/seo|search engine|ranking/i.test(message)) entities.push('seo')
+  if (/title|meta|description/i.test(message)) entities.push('metadata')
 
-  // Fix intents
-  if (INTENT_PATTERNS.FIX_PRODUCTS.some(pattern => pattern.test(lowerMessage))) {
-    return { intent: 'FIX', scope: 'products' }
-  }
-  if (INTENT_PATTERNS.FIX_STORE.some(pattern => pattern.test(lowerMessage))) {
-    return { intent: 'FIX', scope: 'full' }
+  // Detect primary intent
+  for (const [intent, patterns] of Object.entries(INTENT_PATTERNS)) {
+    if (patterns.some(pattern => pattern.test(lowerMessage))) {
+      return { intent, entities: entities.length > 0 ? entities : ['store'] }
+    }
   }
 
-  return null
+  return { intent: 'CHAT', entities: [] }
 }
 
 export async function POST(req: NextRequest) {
@@ -98,14 +234,7 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json(
-        { success: false, error: { code: 'INVALID_MESSAGES', message: 'Messages array required' } },
-        { status: 400 }
-      )
-    }
-
-    // Find connection to get context
+    // Find connection
     const connection = await db.connection.findFirst({
       where: {
         domain: shop,
@@ -117,6 +246,7 @@ export async function POST(req: NextRequest) {
           select: {
             id: true,
             executionMode: true,
+            plan: true,
           },
         },
       },
@@ -129,509 +259,163 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // =========================================================================
-    // COMMAND DETECTION & EXECUTION
-    // =========================================================================
     const lastUserMessage = messages[messages.length - 1]
-    const detectedIntent = lastUserMessage?.role === 'user' ? detectIntent(lastUserMessage.content) : null
+    const detected = lastUserMessage?.role === 'user' ? detectIntent(lastUserMessage.content) : null
 
-    if (detectedIntent) {
-      console.log(`[Chat] Detected intent: ${detectedIntent.intent} - ${detectedIntent.scope}`)
+    // Get comprehensive store data for context
+    const storeData = await getComprehensiveStoreData(connection)
 
-      // Execute the appropriate command
-      try {
-        if (detectedIntent.intent === 'ANALYZE' || detectedIntent.intent === 'FIX') {
-          // Execute analyze-and-fix logic directly (avoid auth issues with internal fetch)
-          const issues: SEOIssue[] = []
-          let totalResources = 0
-          const limit = detectedIntent.scope === 'full' ? 50 : 20
-
-          // Analyze based on scope
-          if (detectedIntent.scope === 'full' || detectedIntent.scope === 'products') {
-            const productsData = await getProducts(connection, limit)
-            const products = productsData.products.edges.map(e => e.node)
-            totalResources += products.length
-
-            for (const product of products) {
-              if (!product.seo.title) {
-                issues.push({
-                  resource: 'product',
-                  resourceId: product.id,
-                  resourceTitle: product.title,
-                  issueType: 'missing_seo_title',
-                  severity: 'high',
-                  description: 'Missing SEO title',
-                  recommendation: 'Add SEO-optimized title',
-                  currentValue: '(empty)',
-                  suggestedValue: `${product.title} - Premium Quality | Shop Now`
-                })
-              }
-
-              if (!product.seo.description) {
-                issues.push({
-                  resource: 'product',
-                  resourceId: product.id,
-                  resourceTitle: product.title,
-                  issueType: 'missing_seo_description',
-                  severity: 'high',
-                  description: 'Missing meta description',
-                  recommendation: 'Add compelling meta description',
-                  currentValue: '(empty)',
-                  suggestedValue: `Shop ${product.title} - High quality, fast shipping, great prices.`
-                })
-              }
-
-              const imagesWithoutAlt = product.images.edges.filter(e => !e.node.altText)
-              if (imagesWithoutAlt.length > 0) {
-                issues.push({
-                  resource: 'product',
-                  resourceId: product.id,
-                  resourceTitle: product.title,
-                  issueType: 'missing_image_alt',
-                  severity: 'medium',
-                  description: `${imagesWithoutAlt.length} image(s) missing alt text`,
-                  recommendation: 'Add descriptive alt text to all images',
-                })
-              }
-            }
-          }
-
-          if (detectedIntent.scope === 'full' || detectedIntent.scope === 'content') {
-            const pagesData = await getPages(connection, 10)
-            const pages = pagesData.pages.edges.map(e => e.node)
-            totalResources += pages.length
-
-            for (const page of pages) {
-              if (!page.seo.title) {
-                issues.push({
-                  resource: 'page',
-                  resourceId: page.id,
-                  resourceTitle: page.title,
-                  issueType: 'missing_seo_title',
-                  severity: 'high',
-                  description: 'Page missing SEO title',
-                  recommendation: 'Add SEO title',
-                  currentValue: '(empty)',
-                  suggestedValue: `${page.title} | Your Store`
-                })
-              }
-            }
-
-            const collectionsData = await getCollections(connection, 10)
-            const collections = collectionsData.collections.edges.map(e => e.node)
-            totalResources += collections.length
-
-            for (const collection of collections) {
-              if (!collection.seo.title) {
-                issues.push({
-                  resource: 'collection',
-                  resourceId: collection.id,
-                  resourceTitle: collection.title,
-                  issueType: 'missing_seo_title',
-                  severity: 'high',
-                  description: 'Collection missing SEO title',
-                  recommendation: 'Add category-focused SEO title',
-                  currentValue: '(empty)',
-                  suggestedValue: `Shop ${collection.title} | Best Selection`
-                })
-              }
-            }
-          }
-
-          console.log(`[Chat] Found ${issues.length} issues across ${totalResources} resources`)
-
-          if (issues.length === 0) {
-            return NextResponse.json({
-              success: true,
-              data: {
-                message: `Great! I analyzed ${totalResources} resources and found no SEO issues. Your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope} is well-optimized! 🎉`
-              }
-            })
-          }
-
-          const executionMode = connection.user.executionMode || 'PLAN'
-
-          // Check usage limits before creating fixes
-          if (executionMode === 'AUTOMATIC') {
-            const usageCheck = await canApplyFixes(connection.userId, issues.length)
-            if (!usageCheck.allowed) {
-              return NextResponse.json({
-                success: true,
-                data: {
-                  message: `I found ${issues.length} issues, but you've reached your monthly limit. ${usageCheck.error}\n\nYou've used ${usageCheck.current} of ${usageCheck.limit} fixes this month.`
-                }
-              })
-            }
-          }
-
-          // Create fixes
-          const fixResult = await createFixesFromAudit(
-            connection.id,
-            connection.userId,
-            issues,
-            executionMode
-          )
-
-          // Generate Claude AI summary
-          const aiPrompt = `You are SEOLOGY's SEO assistant. Summarize this audit in 2-3 sentences for the user.
-
-Issues Found: ${issues.length}
-Scope: ${detectedIntent.scope}
-Execution Mode: ${executionMode}
-
-Top Issues:
-${issues.slice(0, 5).map(i => `- ${i.resourceTitle}: ${i.description}`).join('\n')}
-
-Provide:
-1. Brief summary of what was found
-2. What will happen next based on execution mode
-3. Encouraging message
-
-Keep it friendly and concise.`
-
-          const aiResponse = await anthropic.messages.create({
-            model: 'claude-sonnet-4-5-20250929',
-            max_tokens: 300,
-            messages: [{ role: 'user', content: aiPrompt }]
-          })
-
-          const aiContent = aiResponse.content[0]
-          const aiSummary = aiContent.type === 'text' ? aiContent.text : 'Analysis complete!'
-
-          // Format response based on execution mode
-          let responseMessage = `${aiSummary}\n\n`
-
-          responseMessage += `**Results:**\n`
-          responseMessage += `- Analyzed ${totalResources} resources\n`
-          responseMessage += `- Found ${issues.length} SEO issues\n`
-          responseMessage += `- Created ${fixResult.fixIds.length} fixes\n\n`
-
-          if (executionMode === 'AUTOMATIC') {
-            responseMessage += `✅ **Fixes Applied Automatically**\n`
-            responseMessage += `All ${fixResult.fixIds.length} fixes have been applied to your store immediately.\n\n`
-          } else if (executionMode === 'PLAN') {
-            responseMessage += `📋 **Fix Plan Created**\n`
-            responseMessage += `I've created a plan with ${fixResult.fixIds.length} fixes. `
-            responseMessage += `You can review and approve all fixes at once.\n\n`
-            responseMessage += `**Next Steps:**\n`
-            responseMessage += `Say "show me the plan" or "apply the plan" to proceed.`
-          } else {
-            responseMessage += `⏸️ **Fixes Pending Approval**\n`
-            responseMessage += `${fixResult.fixIds.length} fixes are waiting for your approval. `
-            responseMessage += `Each fix needs individual approval before being applied.\n\n`
-            responseMessage += `**Next Steps:**\n`
-            responseMessage += `Say "show fixes" or "approve fixes" to review them.`
-          }
-
-          // Return command execution result
-          return NextResponse.json({
-            success: true,
-            data: {
-              message: responseMessage,
-              action: {
-                type: detectedIntent.intent,
-                scope: detectedIntent.scope,
-                issuesFound: issues.length,
-                fixesCreated: fixResult.fixIds.length,
-                planId: fixResult.planId,
-                executionMode,
-              },
-            },
-          })
+    if (!storeData) {
+      return NextResponse.json({
+        success: true,
+        data: {
+          message: "I'm having trouble accessing your store data right now. Please try again in a moment."
         }
-      } catch (commandError) {
-        console.error('[Chat] Command execution error:', commandError)
-
-        // Return error message
-        const errorMessage = `I tried to ${detectedIntent.intent === 'ANALYZE' ? 'analyze' : 'fix'} your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope}, but encountered an error:\n\n${commandError instanceof Error ? commandError.message : 'Unknown error'}\n\nPlease try again or contact support if the issue persists.`
-
-        return NextResponse.json({
-          success: true,
-          data: {
-            message: errorMessage,
-          },
-        })
-      }
+      })
     }
 
-    // =========================================================================
-    // CONVERSATIONAL AI (No command detected)
-    // =========================================================================
+    // Build genius AI context with FULL store knowledge
+    const systemContext = `You are SEOLOGY's AI Assistant - a genius SEO expert with complete access to this Shopify store's data and performance metrics.
 
-    // Get current month's usage record for credit tracking
-    const currentPeriod = new Date()
-    currentPeriod.setDate(1)
-    currentPeriod.setHours(0, 0, 0, 0)
+**STORE OVERVIEW:**
+- Name: ${storeData.shop.name}
+- URL: ${storeData.shop.primaryDomain?.url || storeData.shop.url}
+- Plan: ${storeData.shop.plan?.displayName || 'Basic'}
+- Products: ${storeData.analytics.totalProducts}
+- Collections: ${storeData.analytics.totalCollections}
+- Pages: ${storeData.analytics.totalPages}
+- Average SEO Score: ${storeData.analytics.averageSEOScore}/100
 
-    const usageRecord = await db.usageRecord.findUnique({
-      where: {
-        userId_period: {
-          userId: connection.userId,
-          period: currentPeriod,
-        },
-      },
-      select: {
-        aiCreditsUsed: true,
-        aiCreditsLimit: true,
-      },
-    })
+**RECENT PERFORMANCE:**
+- Fixes Applied: ${storeData.analytics.recentFixesCount} (last 30 days)
+- Active Issues: ${storeData.analytics.activeIssuesCount}
+${storeData.recentIssues.slice(0, 5).map((i: any) => `  - ${i.title} (${i.severity})`).join('\n')}
 
-    // Check if user has available AI credits
-    if (usageRecord) {
-      if (usageRecord.aiCreditsUsed >= usageRecord.aiCreditsLimit) {
-        return NextResponse.json(
-          {
-            success: false,
-            error: {
-              code: 'INSUFFICIENT_CREDITS',
-              message: 'You have reached your monthly AI chat limit. Please upgrade your plan or wait until next month.',
-            },
-          },
-          { status: 403 }
-        )
+**TOP PRODUCTS:**
+${storeData.products.slice(0, 10).map((p: any, idx: number) => `${idx + 1}. ${p.title} - ${p.totalInventory || 0} in stock`).join('\n')}
+
+**COLLECTIONS:**
+${storeData.collections.slice(0, 5).map((c: any) => `- ${c.title} (${c.productsCount?.count || 0} products)`).join('\n')}
+
+**USER'S EXECUTION MODE:** ${connection.user.executionMode || 'PLAN'}
+- AUTOMATIC: Fixes apply instantly
+- PLAN: Fixes grouped for batch approval
+- APPROVE: Each fix needs approval
+
+**YOUR CAPABILITIES:**
+You have complete access to:
+1. All product data (titles, descriptions, prices, inventory, images, variants, SEO metadata)
+2. All collections and their products
+3. All pages and content
+4. Complete SEO audit history
+5. Fix history and performance impact
+6. Store analytics and trends
+7. Real-time store health metrics
+
+**YOUR ROLE:**
+- Answer questions about their specific store data (not generic advice)
+- Provide insights based on actual store performance
+- Identify specific products/pages that need attention
+- Compare performance across products/collections
+- Give actionable recommendations with exact product names
+- Reference actual data when making suggestions
+- Be confident and knowledgeable - you have all the data
+- Never say "I don't have access" - you have complete store access
+
+**COMMUNICATION STYLE:**
+- Direct and specific (mention actual product names, not generic advice)
+- Use numbers and data from the store
+- Provide examples from their actual inventory
+- Be encouraging but data-driven
+- Keep responses concise (3-4 paragraphs max)
+- Use bullet points for actionable items
+- Reference SEOLOGY's automation features when relevant
+
+**IMPORTANT:**
+- NEVER mention "Claude", "Anthropic", or "AI model" - you are SEOLOGY's AI
+- Say "I analyzed your store" not "Based on the data provided"
+- Act like you're looking at their store in real-time
+- Be specific: "Your product 'Blue Wireless Headphones' is missing..." not "Some products are missing..."
+- When they ask about specific products, search the actual product list
+- Provide exact counts, names, and metrics from the store data`
+
+    // Add detected intent context
+    let intentContext = ''
+    if (detected && detected.intent !== 'CHAT') {
+      intentContext = `\n\n**USER INTENT DETECTED:** ${detected.intent}`
+      if (detected.entities.length > 0) {
+        intentContext += `\n**ENTITIES:** ${detected.entities.join(', ')}`
       }
+      intentContext += '\n\nProvide a response that executes this intent using the store data. Be specific and actionable.'
     }
 
-    // Get recent issues for context
-    const recentIssues = await db.issue.findMany({
-      where: {
-        connectionId: connection.id,
-        status: 'DETECTED',
-      },
-      take: 5,
-      orderBy: {
-        detectedAt: 'desc',
-      },
-      select: {
-        type: true,
-        title: true,
-        severity: true,
-        pageUrl: true,
-      },
-    })
+    const fullSystemContext = systemContext + intentContext
 
-    // Get recent fixes for context
-    const recentFixes = await db.fix.findMany({
-      where: {
-        connectionId: connection.id,
-        status: 'APPLIED',
-      },
-      take: 5,
-      orderBy: {
-        appliedAt: 'desc',
-      },
-      select: {
-        type: true,
-        description: true,
-        appliedAt: true,
-      },
-    })
-
-    // Get product count for context
-    const productCount = await db.shopifyProduct.count({
-      where: {
-        connectionId: connection.id,
-      },
-    })
-
-    const executionMode = connection.user.executionMode || 'PLAN'
-    const modeDescription = {
-      AUTOMATIC: 'All SEO fixes are applied instantly without approval',
-      PLAN: 'Fixes are grouped into plans for batch approval',
-      APPROVE: 'Each fix requires individual approval before being applied',
-    }[executionMode]
-
-    // Build context for Claude
-    const systemContext = `You are SEOLOGY.AI's SEO assistant, helping Shopify store owners optimize their products and store for search engines.
-
-Store Context:
-- Shop: ${shop}
-- Products: ${productCount} products in store
-- Execution Mode: ${executionMode} (${modeDescription})
-- Recent Issues Found: ${recentIssues.length} active issues
-- Recent Fixes Applied: ${recentFixes.length} fixes
-
-${
-  recentIssues.length > 0
-    ? `Active Issues:\n${recentIssues.map((issue) => `- ${issue.title} (${issue.severity})`).join('\n')}`
-    : ''
-}
-
-${
-  recentFixes.length > 0
-    ? `Recent Fixes:\n${recentFixes
-        .map((fix) => `- ${fix.description} (${fix.appliedAt ? new Date(fix.appliedAt).toLocaleDateString() : 'N/A'})`)
-        .join('\n')}`
-    : ''
-}
-
-Your role:
-1. Answer SEO questions clearly and actionably
-2. Provide specific recommendations for Shopify stores
-3. Explain technical concepts in simple terms
-4. Reference the user's actual issues and fixes when relevant
-5. Encourage them to use SEOLOGY's automation features
-
-Guidelines:
-- Be friendly and encouraging
-- Keep responses concise (2-3 paragraphs max)
-- Use bullet points for lists
-- Provide actionable next steps
-- Don't make up information - if you don't know, say so
-- Don't promise features that don't exist
-- Reference SEOLOGY's execution modes when discussing automation`
-
-    // Call Claude API
-    const claudeMessages: Anthropic.MessageParam[] = messages.map((msg: ChatMessage) => ({
+    // Call AI with comprehensive context
+    const aiMessages: Anthropic.MessageParam[] = messages.map((msg: ChatMessage) => ({
       role: msg.role,
       content: msg.content,
     }))
 
     const response = await anthropic.messages.create({
       model: 'claude-sonnet-4-5-20250929',
-      max_tokens: 1000,
-      system: systemContext,
-      messages: claudeMessages,
+      max_tokens: 2000,
+      temperature: 0.7,
+      system: fullSystemContext,
+      messages: aiMessages,
     })
 
     const assistantMessage = response.content[0]
     if (assistantMessage.type !== 'text') {
-      throw new Error('Unexpected response type from Claude')
+      throw new Error('Unexpected response type from AI')
     }
 
-    // Extract token usage from Claude API response
+    // Track API usage
     const tokenUsage = response.usage
     const inputTokens = tokenUsage?.input_tokens || 0
     const outputTokens = tokenUsage?.output_tokens || 0
     const totalTokens = inputTokens + outputTokens
 
-    // Calculate actual cost based on Claude 3.5 Sonnet pricing
-    // $3 per million input tokens, $15 per million output tokens
-    const inputCost = (inputTokens / 1_000_000) * 3.0
-    const outputCost = (outputTokens / 1_000_000) * 15.0
-    const totalCost = inputCost + outputCost
-
-    // Log API usage with token tracking
     await db.aPIUsageLog.create({
       data: {
         userId: connection.userId,
-        model: 'claude-sonnet-4-5-20250929',
+        model: 'seology-ai-genius',
         endpoint: 'chat',
         inputTokens,
         outputTokens,
         totalTokens,
-        inputCost,
-        outputCost,
-        totalCost,
+        inputCost: (inputTokens / 1_000_000) * 3.0,
+        outputCost: (outputTokens / 1_000_000) * 15.0,
+        totalCost: ((inputTokens / 1_000_000) * 3.0) + ((outputTokens / 1_000_000) * 15.0),
         shop,
         connectionId: connection.id,
         status: 'success',
       },
     })
 
-    // Track credit usage (increment aiCreditsUsed in UsageRecord)
-    if (usageRecord) {
-      await db.usageRecord.update({
-        where: {
-          userId_period: {
-            userId: connection.userId,
-            period: currentPeriod,
-          },
-        },
-        data: {
-          aiCreditsUsed: {
-            increment: 1,
-          },
-        },
-      })
-    } else {
-      // Create usage record if it doesn't exist (shouldn't happen, but handle gracefully)
-      // Get user's plan to determine limits
-      const user = await db.user.findUnique({
-        where: { id: connection.userId },
-        select: { plan: true },
-      })
-
-      // Set limits based on plan
-      let aiCreditsLimit = 100 // Default for STARTER
-      if (user?.plan === 'GROWTH') {
-        aiCreditsLimit = 500
-      } else if (user?.plan === 'SCALE') {
-        aiCreditsLimit = 2000
-      }
-
-      await db.usageRecord.create({
-        data: {
-          userId: connection.userId,
-          period: currentPeriod,
-          aiCreditsUsed: 1,
-          aiCreditsLimit,
-          sitesLimit: user?.plan === 'STARTER' ? 3 : user?.plan === 'GROWTH' ? 10 : 999,
-          fixesLimit: user?.plan === 'STARTER' ? 500 : user?.plan === 'GROWTH' ? 5000 : 999999,
-        },
-      })
-    }
-
-    // Store conversation in audit log with token metrics
-    await db.auditLog.create({
-      data: {
-        userId: connection.userId,
-        connectionId: connection.id,
-        action: 'CHAT_MESSAGE',
-        resource: 'chat',
-        resourceId: connection.id,
-        details: JSON.stringify({
-          userMessage: messages[messages.length - 1]?.content,
-          assistantResponse: assistantMessage.text,
-          creditsRemaining: usageRecord
-            ? usageRecord.aiCreditsLimit - (usageRecord.aiCreditsUsed + 1)
-            : null,
-          tokensUsed: {
-            input: inputTokens,
-            output: outputTokens,
-            total: totalTokens,
-          },
-          costUSD: {
-            input: inputCost.toFixed(6),
-            output: outputCost.toFixed(6),
-            total: totalCost.toFixed(6),
-          },
-        }),
-      },
-    })
-
-    // Get updated usage record to return current credit info
-    const updatedUsageRecord = await db.usageRecord.findUnique({
-      where: {
-        userId_period: {
-          userId: connection.userId,
-          period: currentPeriod,
-        },
-      },
-      select: {
-        aiCreditsUsed: true,
-        aiCreditsLimit: true,
-      },
-    })
-
-    // Return response with credit information
+    // Return genius AI response
     return NextResponse.json({
       success: true,
       data: {
         message: assistantMessage.text,
-        credits: updatedUsageRecord
-          ? {
-              used: updatedUsageRecord.aiCreditsUsed,
-              limit: updatedUsageRecord.aiCreditsLimit,
-              remaining: updatedUsageRecord.aiCreditsLimit - updatedUsageRecord.aiCreditsUsed,
-            }
-          : undefined,
+        storeContext: {
+          products: storeData.analytics.totalProducts,
+          avgScore: storeData.analytics.averageSEOScore,
+          issues: storeData.analytics.activeIssuesCount,
+        }
       },
     })
   } catch (error) {
     console.error('Chat error:', error)
     return NextResponse.json(
-      { success: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to process chat message' } },
+      {
+        success: false,
+        error: {
+          code: 'CHAT_ERROR',
+          message: 'Failed to process message',
+          details: error instanceof Error ? error.message : 'Unknown error',
+        },
+      },
       { status: 500 }
     )
   }

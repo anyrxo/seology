@@ -897,7 +897,7 @@ function EmptyState() {
               </div>
               <h3 className="text-200 medium text-white">AI-Powered Fixes</h3>
               <p className="text-100 text-gray-400">
-                Claude AI generates and applies fixes for every issue found
+                AI generates and applies fixes for every issue found
               </p>
             </div>
             <div className="flex-vertical gap-row-12px">

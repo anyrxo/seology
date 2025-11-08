@@ -1,6 +1,7 @@
 /**
  * Shopify Products Page
  * List all products with SEO analysis and fix options
+ * Atlas dark theme (#191A1B, #262A2B)
  */
 
 'use client'
@@ -8,19 +9,74 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { sanitizeURL, escapeHTML } from '@/lib/sanitize'
-import { ShopifyNav } from '@/components/shopify/ShopifyNav'
-import { ShopifyChat } from '@/components/shopify/ShopifyChat'
+import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 import { SEOScoreBadge } from '@/components/seo/SEOScoreCard'
 import { SEOIssueCard, type SEOIssue, type SEOIssueSeverity, type SEOIssueType } from '@/components/seo/SEOIssueCard'
-import {
-  showSuccessToast,
-  showErrorToast,
-  confirmDialog,
-  setLoading,
-  setContextualActions,
-  clearContextualActions,
-  navigateToProduct,
-} from '@/lib/shopify-app-bridge'
+
+// Notification component
+interface NotificationProps {
+  message: string
+  type: 'success' | 'error'
+  onClose: () => void
+}
+
+function Notification({ message, type, onClose }: NotificationProps) {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 5000)
+    return () => clearTimeout(timer)
+  }, [onClose])
+
+  return (
+    <div className={`fixed top-4 right-4 z-50 min-w-[300px] rounded-lg shadow-lg p-4 ${
+      type === 'success' ? 'bg-green-600' : 'bg-red-600'
+    } text-white`}>
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-sm font-medium">{message}</p>
+        <button
+          onClick={onClose}
+          className="text-white hover:text-gray-200 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// Confirmation modal component
+interface ConfirmModalProps {
+  title: string
+  message: string
+  onConfirm: () => void
+  onCancel: () => void
+}
+
+function ConfirmModal({ title, message, onConfirm, onCancel }: ConfirmModalProps) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="bg-[#262A2B] rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+        <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+        <p className="text-gray-300 mb-6">{message}</p>
+        <div className="flex gap-3 justify-end">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onConfirm}
+            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+          >
+            Apply Fixes
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 interface Product {
   id: string
@@ -50,6 +106,13 @@ export default function ShopifyProductsPage() {
   const [fixingProductId, setFixingProductId] = useState<string | null>(null)
   const [filter, setFilter] = useState<'all' | 'issues' | 'good'>('all')
   const [error, setError] = useState<string | null>(null)
+  const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null)
+  const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [pendingFixProductId, setPendingFixProductId] = useState<string | null>(null)
+
+  // Helper functions for notifications
+  const showSuccessToast = (message: string) => setNotification({ message, type: 'success' })
+  const showErrorToast = (message: string) => setNotification({ message, type: 'error' })
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -76,18 +139,7 @@ export default function ShopifyProductsPage() {
       return
     }
 
-    // Set up contextual actions
-    setContextualActions([
-      {
-        label: 'Refresh Products',
-        onAction: () => fetchProducts(),
-      },
-    ])
-
     fetchProducts()
-
-    // Cleanup
-    return () => clearContextualActions()
   }, [shop, fetchProducts])
 
   const analyzeProduct = async (productId: string) => {
@@ -119,14 +171,17 @@ export default function ShopifyProductsPage() {
   }
 
   const applyFixes = async (productId: string) => {
-    const confirmed = await confirmDialog({
-      title: 'Apply SEO Fixes',
-      message: 'Apply all SEO fixes to this product?',
-      primaryAction: { label: 'Apply Fixes' },
-      secondaryAction: { label: 'Cancel' },
-    })
-    if (!confirmed) return
+    // Show confirmation modal
+    setPendingFixProductId(productId)
+    setShowConfirmModal(true)
+  }
 
+  const handleConfirmFixes = async () => {
+    setShowConfirmModal(false)
+    if (!pendingFixProductId) return
+
+    const productId = pendingFixProductId
+    setPendingFixProductId(null)
     setFixingProductId(productId)
     try {
       const response = await fetch('/api/shopify/fix', {
@@ -218,32 +273,32 @@ export default function ShopifyProductsPage() {
 
   if (loading) {
     return (
-      <>
-        <ShopifyNav shop={shop} />
-        <main className="p-8 max-w-7xl mx-auto">
+      <div className="min-h-screen bg-[#191A1B] flex">
+        <ShopifyAppNav />
+        <main className="flex-1 p-8">
           <div className="mb-8">
-            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-48 mb-2 animate-pulse"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-96 animate-pulse"></div>
+            <div className="h-8 bg-[#262A2B] rounded w-48 mb-2 animate-pulse"></div>
+            <div className="h-4 bg-[#262A2B] rounded w-96 animate-pulse"></div>
           </div>
 
           <div className="flex gap-2 mb-8">
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-32 animate-pulse"></div>
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-40 animate-pulse"></div>
-            <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-lg w-32 animate-pulse"></div>
+            <div className="h-10 bg-[#262A2B] rounded-lg w-32 animate-pulse"></div>
+            <div className="h-10 bg-[#262A2B] rounded-lg w-40 animate-pulse"></div>
+            <div className="h-10 bg-[#262A2B] rounded-lg w-32 animate-pulse"></div>
           </div>
 
           <div className="space-y-6">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 animate-pulse">
+              <div key={i} className="bg-[#262A2B] rounded-lg shadow-lg p-6 animate-pulse border border-white/5">
                 <div className="flex gap-6">
-                  <div className="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+                  <div className="w-24 h-24 bg-[#191A1B] rounded-lg"></div>
                   <div className="flex-1 space-y-3">
-                    <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-1/3"></div>
-                    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
-                    <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
+                    <div className="h-6 bg-[#191A1B] rounded w-1/3"></div>
+                    <div className="h-4 bg-[#191A1B] rounded w-1/4"></div>
+                    <div className="h-4 bg-[#191A1B] rounded w-2/3"></div>
                     <div className="flex gap-3">
-                      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-32"></div>
-                      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-32"></div>
+                      <div className="h-10 bg-[#191A1B] rounded w-32"></div>
+                      <div className="h-10 bg-[#191A1B] rounded w-32"></div>
                     </div>
                   </div>
                 </div>
@@ -251,29 +306,51 @@ export default function ShopifyProductsPage() {
             ))}
           </div>
         </main>
-      </>
+      </div>
     )
   }
 
   return (
-    <>
-      <ShopifyNav shop={shop} />
-      <ShopifyChat />
-      <main className="p-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#191A1B] flex">
+      <ShopifyAppNav />
+
+      {/* Notification */}
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
+
+      {/* Confirmation Modal */}
+      {showConfirmModal && (
+        <ConfirmModal
+          title="Apply SEO Fixes"
+          message="Apply all SEO fixes to this product?"
+          onConfirm={handleConfirmFixes}
+          onCancel={() => {
+            setShowConfirmModal(false)
+            setPendingFixProductId(null)
+          }}
+        />
+      )}
+
+      <main className="flex-1 p-8">
         {/* Header */}
         <header className="mb-8" role="banner">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-3xl font-bold text-white mb-2">
                 Products
               </h1>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-400">
                 Analyze and optimize your product SEO
               </p>
             </div>
             <button
               onClick={() => router.push(`/shopify/dashboard?shop=${shop}`)}
-              className="px-4 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              className="px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors"
             >
               ← Back to Dashboard
             </button>
@@ -281,16 +358,16 @@ export default function ShopifyProductsPage() {
 
           {/* Error State */}
           {error && (
-            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-4">
+            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-6 mb-4">
               <div className="flex items-start">
-                <svg className="w-6 h-6 text-red-600 dark:text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div>
-                  <h3 className="text-lg font-semibold text-red-900 dark:text-red-100 mb-1">
+                  <h3 className="text-lg font-semibold text-red-300 mb-1">
                     Failed to Load Products
                   </h3>
-                  <p className="text-red-700 dark:text-red-300 mb-3">
+                  <p className="text-red-400 mb-3">
                     {error}
                   </p>
                   <button
@@ -312,30 +389,30 @@ export default function ShopifyProductsPage() {
           {!error && <div className="flex gap-2">
           <button
             onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg font-medium transition-all ${
               filter === 'all'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                : 'bg-[#262A2B] text-gray-300 hover:bg-[#2D3233]'
             }`}
           >
             All ({products.length})
           </button>
           <button
             onClick={() => setFilter('issues')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg font-medium transition-all ${
               filter === 'issues'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                : 'bg-[#262A2B] text-gray-300 hover:bg-[#2D3233]'
             }`}
           >
             Needs Attention ({products.filter((p) => p.seoScore < 80).length})
           </button>
           <button
             onClick={() => setFilter('good')}
-            className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg font-medium transition-all ${
               filter === 'good'
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                : 'bg-[#262A2B] text-gray-300 hover:bg-[#2D3233]'
             }`}
           >
             Optimized ({products.filter((p) => p.seoScore >= 80).length})
@@ -345,8 +422,8 @@ export default function ShopifyProductsPage() {
 
       {/* Products Grid */}
       {!error && filteredProducts.length === 0 ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
-          <p className="text-gray-600 dark:text-gray-400">
+        <div className="bg-[#262A2B] rounded-lg shadow-lg p-8 text-center border border-white/5">
+          <p className="text-gray-400">
             {products.length === 0
               ? 'No products found. Add products to your Shopify store to get started.'
               : 'No products match the selected filter.'}
@@ -357,7 +434,7 @@ export default function ShopifyProductsPage() {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow"
+              className="bg-[#262A2B] rounded-lg shadow-lg hover:shadow-xl transition-all border border-white/5 hover:border-white/10"
               data-testid="product-card"
             >
               <div className="p-6">
@@ -382,10 +459,10 @@ export default function ShopifyProductsPage() {
                   <div className="flex-grow">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                        <h3 className="text-xl font-semibold text-white mb-1">
                           {product.title}
                         </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-gray-400">
                           /{product.handle}
                         </p>
                       </div>
@@ -402,18 +479,18 @@ export default function ShopifyProductsPage() {
                     {/* SEO Details */}
                     <div className="mb-4 space-y-2">
                       <div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <span className="text-sm font-medium text-gray-300">
                           SEO Title:{' '}
                         </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                        <span className="text-sm text-gray-400">
                           {product.seo.title || '(Not set)'}
                         </span>
                       </div>
                       <div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <span className="text-sm font-medium text-gray-300">
                           SEO Description:{' '}
                         </span>
-                        <span className="text-sm text-gray-600 dark:text-gray-400">
+                        <span className="text-sm text-gray-400">
                           {product.seo.description || '(Not set)'}
                         </span>
                       </div>
@@ -422,7 +499,7 @@ export default function ShopifyProductsPage() {
                     {/* Issues */}
                     {product.issues.length > 0 && (
                       <div className="mb-4 space-y-3">
-                        <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        <h4 className="text-sm font-medium text-gray-300">
                           Issues Found ({product.issues.length}):
                         </h4>
                         <div className="space-y-2">
@@ -490,13 +567,6 @@ export default function ShopifyProductsPage() {
                           )}
                         </button>
                       )}
-
-                      <button
-                        onClick={() => navigateToProduct(product.id)}
-                        className="px-4 py-2 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:border-gray-400 dark:hover:border-gray-500 transition-colors text-sm font-medium"
-                      >
-                        View in Shopify
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -506,6 +576,6 @@ export default function ShopifyProductsPage() {
         </div>
       )}
       </main>
-    </>
+    </div>
   )
 }

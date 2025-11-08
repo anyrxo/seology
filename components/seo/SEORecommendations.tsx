@@ -203,7 +203,7 @@ function RecommendationCard({
                 </svg>
                 <div className="flex-1">
                   <p className="text-xs font-semibold text-blue-900 dark:text-blue-100 mb-1">
-                    Claude AI Insight
+                    AI Insight
                   </p>
                   <p className="text-sm text-blue-800 dark:text-blue-200">
                     {recommendation.aiInsight}
@@ -363,7 +363,7 @@ export function SEORecommendations({
           No Recommendations Yet
         </h3>
         <p className="text-gray-600 dark:text-gray-400">
-          Analyze your site to get personalized SEO recommendations from Claude AI
+          Analyze your site to get personalized SEO recommendations from SEOLOGY AI
         </p>
       </div>
     )
