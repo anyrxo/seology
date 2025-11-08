@@ -11,9 +11,22 @@ import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 
 interface Message {
   id: string
-  role: 'user' | 'assistant'
+  role: 'user' | 'assistant' | 'system'
   content: string
   timestamp: Date
+}
+
+interface CreditInfo {
+  used: number
+  limit: number
+  remaining: number
+}
+
+interface StoreContext {
+  executionMode: 'AUTOMATIC' | 'PLAN' | 'APPROVE'
+  productCount: number
+  issueCount: number
+  planName: string
 }
 
 export default function ShopifyChatPage() {
@@ -32,6 +45,9 @@ export default function ShopifyChatPage() {
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [credits, setCredits] = useState<CreditInfo | null>(null)
+  const [storeContext, setStoreContext] = useState<StoreContext | null>(null)
+  const [isChangingMode, setIsChangingMode] = useState(false)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -40,6 +56,80 @@ export default function ShopifyChatPage() {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Fetch store context on mount
+  useEffect(() => {
+    if (shop && !storeContext) {
+      fetchStoreContext()
+    }
+  }, [shop])
+
+  const fetchStoreContext = async () => {
+    try {
+      const response = await fetch(`/api/shopify/context?shop=${shop}`)
+      if (response.ok) {
+        const data = await response.json()
+        if (data.success) {
+          setStoreContext(data.data)
+          setCredits(data.data.credits)
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching store context:', error)
+    }
+  }
+
+  const changeExecutionMode = async (newMode: 'AUTOMATIC' | 'PLAN' | 'APPROVE') => {
+    if (!shop || isChangingMode) return
+
+    console.log(`[Chat Page] Changing execution mode from ${storeContext?.executionMode} to ${newMode}`)
+    setIsChangingMode(true)
+    try {
+      const response = await fetch('/api/shopify/execution-mode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          shop,
+          executionMode: newMode,
+        }),
+      })
+
+      const data = await response.json()
+      console.log('[Chat Page] Execution mode change response:', data)
+
+      if (response.ok && data.success) {
+        setStoreContext((prev) => (prev ? { ...prev, executionMode: newMode } : null))
+
+        // Add system message to chat
+        const systemMessage: Message = {
+          id: Date.now().toString(),
+          role: 'system',
+          content: `✅ Execution mode changed to **${newMode}**. ${getModeDescription(newMode)}`,
+          timestamp: new Date(),
+        }
+        setMessages((prev) => [...prev, systemMessage])
+
+        console.log('[Chat Page] Mode changed successfully to:', newMode)
+      } else {
+        console.error('[Chat Page] Mode change failed:', data.error)
+      }
+    } catch (error) {
+      console.error('[Chat Page] Error changing execution mode:', error)
+    } finally {
+      setIsChangingMode(false)
+    }
+  }
+
+  const getModeDescription = (mode: 'AUTOMATIC' | 'PLAN' | 'APPROVE'): string => {
+    switch (mode) {
+      case 'AUTOMATIC':
+        return 'All SEO fixes will be applied instantly without approval.'
+      case 'PLAN':
+        return 'Fixes will be grouped into plans for batch approval.'
+      case 'APPROVE':
+        return 'Each fix will require individual approval before being applied.'
+    }
+  }
 
   const handleSend = async () => {
     if (!input.trim() || loading) return
@@ -78,6 +168,11 @@ export default function ShopifyChatPage() {
           timestamp: new Date(),
         }
         setMessages((prev) => [...prev, assistantMessage])
+
+        // Update credit information if provided
+        if (data.data.credits) {
+          setCredits(data.data.credits)
+        }
       } else {
         throw new Error(data.error?.message || 'Failed to get response')
       }
@@ -135,6 +230,104 @@ export default function ShopifyChatPage() {
           </div>
         </header>
 
+        {/* Store Context & Execution Mode */}
+        {storeContext && (
+          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Store Info */}
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Store Info
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2 text-sm">
+                    <div>
+                      <div className="text-gray-600 dark:text-gray-400">Products</div>
+                      <div className="font-medium text-gray-900 dark:text-white">{storeContext.productCount}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-600 dark:text-gray-400">Issues</div>
+                      <div className="font-medium text-red-600 dark:text-red-400">{storeContext.issueCount}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-600 dark:text-gray-400">Plan</div>
+                      <div className="font-medium text-blue-600 dark:text-blue-400">{storeContext.planName}</div>
+                    </div>
+                  </div>
+                  {credits && (
+                    <div className="pt-2">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Credits</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {credits.remaining} / {credits.limit}
+                        </span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-300"
+                          style={{ width: `${(credits.remaining / credits.limit) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Execution Mode */}
+                <div className="space-y-2">
+                  <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Execution Mode
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      onClick={() => changeExecutionMode('AUTOMATIC')}
+                      disabled={isChangingMode || storeContext.executionMode === 'AUTOMATIC'}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        storeContext.executionMode === 'AUTOMATIC'
+                          ? 'bg-green-600 text-white shadow-lg ring-2 ring-green-300 dark:ring-green-700'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-green-900/20'
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      title="Apply all fixes instantly without approval"
+                    >
+                      ⚡ Auto
+                    </button>
+                    <button
+                      onClick={() => changeExecutionMode('PLAN')}
+                      disabled={isChangingMode || storeContext.executionMode === 'PLAN'}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        storeContext.executionMode === 'PLAN'
+                          ? 'bg-yellow-600 text-white shadow-lg ring-2 ring-yellow-300 dark:ring-yellow-700'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-yellow-50 dark:hover:bg-yellow-900/20'
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      title="Create fix plans for batch approval"
+                    >
+                      📋 Plan
+                    </button>
+                    <button
+                      onClick={() => changeExecutionMode('APPROVE')}
+                      disabled={isChangingMode || storeContext.executionMode === 'APPROVE'}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        storeContext.executionMode === 'APPROVE'
+                          ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-300 dark:ring-blue-700'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20'
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      title="Approve each fix individually"
+                    >
+                      ✓ Approve
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4">
         <div className="max-w-4xl mx-auto space-y-4">
@@ -147,6 +340,8 @@ export default function ShopifyChatPage() {
                 className={`max-w-[80%] rounded-lg p-4 ${
                   message.role === 'user'
                     ? 'bg-blue-600 text-white'
+                    : message.role === 'system'
+                    ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 text-gray-800 dark:text-gray-200 border border-yellow-200 dark:border-yellow-800'
                     : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow'
                 }`}
               >
