@@ -177,3 +177,143 @@ export function calculateAICost(inputTokens: number, outputTokens: number): numb
 
   return inputCost + outputCost
 }
+
+/**
+ * Get token usage statistics for a user
+ * Returns total tokens and costs across all API calls
+ */
+export async function getTokenUsageStats(
+  userId: string,
+  options?: {
+    startDate?: Date
+    endDate?: Date
+    endpoint?: string
+  }
+): Promise<{
+  totalInputTokens: number
+  totalOutputTokens: number
+  totalTokens: number
+  totalCost: number
+  apiCalls: number
+  averageTokensPerCall: number
+  averageCostPerCall: number
+}> {
+  interface WhereClause {
+    userId: string
+    timestamp?: {
+      gte?: Date
+      lte?: Date
+    }
+    endpoint?: string
+  }
+
+  const whereClause: WhereClause = { userId }
+
+  if (options?.startDate || options?.endDate || options?.endpoint) {
+    if (options.startDate || options.endDate) {
+      whereClause.timestamp = {}
+      if (options.startDate) whereClause.timestamp.gte = options.startDate
+      if (options.endDate) whereClause.timestamp.lte = options.endDate
+    }
+    if (options.endpoint) {
+      whereClause.endpoint = options.endpoint
+    }
+  }
+
+  const logs = await db.aPIUsageLog.findMany({
+    where: whereClause,
+    select: {
+      inputTokens: true,
+      outputTokens: true,
+      totalTokens: true,
+      totalCost: true,
+    },
+  })
+
+  const totalInputTokens = logs.reduce((sum, log) => sum + log.inputTokens, 0)
+  const totalOutputTokens = logs.reduce((sum, log) => sum + log.outputTokens, 0)
+  const totalTokens = logs.reduce((sum, log) => sum + log.totalTokens, 0)
+  const totalCost = logs.reduce((sum, log) => sum + log.totalCost, 0)
+  const apiCalls = logs.length
+
+  return {
+    totalInputTokens,
+    totalOutputTokens,
+    totalTokens,
+    totalCost,
+    apiCalls,
+    averageTokensPerCall: apiCalls > 0 ? totalTokens / apiCalls : 0,
+    averageCostPerCall: apiCalls > 0 ? totalCost / apiCalls : 0,
+  }
+}
+
+/**
+ * Get monthly token usage for billing/analytics
+ */
+export async function getMonthlyTokenUsage(userId: string, year: number, month: number) {
+  const startDate = new Date(year, month - 1, 1)
+  const endDate = new Date(year, month, 0, 23, 59, 59)
+
+  return getTokenUsageStats(userId, { startDate, endDate })
+}
+
+/**
+ * Get breakdown of token usage by endpoint
+ */
+export async function getTokenUsageByEndpoint(
+  userId: string,
+  options?: { startDate?: Date; endDate?: Date }
+): Promise<
+  Array<{
+    endpoint: string
+    totalTokens: number
+    totalCost: number
+    apiCalls: number
+  }>
+> {
+  interface WhereClause {
+    userId: string
+    timestamp?: {
+      gte?: Date
+      lte?: Date
+    }
+  }
+
+  const whereClause: WhereClause = { userId }
+
+  if (options?.startDate || options?.endDate) {
+    whereClause.timestamp = {}
+    if (options.startDate) whereClause.timestamp.gte = options.startDate
+    if (options.endDate) whereClause.timestamp.lte = options.endDate
+  }
+
+  const logs = await db.aPIUsageLog.findMany({
+    where: whereClause,
+    select: {
+      endpoint: true,
+      totalTokens: true,
+      totalCost: true,
+    },
+  })
+
+  // Group by endpoint
+  const byEndpoint = logs.reduce(
+    (acc, log) => {
+      if (!acc[log.endpoint]) {
+        acc[log.endpoint] = {
+          endpoint: log.endpoint,
+          totalTokens: 0,
+          totalCost: 0,
+          apiCalls: 0,
+        }
+      }
+      acc[log.endpoint].totalTokens += log.totalTokens
+      acc[log.endpoint].totalCost += log.totalCost
+      acc[log.endpoint].apiCalls += 1
+      return acc
+    },
+    {} as Record<string, { endpoint: string; totalTokens: number; totalCost: number; apiCalls: number }>
+  )
+
+  return Object.values(byEndpoint).sort((a, b) => b.totalCost - a.totalCost)
+}

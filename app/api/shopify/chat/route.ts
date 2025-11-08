@@ -201,6 +201,36 @@ Guidelines:
       throw new Error('Unexpected response type from Claude')
     }
 
+    // Extract token usage from Claude API response
+    const tokenUsage = response.usage
+    const inputTokens = tokenUsage?.input_tokens || 0
+    const outputTokens = tokenUsage?.output_tokens || 0
+    const totalTokens = inputTokens + outputTokens
+
+    // Calculate actual cost based on Claude 3.5 Sonnet pricing
+    // $3 per million input tokens, $15 per million output tokens
+    const inputCost = (inputTokens / 1_000_000) * 3.0
+    const outputCost = (outputTokens / 1_000_000) * 15.0
+    const totalCost = inputCost + outputCost
+
+    // Log API usage with token tracking
+    await db.aPIUsageLog.create({
+      data: {
+        userId: connection.userId,
+        model: 'claude-3-5-sonnet-20241022',
+        endpoint: 'chat',
+        inputTokens,
+        outputTokens,
+        totalTokens,
+        inputCost,
+        outputCost,
+        totalCost,
+        shop,
+        connectionId: connection.id,
+        status: 'success',
+      },
+    })
+
     // Track credit usage (increment aiCreditsUsed in UsageRecord)
     if (usageRecord) {
       await db.usageRecord.update({
@@ -244,10 +274,7 @@ Guidelines:
       })
     }
 
-    // Store conversation in database
-    // Note: We create individual chat messages linked to conversations
-    // For now, we'll just log the conversation without persistent storage
-    // In a full implementation, you'd track conversationId across requests
+    // Store conversation in audit log with token metrics
     await db.auditLog.create({
       data: {
         userId: connection.userId,
@@ -261,6 +288,16 @@ Guidelines:
           creditsRemaining: usageRecord
             ? usageRecord.aiCreditsLimit - (usageRecord.aiCreditsUsed + 1)
             : null,
+          tokensUsed: {
+            input: inputTokens,
+            output: outputTokens,
+            total: totalTokens,
+          },
+          costUSD: {
+            input: inputCost.toFixed(6),
+            output: outputCost.toFixed(6),
+            total: totalCost.toFixed(6),
+          },
         }),
       },
     })
