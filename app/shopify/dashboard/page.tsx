@@ -31,6 +31,14 @@ interface RecentActivity {
   status: 'SUCCESS' | 'PENDING' | 'FAILED'
 }
 
+interface ActivityAPIResponse {
+  id: string
+  type: 'AUDIT' | 'FIX' | 'ROLLBACK'
+  description: string
+  timestamp: string | Date
+  status: 'SUCCESS' | 'PENDING' | 'FAILED'
+}
+
 export default function ShopifyDashboardPage() {
   const searchParams = useSearchParams()
   const shop = searchParams.get('shop')
@@ -47,44 +55,38 @@ export default function ShopifyDashboardPage() {
 
   const fetchDashboardData = async () => {
     try {
-      const response = await fetch(`/api/shopify/context?shop=${shop}`)
-      if (response.ok) {
-        const data = await response.json()
-        if (data.success) {
+      // Fetch context (stats)
+      const contextResponse = await fetch(`/api/shopify/context?shop=${shop}`)
+      if (contextResponse.ok) {
+        const contextData = await contextResponse.json()
+        if (contextData.success) {
           // Map API response to dashboard stats format
           setStats({
-            productCount: data.data.productCount || 0,
-            issueCount: data.data.issueCount || 0,
-            fixesApplied: data.data.fixesApplied || 0,
-            executionMode: data.data.executionMode || 'PLAN',
-            planName: data.data.planName || 'GROWTH',
+            productCount: contextData.data.productCount || 0,
+            issueCount: contextData.data.issueCount || 0,
+            fixesApplied: contextData.data.fixesApplied || 0,
+            executionMode: contextData.data.executionMode || 'PLAN',
+            planName: contextData.data.planName || 'GROWTH',
             usageStats: {
-              fixesUsed: data.data.credits?.used || 0,
-              fixesLimit: data.data.credits?.limit || 5000,
-              aiCreditsUsed: 0, // TODO: Add AI credits tracking
-              aiCreditsLimit: 100,
+              fixesUsed: contextData.data.credits?.used || 0,
+              fixesLimit: contextData.data.credits?.limit || 5000,
+              aiCreditsUsed: contextData.data.credits?.used || 0,
+              aiCreditsLimit: contextData.data.credits?.limit || 5000,
             },
           })
-          // Mock recent activity for now
-          setRecentActivity([
-            {
-              id: '1',
-              type: 'AUDIT',
-              description: 'Analyzed 20 products',
-              timestamp: new Date(Date.now() - 1000 * 60 * 15),
-              status: 'SUCCESS',
-            },
-            {
-              id: '2',
-              type: 'FIX',
-              description: 'Applied 5 SEO fixes',
-              timestamp: new Date(Date.now() - 1000 * 60 * 30),
-              status: 'SUCCESS',
-            },
-          ])
         }
-      } else {
-        console.error('Failed to fetch context:', await response.text())
+      }
+
+      // Fetch real activity feed from database
+      const activityResponse = await fetch(`/api/shopify/activity?shop=${shop}&limit=10`)
+      if (activityResponse.ok) {
+        const activityData = await activityResponse.json()
+        if (activityData.success) {
+          setRecentActivity(activityData.data.map((item: ActivityAPIResponse) => ({
+            ...item,
+            timestamp: new Date(item.timestamp),
+          })))
+        }
       }
     } catch (error) {
       console.error('Error fetching dashboard data:', error)
