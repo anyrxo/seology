@@ -8,6 +8,7 @@ import crypto from 'crypto'
 
 /**
  * Verify Shopify webhook HMAC signature
+ * Uses timing-safe comparison to prevent timing attacks
  */
 export function verifyWebhook(
   body: string,
@@ -19,7 +20,16 @@ export function verifyWebhook(
     .update(body, 'utf8')
     .digest('base64')
 
-  return hash === hmacHeader
+  try {
+    // Use timing-safe comparison to prevent timing attacks
+    return crypto.timingSafeEqual(
+      Buffer.from(hash),
+      Buffer.from(hmacHeader)
+    )
+  } catch (error) {
+    // timingSafeEqual throws if buffers have different lengths
+    return false
+  }
 }
 
 /**

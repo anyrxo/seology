@@ -5,7 +5,7 @@
  * Uses AES-256-GCM for encryption
  */
 
-import crypto from 'crypto'
+import * as crypto from 'crypto'
 
 const ALGORITHM = 'aes-256-gcm'
 const IV_LENGTH = 16
@@ -20,7 +20,12 @@ if (ENCRYPTION_KEY && ENCRYPTION_KEY.length < 32) {
   throw new Error('ENCRYPTION_KEY must be at least 32 characters long in environment variables')
 }
 
-// Only enforce encryption key in runtime, not during build
+// Fail in production if encryption key is missing
+if (!ENCRYPTION_KEY && process.env.NODE_ENV === 'production') {
+  throw new Error('ENCRYPTION_KEY is required in production environment')
+}
+
+// Only use fallback key during build (not production runtime)
 // During build, Next.js may not have access to .env.local
 if (!ENCRYPTION_KEY && typeof window === 'undefined' && process.env.VERCEL !== '1') {
   // Only warn during build, don't throw

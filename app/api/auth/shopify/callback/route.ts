@@ -57,9 +57,13 @@ export async function GET(req: NextRequest) {
       expiresAt: csrfToken.expiresAt
     })
 
-    // Verify CSRF token matches shop (no Clerk needed)
+    // Verify CSRF token matches shop exactly (CSRF protection)
     const expectedUserId = `shopify_${shop}`
-    if (csrfToken.userId !== expectedUserId && !csrfToken.userId.startsWith('shopify_')) {
+    if (csrfToken.userId !== expectedUserId) {
+      console.error('[OAuth Callback] ❌ CSRF token userId mismatch:', {
+        expected: expectedUserId,
+        received: csrfToken.userId
+      })
       return NextResponse.redirect(
         new URL('/dashboard?error=invalid_state', req.url)
       )
@@ -127,6 +131,18 @@ export async function GET(req: NextRequest) {
     }
 
     const tokenData = await tokenResponse.json()
+
+    // Validate token response
+    if (tokenData.error) {
+      console.error('[OAuth Callback] ❌ OAuth error:', tokenData.error_description || tokenData.error)
+      throw new Error(`OAuth error: ${tokenData.error_description || tokenData.error}`)
+    }
+
+    if (!tokenData.access_token) {
+      console.error('[OAuth Callback] ❌ No access token in response')
+      throw new Error('No access token received from Shopify')
+    }
+
     const accessToken = tokenData.access_token
     const scope = tokenData.scope
 
@@ -175,6 +191,18 @@ export async function GET(req: NextRequest) {
     }
 
     const shopInfo = await shopInfoResponse.json()
+
+    // Validate GraphQL response
+    if (shopInfo.errors) {
+      console.error('[OAuth Callback] ❌ GraphQL errors:', shopInfo.errors)
+      throw new Error(`GraphQL error: ${JSON.stringify(shopInfo.errors)}`)
+    }
+
+    if (!shopInfo.data?.shop) {
+      console.error('[OAuth Callback] ❌ No shop data in GraphQL response')
+      throw new Error('No shop data received from Shopify GraphQL')
+    }
+
     const shopData = shopInfo.data.shop
 
     console.log('[OAuth Callback] ✅ Shop info retrieved:', shopData.name)
