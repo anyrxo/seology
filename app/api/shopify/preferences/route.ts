@@ -38,28 +38,55 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Update user preferences
-    const updatedUser = await db.user.update({
-      where: {
-        id: connection.userId,
-      },
-      data: {
-        ...(typeof aiChatEnabled === 'boolean' ? { aiChatEnabled } : {}),
-        ...(preferredAuditScope ? { preferredAuditScope } : {}),
-      },
+    // Update user preferences (using raw SQL to bypass Prisma Accelerate cache issues)
+    console.log(`[Preferences] Updating user ${connection.userId} preferences...`)
+
+    // Build SET clause dynamically based on provided fields
+    const updates: string[] = []
+    const values: Array<boolean | string> = []
+    let paramIndex = 1
+
+    if (typeof aiChatEnabled === 'boolean') {
+      updates.push(`"aiChatEnabled" = $${paramIndex}`)
+      values.push(aiChatEnabled)
+      paramIndex++
+    }
+
+    if (preferredAuditScope) {
+      updates.push(`"preferredAuditScope" = $${paramIndex}`)
+      values.push(preferredAuditScope)
+      paramIndex++
+    }
+
+    // Always update updatedAt
+    updates.push('"updatedAt" = NOW()')
+
+    if (updates.length > 0) {
+      await db.$executeRawUnsafe(
+        `UPDATE "User" SET ${updates.join(', ')} WHERE id = $${paramIndex}`,
+        ...values,
+        connection.userId
+      )
+    }
+
+    // Fetch updated user to return current values
+    const updatedUser = await db.user.findUnique({
+      where: { id: connection.userId },
+      select: { aiChatEnabled: true, preferredAuditScope: true }
     })
 
-    console.log(`[Preferences] Updated user ${connection.userId}:`, {
-      aiChatEnabled: updatedUser.aiChatEnabled,
-      preferredAuditScope: updatedUser.preferredAuditScope,
-    })
+    if (!updatedUser) {
+      return NextResponse.json(
+        { success: false, error: { code: 'USER_NOT_FOUND', message: 'User not found after update' } },
+        { status: 404 }
+      )
+    }
+
+    console.log(`[Preferences] ✅ Updated user ${connection.userId}:`, updatedUser)
 
     return NextResponse.json({
       success: true,
-      data: {
-        aiChatEnabled: updatedUser.aiChatEnabled,
-        preferredAuditScope: updatedUser.preferredAuditScope,
-      },
+      data: updatedUser,
     })
   } catch (error) {
     console.error('Preferences save error:', error)
