@@ -84,17 +84,46 @@ type ConnectionWithUser = Connection & {
 // Comprehensive store data fetching
 async function getComprehensiveStoreData(connection: ConnectionWithUser): Promise<ComprehensiveStoreData | null> {
   try {
-    // Fetch products
-    const productsData = await getProducts(connection, 100)
-    const products = productsData.products.edges.map(e => e.node)
+    // Fetch products from DATABASE (faster and more reliable than Shopify API)
+    const dbProducts = await db.shopifyProduct.findMany({
+      where: { connectionId: connection.id },
+      take: 100,
+      orderBy: { seoScore: 'asc' }, // Worst SEO scores first for prioritization
+    })
 
-    // Fetch collections
-    const collectionsData = await getCollections(connection, 50)
-    const collections = collectionsData.collections.edges.map(e => e.node)
+    // Image type from JSON
+    interface ImageNode {
+      id?: string
+      url?: string
+      src?: string
+      altText?: string
+      alt?: string
+    }
 
-    // Fetch pages
-    const pagesData = await getPages(connection, 30)
-    const pages = pagesData.pages.edges.map(e => e.node)
+    // Transform database products to ProductSEO format for AI context
+    const products: ProductSEO[] = dbProducts.map(p => ({
+      id: p.shopifyProductId,
+      title: p.title,
+      handle: p.shopifyHandle,
+      descriptionHtml: p.bodyHtml || '',
+      seo: {
+        title: p.metaTitle || null,
+        description: p.metaDescription || null,
+      },
+      images: {
+        edges: (p.images ? JSON.parse(p.images) : []).map((img: ImageNode) => ({
+          node: {
+            id: img.id || '',
+            url: img.url || img.src || '',
+            altText: img.altText || img.alt || null,
+          },
+        })),
+      },
+    }))
+
+    // Use empty arrays for collections and pages (can be enhanced later)
+    const collections: CollectionSEO[] = []
+    const pages: PageSEO[] = []
 
     // Fetch shop details
     const shopQuery = `{
@@ -145,18 +174,9 @@ async function getComprehensiveStoreData(connection: ConnectionWithUser): Promis
       }
     })
 
-    // Calculate SEO scores
-    const seoScores = products.map(p => {
-      let score = 100
-      if (!p.seo?.title) score -= 20
-      if (!p.seo?.description) score -= 15
-      if (p.images?.edges?.some(e => !e.node.altText)) score -= 15
-      if (p.descriptionHtml?.length < 100) score -= 20
-      return { title: p.title, score: Math.max(0, score) }
-    })
-
-    const avgScore = seoScores.length > 0
-      ? seoScores.reduce((sum, s) => sum + s.score, 0) / seoScores.length
+    // Calculate average SEO score from database products
+    const avgScore = dbProducts.length > 0
+      ? dbProducts.reduce((sum, p) => sum + (p.seoScore || 0), 0) / dbProducts.length
       : 0
 
     return {
