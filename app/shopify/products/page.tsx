@@ -10,6 +10,8 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { sanitizeURL, escapeHTML } from '@/lib/sanitize'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 import { ShopifyChat } from '@/components/shopify/ShopifyChat'
+import { SEOScoreBadge } from '@/components/seo/SEOScoreCard'
+import { SEOIssueCard, type SEOIssue, type SEOIssueSeverity, type SEOIssueType } from '@/components/seo/SEOIssueCard'
 import {
   showSuccessToast,
   showErrorToast,
@@ -155,6 +157,64 @@ export default function ShopifyProductsPage() {
     if (filter === 'good') return p.seoScore >= 80
     return true
   })
+
+  // Convert product issues to SEOIssue format for the SEOIssueCard component
+  const convertProductIssuesToSEOIssues = (product: Product): SEOIssue[] => {
+    return product.issues.map((issue, idx) => {
+      // Determine issue type and severity based on the issue text
+      let type: SEOIssueType = 'missing_meta_title'
+      let severity: SEOIssueSeverity = 'medium'
+      let impact = 50
+      let canAutoFix = true
+      let estimatedTraffic = 0
+
+      // Parse issue text to determine type and severity
+      if (issue.toLowerCase().includes('meta title') || issue.toLowerCase().includes('seo title')) {
+        type = 'missing_meta_title'
+        severity = 'critical'
+        impact = 85
+        estimatedTraffic = 150
+      } else if (issue.toLowerCase().includes('meta description') || issue.toLowerCase().includes('seo description')) {
+        type = 'missing_meta_description'
+        severity = 'high'
+        impact = 75
+        estimatedTraffic = 100
+      } else if (issue.toLowerCase().includes('alt text') || issue.toLowerCase().includes('image')) {
+        type = 'missing_alt_text'
+        severity = 'medium'
+        impact = 60
+        estimatedTraffic = 50
+      } else if (issue.toLowerCase().includes('title') && issue.toLowerCase().includes('short')) {
+        type = 'poor_title'
+        severity = 'high'
+        impact = 70
+        estimatedTraffic = 80
+      } else if (issue.toLowerCase().includes('description') && issue.toLowerCase().includes('short')) {
+        type = 'short_description'
+        severity = 'medium'
+        impact = 65
+        estimatedTraffic = 60
+      } else if (issue.toLowerCase().includes('url') || issue.toLowerCase().includes('handle')) {
+        type = 'long_url'
+        severity = 'low'
+        impact = 40
+        estimatedTraffic = 20
+      }
+
+      return {
+        id: `${product.id}-issue-${idx}`,
+        type,
+        title: issue,
+        description: issue,
+        severity,
+        impact,
+        affectedPages: 1,
+        estimatedTraffic,
+        canAutoFix,
+        recommendation: `Fix this issue to improve your product's SEO score and visibility in search results.`,
+      }
+    })
+  }
 
   if (loading) {
     return (
@@ -331,17 +391,12 @@ export default function ShopifyProductsPage() {
                       </div>
 
                       {/* SEO Score Badge */}
-                      <div
-                        className={`px-4 py-2 rounded-lg font-bold text-lg ${
-                          product.seoScore >= 80
-                            ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400'
-                            : product.seoScore >= 60
-                            ? 'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400'
-                            : 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400'
-                        }`}
-                      >
-                        {product.seoScore}
-                      </div>
+                      <SEOScoreBadge
+                        score={product.seoScore}
+                        maxScore={100}
+                        size="lg"
+                        showLabel={true}
+                      />
                     </div>
 
                     {/* SEO Details */}
@@ -366,15 +421,21 @@ export default function ShopifyProductsPage() {
 
                     {/* Issues */}
                     {product.issues.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                          Issues Found:
+                      <div className="mb-4 space-y-3">
+                        <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                          Issues Found ({product.issues.length}):
                         </h4>
-                        <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                          {product.issues.map((issue, idx) => (
-                            <li key={idx}>{issue}</li>
+                        <div className="space-y-2">
+                          {convertProductIssuesToSEOIssues(product).map((issue) => (
+                            <SEOIssueCard
+                              key={issue.id}
+                              issue={issue}
+                              onFix={() => applyFixes(product.id)}
+                              isFixing={fixingProductId === product.id}
+                              className="shadow-sm"
+                            />
                           ))}
-                        </ul>
+                        </div>
                       </div>
                     )}
 

@@ -60,6 +60,40 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // Get current month's usage record for credit tracking
+    const currentPeriod = new Date()
+    currentPeriod.setDate(1)
+    currentPeriod.setHours(0, 0, 0, 0)
+
+    const usageRecord = await db.usageRecord.findUnique({
+      where: {
+        userId_period: {
+          userId: connection.userId,
+          period: currentPeriod,
+        },
+      },
+      select: {
+        aiCreditsUsed: true,
+        aiCreditsLimit: true,
+      },
+    })
+
+    // Check if user has available AI credits
+    if (usageRecord) {
+      if (usageRecord.aiCreditsUsed >= usageRecord.aiCreditsLimit) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'INSUFFICIENT_CREDITS',
+              message: 'You have reached your monthly AI chat limit. Please upgrade your plan or wait until next month.',
+            },
+          },
+          { status: 403 }
+        )
+      }
+    }
+
     // Get recent issues for context
     const recentIssues = await db.issue.findMany({
       where: {
@@ -95,12 +129,27 @@ export async function POST(req: NextRequest) {
       },
     })
 
+    // Get product count for context
+    const productCount = await db.shopifyProduct.count({
+      where: {
+        connectionId: connection.id,
+      },
+    })
+
+    const executionMode = connection.user.executionMode || 'PLAN'
+    const modeDescription = {
+      AUTOMATIC: 'All SEO fixes are applied instantly without approval',
+      PLAN: 'Fixes are grouped into plans for batch approval',
+      APPROVE: 'Each fix requires individual approval before being applied',
+    }[executionMode]
+
     // Build context for Claude
     const systemContext = `You are SEOLOGY.AI's SEO assistant, helping Shopify store owners optimize their products and store for search engines.
 
 Store Context:
 - Shop: ${shop}
-- Execution Mode: ${connection.user.executionMode || 'PLAN'}
+- Products: ${productCount} products in store
+- Execution Mode: ${executionMode} (${modeDescription})
 - Recent Issues Found: ${recentIssues.length} active issues
 - Recent Fixes Applied: ${recentFixes.length} fixes
 
@@ -152,6 +201,49 @@ Guidelines:
       throw new Error('Unexpected response type from Claude')
     }
 
+    // Track credit usage (increment aiCreditsUsed in UsageRecord)
+    if (usageRecord) {
+      await db.usageRecord.update({
+        where: {
+          userId_period: {
+            userId: connection.userId,
+            period: currentPeriod,
+          },
+        },
+        data: {
+          aiCreditsUsed: {
+            increment: 1,
+          },
+        },
+      })
+    } else {
+      // Create usage record if it doesn't exist (shouldn't happen, but handle gracefully)
+      // Get user's plan to determine limits
+      const user = await db.user.findUnique({
+        where: { id: connection.userId },
+        select: { plan: true },
+      })
+
+      // Set limits based on plan
+      let aiCreditsLimit = 100 // Default for STARTER
+      if (user?.plan === 'GROWTH') {
+        aiCreditsLimit = 500
+      } else if (user?.plan === 'SCALE') {
+        aiCreditsLimit = 2000
+      }
+
+      await db.usageRecord.create({
+        data: {
+          userId: connection.userId,
+          period: currentPeriod,
+          aiCreditsUsed: 1,
+          aiCreditsLimit,
+          sitesLimit: user?.plan === 'STARTER' ? 3 : user?.plan === 'GROWTH' ? 10 : 999,
+          fixesLimit: user?.plan === 'STARTER' ? 500 : user?.plan === 'GROWTH' ? 5000 : 999999,
+        },
+      })
+    }
+
     // Store conversation in database
     // Note: We create individual chat messages linked to conversations
     // For now, we'll just log the conversation without persistent storage
@@ -166,14 +258,39 @@ Guidelines:
         details: JSON.stringify({
           userMessage: messages[messages.length - 1]?.content,
           assistantResponse: assistantMessage.text,
+          creditsRemaining: usageRecord
+            ? usageRecord.aiCreditsLimit - (usageRecord.aiCreditsUsed + 1)
+            : null,
         }),
       },
     })
 
+    // Get updated usage record to return current credit info
+    const updatedUsageRecord = await db.usageRecord.findUnique({
+      where: {
+        userId_period: {
+          userId: connection.userId,
+          period: currentPeriod,
+        },
+      },
+      select: {
+        aiCreditsUsed: true,
+        aiCreditsLimit: true,
+      },
+    })
+
+    // Return response with credit information
     return NextResponse.json({
       success: true,
       data: {
         message: assistantMessage.text,
+        credits: updatedUsageRecord
+          ? {
+              used: updatedUsageRecord.aiCreditsUsed,
+              limit: updatedUsageRecord.aiCreditsLimit,
+              remaining: updatedUsageRecord.aiCreditsLimit - updatedUsageRecord.aiCreditsUsed,
+            }
+          : undefined,
       },
     })
   } catch (error) {

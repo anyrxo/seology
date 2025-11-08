@@ -94,7 +94,10 @@
       "Bash(npm run graphql:codegen:*)",
       "Bash(shopify version:*)",
       "Bash(xcopy:*)",
-      "Bash(robocopy:*)"
+      "Bash(robocopy:*)",
+      "Bash(echo:*)",
+      "Bash(\"SEO_FUNCTIONALITY_GUIDE.md\")",
+      "Bash(npx next lint:*)"
     ],
     "deny": [],
     "ask": []

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
 import { ShopifyChat } from '@/components/shopify/ShopifyChat'
+import { AdvancedTooltip } from '@/components/ui/advanced-tooltip'
 import {
   setContextualActions,
   clearContextualActions,
@@ -143,7 +144,7 @@ export default function ShopifyDashboardPage() {
         {overview && !error && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {/* Total Products Card */}
-            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300 p-6 cursor-pointer hover:-translate-y-1 relative overflow-hidden" data-testid="stat-card">
+            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-smooth p-6 cursor-pointer hover:-translate-y-2 relative overflow-hidden animate-fade-in-up stagger-delay-1" data-testid="stat-card">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-900/10 pointer-events-none"></div>
               <div className="relative flex items-center justify-between">
                 <div className="flex-1">
@@ -169,7 +170,7 @@ export default function ShopifyDashboardPage() {
             </div>
 
             {/* SEO Issues Card */}
-            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300 p-6 cursor-pointer hover:-translate-y-1 relative overflow-hidden" data-testid="stat-card">
+            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-smooth p-6 cursor-pointer hover:-translate-y-2 relative overflow-hidden animate-fade-in-up stagger-delay-2" data-testid="stat-card">
               <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent dark:from-red-900/10 pointer-events-none"></div>
               <div className="relative flex items-center justify-between">
                 <div className="flex-1">
@@ -200,7 +201,7 @@ export default function ShopifyDashboardPage() {
             </div>
 
             {/* Fixes Applied Card */}
-            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-all duration-300 p-6 cursor-pointer hover:-translate-y-1 relative overflow-hidden" data-testid="stat-card">
+            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-smooth p-6 cursor-pointer hover:-translate-y-2 relative overflow-hidden animate-fade-in-up stagger-delay-3" data-testid="stat-card">
               <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent dark:from-green-900/10 pointer-events-none"></div>
               <div className="relative flex items-center justify-between">
                 <div className="flex-1">
@@ -225,7 +226,7 @@ export default function ShopifyDashboardPage() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 relative overflow-hidden" data-testid="stat-card">
+            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-smooth p-6 relative overflow-hidden animate-fade-in-up stagger-delay-4 cursor-pointer hover:-translate-y-2" data-testid="stat-card">
               {/* Background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-900/10 pointer-events-none"></div>
 
@@ -295,7 +296,7 @@ export default function ShopifyDashboardPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
               href={`/shopify/products?shop=${shop}`}
-              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-900/10 overflow-hidden"
+              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-blue-500 dark:hover:border-blue-500 transition-smooth hover:shadow-lg hover:-translate-y-2 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-900/10 overflow-hidden animate-scale-in stagger-delay-1"
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -314,7 +315,7 @@ export default function ShopifyDashboardPage() {
 
             <a
               href={`/shopify/reports?shop=${shop}`}
-              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-green-500 dark:hover:border-green-500 transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-gradient-to-br from-green-50/50 to-transparent dark:from-green-900/10 overflow-hidden"
+              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-green-500 dark:hover:border-green-500 transition-smooth hover:shadow-lg hover:-translate-y-2 bg-gradient-to-br from-green-50/50 to-transparent dark:from-green-900/10 overflow-hidden animate-scale-in stagger-delay-2"
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
@@ -333,7 +334,7 @@ export default function ShopifyDashboardPage() {
 
             <a
               href={`/shopify/settings?shop=${shop}`}
-              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-md hover:-translate-y-1 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-900/10 overflow-hidden"
+              className="group relative flex items-center p-5 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-purple-500 dark:hover:border-purple-500 transition-smooth hover:shadow-lg hover:-translate-y-2 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-900/10 overflow-hidden animate-scale-in stagger-delay-3"
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
