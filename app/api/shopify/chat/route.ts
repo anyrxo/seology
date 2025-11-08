@@ -11,6 +11,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import Anthropic from '@anthropic-ai/sdk'
+import { createFixesFromAudit, type SEOIssue } from '@/lib/shopify-fix-engine'
+import { getProducts, getPages, getCollections } from '@/lib/shopify-graphql'
+import { canApplyFixes } from '@/lib/usage-enforcement'
 
 export const dynamic = 'force-dynamic'
 
@@ -138,85 +141,216 @@ export async function POST(req: NextRequest) {
       // Execute the appropriate command
       try {
         if (detectedIntent.intent === 'ANALYZE' || detectedIntent.intent === 'FIX') {
-          // Call the analyze-and-fix API internally
-          const analyzeResponse = await fetch(
-            `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/shopify/analyze-and-fix`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'x-shopify-shop-domain': shop,
-              },
-              body: JSON.stringify({
-                options: {
-                  scope: detectedIntent.scope,
-                  limit: detectedIntent.scope === 'full' ? 50 : 20,
-                },
-              }),
+          // Execute analyze-and-fix logic directly (avoid auth issues with internal fetch)
+          const issues: SEOIssue[] = []
+          let totalResources = 0
+          const limit = detectedIntent.scope === 'full' ? 50 : 20
+
+          // Analyze based on scope
+          if (detectedIntent.scope === 'full' || detectedIntent.scope === 'products') {
+            const productsData = await getProducts(connection, limit)
+            const products = productsData.products.edges.map(e => e.node)
+            totalResources += products.length
+
+            for (const product of products) {
+              if (!product.seo.title) {
+                issues.push({
+                  resource: 'product',
+                  resourceId: product.id,
+                  resourceTitle: product.title,
+                  issueType: 'missing_seo_title',
+                  severity: 'high',
+                  description: 'Missing SEO title',
+                  recommendation: 'Add SEO-optimized title',
+                  currentValue: '(empty)',
+                  suggestedValue: `${product.title} - Premium Quality | Shop Now`
+                })
+              }
+
+              if (!product.seo.description) {
+                issues.push({
+                  resource: 'product',
+                  resourceId: product.id,
+                  resourceTitle: product.title,
+                  issueType: 'missing_seo_description',
+                  severity: 'high',
+                  description: 'Missing meta description',
+                  recommendation: 'Add compelling meta description',
+                  currentValue: '(empty)',
+                  suggestedValue: `Shop ${product.title} - High quality, fast shipping, great prices.`
+                })
+              }
+
+              const imagesWithoutAlt = product.images.edges.filter(e => !e.node.altText)
+              if (imagesWithoutAlt.length > 0) {
+                issues.push({
+                  resource: 'product',
+                  resourceId: product.id,
+                  resourceTitle: product.title,
+                  issueType: 'missing_image_alt',
+                  severity: 'medium',
+                  description: `${imagesWithoutAlt.length} image(s) missing alt text`,
+                  recommendation: 'Add descriptive alt text to all images',
+                })
+              }
             }
-          )
+          }
 
-          const analyzeResult = await analyzeResponse.json()
+          if (detectedIntent.scope === 'full' || detectedIntent.scope === 'content') {
+            const pagesData = await getPages(connection, 10)
+            const pages = pagesData.pages.edges.map(e => e.node)
+            totalResources += pages.length
 
-          if (analyzeResult.success) {
-            const { data } = analyzeResult
-            const executionMode = connection.user.executionMode || 'PLAN'
-
-            // Format response based on execution mode
-            let responseMessage = `${data.summary}\n\n`
-
-            responseMessage += `**Results:**\n`
-            responseMessage += `- Analyzed ${data.totalResources} resources\n`
-            responseMessage += `- Found ${data.issuesFound} SEO issues\n`
-            responseMessage += `- Created ${data.fixesCreated} fixes\n\n`
-
-            if (executionMode === 'AUTOMATIC') {
-              responseMessage += `✅ **Fixes Applied Automatically**\n`
-              responseMessage += `All ${data.fixesCreated} fixes have been applied to your store immediately.\n\n`
-            } else if (executionMode === 'PLAN') {
-              responseMessage += `📋 **Fix Plan Created**\n`
-              responseMessage += `I've created a plan with ${data.fixesCreated} fixes. `
-              responseMessage += `You can review and approve all fixes at once.\n\n`
-              responseMessage += `**Next Steps:**\n`
-              responseMessage += `Say "show me the plan" or "apply the plan" to proceed.`
-            } else {
-              responseMessage += `⏸️ **Fixes Pending Approval**\n`
-              responseMessage += `${data.fixesCreated} fixes are waiting for your approval. `
-              responseMessage += `Each fix needs individual approval before being applied.\n\n`
-              responseMessage += `**Next Steps:**\n`
-              responseMessage += `Say "show fixes" or "approve fixes" to review them.`
+            for (const page of pages) {
+              if (!page.seo.title) {
+                issues.push({
+                  resource: 'page',
+                  resourceId: page.id,
+                  resourceTitle: page.title,
+                  issueType: 'missing_seo_title',
+                  severity: 'high',
+                  description: 'Page missing SEO title',
+                  recommendation: 'Add SEO title',
+                  currentValue: '(empty)',
+                  suggestedValue: `${page.title} | Your Store`
+                })
+              }
             }
 
-            // Return command execution result
+            const collectionsData = await getCollections(connection, 10)
+            const collections = collectionsData.collections.edges.map(e => e.node)
+            totalResources += collections.length
+
+            for (const collection of collections) {
+              if (!collection.seo.title) {
+                issues.push({
+                  resource: 'collection',
+                  resourceId: collection.id,
+                  resourceTitle: collection.title,
+                  issueType: 'missing_seo_title',
+                  severity: 'high',
+                  description: 'Collection missing SEO title',
+                  recommendation: 'Add category-focused SEO title',
+                  currentValue: '(empty)',
+                  suggestedValue: `Shop ${collection.title} | Best Selection`
+                })
+              }
+            }
+          }
+
+          console.log(`[Chat] Found ${issues.length} issues across ${totalResources} resources`)
+
+          if (issues.length === 0) {
             return NextResponse.json({
               success: true,
               data: {
-                message: responseMessage,
-                action: {
-                  type: detectedIntent.intent,
-                  scope: detectedIntent.scope,
-                  issuesFound: data.issuesFound,
-                  fixesCreated: data.fixesCreated,
-                  planId: data.planId,
-                  executionMode,
-                },
-              },
-            })
-          } else {
-            // Handle error from analyze-and-fix API
-            const errorMessage = `I tried to ${detectedIntent.intent === 'ANALYZE' ? 'analyze' : 'fix'} your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope}, but encountered an error:\n\n${analyzeResult.error?.message || 'Unknown error'}\n\nPlease try again or contact support if the issue persists.`
-
-            return NextResponse.json({
-              success: true,
-              data: {
-                message: errorMessage,
-              },
+                message: `Great! I analyzed ${totalResources} resources and found no SEO issues. Your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope} is well-optimized! 🎉`
+              }
             })
           }
+
+          const executionMode = connection.user.executionMode || 'PLAN'
+
+          // Check usage limits before creating fixes
+          if (executionMode === 'AUTOMATIC') {
+            const usageCheck = await canApplyFixes(connection.userId, issues.length)
+            if (!usageCheck.allowed) {
+              return NextResponse.json({
+                success: true,
+                data: {
+                  message: `I found ${issues.length} issues, but you've reached your monthly limit. ${usageCheck.error}\n\nYou've used ${usageCheck.current} of ${usageCheck.limit} fixes this month.`
+                }
+              })
+            }
+          }
+
+          // Create fixes
+          const fixResult = await createFixesFromAudit(
+            connection.id,
+            connection.userId,
+            issues,
+            executionMode
+          )
+
+          // Generate Claude AI summary
+          const aiPrompt = `You are SEOLOGY's SEO assistant. Summarize this audit in 2-3 sentences for the user.
+
+Issues Found: ${issues.length}
+Scope: ${detectedIntent.scope}
+Execution Mode: ${executionMode}
+
+Top Issues:
+${issues.slice(0, 5).map(i => `- ${i.resourceTitle}: ${i.description}`).join('\n')}
+
+Provide:
+1. Brief summary of what was found
+2. What will happen next based on execution mode
+3. Encouraging message
+
+Keep it friendly and concise.`
+
+          const aiResponse = await anthropic.messages.create({
+            model: 'claude-sonnet-4-5-20250929',
+            max_tokens: 300,
+            messages: [{ role: 'user', content: aiPrompt }]
+          })
+
+          const aiContent = aiResponse.content[0]
+          const aiSummary = aiContent.type === 'text' ? aiContent.text : 'Analysis complete!'
+
+          // Format response based on execution mode
+          let responseMessage = `${aiSummary}\n\n`
+
+          responseMessage += `**Results:**\n`
+          responseMessage += `- Analyzed ${totalResources} resources\n`
+          responseMessage += `- Found ${issues.length} SEO issues\n`
+          responseMessage += `- Created ${fixResult.fixIds.length} fixes\n\n`
+
+          if (executionMode === 'AUTOMATIC') {
+            responseMessage += `✅ **Fixes Applied Automatically**\n`
+            responseMessage += `All ${fixResult.fixIds.length} fixes have been applied to your store immediately.\n\n`
+          } else if (executionMode === 'PLAN') {
+            responseMessage += `📋 **Fix Plan Created**\n`
+            responseMessage += `I've created a plan with ${fixResult.fixIds.length} fixes. `
+            responseMessage += `You can review and approve all fixes at once.\n\n`
+            responseMessage += `**Next Steps:**\n`
+            responseMessage += `Say "show me the plan" or "apply the plan" to proceed.`
+          } else {
+            responseMessage += `⏸️ **Fixes Pending Approval**\n`
+            responseMessage += `${fixResult.fixIds.length} fixes are waiting for your approval. `
+            responseMessage += `Each fix needs individual approval before being applied.\n\n`
+            responseMessage += `**Next Steps:**\n`
+            responseMessage += `Say "show fixes" or "approve fixes" to review them.`
+          }
+
+          // Return command execution result
+          return NextResponse.json({
+            success: true,
+            data: {
+              message: responseMessage,
+              action: {
+                type: detectedIntent.intent,
+                scope: detectedIntent.scope,
+                issuesFound: issues.length,
+                fixesCreated: fixResult.fixIds.length,
+                planId: fixResult.planId,
+                executionMode,
+              },
+            },
+          })
         }
       } catch (commandError) {
         console.error('[Chat] Command execution error:', commandError)
-        // Fall through to conversational AI if command fails
+
+        // Return error message
+        const errorMessage = `I tried to ${detectedIntent.intent === 'ANALYZE' ? 'analyze' : 'fix'} your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope}, but encountered an error:\n\n${commandError instanceof Error ? commandError.message : 'Unknown error'}\n\nPlease try again or contact support if the issue persists.`
+
+        return NextResponse.json({
+          success: true,
+          data: {
+            message: errorMessage,
+          },
+        })
       }
     }
 
