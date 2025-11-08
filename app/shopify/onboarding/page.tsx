@@ -69,7 +69,22 @@ export default function ShopifyOnboardingPage() {
         throw new Error('Failed to save execution mode')
       }
 
-      // 2. Run initial audit with selected scope
+      // 2. Save user preferences (chat visibility and audit scope)
+      const prefsResponse = await fetch('/api/shopify/preferences', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          shop,
+          aiChatEnabled: chatEnabled,
+          preferredAuditScope: selectedScope,
+        }),
+      })
+
+      if (!prefsResponse.ok) {
+        console.warn('Failed to save preferences, continuing anyway')
+      }
+
+      // 3. Run initial audit with selected scope
       console.log(`[Onboarding] Running ${selectedScope} audit...`)
       const auditResponse = await fetch(`/api/shopify/audit?shop=${shop}`, {
         method: 'POST',
@@ -90,14 +105,14 @@ export default function ShopifyOnboardingPage() {
         }
       }
 
-      // 3. Mark onboarding as complete
+      // 4. Mark onboarding as complete
       await fetch(`/api/shopify/onboarding?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: true }),
       })
 
-      // 4. Redirect to chat or dashboard
+      // 5. Redirect to chat or dashboard
       if (chatEnabled) {
         router.push(`/shopify/chat?shop=${shop}`)
       } else {

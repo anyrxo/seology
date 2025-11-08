@@ -39,6 +39,10 @@ model User {
   businessStage       String? // Just Starting, Growing, Established
   platform            String? // Shopify, WordPress, WooCommerce, Custom
 
+  // User preferences from onboarding
+  aiChatEnabled       Boolean @default(true) // AI assistant visibility
+  preferredAuditScope String  @default("full") // 'full', 'products', 'content', 'technical'
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

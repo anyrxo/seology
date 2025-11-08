@@ -13,7 +13,7 @@
 'use client'
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface NavItem {
   id: string
@@ -28,6 +28,21 @@ export function ShopifyAppNav() {
   const searchParams = useSearchParams()
   const shop = searchParams.get('shop')
   const [showMore, setShowMore] = useState(false)
+  const [aiChatEnabled, setAiChatEnabled] = useState(true) // Default to true
+
+  // Fetch user preferences
+  useEffect(() => {
+    if (!shop) return
+
+    fetch(`/api/shopify/preferences?shop=${shop}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setAiChatEnabled(data.data.aiChatEnabled)
+        }
+      })
+      .catch(err => console.error('Failed to fetch preferences:', err))
+  }, [shop])
 
   const navItems: NavItem[] = [
     {
@@ -113,9 +128,18 @@ export function ShopifyAppNav() {
     },
   ]
 
+  // Filter navItems based on user preferences
+  const filteredNavItems = navItems.filter(item => {
+    // Hide chat if user disabled it during onboarding
+    if (item.id === 'chat' && !aiChatEnabled) {
+      return false
+    }
+    return true
+  })
+
   // Shopify guideline: Show first 6 items, truncate rest into "View More"
-  const visibleItems = showMore ? navItems : navItems.slice(0, 6)
-  const hasMoreItems = navItems.length > 6
+  const visibleItems = showMore ? filteredNavItems : filteredNavItems.slice(0, 6)
+  const hasMoreItems = filteredNavItems.length > 6
 
   const isActive = (href: string) => {
     // Remove query params for comparison
