@@ -1,6 +1,7 @@
 /**
  * API Route: Apply SEO Fixes to Product
  * Uses Claude to generate and apply fixes to products
+ * Respects user's execution mode (AUTOMATIC, PLAN, APPROVE)
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -90,12 +91,6 @@ Return ONLY valid JSON:
       seoDescription: product.seo.description,
     }
 
-    // Apply fix to Shopify
-    await updateProductSEO(context.userId, context.shop, product.id, {
-      title: optimizedSEO.seoTitle,
-      description: optimizedSEO.seoDescription,
-    })
-
     // Get open issues for this product
     const issues = await db.issue.findMany({
       where: {
@@ -105,69 +100,200 @@ Return ONLY valid JSON:
       },
     })
 
-    // Create fix records for each issue
-    for (const issue of issues) {
-      await db.fix.create({
-        data: {
-          connectionId: context.connection.id,
-          issueId: issue.id,
-          type: 'SEO_OPTIMIZATION',
-          description: `Optimized SEO title and description`,
-          changes: JSON.stringify({
-            action: 'UPDATE_PRODUCT_SEO',
-            productId: product.id,
-            updates: {
+    // Get user's execution mode
+    const user = await db.user.findUnique({
+      where: { id: context.userId },
+      select: { executionMode: true },
+    })
+
+    const executionMode = user?.executionMode || 'APPROVE'
+
+    // Handle based on execution mode
+    if (executionMode === 'AUTOMATIC') {
+      // AUTOMATIC MODE: Apply fixes immediately
+      await updateProductSEO(context.userId, context.shop, product.id, {
+        title: optimizedSEO.seoTitle,
+        description: optimizedSEO.seoDescription,
+      })
+
+      // Create fix records
+      for (const issue of issues) {
+        await db.fix.create({
+          data: {
+            connectionId: context.connection.id,
+            issueId: issue.id,
+            type: 'SEO_OPTIMIZATION',
+            description: `Optimized SEO title and description`,
+            changes: JSON.stringify({
+              action: 'UPDATE_PRODUCT_SEO',
+              productId: product.id,
+              updates: {
+                seoTitle: optimizedSEO.seoTitle,
+                seoDescription: optimizedSEO.seoDescription,
+              },
+            }),
+            beforeState: JSON.stringify(beforeState),
+            afterState: JSON.stringify({
               seoTitle: optimizedSEO.seoTitle,
               seoDescription: optimizedSEO.seoDescription,
-            },
+            }),
+            targetUrl: `https://${context.shop}/products/${product.handle}`,
+            method: 'AUTOMATIC',
+            status: 'APPLIED',
+            appliedAt: new Date(),
+            rollbackDeadline: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+          },
+        })
+
+        // Mark issue as fixed
+        await db.issue.update({
+          where: { id: issue.id },
+          data: { status: 'FIXED', fixedAt: new Date() },
+        })
+      }
+
+      // Audit log
+      await db.auditLog.create({
+        data: {
+          userId: context.userId,
+          connectionId: context.connection.id,
+          action: 'FIX_APPLIED',
+          resource: 'product',
+          resourceId: product.id,
+          details: JSON.stringify({
+            productTitle: product.title,
+            fixesApplied: issues.length,
+            before: beforeState,
+            after: optimizedSEO,
+            executionMode: 'AUTOMATIC',
           }),
-          beforeState: JSON.stringify(beforeState),
-          afterState: JSON.stringify({
-            seoTitle: optimizedSEO.seoTitle,
-            seoDescription: optimizedSEO.seoDescription,
-          }),
-          targetUrl: `https://${context.shop}/products/${product.handle}`,
-          method: 'AUTOMATIC',
-          status: 'APPLIED',
-          appliedAt: new Date(),
-          rollbackDeadline: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 days
         },
       })
 
-      // Mark issue as fixed
-      await db.issue.update({
-        where: { id: issue.id },
+      return NextResponse.json({
+        success: true,
         data: {
-          status: 'FIXED',
-          fixedAt: new Date(),
+          executionMode: 'AUTOMATIC',
+          fixesApplied: issues.length,
+          optimizedSEO,
+          message: `✅ ${issues.length} fix(es) applied immediately`,
+        },
+      })
+    } else if (executionMode === 'PLAN') {
+      // PLAN MODE: Create pending fixes to be approved as a batch
+      for (const issue of issues) {
+        await db.fix.create({
+          data: {
+            connectionId: context.connection.id,
+            issueId: issue.id,
+            type: 'SEO_OPTIMIZATION',
+            description: `Optimized SEO title and description`,
+            changes: JSON.stringify({
+              action: 'UPDATE_PRODUCT_SEO',
+              productId: product.id,
+              updates: {
+                seoTitle: optimizedSEO.seoTitle,
+                seoDescription: optimizedSEO.seoDescription,
+              },
+            }),
+            beforeState: JSON.stringify(beforeState),
+            afterState: JSON.stringify({
+              seoTitle: optimizedSEO.seoTitle,
+              seoDescription: optimizedSEO.seoDescription,
+            }),
+            targetUrl: `https://${context.shop}/products/${product.handle}`,
+            method: 'MANUAL',
+            status: 'PENDING',
+            rollbackDeadline: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+          },
+        })
+      }
+
+      // Audit log
+      await db.auditLog.create({
+        data: {
+          userId: context.userId,
+          connectionId: context.connection.id,
+          action: 'FIX_CREATED',
+          resource: 'product',
+          resourceId: product.id,
+          details: JSON.stringify({
+            productTitle: product.title,
+            fixesCreated: issues.length,
+            before: beforeState,
+            after: optimizedSEO,
+            executionMode: 'PLAN',
+          }),
+        },
+      })
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          executionMode: 'PLAN',
+          fixesCreated: issues.length,
+          optimizedSEO,
+          message: `📋 ${issues.length} fix(es) added to plan. Review and approve to apply.`,
+        },
+      })
+    } else {
+      // APPROVE MODE: Create pending fixes that need individual approval
+      for (const issue of issues) {
+        await db.fix.create({
+          data: {
+            connectionId: context.connection.id,
+            issueId: issue.id,
+            type: 'SEO_OPTIMIZATION',
+            description: `Optimized SEO title and description`,
+            changes: JSON.stringify({
+              action: 'UPDATE_PRODUCT_SEO',
+              productId: product.id,
+              updates: {
+                seoTitle: optimizedSEO.seoTitle,
+                seoDescription: optimizedSEO.seoDescription,
+              },
+            }),
+            beforeState: JSON.stringify(beforeState),
+            afterState: JSON.stringify({
+              seoTitle: optimizedSEO.seoTitle,
+              seoDescription: optimizedSEO.seoDescription,
+            }),
+            targetUrl: `https://${context.shop}/products/${product.handle}`,
+            method: 'MANUAL',
+            status: 'PENDING',
+            rollbackDeadline: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+          },
+        })
+      }
+
+      // Audit log
+      await db.auditLog.create({
+        data: {
+          userId: context.userId,
+          connectionId: context.connection.id,
+          action: 'FIX_CREATED',
+          resource: 'product',
+          resourceId: product.id,
+          details: JSON.stringify({
+            productTitle: product.title,
+            fixesCreated: issues.length,
+            before: beforeState,
+            after: optimizedSEO,
+            executionMode: 'APPROVE',
+          }),
+        },
+      })
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          executionMode: 'APPROVE',
+          fixesCreated: issues.length,
+          optimizedSEO,
+          message: `✓ ${issues.length} fix(es) created. Approve each one to apply.`,
         },
       })
     }
-
-    // Create audit log
-    await db.auditLog.create({
-      data: {
-        userId: context.userId,
-        connectionId: context.connection.id,
-        action: 'FIX_APPLIED',
-        resource: 'product',
-        resourceId: product.id,
-        details: JSON.stringify({
-          productTitle: product.title,
-          fixesApplied: issues.length,
-          before: beforeState,
-          after: optimizedSEO,
-        }),
-      },
-    })
-
-    return NextResponse.json({
-      success: true,
-      data: {
-        fixesApplied: issues.length,
-        optimizedSEO,
-      },
-    })
   } catch (error) {
     console.error('Error applying fixes:', error)
     return NextResponse.json(
