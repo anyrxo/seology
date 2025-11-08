@@ -69,7 +69,20 @@ export default function ShopifyOnboardingPage() {
       if (!modeResponse.ok) {
         const errorData = await modeResponse.json().catch(() => ({}))
         console.error('[Onboarding] Failed to save execution mode:', errorData)
-        throw new Error('Failed to save execution mode')
+
+        // If app not installed, redirect to OAuth installation
+        if (errorData.error?.code === 'NOT_INSTALLED') {
+          console.log('[Onboarding] App not installed, redirecting to install flow...')
+          const installUrl = errorData.error?.redirectUrl || `/api/auth/shopify?shop=${shop}`
+          console.log('[Onboarding] Redirect URL:', installUrl)
+          window.location.href = installUrl
+          // Don't throw error - we're redirecting
+          setLoading(false)
+          return
+        }
+
+        // For other errors, show the error message
+        throw new Error(errorData.error?.message || 'Failed to save execution mode')
       }
       console.log('[Onboarding] ✅ Execution mode saved')
 

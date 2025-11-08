@@ -5,7 +5,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import crypto from 'crypto'
 import { db } from '@/lib/db'
 
@@ -46,15 +45,11 @@ export async function GET(req: NextRequest) {
     // Generate state token for CSRF protection
     const state = crypto.randomBytes(32).toString('hex')
 
-    // Check if user is logged in
-    const { userId } = await auth()
-
     // Store state token in database with expiry
-    // For Shopify OAuth, we use a placeholder userId for non-authenticated installs
-    // The shop domain will be retrieved from callback parameters
+    // Shopify apps don't need Clerk - use shop domain as identifier
     await db.cSRFToken.create({
       data: {
-        userId: userId || 'shopify_install', // Use placeholder for non-authenticated installs
+        userId: `shopify_${shop}`, // Use shop domain as identifier
         token: state,
         provider: 'SHOPIFY',
         expiresAt: new Date(Date.now() + 10 * 60 * 1000), // 10 minutes

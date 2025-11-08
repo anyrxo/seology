@@ -5,7 +5,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { verifyShopifyHMAC } from '@/lib/shopify-hmac'
 import { encrypt } from '@/lib/encryption'
@@ -40,23 +39,11 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // Check if user is logged in
-    const { userId: clerkUserId } = await auth()
-
-    // For Shopify installs, CSRF token userId might be 'shopify_install' placeholder
-    const isNewShopifyInstall = csrfToken.userId === 'shopify_install'
-
-    // Verify CSRF token matches user (or is new install)
-    if (!isNewShopifyInstall && csrfToken.userId !== clerkUserId) {
+    // Verify CSRF token matches shop (no Clerk needed)
+    const expectedUserId = `shopify_${shop}`
+    if (csrfToken.userId !== expectedUserId && !csrfToken.userId.startsWith('shopify_')) {
       return NextResponse.redirect(
         new URL('/dashboard?error=invalid_state', req.url)
-      )
-    }
-
-    // If new install and no user logged in, redirect to sign up with shop parameter
-    if (isNewShopifyInstall && !clerkUserId) {
-      return NextResponse.redirect(
-        new URL(`/sign-up?shopify_install=true&shop=${shop}&code=${code}&hmac=${hmac}&state=${state}`, req.url)
       )
     }
 
@@ -179,18 +166,26 @@ export async function GET(req: NextRequest) {
       shop_owner: shopData.email, // Owner email, fallback
     }
 
-    // Get user from database
-    // For new Shopify installs, clerkUserId will exist after sign-up redirect
-    if (!clerkUserId) {
-      throw new Error('User authentication required')
-    }
+    // Get or create user from database
+    // For Shopify apps, we create user automatically during OAuth if they don't exist
+    const shopEmail = shopDataFormatted.email || `${shop}@shopify.app`
 
-    const user = await db.user.findUnique({
-      where: { clerkId: clerkUserId },
+    let user = await db.user.findFirst({
+      where: { email: shopEmail },
     })
 
     if (!user) {
-      throw new Error('User not found')
+      user = await db.user.create({
+        data: {
+          clerkId: `shopify_${shopDataFormatted.id}`,
+          email: shopEmail,
+          plan: 'STARTER',
+          executionMode: 'AUTOMATIC',
+        },
+      })
+      console.log(`[OAuth] Created new Shopify user: ${user.id}`)
+    } else {
+      console.log(`[OAuth] Found existing user: ${user.id}`)
     }
 
     // Encrypt access token

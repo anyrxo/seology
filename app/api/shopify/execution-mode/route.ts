@@ -29,36 +29,45 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Find connection to get user
+    // Find connection by shop domain (Shopify app - no Clerk needed)
+    console.log(`[Execution Mode] Looking for connection with shop: ${shop}`)
     const connection = await db.connection.findFirst({
       where: {
         domain: shop,
         platform: 'SHOPIFY',
-        status: 'CONNECTED',
       },
       select: {
         userId: true,
+        id: true,
+        status: true,
       },
     })
+    console.log(`[Execution Mode] Connection found:`, connection ? `YES (userId: ${connection.userId})` : 'NO')
 
     if (!connection) {
+      // No connection exists - user needs to install the app first
+      console.log(`[Execution Mode] No connection found for ${shop} - redirecting to OAuth`)
       return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
+        {
+          success: false,
+          error: {
+            code: 'NOT_INSTALLED',
+            message: 'App not installed',
+            redirectUrl: `/api/auth/shopify?shop=${shop}`,
+          },
+        },
         { status: 404 }
       )
     }
 
-    // Update user's execution mode
-    const updatedUser = await db.user.update({
-      where: {
-        id: connection.userId,
-      },
-      data: {
-        executionMode,
-      },
-    })
-
-    console.log(`[Execution Mode] User ${connection.userId} changed mode to: ${executionMode}`)
+    // Update user's execution mode (using raw SQL to bypass Prisma Accelerate cache issues)
+    console.log(`[Execution Mode] Updating user ${connection.userId} to mode: ${executionMode}`)
+    await db.$executeRaw`
+      UPDATE "User"
+      SET "executionMode" = ${executionMode}::"ExecutionMode", "updatedAt" = NOW()
+      WHERE id = ${connection.userId}
+    `
+    console.log(`[Execution Mode] ✅ User ${connection.userId} changed mode to: ${executionMode}`)
 
     // Create audit log
     await db.auditLog.create({
@@ -69,7 +78,8 @@ export async function POST(req: NextRequest) {
         resourceId: connection.userId,
         details: JSON.stringify({
           newMode: executionMode,
-          changedVia: 'chat',
+          changedVia: 'onboarding',
+          shop,
         }),
       },
     })
@@ -81,11 +91,19 @@ export async function POST(req: NextRequest) {
       },
     })
   } catch (error) {
-    console.error('Execution mode change error:', error)
+    console.error('[Execution Mode] ERROR:', error)
+    console.error('[Execution Mode] Error details:', {
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    })
     return NextResponse.json(
       {
         success: false,
-        error: { code: 'INTERNAL_ERROR', message: 'Failed to change execution mode' },
+        error: {
+          code: 'INTERNAL_ERROR',
+          message: 'Failed to change execution mode',
+          details: error instanceof Error ? error.message : String(error),
+        },
       },
       { status: 500 }
     )
