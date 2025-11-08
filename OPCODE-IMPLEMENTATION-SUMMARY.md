@@ -403,7 +403,7 @@ GET    /api/shopify/monitor/[id]/logs     - Get logs (streaming)
        eventType: 'PRODUCT_ANALYSIS',
        resourceType: 'product',
        resourceId: product.id,
-       model: 'claude-3-5-sonnet-20241022',
+       model: 'claude-3-5-sonnet-20250107',
        tokensInput,
        tokensOutput,
        tokensTotal,

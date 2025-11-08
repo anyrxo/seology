@@ -449,7 +449,7 @@ SEOLOGY includes a powerful AI agent system for specialized SEO tasks.
      Your task is to enhance product descriptions by adding emotional triggers
      and customer benefits while maintaining factual accuracy.
      ```
-   - **Model**: claude-3-5-sonnet-20241022
+   - **Model**: claude-3-5-sonnet-20250107
    - **Temperature**: 0.7 (0 = deterministic, 1 = creative)
    - **Max Tokens**: 2000
 
@@ -588,7 +588,7 @@ Navigate to **Analytics** for a dashboard showing:
 - Percent of budget: 8.5%
 
 **Top Models**:
-- claude-3-5-sonnet-20241022: 320 requests, $4.10
+- claude-3-5-sonnet-20250107: 320 requests, $4.10
 - claude-3-opus-20240229: 25 requests, $0.15
 
 **Cost Breakdown**:

@@ -370,7 +370,7 @@ describe('POST /api/shopify/chat', () => {
       await POST(request)
 
       expect(mockAnthropicInstance.messages.create).toHaveBeenCalledWith({
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'claude-sonnet-4-5-20250929',
         max_tokens: 1000,
         system: expect.stringContaining('SEOLOGY.AI'),
         messages: expect.arrayContaining([

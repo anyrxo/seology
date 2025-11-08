@@ -19,7 +19,7 @@ interface GroupByResult {
 
 // Claude 3.5 Sonnet pricing (as of 2024)
 const PRICING = {
-  'claude-3-5-sonnet-20241022': {
+  'claude-sonnet-4-5-20250929': {
     input: 0.003, // $3 per million tokens
     output: 0.015, // $15 per million tokens
   },
@@ -62,7 +62,7 @@ function calculateCost(model: string, inputTokens: number, outputTokens: number)
   outputCost: number
   totalCost: number
 } {
-  const pricing = PRICING[model as keyof typeof PRICING] || PRICING['claude-3-5-sonnet-20241022']
+  const pricing = PRICING[model as keyof typeof PRICING] || PRICING['claude-sonnet-4-5-20250929']
 
   // Convert from per-million to actual cost
   const inputCost = (inputTokens / 1_000_000) * pricing.input

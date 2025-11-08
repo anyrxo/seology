@@ -97,7 +97,17 @@
       "Bash(robocopy:*)",
       "Bash(echo:*)",
       "Bash(\"SEO_FUNCTIONALITY_GUIDE.md\")",
-      "Bash(npx next lint:*)"
+      "Bash(npx next lint:*)",
+      "Bash(then grep \"ANTHROPIC_API_KEY\" .env.local)",
+      "Bash(else echo 'No .env.local file - checking .env')",
+      "Bash(for file in \"app/api/shopify/chat/route.ts\" \"scripts/test-claude-api.ts\" \"app/api/shopify/chat-stream/route.ts\")",
+      "Bash(do sed -i 's/claude-3-5-sonnet-[0-9]*/claude-4-sonnet/g' \"$file\")",
+      "Bash(do sed -i 's/claude-4-sonnet/claude-sonnet-4.5-20250929/g' \"$file\")",
+      "Bash(do sed -i 's/claude-sonnet-4\\.5-20250929/claude-sonnet-4-5-20250929/g' \"$file\")",
+      "Bash(for file in \"app/api/shopify/chat/route.ts\" \"scripts/test-claude-api.ts\")",
+      "Bash(do sed -i 's/claude-sonnet-4/claude-sonnet-4-5-20250929/g' \"$file\")",
+      "Bash(for file in lib/automation-engine.ts lib/image-optimizer.ts lib/seo-agent-templates.ts lib/seo-agents.ts lib/usage-tracker.test.ts lib/usage-tracker.ts app/api/shopify/agents/route.ts \"app/api/shopify/chat/__tests__/route.test.ts\" app/shopify/agents/page.tsx)",
+      "Bash(do sed -i 's/claude-3-5-sonnet-20250107/claude-sonnet-4-5-20250929/g' \"$file\")"
     ],
     "deny": [],
     "ask": []

@@ -44,7 +44,7 @@ A complete AI-powered image optimization system for SEOLOGY.AI Shopify app. The 
 - `getImagesNeedingAltText(connectionId)` - Get images missing alt text
 
 **Claude Vision API Integration**:
-- Uses `claude-3-5-sonnet-20241022` model
+- Uses `claude-3-5-sonnet-20250107` model
 - Fetches image, converts to base64
 - Sends to Claude with context-aware prompt
 - Returns JSON with:

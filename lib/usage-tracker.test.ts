@@ -15,7 +15,7 @@ describe('usage-tracker', () => {
       await expect(
         trackAPIUsage({
           userId: 'test-user',
-          model: 'claude-3-5-sonnet-20241022',
+          model: 'claude-sonnet-4-5-20250929',
           endpoint: '/api/test',
           inputTokens: 1000,
           outputTokens: 2000,
@@ -28,7 +28,7 @@ describe('usage-tracker', () => {
       await expect(
         trackAPIUsage({
           userId: 'test-user',
-          model: 'claude-3-5-sonnet-20241022',
+          model: 'claude-sonnet-4-5-20250929',
           endpoint: '/api/test',
           inputTokens: 1000,
           outputTokens: 2000,

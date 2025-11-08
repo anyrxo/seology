@@ -532,7 +532,7 @@ function CreateAgentModal({
     name: editingAgent?.name || '',
     description: editingAgent?.description || '',
     systemPrompt: editingAgent?.systemPrompt || '',
-    model: editingAgent?.model || 'claude-3-5-sonnet-20241022',
+    model: editingAgent?.model || 'claude-sonnet-4-5-20250929',
     maxTokens: editingAgent?.maxTokens || 2000,
     temperature: editingAgent?.temperature || 0.7,
     isPublic: editingAgent?.isPublic || false,
@@ -630,7 +630,7 @@ function CreateAgentModal({
                   onChange={(e) => setFormData({ ...formData, model: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet</option>
+                  <option value="claude-sonnet-4-5-20250929">Claude 3.5 Sonnet</option>
                   <option value="claude-3-opus-20240229">Claude 3 Opus</option>
                 </select>
               </div>

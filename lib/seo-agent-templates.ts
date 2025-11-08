@@ -46,7 +46,7 @@ Format: Return JSON:
   "keywords": ["keyword1", "keyword2"],
   "characterCount": 55
 }`,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5-20250929',
     temperature: 0.7,
     maxTokens: 1000,
     targetIssueTypes: ['MISSING_SEO_TITLE', 'POOR_TITLE'],
@@ -81,7 +81,7 @@ Format: Return JSON:
   "cta": "The call-to-action used",
   "reasoning": "Why this will get clicks"
 }`,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5-20250929',
     temperature: 0.8,
     maxTokens: 800,
     targetIssueTypes: ['MISSING_SEO_DESCRIPTION', 'POOR_DESCRIPTION', 'SHORT_DESCRIPTION'],
@@ -114,7 +114,7 @@ Format: Return JSON:
   "schemaType": "Product",
   "reasoning": "Why this markup improves SEO"
 }`,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5-20250929',
     temperature: 0.5,
     maxTokens: 1500,
     targetIssueTypes: ['MISSING_SCHEMA', 'INVALID_SCHEMA'],
@@ -147,7 +147,7 @@ Format: Return JSON:
   "keywords": ["keyword1"],
   "accessibility": "How this helps screen readers"
 }`,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5-20250929',
     temperature: 0.7,
     maxTokens: 600,
     targetIssueTypes: ['MISSING_ALT_TEXT', 'POOR_ALT_TEXT'],
@@ -190,7 +190,7 @@ Format: Return JSON:
   }],
   "overallScore": 75
 }`,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-sonnet-4-5-20250929',
     temperature: 0.6,
     maxTokens: 2000,
     targetIssueTypes: [],

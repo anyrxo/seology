@@ -679,7 +679,7 @@ Get usage analytics overview.
     },
     "topModels": [
       {
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-3-5-sonnet-20250107",
         "requests": 320,
         "cost": 4.10
       }

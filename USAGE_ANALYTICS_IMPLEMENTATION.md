@@ -18,7 +18,7 @@ model APIUsageLog {
   usageRecord       UsageRecord?    @relation(fields: [usageRecordId], references: [id])
 
   // API call details
-  model             String          // 'claude-3-5-sonnet-20241022', etc.
+  model             String          // 'claude-3-5-sonnet-20250107', etc.
   endpoint          String          // 'analyze', 'fix', 'chat', etc.
 
   // Token tracking
@@ -69,7 +69,7 @@ Logs API usage with automatic cost calculation:
 ```typescript
 await trackAPIUsage({
   userId: 'user-123',
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-3-5-sonnet-20250107',
   endpoint: 'analyze',
   inputTokens: 1500,
   outputTokens: 800,
@@ -86,7 +86,7 @@ Wrapper for `anthropic.messages.create()` that automatically tracks usage:
 const message = await createMessageWithTracking(
   anthropic,
   {
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     max_tokens: 2000,
     messages: [{ role: 'user', content: prompt }],
   },
@@ -133,7 +133,7 @@ const message = await createMessageWithTracking(
 Built-in Claude 3.5 Sonnet pricing:
 ```typescript
 {
-  'claude-3-5-sonnet-20241022': {
+  'claude-3-5-sonnet-20250107': {
     input: $0.003 per 1M tokens
     output: $0.015 per 1M tokens
   }
@@ -173,7 +173,7 @@ import { trackAPIUsage } from '@/lib/usage-tracker'
 // After Claude API call:
 await trackAPIUsage({
   userId: connection.userId,
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-3-5-sonnet-20250107',
   endpoint: 'analyze_product',
   inputTokens: message.usage.input_tokens,
   outputTokens: message.usage.output_tokens,

@@ -189,7 +189,7 @@ Uses Anthropic's Claude API to:
 - Generate fix plans with exact implementation code
 - Provide intelligent, context-aware SEO recommendations
 
-Model: `claude-3-5-sonnet-20241022`
+Model: `claude-3-5-sonnet-20250107`
 
 **Key Pattern**: The system caches site context to avoid re-sending large payloads on every request.
 

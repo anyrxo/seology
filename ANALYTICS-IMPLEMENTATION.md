@@ -286,7 +286,7 @@ import { createMessageWithTracking } from '@/lib/usage-tracker'
 const message = await createMessageWithTracking(
   anthropic,
   {
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     messages: [{ role: 'user', content: 'Analyze this product' }],
     max_tokens: 2000,
   },
@@ -340,7 +340,7 @@ Added Analytics link to Shopify dashboard navigation:
 Uses Claude pricing from `lib/usage-tracker.ts`:
 ```typescript
 const PRICING = {
-  'claude-3-5-sonnet-20241022': {
+  'claude-3-5-sonnet-20250107': {
     input: 0.003,  // $3 per million tokens
     output: 0.015, // $15 per million tokens
   },
@@ -373,7 +373,7 @@ To populate test data, use the usage tracker in API routes:
 ```typescript
 await trackAPIUsage({
   userId: 'test-user-id',
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-3-5-sonnet-20250107',
   endpoint: 'analyze',
   inputTokens: 1000,
   outputTokens: 500,

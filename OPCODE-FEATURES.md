@@ -73,7 +73,7 @@ const customAgent = {
 
   Format: Return JSON with { description, keywords_used, word_count }`,
 
-  model: "claude-3-5-sonnet-20241022",
+  model: "claude-3-5-sonnet-20250107",
   temperature: 0.8, // Higher for more creative descriptions
   maxTokens: 1000,
 

@@ -768,7 +768,7 @@ class ClaudeService {
     
     // Call Claude
     const response = await this.client.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-5-sonnet-20250107',
       system: CLAUDE_SYSTEM_PROMPT.replace('{platform}', connection.platform),
       messages: [{
         role: 'user',
@@ -784,7 +784,7 @@ class ClaudeService {
     const context = this.contextCache.get(connection.id);
     
     const response = await this.client.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-5-sonnet-20250107',
       system: CLAUDE_SYSTEM_PROMPT,
       messages: [{
         role: 'user',
@@ -802,7 +802,7 @@ class ClaudeService {
     const context = connection ? this.contextCache.get(connection.id) : null;
     
     const response = await this.client.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-5-sonnet-20250107',
       system: `You are SEOLOGY, an SEO expert assistant. ${context ? `Current site: ${connection.domain}` : ''}`,
       messages: messages.map(m => ({
         role: m.role === 'user' ? 'user' : 'assistant',
@@ -934,7 +934,7 @@ export async function POST(request: Request) {
 export async function analyzeSite(siteData: SiteData) {
   const claude = new Anthropic();
   const response = await claude.messages.create({
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     messages: [{
       role: 'user',
       content: `Analyze: ${JSON.stringify(siteData)}`
@@ -1316,7 +1316,7 @@ Support: support@seology.ai
 Key Integrations
 
 Shopify App: Client ID 0b87ac78cf0783fd1dd829bf5421fae5
-Claude AI: Model claude-3-5-sonnet-20241022
+Claude AI: Model claude-3-5-sonnet-20250107
 Stripe: Publishable Key pk_live_xxx
 
 Marketing Assets

@@ -341,7 +341,7 @@ const anthropic = new Anthropic({
 
 async function analyzeProduct(product: any) {
   const response = await anthropic.messages.create({
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     max_tokens: 2000,
     messages: [{
       role: 'user',
@@ -352,7 +352,7 @@ async function analyzeProduct(product: any) {
   // Track usage for analytics
   await trackUsage({
     userId: connection.userId,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     tokensInput: response.usage.input_tokens,
     tokensOutput: response.usage.output_tokens,
     endpoint: 'product_analysis'
@@ -530,7 +530,7 @@ Return JSON:
 }`,
     isTemplate: true,
     isPublic: true,
-    model: 'claude-3-5-sonnet-20241022',
+    model: 'claude-3-5-sonnet-20250107',
     temperature: 0.7,
     maxTokens: 1500
   }
@@ -855,7 +855,7 @@ const analysis = await claude.messages.create({
 **Use prompt caching** (Anthropic feature):
 ```typescript
 const response = await anthropic.messages.create({
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-3-5-sonnet-20250107',
   system: [
     {
       type: 'text',

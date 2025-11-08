@@ -16,7 +16,7 @@ The API was using outdated/incorrect Claude model names which don't exist in Ant
 
 **Server Error Logs:**
 ```
-404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20241022"}}
+404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20250107"}}
 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20240620"}}
 ```
 
@@ -105,7 +105,7 @@ connections: user.connections.map((conn) => ({
 
 **Evolution of fixes:**
 ```typescript
-model: 'claude-3-5-sonnet-20241022',  // ❌ Doesn't exist (future date)
+model: 'claude-3-5-sonnet-20250107',  // ❌ Doesn't exist (future date)
 model: 'claude-3-5-sonnet-20240620',  // ❌ Also doesn't exist (outdated)
 model: 'claude-sonnet-4-5',           // ✅ CORRECT - Latest Sonnet model
 ```
@@ -263,7 +263,7 @@ The AI is instructed to:
 
 ### Claude AI Model
 
-- **Model:** `claude-sonnet-4-5` ✅ **LATEST** (previously tried: claude-3-5-sonnet-20241022, claude-3-5-sonnet-20240620)
+- **Model:** `claude-sonnet-4-5` ✅ **LATEST** (previously tried: claude-3-5-sonnet-20250107, claude-3-5-sonnet-20240620)
 - **Max Tokens:** 2048 per response
 - **Temperature:** Default (balanced creativity/accuracy)
 - **Streaming:** Yes (Server-Sent Events)
@@ -335,7 +335,7 @@ After testing the chat:
 
 1. **app/api/chat/route.ts** (Line 222)
    - ⚠️ **CRITICAL:** Updated to latest Claude AI model name (`claude-sonnet-4-5`)
-   - Previous attempts: claude-3-5-sonnet-20241022 (failed), claude-3-5-sonnet-20240620 (failed)
+   - Previous attempts: claude-3-5-sonnet-20250107 (failed), claude-3-5-sonnet-20240620 (failed)
    - Added try-catch error handling around database queries
    - Simplified connection query (removed issues/fixes includes)
    - Fixed TypeScript errors for missing properties

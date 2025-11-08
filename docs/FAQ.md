@@ -127,7 +127,7 @@ For product-level SEO (titles, descriptions, alt text), we use Shopify's API and
 
 SEOLOGY uses **Claude 3.5 Sonnet** by Anthropic:
 
-- Latest model: `claude-3-5-sonnet-20241022`
+- Latest model: `claude-3-5-sonnet-20250107`
 - 200,000 token context window
 - Best-in-class reasoning and analysis
 - Updated regularly by Anthropic

@@ -284,7 +284,7 @@ export async function executeAgent(input: AgentExecutionInput): Promise<AgentExe
         eventType: 'AGENT_EXECUTION',
         resourceType: input.targetType,
         resourceId: input.targetId,
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'claude-sonnet-4-5-20250929',
         tokensInput: 0,
         tokensOutput: 0,
         tokensTotal: 0,

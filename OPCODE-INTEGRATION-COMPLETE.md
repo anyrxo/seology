@@ -326,7 +326,7 @@ All Opcode features integrate with the existing usage tracking system:
 ```typescript
 function calculateClaudeCost(inputTokens: number, outputTokens: number, model: string): number {
   const costs = {
-    'claude-3-5-sonnet-20241022': { input: 3.00, output: 15.00 },
+    'claude-3-5-sonnet-20250107': { input: 3.00, output: 15.00 },
     'claude-3-opus-20240229': { input: 15.00, output: 75.00 },
     'claude-3-haiku-20240307': { input: 0.25, output: 1.25 }
   }
