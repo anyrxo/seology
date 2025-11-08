@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Update user's execution mode
-    await db.user.update({
+    const updatedUser = await db.user.update({
       where: {
         id: connection.userId,
       },
@@ -57,6 +57,8 @@ export async function POST(req: NextRequest) {
         executionMode,
       },
     })
+
+    console.log(`[Execution Mode] User ${connection.userId} changed mode to: ${executionMode}`)
 
     // Create audit log
     await db.auditLog.create({

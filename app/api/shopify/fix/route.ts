@@ -108,6 +108,8 @@ Return ONLY valid JSON:
 
     const executionMode = user?.executionMode || 'APPROVE'
 
+    console.log(`[Fix Route] User: ${context.userId}, Execution Mode: ${executionMode}`)
+
     // Handle based on execution mode
     if (executionMode === 'AUTOMATIC') {
       // AUTOMATIC MODE: Apply fixes immediately

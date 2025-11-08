@@ -81,6 +81,7 @@ export function ShopifyChat() {
   const changeExecutionMode = async (newMode: 'AUTOMATIC' | 'PLAN' | 'APPROVE') => {
     if (!shop || isChangingMode) return
 
+    console.log(`[ShopifyChat] Changing execution mode from ${storeContext?.executionMode} to ${newMode}`)
     setIsChangingMode(true)
     try {
       const response = await fetch('/api/shopify/execution-mode', {
@@ -92,8 +93,10 @@ export function ShopifyChat() {
         }),
       })
 
+      const data = await response.json()
+      console.log('[ShopifyChat] Execution mode change response:', data)
+
       if (response.ok) {
-        const data = await response.json()
         if (data.success) {
           setStoreContext((prev) => (prev ? { ...prev, executionMode: newMode } : null))
 
@@ -103,10 +106,18 @@ export function ShopifyChat() {
             content: `✅ Execution mode changed to **${newMode}**. ${getModeDescription(newMode)}`,
           }
           setMessages((prev) => [...prev, systemMessage])
+
+          console.log('[ShopifyChat] Mode changed successfully to:', newMode)
+        } else {
+          console.error('[ShopifyChat] Mode change failed:', data.error)
+          setError(data.error?.message || 'Failed to change execution mode')
         }
+      } else {
+        console.error('[ShopifyChat] HTTP error:', response.status, data.error)
+        setError(data.error?.message || 'Failed to change execution mode')
       }
     } catch (error) {
-      console.error('Error changing execution mode:', error)
+      console.error('[ShopifyChat] Error changing execution mode:', error)
       setError('Failed to change execution mode')
     } finally {
       setIsChangingMode(false)
