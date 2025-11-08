@@ -21,12 +21,12 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // Find connection
+    // Find connection (accept both CONNECTED and PENDING statuses)
     const connection = await db.connection.findFirst({
       where: {
         domain: shop,
         platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        status: { in: ['CONNECTED', 'PENDING'] },
       },
       include: {
         user: {
