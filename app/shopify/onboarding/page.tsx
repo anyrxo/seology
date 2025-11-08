@@ -55,6 +55,7 @@ export default function ShopifyOnboardingPage() {
 
     setLoading(true)
     try {
+      console.log('[Onboarding] Step 1: Saving execution mode...')
       // 1. Save execution mode
       const modeResponse = await fetch('/api/shopify/execution-mode', {
         method: 'POST',
@@ -66,9 +67,13 @@ export default function ShopifyOnboardingPage() {
       })
 
       if (!modeResponse.ok) {
+        const errorData = await modeResponse.json().catch(() => ({}))
+        console.error('[Onboarding] Failed to save execution mode:', errorData)
         throw new Error('Failed to save execution mode')
       }
+      console.log('[Onboarding] ✅ Execution mode saved')
 
+      console.log('[Onboarding] Step 2: Saving preferences...')
       // 2. Save user preferences (chat visibility and audit scope)
       const prefsResponse = await fetch('/api/shopify/preferences', {
         method: 'POST',
@@ -81,45 +86,81 @@ export default function ShopifyOnboardingPage() {
       })
 
       if (!prefsResponse.ok) {
-        console.warn('Failed to save preferences, continuing anyway')
+        console.warn('[Onboarding] Failed to save preferences, continuing anyway')
+      } else {
+        console.log('[Onboarding] ✅ Preferences saved')
       }
 
+      console.log('[Onboarding] Step 3: Running audit (this may take 1-3 minutes)...')
       // 3. Run initial audit with selected scope
-      console.log(`[Onboarding] Running ${selectedScope} audit...`)
-      const auditResponse = await fetch(`/api/shopify/audit?shop=${shop}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          options: {
-            scope: selectedScope,
-            limit: selectedScope === 'full' ? 30 : 50,
-          },
-        }),
-      })
+      // IMPORTANT: Increase fetch timeout to match server timeout (5 minutes)
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5 * 60 * 1000) // 5 minutes
 
-      if (auditResponse.ok) {
-        const auditData = await auditResponse.json()
-        if (auditData.success) {
-          setAuditResults(auditData.data)
-          console.log(`[Onboarding] Audit complete: ${auditData.data.issuesFound} issues found`)
+      try {
+        const auditResponse = await fetch(`/api/shopify/audit?shop=${shop}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            options: {
+              scope: selectedScope,
+              limit: selectedScope === 'full' ? 30 : 50,
+            },
+          }),
+          signal: controller.signal,
+        })
+
+        clearTimeout(timeoutId)
+
+        if (auditResponse.ok) {
+          const auditData = await auditResponse.json()
+          if (auditData.success) {
+            setAuditResults(auditData.data)
+            console.log(`[Onboarding] ✅ Audit complete: ${auditData.data.issuesFound} issues found`)
+          } else {
+            console.warn('[Onboarding] Audit returned success=false:', auditData)
+          }
+        } else {
+          const errorData = await auditResponse.json().catch(() => ({}))
+          console.error('[Onboarding] Audit failed:', errorData)
+          // Continue anyway - audit failure shouldn't block onboarding
         }
+      } catch (auditError) {
+        clearTimeout(timeoutId)
+        if (auditError instanceof Error && auditError.name === 'AbortError') {
+          console.error('[Onboarding] Audit timed out after 5 minutes')
+        } else {
+          console.error('[Onboarding] Audit error:', auditError)
+        }
+        // Continue anyway - audit failure shouldn't block onboarding
       }
 
+      console.log('[Onboarding] Step 4: Marking onboarding complete...')
       // 4. Mark onboarding as complete
-      await fetch(`/api/shopify/onboarding?shop=${shop}`, {
+      const onboardingResponse = await fetch(`/api/shopify/onboarding?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: true }),
       })
 
+      if (!onboardingResponse.ok) {
+        console.warn('[Onboarding] Failed to mark onboarding complete')
+      } else {
+        console.log('[Onboarding] ✅ Onboarding marked complete')
+      }
+
+      console.log('[Onboarding] Step 5: Redirecting...')
       // 5. Redirect to chat or dashboard
       if (chatEnabled) {
+        console.log('[Onboarding] Redirecting to chat...')
         router.push(`/shopify/chat?shop=${shop}`)
       } else {
+        console.log('[Onboarding] Redirecting to dashboard...')
         router.push(`/shopify/dashboard?shop=${shop}`)
       }
     } catch (error) {
-      console.error('Error during onboarding:', error)
+      console.error('[Onboarding] Fatal error:', error)
+      alert(`Onboarding error: ${error instanceof Error ? error.message : 'Unknown error'}. Please try again or contact support.`)
       setLoading(false)
     }
   }
