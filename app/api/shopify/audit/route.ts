@@ -106,6 +106,58 @@ export async function POST(req: NextRequest) {
       const products = productsData.products.edges.map(e => e.node)
       summary.products.total = products.length
 
+      // =========================================================================
+      // SAVE PRODUCTS TO DATABASE (for dashboard display)
+      // =========================================================================
+      console.log(`[Audit] Saving ${products.length} products to database...`)
+      for (const product of products) {
+        // Calculate SEO score
+        let seoScore = 100
+        if (!product.seo?.title || product.seo.title.length < 30) seoScore -= 20
+        if (!product.seo?.description || product.seo.description.length < 120) seoScore -= 15
+        if (!product.descriptionHtml || product.descriptionHtml.length < 100) seoScore -= 20
+        const imagesWithoutAlt = product.images?.edges?.filter(e => !e.node.altText) || []
+        if (imagesWithoutAlt.length > 0) seoScore -= 15
+        seoScore = Math.max(0, seoScore)
+
+        try {
+          await db.shopifyProduct.upsert({
+            where: {
+              connectionId_shopifyProductId: {
+                connectionId: connection.id,
+                shopifyProductId: product.id,
+              }
+            },
+            create: {
+              connectionId: connection.id,
+              shopifyProductId: product.id,
+              shopifyHandle: product.handle,
+              title: product.title,
+              bodyHtml: product.descriptionHtml || null,
+              status: 'active', // Default status since ProductSEO doesn't include it
+              metaTitle: product.seo?.title || null,
+              metaDescription: product.seo?.description || null,
+              images: JSON.stringify(product.images?.edges?.map(img => img.node) || []),
+              seoScore,
+              lastAnalyzedAt: new Date(),
+            },
+            update: {
+              shopifyHandle: product.handle,
+              title: product.title,
+              bodyHtml: product.descriptionHtml || null,
+              metaTitle: product.seo?.title || null,
+              metaDescription: product.seo?.description || null,
+              images: JSON.stringify(product.images?.edges?.map(img => img.node) || []),
+              seoScore,
+              lastAnalyzedAt: new Date(),
+            }
+          })
+        } catch (dbError) {
+          console.error(`[Audit] Failed to save product ${product.id}:`, dbError)
+        }
+      }
+      console.log(`[Audit] Successfully saved ${products.length} products to database`)
+
       for (const product of products) {
         // Check SEO title
         if (!product.seo.title || product.seo.title.length < 30) {
