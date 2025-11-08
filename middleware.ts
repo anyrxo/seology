@@ -9,71 +9,90 @@
  * - Path-based security policies
  */
 
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { clerkMiddleware } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// Define public routes that don't require authentication
-const isPublicRoute = createRouteMatcher([
-  '/',
-  '/pricing',
-  '/about',
-  '/features',
-  '/docs(.*)',
-  '/terms',
-  '/privacy',
-  '/cookies',
-  '/status',
-  '/changelog',
-  '/help',
-  '/api',
-  '/contact',
-  '/careers',
-  '/roadmap',
-  '/case-studies',
-  '/support',
-  '/partners',
-  '/security',
-  '/compliance',
-  '/api/health',
-  '/api/webhooks/clerk',
-  '/api/billing/webhook',
-  '/api/webhooks/shopify(.*)', // Shopify webhooks - no auth
-  '/api/auth/shopify(.*)', // Shopify OAuth routes - MUST be public
-  '/sign-in(.*)',
-  '/sign-up(.*)',
-  '/test-dashflow',
-  '/api-explorer',
-  '/integrations(.*)',
-  '/guides(.*)',
-  '/blog(.*)',
-  '/shopify(.*)', // Shopify embedded app routes - use Shopify OAuth instead of Clerk
-  '/api/shopify(.*)', // Shopify API routes - use session tokens for auth
-])
+// Helper to check if path matches pattern
+function isPublicRoute(pathname: string): boolean {
+  const publicPaths = [
+    '/',
+    '/pricing',
+    '/about',
+    '/features',
+    '/terms',
+    '/privacy',
+    '/cookies',
+    '/status',
+    '/changelog',
+    '/help',
+    '/api',
+    '/contact',
+    '/careers',
+    '/roadmap',
+    '/case-studies',
+    '/support',
+    '/partners',
+    '/security',
+    '/compliance',
+    '/api/health',
+    '/api/webhooks/clerk',
+    '/api/billing/webhook',
+    '/test-dashflow',
+    '/api-explorer',
+  ]
 
-// Define cron routes that use CRON_SECRET for auth
-const isCronRoute = createRouteMatcher(['/api/cron/(.*)'])
+  const publicPrefixes = [
+    '/docs',
+    '/sign-in',
+    '/sign-up',
+    '/integrations',
+    '/guides',
+    '/blog',
+    '/shopify', // Shopify embedded app routes - use Shopify OAuth instead of Clerk
+    '/api/shopify', // Shopify API routes - use session tokens for auth
+    '/api/auth/shopify', // Shopify OAuth routes - MUST be public
+    '/api/webhooks/shopify', // Shopify webhooks - no auth
+  ]
+
+  // Exact match
+  if (publicPaths.includes(pathname)) {
+    return true
+  }
+
+  // Prefix match
+  return publicPrefixes.some((prefix) => pathname.startsWith(prefix))
+}
+
+// Helper to check if path is cron route
+function isCronRoute(pathname: string): boolean {
+  return pathname.startsWith('/api/cron/')
+}
 
 export default clerkMiddleware(async (auth, req: NextRequest) => {
   // Add security headers to all responses
   const response = addSecurityHeaders(req, NextResponse.next())
 
+  const pathname = req.nextUrl.pathname
+
   // Skip auth check for cron routes (they use CRON_SECRET)
-  if (isCronRoute(req)) {
+  if (isCronRoute(pathname)) {
     return response
   }
 
   // CRITICAL: Skip Clerk auth entirely for Shopify OAuth and webhook routes
   // These routes MUST be public for Shopify app installation to work
   if (
-    req.nextUrl.pathname.startsWith('/api/auth/shopify') ||
-    req.nextUrl.pathname.startsWith('/api/webhooks/shopify')
+    pathname.startsWith('/api/auth/shopify') ||
+    pathname.startsWith('/api/webhooks/shopify') ||
+    pathname.startsWith('/shopify') ||
+    pathname.startsWith('/api/shopify')
   ) {
     return response
   }
 
   // Allow public routes
-  if (isPublicRoute(req)) {
+  if (isPublicRoute(pathname)) {
     return response
   }
 
