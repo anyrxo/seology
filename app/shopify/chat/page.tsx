@@ -39,7 +39,7 @@ export default function ShopifyChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: "Hi! I'm your SEOLOGY.AI assistant. I can help you with:\n\n• SEO optimization tips\n• Product content recommendations\n• Keyword research\n• Technical SEO questions\n• Analyzing your product performance\n\nWhat would you like help with today?",
+      content: "Hi! I'm your SEOLOGY.AI assistant. I can help you with:\n\n**🔍 Run Audits:**\n• \"Analyze my products\"\n• \"Audit my store\"\n• \"Check my content\"\n\n**🔧 Apply Fixes:**\n• \"Fix my products\"\n• \"Apply SEO fixes\"\n• \"Optimize my store\"\n\n**💬 Get Advice:**\n• SEO tips and recommendations\n• Keyword research\n• Technical SEO questions\n\nJust tell me what you need!",
       timestamp: new Date(),
     },
   ])
@@ -425,9 +425,9 @@ export default function ShopifyChatPage() {
           <div className="flex flex-wrap gap-2">
             {[
               'Analyze my products',
+              'Fix my store',
+              'Audit my content',
               'SEO best practices',
-              'Keyword research tips',
-              'Fix common SEO issues',
             ].map((action) => (
               <button
                 key={action}

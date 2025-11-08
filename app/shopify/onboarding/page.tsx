@@ -1,324 +1,540 @@
 /**
- * Shopify App Onboarding Flow
- * First-time setup wizard for merchants installing SEOLOGY
+ * Shopify App Onboarding Flow - Atlas Style Minimal UI
+ * Execution mode selection for SEOLOGY.AI
  */
 
 'use client'
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { ExecutionMode } from '@prisma/client'
-import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+
+type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
+type SEOScope = 'full' | 'products' | 'content' | 'technical'
+
+interface AuditResult {
+  totalResources: number
+  issuesFound: number
+  issues: Array<{
+    resource: string
+    resourceId: string
+    resourceTitle: string
+    issueType: string
+    severity: 'critical' | 'high' | 'medium' | 'low'
+    description: string
+    recommendation: string
+  }>
+  summary: {
+    products: { total: number; issues: number }
+    pages: { total: number; issues: number }
+    blog: { total: number; issues: number }
+    collections: { total: number; issues: number }
+    technical: { issues: number }
+  }
+  aiInsights: string
+  estimatedImpact: string
+}
 
 export default function ShopifyOnboardingPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const shop = searchParams.get('shop')
-  const [step, setStep] = useState(1)
   const [selectedMode, setSelectedMode] = useState<ExecutionMode | null>(null)
+  const [selectedScope, setSelectedScope] = useState<SEOScope>('full')
+  const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [showTooltip, setShowTooltip] = useState<string | null>(null)
+  const [auditResults, setAuditResults] = useState<AuditResult | null>(null)
+  const [chatEnabled, setChatEnabled] = useState(false)
 
-  const handleModeSelect = (mode: ExecutionMode) => {
-    setSelectedMode(mode)
-    setError(null)
+  const handleNext = () => {
+    if (!selectedMode) return
+    setShowModal(true)
   }
 
-  const handleContinue = async () => {
-    if (!selectedMode) {
-      setError('Please select an execution mode to continue')
-      return
-    }
+  const handleProceed = async () => {
+    if (!selectedMode || !shop) return
 
     setLoading(true)
-    setError(null)
-
     try {
-      // Save the selected execution mode
-      const response = await fetch(`/api/shopify/settings?shop=${shop}`, {
+      // 1. Save execution mode
+      const modeResponse = await fetch('/api/shopify/execution-mode', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ executionMode: selectedMode }),
+        body: JSON.stringify({
+          shop,
+          executionMode: selectedMode,
+        }),
       })
 
-      if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.error?.message || 'Failed to save settings')
+      if (!modeResponse.ok) {
+        throw new Error('Failed to save execution mode')
       }
 
-      // Move to next step
-      setStep(2)
-    } catch (error) {
-      console.error('Error saving execution mode:', error)
-      setError(error instanceof Error ? error.message : 'Connection failed. Please try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
+      // 2. Run initial audit with selected scope
+      console.log(`[Onboarding] Running ${selectedScope} audit...`)
+      const auditResponse = await fetch(`/api/shopify/audit?shop=${shop}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          options: {
+            scope: selectedScope,
+            limit: selectedScope === 'full' ? 30 : 50,
+          },
+        }),
+      })
 
-  const handleComplete = async () => {
-    try {
-      // Mark onboarding as complete
+      if (auditResponse.ok) {
+        const auditData = await auditResponse.json()
+        if (auditData.success) {
+          setAuditResults(auditData.data)
+          console.log(`[Onboarding] Audit complete: ${auditData.data.issuesFound} issues found`)
+        }
+      }
+
+      // 3. Mark onboarding as complete
       await fetch(`/api/shopify/onboarding?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: true }),
       })
-    } catch (error) {
-      console.error('Error completing onboarding:', error)
-    }
 
-    // Redirect to main dashboard
-    router.push(`/shopify/dashboard?shop=${shop}`)
+      // 4. Redirect to chat or dashboard
+      if (chatEnabled) {
+        router.push(`/shopify/chat?shop=${shop}`)
+      } else {
+        router.push(`/shopify/dashboard?shop=${shop}`)
+      }
+    } catch (error) {
+      console.error('Error during onboarding:', error)
+      setLoading(false)
+    }
+  }
+
+  const getModeDetails = (mode: ExecutionMode) => {
+    switch (mode) {
+      case 'AUTOMATIC':
+        return {
+          title: 'Automatic',
+          description: 'AI applies all SEO fixes instantly without approval. Best for hands-off automation.',
+          badge: 'Recommended',
+          emoji: '⚡',
+        }
+      case 'PLAN':
+        return {
+          title: 'Plan Mode',
+          description: 'AI creates fix plans for batch approval. Review once, apply all together.',
+          badge: null,
+          emoji: '📋',
+        }
+      case 'APPROVE':
+        return {
+          title: 'Approve Each Fix',
+          description: 'Review and approve each SEO fix individually. Maximum control over changes.',
+          badge: null,
+          emoji: '✓',
+        }
+    }
   }
 
   return (
-    <>
-      <ShopifyNav shop={shop} />
-
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
-          {/* Header */}
-          <header className="text-center mb-8" role="banner">
-            <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              Welcome to SEOLOGY.AI
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">
-              Let's get your store optimized for search engines
-            </p>
-          </header>
-
-        {/* Progress Steps */}
-        <div className="flex items-center justify-center mb-8">
-          <div className={`flex items-center ${step >= 1 ? 'text-blue-600' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
-              1
-            </div>
-            <span className="ml-2 text-sm font-medium">Setup</span>
+    <div className="min-h-screen bg-[#191A1B] flex items-center justify-center p-6">
+      <div className="max-w-2xl w-full">
+        {/* Progress Bar Section */}
+        <div className="bg-[#262A2B] rounded-lg p-6 mb-8">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-white text-sm font-medium">Setup process</h2>
+            <span className="text-gray-400 text-sm">0 of 1 steps completed</span>
           </div>
-          <div className="w-24 h-0.5 bg-gray-300 mx-4" />
-          <div className={`flex items-center ${step >= 2 ? 'text-blue-600' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? 'bg-blue-600 text-white' : 'bg-gray-300'}`}>
-              2
-            </div>
-            <span className="ml-2 text-sm font-medium">Complete</span>
+          <div className="w-full bg-[#191A1B] rounded-full h-2">
+            <div className="bg-blue-500 h-2 rounded-full w-0 transition-all duration-300" />
           </div>
         </div>
 
-        {/* Step Content */}
-        {step === 1 && (
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Choose Your SEO Automation Mode
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                How would you like SEOLOGY to handle SEO fixes?
-              </p>
-            </div>
+        {/* Main Content */}
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-white text-2xl font-semibold mb-2">
+              Choose your SEO automation mode
+            </h1>
+            <p className="text-gray-400 text-sm">
+              How would you like SEOLOGY.AI to handle SEO fixes? Choose the option that best fits you.
+            </p>
+          </div>
 
-            {/* Mode Options */}
-            <div className="space-y-4">
-              {/* Automatic Mode */}
-              <button
-                onClick={() => handleModeSelect('AUTOMATIC')}
-                disabled={loading}
-                data-mode="AUTOMATIC"
-                data-selected={selectedMode === 'AUTOMATIC'}
-                aria-selected={selectedMode === 'AUTOMATIC'}
-                className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
-                  selectedMode === 'AUTOMATIC'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
-                } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-              >
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+          {/* Options */}
+          <div className="space-y-4">
+            {/* Option 1: Automatic (Recommended) */}
+            <button
+              onClick={() => setSelectedMode('AUTOMATIC')}
+              className={`w-full text-left p-6 rounded-lg border-2 transition-all ${
+                selectedMode === 'AUTOMATIC'
+                  ? 'border-white bg-white/5'
+                  : 'border-gray-700 hover:border-gray-500'
+              }`}
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-white text-lg font-medium">
+                      ⚡ Automatic
+                    </h3>
+                    <span className="bg-green-500/10 text-green-400 px-3 py-1 rounded-full text-xs font-medium">
+                      Recommended
+                    </span>
                   </div>
-                  <div className="ml-4 flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        Automatic
-                      </h3>
-                      <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Recommended</span>
-                      <button
-                        type="button"
-                        data-tooltip="AUTOMATIC"
-                        onMouseEnter={() => setShowTooltip('AUTOMATIC')}
-                        onMouseLeave={() => setShowTooltip(null)}
-                        className="relative ml-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {showTooltip === 'AUTOMATIC' && (
-                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
-                            Automatically applies all fixes without approval
-                          </div>
-                        )}
-                      </button>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      SEOLOGY applies all SEO fixes automatically without approval. Best for hands-off automation.
-                    </p>
+                  <p className="text-gray-400 text-sm">
+                    AI applies all SEO fixes instantly without approval. Best for hands-off automation.
+                  </p>
+                </div>
+                <div className="ml-4 flex-shrink-0">
+                  <div
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                      selectedMode === 'AUTOMATIC'
+                        ? 'border-white bg-white'
+                        : 'border-gray-600'
+                    }`}
+                  >
+                    {selectedMode === 'AUTOMATIC' && (
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B]" />
+                    )}
                   </div>
                 </div>
-              </button>
-
-              {/* Plan Mode */}
-              <button
-                onClick={() => handleModeSelect('PLAN')}
-                disabled={loading}
-                data-mode="PLAN"
-                data-selected={selectedMode === 'PLAN'}
-                aria-selected={selectedMode === 'PLAN'}
-                className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
-                  selectedMode === 'PLAN'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
-                } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-              >
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    </svg>
-                  </div>
-                  <div className="ml-4 flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        Plan
-                      </h3>
-                      <button
-                        type="button"
-                        data-tooltip="PLAN"
-                        onMouseEnter={() => setShowTooltip('PLAN')}
-                        onMouseLeave={() => setShowTooltip(null)}
-                        className="relative ml-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {showTooltip === 'PLAN' && (
-                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
-                            Creates batch of fixes, review once, apply together
-                          </div>
-                        )}
-                      </button>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      SEOLOGY creates a batch of fixes, you review the plan once, then all fixes apply together.
-                    </p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Approve Mode */}
-              <button
-                onClick={() => handleModeSelect('APPROVE')}
-                disabled={loading}
-                data-mode="APPROVE"
-                data-selected={selectedMode === 'APPROVE'}
-                aria-selected={selectedMode === 'APPROVE'}
-                className={`w-full text-left p-6 rounded-xl border-2 transition-all ${
-                  selectedMode === 'APPROVE'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20 border-primary'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-400'
-                } ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-              >
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                  </div>
-                  <div className="ml-4 flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        Approve
-                      </h3>
-                      <button
-                        type="button"
-                        data-tooltip="APPROVE"
-                        onMouseEnter={() => setShowTooltip('APPROVE')}
-                        onMouseLeave={() => setShowTooltip(null)}
-                        className="relative ml-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {showTooltip === 'APPROVE' && (
-                          <div className="absolute z-10 bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg whitespace-nowrap">
-                            Review and approve each fix individually
-                          </div>
-                        )}
-                      </button>
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      Review and approve each SEO fix individually before it's applied. Maximum control.
-                    </p>
-                  </div>
-                </div>
-              </button>
-            </div>
-
-            {/* Error Display */}
-            {error && (
-              <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
               </div>
-            )}
+            </button>
 
-            {/* Continue Button */}
+            {/* Option 2: Plan Mode */}
             <button
-              onClick={handleContinue}
-              disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              onClick={() => setSelectedMode('PLAN')}
+              className={`w-full text-left p-6 rounded-lg border-2 transition-all ${
+                selectedMode === 'PLAN'
+                  ? 'border-white bg-white/5'
+                  : 'border-gray-700 hover:border-gray-500'
+              }`}
             >
-              {loading ? 'Setting up...' : 'Complete Setup'}
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="text-white text-lg font-medium mb-2">
+                    📋 Plan Mode
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    AI creates fix plans for batch approval. Review once, apply all together.
+                  </p>
+                </div>
+                <div className="ml-4 flex-shrink-0">
+                  <div
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                      selectedMode === 'PLAN'
+                        ? 'border-white bg-white'
+                        : 'border-gray-600'
+                    }`}
+                  >
+                    {selectedMode === 'PLAN' && (
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B]" />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </button>
+
+            {/* Option 3: Approve Mode */}
+            <button
+              onClick={() => setSelectedMode('APPROVE')}
+              className={`w-full text-left p-6 rounded-lg border-2 transition-all ${
+                selectedMode === 'APPROVE'
+                  ? 'border-white bg-white/5'
+                  : 'border-gray-700 hover:border-gray-500'
+              }`}
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <h3 className="text-white text-lg font-medium mb-2">
+                    ✓ Approve Each Fix
+                  </h3>
+                  <p className="text-gray-400 text-sm">
+                    Review and approve each SEO fix individually. Maximum control over changes.
+                  </p>
+                </div>
+                <div className="ml-4 flex-shrink-0">
+                  <div
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                      selectedMode === 'APPROVE'
+                        ? 'border-white bg-white'
+                        : 'border-gray-600'
+                    }`}
+                  >
+                    {selectedMode === 'APPROVE' && (
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B]" />
+                    )}
+                  </div>
+                </div>
+              </div>
             </button>
           </div>
-        )}
 
-        {step === 2 && (
-          <div className="text-center space-y-6">
-            <div className="w-20 h-20 bg-green-100 dark:bg-green-900/20 rounded-full mx-auto flex items-center justify-center">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                All Set!
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                SEOLOGY is now analyzing your store for SEO opportunities.
-                <br />
-                You'll start seeing results in a few moments.
-              </p>
-            </div>
-            <button
-              onClick={handleComplete}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
-            >
-              Go to Dashboard
-            </button>
-          </div>
-        )}
+          {/* Next Button */}
+          <button
+            onClick={handleNext}
+            disabled={!selectedMode}
+            className={`w-full py-4 rounded-lg font-medium transition-all ${
+              selectedMode
+                ? 'bg-[#242729] hover:bg-[#2d3134] text-white'
+                : 'bg-[#242729]/50 text-gray-600 cursor-not-allowed'
+            }`}
+          >
+            Next
+          </button>
+        </div>
       </div>
-      </main>
-    </>
+
+      {/* Modal */}
+      {showModal && selectedMode && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 z-50">
+          <div className="bg-[#1f2123] border border-gray-700 rounded-lg max-w-2xl w-full p-6 shadow-2xl">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-white text-xl font-semibold">
+                Select products you would like to optimize:
+              </h3>
+              <button
+                onClick={() => setShowModal(false)}
+                disabled={loading}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="space-y-6 mb-6">
+              {/* From Onboarding Label */}
+              <p className="text-gray-400 text-sm">from onboarding</p>
+
+              {/* Selected Mode Summary */}
+              <div>
+                <h4 className="text-white text-sm font-medium mb-3">Selected automation mode:</h4>
+                <div className="bg-[#262A2B] rounded-lg p-4 border border-gray-700">
+                  <div className="flex items-center gap-3">
+                    <div className="text-2xl">{getModeDetails(selectedMode).emoji}</div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-white text-sm font-medium">
+                          {getModeDetails(selectedMode).title}
+                        </span>
+                        {getModeDetails(selectedMode).badge && (
+                          <span className="bg-green-500/10 text-green-400 px-2 py-0.5 rounded-full text-xs font-medium">
+                            {getModeDetails(selectedMode).badge}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Enable Chat Option */}
+              <div>
+                <h4 className="text-white text-sm font-medium mb-3">AI Assistant Access</h4>
+                <button
+                  onClick={() => setChatEnabled(!chatEnabled)}
+                  disabled={loading}
+                  className={`w-full flex items-start gap-4 p-4 rounded-lg border-2 transition-all ${
+                    chatEnabled
+                      ? 'border-blue-500 bg-blue-500/10'
+                      : 'border-gray-700 bg-[#262A2B] hover:border-gray-500'
+                  } disabled:opacity-50 disabled:cursor-not-allowed`}
+                >
+                  <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1 text-left">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-white text-sm font-medium">Enable AI Chat Assistant</span>
+                      <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-0.5 rounded-full text-[10px] font-medium">Recommended</span>
+                    </div>
+                    <p className="text-gray-400 text-xs">
+                      Chat directly with SEOLOGY AI to run audits, apply fixes, and get SEO recommendations. Just say "analyze my products" or "fix my store".
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <div className={`w-12 h-6 rounded-full transition-colors ${
+                      chatEnabled ? 'bg-blue-600' : 'bg-gray-600'
+                    }`}>
+                      <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform m-0.5 ${
+                        chatEnabled ? 'translate-x-6' : 'translate-x-0'
+                      }`} />
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              {/* SEO Scope Selection */}
+              <div>
+                <h4 className="text-white text-sm font-medium mb-3">What would you like to optimize first?</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* Full Store Audit */}
+                  <button
+                    onClick={() => setSelectedScope('full')}
+                    disabled={loading}
+                    className={`flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                      selectedScope === 'full'
+                        ? 'border-white bg-white/5'
+                        : 'border-gray-700 bg-[#262A2B] hover:border-gray-500'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      </svg>
+                    </div>
+                    <div className="text-left flex-1">
+                      <div className="text-white text-sm font-medium flex items-center gap-2">
+                        Complete Store Audit
+                        <span className="bg-blue-500/10 text-blue-400 px-2 py-0.5 rounded-full text-[10px] font-medium">Recommended</span>
+                      </div>
+                      <div className="text-gray-400 text-xs">Products, pages, blog, collections, technical SEO</div>
+                    </div>
+                    {selectedScope === 'full' ? (
+                      <div className="w-5 h-5 rounded-full border-2 border-white bg-white">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B] m-[3px]" />
+                      </div>
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-600" />
+                    )}
+                  </button>
+
+                  {/* Products Only */}
+                  <button
+                    onClick={() => setSelectedScope('products')}
+                    disabled={loading}
+                    className={`flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                      selectedScope === 'products'
+                        ? 'border-white bg-white/5'
+                        : 'border-gray-700 bg-[#262A2B] hover:border-gray-500'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    <div className="w-10 h-10 bg-green-600 rounded flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                      </svg>
+                    </div>
+                    <div className="text-left flex-1">
+                      <div className="text-white text-sm font-medium">Products Only</div>
+                      <div className="text-gray-400 text-xs">Focus on product catalog SEO</div>
+                    </div>
+                    {selectedScope === 'products' ? (
+                      <div className="w-5 h-5 rounded-full border-2 border-white bg-white">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B] m-[3px]" />
+                      </div>
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-600" />
+                    )}
+                  </button>
+
+                  {/* Content & Pages */}
+                  <button
+                    onClick={() => setSelectedScope('content')}
+                    disabled={loading}
+                    className={`flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                      selectedScope === 'content'
+                        ? 'border-white bg-white/5'
+                        : 'border-gray-700 bg-[#262A2B] hover:border-gray-500'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    <div className="w-10 h-10 bg-orange-600 rounded flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <div className="text-left flex-1">
+                      <div className="text-white text-sm font-medium">Content & Pages</div>
+                      <div className="text-gray-400 text-xs">Blog posts, pages, collections</div>
+                    </div>
+                    {selectedScope === 'content' ? (
+                      <div className="w-5 h-5 rounded-full border-2 border-white bg-white">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B] m-[3px]" />
+                      </div>
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-600" />
+                    )}
+                  </button>
+
+                  {/* Technical SEO */}
+                  <button
+                    onClick={() => setSelectedScope('technical')}
+                    disabled={loading}
+                    className={`flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                      selectedScope === 'technical'
+                        ? 'border-white bg-white/5'
+                        : 'border-gray-700 bg-[#262A2B] hover:border-gray-500'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    <div className="w-10 h-10 bg-cyan-600 rounded flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                    </div>
+                    <div className="text-left flex-1">
+                      <div className="text-white text-sm font-medium">Technical SEO</div>
+                      <div className="text-gray-400 text-xs">Speed, mobile, schema, redirects</div>
+                    </div>
+                    {selectedScope === 'technical' ? (
+                      <div className="w-5 h-5 rounded-full border-2 border-white bg-white">
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#191A1B] m-[3px]" />
+                      </div>
+                    ) : (
+                      <div className="w-5 h-5 rounded-full border-2 border-gray-600" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Store Connection */}
+              <div className="bg-[#191A1B] rounded-lg p-4 border border-gray-700">
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p className="text-gray-300 text-sm flex-1">
+                    SEOLOGY will analyze selected products and provide AI-powered SEO recommendations based on your <strong className="text-white">{getModeDetails(selectedMode).title}</strong> mode.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowModal(false)}
+                disabled={loading}
+                className="px-6 py-3 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleProceed}
+                disabled={loading}
+                className="flex-1 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              >
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Setting up...
+                  </span>
+                ) : chatEnabled ? (
+                  'Proceed to Chat'
+                ) : (
+                  'Proceed to Dashboard'
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }

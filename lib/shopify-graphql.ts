@@ -535,6 +535,657 @@ export async function getShopInfo(connection: Connection): Promise<ShopInfo> {
 }
 
 // =============================================================================
+// PAGES SEO HELPERS
+// =============================================================================
+
+/**
+ * Page with SEO data
+ */
+export interface PageSEO {
+  id: string
+  title: string
+  handle: string
+  body: string
+  bodySummary: string
+  seo: {
+    title: string | null
+    description: string | null
+  }
+  createdAt: string
+  updatedAt: string
+}
+
+/**
+ * Get single page by ID with SEO data
+ */
+export async function getPage(
+  connection: Connection,
+  pageId: string
+): Promise<PageSEO> {
+  const query = `
+    query getPage($id: ID!) {
+      page(id: $id) {
+        id
+        title
+        handle
+        body
+        bodySummary
+        seo {
+          title
+          description
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{ page: PageSEO }>(
+    connection,
+    query,
+    { id: `gid://shopify/Page/${pageId}` }
+  )
+
+  return result.page
+}
+
+/**
+ * Get multiple pages for analysis
+ */
+export interface PagesList {
+  pages: {
+    edges: Array<{
+      node: PageSEO
+      cursor: string
+    }>
+    pageInfo: {
+      hasNextPage: boolean
+      endCursor: string | null
+    }
+  }
+}
+
+export async function getPages(
+  connection: Connection,
+  first: number = 10,
+  after?: string
+): Promise<PagesList> {
+  const query = `
+    query getPages($first: Int!, $after: String) {
+      pages(first: $first, after: $after) {
+        edges {
+          node {
+            id
+            title
+            handle
+            bodySummary
+            seo {
+              title
+              description
+            }
+          }
+          cursor
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  `
+
+  return await shopifyGraphQLWithConnection<PagesList>(
+    connection,
+    query,
+    { first, after }
+  )
+}
+
+/**
+ * Update page SEO
+ */
+export interface UpdatePageSEOInput {
+  title?: string
+  description?: string
+}
+
+export async function updatePageSEO(
+  connection: Connection,
+  pageId: string,
+  seo: UpdatePageSEOInput
+): Promise<PageSEO> {
+  const mutation = `
+    mutation pageUpdate($input: PageInput!) {
+      pageUpdate(input: $input) {
+        page {
+          id
+          seo {
+            title
+            description
+          }
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{
+    pageUpdate: {
+      page: PageSEO
+      userErrors: Array<{ field: string[]; message: string }>
+    }
+  }>(connection, mutation, {
+    input: {
+      id: `gid://shopify/Page/${pageId}`,
+      metafields: [{
+        namespace: 'global',
+        key: 'title_tag',
+        value: seo.title,
+        type: 'single_line_text_field'
+      }, {
+        namespace: 'global',
+        key: 'description_tag',
+        value: seo.description,
+        type: 'single_line_text_field'
+      }]
+    },
+  })
+
+  if (result.pageUpdate.userErrors.length > 0) {
+    throw new Error(result.pageUpdate.userErrors[0].message)
+  }
+
+  return result.pageUpdate.page
+}
+
+// =============================================================================
+// BLOG & ARTICLES SEO HELPERS
+// =============================================================================
+
+/**
+ * Article with SEO data
+ */
+export interface ArticleSEO {
+  id: string
+  title: string
+  handle: string
+  contentHtml: string
+  excerpt: string | null
+  seo: {
+    title: string | null
+    description: string | null
+  }
+  image: {
+    id: string
+    url: string
+    altText: string | null
+  } | null
+  blog: {
+    id: string
+    title: string
+  }
+  createdAt: string
+  updatedAt: string
+}
+
+/**
+ * Get single article by ID with SEO data
+ */
+export async function getArticle(
+  connection: Connection,
+  articleId: string
+): Promise<ArticleSEO> {
+  const query = `
+    query getArticle($id: ID!) {
+      article(id: $id) {
+        id
+        title
+        handle
+        contentHtml
+        excerpt
+        seo {
+          title
+          description
+        }
+        image {
+          id
+          url
+          altText
+        }
+        blog {
+          id
+          title
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{ article: ArticleSEO }>(
+    connection,
+    query,
+    { id: `gid://shopify/Article/${articleId}` }
+  )
+
+  return result.article
+}
+
+/**
+ * Blog with articles
+ */
+export interface BlogWithArticles {
+  id: string
+  title: string
+  handle: string
+  articles: {
+    edges: Array<{
+      node: {
+        id: string
+        title: string
+        handle: string
+        seo: {
+          title: string | null
+          description: string | null
+        }
+      }
+    }>
+  }
+}
+
+/**
+ * Get all blogs with their articles
+ */
+export interface BlogsList {
+  blogs: {
+    edges: Array<{
+      node: BlogWithArticles
+    }>
+  }
+}
+
+export async function getBlogs(
+  connection: Connection,
+  first: number = 10
+): Promise<BlogsList> {
+  const query = `
+    query getBlogs($first: Int!) {
+      blogs(first: $first) {
+        edges {
+          node {
+            id
+            title
+            handle
+            articles(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  handle
+                  seo {
+                    title
+                    description
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+  return await shopifyGraphQLWithConnection<BlogsList>(
+    connection,
+    query,
+    { first }
+  )
+}
+
+/**
+ * Update article SEO
+ */
+export interface UpdateArticleSEOInput {
+  title?: string
+  description?: string
+}
+
+export async function updateArticleSEO(
+  connection: Connection,
+  articleId: string,
+  seo: UpdateArticleSEOInput
+): Promise<ArticleSEO> {
+  const mutation = `
+    mutation articleUpdate($input: ArticleUpdateInput!) {
+      articleUpdate(input: $input) {
+        article {
+          id
+          seo {
+            title
+            description
+          }
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{
+    articleUpdate: {
+      article: ArticleSEO
+      userErrors: Array<{ field: string[]; message: string }>
+    }
+  }>(connection, mutation, {
+    input: {
+      id: `gid://shopify/Article/${articleId}`,
+      metafields: [{
+        namespace: 'global',
+        key: 'title_tag',
+        value: seo.title,
+        type: 'single_line_text_field'
+      }, {
+        namespace: 'global',
+        key: 'description_tag',
+        value: seo.description,
+        type: 'single_line_text_field'
+      }]
+    },
+  })
+
+  if (result.articleUpdate.userErrors.length > 0) {
+    throw new Error(result.articleUpdate.userErrors[0].message)
+  }
+
+  return result.articleUpdate.article
+}
+
+// =============================================================================
+// COLLECTIONS SEO HELPERS
+// =============================================================================
+
+/**
+ * Collection with SEO data
+ */
+export interface CollectionSEO {
+  id: string
+  title: string
+  handle: string
+  descriptionHtml: string
+  seo: {
+    title: string | null
+    description: string | null
+  }
+  image: {
+    id: string
+    url: string
+    altText: string | null
+  } | null
+  productsCount: number
+}
+
+/**
+ * Get single collection by ID with SEO data
+ */
+export async function getCollection(
+  connection: Connection,
+  collectionId: string
+): Promise<CollectionSEO> {
+  const query = `
+    query getCollection($id: ID!) {
+      collection(id: $id) {
+        id
+        title
+        handle
+        descriptionHtml
+        seo {
+          title
+          description
+        }
+        image {
+          id
+          url
+          altText
+        }
+        productsCount
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{ collection: CollectionSEO }>(
+    connection,
+    query,
+    { id: `gid://shopify/Collection/${collectionId}` }
+  )
+
+  return result.collection
+}
+
+/**
+ * Get multiple collections for analysis
+ */
+export interface CollectionsList {
+  collections: {
+    edges: Array<{
+      node: CollectionSEO
+      cursor: string
+    }>
+    pageInfo: {
+      hasNextPage: boolean
+      endCursor: string | null
+    }
+  }
+}
+
+export async function getCollections(
+  connection: Connection,
+  first: number = 10,
+  after?: string
+): Promise<CollectionsList> {
+  const query = `
+    query getCollections($first: Int!, $after: String) {
+      collections(first: $first, after: $after) {
+        edges {
+          node {
+            id
+            title
+            handle
+            descriptionHtml
+            seo {
+              title
+              description
+            }
+            productsCount
+          }
+          cursor
+        }
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+  `
+
+  return await shopifyGraphQLWithConnection<CollectionsList>(
+    connection,
+    query,
+    { first, after }
+  )
+}
+
+/**
+ * Update collection SEO
+ */
+export interface UpdateCollectionSEOInput {
+  title?: string
+  description?: string
+}
+
+export async function updateCollectionSEO(
+  connection: Connection,
+  collectionId: string,
+  seo: UpdateCollectionSEOInput
+): Promise<CollectionSEO> {
+  const mutation = `
+    mutation collectionUpdate($input: CollectionInput!) {
+      collectionUpdate(input: $input) {
+        collection {
+          id
+          seo {
+            title
+            description
+          }
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `
+
+  const result = await shopifyGraphQLWithConnection<{
+    collectionUpdate: {
+      collection: CollectionSEO
+      userErrors: Array<{ field: string[]; message: string }>
+    }
+  }>(connection, mutation, {
+    input: {
+      id: `gid://shopify/Collection/${collectionId}`,
+      seo,
+    },
+  })
+
+  if (result.collectionUpdate.userErrors.length > 0) {
+    throw new Error(result.collectionUpdate.userErrors[0].message)
+  }
+
+  return result.collectionUpdate.collection
+}
+
+// =============================================================================
+// SCHEMA MARKUP & METAFIELDS HELPERS
+// =============================================================================
+
+/**
+ * Create or update metafield for structured data (schema markup)
+ */
+export interface MetafieldInput {
+  namespace: string
+  key: string
+  value: string
+  type: string
+}
+
+export async function updateMetafields(
+  connection: Connection,
+  ownerId: string,
+  metafields: MetafieldInput[]
+): Promise<void> {
+  const mutation = `
+    mutation metafieldsSet($metafields: [MetafieldsSetInput!]!) {
+      metafieldsSet(metafields: $metafields) {
+        metafields {
+          id
+          namespace
+          key
+          value
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `
+
+  const metafieldsInput = metafields.map(mf => ({
+    ownerId,
+    namespace: mf.namespace,
+    key: mf.key,
+    value: mf.value,
+    type: mf.type
+  }))
+
+  const result = await shopifyGraphQLWithConnection<{
+    metafieldsSet: {
+      metafields: Array<{ id: string; namespace: string; key: string; value: string }>
+      userErrors: Array<{ field: string[]; message: string }>
+    }
+  }>(connection, mutation, {
+    metafields: metafieldsInput,
+  })
+
+  if (result.metafieldsSet.userErrors.length > 0) {
+    throw new Error(result.metafieldsSet.userErrors[0].message)
+  }
+}
+
+/**
+ * Add Product schema markup via metafield
+ */
+export async function addProductSchema(
+  connection: Connection,
+  productId: string,
+  schemaData: {
+    brand?: string
+    sku?: string
+    gtin?: string
+    mpn?: string
+  }
+): Promise<void> {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    ...schemaData
+  }
+
+  await updateMetafields(connection, `gid://shopify/Product/${productId}`, [
+    {
+      namespace: 'seo',
+      key: 'schema_markup',
+      value: JSON.stringify(schema),
+      type: 'json'
+    }
+  ])
+}
+
+/**
+ * Add Article schema markup via metafield
+ */
+export async function addArticleSchema(
+  connection: Connection,
+  articleId: string,
+  schemaData: {
+    headline: string
+    datePublished: string
+    author: string
+    publisher: string
+  }
+): Promise<void> {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    ...schemaData
+  }
+
+  await updateMetafields(connection, `gid://shopify/Article/${articleId}`, [
+    {
+      namespace: 'seo',
+      key: 'schema_markup',
+      value: JSON.stringify(schema),
+      type: 'json'
+    }
+  ])
+}
+
+// =============================================================================
 // RETRY-ENABLED WRAPPERS
 // =============================================================================
 

@@ -1,6 +1,11 @@
 /**
  * API Route: Shopify Chat
  * Claude AI powered chat assistant for SEO help
+ *
+ * Features:
+ * - Intent detection for commands (analyze, fix, audit)
+ * - Direct API execution for actions
+ * - Conversational AI fallback for questions
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -16,6 +21,67 @@ const anthropic = new Anthropic({
 interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
+}
+
+// Intent detection patterns
+const INTENT_PATTERNS = {
+  ANALYZE_PRODUCTS: [
+    /analyze\s+(my\s+)?products?/i,
+    /audit\s+(my\s+)?products?/i,
+    /check\s+(my\s+)?products?/i,
+    /scan\s+(my\s+)?products?/i,
+  ],
+  ANALYZE_CONTENT: [
+    /analyze\s+(my\s+)?content/i,
+    /audit\s+(my\s+)?content/i,
+    /check\s+(my\s+)?pages?/i,
+    /analyze\s+(my\s+)?pages?/i,
+  ],
+  ANALYZE_FULL: [
+    /analyze\s+(my\s+)?store/i,
+    /audit\s+(my\s+)?store/i,
+    /check\s+(my\s+)?store/i,
+    /scan\s+(my\s+)?store/i,
+    /full\s+audit/i,
+    /complete\s+audit/i,
+  ],
+  FIX_PRODUCTS: [
+    /fix\s+(my\s+)?products?/i,
+    /optimize\s+(my\s+)?products?/i,
+    /improve\s+(my\s+)?products?/i,
+  ],
+  FIX_STORE: [
+    /fix\s+(my\s+)?store/i,
+    /optimize\s+(my\s+)?store/i,
+    /improve\s+(my\s+)?store/i,
+    /fix\s+everything/i,
+    /fix\s+all/i,
+  ],
+}
+
+function detectIntent(message: string): { intent: string; scope: string } | null {
+  const lowerMessage = message.toLowerCase()
+
+  // Analyze intents
+  if (INTENT_PATTERNS.ANALYZE_PRODUCTS.some(pattern => pattern.test(lowerMessage))) {
+    return { intent: 'ANALYZE', scope: 'products' }
+  }
+  if (INTENT_PATTERNS.ANALYZE_CONTENT.some(pattern => pattern.test(lowerMessage))) {
+    return { intent: 'ANALYZE', scope: 'content' }
+  }
+  if (INTENT_PATTERNS.ANALYZE_FULL.some(pattern => pattern.test(lowerMessage))) {
+    return { intent: 'ANALYZE', scope: 'full' }
+  }
+
+  // Fix intents
+  if (INTENT_PATTERNS.FIX_PRODUCTS.some(pattern => pattern.test(lowerMessage))) {
+    return { intent: 'FIX', scope: 'products' }
+  }
+  if (INTENT_PATTERNS.FIX_STORE.some(pattern => pattern.test(lowerMessage))) {
+    return { intent: 'FIX', scope: 'full' }
+  }
+
+  return null
 }
 
 export async function POST(req: NextRequest) {
@@ -59,6 +125,104 @@ export async function POST(req: NextRequest) {
         { status: 404 }
       )
     }
+
+    // =========================================================================
+    // COMMAND DETECTION & EXECUTION
+    // =========================================================================
+    const lastUserMessage = messages[messages.length - 1]
+    const detectedIntent = lastUserMessage?.role === 'user' ? detectIntent(lastUserMessage.content) : null
+
+    if (detectedIntent) {
+      console.log(`[Chat] Detected intent: ${detectedIntent.intent} - ${detectedIntent.scope}`)
+
+      // Execute the appropriate command
+      try {
+        if (detectedIntent.intent === 'ANALYZE' || detectedIntent.intent === 'FIX') {
+          // Call the analyze-and-fix API internally
+          const analyzeResponse = await fetch(
+            `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/shopify/analyze-and-fix`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-shopify-shop-domain': shop,
+              },
+              body: JSON.stringify({
+                options: {
+                  scope: detectedIntent.scope,
+                  limit: detectedIntent.scope === 'full' ? 50 : 20,
+                },
+              }),
+            }
+          )
+
+          const analyzeResult = await analyzeResponse.json()
+
+          if (analyzeResult.success) {
+            const { data } = analyzeResult
+            const executionMode = connection.user.executionMode || 'PLAN'
+
+            // Format response based on execution mode
+            let responseMessage = `${data.summary}\n\n`
+
+            responseMessage += `**Results:**\n`
+            responseMessage += `- Analyzed ${data.totalResources} resources\n`
+            responseMessage += `- Found ${data.issuesFound} SEO issues\n`
+            responseMessage += `- Created ${data.fixesCreated} fixes\n\n`
+
+            if (executionMode === 'AUTOMATIC') {
+              responseMessage += `✅ **Fixes Applied Automatically**\n`
+              responseMessage += `All ${data.fixesCreated} fixes have been applied to your store immediately.\n\n`
+            } else if (executionMode === 'PLAN') {
+              responseMessage += `📋 **Fix Plan Created**\n`
+              responseMessage += `I've created a plan with ${data.fixesCreated} fixes. `
+              responseMessage += `You can review and approve all fixes at once.\n\n`
+              responseMessage += `**Next Steps:**\n`
+              responseMessage += `Say "show me the plan" or "apply the plan" to proceed.`
+            } else {
+              responseMessage += `⏸️ **Fixes Pending Approval**\n`
+              responseMessage += `${data.fixesCreated} fixes are waiting for your approval. `
+              responseMessage += `Each fix needs individual approval before being applied.\n\n`
+              responseMessage += `**Next Steps:**\n`
+              responseMessage += `Say "show fixes" or "approve fixes" to review them.`
+            }
+
+            // Return command execution result
+            return NextResponse.json({
+              success: true,
+              data: {
+                message: responseMessage,
+                action: {
+                  type: detectedIntent.intent,
+                  scope: detectedIntent.scope,
+                  issuesFound: data.issuesFound,
+                  fixesCreated: data.fixesCreated,
+                  planId: data.planId,
+                  executionMode,
+                },
+              },
+            })
+          } else {
+            // Handle error from analyze-and-fix API
+            const errorMessage = `I tried to ${detectedIntent.intent === 'ANALYZE' ? 'analyze' : 'fix'} your ${detectedIntent.scope === 'full' ? 'store' : detectedIntent.scope}, but encountered an error:\n\n${analyzeResult.error?.message || 'Unknown error'}\n\nPlease try again or contact support if the issue persists.`
+
+            return NextResponse.json({
+              success: true,
+              data: {
+                message: errorMessage,
+              },
+            })
+          }
+        }
+      } catch (commandError) {
+        console.error('[Chat] Command execution error:', commandError)
+        // Fall through to conversational AI if command fails
+      }
+    }
+
+    // =========================================================================
+    // CONVERSATIONAL AI (No command detected)
+    // =========================================================================
 
     // Get current month's usage record for credit tracking
     const currentPeriod = new Date()
