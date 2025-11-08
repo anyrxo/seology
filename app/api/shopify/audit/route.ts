@@ -23,7 +23,7 @@ import {
 import Anthropic from '@anthropic-ai/sdk'
 
 export const dynamic = 'force-dynamic'
-export const maxDuration = 60 // 60 seconds for comprehensive audit
+export const maxDuration = 300 // 5 minutes for comprehensive audit (Shopify API + Claude AI can be slow)
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -101,8 +101,9 @@ export async function POST(req: NextRequest) {
     // PRODUCTS AUDIT
     // =========================================================================
     if (options.scope === 'full' || options.scope === 'products') {
-      console.log('[Audit] Analyzing products...')
+      console.log('[Audit] Fetching products from Shopify...')
       const productsData = await getProducts(connection, options.limit || 50)
+      console.log(`[Audit] ✅ Fetched ${productsData.products.edges.length} products from Shopify`)
       const products = productsData.products.edges.map(e => e.node)
       summary.products.total = products.length
 
@@ -116,7 +117,7 @@ export async function POST(req: NextRequest) {
         if (!product.seo?.title || product.seo.title.length < 30) seoScore -= 20
         if (!product.seo?.description || product.seo.description.length < 120) seoScore -= 15
         if (!product.descriptionHtml || product.descriptionHtml.length < 100) seoScore -= 20
-        const imagesWithoutAlt = product.images?.edges?.filter(e => !e.node.altText) || []
+        const imagesWithoutAlt = product.images?.edges?.filter((e: { node: { altText?: string | null } }) => !e.node.altText) || []
         if (imagesWithoutAlt.length > 0) seoScore -= 15
         seoScore = Math.max(0, seoScore)
 
@@ -137,7 +138,7 @@ export async function POST(req: NextRequest) {
               status: 'active', // Default status since ProductSEO doesn't include it
               metaTitle: product.seo?.title || null,
               metaDescription: product.seo?.description || null,
-              images: JSON.stringify(product.images?.edges?.map(img => img.node) || []),
+              images: JSON.stringify(product.images?.edges?.map((img: { node: unknown }) => img.node) || []),
               seoScore,
               lastAnalyzedAt: new Date(),
             },
@@ -147,7 +148,7 @@ export async function POST(req: NextRequest) {
               bodyHtml: product.descriptionHtml || null,
               metaTitle: product.seo?.title || null,
               metaDescription: product.seo?.description || null,
-              images: JSON.stringify(product.images?.edges?.map(img => img.node) || []),
+              images: JSON.stringify(product.images?.edges?.map((img: { node: unknown }) => img.node) || []),
               seoScore,
               lastAnalyzedAt: new Date(),
             }
@@ -210,7 +211,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Check images alt text
-        const imagesWithoutAlt = product.images.edges.filter(e => !e.node.altText)
+        const imagesWithoutAlt = product.images.edges.filter((e: { node: { altText?: string | null } }) => !e.node.altText)
         if (imagesWithoutAlt.length > 0) {
           issues.push({
             resource: 'product',
