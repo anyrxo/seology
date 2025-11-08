@@ -8,14 +8,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyShopifyWebhook } from '@/lib/shopify-hmac';
 import { db } from '@/lib/db';
+import {
+  extractWebhookId,
+  isWebhookDuplicate,
+  markWebhookProcessed,
+} from '@/lib/webhook-deduplication';
 
 export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
+  let body = '';
+  let webhookId: string | null = null;
+  let shopDomain: string | null = null;
+
   try {
     // Verify webhook
     const hmac = req.headers.get('x-shopify-hmac-sha256');
-    const body = await req.text();
+    body = await req.text();
+    shopDomain = req.headers.get('x-shopify-shop-domain');
 
     if (!hmac) {
       return NextResponse.json({ error: 'Missing HMAC' }, { status: 401 });
@@ -29,6 +39,17 @@ export async function POST(req: NextRequest) {
     const isValid = verifyShopifyWebhook(body, hmac, secret);
     if (!isValid) {
       return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
+    }
+
+    // Check for duplicate webhook
+    const topic = 'shop/redact';
+    webhookId = extractWebhookId(req.headers, body);
+    if (webhookId && shopDomain) {
+      const isDuplicate = await isWebhookDuplicate(webhookId, shopDomain, topic);
+      if (isDuplicate) {
+        console.log(`[WEBHOOK DUPLICATE] Skipping duplicate GDPR webhook ${webhookId}`);
+        return NextResponse.json({ success: true, message: 'Duplicate webhook ignored' });
+      }
     }
 
     const data = JSON.parse(body) as {
@@ -148,6 +169,13 @@ export async function POST(req: NextRequest) {
 
     console.log(`GDPR shop redaction completed for ${data.shop_domain}`);
 
+    // Mark webhook as processed
+    if (webhookId && data.shop_domain) {
+      await markWebhookProcessed(webhookId, data.shop_domain, 'shop/redact', {
+        processed: true,
+      });
+    }
+
     return NextResponse.json({
       success: true,
       message: 'Shop data deleted',
@@ -155,6 +183,15 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error('GDPR shop redaction error:', error);
+
+    // Mark webhook as failed if we have the ID
+    if (webhookId && shopDomain) {
+      await markWebhookProcessed(webhookId, shopDomain, 'shop/redact', {
+        processed: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+      });
+    }
+
     return NextResponse.json({ success: true }); // Still return 200
   }
 }
