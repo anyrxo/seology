@@ -17,6 +17,8 @@ const globalForPrisma = globalThis as unknown as {
 // NOTE: Prisma Accelerate does NOT support middleware ($use)
 // Access tokens are encrypted in DB and must be manually decrypted when needed
 // Use decrypt() from ./encryption when working with connection.accessToken
+//
+// IMPORTANT: This file forces Prisma client regeneration with correct datasource
 // ============================================================================
 export const db = globalForPrisma.prisma ?? new PrismaClient({
   datasourceUrl: process.env.DATABASE_URL,
