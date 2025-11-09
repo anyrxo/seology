@@ -138,6 +138,7 @@ export async function withShopParameter(
     }
 
     // Find connection by shop domain
+    console.log('[withShopParameter] Looking for connection with shop:', shop)
     const connection = await db.connection.findFirst({
       where: {
         domain: shop,
@@ -152,7 +153,34 @@ export async function withShopParameter(
       },
     })
 
+    console.log('[withShopParameter] Connection found:', {
+      found: !!connection,
+      hasAccessToken: !!connection?.accessToken,
+      domain: connection?.domain,
+      userId: connection?.userId,
+    })
+
     if (!connection || !connection.accessToken) {
+      // Debug: Check if connection exists with different status
+      const anyConnection = await db.connection.findFirst({
+        where: {
+          domain: shop,
+          platform: 'SHOPIFY',
+        },
+        select: {
+          id: true,
+          status: true,
+          accessToken: true,
+        },
+      })
+
+      console.log('[withShopParameter] ❌ Connection check failed:', {
+        shop,
+        anyConnectionExists: !!anyConnection,
+        status: anyConnection?.status,
+        hasAccessToken: !!anyConnection?.accessToken,
+      })
+
       return {
         success: false,
         response: NextResponse.json(
