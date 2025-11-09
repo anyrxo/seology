@@ -28,12 +28,12 @@ Add `?pgbouncer=true` to the DATABASE_URL in Vercel production environment.
 3. Click **Edit**
 4. Update the value from:
    ```
-   postgres://ff2cd1c07aba7823a64ef8c77ad5a48e94702f2c0de4e9ade5b0beb950f32c58:sk_hlnMHgh1HurZVhF9vuqx9@db.prisma.io:5432/postgres?sslmode=require
+   postgresql://postgres.qkczsucvrtqstowuxegi:Onfroy1738!@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres
    ```
 
-   To (add `&pgbouncer=true` at the end):
+   To (add `?pgbouncer=true` at the end):
    ```
-   postgres://ff2cd1c07aba7823a64ef8c77ad5a48e94702f2c0de4e9ade5b0beb950f32c58:sk_hlnMHgh1HurZVhF9vuqx9@db.prisma.io:5432/postgres?sslmode=require&pgbouncer=true
+   postgresql://postgres.qkczsucvrtqstowuxegi:Onfroy1738!@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true
    ```
 
 5. Click **Save**
@@ -121,8 +121,10 @@ ConnectorError(ConnectorError {
    - Requires paid Prisma Cloud subscription
    - Not necessary if `pgbouncer=true` works
 
-2. **Use Supabase Transaction Pooler** - We're not using Supabase
-   - Production database is Prisma.io hosted PostgreSQL
+2. **Use Supabase Direct Connection (port 5432)** - Bypasses pooler but less performant
+   - Would be: `postgresql://postgres.qkczsucvrtqstowuxegi:Onfroy1738!@db.qkczsucvrtqstowuxegi.supabase.co:5432/postgres`
+   - Not recommended: Serverless needs connection pooling for performance
+   - Better to use pooler with `?pgbouncer=true`
 
 3. **Disable connection pooling** - Not possible in serverless
    - Vercel Lambda reuses connections automatically
