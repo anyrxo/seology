@@ -38,13 +38,15 @@ export async function POST(request: NextRequest) {
     console.log(`  Host: ${new URL(dbUrl).host}`)
 
     // Run prisma db push with the production database URL
-    // Use node_modules/.bin/prisma directly to avoid npx download issues in serverless
+    // Use /tmp for npm cache as it's writable in Lambda
     const { stdout, stderr } = await execAsync(
-      'node node_modules/prisma/build/index.js db push --accept-data-loss --skip-generate',
+      'npx --yes -c "prisma db push --accept-data-loss --skip-generate"',
       {
         env: {
           ...process.env,
-          DATABASE_URL: dbUrl
+          DATABASE_URL: dbUrl,
+          npm_config_cache: '/tmp/.npm',
+          HOME: '/tmp'
         },
         timeout: 60000 // 60 second timeout
       }
