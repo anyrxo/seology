@@ -8,7 +8,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import {
   getPerformanceSummary,
   getRateLimitHealth,
@@ -17,6 +16,7 @@ import {
   getAvgResponseTime,
 } from '@/lib/monitoring'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 /**
  * GET /api/shopify/monitor/analytics
@@ -24,49 +24,26 @@ import { db } from '@/lib/db'
  * Returns comprehensive analytics for Shopify app performance
  *
  * Query params:
- * - shop: Shopify domain (required)
+ * - shop: Shopify domain (via session token or parameter)
  * - period: 'hour' | 'day' | 'week' | 'month' (default: 'day')
  * - includeHealth: Include system health check (default: true)
  * - includeRateLimit: Include rate limit status (default: true)
  */
 export async function GET(req: NextRequest) {
   try {
-    const { userId } = await auth()
-    if (!userId) {
-      return NextResponse.json(
-        { success: false, error: { code: 'UNAUTHORIZED', message: 'Not authenticated' } },
-        { status: 401 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
+    const { context } = authResult
+    const shop = context.shop
+
     const searchParams = req.nextUrl.searchParams
-    const shop = searchParams.get('shop')
     const period = (searchParams.get('period') || 'day') as 'hour' | 'day' | 'week' | 'month'
     const includeHealth = searchParams.get('includeHealth') !== 'false'
     const includeRateLimit = searchParams.get('includeRateLimit') !== 'false'
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'BAD_REQUEST', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Verify user has access to this shop
-    const connection = await db.connection.findFirst({
-      where: {
-        userId,
-        domain: shop,
-        platform: 'SHOPIFY',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'FORBIDDEN', message: 'Access denied to this shop' } },
-        { status: 403 }
-      )
-    }
 
     // Fetch performance summary
     const performanceSummary = await getPerformanceSummary(shop, period)

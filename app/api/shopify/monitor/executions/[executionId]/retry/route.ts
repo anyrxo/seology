@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { executeAgent } from '@/lib/seo-agents'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,31 +15,16 @@ export async function POST(
   { params }: { params: { executionId: string } }
 ) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+
     const { executionId } = params
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
 
     // Fetch failed execution
     const failedExecution = await db.agentExecution.findUnique({
@@ -55,7 +41,7 @@ export async function POST(
     }
 
     // Verify it belongs to this connection
-    if (failedExecution.connectionId !== connection.id) {
+    if (failedExecution.connectionId !== connectionId) {
       return NextResponse.json(
         { success: false, error: { code: 'FORBIDDEN', message: 'Access denied' } },
         { status: 403 }

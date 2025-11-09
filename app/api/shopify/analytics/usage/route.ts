@@ -6,38 +6,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { cached } from '@/lib/cache'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
     const startDate = req.nextUrl.searchParams.get('startDate')
     const endDate = req.nextUrl.searchParams.get('endDate')
     const groupBy = req.nextUrl.searchParams.get('groupBy') || 'day'
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const userId = context.userId
+    const shop = context.shop
 
     // Parse dates
     const start = startDate ? new Date(startDate) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
@@ -50,7 +37,7 @@ export async function GET(req: NextRequest) {
         // Get all logs in date range
         const logs = await db.aPIUsageLog.findMany({
           where: {
-            userId: connection.userId,
+            userId,
             shop,
             timestamp: {
               gte: start,

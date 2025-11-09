@@ -5,35 +5,20 @@
 
 import { NextRequest } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  const shop = req.nextUrl.searchParams.get('shop')
-
-  if (!shop) {
-    return new Response(
-      JSON.stringify({ success: false, error: 'Missing shop parameter' }),
-      { status: 400, headers: { 'Content-Type': 'application/json' } }
-    )
+  // Secure authentication
+  const authResult = await withShopifyAuth(req)
+  if (!authResult.success) {
+    return authResult.response
   }
 
-  // Find connection
-  const connection = await db.connection.findFirst({
-    where: {
-      domain: shop,
-      platform: 'SHOPIFY',
-      status: 'CONNECTED',
-    },
-  })
-
-  if (!connection) {
-    return new Response(
-      JSON.stringify({ success: false, error: 'Shop not connected' }),
-      { status: 404, headers: { 'Content-Type': 'application/json' } }
-    )
-  }
+  const { context } = authResult
+  const connectionId = context.connection.id
 
   // Create SSE stream
   const stream = new ReadableStream({
@@ -46,7 +31,7 @@ export async function GET(req: NextRequest) {
           // Fetch live executions (running or pending)
           const executions = await db.agentExecution.findMany({
             where: {
-              connectionId: connection.id,
+              connectionId,
               status: {
                 in: ['PENDING', 'RUNNING'],
               },

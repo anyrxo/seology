@@ -6,35 +6,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { cached } from '@/lib/cache'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const userId = context.userId
+    const shop = context.shop
 
     // Cache for 1 minute
     const overviewData = await cached(
@@ -51,7 +37,7 @@ export async function GET(req: NextRequest) {
         // Aggregate current month's usage
         const stats = await db.aPIUsageLog.aggregate({
           where: {
-            userId: connection.userId,
+            userId,
             shop,
             timestamp: {
               gte: currentMonth,
@@ -77,7 +63,7 @@ export async function GET(req: NextRequest) {
         // Get budget if set
         const budget = await db.usageBudget.findFirst({
           where: {
-            userId: connection.userId,
+            userId,
             isActive: true,
             periodStart: { lte: new Date() },
             periodEnd: { gte: new Date() },

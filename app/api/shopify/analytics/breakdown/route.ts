@@ -6,36 +6,24 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { cached } from '@/lib/cache'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
     const groupBy = req.nextUrl.searchParams.get('groupBy') || 'endpoint'
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
     // Cache for 5 minutes
     const breakdownData = await cached(
@@ -54,7 +42,7 @@ export async function GET(req: NextRequest) {
           const byEndpoint = await db.aPIUsageLog.groupBy({
             by: ['endpoint'],
             where: {
-              userId: connection.userId,
+              userId,
               shop,
               timestamp: {
                 gte: currentMonth,
@@ -86,7 +74,7 @@ export async function GET(req: NextRequest) {
           const byModel = await db.aPIUsageLog.groupBy({
             by: ['model'],
             where: {
-              userId: connection.userId,
+              userId,
               shop,
               timestamp: {
                 gte: currentMonth,
@@ -112,7 +100,7 @@ export async function GET(req: NextRequest) {
           // Group by product (resourceId where resourceType = 'product')
           const logs = await db.aPIUsageLog.findMany({
             where: {
-              userId: connection.userId,
+              userId,
               shop,
               resourceType: 'product',
               timestamp: {
@@ -139,7 +127,7 @@ export async function GET(req: NextRequest) {
           const productIds = Array.from(productMap.keys()).filter((id) => id !== 'unknown')
           const products = await db.shopifyProduct.findMany({
             where: {
-              connectionId: connection.id,
+              connectionId,
               shopifyProductId: { in: productIds },
             },
             select: {

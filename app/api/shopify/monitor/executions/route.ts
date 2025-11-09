@@ -6,12 +6,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { Prisma, AgentExecutionStatus } from '@prisma/client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+
     const agentId = req.nextUrl.searchParams.get('agentId')
     const status = req.nextUrl.searchParams.get('status')
     const startDate = req.nextUrl.searchParams.get('startDate')
@@ -19,32 +28,9 @@ export async function GET(req: NextRequest) {
     const limit = parseInt(req.nextUrl.searchParams.get('limit') || '50')
     const offset = parseInt(req.nextUrl.searchParams.get('offset') || '0')
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
-
     // Build where clause
     const where: Prisma.AgentExecutionWhereInput = {
-      connectionId: connection.id,
+      connectionId,
     }
 
     if (agentId) {

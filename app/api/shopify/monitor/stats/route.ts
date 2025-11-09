@@ -5,45 +5,30 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
 
     // Get all agents for this connection
     const agents = await db.sEOAgent.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
       },
       include: {
         executions: {
           where: {
-            connectionId: connection.id,
+            connectionId,
           },
           orderBy: {
             completedAt: 'desc',

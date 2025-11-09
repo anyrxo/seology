@@ -5,40 +5,25 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
 
     // Get active executions count
     const activeExecutions = await db.agentExecution.count({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'RUNNING',
       },
     })
@@ -46,7 +31,7 @@ export async function GET(req: NextRequest) {
     // Get queued executions count
     const queueDepth = await db.agentExecution.count({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'PENDING',
       },
     })
@@ -55,7 +40,7 @@ export async function GET(req: NextRequest) {
     const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000)
     const recentExecutions = await db.agentExecution.count({
       where: {
-        connectionId: connection.id,
+        connectionId,
         startedAt: {
           gte: oneHourAgo,
         },
@@ -64,7 +49,7 @@ export async function GET(req: NextRequest) {
 
     const recentFailures = await db.agentExecution.count({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'FAILED',
         startedAt: {
           gte: oneHourAgo,

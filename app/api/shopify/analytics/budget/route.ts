@@ -6,40 +6,25 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const userId = context.userId
 
     // Get active budget
     const budget = await db.usageBudget.findFirst({
       where: {
-        userId: connection.userId,
+        userId,
         isActive: true,
         periodStart: { lte: new Date() },
         periodEnd: { gte: new Date() },
@@ -61,32 +46,16 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Secure authentication
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const userId = context.userId
+
     const body = await req.json()
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Get connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
-
     const { monthlyLimit, dailyLimit, alerts } = body
 
     // Validate
@@ -100,7 +69,7 @@ export async function POST(req: NextRequest) {
     // Deactivate existing budgets
     await db.usageBudget.updateMany({
       where: {
-        userId: connection.userId,
+        userId,
         isActive: true,
       },
       data: {
@@ -118,7 +87,7 @@ export async function POST(req: NextRequest) {
 
     const budget = await db.usageBudget.create({
       data: {
-        userId: connection.userId,
+        userId,
         periodStart,
         periodEnd,
         monthlyLimitUSD: monthlyLimit,
