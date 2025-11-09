@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     // Run prisma db push with the production database URL
     // Use /tmp for npm cache as it's writable in Lambda
     const { stdout, stderr } = await execAsync(
-      'npx --yes -c "prisma db push --accept-data-loss --skip-generate"',
+      'npx --yes prisma db push --accept-data-loss --skip-generate',
       {
         env: {
           ...process.env,
