@@ -80,7 +80,28 @@ export async function withShopifySession(
       }
     }
 
-    // Decrypt access token (already handled by Prisma middleware)
+    // Decrypt access token (stored encrypted in database)
+    let decryptedToken: string
+    try {
+      decryptedToken = decrypt(connection.accessToken)
+      console.log('[withShopifySession] ✅ Access token decrypted successfully')
+    } catch (error) {
+      console.error('[withShopifySession] ❌ Failed to decrypt access token:', error)
+      return {
+        success: false,
+        response: NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'DECRYPTION_ERROR',
+              message: 'Failed to decrypt access token',
+            },
+          },
+          { status: 500 }
+        ),
+      }
+    }
+
     return {
       success: true,
       context: {
@@ -89,7 +110,7 @@ export async function withShopifySession(
         sessionToken: tokenPayload.jti,
         connection: {
           id: connection.id,
-          accessToken: connection.accessToken,
+          accessToken: decryptedToken,
           domain: connection.domain,
         },
       },
