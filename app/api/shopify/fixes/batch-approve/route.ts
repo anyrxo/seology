@@ -7,6 +7,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db, dbWrite } from '@/lib/db'
 import { updateProductSEO } from '@/lib/shopify-client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -37,20 +38,16 @@ interface BatchApproveResponse {
 
 export async function POST(req: NextRequest): Promise<NextResponse<BatchApproveResponse>> {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'MISSING_SHOP',
-            message: 'Shop parameter required',
-          },
-        },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response as NextResponse<BatchApproveResponse>
     }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
     // Parse request body
     let body: BatchApproveRequest
@@ -83,35 +80,13 @@ export async function POST(req: NextRequest): Promise<NextResponse<BatchApproveR
       )
     }
 
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'NO_CONNECTION',
-            message: 'Shop not connected',
-          },
-        },
-        { status: 404 }
-      )
-    }
-
     // Fetch all pending fixes
     const fixes = await db.fix.findMany({
       where: {
         id: {
           in: body.fixIds,
         },
-        connectionId: connection.id,
+        connectionId,
         status: 'PENDING',
         planId: null, // Only individual fixes, not part of a plan
       },
@@ -150,7 +125,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<BatchApproveR
 
         // Apply the fix to Shopify
         if (changes.productId && changes.seo) {
-          await updateProductSEO(connection.userId, shop, changes.productId, changes.seo)
+          await updateProductSEO(userId, shop, changes.productId, changes.seo)
         }
 
         // Update fix status in transaction
@@ -178,8 +153,8 @@ export async function POST(req: NextRequest): Promise<NextResponse<BatchApproveR
           // Create audit log for this fix
           await tx.auditLog.create({
             data: {
-              userId: connection.userId,
-              connectionId: connection.id,
+              userId,
+              connectionId,
               action: 'FIX_BATCH_APPROVED',
               resource: 'fix',
               resourceId: fix.id,
@@ -217,8 +192,8 @@ export async function POST(req: NextRequest): Promise<NextResponse<BatchApproveR
     // Create summary audit log
     await dbWrite.auditLog.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         action: 'BATCH_APPROVAL_COMPLETED',
         resource: 'fix',
         details: JSON.stringify({

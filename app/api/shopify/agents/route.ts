@@ -7,6 +7,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { AGENT_TEMPLATES } from '@/lib/seo-agents'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,37 +20,35 @@ interface APIResponse<T> {
 // GET - List all agents
 export async function GET(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection for this shop
-    const connection = await db.connection.findFirst({
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+
+    // Get connection details
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED'
+        id: connectionId,
       }
     })
 
     if (!connection) {
       return NextResponse.json<APIResponse<never>>({
         success: false,
-        error: { code: 'CONNECTION_NOT_FOUND', message: 'Shop connection not found' }
+        error: { code: 'CONNECTION_NOT_FOUND', message: 'Connection not found' }
       }, { status: 404 })
     }
 
     // Get user's custom agents
     const customAgents = await db.sEOAgent.findMany({
       where: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         isTemplate: false,
         isPublic: false
       },
@@ -115,31 +114,15 @@ export async function GET(request: NextRequest) {
 // POST - Create new custom agent
 export async function POST(request: NextRequest) {
   try {
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection for this shop
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED'
-      }
-    })
-
-    if (!connection) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'CONNECTION_NOT_FOUND', message: 'Shop connection not found' }
-      }, { status: 404 })
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
 
     const body = await request.json()
     const {
@@ -163,8 +146,8 @@ export async function POST(request: NextRequest) {
     // Create agent
     const agent = await db.sEOAgent.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         name,
         description,
         specialty: 'custom',

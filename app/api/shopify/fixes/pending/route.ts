@@ -6,6 +6,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -54,27 +55,19 @@ interface PendingFixesResponse {
 
 export async function GET(req: NextRequest): Promise<NextResponse<PendingFixesResponse>> {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'MISSING_SHOP',
-            message: 'Shop parameter required',
-          },
-        },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response as NextResponse<PendingFixesResponse>
     }
 
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
+    const { context } = authResult
+    const connectionId = context.connection.id
+
+    // Get connection details with user info
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        id: connectionId,
       },
       include: {
         user: {
@@ -91,7 +84,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<PendingFixesRe
           success: false,
           error: {
             code: 'NO_CONNECTION',
-            message: 'Shop not connected',
+            message: 'Connection not found',
           },
         },
         { status: 404 }
@@ -101,7 +94,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<PendingFixesRe
     // Fetch pending fixes (for APPROVE mode)
     const pendingFixes = await db.fix.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'PENDING',
         planId: null, // Individual fixes, not part of a plan
       },
@@ -124,7 +117,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<PendingFixesRe
     // Fetch pending plans (for PLAN mode)
     const pendingPlans = await db.pendingPlan.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'PENDING',
       },
       include: {
