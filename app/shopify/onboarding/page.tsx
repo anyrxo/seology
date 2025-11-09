@@ -55,6 +55,9 @@ export default function ShopifyOnboardingPage() {
 
     setLoading(true)
     try {
+      console.log('[Onboarding] ========== STARTING ONBOARDING ==========')
+      console.log('[Onboarding] Shop parameter:', shop)
+      console.log('[Onboarding] Selected mode:', selectedMode)
       console.log('[Onboarding] Step 1: Saving execution mode...')
       // 1. Save execution mode
       const modeResponse = await fetch(`/api/shopify/execution-mode?shop=${shop}`, {
