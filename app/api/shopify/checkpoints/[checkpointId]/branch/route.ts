@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db, dbWrite } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,29 +14,23 @@ export async function POST(
   { params }: { params: { checkpointId: string } }
 ) {
   try {
-    const { shop, branchName } = await req.json()
-    const { checkpointId } = params
-
-    if (!shop || !branchName) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_PARAMS', message: 'Shop and branchName required' } },
-        { status: 400 }
-      )
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
-    if (!connection) {
+    const { branchName } = await req.json()
+    const { checkpointId } = params
+
+    if (!branchName) {
       return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
+        { success: false, error: { code: 'MISSING_PARAMS', message: 'branchName required' } },
+        { status: 400 }
       )
     }
 
@@ -43,7 +38,7 @@ export async function POST(
     const parentCheckpoint = await db.timelineCheckpoint.findFirst({
       where: {
         id: checkpointId,
-        connectionId: connection.id,
+        connectionId,
       },
     })
 
@@ -57,8 +52,8 @@ export async function POST(
     // Create branch checkpoint
     const branchCheckpoint = await dbWrite.timelineCheckpoint.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         name: `Branch: ${branchName}`,
         description: `Branched from checkpoint "${parentCheckpoint.name}"`,
         type: 'MANUAL',
@@ -82,8 +77,8 @@ export async function POST(
     // Create audit log
     await dbWrite.auditLog.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         action: 'CHECKPOINT_BRANCHED',
         resource: 'checkpoint',
         resourceId: branchCheckpoint.id,

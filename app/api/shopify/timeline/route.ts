@@ -5,40 +5,26 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
     // Fetch all fixes with related issue data
     const fixes = await db.fix.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
       },
       include: {
         issue: {
@@ -57,7 +43,7 @@ export async function GET(req: NextRequest) {
     // Fetch all checkpoints
     const checkpoints = await db.timelineCheckpoint.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
       },
       orderBy: {
         createdAt: 'desc',

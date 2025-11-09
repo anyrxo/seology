@@ -7,68 +7,39 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
-
-interface ShopifyCredentials {
-  shop: string
-  accessToken?: string
-  [key: string]: unknown
-}
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url)
-    const shop = searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json({
-        success: false,
-        error: {
-          code: 'MISSING_SHOP',
-          message: 'Shop parameter is required',
-        },
-      }, { status: 400 })
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find the connection for this shop
-    // Note: credentials is a JSON field, so we need to search through all connections
-    const connections = await db.connection.findMany({
-      where: {
-        platform: 'SHOPIFY',
-      },
-      select: {
-        id: true,
-        userId: true,
-        credentials: true,
-        createdAt: true,
-      },
-    })
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
-    // Filter in-memory to find matching shop
-    const connection = connections.find((conn) => {
-      if (!conn.credentials) return false
-      try {
-        const creds = JSON.parse(conn.credentials) as ShopifyCredentials
-        return creds?.shop === shop
-      } catch {
-        return false
-      }
+    // Fetch the full connection for createdAt
+    const connection = await db.connection.findUnique({
+      where: { id: connectionId },
+      select: { createdAt: true },
     })
 
     if (!connection) {
-      // No connection = new shop = needs onboarding
       return NextResponse.json({
-        success: true,
-        data: {
-          completed: false,
-          shop,
-          reason: 'no_connection',
+        success: false,
+        error: {
+          code: 'CONNECTION_NOT_FOUND',
+          message: 'Connection not found',
         },
-      })
+      }, { status: 404 })
     }
 
     // Check if user has completed onboarding
     const user = await db.user.findUnique({
-      where: { id: connection.userId },
+      where: { id: userId },
       select: {
         id: true,
         onboardingCompleted: true,

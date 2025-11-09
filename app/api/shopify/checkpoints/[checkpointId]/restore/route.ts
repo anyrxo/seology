@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db, dbWrite } from '@/lib/db'
 import { updateProductSEO } from '@/lib/shopify-client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,37 +15,23 @@ export async function POST(
   { params }: { params: { checkpointId: string } }
 ) {
   try {
-    const { shop } = await req.json()
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
+
     const { checkpointId } = params
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
-        { status: 404 }
-      )
-    }
 
     // Find checkpoint
     const checkpoint = await db.timelineCheckpoint.findFirst({
       where: {
         id: checkpointId,
-        connectionId: connection.id,
+        connectionId,
       },
     })
 
@@ -65,7 +52,7 @@ export async function POST(
     // Get all fixes applied after this checkpoint
     const fixesToRollback = await db.fix.findMany({
       where: {
-        connectionId: connection.id,
+        connectionId,
         status: 'APPLIED',
         appliedAt: {
           gte: checkpoint.createdAt,
@@ -87,7 +74,7 @@ export async function POST(
 
         // Apply rollback based on fix type
         if (changes.action === 'UPDATE_PRODUCT_SEO' && changes.productId) {
-          await updateProductSEO(connection.userId, shop, changes.productId, {
+          await updateProductSEO(userId, shop, changes.productId, {
             title: beforeState.seoTitle,
             description: beforeState.seoDescription,
           })
@@ -132,8 +119,8 @@ export async function POST(
     // Create audit log
     await dbWrite.auditLog.create({
       data: {
-        userId: connection.userId,
-        connectionId: connection.id,
+        userId,
+        connectionId,
         action: 'CHECKPOINT_RESTORED',
         resource: 'checkpoint',
         resourceId: checkpointId,
