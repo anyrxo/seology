@@ -64,9 +64,9 @@ function isPublicRoute(pathname: string): boolean {
   return publicPrefixes.some((prefix) => pathname.startsWith(prefix))
 }
 
-// Helper to check if path is cron route
+// Helper to check if path is cron route or admin endpoint with CRON_SECRET auth
 function isCronRoute(pathname: string): boolean {
-  return pathname.startsWith('/api/cron/')
+  return pathname.startsWith('/api/cron/') || pathname === '/api/admin/sync-schema'
 }
 
 export default clerkMiddleware(async (auth, req: NextRequest) => {
