@@ -8,6 +8,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 interface ImageAsset {
   id: string
@@ -62,8 +63,7 @@ export default function ShopifyImagesPage() {
     try {
       setLoading(true)
       const statusParam = filterStatus !== 'all' ? `&status=${filterStatus}` : ''
-      const response = await fetch(`/api/shopify/images?shop=${shop}${statusParam}`)
-      const data = await response.json()
+      const data = await authenticatedFetch<{ success: boolean; data: ImageListResponse }>(`/api/shopify/images?shop=${shop}${statusParam}`)
 
       if (data.success) {
         setImages(data.data.images)
@@ -87,13 +87,12 @@ export default function ShopifyImagesPage() {
 
     try {
       setScanning(true)
-      const response = await fetch('/api/shopify/images', {
+      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop }),
       })
 
-      const data = await response.json()
       if (data.success) {
         await loadImages()
       }
@@ -109,7 +108,7 @@ export default function ShopifyImagesPage() {
 
     try {
       setGenerating(true)
-      const response = await fetch('/api/shopify/images/generate-alt', {
+      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images/generate-alt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -118,7 +117,6 @@ export default function ShopifyImagesPage() {
         }),
       })
 
-      const data = await response.json()
       if (data.success) {
         await loadImages()
         setSelectedImages(new Set())
@@ -135,7 +133,7 @@ export default function ShopifyImagesPage() {
 
     try {
       setApplying(true)
-      const response = await fetch('/api/shopify/images/apply-fixes', {
+      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images/apply-fixes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -144,7 +142,6 @@ export default function ShopifyImagesPage() {
         }),
       })
 
-      const data = await response.json()
       if (data.success) {
         await loadImages()
         setSelectedImages(new Set())

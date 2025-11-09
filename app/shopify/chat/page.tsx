@@ -9,6 +9,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 interface Message {
   id: string
@@ -69,13 +70,10 @@ export default function ShopifyChatPage() {
 
   const fetchStoreContext = async () => {
     try {
-      const response = await fetch(`/api/shopify/context?shop=${shop}`)
-      if (response.ok) {
-        const data = await response.json()
-        if (data.success) {
-          setStoreContext(data.data)
-          setCredits(data.data.credits)
-        }
+      const data = await authenticatedFetch<{ success: boolean; data: StoreContext & { credits: CreditInfo } }>(`/api/shopify/context?shop=${shop}`)
+      if (data.success) {
+        setStoreContext(data.data)
+        setCredits(data.data.credits)
       }
     } catch (error) {
       console.error('Error fetching store context:', error)
@@ -97,7 +95,7 @@ export default function ShopifyChatPage() {
     setLoading(true)
 
     try {
-      const response = await fetch('/api/shopify/chat', {
+      const data = await authenticatedFetch<{ success: boolean; data?: { message: string; credits?: CreditInfo }; error?: { message: string; details?: string; action?: string; link?: string; errorId?: string } }>('/api/shopify/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -108,8 +106,6 @@ export default function ShopifyChatPage() {
           })),
         }),
       })
-
-      const data = await response.json()
 
       if (data.success && data.data) {
         const assistantMessage: Message = {
@@ -185,15 +181,13 @@ export default function ShopifyChatPage() {
 
   const changeExecutionMode = async (mode: 'AUTOMATIC' | 'PLAN' | 'APPROVE') => {
     try {
-      const response = await fetch('/api/shopify/execution-mode', {
+      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/execution-mode', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, executionMode: mode }),
       })
 
-      if (response.ok) {
-        const data = await response.json()
-        if (data.success) {
+      if (data.success) {
           // Update local state immediately
           setStoreContext((prev) => prev ? { ...prev, executionMode: mode } : null)
           setShowModeModal(false)
@@ -215,19 +209,8 @@ export default function ShopifyChatPage() {
 
           // Refresh store context to ensure consistency
           fetchStoreContext()
-        } else {
-          // API returned error
-          const errorData = await response.json()
-          const errorMessage: Message = {
-            id: Date.now().toString(),
-            role: 'system',
-            content: `❌ Failed to change execution mode: ${errorData.error?.message || 'Unknown error'}`,
-            timestamp: new Date(),
-          }
-          setMessages((prev) => [...prev, errorMessage])
-        }
       } else {
-        // HTTP error
+        // API returned error
         const errorMessage: Message = {
           id: Date.now().toString(),
           role: 'system',

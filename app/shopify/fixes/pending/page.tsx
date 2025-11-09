@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { sanitizeJSON } from '@/lib/sanitize'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 // ==================== TYPES ====================
 
@@ -87,8 +88,7 @@ export default function PendingFixesPage() {
   // Fetch execution mode
   const fetchExecutionMode = async () => {
     try {
-      const response = await fetch(`/api/shopify/settings?shop=${shop}`)
-      const data = await response.json()
+      const data = await authenticatedFetch<{ success: boolean; data: { executionMode: ExecutionMode } }>(`/api/shopify/settings?shop=${shop}`)
       if (data.success) {
         setExecutionMode(data.data.executionMode)
         // Set default tab based on mode
@@ -104,8 +104,7 @@ export default function PendingFixesPage() {
   // Fetch pending fixes
   const fetchPendingFixes = async () => {
     try {
-      const response = await fetch(`/api/shopify/fixes/pending?shop=${shop}`)
-      const data = await response.json()
+      const data = await authenticatedFetch<{ success: boolean; data: { plans: PendingPlan[]; individualFixes: Fix[] } }>(`/api/shopify/fixes/pending?shop=${shop}`)
 
       if (data.success) {
         setPendingPlans(data.data.plans || [])
@@ -122,19 +121,17 @@ export default function PendingFixesPage() {
 
     setProcessingAction(planId)
     try {
-      const response = await fetch('/api/shopify/fixes/approve-plan', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/approve-plan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, planId }),
       })
 
-      const data = await response.json()
-
       if (data.success) {
         showToast('Plan approved successfully! Fixes are being applied.', 'success')
         await fetchPendingFixes()
       } else {
-        showToast(data.error.message || 'Failed to approve plan', 'error')
+        showToast(data.error?.message || 'Failed to approve plan', 'error')
       }
     } catch (error) {
       console.error('Error approving plan:', error)
@@ -151,19 +148,17 @@ export default function PendingFixesPage() {
 
     setProcessingAction(planId)
     try {
-      const response = await fetch('/api/shopify/fixes/reject-plan', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/reject-plan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, planId, reason }),
       })
 
-      const data = await response.json()
-
       if (data.success) {
         showToast('Plan rejected', 'info')
         await fetchPendingFixes()
       } else {
-        showToast(data.error.message || 'Failed to reject plan', 'error')
+        showToast(data.error?.message || 'Failed to reject plan', 'error')
       }
     } catch (error) {
       console.error('Error rejecting plan:', error)
@@ -177,13 +172,11 @@ export default function PendingFixesPage() {
   const approveFix = async (fixId: string) => {
     setProcessingAction(fixId)
     try {
-      const response = await fetch('/api/shopify/fixes/approve', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/approve', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, fixId }),
       })
-
-      const data = await response.json()
 
       if (data.success) {
         showToast('Fix approved and applied successfully!', 'success')
@@ -194,7 +187,7 @@ export default function PendingFixesPage() {
           return next
         })
       } else {
-        showToast(data.error.message || 'Failed to approve fix', 'error')
+        showToast(data.error?.message || 'Failed to approve fix', 'error')
       }
     } catch (error) {
       console.error('Error approving fix:', error)
@@ -211,13 +204,11 @@ export default function PendingFixesPage() {
 
     setProcessingAction(fixId)
     try {
-      const response = await fetch('/api/shopify/fixes/reject', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/reject', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, fixId, reason }),
       })
-
-      const data = await response.json()
 
       if (data.success) {
         showToast('Fix rejected', 'info')
@@ -228,7 +219,7 @@ export default function PendingFixesPage() {
           return next
         })
       } else {
-        showToast(data.error.message || 'Failed to reject fix', 'error')
+        showToast(data.error?.message || 'Failed to reject fix', 'error')
       }
     } catch (error) {
       console.error('Error rejecting fix:', error)

@@ -8,6 +8,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 interface SEORecommendation {
   category: string
@@ -93,7 +94,7 @@ export default function AdvancedSEOAuditPage() {
     setError(null)
 
     try {
-      const response = await fetch('/api/shopify/audit/advanced', {
+      const data = await authenticatedFetch<{ success: boolean; data?: { overallHealth: OverallHealth; products: ProductAnalysis[]; summary: AuditSummary }; error?: { message: string } }>('/api/shopify/audit/advanced', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -103,9 +104,7 @@ export default function AdvancedSEOAuditPage() {
         }),
       })
 
-      const data = await response.json()
-
-      if (data.success) {
+      if (data.success && data.data) {
         setOverallHealth(data.data.overallHealth)
         setProducts(data.data.products)
         setSummary(data.data.summary)

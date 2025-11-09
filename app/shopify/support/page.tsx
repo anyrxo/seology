@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { toast } from '@/lib/toast'
 import { ShopifyNav } from '@/components/shopify/ShopifyNav'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 export default function ShopifySupportPage() {
   const searchParams = useSearchParams()
@@ -49,13 +50,11 @@ export default function ShopifySupportPage() {
     setLoading(true)
 
     try {
-      const response = await fetch('/api/shopify/support', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/support', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, name, email, subject, message })
       })
-
-      const data = await response.json()
 
       if (data.success) {
         toast.success('Support request submitted successfully!')

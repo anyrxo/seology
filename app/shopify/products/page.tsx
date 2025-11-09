@@ -12,6 +12,7 @@ import { sanitizeURL, escapeHTML } from '@/lib/sanitize'
 import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 import { SEOScoreBadge } from '@/components/seo/SEOScoreCard'
 import { SEOIssueCard, type SEOIssue, type SEOIssueSeverity, type SEOIssueType } from '@/components/seo/SEOIssueCard'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 // Notification component
 interface NotificationProps {
@@ -116,11 +117,10 @@ export default function ShopifyProductsPage() {
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await fetch(`/api/shopify/products?shop=${shop}`)
-      const data = await response.json()
+      const data = await authenticatedFetch<{ success: boolean; data?: Product[]; error?: { message: string } }>(`/api/shopify/products?shop=${shop}`)
 
       if (data.success) {
-        setProducts(data.data)
+        setProducts(data.data || [])
         setError(null)
       } else {
         setError(data.error?.message || 'Failed to load products')
@@ -146,13 +146,11 @@ export default function ShopifyProductsPage() {
     setAnalyzingProductId(productId)
     setAnalyzing(true)
     try {
-      const response = await fetch('/api/shopify/analyze', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, productId }),
       })
-
-      const data = await response.json()
 
       if (data.success) {
         // Refresh products list
@@ -184,13 +182,11 @@ export default function ShopifyProductsPage() {
     setPendingFixProductId(null)
     setFixingProductId(productId)
     try {
-      const response = await fetch('/api/shopify/fix', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fix', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, productId }),
       })
-
-      const data = await response.json()
 
       if (data.success) {
         // Refresh products list

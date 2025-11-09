@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 import { SEOIssueCard, type SEOIssue, type SEOIssueSeverity } from '@/components/seo/SEOIssueCard'
+import { authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 type IssueSeverity = 'ALL' | SEOIssueSeverity
 
@@ -34,8 +35,7 @@ export default function ShopifyIssuesPage() {
 
   const fetchIssues = async () => {
     try {
-      const response = await fetch(`/api/shopify/issues?shop=${shop}`)
-      const data = await response.json()
+      const data = await authenticatedFetch<{ success: boolean; data?: SEOIssue[]; error?: { message: string } }>(`/api/shopify/issues?shop=${shop}`)
 
       if (data.success) {
         setIssues(data.data || [])
@@ -54,13 +54,11 @@ export default function ShopifyIssuesPage() {
   const handleFixIssue = async (issueId: string) => {
     setFixingIssueId(issueId)
     try {
-      const response = await fetch('/api/shopify/fixes/create', {
+      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/fixes/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ shop, issueId }),
       })
-
-      const data = await response.json()
 
       if (data.success) {
         // Refresh issues list

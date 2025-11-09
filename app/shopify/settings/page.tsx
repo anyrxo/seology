@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { ShopifyAppNav } from '@/components/shopify/ShopifyAppNav'
 import { SaveBar, useSaveBar } from '@/components/shopify/SaveBar'
-import { showSuccessToast, showErrorToast } from '@/lib/shopify-app-bridge'
+import { showSuccessToast, showErrorToast, authenticatedFetch } from '@/lib/shopify-app-bridge'
 
 type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
 
@@ -24,13 +24,11 @@ export default function ShopifySettingsPage() {
   const { hasChanges, setHasChanges, saving, save, discard } = useSaveBar({
     onSave: async () => {
       try {
-        const response = await fetch('/api/shopify/settings', {
+        const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/settings', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ shop, executionMode }),
         })
-
-        const data = await response.json()
 
         if (data.success) {
           setOriginalMode(executionMode)
@@ -57,8 +55,7 @@ export default function ShopifySettingsPage() {
     }
 
     // Fetch current settings
-    fetch(`/api/shopify/settings?shop=${shop}`)
-      .then((res) => res.json())
+    authenticatedFetch<{ success: boolean; data: { executionMode: ExecutionMode } }>(`/api/shopify/settings?shop=${shop}`)
       .then((data) => {
         if (data.success) {
           const mode = data.data.executionMode || 'PLAN'
