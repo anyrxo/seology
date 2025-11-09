@@ -57,11 +57,10 @@ export default function ShopifyOnboardingPage() {
     try {
       console.log('[Onboarding] Step 1: Saving execution mode...')
       // 1. Save execution mode
-      const modeResponse = await fetch('/api/shopify/execution-mode', {
+      const modeResponse = await fetch(`/api/shopify/execution-mode?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           executionMode: selectedMode,
         }),
       })
@@ -88,11 +87,10 @@ export default function ShopifyOnboardingPage() {
 
       console.log('[Onboarding] Step 2: Saving preferences...')
       // 2. Save user preferences (chat visibility and audit scope)
-      const prefsResponse = await fetch('/api/shopify/preferences', {
+      const prefsResponse = await fetch(`/api/shopify/preferences?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           aiChatEnabled: chatEnabled,
           preferredAuditScope: selectedScope,
         }),
