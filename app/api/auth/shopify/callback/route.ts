@@ -333,13 +333,18 @@ export async function GET(req: NextRequest) {
     })
 
     // Register webhooks automatically after successful OAuth
+    // All webhooks point to single endpoint - handler routes by x-shopify-topic header
+    const webhookUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify`
     const webhooks = [
-      { topic: 'products/update', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/products/update` },
-      { topic: 'products/delete', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/products/delete` },
-      { topic: 'app/uninstalled', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/app/uninstalled` },
-      { topic: 'customers/data_request', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/customers-data-request` },
-      { topic: 'customers/redact', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/customers-redact` },
-      { topic: 'shop/redact', address: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/shopify/gdpr/shop-redact` },
+      { topic: 'products/create', address: webhookUrl },
+      { topic: 'products/update', address: webhookUrl },
+      { topic: 'products/delete', address: webhookUrl },
+      { topic: 'app/uninstalled', address: webhookUrl },
+      { topic: 'shop/update', address: webhookUrl },
+      { topic: 'app_subscriptions/update', address: webhookUrl },
+      { topic: 'customers/data_request', address: webhookUrl },
+      { topic: 'customers/redact', address: webhookUrl },
+      { topic: 'shop/redact', address: webhookUrl },
     ]
 
     console.log('[WEBHOOK] Registering webhooks for', shop)
