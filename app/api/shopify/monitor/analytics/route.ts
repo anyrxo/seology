@@ -18,6 +18,8 @@ import {
 import { db } from '@/lib/db'
 import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/shopify/monitor/analytics
  *
