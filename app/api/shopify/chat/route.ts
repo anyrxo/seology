@@ -24,6 +24,7 @@ import {
   type CollectionSEO,
 } from '@/lib/shopify-graphql'
 import { canApplyFixes } from '@/lib/usage-enforcement'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 export const maxDuration = 300 // 5 minutes for complex operations
@@ -245,21 +246,23 @@ function detectIntent(message: string): { intent: string; entities: string[] } {
 
 export async function POST(req: NextRequest) {
   try {
-    const { shop, messages } = await req.json()
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection
-    const connection = await db.connection.findFirst({
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
+
+    const { messages } = await req.json()
+
+    // Get connection details with user info
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        id: connectionId,
       },
       include: {
         user: {
@@ -274,7 +277,7 @@ export async function POST(req: NextRequest) {
 
     if (!connection) {
       return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
+        { success: false, error: { code: 'NO_CONNECTION', message: 'Connection not found' } },
         { status: 404 }
       )
     }
@@ -398,7 +401,7 @@ You have complete access to:
 
     await db.aPIUsageLog.create({
       data: {
-        userId: connection.userId,
+        userId,
         model: 'seology-ai-genius',
         endpoint: 'chat',
         inputTokens,
@@ -408,7 +411,7 @@ You have complete access to:
         outputCost: (outputTokens / 1_000_000) * 15.0,
         totalCost: ((inputTokens / 1_000_000) * 3.0) + ((outputTokens / 1_000_000) * 15.0),
         shop,
-        connectionId: connection.id,
+        connectionId,
         status: 'success',
       },
     })

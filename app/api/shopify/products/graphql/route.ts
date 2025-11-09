@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { getProducts, ProductsList } from '@/lib/shopify-graphql'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -115,29 +116,28 @@ function identifyIssues(product: {
 
 export async function GET(req: NextRequest) {
   try {
-    const shop = req.nextUrl.searchParams.get('shop')
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
+    }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+
     const limit = parseInt(req.nextUrl.searchParams.get('limit') || '10')
     const cursor = req.nextUrl.searchParams.get('cursor') || undefined
 
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
-    }
-
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
+    // Get connection details
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        id: connectionId,
       },
     })
 
     if (!connection) {
       return NextResponse.json(
-        { success: false, error: { code: 'NO_CONNECTION', message: 'Shop not connected' } },
+        { success: false, error: { code: 'NO_CONNECTION', message: 'Connection not found' } },
         { status: 404 }
       )
     }

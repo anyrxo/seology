@@ -19,6 +19,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { rateLimit, RateLimits, ClaudeRateLimiter } from '@/lib/rate-limiter'
 import { consumeCredit, hasAvailableCredits, getRemainingCredits } from '@/lib/credits'
 import { unstable_cache } from 'next/cache'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const runtime = 'nodejs' // Use Node.js runtime for streaming
 export const dynamic = 'force-dynamic'
@@ -205,19 +206,20 @@ export async function POST(req: NextRequest) {
   let controller: ReadableStreamDefaultController<Uint8Array>
 
   try {
-    const { shop, messages } = await req.json()
-
-    // Validation
-    if (!shop) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: { code: 'MISSING_SHOP', message: 'Shop parameter required' }
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
+
+    const { messages } = await req.json()
+
+    // Validation
     if (!messages || !Array.isArray(messages)) {
       return new Response(
         JSON.stringify({
@@ -228,12 +230,10 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Find connection with optimized query
-    const connection = await db.connection.findFirst({
+    // Get connection details with user info
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
+        id: connectionId,
       },
       select: {
         id: true,
@@ -252,7 +252,7 @@ export async function POST(req: NextRequest) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: { code: 'NO_CONNECTION', message: 'Shop not connected' }
+          error: { code: 'NO_CONNECTION', message: 'Connection not found' }
         }),
         { status: 404, headers: { 'Content-Type': 'application/json' } }
       )
@@ -260,7 +260,7 @@ export async function POST(req: NextRequest) {
 
     // Rate limiting - use Claude-specific rate limit
     try {
-      await rateLimit(connection.userId, RateLimits.CLAUDE_API)
+      await rateLimit(userId, RateLimits.CLAUDE_API)
     } catch (error) {
       return new Response(
         JSON.stringify({
@@ -281,7 +281,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Credit check
-    const hasCredits = await hasAvailableCredits(connection.userId)
+    const hasCredits = await hasAvailableCredits(userId)
     if (!hasCredits) {
       return new Response(
         JSON.stringify({
@@ -296,7 +296,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Get cached store context (parallel fetching)
-    const storeContext = await getCachedStoreContext(connection.id)
+    const storeContext = await getCachedStoreContext(connectionId)
 
     // Build system context
     const systemContext = buildSystemContext(
@@ -306,7 +306,7 @@ export async function POST(req: NextRequest) {
     )
 
     // Wait for Claude API slot (rate limiting)
-    await ClaudeRateLimiter.waitForSlot(connection.userId)
+    await ClaudeRateLimiter.waitForSlot(userId)
 
     // Create streaming response
     stream = new ReadableStream({
@@ -360,16 +360,16 @@ export async function POST(req: NextRequest) {
           }
 
           // Consume credit after successful response
-          const updatedCredits = await consumeCredit(connection.userId)
+          const updatedCredits = await consumeCredit(userId)
 
           // Log to audit log (fire and forget - don't block stream)
           db.auditLog.create({
             data: {
-              userId: connection.userId,
-              connectionId: connection.id,
+              userId,
+              connectionId,
               action: 'CHAT_MESSAGE',
               resource: 'chat',
-              resourceId: connection.id,
+              resourceId: connectionId,
               details: JSON.stringify({
                 userMessage: messages[messages.length - 1]?.content,
                 assistantResponse: fullResponse.substring(0, 500), // Truncate for storage
