@@ -5,12 +5,12 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 import { z } from 'zod'
 
 export const dynamic = 'force-dynamic'
 
 const supportRequestSchema = z.object({
-  shop: z.string().min(1),
   name: z.string().min(1),
   email: z.string().email(),
   subject: z.string().min(1),
@@ -19,26 +19,24 @@ const supportRequestSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    const { shop, name, email, subject, message } = supportRequestSchema.parse(body)
-
-    // Find connection
-    const connection = await db.connection.findFirst({
-      where: { domain: shop, platform: 'SHOPIFY', status: 'CONNECTED' }
-    })
-
-    if (!connection) {
-      return NextResponse.json({
-        success: false,
-        error: { code: 'NOT_FOUND', message: 'Connection not found' }
-      }, { status: 404 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+
+    const body = await req.json()
+    const { name, email, subject, message } = supportRequestSchema.parse(body)
 
     // Create support ticket
     await db.supportTicket.create({
       data: {
-        connectionId: connection.id,
-        userId: connection.userId,
+        connectionId,
+        userId,
         name,
         email,
         subject,
