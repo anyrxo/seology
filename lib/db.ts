@@ -24,16 +24,18 @@ export const db = globalForPrisma.prisma ?? new PrismaClient({
 })
 
 // ============================================================================
-// WRITE-OPTIMIZED CLIENT (direct connection)
+// WRITE-OPTIMIZED CLIENT
 // ============================================================================
-// Uses DIRECT_URL for:
-// - Direct connection to database
-// - Lower latency for write operations
-// - No caching layer interference
-// - Best for: INSERT, UPDATE, DELETE operations
+// In production: Uses DATABASE_URL (Prisma Accelerate) - required for Vercel
+// In development: Uses DIRECT_URL for lower latency
+//
+// NOTE: Vercel serverless functions cannot make direct database connections
+// All production database access MUST go through Prisma Accelerate
 // ============================================================================
 export const dbWrite = globalForPrisma.prismaWrite ?? new PrismaClient({
-  datasourceUrl: process.env.DIRECT_URL,
+  datasourceUrl: process.env.NODE_ENV === 'production'
+    ? process.env.DATABASE_URL
+    : (process.env.DIRECT_URL || process.env.DATABASE_URL),
   log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
 })
 
