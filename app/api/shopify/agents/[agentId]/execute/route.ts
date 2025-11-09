@@ -1,11 +1,13 @@
 /**
  * Shopify Agent Execution API
  * POST: Execute an agent with input data
+ * No Clerk auth - uses shop parameter from embedded app
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { executeAgent, AGENT_TEMPLATES } from '@/lib/seo-agents'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,31 +30,16 @@ export async function POST(
 ) {
   try {
     const { agentId } = context.params
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection for this shop
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED'
-      }
-    })
-
-    if (!connection) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'CONNECTION_NOT_FOUND', message: 'Shop connection not found' }
-      }, { status: 404 })
-    }
+    const { context: authContext } = authResult
+    const connectionId = authContext.connection.id
+    const userId = authContext.userId
 
     const body = await request.json()
     const { input } = body
@@ -75,8 +62,8 @@ export async function POST(
       // Check if user already has this template agent
       const existingAgent = await db.sEOAgent.findFirst({
         where: {
-          userId: connection.userId,
-          connectionId: connection.id,
+          userId,
+          connectionId,
           specialty: template.specialty,
           isTemplate: false,
           createdBy: 'SEOLOGY_OFFICIAL'
@@ -89,8 +76,8 @@ export async function POST(
         // Create agent from template
         const newAgent = await db.sEOAgent.create({
           data: {
-            userId: connection.userId,
-            connectionId: connection.id,
+            userId,
+            connectionId,
             name: template.name,
             description: template.description,
             specialty: template.specialty,
@@ -114,8 +101,8 @@ export async function POST(
     // Execute the agent
     const result = await executeAgent({
       agentId: actualAgentId,
-      userId: connection.userId,
-      connectionId: connection.id,
+      userId,
+      connectionId,
       targetType: 'product', // Default to product, can be customized
       targetData: input,
     })

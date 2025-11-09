@@ -3,11 +3,13 @@
  * GET: Get agent details with performance metrics
  * PUT: Update agent
  * DELETE: Delete agent
+ * No Clerk auth - uses shop parameter from embedded app
  */
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { getAgentPerformance } from '@/lib/seo-agents'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,14 +32,11 @@ export async function GET(
 ) {
   try {
     const { agentId } = context.params
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
     // Get agent performance data
@@ -67,37 +66,21 @@ export async function PUT(
 ) {
   try {
     const { agentId } = context.params
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection for this shop
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED'
-      }
-    })
-
-    if (!connection) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'CONNECTION_NOT_FOUND', message: 'Shop connection not found' }
-      }, { status: 404 })
-    }
+    const { context: authContext } = authResult
+    const userId = authContext.userId
 
     // Verify ownership
     const existingAgent = await db.sEOAgent.findFirst({
       where: {
         id: agentId,
-        userId: connection.userId
+        userId
       }
     })
 
@@ -159,37 +142,21 @@ export async function DELETE(
 ) {
   try {
     const { agentId } = context.params
-    const searchParams = request.nextUrl.searchParams
-    const shop = searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'MISSING_SHOP', message: 'Shop parameter is required' }
-      }, { status: 400 })
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(request)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Get connection for this shop
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED'
-      }
-    })
-
-    if (!connection) {
-      return NextResponse.json<APIResponse<never>>({
-        success: false,
-        error: { code: 'CONNECTION_NOT_FOUND', message: 'Shop connection not found' }
-      }, { status: 404 })
-    }
+    const { context: authContext } = authResult
+    const userId = authContext.userId
 
     // Verify ownership
     const agent = await db.sEOAgent.findFirst({
       where: {
         id: agentId,
-        userId: connection.userId
+        userId
       }
     })
 

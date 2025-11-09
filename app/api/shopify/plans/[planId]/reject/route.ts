@@ -6,6 +6,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { db, dbWrite } from '@/lib/db'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,20 +35,16 @@ export async function POST(
 ): Promise<NextResponse<RejectPlanResponse>> {
   try {
     const { planId } = params
-    const shop = req.nextUrl.searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'MISSING_SHOP',
-            message: 'Shop parameter required',
-          },
-        },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response as NextResponse<RejectPlanResponse>
     }
+
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
 
     // Parse request body
     let body: RejectPlanRequest = {}
@@ -55,28 +52,6 @@ export async function POST(
       body = await req.json()
     } catch {
       // Body is optional
-    }
-
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'NO_CONNECTION',
-            message: 'Shop not connected',
-          },
-        },
-        { status: 404 }
-      )
     }
 
     // Fetch the pending plan with fixes
@@ -107,7 +82,7 @@ export async function POST(
     }
 
     // Verify plan belongs to this connection
-    if (plan.connectionId !== connection.id) {
+    if (plan.connectionId !== connectionId) {
       return NextResponse.json(
         {
           success: false,
@@ -157,8 +132,8 @@ export async function POST(
       // Create audit log
       await tx.auditLog.create({
         data: {
-          userId: connection.userId,
-          connectionId: connection.id,
+          userId,
+          connectionId,
           action: 'PLAN_REJECTED',
           resource: 'plan',
           resourceId: planId,

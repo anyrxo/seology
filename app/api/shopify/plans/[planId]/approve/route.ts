@@ -7,6 +7,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db, dbWrite } from '@/lib/db'
 import { updateProductSEO } from '@/lib/shopify-client'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
@@ -37,42 +38,17 @@ export async function POST(
 ): Promise<NextResponse<ApprovePlanResponse>> {
   try {
     const { planId } = params
-    const shop = req.nextUrl.searchParams.get('shop')
 
-    if (!shop) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'MISSING_SHOP',
-            message: 'Shop parameter required',
-          },
-        },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response as NextResponse<ApprovePlanResponse>
     }
 
-    // Find connection by shop domain
-    const connection = await db.connection.findFirst({
-      where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: 'CONNECTED',
-      },
-    })
-
-    if (!connection) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: {
-            code: 'NO_CONNECTION',
-            message: 'Shop not connected',
-          },
-        },
-        { status: 404 }
-      )
-    }
+    const { context } = authResult
+    const connectionId = context.connection.id
+    const userId = context.userId
+    const shop = context.shop
 
     // Fetch the pending plan with all fixes
     const plan = await db.pendingPlan.findUnique({
@@ -102,7 +78,7 @@ export async function POST(
     }
 
     // Verify plan belongs to this connection
-    if (plan.connectionId !== connection.id) {
+    if (plan.connectionId !== connectionId) {
       return NextResponse.json(
         {
           success: false,
@@ -154,7 +130,7 @@ export async function POST(
 
         // Apply the fix to Shopify
         if (changes.productId && changes.seo) {
-          await updateProductSEO(connection.userId, shop, changes.productId, changes.seo)
+          await updateProductSEO(userId, shop, changes.productId, changes.seo)
         }
 
         // Update fix status
@@ -215,8 +191,8 @@ export async function POST(
       // Create audit log
       await tx.auditLog.create({
         data: {
-          userId: connection.userId,
-          connectionId: connection.id,
+          userId,
+          connectionId,
           action: 'PLAN_APPROVED',
           resource: 'plan',
           resourceId: planId,
