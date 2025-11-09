@@ -6,7 +6,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // directUrl removed - Vercel serverless requires Prisma Accelerate only
+  // IMPORTANT: DATABASE_URL must include ?pgbouncer=true to disable prepared statements
+  // This prevents "prepared statement already exists" errors in serverless environments
 }
 
 // Users & Authentication (managed by Clerk)
