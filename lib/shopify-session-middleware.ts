@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifySessionToken } from './shopify-session-token'
 import { db } from './db'
+import { decrypt } from './encryption'
 
 export interface ShopifySessionContext {
   shop: string
@@ -196,6 +197,28 @@ export async function withShopParameter(
       }
     }
 
+    // Decrypt access token (stored encrypted in database)
+    let decryptedToken: string
+    try {
+      decryptedToken = decrypt(connection.accessToken)
+      console.log('[withShopParameter] ✅ Access token decrypted successfully')
+    } catch (error) {
+      console.error('[withShopParameter] ❌ Failed to decrypt access token:', error)
+      return {
+        success: false,
+        response: NextResponse.json(
+          {
+            success: false,
+            error: {
+              code: 'DECRYPTION_ERROR',
+              message: 'Failed to decrypt access token',
+            },
+          },
+          { status: 500 }
+        ),
+      }
+    }
+
     return {
       success: true,
       context: {
@@ -204,7 +227,7 @@ export async function withShopParameter(
         sessionToken: '', // No session token in fallback mode
         connection: {
           id: connection.id,
-          accessToken: connection.accessToken,
+          accessToken: decryptedToken,
           domain: connection.domain,
         },
       },
