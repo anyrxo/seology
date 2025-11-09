@@ -6,27 +6,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { db } from '@/lib/db'
 import { getRemainingCredits } from '@/lib/credits'
+import { withShopifyAuth } from '@/lib/shopify-session-middleware'
 
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url)
-    const shop = searchParams.get('shop')
-
-    if (!shop) {
-      return NextResponse.json(
-        { success: false, error: { code: 'MISSING_SHOP', message: 'Shop parameter required' } },
-        { status: 400 }
-      )
+    // Verify authentication (session token or shop parameter)
+    const authResult = await withShopifyAuth(req)
+    if (!authResult.success) {
+      return authResult.response
     }
 
-    // Find connection (accept both CONNECTED and PENDING statuses)
-    const connection = await db.connection.findFirst({
+    const { context } = authResult
+    const connectionId = context.connection.id
+
+    // Get full connection with user details
+    const connection = await db.connection.findUnique({
       where: {
-        domain: shop,
-        platform: 'SHOPIFY',
-        status: { in: ['CONNECTED', 'PENDING'] },
+        id: connectionId,
       },
       include: {
         user: {
