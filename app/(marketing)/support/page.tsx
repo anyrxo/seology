@@ -21,7 +21,7 @@ export default function SupportPage() {
     {
       icon: Mail,
       title: 'Email Support',
-      description: 'Send us a detailed message and we'll respond within 24 hours.',
+      description: 'Send us a detailed message and we\'ll respond within 24 hours.',
       availability: 'Response within 24 hours',
       action: 'Email Us',
       href: 'mailto:support@seology.ai',
