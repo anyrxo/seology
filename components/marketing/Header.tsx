@@ -43,9 +43,6 @@ export default function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-blue-600">
-              Sign In
-            </Button>
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
               Get Started Free
             </Button>
@@ -112,9 +109,6 @@ export default function Header() {
                 Blog
               </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <Button variant="ghost" className="w-full">
-                  Sign In
-                </Button>
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                   Get Started Free
                 </Button>

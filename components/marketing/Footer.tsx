@@ -227,11 +227,6 @@ export function Footer() {
                 </div>
               ))}
             </div>
-
-            {/* Additional Trust Text */}
-            <p className="text-xs text-gray-500 text-center lg:text-right">
-              Made with precision in San Francisco, CA
-            </p>
           </div>
         </div>
       </div>
