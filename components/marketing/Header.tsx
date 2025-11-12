@@ -72,7 +72,7 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
-              Try Atlas for free
+              Try SEOLOGY Free
             </Button>
           </div>
 
@@ -174,7 +174,7 @@ export default function Header() {
               </a>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                  Try Atlas for free
+                  Try SEOLOGY Free
                 </Button>
               </div>
             </nav>
