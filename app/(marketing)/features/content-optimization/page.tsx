@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import {
   FileText,
@@ -25,6 +25,72 @@ import {
 export default function ContentOptimizationPage() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
   const [hoveredCapability, setHoveredCapability] = useState<number | null>(null)
+  const [activeExample, setActiveExample] = useState(0)
+  const [readabilityScore, setReadabilityScore] = useState(42)
+  const [wordCount, setWordCount] = useState(487)
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+
+  // Live readability score animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setReadabilityScore((prev) => {
+        const change = Math.floor(Math.random() * 5) + 1
+        const newScore = prev + change
+        return newScore > 85 ? 42 : newScore
+      })
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Live word count
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordCount((prev) => prev + Math.floor(Math.random() * 10) + 5)
+    }, 1800)
+    return () => clearInterval(interval)
+  }, [])
+
+  const contentExamples = [
+    {
+      type: 'Blog Post',
+      before: '45% readable',
+      after: '89% readable',
+      improvement: '+127% engagement',
+      gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+      type: 'Product Page',
+      before: 'Generic description',
+      after: 'SEO-optimized copy',
+      improvement: '+203% conversions',
+      gradient: 'from-green-500 to-emerald-500',
+    },
+    {
+      type: 'Landing Page',
+      before: 'Keyword stuffing',
+      after: 'Natural placement',
+      improvement: '+156% rankings',
+      gradient: 'from-purple-500 to-pink-500',
+    },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
 
   return (
     <div className="bg-slate-950 min-h-screen relative overflow-hidden">
@@ -72,10 +138,20 @@ export default function ContentOptimizationPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
-              <FileText className="w-4 h-4 text-purple-400" />
+              <FileText className="w-4 h-4 text-purple-400 animate-pulse" />
               <span className="text-sm font-medium text-purple-300">
-                AI Content Intelligence
+                Readability:{' '}
+                <motion.span
+                  key={readabilityScore}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className={readabilityScore > 70 ? 'text-green-400' : 'text-yellow-400'}
+                >
+                  {readabilityScore}%
+                </motion.span>
               </span>
+              <Sparkles className="w-4 h-4 text-purple-400" />
             </motion.div>
 
             {/* Heading */}
@@ -123,6 +199,332 @@ export default function ContentOptimizationPage() {
               </Link>
             </motion.div>
           </div>
+        </div>
+
+        {/* Stats Row */}
+        <motion.div
+          className="max-w-5xl mx-auto mt-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { label: 'Words Optimized', value: '12M+', gradient: 'from-purple-400 to-pink-400' },
+              { label: 'Avg Readability Gain', value: '+43%', gradient: 'from-blue-400 to-cyan-400' },
+              { label: 'Content Pieces Enhanced', value: '847K+', gradient: 'from-green-400 to-emerald-400' },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="text-center p-6 bg-slate-900/50 backdrop-blur-sm rounded-xl border border-slate-800"
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <div
+                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-slate-400 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Live Content Analysis Preview */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Watch AI{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Optimize in Real-Time
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              See live improvements as AI analyzes and enhances your content
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Live Readability Card */}
+            <motion.div
+              className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <Eye className="w-5 h-5 text-purple-400" />
+                  <span className="text-sm text-slate-400">Flesch Reading Ease</span>
+                </div>
+                <motion.div
+                  key={readabilityScore}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, type: 'spring' }}
+                  className={`text-6xl font-bold bg-gradient-to-r ${
+                    readabilityScore > 70 ? 'from-green-400 to-emerald-400' : 'from-yellow-400 to-orange-400'
+                  } bg-clip-text text-transparent mb-2`}
+                >
+                  {readabilityScore}%
+                </motion.div>
+                <div className="flex items-center gap-2 text-green-400">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="text-sm font-medium">Improving...</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Live Word Count Card */}
+            <motion.div
+              className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: 1.5,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <FileText className="w-5 h-5 text-blue-400" />
+                  <span className="text-sm text-slate-400">Optimized Word Count</span>
+                </div>
+                <motion.div
+                  key={wordCount}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, type: 'spring' }}
+                  className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2"
+                >
+                  {wordCount.toLocaleString()}
+                </motion.div>
+                <div className="flex items-center gap-2 text-blue-400">
+                  <Brain className="w-4 h-4" />
+                  <span className="text-sm font-medium">AI writing...</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem/Solution Comparison */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Content Optimization{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Evolved
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Stop struggling with manual content optimization
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Old Way */}
+            <motion.div
+              className="bg-red-500/5 border border-red-500/20 rounded-xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">✏️</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">Manual Optimization</h3>
+              </div>
+
+              <ul className="space-y-4">
+                {[
+                  'Spend hours researching keywords manually',
+                  'Guess at ideal content length and structure',
+                  'Trial and error with readability improvements',
+                  'No competitor analysis or benchmarking',
+                  'Manual schema markup creation',
+                  'Hope your content ranks (usually doesn\'t)',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <span className="text-red-400 mr-3 mt-1">✗</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* SEOLOGY Way */}
+            <motion.div
+              className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">SEOLOGY AI Content</h3>
+              </div>
+
+              <ul className="space-y-4 relative z-10">
+                {[
+                  'AI analyzes top-ranking content in seconds',
+                  'Optimal length, structure, and keywords suggested',
+                  'Automatic readability optimization to target score',
+                  'Comprehensive competitor gap analysis',
+                  'Auto-generated schema markup',
+                  'Proven to rank: +217% traffic on average',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-200"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-purple-400 mr-3 mt-1 flex-shrink-0" />
+                    <span className="font-medium">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Content Examples */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Real Content Transformations
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              See how AI optimization delivers measurable improvements
+            </p>
+          </motion.div>
+
+          {/* Content Type Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {contentExamples.map((example, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setActiveExample(index)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activeExample === index
+                    ? `bg-gradient-to-r ${example.gradient} text-white shadow-lg`
+                    : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {example.type}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Active Example Stats */}
+          <motion.div
+            key={activeExample}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-800"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Before Optimization</div>
+                <div className="text-2xl font-bold text-red-400 mb-2">
+                  {contentExamples[activeExample].before}
+                </div>
+                <div className="text-xs text-slate-500">Needs improvement</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">After SEOLOGY AI</div>
+                <div className="text-2xl font-bold text-green-400 mb-2">
+                  {contentExamples[activeExample].after}
+                </div>
+                <div className="text-xs text-slate-500">Optimized</div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Business Impact</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${contentExamples[activeExample].gradient} bg-clip-text text-transparent`}
+                >
+                  {contentExamples[activeExample].improvement}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
