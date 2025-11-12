@@ -20,6 +20,7 @@ function isPublicRoute(pathname: string): boolean {
     '/pricing',
     '/about',
     '/features',
+    '/demo',
     '/terms',
     '/privacy',
     '/cookies',
