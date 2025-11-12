@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
 import { useState } from "react";

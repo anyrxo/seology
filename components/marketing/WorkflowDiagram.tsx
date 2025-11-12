@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Link2, Search, Sparkles, TrendingUp, ArrowRight } from "lucide-react";
 

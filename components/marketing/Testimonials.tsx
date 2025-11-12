@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Star, TrendingUp } from "lucide-react";
 import { useState, useEffect } from "react";
