@@ -74,7 +74,7 @@ export default function Hero() {
                   variant="outline"
                   className="border-2 border-blue-400 text-white hover:bg-blue-500/10 text-lg px-8 py-6 backdrop-blur-sm rounded-lg font-semibold cursor-pointer"
                 >
-                  Schedule Demo
+                  View Demo
                 </Button>
               </Link>
             </motion.div>
