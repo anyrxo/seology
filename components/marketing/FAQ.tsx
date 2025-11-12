@@ -51,7 +51,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 dark:bg-slate-900">
+    <section className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container max-w-4xl">
         {/* Section Header */}
         <motion.div

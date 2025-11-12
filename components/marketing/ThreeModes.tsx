@@ -53,7 +53,7 @@ const item = {
 
 export default function ThreeModes() {
   return (
-    <section id="how-it-works" className="py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:bg-slate-900">
+    <section id="how-it-works" className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container">
         {/* Section Header */}
         <motion.div

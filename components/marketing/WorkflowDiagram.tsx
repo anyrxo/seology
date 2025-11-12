@@ -36,7 +36,7 @@ const steps = [
 
 export default function WorkflowDiagram() {
   return (
-    <section className="py-24 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:bg-slate-900">
+    <section className="py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container">
         {/* Section Header */}
         <motion.div
