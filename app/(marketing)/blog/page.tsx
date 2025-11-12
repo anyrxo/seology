@@ -1,35 +1,31 @@
 'use client';
 
 import { motion } from "framer-motion";
-import Header from "@/components/marketing/Header";
-import { Footer } from "@/components/marketing/Footer";
 import { blogPosts } from "@/lib/blog-posts";
 import { Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Blog() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950">
-      <Header />
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="py-24 animated-gradient">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-                Seology Blog
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-                SEO tips, strategies, and insights to help your Shopify store rank higher and grow faster
-              </p>
-            </motion.div>
-          </div>
-        </section>
+    <>
+      {/* Hero Section */}
+      <section className="py-24 animated-gradient">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+              Seology Blog
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+              SEO tips, strategies, and insights to help your Shopify store rank higher and grow faster
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
         {/* Blog Posts Grid */}
         <section className="py-24 bg-white dark:bg-slate-950">
@@ -122,8 +118,6 @@ export default function Blog() {
             </motion.div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 }
