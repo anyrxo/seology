@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import {
   BarChart3,
@@ -25,6 +25,72 @@ import {
 export default function PerformanceMonitoringPage() {
   const [hoveredMetric, setHoveredMetric] = useState<number | null>(null)
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
+  const [activeMetric, setActiveMetric] = useState(0)
+  const [liveRanking, setLiveRanking] = useState(47)
+  const [liveTraffic, setLiveTraffic] = useState(12847)
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+
+  // Live ranking updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveRanking((prev) => {
+        const change = Math.floor(Math.random() * 5) - 2
+        const newRank = prev + change
+        return newRank < 1 ? 1 : newRank > 100 ? 100 : newRank
+      })
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Live traffic counter
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveTraffic((prev) => prev + Math.floor(Math.random() * 20) + 5)
+    }, 1500)
+    return () => clearInterval(interval)
+  }, [])
+
+  const metricExamples = [
+    {
+      name: 'E-Commerce Store',
+      ranking: '+34 positions',
+      traffic: '+284%',
+      revenue: '+$127K',
+      gradient: 'from-green-500 to-emerald-500',
+    },
+    {
+      name: 'SaaS Product',
+      ranking: '+18 positions',
+      traffic: '+156%',
+      revenue: '+$89K',
+      gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+      name: 'Content Site',
+      ranking: '+41 positions',
+      traffic: '+312%',
+      revenue: '+$43K',
+      gradient: 'from-purple-500 to-pink-500',
+    },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
 
   return (
     <div className="bg-slate-950 min-h-screen relative overflow-hidden">
@@ -72,10 +138,19 @@ export default function PerformanceMonitoringPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
-              <BarChart3 className="w-4 h-4 text-cyan-400" />
+              <BarChart3 className="w-4 h-4 text-cyan-400 animate-pulse" />
               <span className="text-sm font-medium text-cyan-300">
-                Real-Time Analytics
+                Live: Rank #
+                <motion.span
+                  key={liveRanking}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {liveRanking}
+                </motion.span>
               </span>
+              <Sparkles className="w-4 h-4 text-cyan-400" />
             </motion.div>
 
             {/* Heading */}
@@ -123,6 +198,332 @@ export default function PerformanceMonitoringPage() {
               </Link>
             </motion.div>
           </div>
+        </div>
+
+        {/* Stats Row */}
+        <motion.div
+          className="max-w-5xl mx-auto mt-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { label: 'Data Points Tracked', value: '50M+', gradient: 'from-cyan-400 to-blue-400' },
+              { label: 'Metrics Updated', value: 'Every 1h', gradient: 'from-green-400 to-emerald-400' },
+              { label: 'Average Traffic Gain', value: '+217%', gradient: 'from-purple-400 to-pink-400' },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="text-center p-6 bg-slate-900/50 backdrop-blur-sm rounded-xl border border-slate-800"
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <div
+                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-slate-400 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Live Metrics Preview */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Watch Your Metrics{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Live
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Real-time updates show exactly how your SEO is performing right now
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Live Ranking Card */}
+            <motion.div
+              className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <Search className="w-5 h-5 text-cyan-400" />
+                  <span className="text-sm text-slate-400">Average Keyword Position</span>
+                </div>
+                <motion.div
+                  key={liveRanking}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, type: 'spring' }}
+                  className="text-6xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2"
+                >
+                  #{liveRanking}
+                </motion.div>
+                <div className="flex items-center gap-2 text-green-400">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="text-sm font-medium">Improving</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Live Traffic Card */}
+            <motion.div
+              className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: 1.5,
+                }}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <Eye className="w-5 h-5 text-green-400" />
+                  <span className="text-sm text-slate-400">Monthly Organic Visits</span>
+                </div>
+                <motion.div
+                  key={liveTraffic}
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5, type: 'spring' }}
+                  className="text-6xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2"
+                >
+                  {liveTraffic.toLocaleString()}
+                </motion.div>
+                <div className="flex items-center gap-2 text-green-400">
+                  <TrendingUp className="w-4 h-4" />
+                  <span className="text-sm font-medium">+127% vs last month</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem/Solution Comparison */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Analytics{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Reimagined
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Move beyond traditional SEO reporting
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Old Way */}
+            <motion.div
+              className="bg-red-500/5 border border-red-500/20 rounded-xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">Traditional Analytics</h3>
+              </div>
+
+              <ul className="space-y-4">
+                {[
+                  'Stale data updated once per day (or worse)',
+                  'Confusing dashboards with vanity metrics',
+                  'No connection between fixes and results',
+                  'Manual report generation takes hours',
+                  'Can't explain "why" rankings changed',
+                  'Different tools for each metric type',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <span className="text-red-400 mr-3 mt-1">✗</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* SEOLOGY Way */}
+            <motion.div
+              className="bg-cyan-500/5 border border-cyan-500/20 rounded-xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">SEOLOGY Performance</h3>
+              </div>
+
+              <ul className="space-y-4 relative z-10">
+                {[
+                  'Real-time updates every hour with live previews',
+                  'AI explains every trend and anomaly',
+                  'Direct attribution: see which fixes drove results',
+                  'Beautiful reports auto-generated daily',
+                  'Predictive insights show future performance',
+                  'Unified dashboard for all SEO metrics',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-200"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-cyan-400 mr-3 mt-1 flex-shrink-0" />
+                    <span className="font-medium">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Metric Examples */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Real Results Across Industries
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              See how SEOLOGY monitoring drives measurable improvements
+            </p>
+          </motion.div>
+
+          {/* Metric Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {metricExamples.map((example, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setActiveMetric(index)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activeMetric === index
+                    ? `bg-gradient-to-r ${example.gradient} text-white shadow-lg`
+                    : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {example.name}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Active Metric Stats */}
+          <motion.div
+            key={activeMetric}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-800"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Ranking Improvement</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${metricExamples[activeMetric].gradient} bg-clip-text text-transparent`}
+                >
+                  {metricExamples[activeMetric].ranking}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Traffic Increase</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${metricExamples[activeMetric].gradient} bg-clip-text text-transparent`}
+                >
+                  {metricExamples[activeMetric].traffic}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Revenue Impact</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${metricExamples[activeMetric].gradient} bg-clip-text text-transparent`}
+                >
+                  {metricExamples[activeMetric].revenue}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
