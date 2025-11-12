@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   Globe,
@@ -26,9 +26,6 @@ export default function PlatformIntegrationsPage() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
   const [setupTime, setSetupTime] = useState(60)
   const [activePlatformExample, setActivePlatformExample] = useState(0)
-  const { scrollYProgress} = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
   // Setup timer countdown
   useEffect(() => {

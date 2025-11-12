@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   FileText,
@@ -28,9 +28,6 @@ export default function ContentOptimizationPage() {
   const [activeExample, setActiveExample] = useState(0)
   const [readabilityScore, setReadabilityScore] = useState(42)
   const [wordCount, setWordCount] = useState(487)
-  const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
   // Live readability score animation
   useEffect(() => {

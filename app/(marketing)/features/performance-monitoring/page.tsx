@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
   BarChart3,
@@ -28,9 +28,6 @@ export default function PerformanceMonitoringPage() {
   const [activeMetric, setActiveMetric] = useState(0)
   const [liveRanking, setLiveRanking] = useState(47)
   const [liveTraffic, setLiveTraffic] = useState(12847)
-  const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
 
   // Live ranking updates
   useEffect(() => {
