@@ -18,7 +18,7 @@ export default function GDPRPage() {
     },
     {
       title: 'Data Minimization',
-      description: 'We only collect data that is necessary for the purposes we've specified.',
+      description: 'We only collect data that is necessary for the purposes we\'ve specified.',
     },
     {
       title: 'Accuracy',
@@ -152,7 +152,7 @@ export default function GDPRPage() {
         <div className="max-w-6xl mx-auto mb-20">
           <h2 className="text-3xl font-bold text-center mb-4">Your GDPR Rights</h2>
           <p className="text-center text-slate-400 mb-12 max-w-3xl mx-auto">
-            Under GDPR, you have comprehensive rights over your personal data. Here's how to exercise them:
+            Under GDPR, you have comprehensive rights over your personal data. Here\'s how to exercise them:
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {yourRights.map((right, index) => (
