@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Wix SEO: Can You Really Rank? (Best Practices & Limitations)',
-  description: 'Wix claims to be SEO-friendly. This honest review shows what works, what doesn't, and when to switch platforms.',
+  description: 'Wix claims to be SEO-friendly. This honest review shows what works, what doesn\'t, and when to switch platforms.',
 }
 
 export default function BlogPost() {
