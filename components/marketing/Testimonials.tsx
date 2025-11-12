@@ -99,7 +99,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="testimonials" className="py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-slate-900">
       <div className="container">
         {/* Section Header */}
         <motion.div
