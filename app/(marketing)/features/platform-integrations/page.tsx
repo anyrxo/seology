@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import {
   Globe,
@@ -24,6 +24,59 @@ import {
 export default function PlatformIntegrationsPage() {
   const [hoveredPlatform, setHoveredPlatform] = useState<number | null>(null)
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
+  const [setupTime, setSetupTime] = useState(60)
+  const [activePlatformExample, setActivePlatformExample] = useState(0)
+  const { scrollYProgress} = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
+
+  // Setup timer countdown
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSetupTime((prev) => (prev > 0 ? prev - 1 : 60))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const platformExamples = [
+    {
+      platform: 'Shopify',
+      setupTime: '45s',
+      fixesApplied: '1,247',
+      improvement: '+156%',
+      gradient: 'from-green-500 to-emerald-500',
+    },
+    {
+      platform: 'WordPress',
+      setupTime: '52s',
+      fixesApplied: '2,891',
+      improvement: '+203%',
+      gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+      platform: 'Custom Site',
+      setupTime: '38s',
+      fixesApplied: '743',
+      improvement: '+127%',
+      gradient: 'from-purple-500 to-pink-500',
+    },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }
 
   return (
     <div className="bg-slate-950 min-h-screen relative overflow-hidden">
@@ -67,14 +120,23 @@ export default function PlatformIntegrationsPage() {
             {/* Badge */}
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full mb-6 backdrop-blur-sm"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.5, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
-              <Globe className="w-4 h-4 text-green-400" />
+              <Globe className="w-4 h-4 text-green-400 animate-pulse" />
               <span className="text-sm font-medium text-green-300">
-                Universal Compatibility
+                <motion.span
+                  key={setupTime}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {setupTime}s
+                </motion.span>{' '}
+                setup time
               </span>
+              <Sparkles className="w-4 h-4 text-green-400" />
             </motion.div>
 
             {/* Heading */}
@@ -86,9 +148,19 @@ export default function PlatformIntegrationsPage() {
             >
               Connect to Any
               <br />
-              <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                Platform or CMS
-              </span>
+              <motion.span
+                className="bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ['0%', '100%', '0%'],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              >
+                Platform in 60 Seconds
+              </motion.span>
             </motion.h1>
 
             <motion.p
@@ -122,6 +194,226 @@ export default function PlatformIntegrationsPage() {
               </Link>
             </motion.div>
           </div>
+        </div>
+
+        {/* Stats Row */}
+        <motion.div
+          className="max-w-5xl mx-auto mt-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { label: 'Platforms Supported', value: '50+', gradient: 'from-green-400 to-emerald-400' },
+              { label: 'Average Setup Time', value: '<60s', gradient: 'from-blue-400 to-cyan-400' },
+              { label: 'Connections Active', value: '12.5K+', gradient: 'from-purple-400 to-pink-400' },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="text-center p-6 bg-slate-900/50 backdrop-blur-sm rounded-xl border border-slate-800"
+                whileHover={{ y: -8, transition: { type: 'spring', stiffness: 300 } }}
+              >
+                <div
+                  className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-slate-400 font-medium">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Problem/Solution Comparison */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Integration Made{' '}
+              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                Simple
+              </span>
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              No more complex API configurations or custom development
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Old Way */}
+            <motion.div
+              className="bg-red-500/5 border border-red-500/20 rounded-xl p-8 backdrop-blur-sm"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">😫</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white">The Old Way</h3>
+              </div>
+
+              <ul className="space-y-4">
+                {[
+                  'Hire developers to build custom integrations ($20K+)',
+                  'Spend weeks reading API documentation',
+                  'Deal with breaking changes and version updates',
+                  'Manage API keys and authentication manually',
+                  'No backup or rollback system',
+                  'Different process for each platform',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-300"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <span className="text-red-400 mr-3 mt-1">✗</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* SEOLOGY Way */}
+            <motion.div
+              className="bg-green-500/5 border border-green-500/20 rounded-xl p-8 backdrop-blur-sm relative overflow-hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                }}
+              />
+
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">The SEOLOGY Way</h3>
+              </div>
+
+              <ul className="space-y-4 relative z-10">
+                {[
+                  'Click "Connect" and authenticate in 60 seconds',
+                  'Zero code required - we handle all API complexity',
+                  'Auto-updates when platforms change',
+                  'Bank-level security with encrypted credentials',
+                  'Automatic backups before every change',
+                  'Unified interface for all platforms',
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start text-slate-200"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    <span className="font-medium">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Platform Examples */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Real Platform Performance
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              See how SEOLOGY integrations perform across different platforms
+            </p>
+          </motion.div>
+
+          {/* Platform Tabs */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {platformExamples.map((example, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setActivePlatformExample(index)}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activePlatformExample === index
+                    ? `bg-gradient-to-r ${example.gradient} text-white shadow-lg`
+                    : 'bg-slate-800/50 text-slate-400 hover:bg-slate-800'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {example.platform}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Active Platform Stats */}
+          <motion.div
+            key={activePlatformExample}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-800"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Setup Time</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${platformExamples[activePlatformExample].gradient} bg-clip-text text-transparent`}
+                >
+                  {platformExamples[activePlatformExample].setupTime}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">SEO Fixes Applied</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${platformExamples[activePlatformExample].gradient} bg-clip-text text-transparent`}
+                >
+                  {platformExamples[activePlatformExample].fixesApplied}
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-sm text-slate-400 mb-2">Traffic Improvement</div>
+                <div
+                  className={`text-4xl font-bold bg-gradient-to-r ${platformExamples[activePlatformExample].gradient} bg-clip-text text-transparent`}
+                >
+                  {platformExamples[activePlatformExample].improvement}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
