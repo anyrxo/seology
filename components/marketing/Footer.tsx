@@ -1,9 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
   Twitter,
   Linkedin,
@@ -15,22 +12,6 @@ import {
 } from 'lucide-react'
 
 export function Footer() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-  const [isSubscribing, setIsSubscribing] = useState(false)
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-
-    setIsSubscribing(true)
-    // TODO: Implement newsletter subscription API
-    setTimeout(() => {
-      setSubscribed(true)
-      setEmail('')
-      setIsSubscribing(false)
-    }, 1000)
-  }
 
   const footerLinks = {
     product: [
@@ -223,49 +204,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Newsletter Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="max-w-md mx-auto lg:mx-0">
-            <h4 className="text-sm font-semibold text-white mb-3 uppercase tracking-wider">
-              Stay Updated
-            </h4>
-            <p className="text-sm text-gray-400 mb-4">
-              Get SEO tips, product updates, and exclusive content delivered to your inbox.
-            </p>
-            {subscribed ? (
-              <div className="flex items-center gap-2 text-green-500 bg-green-500/10 border border-green-500/20 rounded-lg px-4 py-3">
-                <CheckCircle className="w-5 h-5" />
-                <p className="text-sm font-medium">
-                  Check your inbox! We sent you a confirmation email.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="flex-1 bg-gray-900 border-gray-800 text-white placeholder:text-gray-500 focus:border-blue-500"
-                  disabled={isSubscribing}
-                />
-                <Button
-                  type="submit"
-                  variant="primary"
-                  disabled={isSubscribing}
-                  className="px-6 whitespace-nowrap"
-                >
-                  {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-                </Button>
-              </form>
-            )}
-            <p className="text-xs text-gray-500 mt-2">
-              No spam. Unsubscribe anytime.
-            </p>
           </div>
         </div>
 

@@ -283,10 +283,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Fix Tailwind dark: utilities that conflict */
-.dark .text-white,
-.dark .text-white *:not(.badge):not(.button) {
-  color: var(--neutral--800) !important;
-}
+/* REMOVED: Override for .text-white was breaking Hero and Footer text visibility */
+/* Marketing pages need true white text on dark backgrounds */
 
 .dark .text-gray-900 {
   color: var(--neutral--800) !important;
