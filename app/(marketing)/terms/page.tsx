@@ -1,14 +1,12 @@
 'use client';
 
 import { motion } from "framer-motion";
-import Header from "@/components/marketing/Header";
-import { Footer } from "@/components/marketing/Footer";
 
 export default function Terms() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950">
-      <Header />
-      <main className="flex-1">
+    <>
+
+
         {/* Hero Section */}
         <section className="py-24 bg-slate-50 dark:bg-slate-900">
           <div className="container max-w-4xl">
@@ -24,17 +22,17 @@ export default function Terms() {
                 Last updated: November 12, 2024
               </p>
             </motion.div>
-          </div>
+      </>
         </section>
 
         {/* Content */}
-        <section className="py-12">
+        <section className="py-12 bg-white dark:bg-slate-950">
           <div className="container max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="prose prose-lg dark:prose-invert max-w-none"
+              className="prose prose-lg prose-slate dark:prose-invert max-w-none"
             >
               <h2>Agreement to Terms</h2>
               <p>
@@ -252,10 +250,10 @@ export default function Terms() {
                 <li><strong>Phone:</strong> +1 (555) 123-4567</li>
               </ul>
             </motion.div>
-          </div>
+      </>
         </section>
-      </main>
-      <Footer />
-    </div>
+
+
+</>
   );
 }
