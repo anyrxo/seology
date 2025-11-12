@@ -14,50 +14,46 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <img src="/images/logo.svg" alt="Seology.ai" className="h-8 w-auto" />
-            <span className="text-xl font-bold gradient-text">Seology.ai</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Seology.ai
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Features
             </a>
-            <a href="#how-it-works" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <a href="#how-it-works" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               How It Works
             </a>
-            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Pricing
             </a>
-            <Link href="/about" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Link href="/demo" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+              Demo
+            </Link>
+            <Link href="/about" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               About
             </Link>
-            <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Blog
-            </Link>
-            <Link href="/contact" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              Contact
             </Link>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href="/demo">
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950">
-                View Demo
-              </Button>
-            </Link>
-            <Button variant="ghost" className="text-slate-600 dark:text-slate-300">
+          <div className="hidden md:flex items-center gap-4">
+            <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-blue-600">
               Sign In
             </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              Try Free
+            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
+              Get Started Free
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="md:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -71,61 +67,56 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800">
             <nav className="flex flex-col gap-4">
               <a
                 href="#features"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a
                 href="#how-it-works"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 How It Works
               </a>
               <a
                 href="#pricing"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </a>
               <Link
+                href="/demo"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Demo
+              </Link>
+              <Link
                 href="/about"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/blog"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Blog
               </Link>
-              <Link
-                href="/contact"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <Link href="/demo">
-                  <Button variant="outline" className="w-full border-blue-600 text-blue-600">
-                    View Demo
-                  </Button>
-                </Link>
                 <Button variant="ghost" className="w-full">
                   Sign In
                 </Button>
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                  Try Free
+                  Get Started Free
                 </Button>
               </div>
             </nav>
