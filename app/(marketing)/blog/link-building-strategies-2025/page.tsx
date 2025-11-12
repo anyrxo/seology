@@ -271,7 +271,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Link Placement:</strong> Links in main content > sidebar > footer</span>
+                    <span><strong>Link Placement:</strong> Links in main content &gt; sidebar &gt; footer</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
