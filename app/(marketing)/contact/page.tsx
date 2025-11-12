@@ -1,373 +1,266 @@
-'use client'
+'use client';
 
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowLeft, Mail, MessageCircle, HelpCircle, Sparkles, Send, Star } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion } from "framer-motion";
+import Header from "@/components/marketing/Header";
+import { Footer } from "@/components/marketing/Footer";
+import { Button } from "@/components/ui/button";
+import { Mail, MessageSquare, Phone, MapPin } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
-export default function ContactPage() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [focusedField, setFocusedField] = useState<string | null>(null)
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const contactOptions = [
-    {
-      icon: HelpCircle,
-      title: 'Support',
-      description: 'Get help with technical issues',
-      email: 'support@seology.ai',
-      gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-      icon: MessageCircle,
-      title: 'Sales',
-      description: 'Questions about pricing or plans',
-      email: 'sales@seology.ai',
-      gradient: 'from-green-500 to-emerald-500',
-    },
-    {
-      icon: Mail,
-      title: 'Partnerships',
-      description: 'Explore collaboration opportunities',
-      email: 'partners@seology.ai',
-      gradient: 'from-purple-500 to-pink-500',
-    },
-  ]
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Message sent! We'll get back to you within 24 hours.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
-      {/* Animated background gradient */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [-100, 100, -100],
-            y: [-50, 50, -50],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
-
-      {/* Sticky Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="bg-white/80 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-40"
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors mb-4 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Link>
-          <div className="flex items-center gap-3">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950">
+      <Header />
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="py-24 animated-gradient">
+          <div className="container">
             <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-              className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-lg"
-            >
-              <MessageCircle className="w-8 h-8 text-white" />
-            </motion.div>
-            <div>
-              <motion.h1
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent"
-              >
-                Contact Us
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-gray-600 mt-1"
-              >
-                Get in touch with our team
-              </motion.p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Contact Options Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="grid md:grid-cols-3 gap-6 mb-12"
-        >
-          {contactOptions.map((option, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + index * 0.1 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
+              transition={{ duration: 0.6 }}
+              className="max-w-4xl mx-auto text-center"
             >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+                Get in Touch
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+                Have questions? We're here to help. Reach out and we'll respond within 24 hours.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-24 bg-white dark:bg-slate-950">
+          <div className="container max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              {/* Contact Info */}
               <motion.div
-                whileHover={{ y: -8 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="relative bg-white rounded-2xl border border-gray-200 p-8 text-center h-full overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
               >
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredIndex === index ? 0.05 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className={`absolute inset-0 bg-gradient-to-br ${option.gradient}`}
-                />
-
-                {hoveredIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0 }}
-                    className="absolute top-4 right-4"
-                  >
-                    <Sparkles className="w-6 h-6 text-yellow-400" />
-                  </motion.div>
-                )}
-
-                <div className="relative z-10">
-                  <motion.div
-                    animate={{
-                      rotate: hoveredIndex === index ? [0, -10, 10, 0] : 0,
-                    }}
-                    transition={{ duration: 0.5 }}
-                    className={`w-16 h-16 rounded-full bg-gradient-to-br ${option.gradient} flex items-center justify-center mx-auto mb-4`}
-                  >
-                    <option.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{option.title}</h3>
-                  <p className="text-gray-600 mb-4">{option.description}</p>
-                  <motion.a
-                    href={`mailto:${option.email}`}
-                    whileHover={{ scale: 1.05 }}
-                    className={`bg-gradient-to-r ${option.gradient} bg-clip-text text-transparent hover:underline font-semibold`}
-                  >
-                    {option.email}
-                  </motion.a>
+                <div>
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+                    Contact Information
+                  </h2>
+                  <p className="text-slate-600 dark:text-slate-300 mb-8">
+                    Choose the best way to reach us. We're available 24/7 through our support channels.
+                  </p>
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${option.gradient} opacity-20 -z-10`}
-                  style={{ padding: '2px' }}
-                />
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white flex-shrink-0">
+                      <Mail className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Email</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">support@seology.ai</p>
+                    </div>
+                  </div>
 
-        {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="bg-white rounded-2xl border border-gray-200 p-12 shadow-sm hover:shadow-2xl transition-shadow duration-500"
-        >
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-8 text-center">
-            Send Us a Message
-          </h2>
-          <form className="max-w-2xl mx-auto space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <motion.div
-                animate={{
-                  scale: focusedField === 'name' ? 1.02 : 1,
-                }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  onFocus={() => setFocusedField('name')}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                  placeholder="Your name"
-                  required
-                />
-              </motion.div>
-              <motion.div
-                animate={{
-                  scale: focusedField === 'email' ? 1.02 : 1,
-                }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  onFocus={() => setFocusedField('email')}
-                  onBlur={() => setFocusedField(null)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                  placeholder="your@email.com"
-                  required
-                />
-              </motion.div>
-            </div>
-            <motion.div
-              animate={{
-                scale: focusedField === 'subject' ? 1.02 : 1,
-              }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-2">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                onFocus={() => setFocusedField('subject')}
-                onBlur={() => setFocusedField(null)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
-                placeholder="How can we help?"
-                required
-              />
-            </motion.div>
-            <motion.div
-              animate={{
-                scale: focusedField === 'message' ? 1.02 : 1,
-              }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={6}
-                onFocus={() => setFocusedField('message')}
-                onBlur={() => setFocusedField(null)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all resize-none"
-                placeholder="Tell us more about your inquiry..."
-                required
-              />
-            </motion.div>
-            <div className="text-center">
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-lg transition-all duration-300"
-              >
-                <Send className="w-5 h-5" />
-                Send Message
-              </motion.button>
-            </div>
-          </form>
-        </motion.div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white flex-shrink-0">
+                      <MessageSquare className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Live Chat</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">Available in-app 24/7</p>
+                    </div>
+                  </div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-center text-white overflow-hidden"
-        >
-          {/* Animated background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            {[...Array(25)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-white rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  scale: [0, 1, 0],
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white flex-shrink-0">
+                      <Phone className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Phone</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">+1 (555) 123-4567</p>
+                      <p className="text-slate-500 dark:text-slate-500 text-xs mt-1">Mon-Fri, 9am-6pm EST</p>
+                    </div>
+                  </div>
 
-          <div className="relative z-10">
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-              className="inline-block mb-4"
-            >
-              <Star className="w-12 h-12" />
-            </motion.div>
-            <h2 className="text-3xl font-bold mb-4">Need Immediate Help?</h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Check out our comprehensive documentation and guides
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/help"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl"
-                >
-                  Visit Help Center
-                </Link>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white flex-shrink-0">
+                      <MapPin className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Office</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm">
+                        123 Tech Street<br />
+                        San Francisco, CA 94105
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Links */}
+                <div className="pt-8 border-t border-slate-200 dark:border-slate-800">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Follow Us</h3>
+                  <div className="flex gap-3">
+                    {["Twitter", "LinkedIn", "Facebook", "Instagram"].map((social) => (
+                      <button
+                        key={social}
+                        className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
+                        aria-label={social}
+                      >
+                        <span className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                          {social[0]}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/guides"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-xl font-semibold hover:bg-white/20 transition-all duration-300"
-                >
-                  View Guides
-                </Link>
+
+              {/* Contact Form */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-2"
+              >
+                <form onSubmit={handleSubmit} className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 shadow-xl">
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+                    Send us a Message
+                  </h2>
+
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                          Your Name *
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          placeholder="John Doe"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Subject *
+                      </label>
+                      <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      >
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="billing">Billing Question</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="feedback">Product Feedback</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Message *
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        rows={6}
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                        placeholder="Tell us how we can help..."
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-6 text-lg"
+                    >
+                      Send Message
+                    </Button>
+
+                    <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
+                      We typically respond within 24 hours during business days
+                    </p>
+                  </div>
+                </form>
               </motion.div>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </section>
+
+        {/* FAQ Quick Links */}
+        <section className="py-16 bg-slate-50 dark:bg-slate-900">
+          <div className="container max-w-4xl text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Looking for quick answers?
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300 mb-6">
+                Check out our FAQ section for instant answers to common questions
+              </p>
+              <Button
+                variant="outline"
+                className="border-2 border-slate-300 dark:border-slate-700"
+                onClick={() => window.location.href = "/#faq"}
+              >
+                View FAQ
+              </Button>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }

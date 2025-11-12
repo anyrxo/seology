@@ -283,20 +283,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Fix Tailwind dark: utilities that conflict */
-.dark .text-white,
-.dark .text-white *:not(.badge):not(.button) {
-  color: var(--neutral--800) !important;
-}
-
-.dark .text-gray-900 {
-  color: var(--neutral--800) !important;
-}
-
-.dark .text-gray-600,
-.dark .text-gray-500,
-.dark .text-gray-400 {
-  color: var(--neutral--600) !important;
-}
+/* REMOVED ALL OVERRIDES: Let Tailwind's built-in dark mode handle text colors naturally */
+/* Components should use dark: variants explicitly (e.g., dark:text-white, dark:text-slate-300) */
 
 /* Card amount colors need to stay bright */
 .card-amount-container {
@@ -2441,5 +2429,38 @@ textarea[aria-invalid="true"]:focus {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
     }
+  }
+}
+
+/* Float animation for background elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }

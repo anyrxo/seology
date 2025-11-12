@@ -1,15 +1,12 @@
-import { AnnouncementBar } from './AnnouncementBar'
-import RadiantNav from './RadiantNav'
-import { RadiantFooter } from './RadiantFooter'
-import { AnnouncementProvider } from './AnnouncementContext'
+import Header from './Header'
+import { Footer } from './Footer'
 
 /**
  * MarketingLayout Component
  * Main layout for marketing pages with:
- * - Announcement bar (optional)
- * - RadiantNav (sticky navigation with mega dropdown)
+ * - Header (clean navigation)
  * - Main content area
- * - RadiantFooter (newsletter + multi-column footer)
+ * - Footer (no newsletter)
  */
 export default function MarketingLayout({
   children,
@@ -17,20 +14,15 @@ export default function MarketingLayout({
   children: React.ReactNode
 }) {
   return (
-    <AnnouncementProvider>
-      <div className="min-h-screen bg-neutral-200">
-        {/* Announcement Bar - Fixed at top */}
-        <AnnouncementBar />
+    <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950">
+      {/* Navigation - Clean Header */}
+      <Header />
 
-        {/* Navigation - Radiant UI Style */}
-        <RadiantNav />
+      {/* Main Content */}
+      <main className="flex-1">{children}</main>
 
-        {/* Main Content */}
-        <main>{children}</main>
-
-        {/* Footer - Radiant UI with Newsletter */}
-        <RadiantFooter />
-      </div>
-    </AnnouncementProvider>
+      {/* Footer - Clean, No Newsletter */}
+      <Footer />
+    </div>
   )
 }
