@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import {
   Zap,
@@ -25,6 +25,21 @@ import {
 export default function AutomaticFixesPage() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
   const [hoveredMode, setHoveredMode] = useState<number | null>(null)
+  const [fixCount, setFixCount] = useState(0)
+  const [activeMode, setActiveMode] = useState<'automatic' | 'plan' | 'approve'>('automatic')
+  const { scrollYProgress } = useScroll()
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  // Live fix counter animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFixCount((prev) => {
+        const newCount = prev + Math.floor(Math.random() * 5) + 1
+        return newCount > 847 ? 0 : newCount
+      })
+    }, 150)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="bg-slate-950 min-h-screen relative overflow-hidden">
@@ -68,14 +83,23 @@ export default function AutomaticFixesPage() {
             {/* Badge */}
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full mb-6 backdrop-blur-sm"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.5, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
-              <Zap className="w-4 h-4 text-yellow-400" />
+              <Zap className="w-4 h-4 text-yellow-400 animate-pulse" />
               <span className="text-sm font-medium text-yellow-300">
-                Automated Execution
+                <motion.span
+                  key={fixCount}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {fixCount.toLocaleString()}
+                </motion.span>{' '}
+                fixes applied today
               </span>
+              <Sparkles className="w-4 h-4 text-yellow-400" />
             </motion.div>
 
             {/* Heading */}
@@ -87,9 +111,19 @@ export default function AutomaticFixesPage() {
             >
               SEO Fixes That
               <br />
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-                Actually Get Applied
-              </span>
+              <motion.span
+                className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ['0%', '100%', '0%'],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              >
+                Apply Themselves
+              </motion.span>
             </motion.h1>
 
             <motion.p
