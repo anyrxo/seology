@@ -377,7 +377,7 @@ export default function PerformanceMonitoringPage() {
                   'Confusing dashboards with vanity metrics',
                   'No connection between fixes and results',
                   'Manual report generation takes hours',
-                  'Can't explain "why" rankings changed',
+                  'Can\'t explain "why" rankings changed',
                   'Different tools for each metric type',
                 ].map((item, index) => (
                   <motion.li
