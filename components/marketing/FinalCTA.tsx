@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
 
 export default function FinalCTA() {
   return (
@@ -48,13 +49,13 @@ export default function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <button className="px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2">
+            <Link href="/sign-up" className="px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2">
               Try Seology for Free
               <ArrowRight className="h-5 w-5" />
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-              Schedule Demo
-            </button>
+            </Link>
+            <Link href="/demo" className="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+              View Demo
+            </Link>
           </motion.div>
 
           {/* Trust Badges */}
