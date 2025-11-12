@@ -2,11 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [featuresOpen, setFeaturesOpen] = useState(false);
+  const [mobileFeaturesOpen, setMobileFeaturesOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -21,18 +23,44 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
-              Features
-            </a>
-            <a href="#faq" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            {/* Features Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setFeaturesOpen(true)}
+              onMouseLeave={() => setFeaturesOpen(false)}
+            >
+              <button className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+                Features
+                <ChevronDown className={`h-4 w-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {featuresOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2">
+                  <Link href="/features/seo-analysis" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    SEO Analysis
+                  </Link>
+                  <Link href="/features/automatic-fixes" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Automatic Fixes
+                  </Link>
+                  <Link href="/features/platform-integrations" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Platform Integrations
+                  </Link>
+                  <Link href="/features/performance-monitoring" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Performance Monitoring
+                  </Link>
+                  <Link href="/features/content-optimization" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    Content Optimization
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <a href="/#faq" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               FAQs
             </a>
             <a href="#testimonials" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Testimonials
             </a>
-            <Link href="/partners" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
-              Partners
-            </Link>
             <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Blog
             </Link>
@@ -66,15 +94,58 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800">
             <nav className="flex flex-col gap-4">
+              {/* Mobile Features Dropdown */}
+              <div>
+                <button
+                  className="flex items-center justify-between w-full text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                  onClick={() => setMobileFeaturesOpen(!mobileFeaturesOpen)}
+                >
+                  Features
+                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileFeaturesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileFeaturesOpen && (
+                  <div className="mt-2 ml-4 flex flex-col gap-2">
+                    <Link
+                      href="/features/seo-analysis"
+                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      SEO Analysis
+                    </Link>
+                    <Link
+                      href="/features/automatic-fixes"
+                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Automatic Fixes
+                    </Link>
+                    <Link
+                      href="/features/platform-integrations"
+                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Platform Integrations
+                    </Link>
+                    <Link
+                      href="/features/performance-monitoring"
+                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Performance Monitoring
+                    </Link>
+                    <Link
+                      href="/features/content-optimization"
+                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Content Optimization
+                    </Link>
+                  </div>
+                )}
+              </div>
+
               <a
-                href="#features"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a
-                href="#faq"
+                href="/#faq"
                 className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -87,13 +158,6 @@ export default function Header() {
               >
                 Testimonials
               </a>
-              <Link
-                href="/partners"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Partners
-              </Link>
               <Link
                 href="/blog"
                 className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
