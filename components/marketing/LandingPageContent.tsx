@@ -11,7 +11,7 @@ import Testimonials from "@/components/marketing/Testimonials";
 import Pricing from "@/components/marketing/Pricing";
 import FAQ from "@/components/marketing/FAQ";
 import FinalCTA from "@/components/marketing/FinalCTA";
-import Footer from "@/components/marketing/Footer";
+import { Footer } from "@/components/marketing/Footer";
 
 export default function NewLandingPageContent() {
   return (
