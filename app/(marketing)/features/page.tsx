@@ -841,7 +841,7 @@ export default function FeaturesPage() {
                 whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300 } }}
               >
                 <Link
-                  href="/pricing"
+                  href="/#pricing"
                   className="inline-flex items-center justify-center px-8 py-4 bg-slate-800/50 backdrop-blur-sm text-white font-bold rounded-lg border border-slate-700 hover:bg-slate-800 transition-all duration-300 text-lg"
                 >
                   View Pricing
