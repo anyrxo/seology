@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Header from "@/components/marketing/Header";
 import { Footer } from "@/components/marketing/Footer";
-import { blogPosts } from "@/data/blogPosts";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/lib/blog-posts";
+import { Calendar, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function Blog() {
@@ -37,68 +37,52 @@ export default function Blog() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post, index) => (
                 <motion.article
-                  key={post.id}
+                  key={post.slug}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full"
                 >
-                  <Link href={`/blog/${post.slug}`}>
-                    <a className="group block bg-slate-50 dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
-                      {/* Image */}
-                      <div className="relative h-48 overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
-                            {post.category}
-                          </span>
+                  <Link href={`/blog/${post.slug}`} className="block h-full">
+                    {/* Content */}
+                    <div className="p-6 h-full flex flex-col">
+                      {/* Category Badge */}
+                      <div className="mb-3">
+                        <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
+                          {post.category}
+                        </span>
+                      </div>
+
+                      {/* Meta */}
+                      <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-4 w-4" />
+                          {post.date}
                         </div>
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6">
-                        {/* Meta */}
-                        <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-3">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                              month: "short",
-                              day: "numeric",
-                              year: "numeric",
-                            })}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            {post.readTime}
-                          </div>
-                        </div>
+                      {/* Title */}
+                      <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {post.title}
+                      </h2>
 
-                        {/* Title */}
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-                          {post.title}
-                        </h2>
+                      {/* Description */}
+                      <p className="text-slate-600 dark:text-slate-300 mb-4 flex-1">
+                        {post.description}
+                      </p>
 
-                        {/* Excerpt */}
-                        <p className="text-slate-600 dark:text-slate-300 mb-4 line-clamp-3">
-                          {post.excerpt}
-                        </p>
-
-                        {/* Author & CTA */}
-                        <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
-                          <span className="text-sm text-slate-600 dark:text-slate-400">
-                            By {post.author}
-                          </span>
-                          <span className="flex items-center gap-1 text-blue-600 dark:text-blue-400 font-medium text-sm group-hover:gap-2 transition-all">
-                            Read more
-                            <ArrowRight className="h-4 w-4" />
-                          </span>
-                        </div>
+                      {/* Author & CTA */}
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <span className="text-sm text-slate-600 dark:text-slate-400">
+                          By {post.author}
+                        </span>
+                        <span className="flex items-center gap-1 text-blue-600 dark:text-blue-400 font-medium text-sm group-hover:gap-2 transition-all">
+                          Read more
+                          <ArrowRight className="h-4 w-4" />
+                        </span>
                       </div>
-                    </a>
+                    </div>
                   </Link>
                 </motion.article>
               ))}
