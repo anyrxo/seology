@@ -19,7 +19,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Features
             </a>
@@ -29,24 +29,35 @@ export default function Header() {
             <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Pricing
             </a>
-            <a href="#testimonials" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              Testimonials
-            </a>
+            <Link href="/about" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              About
+            </Link>
+            <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Blog
+            </Link>
+            <Link href="/contact" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Contact
+            </Link>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
+            <Link href="/demo">
+              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950">
+                View Demo
+              </Button>
+            </Link>
             <Button variant="ghost" className="text-slate-600 dark:text-slate-300">
               Sign In
             </Button>
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-              Try Seology for Free
+              Try Free
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -60,7 +71,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800">
+          <div className="lg:hidden py-4 border-t border-slate-200 dark:border-slate-800">
             <nav className="flex flex-col gap-4">
               <a
                 href="#features"
@@ -83,19 +94,38 @@ export default function Header() {
               >
                 Pricing
               </a>
-              <a
-                href="#testimonials"
+              <Link
+                href="/about"
                 className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Testimonials
-              </a>
-              <div className="flex flex-col gap-2 pt-4">
+                About
+              </Link>
+              <Link
+                href="/blog"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <Link
+                href="/contact"
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <Link href="/demo">
+                  <Button variant="outline" className="w-full border-blue-600 text-blue-600">
+                    View Demo
+                  </Button>
+                </Link>
                 <Button variant="ghost" className="w-full">
                   Sign In
                 </Button>
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                  Try Seology for Free
+                  Try Free
                 </Button>
               </div>
             </nav>
