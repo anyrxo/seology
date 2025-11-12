@@ -19,7 +19,6 @@ function isPublicRoute(pathname: string): boolean {
     '/',
     '/pricing',
     '/about',
-    '/features',
     '/demo',
     '/terms',
     '/privacy',
@@ -50,6 +49,7 @@ function isPublicRoute(pathname: string): boolean {
     '/integrations',
     '/guides',
     '/blog',
+    '/features', // All feature pages are public
     '/shopify', // Shopify embedded app routes - use Shopify OAuth instead of Clerk
     '/api/shopify', // Shopify API routes - use session tokens for auth
     '/api/auth/shopify', // Shopify OAuth routes - MUST be public

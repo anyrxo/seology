@@ -64,16 +64,18 @@ export default function Header() {
             <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Blog
             </Link>
-            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <Link href="/sign-up" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Pricing
-            </a>
+            </Link>
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
-              Try SEOLOGY Free
-            </Button>
+            <Link href="/sign-up">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
+                Try SEOLOGY Free
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -165,17 +167,19 @@ export default function Header() {
               >
                 Blog
               </Link>
-              <a
-                href="#pricing"
+              <Link
+                href="/sign-up"
                 className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
-              </a>
+              </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                  Try SEOLOGY Free
-                </Button>
+                <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    Try SEOLOGY Free
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
