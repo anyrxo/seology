@@ -51,7 +51,7 @@ export default function SupportPage() {
       description: 'Unable to connect your Shopify or WordPress store?',
       solutions: [
         'Verify your store URL is correct',
-        'Check that you've granted all required permissions',
+        'Check that you\'ve granted all required permissions',
         'Try disconnecting and reconnecting',
         'Ensure your CMS is accessible and not in maintenance mode',
       ],
@@ -62,8 +62,8 @@ export default function SupportPage() {
       description: 'Fixes showing as complete but changes not visible?',
       solutions: [
         'Clear your browser cache and refresh',
-        'Check your CMS theme hasn't been overridden',
-        'Verify fix was approved if you're in Approve mode',
+        'Check your CMS theme hasn\'t been overridden',
+        'Verify fix was approved if you\'re in Approve mode',
         'Check rollback history for any reverted changes',
       ],
     },
@@ -84,9 +84,9 @@ export default function SupportPage() {
       description: 'Some pages not being detected?',
       solutions: [
         'Check pages are in your sitemap.xml',
-        'Verify pages aren't blocked by robots.txt',
+        'Verify pages aren\'t blocked by robots.txt',
         'Ensure pages are publicly accessible (not password protected)',
-        'Check pages aren't marked as noindex',
+        'Check pages aren\'t marked as noindex',
       ],
     },
   ]
@@ -110,7 +110,7 @@ export default function SupportPage() {
     },
     {
       question: 'What happens if I cancel my subscription?',
-      answer: 'All fixes remain in place permanently. You'll lose access to new analysis and fixes, but your existing improvements stay active. You can export all fix history before canceling.',
+      answer: 'All fixes remain in place permanently. You\'ll lose access to new analysis and fixes, but your existing improvements stay active. You can export all fix history before canceling.',
     },
     {
       question: 'Is my CMS login data secure?',
@@ -304,7 +304,7 @@ export default function SupportPage() {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center">
             <h3 className="text-3xl font-bold mb-4">Still Need Help?</h3>
             <p className="text-lg mb-8 opacity-90">
-              Our support team is here to help. Get in touch and we'll respond within 24 hours.
+              Our support team is here to help. Get in touch and we\'ll respond within 24 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
