@@ -283,18 +283,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Fix Tailwind dark: utilities that conflict */
-/* REMOVED: Override for .text-white was breaking Hero and Footer text visibility */
-/* Marketing pages need true white text on dark backgrounds */
-
-.dark .text-gray-900 {
-  color: var(--neutral--800) !important;
-}
-
-.dark .text-gray-600,
-.dark .text-gray-500,
-.dark .text-gray-400 {
-  color: var(--neutral--600) !important;
-}
+/* REMOVED ALL OVERRIDES: Let Tailwind's built-in dark mode handle text colors naturally */
+/* Components should use dark: variants explicitly (e.g., dark:text-white, dark:text-slate-300) */
 
 /* Card amount colors need to stay bright */
 .card-amount-container {
