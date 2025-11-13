@@ -155,17 +155,55 @@ export async function getAuthenticatedConnection(request: NextRequest) {
 
 /**
  * Exchange session token for offline access token
- * Use this during initial app installation
+ * Use this when the stored access token is invalid/expired
  *
- * NOTE: This is for the token exchange flow, which is newer than OAuth
- * We still use OAuth for now, but this is the future
+ * Documentation: https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/token-exchange
  */
 export async function exchangeSessionTokenForAccessToken(
-  sessionToken: string
+  sessionToken: string,
+  shop: string
 ): Promise<{ accessToken: string; scope: string }> {
-  // TODO: Implement token exchange flow
-  // https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/token-exchange
-  throw new Error('Token exchange not yet implemented - use OAuth for now')
+  const clientId = process.env.SHOPIFY_CLIENT_ID
+  const clientSecret = process.env.SHOPIFY_CLIENT_SECRET
+
+  if (!clientId || !clientSecret) {
+    throw new Error('SHOPIFY_CLIENT_ID or SHOPIFY_CLIENT_SECRET not configured')
+  }
+
+  // Token exchange endpoint
+  const tokenExchangeUrl = `https://${shop}/admin/oauth/access_token`
+
+  const response = await fetch(tokenExchangeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
+      subject_token: sessionToken,
+      subject_token_type: 'urn:ietf:params:oauth:token-type:id_token',
+      requested_token_type: 'urn:shopify:params:oauth:token-type:offline-access-token',
+    }),
+  })
+
+  if (!response.ok) {
+    const errorText = await response.text()
+    console.error('[Token Exchange] Failed:', response.status, errorText)
+    throw new Error(`Token exchange failed: ${response.status} ${errorText}`)
+  }
+
+  const data = await response.json()
+
+  if (!data.access_token) {
+    throw new Error('No access token in token exchange response')
+  }
+
+  return {
+    accessToken: data.access_token,
+    scope: data.scope || '',
+  }
 }
 
 /**
