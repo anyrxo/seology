@@ -57,8 +57,12 @@ export default function ShopifyAppEntryPoint() {
         console.log('[Shopify Entry] You must install the app via Shopify Admin to use it')
         const installUrl = `/api/auth/shopify?shop=${shop}`
         console.log('[Shopify Entry] Redirecting to:', installUrl)
-        // Use full page redirect to leave the current context
-        window.location.href = installUrl
+        // Use window.top to break out of any iframe (prevents "refused to connect" error)
+        if (window.top) {
+          window.top.location.href = installUrl
+        } else {
+          window.location.href = installUrl
+        }
         // Stop execution here
         setChecking(false)
         return
@@ -75,7 +79,12 @@ export default function ShopifyAppEntryPoint() {
         if (response.status === 401) {
           console.log('[Shopify Entry] ⚠️ Authentication failed (401) - app needs to be installed')
           console.log('[Shopify Entry] Redirecting to OAuth installation flow')
-          window.location.href = `/api/auth/shopify?shop=${shop}`
+          // Use window.top to break out of iframe
+          if (window.top) {
+            window.top.location.href = `/api/auth/shopify?shop=${shop}`
+          } else {
+            window.location.href = `/api/auth/shopify?shop=${shop}`
+          }
           setChecking(false)
           return
         }
@@ -95,7 +104,12 @@ export default function ShopifyAppEntryPoint() {
         console.error('[Shopify Entry] Failed to check onboarding status:', error)
         // On error, try OAuth installation
         console.log('[Shopify Entry] Error occurred, redirecting to OAuth installation')
-        window.location.href = `/api/auth/shopify?shop=${shop}`
+        // Use window.top to break out of iframe
+        if (window.top) {
+          window.top.location.href = `/api/auth/shopify?shop=${shop}`
+        } else {
+          window.location.href = `/api/auth/shopify?shop=${shop}`
+        }
       } finally {
         setChecking(false)
       }
