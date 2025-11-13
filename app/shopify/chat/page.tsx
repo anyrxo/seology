@@ -94,6 +94,10 @@ export default function ShopifyChatPage() {
     setInput('')
     setLoading(true)
 
+    // Debug logging
+    console.log('[Chat] Sending message to:', `/api/shopify/chat?shop=${shop}`)
+    console.log('[Chat] Shop parameter:', shop)
+
     try {
       const data = await authenticatedFetch<{ success: boolean; data?: { message: string; credits?: CreditInfo }; error?: { message: string; details?: string; action?: string; link?: string; errorId?: string } }>(`/api/shopify/chat?shop=${shop}`, {
         method: 'POST',
