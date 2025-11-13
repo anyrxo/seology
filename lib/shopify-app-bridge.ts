@@ -224,17 +224,28 @@ export function setLoading(isLoading: boolean): void {
  * Wait for App Bridge to be available
  * Retries up to maxAttempts times with a delay between attempts
  *
- * @param maxAttempts - Maximum number of attempts (default: 10)
+ * @param maxAttempts - Maximum number of attempts (default: 50)
  * @param delayMs - Delay between attempts in milliseconds (default: 100)
  * @returns true if App Bridge becomes available, false otherwise
  */
-export async function waitForAppBridge(maxAttempts = 10, delayMs = 100): Promise<boolean> {
+export async function waitForAppBridge(maxAttempts = 50, delayMs = 100): Promise<boolean> {
+  console.log('[waitForAppBridge] Waiting for App Bridge to initialize...')
+
   for (let i = 0; i < maxAttempts; i++) {
     if (isAppBridgeAvailable()) {
+      console.log(`[waitForAppBridge] ✅ App Bridge available after ${i} attempts (${i * delayMs}ms)`)
       return true
     }
+
+    if (i % 10 === 0 && i > 0) {
+      console.log(`[waitForAppBridge] Still waiting... (attempt ${i}/${maxAttempts})`)
+    }
+
     await new Promise((resolve) => setTimeout(resolve, delayMs))
   }
+
+  console.error(`[waitForAppBridge] ❌ App Bridge not available after ${maxAttempts} attempts (${maxAttempts * delayMs}ms)`)
+  console.error('[waitForAppBridge] Make sure App Bridge script is loaded and app is embedded in Shopify')
   return false
 }
 

@@ -18,6 +18,12 @@ export function AppBridgeProvider({ children }: { children: React.ReactNode }) {
     console.log('[AppBridge] Current URL:', window.location.href)
     console.log('[AppBridge] All params:', Object.fromEntries(searchParams.entries()))
 
+    // Check if App Bridge is loaded
+    console.log('[AppBridge] window.shopify available:', !!window.shopify)
+    if (window.shopify) {
+      console.log('[AppBridge] App Bridge config:', window.shopify.config)
+    }
+
     // Get host parameter from URL (required for embedded apps)
     const host = new URLSearchParams(window.location.search).get('host')
     const shopParam = searchParams.get('shop')
