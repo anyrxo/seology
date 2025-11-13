@@ -95,11 +95,10 @@ export default function ShopifyChatPage() {
     setLoading(true)
 
     try {
-      const data = await authenticatedFetch<{ success: boolean; data?: { message: string; credits?: CreditInfo }; error?: { message: string; details?: string; action?: string; link?: string; errorId?: string } }>('/api/shopify/chat', {
+      const data = await authenticatedFetch<{ success: boolean; data?: { message: string; credits?: CreditInfo }; error?: { message: string; details?: string; action?: string; link?: string; errorId?: string } }>(`/api/shopify/chat?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           messages: [...messages, userMessage].map((m) => ({
             role: m.role,
             content: m.content,
