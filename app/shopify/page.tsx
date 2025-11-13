@@ -44,25 +44,42 @@ export default function ShopifyAppEntryPoint() {
         return
       }
 
-      // CRITICAL: Check if app is embedded in Shopify
+      // CRITICAL: Check if app is embedded in Shopify FIRST before making any API calls
       const host = searchParams.get('host')
       const isEmbedded = window.top !== window.self // Check if in iframe
 
       console.log('[Shopify Entry] Embedded check:', { host, isEmbedded, hasHost: !!host })
 
       // If NOT embedded and no host parameter, redirect to OAuth installation
-      // This ensures the app is properly installed and embedded in Shopify admin
+      // This MUST happen BEFORE any API calls because API calls need App Bridge session tokens
       if (!isEmbedded && !host) {
-        console.log('[Shopify Entry] App not embedded - redirecting to OAuth installation')
+        console.log('[Shopify Entry] ⚠️ App not embedded - redirecting to OAuth installation')
+        console.log('[Shopify Entry] You must install the app via Shopify Admin to use it')
         const installUrl = `/api/auth/shopify?shop=${shop}`
         console.log('[Shopify Entry] Redirecting to:', installUrl)
+        // Use full page redirect to leave the current context
         window.location.href = installUrl
+        // Stop execution here
+        setChecking(false)
         return
       }
+
+      // At this point, we know the app is embedded
+      console.log('[Shopify Entry] ✅ App is properly embedded, checking onboarding status')
 
       try {
         // Check if this shop has completed onboarding
         const response = await fetch(`/api/shopify/onboarding/status?shop=${shop}`)
+
+        // If we get 401, it means authentication failed - redirect to OAuth
+        if (response.status === 401) {
+          console.log('[Shopify Entry] ⚠️ Authentication failed (401) - app needs to be installed')
+          console.log('[Shopify Entry] Redirecting to OAuth installation flow')
+          window.location.href = `/api/auth/shopify?shop=${shop}`
+          setChecking(false)
+          return
+        }
+
         const data = await response.json()
 
         if (data.success && data.data.completed) {
@@ -76,8 +93,9 @@ export default function ShopifyAppEntryPoint() {
         }
       } catch (error) {
         console.error('[Shopify Entry] Failed to check onboarding status:', error)
-        // On error, default to onboarding (safer)
-        router.push(`/shopify/onboarding?shop=${shop}`)
+        // On error, try OAuth installation
+        console.log('[Shopify Entry] Error occurred, redirecting to OAuth installation')
+        window.location.href = `/api/auth/shopify?shop=${shop}`
       } finally {
         setChecking(false)
       }
