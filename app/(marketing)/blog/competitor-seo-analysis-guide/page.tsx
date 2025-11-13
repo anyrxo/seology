@@ -436,7 +436,7 @@ export default function BlogPost() {
                       </ul>
                     </div>
                     <p className="text-slate-700">
-                      <strong>Opportunity:</strong> If competitors are slow (>4s load time) or missing schema, you can outrank them with technical optimization alone.
+                      <strong>Opportunity:</strong> If competitors are slow ({'>'}4s load time) or missing schema, you can outrank them with technical optimization alone.
                     </p>
                   </div>
 
@@ -542,7 +542,7 @@ export default function BlogPost() {
                     <ul className="space-y-2 text-slate-700">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 font-bold">1.</span>
-                        <span>Keyword gap analysis found 380 long-tail keywords (KD <25) competitors ranked for but startup didn\'t</span>
+                        <span>Keyword gap analysis found 380 long-tail keywords (KD {'<'}25) competitors ranked for but startup didn\'t</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-blue-600 font-bold">2.</span>
@@ -670,7 +670,7 @@ export default function BlogPost() {
                 </div>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  <strong>Start simple:</strong> Pick 2-3 competitors who rank for your most important keywords. Run keyword gap and backlink gap analysis in Ahrefs. Target the low-hanging fruit first (KD <30 keywords, high-DR link prospects).
+                  <strong>Start simple:</strong> Pick 2-3 competitors who rank for your most important keywords. Run keyword gap and backlink gap analysis in Ahrefs. Target the low-hanging fruit first (KD {'<'}30 keywords, high-DR link prospects).
                 </p>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">

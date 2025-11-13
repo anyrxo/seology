@@ -139,7 +139,7 @@ export default function BlogPost() {
                         Established domains with strong backlink profiles rank faster. Average DR (Domain Rating) for #1 positions: DR 65+ for competitive keywords. New sites need 6-12 months to build sufficient authority signals.
                       </p>
                       <p className="text-slate-700 mt-4">
-                        <strong>Result:</strong> Sites with DR 50+ rank for 73% of target keywords within 3 months vs 19% for DR <20 sites (Ahrefs, 2024).
+                        <strong>Result:</strong> Sites with DR 50+ rank for 73% of target keywords within 3 months vs 19% for DR {'<'}20 sites (Ahrefs, 2024).
                       </p>
                     </div>
 
@@ -183,7 +183,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">9. Backlink Domain Authority (91% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
-                        Links from high-authority domains (DR 60+) pass more ranking power. One link from The New York Times (DR 95) = 100+ links from DR 20 blogs. Quality > quantity confirmed by every major study.
+                        Links from high-authority domains (DR 60+) pass more ranking power. One link from The New York Times (DR 95) = 100+ links from DR 20 blogs. Quality {'>'}quantity confirmed by every major study.
                       </p>
                       <p className="text-slate-700 mt-4">
                         <strong>Result:</strong> Pages with 10 DR 70+ backlinks rank 2.9x higher than pages with 100 DR 20 backlinks (Ahrefs, 2024).
@@ -230,7 +230,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">13. Core Web Vitals (73% Direct Ranking Impact)</h4>
                       <p className="text-slate-700 mb-4">
-                        LCP (Largest Contentful Paint) <2.5s, INP (Interaction to Next Paint) <200ms, CLS (Cumulative Layout Shift) <0.1 are confirmed ranking factors. Sites passing all 3 rank 2.3x higher on average.
+                        LCP (Largest Contentful Paint) {'<'}2.5s, INP (Interaction to Next Paint) {'<'}200ms, CLS (Cumulative Layout Shift) {'<'}0.1 are confirmed ranking factors. Sites passing all 3 rank 2.3x higher on average.
                       </p>
                       <p className="text-slate-700 mt-4">
                         <strong>Result:</strong> Pages with "Good" Core Web Vitals rank 2.3x higher than "Poor" pages (Google, 2024).

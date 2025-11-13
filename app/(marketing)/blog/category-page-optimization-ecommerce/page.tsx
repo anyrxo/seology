@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPost() {
-  const relatedPosts = blogPosts.filter(p => p.slug !== 'category-page-optimization-ecommerce').slice(0, 4)
+  const relatedPosts = blogPosts.filter(post => post.slug !== 'category-page-optimization-ecommerce').slice(0, 4)
 
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -281,7 +281,7 @@ export default function BlogPost() {
                       <strong>Alternative approach (View All page):</strong> Create a "View All" URL and canonical all paginated pages to it. This consolidates SEO value.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Caution:</strong> View All only works if the page loads <1,000 products (performance issue beyond that).
+                      <strong>Caution:</strong> View All only works if the page loads {'<'}1,000 products (performance issue beyond that).
                     </p>
                   </div>
 
@@ -532,7 +532,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Slow Page Speed from Unoptimized Images</h3>
                     <p className="text-slate-700">
-                      Loading 50 massive product images kills page speed. Use WebP format, lazy loading, and appropriately sized images. Target <3 second load time.
+                      Loading 50 massive product images kills page speed. Use WebP format, lazy loading, and appropriately sized images. Target {'<'}3 second load time.
                     </p>
                   </div>
 

@@ -215,7 +215,7 @@ export default function BlogPost() {
                       <strong>Examples:</strong> Zillow: 13M+ location pages. Yelp: 100M+ business/location combinations. TripAdvisor: 50M+ destination pages.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Template:</strong> "Best {'{'}Service{'}'} in {'{'}City{'}}, {'{'}State{'}'}" + local statistics + user reviews + unique local content.
+                      <strong>Template:</strong> "Best {'{'}Service{'}'} in {'{'}City{'}'}, {'{'}State{'}'}" + local statistics + user reviews + unique local content.
                     </p>
                     <p className="text-slate-700">
                       <strong>Warning:</strong> Requires substantial unique content per page. Thin content penalties kill this strategy if done wrong.

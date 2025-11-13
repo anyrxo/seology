@@ -261,7 +261,7 @@ export default function BlogPost() {
                   </h3>
                   <p className="text-slate-700 ml-11">
                     <strong>Why:</strong> Voice search results have 3.8x more backlinks than average pages (Backlinko study).<br/>
-                    <strong>Focus:</strong> Get links from high-authority sites in your niche. Quality > quantity.<br/>
+                    <strong>Focus:</strong> Get links from high-authority sites in your niche. Quality {'>'} quantity.<br/>
                     <strong>Average DR of voice result pages:</strong> 76.8 (very high).
                   </p>
                 </div>

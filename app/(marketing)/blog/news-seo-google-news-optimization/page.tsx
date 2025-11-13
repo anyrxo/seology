@@ -271,7 +271,7 @@ export default function BlogPost() {
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
-                <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Optimize Mobile Page Speed (<2s Load Time)</h4>
+                <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Optimize Mobile Page Speed ({'<'}2s Load Time)</h4>
                 <p className="text-slate-700 mb-4">
                   58% of news consumption happens on mobile (Google, 2024). Slow-loading articles lose rankings and traffic—users abandon pages that don\'t load within 3 seconds.
                 </p>

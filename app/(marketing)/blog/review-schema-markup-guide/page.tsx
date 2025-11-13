@@ -275,7 +275,7 @@ export default function BlogPost() {
                       <strong>Automate schema from your review database:</strong> Don\'t manually update schema every time you get a new review. Generate JSON-LD dynamically from your database using server-side code (PHP, Node.js, Python, etc.).
                     </p>
                     <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-3 mb-3">
-                      <p className="text-sm font-mono text-slate-800">// Example: Next.js server component generating schema</p>
+                      <p className="text-sm font-mono text-slate-800">{'// Example: Next.js server component generating schema'}</p>
                       <p className="text-sm font-mono text-slate-800">const product = await getProductWithReviews(productId)</p>
                       <p className="text-sm font-mono text-slate-800">const avgRating = calculateAverageRating(product.reviews)</p>
                       <p className="text-sm font-mono text-slate-800 mt-2">const schema = {`{`}</p>

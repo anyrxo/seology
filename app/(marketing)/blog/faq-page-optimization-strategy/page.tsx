@@ -201,7 +201,7 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-3">
                     When answering "how to" or "what are" questions, use numbered lists (for steps) or bullet points (for options). <strong>Lists are 2.4x more likely to win featured snippets</strong> than paragraph-only answers (Ahrefs data).
                   </p>
-                  <p className="text-slate-700 mb-3">Format lists with proper HTML markup ({`<ol>` or `<ul>`}) so Google can parse them as structured content.</p>
+                  <p className="text-slate-700 mb-3">Format lists with proper HTML markup ({`<ol>`} or {`<ul>`}) so Google can parse them as structured content.</p>
                 </div>
 
                 <div className="border-l-4 border-teal-600 pl-6">

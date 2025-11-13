@@ -79,7 +79,7 @@ export default function BlogPost() {
                   <li><CheckCircle2 className="w-6 h-6 text-green-500 inline mr-2" /><strong>Contextual relevance:</strong> Your link fits naturally in the content flow</li>
                   <li><CheckCircle2 className="w-6 h-6 text-green-500 inline mr-2" /><strong>Real traffic potential:</strong> Posts on sites people actually read</li>
                 </ul>
-                <p className="text-slate-700 mt-4"><strong>Ahrefs study (2024):</strong> Guest posts from DR50+ sites increase rankings by 23.4% on average. Guest posts from DR<20 sites have zero measurable impact.</p>
+                <p className="text-slate-700 mt-4"><strong>Ahrefs study (2024):</strong> Guest posts from DR50+ sites increase rankings by 23.4% on average. Guest posts from DR{'<'}20 sites have zero measurable impact.</p>
               </div>
             </section>
 
@@ -176,7 +176,7 @@ site:techcrunch.com "competitor name" contributor
                     Build Relationships First, Ask for Links Later
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    Cold outreach has <5% success rate. Warm relationships have 40%+ success rates.
+                    Cold outreach has {'<'}5% success rate. Warm relationships have 40%+ success rates.
                   </p>
                   <div className="pl-13 bg-blue-50 p-4 rounded-lg">
                     <p className="font-bold mb-3">6-Month Relationship Building Strategy:</p>
@@ -495,7 +495,7 @@ Either way, keep up the great work!
                   <li>• <strong>Keep it short:</strong> 100-150 words maximum</li>
                   <li>• <strong>Include social proof:</strong> Link to previous guest posts on credible sites</li>
                   <li>• <strong>Follow up once:</strong> If no response in 7 days, send one follow-up</li>
-                  <li>• <strong>Don\'t mass email:</strong> Send 5-10 personalized emails > 100 templated emails</li>
+                  <li>• <strong>Don\'t mass email:</strong> Send 5-10 personalized emails {'>'}100 templated emails</li>
                 </ul>
               </div>
             </section>
@@ -529,7 +529,7 @@ Either way, keep up the great work!
                 </div>
 
                 <div className="bg-red-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #2: Site Has DR<20 or No Organic Traffic</h3>
+                  <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #2: Site Has DR{'<'}20 or No Organic Traffic</h3>
                   <p className="text-slate-700">Check Ahrefs/SEMrush before pitching. If site gets no organic traffic, the link won\'t help.</p>
                 </div>
 
@@ -567,7 +567,7 @@ Either way, keep up the great work!
               </p>
               <ul className="space-y-4 my-6">
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Competitor backlink analysis:</strong><p className="text-slate-700 mt-1">AI finds where your competitors publish guest posts, then targets the same sites for you</p></div></li>
-                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Authority scoring:</strong><p className="text-slate-700 mt-1">Automatically filters out low-quality sites (DR<30, spammy backlinks, irrelevant niches)</p></div></li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Authority scoring:</strong><p className="text-slate-700 mt-1">Automatically filters out low-quality sites (DR{'<'}30, spammy backlinks, irrelevant niches)</p></div></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Content gap identification:</strong><p className="text-slate-700 mt-1">AI suggests topics that authority sites haven\'t covered yet (higher acceptance rate)</p></div></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Outreach template generation:</strong><p className="text-slate-700 mt-1">Personalized pitch emails based on each publication\'s style and recent content</p></div></li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Anchor text optimization:</strong><p className="text-slate-700 mt-1">AI suggests natural anchor text variations that avoid over-optimization penalties</p></div></li>

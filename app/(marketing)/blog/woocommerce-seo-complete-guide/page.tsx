@@ -285,7 +285,7 @@ export default function BlogPost() {
                     Optimize Mobile Experience (74% of Traffic is Mobile)
                   </h3>
                   <p className="text-slate-700 ml-11">
-                    <strong>Critical:</strong> Large tap targets (44x44px), readable fonts (16px minimum), fast load time (<3s), easy checkout (1-page preferred).<br/>
+                    <strong>Critical:</strong> Large tap targets (44x44px), readable fonts (16px minimum), fast load time ({'<'}3s), easy checkout (1-page preferred).<br/>
                     <strong>Test:</strong> Google Mobile-Friendly Test + real device testing.<br/>
                     <strong>Impact:</strong> Mobile-optimized stores convert 3x better than non-optimized.
                   </p>
@@ -322,7 +322,7 @@ export default function BlogPost() {
                   </h3>
                   <p className="text-slate-700 ml-11">
                     <strong>Why:</strong> Core Web Vitals are confirmed ranking factors.<br/>
-                    <strong>Targets:</strong> LCP < 2.5s, FID < 100ms, CLS < 0.1<br/>
+                    <strong>Targets:</strong> LCP {'<'} 2.5s, FID {'<'} 100ms, CLS {'<'} 0.1<br/>
                     <strong>Check:</strong> Google Search Console → Core Web Vitals report. Fix "Poor" and "Needs Improvement" pages first.
                   </p>
                 </div>

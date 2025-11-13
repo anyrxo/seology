@@ -163,7 +163,7 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Use <code>fetchpriority="high"</code> on LCP images to tell the browser to prioritize loading them. Combine with preload for critical images.
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Why it works:</strong> LCP measures when the largest visible element finishes loading. Lazy loading your LCP image delays this metric by 2-5 seconds, failing Core Web Vitals thresholds (target: <2.5s).
+                  <strong>Why it works:</strong> LCP measures when the largest visible element finishes loading. Lazy loading your LCP image delays this metric by 2-5 seconds, failing Core Web Vitals thresholds (target: {'<'}2.5s).
                 </p>
               </div>
 
@@ -203,7 +203,7 @@ export default function BlogPost() {
 }`}</pre>
                 </div>
                 <p className="text-slate-700 mb-0">
-                  <strong>Data:</strong> Images with dimensions reduce CLS by <strong>94%</strong> (Web.dev, 2024). Target CLS: <0.1 for good Core Web Vitals.
+                  <strong>Data:</strong> Images with dimensions reduce CLS by <strong>94%</strong> (Web.dev, 2024). Target CLS: {'<'}0.1 for good Core Web Vitals.
                 </p>
               </div>
 
@@ -623,9 +623,9 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                   <strong>Key metrics to track:</strong>
                 </p>
                 <ul className="space-y-2 mb-4">
-                  <li>• <strong>LCP (Largest Contentful Paint):</strong> Should improve if you\'re NOT lazy loading LCP images. Target: <2.5s</li>
-                  <li>• <strong>CLS (Cumulative Layout Shift):</strong> Should remain low if you specify image dimensions. Target: <0.1</li>
-                  <li>• <strong>FID (First Input Delay):</strong> Should improve if you defer third-party scripts. Target: <100ms</li>
+                  <li>• <strong>LCP (Largest Contentful Paint):</strong> Should improve if you\'re NOT lazy loading LCP images. Target: {'<'}2.5s</li>
+                  <li>• <strong>CLS (Cumulative Layout Shift):</strong> Should remain low if you specify image dimensions. Target: {'<'}0.1</li>
+                  <li>• <strong>FID (First Input Delay):</strong> Should improve if you defer third-party scripts. Target: {'<'}100ms</li>
                   <li>• <strong>Total Page Weight:</strong> Should decrease significantly (30-70% for image-heavy pages)</li>
                 </ul>
                 <p className="text-slate-700 mb-4">
