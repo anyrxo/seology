@@ -44,6 +44,22 @@ export default function ShopifyAppEntryPoint() {
         return
       }
 
+      // CRITICAL: Check if app is embedded in Shopify
+      const host = searchParams.get('host')
+      const isEmbedded = window.top !== window.self // Check if in iframe
+
+      console.log('[Shopify Entry] Embedded check:', { host, isEmbedded, hasHost: !!host })
+
+      // If NOT embedded and no host parameter, redirect to OAuth installation
+      // This ensures the app is properly installed and embedded in Shopify admin
+      if (!isEmbedded && !host) {
+        console.log('[Shopify Entry] App not embedded - redirecting to OAuth installation')
+        const installUrl = `/api/auth/shopify?shop=${shop}`
+        console.log('[Shopify Entry] Redirecting to:', installUrl)
+        window.location.href = installUrl
+        return
+      }
+
       try {
         // Check if this shop has completed onboarding
         const response = await fetch(`/api/shopify/onboarding/status?shop=${shop}`)
@@ -68,7 +84,7 @@ export default function ShopifyAppEntryPoint() {
     }
 
     checkOnboardingStatus()
-  }, [shop, router])
+  }, [shop, router, searchParams])
 
   if (checking) {
     return (

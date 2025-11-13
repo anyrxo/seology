@@ -1,15 +1,18 @@
 # Deployment Debug Checklist
 
-## Current Status (2025-11-14 00:44)
+## Current Status (2025-11-14 02:15)
 
-Still getting `POST 400 /api/shopify/chat` errors despite fixes being committed and pushed.
+**ROOT CAUSE FOUND**: App was loading as standalone website instead of being embedded in Shopify admin.
 
 ## Commits Timeline
 1. `4063c63` - Fix Shopify chat network error with enhanced diagnostics
 2. `04d7e6d` - Fix chat 400 error: Add shop parameter to URL query string ✅
 3. `45f9ca3` - Add debug logging to chat requests
 4. `c952440` - Fix auto-fix button: Add shop parameter to fix API endpoint ✅
-5. `667e436` - Fix all Shopify API endpoints: Add shop parameter to URL query string ✅ (LATEST)
+5. `667e436` - Fix all Shopify API endpoints: Add shop parameter to URL query string ✅
+6. `7954183` - Force cache bust: Add deployment notes
+7. `5a1df76` - Fix: Add X-Shopify-Retry header for 401 auth errors
+8. `[NEXT]` - **CRITICAL FIX**: Redirect to OAuth if app not embedded ✅
 
 ## What Should Be Working
 
@@ -87,14 +90,34 @@ With debug logging enabled, you should see:
 
 If you see `Shop parameter: null` or undefined, that's the issue!
 
-## Most Likely Issue
+## Root Cause - App Not Embedded
 
-**Vercel Edge Network Cache** - The edge nodes haven't invalidated the old JavaScript bundle yet.
+**Issue**: When accessing `https://seology.ai/shopify?shop=seology-3.myshopify.com` directly, the app loads as a standalone website instead of being embedded in Shopify admin.
 
-**Solution:**
-1. Wait 5-10 minutes for edge cache to expire
-2. OR manually purge cache in Vercel dashboard
-3. OR force a new deployment (redeploy latest commit)
+**Why this matters**:
+- Shopify apps MUST be embedded in an iframe within Shopify admin
+- Without embedding, there's no `host` parameter (required for App Bridge)
+- Without App Bridge, session tokens can't be generated
+- Without session tokens, all API requests fail with 401 Unauthorized
+
+**The Fix (in latest commit)**:
+Added embedded check to `/app/shopify/page.tsx`:
+1. Check if app is running in iframe (`window.top !== window.self`)
+2. Check if `host` parameter exists (Shopify provides this for embedded apps)
+3. If NEITHER condition is true → redirect to OAuth installation
+4. OAuth flow will properly install and embed the app in Shopify
+
+**How to access the app correctly**:
+1. Go to your Shopify admin: `https://seology-3.myshopify.com/admin`
+2. Click on Apps → SEOLOGY.AI
+3. App loads embedded with proper authentication
+
+**What was happening before**:
+- User accessed `https://seology.ai/shopify?shop=...` directly
+- App loaded as standalone website (not embedded)
+- No host parameter, no App Bridge initialization
+- All API calls failed because no valid session token could be obtained
+- Even though OAuth access token was in database, frontend couldn't authenticate
 
 ## Verification Test
 
