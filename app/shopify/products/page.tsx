@@ -182,10 +182,10 @@ export default function ShopifyProductsPage() {
     setPendingFixProductId(null)
     setFixingProductId(productId)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fix', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/fix?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, productId }),
+        body: JSON.stringify({ productId }),
       })
 
       if (data.success) {
