@@ -245,9 +245,11 @@ function detectIntent(message: string): { intent: string; entities: string[] } {
 }
 
 export async function POST(req: NextRequest) {
+  let authResult: Awaited<ReturnType<typeof withShopifyAuth>> | undefined
+
   try {
     // Verify authentication (session token or shop parameter)
-    const authResult = await withShopifyAuth(req)
+    authResult = await withShopifyAuth(req)
     if (!authResult.success) {
       return authResult.response
     }
@@ -429,17 +431,38 @@ You have complete access to:
       },
     })
   } catch (error) {
-    console.error('Chat error:', error)
+    // Enhanced error logging with context
+    const errorDetails = {
+      timestamp: new Date().toISOString(),
+      error: error instanceof Error ? {
+        message: error.message,
+        stack: error.stack,
+        name: error.name,
+      } : String(error),
+      context: {
+        hasAuth: authResult?.success,
+        shop: authResult?.success ? authResult.context.shop : undefined,
+        userId: authResult?.success ? authResult.context.userId : undefined,
+        connectionId: authResult?.success ? authResult.context.connection.id : undefined,
+      },
+    }
+
+    console.error('[Chat API] Error processing chat message:', JSON.stringify(errorDetails, null, 2))
+
+    // Determine if error is authentication-related
+    const isAuthError = error instanceof Error &&
+      (error.message.includes('Unauthorized') || error.message.includes('authentication'))
+
     return NextResponse.json(
       {
         success: false,
         error: {
-          code: 'CHAT_ERROR',
-          message: 'Failed to process message',
+          code: isAuthError ? 'AUTH_ERROR' : 'CHAT_ERROR',
+          message: isAuthError ? 'Authentication failed' : 'Failed to process message',
           details: error instanceof Error ? error.message : 'Unknown error',
         },
       },
-      { status: 500 }
+      { status: isAuthError ? 401 : 500 }
     )
   }
 }

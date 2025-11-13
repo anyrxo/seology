@@ -221,7 +221,26 @@ export function setLoading(isLoading: boolean): void {
 }
 
 /**
+ * Wait for App Bridge to be available
+ * Retries up to maxAttempts times with a delay between attempts
+ *
+ * @param maxAttempts - Maximum number of attempts (default: 10)
+ * @param delayMs - Delay between attempts in milliseconds (default: 100)
+ * @returns true if App Bridge becomes available, false otherwise
+ */
+export async function waitForAppBridge(maxAttempts = 10, delayMs = 100): Promise<boolean> {
+  for (let i = 0; i < maxAttempts; i++) {
+    if (isAppBridgeAvailable()) {
+      return true
+    }
+    await new Promise((resolve) => setTimeout(resolve, delayMs))
+  }
+  return false
+}
+
+/**
  * Get session token for authenticated API requests
+ * Waits for App Bridge to be ready before attempting to get token
  *
  * @example
  * const token = await getSessionToken()
@@ -230,15 +249,19 @@ export function setLoading(isLoading: boolean): void {
  * })
  */
 export async function getSessionToken(): Promise<string | null> {
-  if (isAppBridgeAvailable()) {
-    try {
-      return await window.shopify!.idToken()
-    } catch (error) {
-      console.error('Failed to get session token:', error)
-      return null
-    }
+  // Wait for App Bridge to be available
+  const isReady = await waitForAppBridge()
+  if (!isReady) {
+    console.error('App Bridge not available after waiting')
+    return null
   }
-  return null
+
+  try {
+    return await window.shopify!.idToken()
+  } catch (error) {
+    console.error('Failed to get session token:', error)
+    return null
+  }
 }
 
 /**
@@ -286,6 +309,7 @@ export async function openResourcePicker(options: {
 /**
  * Make an authenticated API request with session token
  * Automatically adds Authorization header with session token
+ * Throws descriptive errors for different failure scenarios
  *
  * @example
  * const data = await authenticatedFetch<{ products: Product[] }>('/api/shopify/products?shop=my-store.myshopify.com')
@@ -302,18 +326,92 @@ export async function authenticatedFetch<T = unknown>(
   const headers = new Headers(options.headers)
   if (token) {
     headers.set('Authorization', `Bearer ${token}`)
+  } else {
+    // Log warning if no token available - this will likely fail on backend
+    console.warn('No session token available for authenticated request')
   }
 
-  const response = await fetch(url, {
-    ...options,
-    headers,
-  })
+  let response: Response
+  try {
+    response = await fetch(url, {
+      ...options,
+      headers,
+    })
+  } catch (error) {
+    // Network error - could not connect to server
+    throw new Error(`Failed to fetch: ${error instanceof Error ? error.message : 'Network error'}`)
+  }
 
   if (!response.ok) {
-    throw new Error(`API request failed: ${response.statusText}`)
+    // Try to get error details from response body
+    let errorMessage = `${response.status} ${response.statusText}`
+    try {
+      const errorData = await response.json()
+      if (errorData.error) {
+        errorMessage = errorData.error
+      }
+    } catch {
+      // Response body is not JSON, use status text
+    }
+
+    // Throw specific error based on status code
+    if (response.status === 401) {
+      throw new Error(`Unauthorized: ${errorMessage}`)
+    } else if (response.status === 404) {
+      throw new Error(`Not found: ${errorMessage}`)
+    } else if (response.status >= 500) {
+      throw new Error(`Server error (${response.status}): ${errorMessage}`)
+    } else {
+      throw new Error(`API request failed: ${errorMessage}`)
+    }
   }
 
   return response.json()
+}
+
+/**
+ * Retry a function with exponential backoff
+ * Useful for handling transient failures
+ *
+ * @param fn - Function to retry
+ * @param maxRetries - Maximum number of retries (default: 3)
+ * @param baseDelay - Base delay in milliseconds (default: 1000)
+ * @returns Result of the function
+ *
+ * @example
+ * const data = await withRetry(() => authenticatedFetch('/api/shopify/products'))
+ */
+export async function withRetry<T>(
+  fn: () => Promise<T>,
+  maxRetries = 3,
+  baseDelay = 1000
+): Promise<T> {
+  let lastError: Error | undefined
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn()
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error))
+
+      // Don't retry on authentication errors (401) or not found (404)
+      if (lastError.message.includes('Unauthorized') || lastError.message.includes('Not found')) {
+        throw lastError
+      }
+
+      // Don't retry if this was the last attempt
+      if (attempt === maxRetries) {
+        break
+      }
+
+      // Exponential backoff: 1s, 2s, 4s
+      const delay = baseDelay * Math.pow(2, attempt)
+      console.log(`Retrying after ${delay}ms (attempt ${attempt + 1}/${maxRetries})...`)
+      await new Promise((resolve) => setTimeout(resolve, delay))
+    }
+  }
+
+  throw lastError
 }
 
 /**

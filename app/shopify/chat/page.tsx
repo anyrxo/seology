@@ -151,13 +151,60 @@ export default function ShopifyChatPage() {
     } catch (error) {
       console.error('Error sending message:', error)
 
-      // Network error - provide helpful guidance
-      let errorContent = '❌ **Network Error**\n\n'
-      errorContent += 'Could not connect to SEOLOGY servers.\n\n'
-      errorContent += '**What to do:**\n'
-      errorContent += '1. Check your internet connection\n'
-      errorContent += '2. Refresh the page and try again\n'
-      errorContent += '3. If the problem persists, our servers may be experiencing issues\n\n'
+      // Enhanced error diagnostics
+      let errorContent = '❌ **Error**\n\n'
+
+      if (error instanceof Error) {
+        // Check for authentication errors
+        if (error.message.includes('401') || error.message.includes('Unauthorized')) {
+          errorContent = '🔒 **Authentication Error**\n\n'
+          errorContent += 'Could not verify your Shopify session.\n\n'
+          errorContent += '**What to do:**\n'
+          errorContent += '1. Refresh the page to re-authenticate\n'
+          errorContent += '2. If that doesn\'t work, reinstall the app from your Shopify admin\n'
+          errorContent += '3. Contact support if the issue persists\n\n'
+          errorContent += `*Error: ${error.message}*\n`
+        }
+        // Check for server errors
+        else if (error.message.includes('500') || error.message.includes('502') || error.message.includes('503')) {
+          errorContent = '🔧 **Server Error**\n\n'
+          errorContent += 'SEOLOGY servers are experiencing issues.\n\n'
+          errorContent += '**What to do:**\n'
+          errorContent += '1. Try again in a few minutes\n'
+          errorContent += '2. Check our status page for updates\n'
+          errorContent += '3. Contact support if this continues\n\n'
+          errorContent += `*Error: ${error.message}*\n`
+        }
+        // Network/connection errors
+        else if (error.message.includes('fetch') || error.message.includes('network') || error.message.includes('Failed to fetch')) {
+          errorContent = '📡 **Connection Error**\n\n'
+          errorContent += 'Could not connect to SEOLOGY servers.\n\n'
+          errorContent += '**What to do:**\n'
+          errorContent += '1. Check your internet connection\n'
+          errorContent += '2. Check if you can access other websites\n'
+          errorContent += '3. Try disabling any VPN or proxy\n'
+          errorContent += '4. Refresh the page and try again\n\n'
+          errorContent += `*Error: ${error.message}*\n`
+        }
+        // Unknown errors - show details
+        else {
+          errorContent = '⚠️ **Unexpected Error**\n\n'
+          errorContent += 'Something went wrong processing your request.\n\n'
+          errorContent += `**Error Details:** ${error.message}\n\n`
+          errorContent += '**What to do:**\n'
+          errorContent += '1. Refresh the page and try again\n'
+          errorContent += '2. Contact support with the error details above\n\n'
+        }
+      } else {
+        // Non-Error object thrown
+        errorContent = '⚠️ **Unknown Error**\n\n'
+        errorContent += 'An unexpected error occurred.\n\n'
+        errorContent += `**Details:** ${String(error)}\n\n`
+        errorContent += '**What to do:**\n'
+        errorContent += '1. Refresh the page and try again\n'
+        errorContent += '2. Contact support if the issue persists\n\n'
+      }
+
       errorContent += `*Error Time: ${new Date().toLocaleTimeString()}*`
 
       const errorMessage: Message = {

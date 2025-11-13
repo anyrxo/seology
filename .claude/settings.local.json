@@ -110,7 +110,11 @@
       "Bash(do sed -i 's/claude-3-5-sonnet-20250107/claude-sonnet-4-5-20250929/g' \"$file\")",
       "Bash(if [ -d \"app/shopify/chat\" ])",
       "Bash(then echo \"EXISTS\")",
-      "Bash(else echo \"NOT FOUND\")"
+      "Bash(else echo \"NOT FOUND\")",
+      "Bash(npm install)",
+      "Bash(npx next:*)",
+      "Bash(xxd:*)",
+      "Bash(\"CLAUDE_COMPLETE_CONTEXT.md\")"
     ],
     "deny": [],
     "ask": []
