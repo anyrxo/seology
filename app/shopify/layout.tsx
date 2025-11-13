@@ -64,14 +64,30 @@ export default function ShopifyLayout({
         <Script
           src="https://cdn.shopify.com/shopifycloud/app-bridge.js"
           strategy="beforeInteractive"
-          onLoad={() => {
-            console.log('[Shopify Layout] ✅ App Bridge script loaded')
-            console.log('[Shopify Layout] window.shopify available:', !!window.shopify)
-          }}
-          onError={(e) => {
-            console.error('[Shopify Layout] ❌ Failed to load App Bridge script:', e)
-          }}
         />
+
+        {/* Monitor App Bridge loading */}
+        <Script id="monitor-app-bridge" strategy="afterInteractive">
+          {`
+            (function checkAppBridge() {
+              const maxAttempts = 50;
+              let attempts = 0;
+
+              const interval = setInterval(() => {
+                attempts++;
+
+                if (window.shopify) {
+                  console.log('[Shopify Layout] ✅ App Bridge loaded after', attempts * 100, 'ms');
+                  console.log('[Shopify Layout] window.shopify available:', true);
+                  clearInterval(interval);
+                } else if (attempts >= maxAttempts) {
+                  console.error('[Shopify Layout] ❌ App Bridge failed to load after', maxAttempts * 100, 'ms');
+                  clearInterval(interval);
+                }
+              }, 100);
+            })();
+          `}
+        </Script>
 
         {/* Webflow modernizr script - critical for layout */}
         <Script id="webflow-modernizr" strategy="beforeInteractive">
