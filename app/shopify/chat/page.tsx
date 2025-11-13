@@ -231,10 +231,10 @@ export default function ShopifyChatPage() {
 
   const changeExecutionMode = async (mode: 'AUTOMATIC' | 'PLAN' | 'APPROVE') => {
     try {
-      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/execution-mode', {
+      const data = await authenticatedFetch<{ success: boolean }>(`/api/shopify/execution-mode?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, executionMode: mode }),
+        body: JSON.stringify({ executionMode: mode }),
       })
 
       if (data.success) {

@@ -94,11 +94,10 @@ export default function AdvancedSEOAuditPage() {
     setError(null)
 
     try {
-      const data = await authenticatedFetch<{ success: boolean; data?: { overallHealth: OverallHealth; products: ProductAnalysis[]; summary: AuditSummary }; error?: { message: string } }>('/api/shopify/audit/advanced', {
+      const data = await authenticatedFetch<{ success: boolean; data?: { overallHealth: OverallHealth; products: ProductAnalysis[]; summary: AuditSummary }; error?: { message: string } }>(`/api/shopify/audit/advanced?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           includeKeywordResearch: includeKeywords,
           includeSchemaSuggestions: includeSchema,
         }),

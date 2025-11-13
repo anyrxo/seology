@@ -50,10 +50,10 @@ export default function ShopifySupportPage() {
     setLoading(true)
 
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/support', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/support?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, name, email, subject, message })
+        body: JSON.stringify({ name, email, subject, message })
       })
 
       if (data.success) {

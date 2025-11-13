@@ -54,10 +54,10 @@ export default function ShopifyIssuesPage() {
   const handleFixIssue = async (issueId: string) => {
     setFixingIssueId(issueId)
     try {
-      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/fixes/create', {
+      const data = await authenticatedFetch<{ success: boolean }>(`/api/shopify/fixes/create?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, issueId }),
+        body: JSON.stringify({ issueId }),
       })
 
       if (data.success) {

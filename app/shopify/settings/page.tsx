@@ -24,10 +24,10 @@ export default function ShopifySettingsPage() {
   const { hasChanges, setHasChanges, saving, save, discard } = useSaveBar({
     onSave: async () => {
       try {
-        const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/settings', {
+        const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/settings?shop=${shop}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ shop, executionMode }),
+          body: JSON.stringify({ executionMode }),
         })
 
         if (data.success) {

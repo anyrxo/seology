@@ -121,10 +121,10 @@ export default function PendingFixesPage() {
 
     setProcessingAction(planId)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/approve-plan', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/fixes/approve-plan?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, planId }),
+        body: JSON.stringify({ planId }),
       })
 
       if (data.success) {
@@ -148,10 +148,10 @@ export default function PendingFixesPage() {
 
     setProcessingAction(planId)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/reject-plan', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/fixes/reject-plan?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, planId, reason }),
+        body: JSON.stringify({ planId, reason }),
       })
 
       if (data.success) {
@@ -172,10 +172,10 @@ export default function PendingFixesPage() {
   const approveFix = async (fixId: string) => {
     setProcessingAction(fixId)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/approve', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/fixes/approve?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, fixId }),
+        body: JSON.stringify({ fixId }),
       })
 
       if (data.success) {
@@ -204,10 +204,10 @@ export default function PendingFixesPage() {
 
     setProcessingAction(fixId)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/fixes/reject', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/fixes/reject?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, fixId, reason }),
+        body: JSON.stringify({ fixId, reason }),
       })
 
       if (data.success) {

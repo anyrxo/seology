@@ -146,10 +146,10 @@ export default function ShopifyProductsPage() {
     setAnalyzingProductId(productId)
     setAnalyzing(true)
     try {
-      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>('/api/shopify/analyze', {
+      const data = await authenticatedFetch<{ success: boolean; error?: { message: string } }>(`/api/shopify/analyze?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop, productId }),
+        body: JSON.stringify({ productId }),
       })
 
       if (data.success) {

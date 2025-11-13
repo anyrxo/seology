@@ -87,10 +87,10 @@ export default function ShopifyImagesPage() {
 
     try {
       setScanning(true)
-      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images', {
+      const data = await authenticatedFetch<{ success: boolean }>(`/api/shopify/images?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ shop }),
+        body: JSON.stringify({}),
       })
 
       if (data.success) {
@@ -108,11 +108,10 @@ export default function ShopifyImagesPage() {
 
     try {
       setGenerating(true)
-      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images/generate-alt', {
+      const data = await authenticatedFetch<{ success: boolean }>(`/api/shopify/images/generate-alt?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           imageIds: Array.from(selectedImages),
         }),
       })
@@ -133,11 +132,10 @@ export default function ShopifyImagesPage() {
 
     try {
       setApplying(true)
-      const data = await authenticatedFetch<{ success: boolean }>('/api/shopify/images/apply-fixes', {
+      const data = await authenticatedFetch<{ success: boolean }>(`/api/shopify/images/apply-fixes?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          shop,
           imageIds: Array.from(selectedImages),
         }),
       })
