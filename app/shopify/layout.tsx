@@ -24,6 +24,11 @@ export default function ShopifyLayout({
         {/* Shopify App Bridge Configuration - MUST BE FIRST */}
         <meta name="shopify-api-key" content={process.env.NEXT_PUBLIC_SHOPIFY_CLIENT_ID || process.env.SHOPIFY_CLIENT_ID || ''} />
 
+        {/* Debug: Log API key to verify it's set */}
+        <Script id="debug-api-key" strategy="beforeInteractive">
+          {`console.log('[Shopify Layout] API Key from meta tag:', document.querySelector('meta[name="shopify-api-key"]')?.content || 'NOT SET');`}
+        </Script>
+
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -59,6 +64,13 @@ export default function ShopifyLayout({
         <Script
           src="https://cdn.shopify.com/shopifycloud/app-bridge.js"
           strategy="beforeInteractive"
+          onLoad={() => {
+            console.log('[Shopify Layout] ✅ App Bridge script loaded')
+            console.log('[Shopify Layout] window.shopify available:', !!window.shopify)
+          }}
+          onError={(e) => {
+            console.error('[Shopify Layout] ❌ Failed to load App Bridge script:', e)
+          }}
         />
 
         {/* Webflow modernizr script - critical for layout */}
