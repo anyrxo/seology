@@ -453,7 +453,7 @@ You have complete access to:
     const isAuthError = error instanceof Error &&
       (error.message.includes('Unauthorized') || error.message.includes('authentication'))
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: false,
         error: {
@@ -464,5 +464,12 @@ You have complete access to:
       },
       { status: isAuthError ? 401 : 500 }
     )
+
+    // Add Shopify retry header for 401 errors so App Bridge can refresh the session token
+    if (isAuthError) {
+      response.headers.set('X-Shopify-Retry-Invalid-Session-Request', '1')
+    }
+
+    return response
   }
 }

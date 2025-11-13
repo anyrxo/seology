@@ -298,9 +298,28 @@ Return ONLY valid JSON:
     }
   } catch (error) {
     console.error('Error applying fixes:', error)
-    return NextResponse.json(
-      { success: false, error: { code: 'INTERNAL_ERROR', message: 'Failed to apply fixes' } },
-      { status: 500 }
+
+    // Check if error is authentication-related
+    const isAuthError = error instanceof Error &&
+      (error.message.includes('Unauthorized') || error.message.includes('authentication'))
+
+    const response = NextResponse.json(
+      {
+        success: false,
+        error: {
+          code: isAuthError ? 'AUTH_ERROR' : 'INTERNAL_ERROR',
+          message: isAuthError ? 'Authentication failed' : 'Failed to apply fixes',
+          details: error instanceof Error ? error.message : 'Unknown error',
+        }
+      },
+      { status: isAuthError ? 401 : 500 }
     )
+
+    // Add Shopify retry header for 401 errors so App Bridge can refresh the session token
+    if (isAuthError) {
+      response.headers.set('X-Shopify-Retry-Invalid-Session-Request', '1')
+    }
+
+    return response
   }
 }
