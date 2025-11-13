@@ -4,6 +4,8 @@
  * Test page WITHOUT toast import to identify if toast/sonner is the issue
  */
 
+export const dynamic = 'force-dynamic'
+
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { AGENT_TEMPLATES } from '@/lib/seo-agent-templates'
