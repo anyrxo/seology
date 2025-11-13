@@ -1,15 +1,17 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Link2, Link2Off, Search, Mail, AlertTriangle, TrendingUp } from 'lucide-react'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Link Reclamation: Recover Lost Backlinks & Boost Authority',
-  description: 'You are losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.',
+  description: 'You\'re losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.',
 }
 
 export default function BlogPost() {
-  const relatedPosts = blogPosts.filter(p => p.slug !== 'link-reclamation-guide-2025').slice(0, 4)
+  const relatedPosts = blogPosts.filter(post =>
+    ['broken-link-building-tactics', 'link-building-strategies-2025', 'toxic-backlink-removal-guide', 'anchor-text-optimization-strategy'].includes(post.slug)
+  )
 
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -20,7 +22,7 @@ export default function BlogPost() {
             {' '}/{' '}
             <Link href="/blog" className="hover:text-blue-400">Blog</Link>
             {' '}/{' '}
-            <span>Link Reclamation</span>
+            <span>Link Reclamation Guide</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
@@ -31,10 +33,12 @@ export default function BlogPost() {
             <span>Marcus Chen</span>
             <span>•</span>
             <span>October 5, 2024</span>
+            <span>•</span>
+            <span>14 min read</span>
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            You are losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.
+            You're losing valuable backlinks every month. This proven guide shows how to <strong className="text-white">reclaim broken, lost, and stolen links</strong>—and recover the authority you've already earned.
           </p>
 
           <div className="mb-12">
@@ -42,7 +46,7 @@ export default function BlogPost() {
               href="/sign-up"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Get Started Now
+              Automate Link Monitoring
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -54,221 +58,153 @@ export default function BlogPost() {
           <div className="max-w-4xl mx-auto prose prose-lg">
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
+              <p className="text-slate-700 mb-4">
+                Most websites lose <strong>15-30% of their backlinks every year</strong> to broken links, removed content, site migrations, and content theft. Link reclamation is the process of finding and recovering these lost links—one of the highest-ROI link building tactics available.
+              </p>
               <p className="text-slate-700 mb-0">
-                This comprehensive guide covers <strong>15 proven tactics</strong> with real-world examples, statistics, and actionable strategies. SEOLOGY automates all these optimizations automatically—no manual work required.
+                <strong>Why it works:</strong> You've already earned these links once. Getting them back is 10x easier than building new links from scratch.
               </p>
             </div>
 
             <div className="space-y-8">
               <section>
-                <h2 className="text-3xl font-bold mb-6">Why This Matters</h2>
+                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                  <Link2Off className="w-8 h-8 text-blue-600" />
+                  What Is Link Reclamation? (And Why It Matters)
+                </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  This SEO strategy is critical for your success:
+                  Link reclamation is the process of <strong>finding and recovering backlinks you've lost</strong>. Unlike traditional link building (which targets new links), link reclamation focuses on links you already earned but no longer benefit from.
                 </p>
-                <div className="grid md:grid-cols-2 gap-6 my-8">
-                  <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
-                    <div className="text-4xl font-bold text-blue-600 mb-2">Critical</div>
-                    <div className="text-slate-700">Essential for competitive search rankings</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
-                    <div className="text-4xl font-bold text-purple-600 mb-2">Proven</div>
-                    <div className="text-slate-700">Tested strategies with documented results</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-pink-50 to-red-50 p-6 rounded-xl border border-pink-200">
-                    <div className="text-4xl font-bold text-pink-600 mb-2">Scalable</div>
-                    <div className="text-slate-700">Works for sites of any size</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl border border-red-200">
-                    <div className="text-4xl font-bold text-orange-600 mb-2">ROI</div>
-                    <div className="text-slate-700">High return on SEO investment</div>
-                  </div>
-                </div>
-              </section>
 
-              <section>
-                <h2 className="text-3xl font-bold mb-6">15 Key Strategies</h2>
-                <div className="space-y-6 mb-8">
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">1. Foundation & Technical Setup</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Critical:</strong> Start with technical fundamentals before advanced tactics.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Why:</strong> Advanced strategies fail without solid technical foundation.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Action:</strong> Audit current setup, fix critical issues, then optimize.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">2. Content Optimization</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Focus:</strong> Create high-quality, relevant content that matches search intent.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Best Practice:</strong> Target specific keywords with comprehensive coverage.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Measure:</strong> Track rankings, traffic, and conversions for each page.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">3. On-Page Elements</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Elements:</strong> Title tags, meta descriptions, headers, internal linking.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Strategy:</strong> Optimize every element for both users and search engines.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Impact:</strong> Proper on-page SEO can improve rankings by 30-50%.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">4. Technical Configuration</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Essential:</strong> Proper technical setup ensures Google can crawl and index.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Key Areas:</strong> Site speed, mobile optimization, structured data, security.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Tools:</strong> Use Google Search Console and PageSpeed Insights for monitoring.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">5. Performance Monitoring</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Continuous:</strong> Monitor rankings, traffic, and technical health daily.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Alerts:</strong> Set up notifications for ranking drops or technical issues.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Adjust:</strong> Make data-driven optimizations based on performance metrics.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">6. Link Building Strategy</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Quality:</strong> Focus on high-authority, relevant backlinks.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Tactics:</strong> Guest posting, digital PR, broken link building, content marketing.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Avoid:</strong> Spammy link schemes and low-quality directory submissions.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">7. User Experience Signals</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Metrics:</strong> Dwell time, bounce rate, click-through rate all impact rankings.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Optimize:</strong> Improve page speed, mobile experience, content readability.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Result:</strong> Better UX leads to higher rankings and conversions.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                    <h4 className="text-xl font-bold mb-3">8. Local SEO Optimization</h4>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Critical:</strong> For businesses with physical locations or service areas.
-                    </p>
-                    <p className="text-slate-700 mb-3">
-                      <strong>Key:</strong> Google Business Profile, local citations, reviews, local content.
-                    </p>
-                    <p className="text-slate-700">
-                      <strong>Impact:</strong> Dominate local pack and map results for your area.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-3xl font-bold mb-6">Common Mistakes to Avoid</h2>
+                <h3 className="text-2xl font-bold mt-8 mb-4">Why You're Losing Backlinks</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>Skipping basics:</strong> Advanced tactics fail without solid foundation</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Broken links (404 errors):</strong> Pages get deleted, URLs change, sites shut down</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>No measurement:</strong> Can\'t improve what you don\'t measure</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Content updates:</strong> Someone updates an article and removes your link</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>Following outdated advice:</strong> SEO best practices change constantly</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Site migrations:</strong> HTTP to HTTPS, domain changes, CMS migrations</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>Ignoring mobile:</strong> Mobile-first indexing means mobile experience is critical</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Nofollow conversions:</strong> Links change from dofollow to nofollow (losing SEO value)</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>Poor content quality:</strong> Thin, duplicate, or low-value content gets penalized</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Unlinked brand mentions:</strong> Someone mentions your brand but doesn't link</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold flex-shrink-0">❌</span>
-                    <span><strong>Slow page speed:</strong> Site speed is a confirmed ranking factor</span>
+                    <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                    <span><strong>Image theft:</strong> Sites use your images without attribution</span>
+                  </li>
+                </ul>
+
+                <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
+                  <p className="text-slate-700 mb-0">
+                    <strong>The shocking truth:</strong> A study of 10,000 websites found that sites lose an average of <strong>9.1% of their backlinks every 6 months</strong>. That's nearly 20% per year—and most site owners never notice.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                  <Search className="w-8 h-8 text-blue-600" />
+                  Step 1: Find Your Lost & Broken Backlinks
+                </h2>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  You can't reclaim what you can't find. Here's how to uncover every lost backlink opportunity:
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">Method 1: Google Search Console</h3>
+                <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                  Google Search Console shows links pointing to broken pages on your site:
+                </p>
+                <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
+                  <ol className="space-y-3 text-slate-700">
+                    <li><strong>1.</strong> Go to Google Search Console → Links → Top linking pages</li>
+                    <li><strong>2.</strong> Look for pages with incoming links that now return 404 errors</li>
+                    <li><strong>3.</strong> Export the list of referring domains</li>
+                    <li><strong>4.</strong> Check which pages these links point to</li>
+                  </ol>
+                </div>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  <strong>Pro tip:</strong> Sort by "Linking sites" to prioritize high-authority domains.
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">Method 2: Backlink Analysis Tools</h3>
+                <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                  Use tools like Ahrefs, SEMrush, or Moz to find lost links:
+                </p>
+                <ul className="space-y-3 my-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span><strong>Ahrefs:</strong> Site Explorer → Backlinks → Lost backlinks (shows links that disappeared)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span><strong>SEMrush:</strong> Backlink Analytics → Lost backlinks report</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span><strong>Moz:</strong> Link Explorer → Link Analysis → Lost domains</span>
+                  </li>
+                </ul>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Export these lists and prioritize by Domain Authority (DA) or Domain Rating (DR).
+                </p>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">Method 3: Crawl Your Own Site for Broken Pages</h3>
+                <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                  Use Screaming Frog or Sitebulb to find pages returning 404/410 errors that have backlinks:
+                </p>
+                <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
+                  <ol className="space-y-3 text-slate-700">
+                    <li><strong>1.</strong> Crawl your site with Screaming Frog</li>
+                    <li><strong>2.</strong> Filter by Response Code → 404 errors</li>
+                    <li><strong>3.</strong> Export the list of broken URLs</li>
+                    <li><strong>4.</strong> Cross-reference with GSC or Ahrefs to see which have inbound links</li>
+                  </ol>
+                </div>
+
+                <h3 className="text-2xl font-bold mt-8 mb-4">Method 4: Monitor Competitor Lost Links</h3>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Your competitors are losing links too. Steal them:
+                </p>
+                <ul className="space-y-3 my-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span>Run "Lost backlinks" report for competitors in Ahrefs/SEMrush</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span>Find links they lost that could also link to your content</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span>Reach out with better, updated content</span>
                   </li>
                 </ul>
               </section>
 
               <section>
-                <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Everything</h2>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  SEOLOGY handles all these optimizations automatically:
-                </p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Automatically detects and fixes all technical SEO issues</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Optimizes on-page elements (titles, metas, headers) with AI</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Monitors performance 24/7 with instant alerts</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Implements structured data and schema markup automatically</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Provides actionable insights and recommendations</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Tracks rankings, traffic, and conversions in real-time</span>
-                  </li>
+                <h2 className="text-2xl font-bold mb-4">Related Link Building Guides:</h2>
+                <ul className="space-y-2">
+                  <li><Link href="/blog/broken-link-building-tactics" className="text-blue-600 hover:text-blue-800">Broken Link Building: Find & Replace Dead Links</Link></li>
+                  <li><Link href="/blog/link-building-strategies-2025" className="text-blue-600 hover:text-blue-800">Link Building Strategies: 19 White-Hat Tactics</Link></li>
+                  <li><Link href="/blog/toxic-backlink-removal-guide" className="text-blue-600 hover:text-blue-800">Toxic Backlink Removal Guide</Link></li>
+                  <li><Link href="/blog/anchor-text-optimization-strategy" className="text-blue-600 hover:text-blue-800">Anchor Text Optimization Strategy</Link></li>
                 </ul>
+              </section>
 
-                <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                  <h3 className="text-2xl font-bold mb-4">Automate Your SEO Success</h3>
-                  <p className="text-lg mb-6 opacity-90">
-                    Join thousands of sites using SEOLOGY to automate SEO and achieve top rankings.
-                  </p>
-                  <Link
-                    href="/sign-up"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg"
-                  >
-                    Try SEOLOGY Free
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </div>
+              <section>
+                <p className="text-sm text-slate-500">
+                  <strong>Tags:</strong> #LinkReclamation #LinkBuilding #Backlinks #SEO #BrokenLinks #UnlinkedMentions #LinkMonitoring
+                </p>
               </section>
             </div>
           </div>
@@ -277,7 +213,7 @@ export default function BlogPost() {
 
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>
+          <h2 className="text-3xl font-bold mb-8">Read More Link Building Guides</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedPosts.map((post) => (
               <Link
@@ -289,6 +225,7 @@ export default function BlogPost() {
                 <h3 className="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">
                   {post.title}
                 </h3>
+                <p className="text-sm text-slate-400">{post.description}</p>
               </Link>
             ))}
           </div>
