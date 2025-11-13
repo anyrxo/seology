@@ -292,23 +292,96 @@ export async function withShopParameter(
     }
 
     // Decrypt access token (stored encrypted in database)
-    let decryptedToken: string
+    let decryptedToken: string | undefined
+    let needsTokenExchange = false
+
     try {
       decryptedToken = decrypt(connection.accessToken)
       console.log('[withShopParameter] ✅ Access token decrypted successfully')
+
+      // Test if the token is still valid
+      const isValid = await testAccessToken(shop, decryptedToken)
+      if (!isValid) {
+        console.log('[withShopParameter] ⚠️ Access token is invalid, needs refresh')
+        needsTokenExchange = true
+      }
     } catch (error) {
       console.error('[withShopParameter] ❌ Failed to decrypt access token:', error)
+      needsTokenExchange = true
+    }
+
+    // Exchange session token for new access token if needed
+    if (needsTokenExchange) {
+      console.log('[withShopParameter] Attempting token exchange...')
+
+      // Try to get session token from Authorization header
+      const authHeader = req.headers.get('authorization')
+      const sessionToken = authHeader?.substring(7) // Remove "Bearer "
+
+      if (!sessionToken) {
+        console.log('[withShopParameter] ❌ No session token available for token exchange')
+        console.log('[withShopParameter] This shop needs to reinstall the app to get a fresh token')
+        return {
+          success: false,
+          response: NextResponse.json(
+            {
+              success: false,
+              error: {
+                code: 'INVALID_TOKEN',
+                message: 'Access token is invalid and no session token available for refresh. Please reinstall the app.',
+              },
+            },
+            { status: 401 }
+          ),
+        }
+      }
+
+      try {
+        const { accessToken: newAccessToken } = await exchangeSessionTokenForAccessToken(sessionToken, shop)
+
+        // Update database with new access token
+        const encryptedToken = encrypt(newAccessToken)
+        await db.connection.update({
+          where: { id: connection.id },
+          data: {
+            accessToken: encryptedToken,
+            lastSync: new Date(),
+          },
+        })
+
+        console.log('[withShopParameter] ✅ Token exchange successful, new token stored')
+        decryptedToken = newAccessToken
+      } catch (exchangeError) {
+        console.error('[withShopParameter] ❌ Token exchange failed:', exchangeError)
+        return {
+          success: false,
+          response: NextResponse.json(
+            {
+              success: false,
+              error: {
+                code: 'TOKEN_ERROR',
+                message: 'Failed to get valid access token',
+              },
+            },
+            { status: 401 }
+          ),
+        }
+      }
+    }
+
+    // Final check - ensure we have a valid token
+    if (!decryptedToken) {
       return {
         success: false,
         response: NextResponse.json(
           {
             success: false,
             error: {
-              code: 'DECRYPTION_ERROR',
-              message: 'Failed to decrypt access token',
+              code: 'NO_ACCESS_TOKEN',
+              message: 'Could not obtain valid access token',
             },
           },
-          { status: 500 }
+          { status: 401 }
         ),
       }
     }
