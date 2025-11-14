@@ -50,6 +50,14 @@ export default function ShopifyAppEntryPoint() {
 
       console.log('[Shopify Entry] Embedded check:', { host, isEmbedded, hasHost: !!host })
 
+      // Helper function to build URLs with all required params
+      const buildShopifyUrl = (path: string) => {
+        const params = new URLSearchParams()
+        params.set('shop', shop)
+        if (host) params.set('host', host) // CRITICAL: Preserve host to keep app embedded
+        return `${path}?${params.toString()}`
+      }
+
       // If NOT embedded and no host parameter, redirect to OAuth installation
       // This MUST happen BEFORE any API calls because API calls need App Bridge session tokens
       if (!isEmbedded && !host) {
@@ -94,11 +102,11 @@ export default function ShopifyAppEntryPoint() {
         if (data.success && data.data.completed) {
           // User has completed onboarding → go to dashboard
           console.log('[Shopify Entry] Onboarding complete → redirecting to dashboard')
-          router.push(`/shopify/dashboard?shop=${shop}`)
+          router.push(buildShopifyUrl('/shopify/dashboard'))
         } else {
           // User needs onboarding → go to onboarding
           console.log('[Shopify Entry] Onboarding needed → redirecting to onboarding')
-          router.push(`/shopify/onboarding?shop=${shop}`)
+          router.push(buildShopifyUrl('/shopify/onboarding'))
         }
       } catch (error) {
         console.error('[Shopify Entry] Failed to check onboarding status:', error)
