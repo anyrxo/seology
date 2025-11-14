@@ -32,22 +32,37 @@ async function waitForAppBridge(maxWaitMs = 5000): Promise<boolean> {
  * Get session token from Shopify App Bridge
  */
 async function getSessionToken(): Promise<string | null> {
-  if (typeof window === 'undefined') return null
+  if (typeof window === 'undefined') {
+    console.error('[ShopifyFetch] ❌ Running on server side - cannot get session token')
+    return null
+  }
+
+  console.log('[ShopifyFetch] Starting session token retrieval...')
+  console.log('[ShopifyFetch] window.shopify exists:', !!window.shopify)
+  console.log('[ShopifyFetch] window.shopify.idToken exists:', !!window.shopify?.idToken)
 
   try {
     // Wait for App Bridge to be available
     const isReady = await waitForAppBridge()
     if (!isReady || !window.shopify?.idToken) {
-      console.warn('[ShopifyFetch] App Bridge not available - app may not be embedded')
+      console.error('[ShopifyFetch] ❌ App Bridge not available after waiting')
+      console.error('[ShopifyFetch] This means the app is NOT properly embedded in Shopify')
+      console.error('[ShopifyFetch] Check that:')
+      console.error('[ShopifyFetch]   1. App Bridge CDN script is loaded in layout')
+      console.error('[ShopifyFetch]   2. API key meta tag is set correctly')
+      console.error('[ShopifyFetch]   3. App is accessed through Shopify Admin (not directly)')
       return null
     }
 
     // Get session token from App Bridge
+    console.log('[ShopifyFetch] Calling window.shopify.idToken()...')
     const token = await window.shopify.idToken()
-    console.log('[ShopifyFetch] ✅ Session token retrieved')
+    console.log('[ShopifyFetch] ✅ Session token retrieved, length:', token.length)
+    console.log('[ShopifyFetch] Token preview:', token.substring(0, 50) + '...')
     return token
   } catch (error) {
-    console.error('[ShopifyFetch] Failed to get session token:', error)
+    console.error('[ShopifyFetch] ❌ Failed to get session token:', error)
+    console.error('[ShopifyFetch] Error details:', error instanceof Error ? error.message : String(error))
     return null
   }
 }
@@ -62,6 +77,10 @@ export async function shopifyFetch(
   url: string,
   options: RequestInit = {}
 ): Promise<Response> {
+  console.log('[ShopifyFetch] ===== FETCH REQUEST =====')
+  console.log('[ShopifyFetch] URL:', url)
+  console.log('[ShopifyFetch] Method:', options.method || 'GET')
+
   // Get session token
   const sessionToken = await getSessionToken()
 
@@ -69,16 +88,24 @@ export async function shopifyFetch(
   const headers = new Headers(options.headers || {})
   if (sessionToken) {
     headers.set('Authorization', `Bearer ${sessionToken}`)
-    console.log('[ShopifyFetch] ✅ Added session token to request:', url)
+    console.log('[ShopifyFetch] ✅ Added Authorization header to request')
+    console.log('[ShopifyFetch] Making request to:', url)
   } else {
-    console.warn('[ShopifyFetch] ⚠️ No session token available for request:', url)
-    console.warn('[ShopifyFetch] This usually means the app is not embedded in Shopify')
-    // The request will likely fail with 401/404
+    console.error('[ShopifyFetch] ❌ CRITICAL: No session token available!')
+    console.error('[ShopifyFetch] Request will FAIL with 401/404')
+    console.error('[ShopifyFetch] URL that will fail:', url)
+    console.error('[ShopifyFetch] The app is NOT properly embedded in Shopify Admin')
   }
 
   // Make request with updated headers
-  return fetch(url, {
+  console.log('[ShopifyFetch] Sending request...')
+  const response = await fetch(url, {
     ...options,
     headers,
   })
+
+  console.log('[ShopifyFetch] Response status:', response.status, response.statusText)
+  console.log('[ShopifyFetch] ===== END FETCH =====')
+
+  return response
 }
