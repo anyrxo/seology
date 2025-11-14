@@ -120,6 +120,13 @@ export async function withShopifySession(
             error: {
               code: 'NO_CONNECTION',
               message: 'Shop not connected or missing access token',
+              debug: {
+                searchedFor: shop,
+                connectionExists: !!anyConnection,
+                connectionDomain: anyConnection?.domain,
+                connectionStatus: anyConnection?.status,
+                platform: 'SHOPIFY',
+              },
             },
           },
           { status: 404 }
