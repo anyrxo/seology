@@ -66,6 +66,7 @@ export async function withShopifySession(
     const shop = new URL(tokenPayload.dest).hostname
 
     // Find connection by shop domain
+    console.log('[withShopifySession] Looking for connection:', { shop, platform: 'SHOPIFY', status: 'CONNECTED' })
     const connection = await db.connection.findFirst({
       where: {
         domain: shop,
@@ -80,7 +81,35 @@ export async function withShopifySession(
       },
     })
 
+    console.log('[withShopifySession] Connection lookup result:', {
+      found: !!connection,
+      hasAccessToken: !!connection?.accessToken,
+      domain: connection?.domain,
+      userId: connection?.userId,
+    })
+
     if (!connection || !connection.accessToken) {
+      // Debug: Check if ANY connection exists for this shop (any status)
+      const anyConnection = await db.connection.findFirst({
+        where: {
+          domain: shop,
+          platform: 'SHOPIFY',
+        },
+        select: {
+          id: true,
+          status: true,
+          domain: true,
+          userId: true,
+        },
+      })
+
+      console.log('[withShopifySession] ❌ No valid connection found:', {
+        shop,
+        anyConnectionExists: !!anyConnection,
+        status: anyConnection?.status,
+        domain: anyConnection?.domain,
+      })
+
       return {
         success: false,
         response: NextResponse.json(
