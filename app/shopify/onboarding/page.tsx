@@ -7,6 +7,7 @@
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { shopifyFetch } from '@/lib/shopify-fetch'
 
 type ExecutionMode = 'AUTOMATIC' | 'PLAN' | 'APPROVE'
 type SEOScope = 'full' | 'products' | 'content' | 'technical'
@@ -60,7 +61,7 @@ export default function ShopifyOnboardingPage() {
       console.log('[Onboarding] Selected mode:', selectedMode)
       console.log('[Onboarding] Step 1: Saving execution mode...')
       // 1. Save execution mode
-      const modeResponse = await fetch(`/api/shopify/execution-mode?shop=${shop}`, {
+      const modeResponse = await shopifyFetch(`/api/shopify/execution-mode?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -90,7 +91,7 @@ export default function ShopifyOnboardingPage() {
 
       console.log('[Onboarding] Step 2: Saving preferences...')
       // 2. Save user preferences (chat visibility and audit scope)
-      const prefsResponse = await fetch(`/api/shopify/preferences?shop=${shop}`, {
+      const prefsResponse = await shopifyFetch(`/api/shopify/preferences?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -112,7 +113,7 @@ export default function ShopifyOnboardingPage() {
       const timeoutId = setTimeout(() => controller.abort(), 5 * 60 * 1000) // 5 minutes
 
       try {
-        const auditResponse = await fetch(`/api/shopify/audit?shop=${shop}`, {
+        const auditResponse = await shopifyFetch(`/api/shopify/audit?shop=${shop}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -151,7 +152,7 @@ export default function ShopifyOnboardingPage() {
 
       console.log('[Onboarding] Step 4: Marking onboarding complete...')
       // 4. Mark onboarding as complete
-      const onboardingResponse = await fetch(`/api/shopify/onboarding?shop=${shop}`, {
+      const onboardingResponse = await shopifyFetch(`/api/shopify/onboarding?shop=${shop}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: true }),

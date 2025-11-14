@@ -11,6 +11,7 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { shopifyFetch } from '@/lib/shopify-fetch'
 
 export default function ShopifyAppEntryPoint() {
   const searchParams = useSearchParams()
@@ -81,7 +82,7 @@ export default function ShopifyAppEntryPoint() {
 
       try {
         // Check if this shop has completed onboarding
-        const response = await fetch(`/api/shopify/onboarding/status?shop=${shop}`)
+        const response = await shopifyFetch(`/api/shopify/onboarding/status?shop=${shop}`)
 
         // If we get 401, it means authentication failed - redirect to OAuth
         if (response.status === 401) {
