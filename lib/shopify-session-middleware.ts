@@ -63,7 +63,9 @@ export async function withShopifySession(
     }
 
     // Extract shop domain from dest URL
+    console.log('[withShopifySession] Token payload dest:', tokenPayload.dest)
     const shop = new URL(tokenPayload.dest).hostname
+    console.log('[withShopifySession] Extracted shop from dest URL:', shop)
 
     // Find connection by shop domain
     console.log('[withShopifySession] Looking for connection:', { shop, platform: 'SHOPIFY', status: 'CONNECTED' })

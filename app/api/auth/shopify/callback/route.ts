@@ -251,6 +251,12 @@ export async function GET(req: NextRequest) {
 
     // Check if connection already exists
     console.log('[OAuth Callback] Checking for existing connection...')
+    console.log('[OAuth Callback] Connection lookup criteria:', {
+      userId: user.id,
+      platform: 'SHOPIFY',
+      domain: shop,
+      shopValue: shop,
+    })
     const existingConnection = await db.connection.findFirst({
       where: {
         userId: user.id,
@@ -286,10 +292,17 @@ export async function GET(req: NextRequest) {
           credentials: JSON.stringify(connectionData),
         },
       })
-      console.log('[OAuth Callback] ✅ Connection updated')
+      console.log('[OAuth Callback] ✅ Connection updated with domain:', shop)
     } else {
       // Create new connection
       console.log('[OAuth Callback] Creating new connection...')
+      console.log('[OAuth Callback] Connection data being saved:', {
+        userId: user.id,
+        platform: 'SHOPIFY',
+        domain: shop,
+        displayName: shopDataFormatted.name,
+        status: 'CONNECTED',
+      })
       const newConnection = await db.connection.create({
         data: {
           userId: user.id,
@@ -302,7 +315,12 @@ export async function GET(req: NextRequest) {
           credentials: JSON.stringify(connectionData),
         },
       })
-      console.log('[OAuth Callback] ✅ Connection created:', newConnection.id)
+      console.log('[OAuth Callback] ✅ Connection created:', {
+        id: newConnection.id,
+        domain: newConnection.domain,
+        userId: newConnection.userId,
+        status: newConnection.status,
+      })
     }
 
     // Create audit log
