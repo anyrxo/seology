@@ -385,9 +385,17 @@ export async function GET(req: NextRequest) {
     console.log('[OAuth Callback] Checking if returning user...')
     const isReturning = await isReturningUser(user.id, shop)
     const redirectPath = isReturning ? '/shopify/dashboard' : '/shopify/onboarding'
-    const redirectUrl = new URL(`${redirectPath}?shop=${shop}`, req.url)
 
-    console.log('[OAuth Callback] ✅ SUCCESS - Redirecting to:', redirectPath)
+    // CRITICAL: Preserve host parameter from OAuth callback to keep app embedded
+    const host = req.nextUrl.searchParams.get('host')
+    const redirectUrl = new URL(redirectPath, req.url)
+    redirectUrl.searchParams.set('shop', shop)
+    if (host) {
+      redirectUrl.searchParams.set('host', host)
+      console.log('[OAuth Callback] Preserving host parameter:', host)
+    }
+
+    console.log('[OAuth Callback] ✅ SUCCESS - Redirecting to:', redirectUrl.toString())
     console.log('[OAuth Callback] ======= END =======')
     return NextResponse.redirect(redirectUrl)
   } catch (error) {
