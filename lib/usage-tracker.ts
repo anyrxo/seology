@@ -88,46 +88,62 @@ export async function trackAPIUsage(params: UsageTrackingParams) {
     currentPeriod.setDate(1)
     currentPeriod.setHours(0, 0, 0, 0)
 
-    const usageRecord = await db.usageRecord.findFirst({
-      where: {
-        userId: params.userId,
-        period: currentPeriod,
-      },
-    })
+    let usageRecord
+    try {
+      usageRecord = await db.usageRecord.findFirst({
+        where: {
+          userId: params.userId,
+          period: currentPeriod,
+        },
+      })
+    } catch (dbError) {
+      console.error('[UsageTracker] Failed to find usage record:', dbError)
+      // Continue without usage record
+    }
 
-    // Create API usage log
-    await db.aPIUsageLog.create({
-      data: {
-        userId: params.userId,
-        usageRecordId: usageRecord?.id,
-        model: params.model,
-        endpoint: params.endpoint,
-        inputTokens: params.inputTokens,
-        outputTokens: params.outputTokens,
-        totalTokens: params.inputTokens + params.outputTokens,
-        inputCost: costs.inputCost,
-        outputCost: costs.outputCost,
-        totalCost: costs.totalCost,
-        shop: params.shop,
-        connectionId: params.connectionId,
-        fixType: params.fixType,
-        resourceType: params.resourceType,
-        resourceId: params.resourceId,
-        latencyMs: params.latencyMs,
-        cached: params.cached || false,
-        status: params.status || 'success',
-        errorMessage: params.errorMessage,
-      },
-    })
+    // Create API usage log - wrapped in try-catch for missing table
+    try {
+      await db.aPIUsageLog.create({
+        data: {
+          userId: params.userId,
+          usageRecordId: usageRecord?.id,
+          model: params.model,
+          endpoint: params.endpoint,
+          inputTokens: params.inputTokens,
+          outputTokens: params.outputTokens,
+          totalTokens: params.inputTokens + params.outputTokens,
+          inputCost: costs.inputCost,
+          outputCost: costs.outputCost,
+          totalCost: costs.totalCost,
+          shop: params.shop,
+          connectionId: params.connectionId,
+          fixType: params.fixType,
+          resourceType: params.resourceType,
+          resourceId: params.resourceId,
+          latencyMs: params.latencyMs,
+          cached: params.cached || false,
+          status: params.status || 'success',
+          errorMessage: params.errorMessage,
+        },
+      })
+    } catch (dbError) {
+      // Silently fail if APIUsageLog table doesn't exist
+      // This allows the app to function without usage tracking
+      console.warn('[UsageTracker] Failed to create usage log (table may not exist):', dbError instanceof Error ? dbError.message : 'Unknown error')
+    }
 
     // Update usage record counters
     if (usageRecord) {
-      await db.usageRecord.update({
-        where: { id: usageRecord.id },
-        data: {
-          apiCallsMade: { increment: 1 },
-        },
-      })
+      try {
+        await db.usageRecord.update({
+          where: { id: usageRecord.id },
+          data: {
+            apiCallsMade: { increment: 1 },
+          },
+        })
+      } catch (dbError) {
+        console.error('[UsageTracker] Failed to update usage record:', dbError)
+      }
     }
   } catch (error) {
     console.error('[UsageTracker] Error tracking usage:', error)
