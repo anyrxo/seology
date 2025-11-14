@@ -692,3 +692,4 @@ Special thanks to the open-source community for making this possible.
 
 [Website](https://seology.ai) • [Documentation](https://docs.seology.ai) • [Twitter](https://twitter.com/seology_ai) • [Discord](https://discord.gg/seology)
 # Force deployment
+# Trigger redeploy with env vars
