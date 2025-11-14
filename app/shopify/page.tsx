@@ -11,7 +11,6 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { shopifyFetch } from '@/lib/shopify-fetch'
 
 export default function ShopifyAppEntryPoint() {
   const searchParams = useSearchParams()
@@ -82,7 +81,8 @@ export default function ShopifyAppEntryPoint() {
 
       try {
         // Check if this shop has completed onboarding
-        const response = await shopifyFetch(`/api/shopify/onboarding/status?shop=${shop}`)
+        // App Bridge v4 automatically injects session tokens into fetch() calls
+        const response = await fetch(`/api/shopify/onboarding/status?shop=${shop}`)
 
         // If we get 401 or 404, it means authentication failed - redirect to OAuth
         if (response.status === 401 || response.status === 404) {
