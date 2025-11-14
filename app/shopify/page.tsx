@@ -84,9 +84,9 @@ export default function ShopifyAppEntryPoint() {
         // Check if this shop has completed onboarding
         const response = await shopifyFetch(`/api/shopify/onboarding/status?shop=${shop}`)
 
-        // If we get 401, it means authentication failed - redirect to OAuth
-        if (response.status === 401) {
-          console.log('[Shopify Entry] ⚠️ Authentication failed (401) - app needs to be installed')
+        // If we get 401 or 404, it means authentication failed - redirect to OAuth
+        if (response.status === 401 || response.status === 404) {
+          console.log(`[Shopify Entry] ⚠️ Authentication failed (${response.status}) - app needs to be installed`)
           console.log('[Shopify Entry] Redirecting to OAuth installation flow')
           // Use window.top to break out of iframe
           if (window.top) {

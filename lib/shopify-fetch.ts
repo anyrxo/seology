@@ -62,9 +62,13 @@ export async function shopifyFetch(
   const headers = new Headers(options.headers || {})
   if (sessionToken) {
     headers.set('Authorization', `Bearer ${sessionToken}`)
-    console.log('[ShopifyFetch] Added session token to request:', url)
+    console.log('[ShopifyFetch] ✅ Added session token to request:', url)
   } else {
-    console.log('[ShopifyFetch] No session token available, making unauthenticated request:', url)
+    console.warn('[ShopifyFetch] ⚠️ No session token available for request:', url)
+    console.warn('[ShopifyFetch] This usually means the app is not embedded in Shopify')
+
+    // If no session token and we're making an API call, the request will likely fail
+    // The calling code should handle this by redirecting to OAuth
   }
 
   // Make request with updated headers
