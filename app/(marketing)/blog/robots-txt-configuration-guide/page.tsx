@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Robots.txt Configuration: Control What Google Crawls',
   description: 'One robots.txt mistake can deindex your entire site. This guide shows the exact configuration used by Fortune 500 sites.',

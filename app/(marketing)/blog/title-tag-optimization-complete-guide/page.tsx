@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Title Tag Optimization: The Complete Guide (With 47 Examples)',
   description: 'Title tags are your #1 on-page ranking factor. This guide shows 47 proven title tag formulas that boost CTR by 328%.',

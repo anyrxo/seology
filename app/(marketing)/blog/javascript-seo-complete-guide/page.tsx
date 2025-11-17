@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'JavaScript SEO: The Complete Guide for React, Vue & Angular',
   description: 'JavaScript frameworks break SEO. This guide shows how to make React, Vue, and Angular sites rank perfectly on Google.',

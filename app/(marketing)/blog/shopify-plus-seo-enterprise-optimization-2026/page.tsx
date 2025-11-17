@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Shopify Plus SEO: Enterprise-Level Optimization Guide for 2026 | SEOLOGY.AI',
   description: 'Shopify Plus stores grow 126% YoY. Learn enterprise SEO strategies for large catalogs (3000+ SKUs), B2B wholesale optimization, and automation that reduces costs by 60-70%. Complete 2026 guide.',

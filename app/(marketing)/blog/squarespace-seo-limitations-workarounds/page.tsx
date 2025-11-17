@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Squarespace SEO: Limitations, Workarounds & Best Practices',
   description: 'Squarespace has serious SEO limitations. This guide shows workarounds and when to migrate to a better platform.',

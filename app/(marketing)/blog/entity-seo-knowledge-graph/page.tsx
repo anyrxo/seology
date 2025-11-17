@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Entity SEO: 15 Tactics to Dominate Knowledge Graphs & Entity-Based Search',
   description: 'Google shifted from keywords to entities with MUM and BERT. These 15 entity SEO tactics increased knowledge panel impressions 347% and organic traffic 89% in 90 days by helping Google understand your brand as a recognized entity.',

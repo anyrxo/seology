@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Enterprise SEO Strategy: Scale SEO for 10,000+ Pages',
   description: 'Enterprise SEO requires different strategies. This guide shows how to manage SEO for massive websites at scale.',

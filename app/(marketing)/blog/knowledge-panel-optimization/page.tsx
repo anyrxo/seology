@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Knowledge Panel Optimization: 14 Tactics to Own Your Brand SERP -- 92% Recognition',
   description: "Knowledge panels dominate 85% of brand searches but 68% show inaccurate info. Knowledge panel optimization increased brand recognition 92% and click-through rates 47% by claiming and optimizing Google\'s knowledge graph.",

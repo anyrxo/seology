@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) -- 84% Performance Boost',
   description: 'PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site. Site speed tool comparison increased Core Web Vitals scores 84% by understanding which metrics matter and why each tool reports different results.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Automotive Parts & Accessories SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'E-commerce automotive aftermarket reaches $256.31B in 2025, growing to $289.3B by 2026. Master ACES/PIES fitment data, vehicle compatibility SEO, part number optimization, and marketplace strategies that convert 70% online shoppers.',

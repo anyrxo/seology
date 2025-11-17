@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: "AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)",
   description: "AI content is everywhere. Here\'s how to use AI-generated content without getting penalized by Google.",

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Meta Robots Tags: 18 Directives to Control Indexing & Crawling -- 94% Crawl Budget Saved',
   description: 'Meta robots tags optimization saved 94% crawl budget by blocking low-value pages, prevented 87% duplicate content indexation with noindex, and improved featured snippet control 73% using max-snippet and other advanced directives for surgical indexing control.',

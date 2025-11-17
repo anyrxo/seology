@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Google Analytics 4 for SEO: Complete Tracking & Reporting Guide',
   description: 'GA4 changes everything for SEO tracking. This guide shows how to track rankings, traffic, and conversions in the new GA4.',

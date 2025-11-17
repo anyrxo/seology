@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'XML Sitemap Optimization: Get Every Page Indexed Fast',
   description: 'A poorly optimized sitemap wastes your crawl budget. This guide ensures Google finds and indexes every important page.',

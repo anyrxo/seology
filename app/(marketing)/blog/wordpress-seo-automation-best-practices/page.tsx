@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'WordPress SEO Automation: 15 Best Practices for 2025',
   description: "WordPress SEO doesn\'t have to be manual. Here\'s how SEOLOGY automates 15 critical SEO tasks for WordPress sites.",

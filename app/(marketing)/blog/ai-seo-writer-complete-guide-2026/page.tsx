@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'AI SEO Writer Guide 2026: Best Tools, Performance (4,162% Growth), Content Quality',
   description: '86% of SEO experts use AI writers. Best tools deliver 4,162% traffic growth, 80% increases in 4 months. Complete guide: quality optimization, E-E-A-T, ranking performance, human-AI collaboration.',

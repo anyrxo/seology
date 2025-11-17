@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Dwell Time Optimization: 16 Tactics to Keep Visitors Engaged (347% Increase)',
   description: 'Dwell time is a critical ranking signal. These 16 tactics increased average dwell time 347% (1:43 to 7:42) with content hooks, visual engagement, and UX improvements that signal content quality to Google.',

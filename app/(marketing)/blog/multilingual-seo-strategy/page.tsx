@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Multilingual SEO: 17 Tactics to Rank in Every Language & Country -- 312% International Traffic',
   description: 'Multilingual SEO implementation increased international organic traffic 312%, improved rankings in 47 countries, and eliminated duplicate content penalties across language versions using proper hreflang tags, URL structure, and content localization strategies.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Jewelry & Luxury Goods SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Jewelry ecommerce reaches $53.3B by 2026 with 185% growth since 2019. Master trust signals, gemstone certification SEO, virtual try-on optimization, and luxury brand strategies for high-value conversions.',

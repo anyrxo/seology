@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Site Architecture: SEO Best Practices for Maximum Crawlability in 2025',
   description: 'Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google--with 67% more pages indexed.',

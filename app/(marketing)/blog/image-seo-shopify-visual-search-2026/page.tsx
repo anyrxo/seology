@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Image SEO for Shopify: Visual Search Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Google Lens processes 20 billion visual searches monthly. Learn how to optimize your Shopify store images for visual search, improve Core Web Vitals with WebP/AVIF, and capture the 35% of ecommerce searches going visual by 2026.',

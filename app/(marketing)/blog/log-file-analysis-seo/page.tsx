@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Log File Analysis for SEO: 14 Tactics to See Exactly How Google Crawls Your Site & Fix Crawl Budget Waste',
   description: 'Server log analysis reveals 47% more crawl data than Google Search Console alone. This log file analysis strategy identified 2,847 pages wasting crawl budget and increased indexation 156% by optimizing Googlebot behavior.',

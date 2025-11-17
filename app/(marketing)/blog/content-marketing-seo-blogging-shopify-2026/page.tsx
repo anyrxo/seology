@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Content Marketing & SEO Blogging for Shopify: 2026 ROI Strategy | SEOLOGY.AI',
   description: 'Businesses with blogs get 55% more visitors, and bloggers are 13x more likely to achieve positive ROI. Learn the exact content marketing strategy driving $107.5B in revenue by 2026--ideal blog post lengths, conversion tactics, and AI-powered optimization.',

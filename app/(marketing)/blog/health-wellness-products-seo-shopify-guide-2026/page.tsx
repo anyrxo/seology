@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Health & Wellness Products SEO for Shopify: Compliance & Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Wellness supplements market reaches $291B in 2025, growing to $568.75B by 2034. Master FDA-compliant SEO, structure/function claims, third-party testing signals, and personalized nutrition strategies.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed -- 73% More Pages',
   description: 'JavaScript-heavy sites lose 42% of indexable content to rendering failures. JavaScript rendering SEO tactics recovered 73% more indexed pages and improved rankings 23 positions by ensuring Google properly renders and crawls JS content.',

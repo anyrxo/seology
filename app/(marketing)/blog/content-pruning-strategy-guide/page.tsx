@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Content Pruning Strategy: 17 Tactics to Delete Old Content & Boost Rankings',
   description: 'Content pruning increased organic traffic 73% in 60 days by deleting 35% of pages. This complete guide shows when to delete, update, or consolidate outdated content with proven criteria and case studies.',

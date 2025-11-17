@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'BigCommerce SEO: 23 Tactics to Outrank Shopify Stores',
   description: 'BigCommerce has hidden SEO advantages over Shopify. This guide shows how to leverage them for better rankings.',

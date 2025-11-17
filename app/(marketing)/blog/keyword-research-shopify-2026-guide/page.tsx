@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Keyword Research for Shopify: 2026 Complete Guide to Finding Profitable Keywords | SEOLOGY.AI',
   description: '92% of searches are long-tail keywords with higher conversions. Master Shopify keyword research with December 2025 strategies, tools, and search intent analysis to drive targeted traffic.',

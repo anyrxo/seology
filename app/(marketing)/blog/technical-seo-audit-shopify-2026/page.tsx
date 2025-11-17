@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist | SEOLOGY.AI',
   description: 'Google released new technical audit methodology (Nov 2025). Master Shopify technical SEO with this comprehensive audit checklist--fix crawlability, indexation, and Core Web Vitals issues.',

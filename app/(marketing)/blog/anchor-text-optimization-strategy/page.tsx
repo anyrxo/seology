@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Anchor Text Optimization: Natural Link Building That Ranks',
   description: 'Over-optimized anchor text triggers penalties. This strategy builds natural anchor text diversity that ranks safely.',

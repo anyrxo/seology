@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Open Graph Tags: 16 Tactics to Optimize Social Sharing for 312% More Traffic',
   description: 'Open Graph tag optimization increased social referral traffic 312% and engagement 89% by controlling how content appears when shared on Facebook, Twitter, LinkedIn, and other platforms with proper OG tags.',

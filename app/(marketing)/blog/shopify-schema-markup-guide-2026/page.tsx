@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Shopify Schema Markup Guide 2026: Get Rich Results & 35% Higher CTR | SEOLOGY.AI',
   description: 'Schema markup gets you rich snippets in Google - star ratings, prices, availability. This complete guide shows how to implement structured data on Shopify for 35% higher click-through rates in 2026.',

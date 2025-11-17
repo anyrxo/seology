@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Core Web Vitals Optimization: Complete Guide for 2025',
   description: 'Core Web Vitals are now a ranking factor. This guide shows you how to optimize LCP, FID, and CLS--and SEOLOGY automates it all.',

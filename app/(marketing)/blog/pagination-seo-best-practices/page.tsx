@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Pagination SEO: Handle Multi-Page Content Without Killing Rankings',
   description: 'Pagination confuses Google and wastes crawl budget. This guide shows 5 proven methods to handle paginated content.',

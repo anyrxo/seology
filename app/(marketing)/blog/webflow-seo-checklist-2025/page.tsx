@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Webflow SEO Checklist: Optimize Your Designer Site for Rankings',
   description: 'Webflow is designer-friendly but has SEO quirks. This checklist ensures your Webflow site ranks perfectly.',

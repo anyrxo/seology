@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Faceted Navigation SEO: 17 Tactics to Handle Filters Without Duplicate Content (94% Crawl Savings)',
   description: 'Faceted navigation optimization reduced duplicate content 94% and increased indexed pages 67% by strategically blocking low-value filter combinations while indexing high-demand filtered pages.',

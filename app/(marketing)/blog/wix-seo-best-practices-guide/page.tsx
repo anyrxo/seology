@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Wix SEO: Can You Really Rank? (Best Practices & Limitations)',
   description: 'Wix claims to be SEO-friendly. This honest review shows what works, what does not, and when to switch platforms.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'News SEO: 16 Tactics to Get Featured in Google News & Top Stories (847% Traffic Spike)',
   description: 'Google News optimization increased referral traffic 847% and Top Stories appearances 94% by implementing NewsArticle schema, optimizing for freshness, and establishing topical authority.',

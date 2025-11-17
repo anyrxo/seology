@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: '301 Redirects: Complete Guide to Preserving SEO Value',
   description: 'Bad redirects destroy 15-30% of your rankings. This guide shows how to implement 301 redirects without losing SEO value.',

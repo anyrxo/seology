@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Toys & Games SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Online toys market reaches $18.86B in 2024, growing to $35.91B by 2032. Master age-based targeting, COPPA compliance, STEM toy optimization, holiday seasonality, and safety certification SEO.',

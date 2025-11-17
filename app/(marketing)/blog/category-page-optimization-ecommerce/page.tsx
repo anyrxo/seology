@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'E-commerce Category Page Optimization: 19 Tactics to Rank Higher Than Product Pages',
   description: 'Category pages drive 3.4x more traffic than product pages. This guide shows 19 proven tactics to optimize e-commerce category pages for maximum SEO impact.',

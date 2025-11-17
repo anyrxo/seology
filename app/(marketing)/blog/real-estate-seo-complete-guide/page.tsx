@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Real Estate SEO: Dominate Local Search & Get More Listings',
   description: 'Real estate is hyper-competitive. This SEO strategy helped 73 agents dominate their local markets.',
