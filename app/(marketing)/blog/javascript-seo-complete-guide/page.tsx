@@ -66,7 +66,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">The JavaScript SEO Problem (And Why It Matters)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  JavaScript frameworks revolutionized web development—but they created a massive SEO problem. Here is why:
+                  JavaScript frameworks revolutionized web development--but they created a massive SEO problem. Here is why:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
@@ -87,7 +87,7 @@ export default function BlogPost() {
                   </div>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed mt-6">
-                  <strong>The core problem:</strong> Google crawls HTML instantly but must render JavaScript in a second, resource-intensive step. Many JS sites never get properly indexed—they are invisible to Google despite ranking potential.
+                  <strong>The core problem:</strong> Google crawls HTML instantly but must render JavaScript in a second, resource-intensive step. Many JS sites never get properly indexed--they are invisible to Google despite ranking potential.
                 </p>
               </section>
 
@@ -111,7 +111,7 @@ export default function BlogPost() {
                       <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
                       <div>
                         <strong className="text-slate-900">Render Queue:</strong>
-                        <p className="text-slate-700">Page enters the render queue—can take 5-7 days for Google to process (depending on site authority)</p>
+                        <p className="text-slate-700">Page enters the render queue--can take 5-7 days for Google to process (depending on site authority)</p>
                       </div>
                     </div>
                     <div className="flex gap-4">
@@ -125,7 +125,7 @@ export default function BlogPost() {
                       <div className="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
                       <div>
                         <strong className="text-slate-900">Indexing:</strong>
-                        <p className="text-slate-700">Rendered content is indexed—but only if rendering succeeds</p>
+                        <p className="text-slate-700">Rendered content is indexed--but only if rendering succeeds</p>
                       </div>
                     </div>
                     <div className="flex gap-4">
@@ -141,7 +141,7 @@ export default function BlogPost() {
                 <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg mb-6">
                   <h4 className="text-xl font-bold mb-3 text-red-900">Critical Issue: The Rendering Gap</h4>
                   <p className="text-slate-700 mb-3">
-                    Between step 1 (initial crawl) and step 3 (rendering), Google sees an empty page. If Google never renders your page—or rendering fails—your content is invisible.
+                    Between step 1 (initial crawl) and step 3 (rendering), Google sees an empty page. If Google never renders your page--or rendering fails--your content is invisible.
                   </p>
                   <p className="text-slate-700">
                     <strong>Reality check:</strong> Low-authority sites may wait weeks for rendering. New sites may never get rendered at all.
@@ -156,7 +156,7 @@ export default function BlogPost() {
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
                   <h4 className="text-xl font-bold mb-3">What It Is</h4>
                   <p className="text-slate-700 mb-4">
-                    Server renders full HTML on each request before sending to browser. Google receives complete HTML—no JavaScript rendering needed.
+                    Server renders full HTML on each request before sending to browser. Google receives complete HTML--no JavaScript rendering needed.
                   </p>
 
                   <h4 className="text-xl font-bold mb-3 mt-4">Best For</h4>
@@ -192,7 +192,7 @@ export default function BlogPost() {
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
                   <h4 className="text-xl font-bold mb-3">What It Is</h4>
                   <p className="text-slate-700 mb-4">
-                    Pre-render all pages as static HTML at build time. Google receives pure HTML files—fastest option for SEO.
+                    Pre-render all pages as static HTML at build time. Google receives pure HTML files--fastest option for SEO.
                   </p>
 
                   <h4 className="text-xl font-bold mb-3 mt-4">Best For</h4>
@@ -283,7 +283,7 @@ export default function BlogPost() {
 
                   <div className="bg-purple-50 p-4 rounded-lg mt-4">
                     <p className="text-slate-700">
-                      <strong>Next.js makes this trivial:</strong> Use getStaticProps for SSG, getServerSideProps for SSR, and default client-side rendering for non-SEO pages—all in the same app.
+                      <strong>Next.js makes this trivial:</strong> Use getStaticProps for SSG, getServerSideProps for SSR, and default client-side rendering for non-SEO pages--all in the same app.
                     </p>
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export default function BlogPost() {
                     </p>
                     <h4 className="text-xl font-bold mb-3 mt-4">Solution: Use Nuxt.js</h4>
                     <p className="text-slate-700 mb-3">
-                      Nuxt.js is the Next.js equivalent for Vue—provides SSR, SSG, and hybrid rendering with minimal configuration.
+                      Nuxt.js is the Next.js equivalent for Vue--provides SSR, SSG, and hybrid rendering with minimal configuration.
                     </p>
                   </div>
 
@@ -477,7 +477,7 @@ export default function BlogPost() {
                       <strong>What to lazy load:</strong> Below-the-fold content, images, videos, heavy third-party scripts, chat widgets, analytics.
                     </p>
                     <p className="text-slate-700">
-                      <strong>SEO consideration:</strong> Ensure lazy-loaded content is still crawlable—use noscript fallbacks or SSR.
+                      <strong>SEO consideration:</strong> Ensure lazy-loaded content is still crawlable--use noscript fallbacks or SSR.
                     </p>
                   </div>
 
@@ -503,7 +503,7 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Implement pagination with URL parameters (e.g., ?page=2), use rel="next" and rel="prev" tags, provide a "View All" option, or use SSR to load all content for crawlers.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Best practice:</strong> Hybrid approach—infinite scroll for users, paginated URLs for SEO.
+                      <strong>Best practice:</strong> Hybrid approach--infinite scroll for users, paginated URLs for SEO.
                     </p>
                   </div>
 
@@ -540,7 +540,7 @@ export default function BlogPost() {
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <strong className="text-slate-900">Google Search Console URL Inspection:</strong>
-                          <p className="text-slate-700">Use URL Inspection tool to see exactly what Google rendered. Compare to live page—they should match.</p>
+                          <p className="text-slate-700">Use URL Inspection tool to see exactly what Google rendered. Compare to live page--they should match.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
@@ -554,14 +554,14 @@ export default function BlogPost() {
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <strong className="text-slate-900">Lighthouse SEO Audit:</strong>
-                          <p className="text-slate-700">Run Lighthouse in Chrome DevTools—should score 90+ on SEO category.</p>
+                          <p className="text-slate-700">Run Lighthouse in Chrome DevTools--should score 90+ on SEO category.</p>
                         </div>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                         <div>
                           <strong className="text-slate-900">Crawl with Screaming Frog:</strong>
-                          <p className="text-slate-700">Configure Screaming Frog to render JavaScript—verify all pages are discovered and content is extracted.</p>
+                          <p className="text-slate-700">Configure Screaming Frog to render JavaScript--verify all pages are discovered and content is extracted.</p>
                         </div>
                       </li>
                     </ul>

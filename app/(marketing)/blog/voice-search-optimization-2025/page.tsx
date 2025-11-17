@@ -35,19 +35,19 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Voice search is massive</strong>—58% of consumers use voice to find local businesses (BrightLocal study)</li>
-                <li><strong>Voice queries are longer</strong>—average voice search is 29 words vs 3 words for text (Backlinko data)</li>
-                <li><strong>Featured snippets dominate</strong>—40% of voice search answers come from featured snippets (Ahrefs study)</li>
-                <li><strong>Local intent is huge</strong>—"near me" voice searches grew 900% in 3 years (Google)</li>
-                <li><strong>Conversational content wins</strong>—pages with natural language rank 1,400% better for voice</li>
-                <li><strong>Page speed matters more</strong>—voice search results load in 4.6 seconds (52% faster than average)</li>
+                <li><strong>Voice search is massive</strong>--58% of consumers use voice to find local businesses (BrightLocal study)</li>
+                <li><strong>Voice queries are longer</strong>--average voice search is 29 words vs 3 words for text (Backlinko data)</li>
+                <li><strong>Featured snippets dominate</strong>--40% of voice search answers come from featured snippets (Ahrefs study)</li>
+                <li><strong>Local intent is huge</strong>--"near me" voice searches grew 900% in 3 years (Google)</li>
+                <li><strong>Conversational content wins</strong>--pages with natural language rank 1,400% better for voice</li>
+                <li><strong>Page speed matters more</strong>--voice search results load in 4.6 seconds (52% faster than average)</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Voice Search Optimization Matters in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Voice search isn\'t the future—it\'s now. Smart speakers, smartphones, and car assistants are changing how people search. If you\'re not optimizing for voice, you\'re invisible to millions of potential customers.
+                Voice search isn\'t the future--it\'s now. Smart speakers, smartphones, and car assistants are changing how people search. If you\'re not optimizing for voice, you\'re invisible to millions of potential customers.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Here\'s what the data shows:
@@ -181,7 +181,7 @@ export default function BlogPost() {
                     Improve Page Speed (Target Under 3 Seconds)
                   </h3>
                   <p className="text-slate-700 ml-11">
-                    <strong>Why:</strong> Voice search results load in 4.6 seconds on average—52% faster than typical pages.<br/>
+                    <strong>Why:</strong> Voice search results load in 4.6 seconds on average--52% faster than typical pages.<br/>
                     <strong>Do this:</strong> Compress images, minify CSS/JS, use CDN, enable caching, lazy load images.<br/>
                     <strong>Test:</strong> Google PageSpeed Insights. Aim for 90+ score on mobile.
                   </p>
@@ -482,7 +482,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Dominate Voice Search Automatically</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY optimizes content for voice search, adds schema markup, improves page speed, and wins featured snippets—automatically. See 240% more voice visibility.
+                  SEOLOGY optimizes content for voice search, adds schema markup, improves page speed, and wins featured snippets--automatically. See 240% more voice visibility.
                 </p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">
                   Try SEOLOGY Free<ArrowRight className="w-5 h-5" />

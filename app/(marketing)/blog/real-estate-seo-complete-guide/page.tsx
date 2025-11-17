@@ -27,7 +27,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Real estate is hyper-competitive. Every agent is fighting for the same keywords, the same buyers, the same sellers. This SEO strategy helped <strong className="text-white">73 agents dominate their local markets</strong> and generate 5-10 qualified leads per week—without paid ads.
+            Real estate is hyper-competitive. Every agent is fighting for the same keywords, the same buyers, the same sellers. This SEO strategy helped <strong className="text-white">73 agents dominate their local markets</strong> and generate 5-10 qualified leads per week--without paid ads.
           </p>
 
           <div className="mb-12">
@@ -48,7 +48,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Real estate SEO isn&apos;t about ranking nationally—it&apos;s about owning your local market. This guide covers hyper-local keyword targeting, Google Business Profile optimization, neighborhood-level content, and automated SEO systems that keep you ranking #1 while you focus on closing deals. SEOLOGY automates 90% of these tactics.
+                Real estate SEO isn&apos;t about ranking nationally--it&apos;s about owning your local market. This guide covers hyper-local keyword targeting, Google Business Profile optimization, neighborhood-level content, and automated SEO systems that keep you ranking #1 while you focus on closing deals. SEOLOGY automates 90% of these tactics.
               </p>
             </div>
 
@@ -188,7 +188,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pillar 2: Google Business Profile Mastery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Your Google Business Profile (GBP) is THE most important SEO asset for real estate agents. When someone searches "real estate agent near me" or "homes for sale in [city]", Google shows the Map Pack—three agents featured at the top.
+                  Your Google Business Profile (GBP) is THE most important SEO asset for real estate agents. When someone searches "real estate agent near me" or "homes for sale in [city]", Google shows the Map Pack--three agents featured at the top.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Getting into that Map Pack = 5-10x more visibility than regular organic results.
@@ -439,7 +439,7 @@ export default function BlogPost() {
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
                   <p className="text-green-900 font-bold mb-2">🎯 Link Building Goal:</p>
                   <p className="text-slate-700 mb-0">
-                    Aim for 5-10 new local backlinks per month. Quality over quantity—one link from a local news site is worth 100 spammy directory links.
+                    Aim for 5-10 new local backlinks per month. Quality over quantity--one link from a local news site is worth 100 spammy directory links.
                   </p>
                 </div>
               </section>
@@ -509,7 +509,7 @@ export default function BlogPost() {
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
                   <p className="text-blue-900 font-bold mb-2">⏱️ Patience Pays Off:</p>
                   <p className="text-slate-700 mb-0">
-                    Real estate SEO takes 6-12 months to fully mature. But once you&apos;re ranking, you&apos;ll generate consistent leads without paying for ads—forever.
+                    Real estate SEO takes 6-12 months to fully mature. But once you&apos;re ranking, you&apos;ll generate consistent leads without paying for ads--forever.
                   </p>
                 </div>
               </section>
@@ -570,7 +570,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Thoughts: SEO Is Your Long-Term Competitive Advantage</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Paid ads stop working the moment you stop paying. SEO is different. Once you rank, you generate leads passively—month after month, year after year.
+                  Paid ads stop working the moment you stop paying. SEO is different. Once you rank, you generate leads passively--month after month, year after year.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   The agents who dominate their markets in 2025 aren&apos;t the ones with the biggest ad budgets. They&apos;re the ones who show up #1 on Google when someone searches "real estate agent in [their neighborhood]."
@@ -579,7 +579,7 @@ export default function BlogPost() {
                   Start today. Optimize your Google Business Profile, create your first neighborhood guide, and commit to publishing consistently. In 6-12 months, you&apos;ll be the agent everyone finds on Google.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  And if you want to automate 90% of this work? SEOLOGY handles it for you. Set it up once, and let AI optimize your SEO while you focus on what you do best—helping clients buy and sell homes.
+                  And if you want to automate 90% of this work? SEOLOGY handles it for you. Set it up once, and let AI optimize your SEO while you focus on what you do best--helping clients buy and sell homes.
                 </p>
               </section>
 

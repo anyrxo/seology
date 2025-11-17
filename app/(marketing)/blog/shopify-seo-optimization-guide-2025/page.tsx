@@ -27,7 +27,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Stop wasting time on outdated Shopify SEO tactics. These 21 proven strategies generate <strong className="text-white">real traffic and sales</strong>—and SEOLOGY automates most of them for you.
+            Stop wasting time on outdated Shopify SEO tactics. These 21 proven strategies generate <strong className="text-white">real traffic and sales</strong>--and SEOLOGY automates most of them for you.
           </p>
 
           <div className="mb-12">
@@ -48,7 +48,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Most Shopify stores lose 60% of potential traffic due to basic SEO mistakes. These 21 tactics fix the issues that kill your rankings—and SEOLOGY automates 18 of them. Read on to learn what actually works in 2025.
+                Most Shopify stores lose 60% of potential traffic due to basic SEO mistakes. These 21 tactics fix the issues that kill your rankings--and SEOLOGY automates 18 of them. Read on to learn what actually works in 2025.
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export default function BlogPost() {
                   <li>"Get backlinks" (thanks, super helpful)</li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  That's not strategy—that's common sense. Here's what <strong>actually</strong> moves the needle in 2025.
+                  That's not strategy--that's common sense. Here's what <strong>actually</strong> moves the needle in 2025.
                 </p>
               </section>
 
@@ -84,7 +84,7 @@ export default function BlogPost() {
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
                     <div>
                       <strong>Implement structured data (Schema markup)</strong>
-                      <p className="text-slate-600 mt-1">Product schema shows rich snippets in Google—price, reviews, availability. SEOLOGY adds this automatically.</p>
+                      <p className="text-slate-600 mt-1">Product schema shows rich snippets in Google--price, reviews, availability. SEOLOGY adds this automatically.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) — 84% Performance Boost',
+  title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) -- 84% Performance Boost',
   description: 'PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site. Site speed tool comparison increased Core Web Vitals scores 84% by understanding which metrics matter and why each tool reports different results.',
 }
 
@@ -32,7 +32,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site—why? Understanding which metrics matter increased Core Web Vitals scores 84% and rankings for 2,847 pages.
+            PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site--why? Understanding which metrics matter increased Core Web Vitals scores 84% and rankings for 2,847 pages.
           </p>
 
           <div className="mb-12">
@@ -53,10 +53,10 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li><strong>Different tools measure different things:</strong> PageSpeed uses lab data (Lighthouse), GTmetrix uses real browser tests, WebPageTest shows filmstrip—all provide different but valuable insights</li>
-                <li><strong>Google only cares about 3 metrics:</strong> LCP (Largest Contentful Paint), FID/INP (interactivity), CLS (layout shift)—these are the Core Web Vitals that actually affect rankings</li>
+                <li><strong>Different tools measure different things:</strong> PageSpeed uses lab data (Lighthouse), GTmetrix uses real browser tests, WebPageTest shows filmstrip--all provide different but valuable insights</li>
+                <li><strong>Google only cares about 3 metrics:</strong> LCP (Largest Contentful Paint), FID/INP (interactivity), CLS (layout shift)--these are the Core Web Vitals that actually affect rankings</li>
                 <li><strong>Lab scores don\'t equal field performance:</strong> A site scoring 45/100 in PageSpeed can have excellent real-world Core Web Vitals from actual users (which is what matters for SEO)</li>
-                <li><strong>Tool-specific optimizations waste time:</strong> Don\'t optimize for a specific tool\'s score—focus on real user experience improvements that benefit all metrics</li>
+                <li><strong>Tool-specific optimizations waste time:</strong> Don\'t optimize for a specific tool\'s score--focus on real user experience improvements that benefit all metrics</li>
                 <li><strong>Field data trumps lab data:</strong> Google Search Console\'s Core Web Vitals report shows actual user experiences, which is weighted far more heavily than synthetic test scores</li>
                 <li><strong>84% average improvement:</strong> Sites that focused on Core Web Vitals instead of arbitrary tool scores improved real performance 84% faster and saw sustained ranking increases</li>
               </ul>
@@ -72,10 +72,10 @@ export default function BlogPost() {
                   Here\'s what\'s happening: Each tool measures different metrics, uses different testing locations, simulates different connection speeds, and applies different scoring algorithms. PageSpeed Insights measures Core Web Vitals (which Google uses for rankings). GTmetrix measures older metrics like fully loaded time and total page size (which Google doesn\'t use anymore). WebPageTest shows filmstrip views and waterfall charts (useful for diagnosis but not ranking factors).
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>The data:</strong> Google confirmed in 2021 that only Core Web Vitals (LCP, FID/INP, CLS) directly impact rankings. A study of 11.8 million websites by HTTPArchive found that 91% of sites pass Core Web Vitals thresholds despite having low PageSpeed scores—meaning the score itself is less important than specific metrics. Sites that focused exclusively on Core Web Vitals saw 84% improvement in real user experiences (source: Chrome UX Report analysis).
+                  <strong>The data:</strong> Google confirmed in 2021 that only Core Web Vitals (LCP, FID/INP, CLS) directly impact rankings. A study of 11.8 million websites by HTTPArchive found that 91% of sites pass Core Web Vitals thresholds despite having low PageSpeed scores--meaning the score itself is less important than specific metrics. Sites that focused exclusively on Core Web Vitals saw 84% improvement in real user experiences (source: Chrome UX Report analysis).
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The confusion comes from older SEO advice (pre-2020) that treated all speed metrics equally. Modern SEO requires understanding <em>which</em> metrics Google actually uses: LCP under 2.5s, FID under 100ms (or INP under 200ms), CLS under 0.1. Everything else—total page size, number of requests, fully loaded time—is secondary diagnostic data.
+                  The confusion comes from older SEO advice (pre-2020) that treated all speed metrics equally. Modern SEO requires understanding <em>which</em> metrics Google actually uses: LCP under 2.5s, FID under 100ms (or INP under 200ms), CLS under 0.1. Everything else--total page size, number of requests, fully loaded time--is secondary diagnostic data.
                 </p>
               </section>
 
@@ -94,10 +94,10 @@ export default function BlogPost() {
                       <strong>What it measures:</strong> Runs Lighthouse in lab mode (simulated environment), then shows real-world Chrome User Experience (CrUX) data if available. Scores are weighted toward Core Web Vitals (LCP, FID/INP, CLS).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why scores vary:</strong> Lab tests use slow 4G connection by default (1.6 Mbps download, 750ms RTT). Your real users might have faster connections. Lab score of 45 doesn\'t mean users experience that performance—check the "Field Data" section for actual user metrics.
+                      <strong>Why scores vary:</strong> Lab tests use slow 4G connection by default (1.6 Mbps download, 750ms RTT). Your real users might have faster connections. Lab score of 45 doesn\'t mean users experience that performance--check the "Field Data" section for actual user metrics.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>What to focus on:</strong> Ignore the overall score (it\'s just a number). Look at the "Field Data" section first—this is real Chrome user data from the past 28 days. If field data shows green Core Web Vitals, your site is fine for SEO even if lab score is red.
+                      <strong>What to focus on:</strong> Ignore the overall score (it\'s just a number). Look at the "Field Data" section first--this is real Chrome user data from the past 28 days. If field data shows green Core Web Vitals, your site is fine for SEO even if lab score is red.
                     </p>
                     <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-3">
                       <p className="text-sm font-mono text-slate-600 mb-2"><strong>Field Data Priority Order:</strong></p>
@@ -114,36 +114,36 @@ export default function BlogPost() {
                       <strong>What it measures:</strong> Loads your page in a real Chrome browser instance from physical servers in Vancouver (default). Measures Lighthouse scores (like PageSpeed) plus "Structure" (HTML best practices).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why scores differ from PageSpeed:</strong> GTmetrix can use faster test servers or different connection profiles. An "A" grade in GTmetrix measures different things than PageSpeed\'s score—GTmetrix weighs fully loaded time and total page size more heavily.
+                      <strong>Why scores differ from PageSpeed:</strong> GTmetrix can use faster test servers or different connection profiles. An "A" grade in GTmetrix measures different things than PageSpeed\'s score--GTmetrix weighs fully loaded time and total page size more heavily.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>When to use it:</strong> GTmetrix is excellent for detailed waterfall analysis (seeing which resources load when). Use it to diagnose render-blocking resources, identify slow third-party scripts, and find opportunities to defer non-critical CSS/JS.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Pro tip:</strong> GTmetrix Premium lets you test from multiple locations (London, Sydney, Hong Kong, etc.) and connection speeds—useful for international sites to see real performance in target markets.
+                      <strong>Pro tip:</strong> GTmetrix Premium lets you test from multiple locations (London, Sydney, Hong Kong, etc.) and connection speeds--useful for international sites to see real performance in target markets.
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">3. WebPageTest (Deep Diagnostic Analysis)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>What it measures:</strong> Most comprehensive testing tool—loads your page in real browsers (Chrome, Firefox, Safari) from 30+ global locations. Shows filmstrip view (screenshots every 100ms), waterfall charts, request details, and video playback.
+                      <strong>What it measures:</strong> Most comprehensive testing tool--loads your page in real browsers (Chrome, Firefox, Safari) from 30+ global locations. Shows filmstrip view (screenshots every 100ms), waterfall charts, request details, and video playback.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why it\'s different:</strong> WebPageTest doesn\'t give simple letter grades—it provides raw performance data. First Contentful Paint, Start Render, Speed Index, Document Complete, Fully Loaded—dozens of timing metrics.
+                      <strong>Why it\'s different:</strong> WebPageTest doesn\'t give simple letter grades--it provides raw performance data. First Contentful Paint, Start Render, Speed Index, Document Complete, Fully Loaded--dozens of timing metrics.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>When to use it:</strong> Use WebPageTest for in-depth diagnosis when you know there\'s a performance problem but can\'t identify the cause. The filmstrip view shows exactly when content appears on screen. The waterfall chart reveals which resources are blocking rendering.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Best feature:</strong> "Compare" tool lets you test before/after optimization side-by-side with synchronized filmstrips—perfect for proving ROI of performance work.
+                      <strong>Best feature:</strong> "Compare" tool lets you test before/after optimization side-by-side with synchronized filmstrips--perfect for proving ROI of performance work.
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">4. Chrome DevTools Lighthouse (Local Testing)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>What it measures:</strong> Same Lighthouse engine as PageSpeed Insights, but runs locally in your browser. Tests your site as you browse it—including localhost/staging environments that online tools can\'t access.
+                      <strong>What it measures:</strong> Same Lighthouse engine as PageSpeed Insights, but runs locally in your browser. Tests your site as you browse it--including localhost/staging environments that online tools can\'t access.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Why scores differ from PageSpeed:</strong> Your local Lighthouse runs on your machine\'s CPU and network connection. PageSpeed Insights simulates a slow device (mobile) on a slow connection (throttled 4G). Local Lighthouse is faster because it\'s not throttled by default.
@@ -152,7 +152,7 @@ export default function BlogPost() {
                       <strong>When to use it:</strong> Perfect for development testing before deploying changes. Run Lighthouse locally after every performance optimization to immediately see impact. Use "Clear storage" between runs to test cold cache performance (most realistic for new visitors).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Pro tip:</strong> Enable throttling in DevTools (Network tab → Slow 4G, CPU → 4x slowdown) to match PageSpeed Insights test conditions—this makes local scores more comparable to online tools.
+                      <strong>Pro tip:</strong> Enable throttling in DevTools (Network tab → Slow 4G, CPU → 4x slowdown) to match PageSpeed Insights test conditions--this makes local scores more comparable to online tools.
                     </p>
                   </div>
                 </div>
@@ -164,12 +164,12 @@ export default function BlogPost() {
 
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
-                    <h4 className="text-xl font-bold mb-3 text-slate-900">5. LCP (Largest Contentful Paint) — Loading Performance</h4>
+                    <h4 className="text-xl font-bold mb-3 text-slate-900">5. LCP (Largest Contentful Paint) -- Loading Performance</h4>
                     <p className="text-slate-700 mb-3">
                       <strong>What it measures:</strong> How long until the largest image, video, or text block becomes visible in the viewport. Google requires LCP under 2.5 seconds for "good" performance.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why it matters for SEO:</strong> LCP correlates with perceived load speed—the moment users see the main content. Google\'s algorithm directly penalizes pages with LCP above 4 seconds (poor threshold). Sites with LCP under 2.5s rank 73% more likely on page 1 (Backlinko analysis of 11.8M pages).
+                      <strong>Why it matters for SEO:</strong> LCP correlates with perceived load speed--the moment users see the main content. Google\'s algorithm directly penalizes pages with LCP above 4 seconds (poor threshold). Sites with LCP under 2.5s rank 73% more likely on page 1 (Backlinko analysis of 11.8M pages).
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to optimize:</strong> Identify your LCP element (PageSpeed Insights tells you). Common culprits: hero images (optimize and preload with <code>&lt;link rel="preload"&gt;</code>), web fonts (use <code>font-display: swap</code>), render-blocking CSS/JS (defer non-critical resources).
@@ -183,7 +183,7 @@ export default function BlogPost() {
                   </div>
 
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
-                    <h4 className="text-xl font-bold mb-3 text-slate-900">6. FID/INP (First Input Delay / Interaction to Next Paint) — Interactivity</h4>
+                    <h4 className="text-xl font-bold mb-3 text-slate-900">6. FID/INP (First Input Delay / Interaction to Next Paint) -- Interactivity</h4>
                     <p className="text-slate-700 mb-3">
                       <strong>What they measure:</strong> FID measures delay from first user interaction (click, tap, key press) until browser can respond. INP (replacing FID in March 2024) measures responsiveness throughout page lifetime. Google requires FID under 100ms or INP under 200ms.
                     </p>
@@ -199,12 +199,12 @@ export default function BlogPost() {
                   </div>
 
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
-                    <h4 className="text-xl font-bold mb-3 text-slate-900">7. CLS (Cumulative Layout Shift) — Visual Stability</h4>
+                    <h4 className="text-xl font-bold mb-3 text-slate-900">7. CLS (Cumulative Layout Shift) -- Visual Stability</h4>
                     <p className="text-slate-700 mb-3">
                       <strong>What it measures:</strong> How much visible content shifts during page load. Google requires CLS under 0.1 (lower is better). CLS = 0 means no layout shifts (perfect).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why it matters for SEO:</strong> Layout shifts frustrate users—you go to click a button and it moves, causing accidental clicks. Google penalizes pages with high CLS. 94% of sites with CLS under 0.1 rank in top 10 positions vs. 67% with CLS above 0.25 (Ahrefs study).
+                      <strong>Why it matters for SEO:</strong> Layout shifts frustrate users--you go to click a button and it moves, causing accidental clicks. Google penalizes pages with high CLS. 94% of sites with CLS under 0.1 rank in top 10 positions vs. 67% with CLS above 0.25 (Ahrefs study).
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to optimize:</strong> Reserve space for dynamic content with CSS aspect ratios. Add <code>width</code> and <code>height</code> attributes to all images/videos (browser reserves space before loading). Never insert content above existing content (ads, banners). Preload fonts to prevent font swap shifts.
@@ -223,13 +223,13 @@ export default function BlogPost() {
                       <strong>What it shows:</strong> Real Chrome user experience data for your entire site, grouped by URL patterns. Shows which pages pass or fail Core Web Vitals thresholds based on actual visitors over the last 28 days.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why this matters most:</strong> This is the data Google\'s ranking algorithm actually uses. Lab tests (PageSpeed, GTmetrix) are synthetic simulations. Search Console shows real user experiences—which is what determines your rankings.
+                      <strong>Why this matters most:</strong> This is the data Google\'s ranking algorithm actually uses. Lab tests (PageSpeed, GTmetrix) are synthetic simulations. Search Console shows real user experiences--which is what determines your rankings.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to use it:</strong> Focus on "Poor URLs" first—these actively hurt rankings. Fix the worst offenders (LCP &gt; 4s, FID &gt; 300ms, CLS &gt; 0.25) before optimizing "Needs Improvement" pages. Prioritize high-traffic pages using "URL impressions" data.
+                      <strong>How to use it:</strong> Focus on "Poor URLs" first--these actively hurt rankings. Fix the worst offenders (LCP &gt; 4s, FID &gt; 300ms, CLS &gt; 0.25) before optimizing "Needs Improvement" pages. Prioritize high-traffic pages using "URL impressions" data.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Important:</strong> URLs need at least 1,000 visits in 28 days to appear in this report. Low-traffic pages won\'t show data—use PageSpeed Insights lab tests for those pages instead.
+                      <strong>Important:</strong> URLs need at least 1,000 visits in 28 days to appear in this report. Low-traffic pages won\'t show data--use PageSpeed Insights lab tests for those pages instead.
                     </p>
                   </div>
                 </div>
@@ -249,17 +249,17 @@ export default function BlogPost() {
                       <strong>Field data (Real User Monitoring):</strong> Chrome collects performance data from actual users browsing your site. Different devices, different connections, different locations. Shows what real visitors experience.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why they differ:</strong> Lab tests use worst-case scenarios (slow 4G, throttled CPU). Your real users might have faster devices and connections—making field data much better than lab scores. Or the opposite: your users might be on even slower connections in developing markets.
+                      <strong>Why they differ:</strong> Lab tests use worst-case scenarios (slow 4G, throttled CPU). Your real users might have faster devices and connections--making field data much better than lab scores. Or the opposite: your users might be on even slower connections in developing markets.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>What to prioritize:</strong> Field data always wins. If Search Console shows "Good" Core Web Vitals but PageSpeed shows 45/100 lab score—ignore the lab score. Google\'s algorithm uses field data. Lab tests are only useful when you don\'t have enough traffic for field data (under 1,000 visits/month).
+                      <strong>What to prioritize:</strong> Field data always wins. If Search Console shows "Good" Core Web Vitals but PageSpeed shows 45/100 lab score--ignore the lab score. Google\'s algorithm uses field data. Lab tests are only useful when you don\'t have enough traffic for field data (under 1,000 visits/month).
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Mobile vs Desktop Performance (Test Mobile First)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>The data:</strong> 63% of Google searches happen on mobile devices (Statista 2024). Google uses mobile-first indexing—meaning your mobile experience determines rankings for both mobile and desktop searches.
+                      <strong>The data:</strong> 63% of Google searches happen on mobile devices (Statista 2024). Google uses mobile-first indexing--meaning your mobile experience determines rankings for both mobile and desktop searches.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Why mobile scores are lower:</strong> Mobile devices have slower CPUs (throttled by battery management), slower connections (LTE vs cable), smaller viewports (larger DOM trees cause more layout work). A site scoring 90/100 on desktop might score 45/100 on mobile.
@@ -275,16 +275,16 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">11. Score Fluctuations Are Normal (Don\'t Chase Perfection)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why scores vary:</strong> Lab tests run from different servers each time. Server load, network congestion, third-party script availability—dozens of variables affect test results. The same page tested twice can show scores of 85 and 92.
+                      <strong>Why scores vary:</strong> Lab tests run from different servers each time. Server load, network congestion, third-party script availability--dozens of variables affect test results. The same page tested twice can show scores of 85 and 92.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>What\'s acceptable:</strong> Variance of ±5 points is normal noise. Variance of ±15 points suggests real performance instability (slow third-party scripts, variable server response times, CDN issues).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to get reliable data:</strong> Run tests 3-5 times and take the median score (not average—median eliminates outliers). Test at the same time of day (server load varies by time). Use WebPageTest\'s "Run test 9 times" option for statistically significant results.
+                      <strong>How to get reliable data:</strong> Run tests 3-5 times and take the median score (not average--median eliminates outliers). Test at the same time of day (server load varies by time). Use WebPageTest\'s "Run test 9 times" option for statistically significant results.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Don\'t chase 100/100:</strong> Diminishing returns after 90/100. Going from 85 to 95 requires 10x more work than going from 45 to 85. Focus on passing Core Web Vitals thresholds (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1)—not perfect scores.
+                      <strong>Don\'t chase 100/100:</strong> Diminishing returns after 90/100. Going from 85 to 95 requires 10x more work than going from 45 to 85. Focus on passing Core Web Vitals thresholds (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1)--not perfect scores.
                     </p>
                   </div>
 
@@ -300,7 +300,7 @@ export default function BlogPost() {
                       <strong>Low impact (skip for now):</strong> Minifying HTML (saves 2-3 KB), reducing cookie size (negligible for most sites), eliminating render-blocking resources for non-critical pages, optimizing images that aren\'t LCP elements.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Framework:</strong> Use PageSpeed Insights\' "Opportunities" section—it estimates load time savings for each optimization. Focus on opportunities with &gt;1 second savings. Ignore recommendations with &lt;0.1 second savings unless they\'re trivial to implement.
+                      <strong>Framework:</strong> Use PageSpeed Insights\' "Opportunities" section--it estimates load time savings for each optimization. Focus on opportunities with &gt;1 second savings. Ignore recommendations with &lt;0.1 second savings unless they\'re trivial to implement.
                     </p>
                   </div>
                 </div>
@@ -358,7 +358,7 @@ export default function BlogPost() {
                       <strong>Why location matters:</strong> A site loading in 1.2 seconds from New York might take 4.5 seconds from Mumbai due to CDN coverage, network latency, and peering agreements. Google uses location-based performance data for local search rankings.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to test globally:</strong> GTmetrix Premium and WebPageTest offer 30+ test locations worldwide. Test from your primary target markets (e.g., US, UK, India, Australia). Compare performance across regions—slowest region should still meet Core Web Vitals thresholds.
+                      <strong>How to test globally:</strong> GTmetrix Premium and WebPageTest offer 30+ test locations worldwide. Test from your primary target markets (e.g., US, UK, India, Australia). Compare performance across regions--slowest region should still meet Core Web Vitals thresholds.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Common issues:</strong> CDN not configured for all regions (assets still served from origin server), large geographic distance to database server (high TTFB), third-party scripts hosted in single region (slow for international users).
@@ -402,7 +402,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Testing Only Desktop Performance</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Site scores 95/100 on desktop but 42/100 on mobile—and you don\'t notice because you only test desktop. Google uses mobile performance for rankings (mobile-first indexing).
+                      <strong>The mistake:</strong> Site scores 95/100 on desktop but 42/100 on mobile--and you don\'t notice because you only test desktop. Google uses mobile performance for rankings (mobile-first indexing).
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Test mobile performance first and prioritize mobile optimizations. Use PageSpeed Insights mobile tab, test on real devices, enable mobile throttling in Chrome DevTools. Mobile scores should be within 10-15 points of desktop scores.
@@ -412,10 +412,10 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Ignoring Field Data in Favor of Lab Scores</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> PageSpeed Insights shows 45/100 lab score, so you panic and spend months optimizing—but the field data section shows "Good" Core Web Vitals. Google\'s algorithm uses field data, not lab scores.
+                      <strong>The mistake:</strong> PageSpeed Insights shows 45/100 lab score, so you panic and spend months optimizing--but the field data section shows "Good" Core Web Vitals. Google\'s algorithm uses field data, not lab scores.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>The fix:</strong> Check Google Search Console Core Web Vitals report first (shows real user experiences). If field data is good, your rankings are fine—lab optimizations are optional. Only prioritize lab scores for low-traffic pages without field data.
+                      <strong>The fix:</strong> Check Google Search Console Core Web Vitals report first (shows real user experiences). If field data is good, your rankings are fine--lab optimizations are optional. Only prioritize lab scores for low-traffic pages without field data.
                     </p>
                   </div>
 
@@ -432,7 +432,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Running Tests With Browser Extensions Enabled</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Running local Lighthouse tests while having ad blockers, privacy extensions, or developer tools active—these interfere with tests and show artificially inflated scores.
+                      <strong>The mistake:</strong> Running local Lighthouse tests while having ad blockers, privacy extensions, or developer tools active--these interfere with tests and show artificially inflated scores.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Use Chrome Incognito mode for all local Lighthouse tests (disables extensions automatically). Or create a dedicated Chrome profile for performance testing with zero extensions installed. This ensures test accuracy.
@@ -495,12 +495,12 @@ export default function BlogPost() {
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
-                      <p className="mt-1">Online fashion retailer had PageSpeed Insights lab scores of 35/100 (mobile) and 68/100 (desktop). They spent 6 months trying to improve lab scores—removed analytics, eliminated marketing pixels, compressed images to degraded quality—but lab scores only increased to 42/100 mobile and still saw declining organic traffic.</p>
+                      <p className="mt-1">Online fashion retailer had PageSpeed Insights lab scores of 35/100 (mobile) and 68/100 (desktop). They spent 6 months trying to improve lab scores--removed analytics, eliminated marketing pixels, compressed images to degraded quality--but lab scores only increased to 42/100 mobile and still saw declining organic traffic.</p>
                     </div>
 
                     <div>
                       <strong className="text-slate-900">The Discovery:</strong>
-                      <p className="mt-1">Checked Google Search Console Core Web Vitals report—found that actual users (field data) experienced "Poor" Core Web Vitals: LCP 4.2s (need &lt;2.5s), FID 180ms (need &lt;100ms), CLS 0.34 (need &lt;0.1). The lab score optimizations hadn\'t addressed the real user experience issues.</p>
+                      <p className="mt-1">Checked Google Search Console Core Web Vitals report--found that actual users (field data) experienced "Poor" Core Web Vitals: LCP 4.2s (need &lt;2.5s), FID 180ms (need &lt;100ms), CLS 0.34 (need &lt;0.1). The lab score optimizations hadn\'t addressed the real user experience issues.</p>
                     </div>
 
                     <div>
@@ -523,7 +523,7 @@ export default function BlogPost() {
                       <ul className="mt-3 space-y-2">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span><strong>84% Core Web Vitals improvement:</strong> LCP decreased from 4.2s to 2.1s, FID from 180ms to 68ms, CLS from 0.34 to 0.08—all metrics now "Good"</span>
+                          <span><strong>84% Core Web Vitals improvement:</strong> LCP decreased from 4.2s to 2.1s, FID from 180ms to 68ms, CLS from 0.34 to 0.08--all metrics now "Good"</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -539,14 +539,14 @@ export default function BlogPost() {
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span><strong>Lab scores improved to 58/100:</strong> As a side effect—but field data was always the priority</span>
+                          <span><strong>Lab scores improved to 58/100:</strong> As a side effect--but field data was always the priority</span>
                         </li>
                       </ul>
                     </div>
 
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
-                      <p className="mt-1 text-lg">"We wasted 6 months optimizing for lab scores that didn\'t matter. Once we focused exclusively on Core Web Vitals field data from real users, we saw results in weeks. Google\'s algorithm uses field data—that\'s the only metric that matters for SEO." — Technical SEO Manager</p>
+                      <p className="mt-1 text-lg">"We wasted 6 months optimizing for lab scores that didn\'t matter. Once we focused exclusively on Core Web Vitals field data from real users, we saw results in weeks. Google\'s algorithm uses field data--that\'s the only metric that matters for SEO." -- Technical SEO Manager</p>
                     </div>
                   </div>
                 </div>
@@ -555,7 +555,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Speed Testing and Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Manual speed testing is time-consuming—run tests, interpret conflicting results, prioritize fixes, implement optimizations, retest, repeat. SEOLOGY automates the entire workflow using AI-powered analysis and automatic implementation:
+                  Manual speed testing is time-consuming--run tests, interpret conflicting results, prioritize fixes, implement optimizations, retest, repeat. SEOLOGY automates the entire workflow using AI-powered analysis and automatic implementation:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
@@ -573,7 +573,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Implementation</h3>
-                    <p className="text-slate-700">SEOLOGY doesn\'t just report issues—it fixes them automatically. Implements image optimization (WebP, preloading), defers non-critical JavaScript, adds width/height to images to prevent CLS, optimizes LCP elements—all without manual coding.</p>
+                    <p className="text-slate-700">SEOLOGY doesn\'t just report issues--it fixes them automatically. Implements image optimization (WebP, preloading), defers non-critical JavaScript, adds width/height to images to prevent CLS, optimizes LCP elements--all without manual coding.</p>
                   </div>
 
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
@@ -584,9 +584,9 @@ export default function BlogPost() {
                 </div>
 
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                  <h3 className="text-2xl font-bold mb-4">Stop Wasting Time on Speed Testing—Automate Core Web Vitals Optimization</h3>
+                  <h3 className="text-2xl font-bold mb-4">Stop Wasting Time on Speed Testing--Automate Core Web Vitals Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY continuously monitors real user performance data, identifies Core Web Vitals failures, and automatically implements fixes that improve rankings—without manual testing or coding.
+                    SEOLOGY continuously monitors real user performance data, identifies Core Web Vitals failures, and automatically implements fixes that improve rankings--without manual testing or coding.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
@@ -609,16 +609,16 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Speed Testing Tools</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Different speed tools show different results because they measure different things—but only one data source matters for Google rankings: <strong>field data from real users (Core Web Vitals)</strong>.
+                  Different speed tools show different results because they measure different things--but only one data source matters for Google rankings: <strong>field data from real users (Core Web Vitals)</strong>.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  PageSpeed Insights lab scores, GTmetrix grades, WebPageTest metrics—these are all diagnostic tools that help you <em>identify</em> performance issues. But Google\'s algorithm uses only Core Web Vitals field data from actual Chrome users browsing your site.
+                  PageSpeed Insights lab scores, GTmetrix grades, WebPageTest metrics--these are all diagnostic tools that help you <em>identify</em> performance issues. But Google\'s algorithm uses only Core Web Vitals field data from actual Chrome users browsing your site.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  <strong>The winning strategy:</strong> Check Google Search Console\'s Core Web Vitals report first. If pages are passing (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1), your SEO performance is fine—lab score optimization is optional. If pages are failing, use lab tools (PageSpeed Insights, GTmetrix, WebPageTest) to diagnose the specific causes, implement fixes that improve real user experiences, then validate improvements using field data.
+                  <strong>The winning strategy:</strong> Check Google Search Console\'s Core Web Vitals report first. If pages are passing (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1), your SEO performance is fine--lab score optimization is optional. If pages are failing, use lab tools (PageSpeed Insights, GTmetrix, WebPageTest) to diagnose the specific causes, implement fixes that improve real user experiences, then validate improvements using field data.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Sites that focus exclusively on Core Web Vitals field data see 84% faster performance improvements and sustained ranking increases compared to sites optimizing for arbitrary tool scores. Don\'t chase perfect lab scores—optimize for real users, and rankings will follow.
+                  Sites that focus exclusively on Core Web Vitals field data see 84% faster performance improvements and sustained ranking increases compared to sites optimizing for arbitrary tool scores. Don\'t chase perfect lab scores--optimize for real users, and rankings will follow.
                 </p>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
                   <p className="text-slate-900 font-semibold mb-2">Ready to automate speed optimization?</p>

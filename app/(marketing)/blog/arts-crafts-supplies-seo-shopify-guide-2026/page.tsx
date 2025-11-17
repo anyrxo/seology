@@ -93,11 +93,11 @@ export default function ArtsCraftsSuppliesSEOPage() {
       <h2>The Arts & Crafts SEO Opportunity: Why Project-Based Content Wins</h2>
 
       <p>
-        Arts and crafts supplies present unique SEO advantages that most ecommerce categories lack. Unlike commodity products, craft supplies are intimately connected to <strong>project-based searches</strong>, educational content, and creative inspiration. Crafters don't just search for "acrylic paint"—they search for "how to paint galaxy canvas tutorial," "best paint for pour painting," and "acrylic paint color mixing guide."
+        Arts and crafts supplies present unique SEO advantages that most ecommerce categories lack. Unlike commodity products, craft supplies are intimately connected to <strong>project-based searches</strong>, educational content, and creative inspiration. Crafters don't just search for "acrylic paint"--they search for "how to paint galaxy canvas tutorial," "best paint for pour painting," and "acrylic paint color mixing guide."
       </p>
 
       <p>
-        This content-rich search behavior creates exceptional opportunities for stores that integrate <strong>tutorial content with product optimization</strong>. When your product pages answer project questions, demonstrate techniques, and inspire creativity, you capture traffic across the entire customer journey—from initial inspiration through final purchase.
+        This content-rich search behavior creates exceptional opportunities for stores that integrate <strong>tutorial content with product optimization</strong>. When your product pages answer project questions, demonstrate techniques, and inspire creativity, you capture traffic across the entire customer journey--from initial inspiration through final purchase.
       </p>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
@@ -223,7 +223,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-8">
         <h3 className="text-lg font-semibold mb-3 text-gray-900">Beginner Conversion Example: Watercolor Starter Kit</h3>
         <p className="text-gray-700 mb-4">
-          <strong>Product Title</strong>: "Complete Watercolor Painting Kit for Beginners – 24 Colors, Brushes, Paper & Free Tutorial Guide"
+          <strong>Product Title</strong>: "Complete Watercolor Painting Kit for Beginners - 24 Colors, Brushes, Paper & Free Tutorial Guide"
         </p>
         <p className="text-gray-700 mb-4">
           <strong>Meta Description</strong>: "Everything you need to start watercolor painting today. Professional-quality 24-color set, 6 brushes, watercolor paper, palette, and step-by-step beginner guide. Perfect first watercolor kit."
@@ -278,7 +278,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
             </div>
             <div className="border-l-4 border-yellow-400 pl-4">
               <h4 className="font-semibold text-gray-900">September-October: Fall & Halloween</h4>
-              <p className="text-sm text-gray-700">Autumn wreaths, pumpkin decorations, Halloween costumes/decor. Trends begin <strong>weeks ahead of schedule</strong>—stock in August.</p>
+              <p className="text-sm text-gray-700">Autumn wreaths, pumpkin decorations, Halloween costumes/decor. Trends begin <strong>weeks ahead of schedule</strong>--stock in August.</p>
             </div>
             <div className="border-l-4 border-green-400 pl-4">
               <h4 className="font-semibold text-gray-900">November-December: Holiday Season (Q4 Peak)</h4>
@@ -440,7 +440,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
         <li><strong>Multiple angles</strong>: Product alone, in-use photos, finished project examples</li>
         <li><strong>Alt text optimization</strong>: Descriptive alt text including product name, color, and use case</li>
         <li><strong>Pinterest-optimized dimensions</strong>: 2:3 aspect ratio (1000x1500px) for maximum Pinterest performance</li>
-        <li><strong>Color accuracy</strong>: Essential for paint, yarn, fabric—include color charts</li>
+        <li><strong>Color accuracy</strong>: Essential for paint, yarn, fabric--include color charts</li>
         <li><strong>Lifestyle imagery</strong>: Show supplies in crafting environments for inspiration</li>
       </ul>
 
@@ -454,7 +454,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
 
       <ul>
         <li><strong>Rich pins</strong>: Enable product rich pins for automatic price/availability updates</li>
-        <li><strong>Keyword-optimized descriptions</strong>: Pinterest is a visual search engine—use keywords in pin descriptions</li>
+        <li><strong>Keyword-optimized descriptions</strong>: Pinterest is a visual search engine--use keywords in pin descriptions</li>
         <li><strong>Board organization</strong>: Create project-specific boards ("Watercolor Tutorials," "Beginner Knitting," "Holiday Crafts")</li>
         <li><strong>Seasonal pinning calendar</strong>: Pin 3-4 months ahead of seasonal peaks</li>
         <li><strong>Video pins</strong>: Tutorial video pins get 3x engagement vs. static images</li>
@@ -513,7 +513,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
       <div className="not-prose bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Ready to Dominate Arts & Crafts SEO?</h2>
         <p className="text-lg mb-6 text-purple-50">
-          SEOLOGY.AI automates project-based optimization, seasonal content updates, tutorial integration, and eco-friendly positioning for your craft supply store. Our AI analyzes your inventory and creates optimized project collections, skill-level targeting, and seasonal campaigns—automatically.
+          SEOLOGY.AI automates project-based optimization, seasonal content updates, tutorial integration, and eco-friendly positioning for your craft supply store. Our AI analyzes your inventory and creates optimized project collections, skill-level targeting, and seasonal campaigns--automatically.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
@@ -607,7 +607,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Mistake #2: Ignoring Seasonal Timing</h3>
-          <p className="text-gray-700">Publishing holiday content too late. Launch Christmas craft content in September, not November—Pinterest users plan 3-4 months ahead.</p>
+          <p className="text-gray-700">Publishing holiday content too late. Launch Christmas craft content in September, not November--Pinterest users plan 3-4 months ahead.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
@@ -660,7 +660,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
       <div className="not-prose bg-gradient-to-br from-purple-500 to-pink-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Automate Your Craft Supply SEO with SEOLOGY.AI</h2>
         <p className="text-lg mb-6 text-purple-50">
-          Stop manually creating project collections and seasonal content. SEOLOGY.AI automatically generates project-based pages, integrates tutorials, optimizes for seasonal peaks, and positions eco-friendly products—all while you focus on sourcing great supplies.
+          Stop manually creating project collections and seasonal content. SEOLOGY.AI automatically generates project-based pages, integrates tutorials, optimizes for seasonal peaks, and positions eco-friendly products--all while you focus on sourcing great supplies.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <h3 className="font-semibold mb-3">What You Get:</h3>
@@ -713,7 +713,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
       <h2>Conclusion: The Project-Based Advantage</h2>
 
       <p>
-        The arts and crafts supplies market's growth to <strong>$50.65 billion in 2026</strong> presents massive opportunities for stores that embrace project-based SEO strategies. Traditional product-only optimization captures a fraction of available traffic—the real growth comes from answering inspiration searches, technique queries, and seasonal project needs.
+        The arts and crafts supplies market's growth to <strong>$50.65 billion in 2026</strong> presents massive opportunities for stores that embrace project-based SEO strategies. Traditional product-only optimization captures a fraction of available traffic--the real growth comes from answering inspiration searches, technique queries, and seasonal project needs.
       </p>
 
       <p>
@@ -731,7 +731,7 @@ export default function ArtsCraftsSuppliesSEOPage() {
       </ul>
 
       <p>
-        The craft supply stores that win in 2026 won't be those with the largest inventories—they'll be the ones that inspire creativity, educate customers, and make project success effortless. When your SEO strategy focuses on <em>what customers want to create</em> rather than just <em>what you want to sell</em>, organic traffic, conversions, and customer loyalty all increase dramatically.
+        The craft supply stores that win in 2026 won't be those with the largest inventories--they'll be the ones that inspire creativity, educate customers, and make project success effortless. When your SEO strategy focuses on <em>what customers want to create</em> rather than just <em>what you want to sell</em>, organic traffic, conversions, and customer loyalty all increase dramatically.
       </p>
 
       <p>

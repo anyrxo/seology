@@ -61,7 +61,7 @@ export default function BlogPost() {
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
                 <li>Backlinks remain one of Google's top 3 ranking factors</li>
-                <li>Quality beats quantity—one DR70+ link beats 100 DR20 links</li>
+                <li>Quality beats quantity--one DR70+ link beats 100 DR20 links</li>
                 <li>White-hat link building is the only safe long-term strategy</li>
                 <li>Focus on earning links, not buying them</li>
                 <li>These 19 tactics have built 10,000+ high-authority backlinks</li>
@@ -89,7 +89,7 @@ export default function BlogPost() {
                   </div>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The key is building links the right way—white-hat tactics that Google rewards, not penalizes.
+                  The key is building links the right way--white-hat tactics that Google rewards, not penalizes.
                 </p>
               </section>
 

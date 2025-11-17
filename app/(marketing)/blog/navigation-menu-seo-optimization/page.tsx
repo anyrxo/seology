@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX — 58% More Indexation',
+  title: 'Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX -- 58% More Indexation',
   description: 'Navigation menu optimization increased indexation 58%, boosted internal link equity distribution 42%, and improved Core Web Vitals 31% by structuring menus for both crawlability and user experience with proper hierarchy, descriptive anchor text, and mobile-first design.',
 }
 
@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Navigation affects rankings more than you think—menus distribute link equity, guide Googlebot, and signal site structure. This guide optimizes navigation menus for crawlability, internal linking, and user experience using 16 proven tactics.
+            Navigation affects rankings more than you think--menus distribute link equity, guide Googlebot, and signal site structure. This guide optimizes navigation menus for crawlability, internal linking, and user experience using 16 proven tactics.
           </p>
 
           <div className="mb-12">
@@ -63,7 +63,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Navigation Menu SEO Matters</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Your website navigation is the highway system for both users and search engines. Google uses your navigation to understand site structure, prioritize pages for crawling, and distribute link equity. Users rely on navigation to find content quickly—poor navigation increases bounce rate and kills conversions.
+                  Your website navigation is the highway system for both users and search engines. Google uses your navigation to understand site structure, prioritize pages for crawling, and distribute link equity. Users rely on navigation to find content quickly--poor navigation increases bounce rate and kills conversions.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mt-4">
                   A Moz study found that <strong>58% more pages get indexed</strong> when sites use flat, crawlable navigation hierarchies instead of deep, complex structures. Websites with optimized navigation see <strong>42% better link equity distribution</strong> to important pages, leading to higher rankings across more keywords (Search Engine Journal, 2024).
@@ -84,7 +84,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">1. Use Flat Navigation Hierarchy (Max 3 Clicks to Any Page)</h4>
                       <p className="text-slate-700 mb-4">
-                        Google prioritizes pages closer to the homepage in navigation structure. Keep all important content within 3 clicks maximum—preferably 2 clicks. Flat hierarchies get crawled more frequently and pass more link equity.
+                        Google prioritizes pages closer to the homepage in navigation structure. Keep all important content within 3 clicks maximum--preferably 2 clicks. Flat hierarchies get crawled more frequently and pass more link equity.
                       </p>
                       <div className="bg-white p-4 rounded-lg border border-slate-200">
                         <p className="font-mono text-sm text-slate-800 mb-2"><strong>✅ GOOD: Flat Hierarchy</strong></p>
@@ -139,7 +139,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">4. Prioritize High-Value Pages in Primary Navigation</h4>
                       <p className="text-slate-700 mb-4">
-                        Navigation links pass link equity. Place your most important pages (category pages, key landing pages) in the main navigation—not buried in dropdowns or footers. This boosts their crawl priority and ranking potential.
+                        Navigation links pass link equity. Place your most important pages (category pages, key landing pages) in the main navigation--not buried in dropdowns or footers. This boosts their crawl priority and ranking potential.
                       </p>
                       <p className="text-slate-700 mt-4">
                         <strong>Result:</strong> Pages in primary navigation receive 42% more internal link equity and rank for 31% more keywords on average (Ahrefs, 2024).
@@ -293,7 +293,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">12. Ensure Navigation Links Are Crawlable on Mobile</h4>
                       <p className="text-slate-700 mb-4">
-                        Some mobile menus hide navigation behind JavaScript toggles that Google can\'t crawl. Use progressive enhancement—render navigation in HTML by default, enhance with JavaScript for interactions.
+                        Some mobile menus hide navigation behind JavaScript toggles that Google can\'t crawl. Use progressive enhancement--render navigation in HTML by default, enhance with JavaScript for interactions.
                       </p>
                       <p className="text-slate-700 mt-4">
                         <strong>Result:</strong> Crawlable mobile navigation ensures Google indexes all category pages correctly with mobile-first indexing.
@@ -310,7 +310,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">13. Use Mega Menus for E-Commerce (With Lazy Loading)</h4>
                       <p className="text-slate-700 mb-4">
-                        E-commerce sites benefit from mega menus that display multiple category levels. Lazy-load mega menu content to avoid slowing page load—only render when user hovers or clicks.
+                        E-commerce sites benefit from mega menus that display multiple category levels. Lazy-load mega menu content to avoid slowing page load--only render when user hovers or clicks.
                       </p>
                       <div className="bg-white p-4 rounded-lg border border-slate-200">
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
@@ -376,7 +376,7 @@ export default function BlogPost() {
                         Use Google Search Console\'s "Links" report to see which navigation links pass the most internal link equity. Check "Core Web Vitals" report to ensure navigation doesn\'t cause mobile usability issues.
                       </p>
                       <p className="text-slate-700 mt-4">
-                        <strong>Result:</strong> Regular monitoring helps identify navigation issues before they hurt rankings—fix CLS problems from dropdowns, broken navigation links, or mobile usability errors.
+                        <strong>Result:</strong> Regular monitoring helps identify navigation issues before they hurt rankings--fix CLS problems from dropdowns, broken navigation links, or mobile usability errors.
                       </p>
                     </div>
                   </div>
@@ -390,42 +390,42 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">JavaScript-Only Navigation:</strong>
-                      <p className="text-slate-700 mt-1">Using <code>onClick</code> handlers instead of <code>&lt;a href&gt;</code> tags makes navigation uncrawlable—Google misses links and pages don\'t get indexed.</p>
+                      <p className="text-slate-700 mt-1">Using <code>onClick</code> handlers instead of <code>&lt;a href&gt;</code> tags makes navigation uncrawlable--Google misses links and pages don\'t get indexed.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Too Many Top-Level Items (10+ Menu Links):</strong>
-                      <p className="text-slate-700 mt-1">Overwhelming users with 15+ navigation items increases decision paralysis—limit to 5-7 top-level items, use dropdowns for subcategories.</p>
+                      <p className="text-slate-700 mt-1">Overwhelming users with 15+ navigation items increases decision paralysis--limit to 5-7 top-level items, use dropdowns for subcategories.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Generic Anchor Text ("Click Here", "Learn More"):</strong>
-                      <p className="text-slate-700 mt-1">Navigation anchor text passes keyword relevance—use descriptive phrases like "Running Shoes" instead of "View Products".</p>
+                      <p className="text-slate-700 mt-1">Navigation anchor text passes keyword relevance--use descriptive phrases like "Running Shoes" instead of "View Products".</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Mobile Navigation That Shifts Layout (Poor CLS):</strong>
-                      <p className="text-slate-700 mt-1">Hamburger menus that shift content when opened hurt CLS scores—reserve space for expanded menus or use CSS transforms.</p>
+                      <p className="text-slate-700 mt-1">Hamburger menus that shift content when opened hurt CLS scores--reserve space for expanded menus or use CSS transforms.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Burying Important Pages in Footer (Not Primary Nav):</strong>
-                      <p className="text-slate-700 mt-1">Category pages and key landing pages should be in primary navigation—footer links pass minimal link equity and get less crawl priority.</p>
+                      <p className="text-slate-700 mt-1">Category pages and key landing pages should be in primary navigation--footer links pass minimal link equity and get less crawl priority.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">No Accessibility (Missing ARIA Labels, Keyboard Nav):</strong>
-                      <p className="text-slate-700 mt-1">Google rewards accessibility as a quality signal—use aria-labels, keyboard navigation, and focus management for all interactive elements.</p>
+                      <p className="text-slate-700 mt-1">Google rewards accessibility as a quality signal--use aria-labels, keyboard navigation, and focus management for all interactive elements.</p>
                     </div>
                   </li>
                 </ul>
@@ -455,7 +455,7 @@ export default function BlogPost() {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <strong>Hotjar / Microsoft Clarity:</strong> Heatmaps show which navigation items get clicked most—optimize menu order based on user behavior
+                      <strong>Hotjar / Microsoft Clarity:</strong> Heatmaps show which navigation items get clicked most--optimize menu order based on user behavior
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -471,7 +471,7 @@ export default function BlogPost() {
                 <h2 className="text-3xl font-bold mb-6">Real Example: How Navigation Optimization Drove 58% More Indexation</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Industry:</strong> E-commerce (Home Goods)<br />
-                  <strong>Problem:</strong> Large product catalog (50,000+ SKUs) but only 12,000 pages indexed—Google wasn\'t discovering deep category pages through navigation.
+                  <strong>Problem:</strong> Large product catalog (50,000+ SKUs) but only 12,000 pages indexed--Google wasn\'t discovering deep category pages through navigation.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Navigation Issues Found:</strong>
@@ -483,7 +483,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600">•</span>
-                    <span>JavaScript-only mega menu—category links not crawlable by Googlebot</span>
+                    <span>JavaScript-only mega menu--category links not crawlable by Googlebot</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600">•</span>
@@ -511,11 +511,11 @@ export default function BlogPost() {
                 <ul className="space-y-2 mb-4">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span><strong>58% increase in indexed pages</strong> (12,000 → 18,960 pages)—flat hierarchy improved crawl depth</span>
+                    <span><strong>58% increase in indexed pages</strong> (12,000 → 18,960 pages)--flat hierarchy improved crawl depth</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span><strong>42% better link equity distribution</strong>—category pages ranked for 31% more keywords</span>
+                    <span><strong>42% better link equity distribution</strong>--category pages ranked for 31% more keywords</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -523,7 +523,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span><strong>23% increase in pages per session</strong>—improved navigation UX</span>
+                    <span><strong>23% increase in pages per session</strong>--improved navigation UX</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -535,14 +535,14 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>Key Takeaway:</strong> Navigation structure directly impacts indexation, rankings, and revenue—flat hierarchies with crawlable HTML links and descriptive anchor text drive measurable SEO wins.
+                  <strong>Key Takeaway:</strong> Navigation structure directly impacts indexation, rankings, and revenue--flat hierarchies with crawlable HTML links and descriptive anchor text drive measurable SEO wins.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Navigation Menu SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Manual navigation audits require analyzing site structure, internal link flow, mobile performance, and accessibility—taking weeks for large sites. SEOLOGY handles all of this automatically:
+                  Manual navigation audits require analyzing site structure, internal link flow, mobile performance, and accessibility--taking weeks for large sites. SEOLOGY handles all of this automatically:
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
@@ -563,18 +563,18 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Real-Time Performance Monitoring:</strong> Tracks indexation rates, internal link equity distribution, Core Web Vitals, and engagement metrics—alerts you to navigation issues instantly</span>
+                    <span><strong>Real-Time Performance Monitoring:</strong> Tracks indexation rates, internal link equity distribution, Core Web Vitals, and engagement metrics--alerts you to navigation issues instantly</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Zero Manual Work:</strong> Connect your CMS (Shopify, WordPress, custom sites) and SEOLOGY applies fixes automatically—no coding or technical expertise required</span>
+                    <span><strong>Zero Manual Work:</strong> Connect your CMS (Shopify, WordPress, custom sites) and SEOLOGY applies fixes automatically--no coding or technical expertise required</span>
                   </li>
                 </ul>
 
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Navigation Menu SEO Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY audits navigation structure, optimizes anchor text, fixes mobile usability issues, and monitors performance automatically—boosting indexation and rankings without manual work.
+                    SEOLOGY audits navigation structure, optimizes anchor text, fixes mobile usability issues, and monitors performance automatically--boosting indexation and rankings without manual work.
                   </p>
                   <Link
                     href="/sign-up"
@@ -589,13 +589,13 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Navigation Menu SEO Is the Highway to Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Navigation menu optimization is one of the highest-ROI technical SEO tactics—58% more indexed pages, 42% better link equity distribution, and 31% improved Core Web Vitals with proper implementation. Unlike content marketing (takes months to build authority) or link building (expensive, risky), navigation structure can be fixed in days for immediate indexation and ranking improvements.
+                  Navigation menu optimization is one of the highest-ROI technical SEO tactics--58% more indexed pages, 42% better link equity distribution, and 31% improved Core Web Vitals with proper implementation. Unlike content marketing (takes months to build authority) or link building (expensive, risky), navigation structure can be fixed in days for immediate indexation and ranking improvements.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Focus on flat hierarchies (2-3 clicks max), crawlable HTML links with descriptive anchor text, mobile-first design that passes Core Web Vitals, and semantic HTML structure. Monitor Google Search Console for indexation issues and internal link flow—fix JavaScript-only navigation immediately if you\'re missing pages in the index.
+                  Focus on flat hierarchies (2-3 clicks max), crawlable HTML links with descriptive anchor text, mobile-first design that passes Core Web Vitals, and semantic HTML structure. Monitor Google Search Console for indexation issues and internal link flow--fix JavaScript-only navigation immediately if you\'re missing pages in the index.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>Ready to optimize navigation menus automatically?</strong> SEOLOGY audits site structure, rewrites navigation anchor text, fixes mobile usability issues, and monitors performance—delivering proven SEO wins without manual work. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Start your free trial today →</Link>
+                  <strong>Ready to optimize navigation menus automatically?</strong> SEOLOGY audits site structure, rewrites navigation anchor text, fixes mobile usability issues, and monitors performance--delivering proven SEO wins without manual work. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Start your free trial today →</Link>
                 </p>
               </section>
 

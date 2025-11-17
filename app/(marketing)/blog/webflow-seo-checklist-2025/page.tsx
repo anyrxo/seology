@@ -71,7 +71,7 @@ export default function BlogPost() {
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">500K+</div>
-                    <div className="text-slate-700">Active Webflow sites—many with undiagnosed SEO issues</div>
+                    <div className="text-slate-700">Active Webflow sites--many with undiagnosed SEO issues</div>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-4xl font-bold text-purple-600 mb-2">87%</div>
@@ -110,20 +110,20 @@ export default function BlogPost() {
                       <li>✓ 301 redirects: Configured for all URL changes</li>
                     </ul>
                     <p className="text-slate-700">
-                      <strong>Warning:</strong> Webflow limits you to 10,000 static redirects. If migrating a large site, you will hit this limit—plan accordingly.
+                      <strong>Warning:</strong> Webflow limits you to 10,000 static redirects. If migrating a large site, you will hit this limit--plan accordingly.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 2. Configure Custom Domain Correctly</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Critical:</strong> Webflow creates www and non-www versions—Google sees these as duplicate sites.
+                      <strong>Critical:</strong> Webflow creates www and non-www versions--Google sees these as duplicate sites.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Fix:</strong> Choose ONE canonical version (usually www) and set up 301 redirects from the other.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Test:</strong> Visit both yoursite.com and www.yoursite.com—both should redirect to your chosen version.
+                      <strong>Test:</strong> Visit both yoursite.com and www.yoursite.com--both should redirect to your chosen version.
                     </p>
                   </div>
 
@@ -175,14 +175,14 @@ export default function BlogPost() {
                       <strong>Common fix needed:</strong> If using CMS filters or search, you may need custom robots.txt rules to prevent duplicate content indexing.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Limitation:</strong> Webflow does not allow custom robots.txt files directly—you must use meta robots tags or request Webflow support for specific disallows.
+                      <strong>Limitation:</strong> Webflow does not allow custom robots.txt files directly--you must use meta robots tags or request Webflow support for specific disallows.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 6. Configure Structured Data (Schema Markup)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Webflow limitation:</strong> No built-in schema generator—you must add it manually.
+                      <strong>Webflow limitation:</strong> No built-in schema generator--you must add it manually.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to add schema:</strong> Custom Code → Page Settings → Before &lt;/body&gt; tag → Insert JSON-LD schema.
@@ -219,7 +219,7 @@ export default function BlogPost() {
                       <strong>Submit to:</strong> Google Search Console, Bing Webmaster Tools.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Limitation:</strong> Webflow sitemaps do not include priority or changefreq—Google ignores these anyway, so not critical.
+                      <strong>Limitation:</strong> Webflow sitemaps do not include priority or changefreq--Google ignores these anyway, so not critical.
                     </p>
                   </div>
 
@@ -257,7 +257,7 @@ export default function BlogPost() {
                       <li>og:type (website, article, product, etc.)</li>
                     </ul>
                     <p className="text-slate-700">
-                      <strong>For CMS collections:</strong> Use dynamic fields to populate OG tags automatically—do not set them manually for every post.
+                      <strong>For CMS collections:</strong> Use dynamic fields to populate OG tags automatically--do not set them manually for every post.
                     </p>
                   </div>
 
@@ -276,7 +276,7 @@ export default function BlogPost() {
                       <li>Minimize custom code additions that bloat page weight</li>
                     </ul>
                     <p className="text-slate-700">
-                      <strong>Test:</strong> Run PageSpeed Insights after enabling optimizations—target 90+ mobile score.
+                      <strong>Test:</strong> Run PageSpeed Insights after enabling optimizations--target 90+ mobile score.
                     </p>
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function BlogPost() {
                       <li>50-60 characters maximum</li>
                       <li>Primary keyword near the beginning</li>
                       <li>Include brand name (Brand Name | Page Title)</li>
-                      <li>Make it clickable—not just keyword stuffing</li>
+                      <li>Make it clickable--not just keyword stuffing</li>
                     </ul>
                     <p className="text-slate-700">
                       <strong>For CMS collections:</strong> Create a title_tag field and use format: Post Title | Category | Site Name
@@ -314,7 +314,7 @@ export default function BlogPost() {
                       <strong>Formula that works:</strong> Problem + Solution + CTA in 150-155 characters.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Example:</strong> "Webflow SEO has 7 critical quirks most designers miss. This checklist fixes all of them—boost rankings by 43%."
+                      <strong>Example:</strong> "Webflow SEO has 7 critical quirks most designers miss. This checklist fixes all of them--boost rankings by 43%."
                     </p>
                     <p className="text-slate-700">
                       <strong>Do not:</strong> Leave blank (Google writes bad ones), stuff keywords, use duplicate descriptions across pages.
@@ -324,7 +324,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 13. Use H1 Tags Correctly</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Webflow default:</strong> Often sets multiple H1s or uses H1 for logo—both are SEO mistakes.
+                      <strong>Webflow default:</strong> Often sets multiple H1s or uses H1 for logo--both are SEO mistakes.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Rule:</strong> ONE H1 per page, different from title tag, includes primary keyword.
@@ -333,7 +333,7 @@ export default function BlogPost() {
                       <strong>How to fix:</strong> Select text block → Style panel → Set to H1 heading.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Audit:</strong> View page source (Ctrl+U) and search for "&lt;h1&gt;"—should find exactly one instance.
+                      <strong>Audit:</strong> View page source (Ctrl+U) and search for "&lt;h1&gt;"--should find exactly one instance.
                     </p>
                   </div>
 
@@ -379,7 +379,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 16. Create SEO-Friendly URL Slugs</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Webflow auto-generates slugs from page names—often poorly.</strong>
+                      <strong>Webflow auto-generates slugs from page names--often poorly.</strong>
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Best practices:</strong>
@@ -500,7 +500,7 @@ export default function BlogPost() {
                       <strong>When to use lazy loading:</strong> All images below the fold (not visible on initial page load).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>When NOT to use:</strong> Hero images and above-fold content—these should load immediately.
+                      <strong>When NOT to use:</strong> Hero images and above-fold content--these should load immediately.
                     </p>
                     <p className="text-slate-700">
                       <strong>Impact:</strong> Can improve Largest Contentful Paint (LCP) by 30%+.
@@ -522,7 +522,7 @@ export default function BlogPost() {
                       <li>Avoid heavy animation libraries if possible</li>
                     </ul>
                     <p className="text-slate-700">
-                      <strong>Test impact:</strong> PageSpeed Insights flags render-blocking resources—eliminate them.
+                      <strong>Test impact:</strong> PageSpeed Insights flags render-blocking resources--eliminate them.
                     </p>
                   </div>
 
@@ -541,7 +541,7 @@ export default function BlogPost() {
                       <li>Avoid scroll-triggered animations on long pages</li>
                     </ul>
                     <p className="text-slate-700">
-                      <strong>Priority:</strong> Speed over flashy effects—47% of users expect 2s load times or less.
+                      <strong>Priority:</strong> Speed over flashy effects--47% of users expect 2s load times or less.
                     </p>
                   </div>
 
@@ -594,13 +594,13 @@ export default function BlogPost() {
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 1: No Server-Side Rendering (SSR)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Issue:</strong> Webflow uses client-side JavaScript for dynamic content—Google may not index it correctly.
+                      <strong>Issue:</strong> Webflow uses client-side JavaScript for dynamic content--Google may not index it correctly.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Workaround:</strong> Ensure critical content (headings, first paragraph) is static HTML, not JavaScript-injected.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Test:</strong> View page with JavaScript disabled—important content should still appear.
+                      <strong>Test:</strong> View page with JavaScript disabled--important content should still appear.
                     </p>
                   </div>
 
@@ -620,7 +620,7 @@ export default function BlogPost() {
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 3: Limited Redirect Capabilities</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Issue:</strong> 10,000 static redirect limit—insufficient for large site migrations.
+                      <strong>Issue:</strong> 10,000 static redirect limit--insufficient for large site migrations.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Workaround:</strong> Prioritize redirects for high-traffic pages only, or export site and self-host with Nginx/Apache for unlimited server-side redirects.

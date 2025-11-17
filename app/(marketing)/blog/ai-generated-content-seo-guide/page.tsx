@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Google doesn\'t penalize AI-generated content—<strong>but it does penalize low-quality content</strong>. 68% of marketers now use AI for content creation, but only 12% do it right. This guide covers 15 proven strategies for using AI content safely: human editing requirements, E-E-A-T signals, fact-checking protocols, avoiding AI detection patterns, and quality thresholds. SEOLOGY helps you optimize AI content to meet Google\'s quality standards automatically.
+                Google doesn\'t penalize AI-generated content--<strong>but it does penalize low-quality content</strong>. 68% of marketers now use AI for content creation, but only 12% do it right. This guide covers 15 proven strategies for using AI content safely: human editing requirements, E-E-A-T signals, fact-checking protocols, avoiding AI detection patterns, and quality thresholds. SEOLOGY helps you optimize AI content to meet Google\'s quality standards automatically.
               </p>
             </div>
 
@@ -79,11 +79,11 @@ export default function BlogPost() {
                   </div>
                   <div className="bg-gradient-to-br from-pink-50 to-red-50 p-6 rounded-xl border border-pink-200">
                     <div className="text-4xl font-bold text-pink-600 mb-2">3.2B</div>
-                    <div className="text-slate-700">AI-generated articles published in 2024—flooding search results</div>
+                    <div className="text-slate-700">AI-generated articles published in 2024--flooding search results</div>
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                     <div className="text-4xl font-bold text-green-600 mb-2">12%</div>
-                    <div className="text-slate-700">Of marketers using AI content correctly—meeting E-E-A-T standards</div>
+                    <div className="text-slate-700">Of marketers using AI content correctly--meeting E-E-A-T standards</div>
                   </div>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed mt-6">
@@ -106,7 +106,7 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Add first-person insights, case studies, screenshots, test results, and specific details only someone with real experience would know.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Example:</strong> Instead of "This tool helps with SEO," write "I used this tool on 47 client sites and increased organic traffic by an average of 34% in 90 days—here\'s the exact workflow."
+                      <strong>Example:</strong> Instead of "This tool helps with SEO," write "I used this tool on 47 client sites and increased organic traffic by an average of 34% in 90 days--here\'s the exact workflow."
                     </p>
                   </div>
 
@@ -159,7 +159,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">1. Use AI for Drafts, Not Final Content</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>What works:</strong> AI generates outlines, first drafts, and research summaries—then humans add experience, expertise, and personality.
+                      <strong>What works:</strong> AI generates outlines, first drafts, and research summaries--then humans add experience, expertise, and personality.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>What fails:</strong> Publishing AI output directly with minimal editing.
@@ -172,7 +172,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Add Unique Data and Original Research</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why it matters:</strong> AI can\'t create original data—but original data ranks incredibly well.
+                      <strong>Why it matters:</strong> AI can\'t create original data--but original data ranks incredibly well.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Tactics:</strong> Original surveys, case studies, test results, proprietary datasets, interviews with experts, and comparative analyses.
@@ -234,7 +234,7 @@ export default function BlogPost() {
                       <strong>Reality check:</strong> If AI detectors flag your content, Google likely will too.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Tools to use:</strong> Originality.ai, GPTZero, Copyleaks—aim for under 30% AI detection score.
+                      <strong>Tools to use:</strong> Originality.ai, GPTZero, Copyleaks--aim for under 30% AI detection score.
                     </p>
                     <p className="text-slate-700">
                       <strong>If you fail:</strong> Rewrite flagged sections with more personality, varied sentence structure, and specific examples.
@@ -250,7 +250,7 @@ export default function BlogPost() {
                       <strong>Standards:</strong> 8th-grade reading level maximum (Hemingway App), 15-20 words per sentence average, variety in sentence length, and conversational tone.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Test:</strong> Read content aloud—if it sounds robotic, rewrite it.
+                      <strong>Test:</strong> Read content aloud--if it sounds robotic, rewrite it.
                     </p>
                   </div>
 
@@ -305,7 +305,7 @@ export default function BlogPost() {
                       <strong>Human fix:</strong> Analyze top-ranking pages for target keywords, identify what users actually want, and restructure AI content to match intent.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Intent types:</strong> Informational, navigational, commercial, transactional—AI often mixes these incorrectly.
+                      <strong>Intent types:</strong> Informational, navigational, commercial, transactional--AI often mixes these incorrectly.
                     </p>
                   </div>
 
@@ -351,7 +351,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Update Content Regularly</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>AI content decay:</strong> AI training data becomes outdated quickly—content must be refreshed.
+                      <strong>AI content decay:</strong> AI training data becomes outdated quickly--content must be refreshed.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Schedule:</strong> Review and update AI-assisted content every 3-6 months with new data, examples, and insights.

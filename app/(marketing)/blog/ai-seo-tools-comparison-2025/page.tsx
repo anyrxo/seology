@@ -48,7 +48,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Manual SEO takes 20+ hours per week and costs $5,000+/month for agencies. "Free" AI SEO tools don't actually fix anything. SEOLOGY automates everything for <strong>$299/month</strong> and generates real traffic—2.3M+ monthly visitors across our customer base. That's why smart businesses choose SEOLOGY.
+                Manual SEO takes 20+ hours per week and costs $5,000+/month for agencies. "Free" AI SEO tools don't actually fix anything. SEOLOGY automates everything for <strong>$299/month</strong> and generates real traffic--2.3M+ monthly visitors across our customer base. That's why smart businesses choose SEOLOGY.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Meanwhile, your competitors who use automation are pulling ahead—while you're stuck in spreadsheets.
+                  Meanwhile, your competitors who use automation are pulling ahead--while you're stuck in spreadsheets.
                 </p>
               </section>
 
@@ -93,7 +93,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <X className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                    <span><strong>Don't fix anything</strong>—they just tell you what's broken (which you already knew)</span>
+                    <span><strong>Don't fix anything</strong>--they just tell you what's broken (which you already knew)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <X className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
@@ -105,14 +105,14 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  They're not "free"—they're lead generation funnels disguised as SEO tools.
+                  They're not "free"--they're lead generation funnels disguised as SEO tools.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Makes SEOLOGY Different</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  SEOLOGY is the only AI SEO platform that actually <strong>fixes your SEO issues automatically</strong>—no manual work required.
+                  SEOLOGY is the only AI SEO platform that actually <strong>fixes your SEO issues automatically</strong>--no manual work required.
                 </p>
 
                 {/* Comparison Table */}
@@ -195,7 +195,7 @@ export default function BlogPost() {
                   If you're still doing manual SEO or using "free" AI tools that don't work, you're throwing money away.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                  SEOLOGY automates everything for <strong>$299/month</strong>—less than a single day of agency work—and delivers real results in weeks, not months.
+                  SEOLOGY automates everything for <strong>$299/month</strong>--less than a single day of agency work--and delivers real results in weeks, not months.
                 </p>
 
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">

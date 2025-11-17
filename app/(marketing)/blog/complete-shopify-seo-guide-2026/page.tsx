@@ -33,7 +33,7 @@ export default function BlogPost() {
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           New to Shopify SEO? This comprehensive guide covers everything you need to rank #1 on Google in 2026.
           Learn the <strong>43-step checklist</strong> used by top-performing stores to capture the <strong>27.6%
-          of clicks</strong> that go to position #1—all explained for complete beginners with zero SEO knowledge required.
+          of clicks</strong> that go to position #1--all explained for complete beginners with zero SEO knowledge required.
         </p>
 
         <div className="flex items-center gap-4">
@@ -232,7 +232,7 @@ export default function BlogPost() {
               </p>
               <p className="text-sm text-neutral-600">
                 <strong>How to do it:</strong> Check your robots.txt at <code className="rounded bg-neutral-100 px-2 py-1">yourstore.com/robots.txt</code>.
-                Shopify's default is SEO-friendly—no changes needed for beginners.
+                Shopify's default is SEO-friendly--no changes needed for beginners.
               </p>
             </div>
 

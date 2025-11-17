@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026 | SEOLOGY.AI',
-  description: '75% of users prefer to buy in their native language, and 40% won\'t buy from non-localized sites. Master Shopify Markets, hreflang tags, and international SEO—achieve 70% traffic increase and 40-60% revenue growth with proper localization.',
+  description: '75% of users prefer to buy in their native language, and 40% won\'t buy from non-localized sites. Master Shopify Markets, hreflang tags, and international SEO--achieve 70% traffic increase and 40-60% revenue growth with proper localization.',
   keywords: 'international SEO Shopify, Shopify Markets, multilingual SEO, hreflang tags, multi-currency Shopify, localization, cross-border ecommerce, global SEO, international selling Shopify',
   openGraph: {
     title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026',
@@ -80,7 +80,7 @@ export default function InternationalSEOShopifyMarketsPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Expanding internationally isn't just about reaching more customers—it's about tapping into markets where your competition is weaker and demand is strong. Here's the December 2025 data:
+          Expanding internationally isn't just about reaching more customers--it's about tapping into markets where your competition is weaker and demand is strong. Here's the December 2025 data:
         </p>
 
         <div className="bg-teal-50 dark:bg-teal-950/30 border-l-4 border-teal-500 rounded-lg p-8 my-8">
@@ -159,7 +159,7 @@ export default function InternationalSEOShopifyMarketsPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Displaying prices in local currency isn't a nice-to-have—it's essential. <strong>92% of shoppers prefer local currency</strong>, and <strong>33% abandon carts</strong> if pricing is only in USD.
+          Displaying prices in local currency isn't a nice-to-have--it's essential. <strong>92% of shoppers prefer local currency</strong>, and <strong>33% abandon carts</strong> if pricing is only in USD.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -381,7 +381,7 @@ export default function InternationalSEOShopifyMarketsPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Don't just translate English keywords—research what people actually search in each market.
+          Don't just translate English keywords--research what people actually search in each market.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -542,7 +542,7 @@ export default function InternationalSEOShopifyMarketsPage() {
             Automate International SEO with AI
           </h2>
           <p className="text-xl mb-8 text-teal-100">
-            SEOLOGY.AI automatically generates hreflang tags, validates international SEO implementation, monitors for errors, and suggests localization improvements. Expand globally with confidence—our AI handles the technical complexity while you focus on selling worldwide.
+            SEOLOGY.AI automatically generates hreflang tags, validates international SEO implementation, monitors for errors, and suggests localization improvements. Expand globally with confidence--our AI handles the technical complexity while you focus on selling worldwide.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

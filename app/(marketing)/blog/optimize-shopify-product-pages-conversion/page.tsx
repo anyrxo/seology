@@ -126,7 +126,7 @@ export default function BlogPost() {
 
         <p className="mb-4 text-lg">
           Product page optimization is the <strong>science and art</strong> of designing product pages that convert
-          browsers into buyers. It's not about making pages look pretty—it's about removing friction and answering
+          browsers into buyers. It's not about making pages look pretty--it's about removing friction and answering
           every question customers have <em>before</em> they hit "Add to Cart."
         </p>
 
@@ -167,7 +167,7 @@ export default function BlogPost() {
 
         <p className="mb-6 text-lg">
           Based on analyzing top-performing Shopify stores in Q4 2025, here are the 11 elements that separate
-          winners from losers—in order of impact on conversion rate:
+          winners from losers--in order of impact on conversion rate:
         </p>
 
         {/* Element 1: Images */}
@@ -200,14 +200,14 @@ export default function BlogPost() {
             <h4 className="mb-3 font-bold">Pro Tip: The "Before & After" Strategy</h4>
             <p className="text-sm opacity-90">
               For products that solve problems (skincare, cleaning, organization), showing before/after images increases
-              conversion by 89%. Example: "Closet before using our organizer" vs. "After using our organizer"—customers
+              conversion by 89%. Example: "Closet before using our organizer" vs. "After using our organizer"--customers
               instantly visualize the transformation.
             </p>
           </div>
 
           <p className="mt-6 text-sm text-purple-800">
             <strong>SEOLOGY.AI automation:</strong> Our AI generates additional product angles using image synthesis,
-            adds professional backgrounds, and automatically compresses all images to 200KB while maintaining quality—
+            adds professional backgrounds, and automatically compresses all images to 200KB while maintaining quality--
             saving you hours of Photoshop work.
           </p>
         </div>
@@ -281,7 +281,7 @@ export default function BlogPost() {
 
           <p className="text-sm text-blue-800">
             <strong>SEOLOGY.AI automation:</strong> Our AI rewrites all product descriptions using your brand voice,
-            SEO best practices, and conversion psychology—turning boring manufacturer copy into compelling sales copy
+            SEO best practices, and conversion psychology--turning boring manufacturer copy into compelling sales copy
             in seconds.
           </p>
         </div>
@@ -358,8 +358,8 @@ export default function BlogPost() {
               <h4 className="text-xl font-bold text-pink-900">Additional High-Impact Elements</h4>
             </div>
             <ul className="space-y-3 text-sm text-neutral-700">
-              <li><strong>7. Price Display:</strong> Show savings if on sale ("Was $99, Now $69 – Save $30!"), use psychological pricing ($99 vs $100)</li>
-              <li><strong>8. Stock Scarcity:</strong> "Only 3 left in stock" increases urgency (but NEVER lie—customers check back)</li>
+              <li><strong>7. Price Display:</strong> Show savings if on sale ("Was $99, Now $69 - Save $30!"), use psychological pricing ($99 vs $100)</li>
+              <li><strong>8. Stock Scarcity:</strong> "Only 3 left in stock" increases urgency (but NEVER lie--customers check back)</li>
               <li><strong>9. Mobile Optimization:</strong> 70% of Shopify traffic is mobile. Pages must load under 2.5 seconds on 4G</li>
               <li><strong>10. FAQ Section:</strong> Answer objections before they arise (reduces support tickets by 34%)</li>
               <li><strong>11. Related Products:</strong> "Frequently bought together" increases AOV by 26%</li>
@@ -473,19 +473,19 @@ export default function BlogPost() {
             <h3 className="mb-4 text-xl font-bold">Time Required for Manual Optimization:</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between opacity-90">
-                <span>Rewrite product descriptions (200 products × 30 min)</span>
+                <span>Rewrite product descriptions (200 products x 30 min)</span>
                 <strong>100 hours</strong>
               </div>
               <div className="flex justify-between opacity-90">
-                <span>Edit/optimize images (200 products × 15 min)</span>
+                <span>Edit/optimize images (200 products x 15 min)</span>
                 <strong>50 hours</strong>
               </div>
               <div className="flex justify-between opacity-90">
-                <span>Add alt text to all images (800 images × 2 min)</span>
+                <span>Add alt text to all images (800 images x 2 min)</span>
                 <strong>27 hours</strong>
               </div>
               <div className="flex justify-between opacity-90">
-                <span>Write SEO meta titles/descriptions (200 × 8 min)</span>
+                <span>Write SEO meta titles/descriptions (200 x 8 min)</span>
                 <strong>27 hours</strong>
               </div>
               <div className="flex justify-between opacity-90">

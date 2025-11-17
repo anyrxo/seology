@@ -52,7 +52,7 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="text-slate-700">Content with optimized Open Graph tags gets <strong>89% more social engagement</strong> than content with default tags (BuzzSumo study, 2024)</li>
                 <li className="text-slate-700">Proper OG images increase click-through rate <strong>2.3x</strong> on Facebook and <strong>1.8x</strong> on Twitter vs text-only shares (Buffer research, 2024)</li>
-                <li className="text-slate-700">Social referral traffic accounts for <strong>31% of overall website traffic</strong>—second only to organic search (Shareaholic, 2024)</li>
+                <li className="text-slate-700">Social referral traffic accounts for <strong>31% of overall website traffic</strong>--second only to organic search (Shareaholic, 2024)</li>
                 <li className="text-slate-700">Sites with complete OG tags receive <strong>312% more social referral traffic</strong> than sites without OG optimization (case study below)</li>
                 <li className="text-slate-700">While not a direct ranking factor, social signals correlate with <strong>22% higher search rankings</strong> (Moz correlation study, 2024)</li>
                 <li className="text-slate-700">Tools: Facebook Sharing Debugger, Twitter Card Validator, LinkedIn Post Inspector, OpenGraph.xyz</li>
@@ -66,7 +66,7 @@ export default function BlogPost() {
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                Without Open Graph tags, social platforms guess what to display—often showing wrong images, truncated text, or missing information. This results in <strong>2.3x lower click-through rates</strong> and dramatically reduced social engagement (Buffer study, 2024). Proper OG implementation ensures every social share looks professional and compelling.
+                Without Open Graph tags, social platforms guess what to display--often showing wrong images, truncated text, or missing information. This results in <strong>2.3x lower click-through rates</strong> and dramatically reduced social engagement (Buffer study, 2024). Proper OG implementation ensures every social share looks professional and compelling.
               </p>
 
               <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
@@ -89,7 +89,7 @@ export default function BlogPost() {
               <ul className="space-y-3 my-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Social Referral Traffic:</strong> 31% of website traffic comes from social media—proper OG tags increase social CTR 2.3x (Shareaholic + Buffer, 2024)</span>
+                  <span><strong>Social Referral Traffic:</strong> 31% of website traffic comes from social media--proper OG tags increase social CTR 2.3x (Shareaholic + Buffer, 2024)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -97,7 +97,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Backlink Generation:</strong> Content that gets shared more frequently earns more backlinks—social shares correlate with 22% higher rankings (Moz, 2024)</span>
+                  <span><strong>Backlink Generation:</strong> Content that gets shared more frequently earns more backlinks--social shares correlate with 22% higher rankings (Moz, 2024)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -105,7 +105,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Content Distribution:</strong> Social platforms are content discovery engines—OG optimization amplifies reach beyond organic search</span>
+                  <span><strong>Content Distribution:</strong> Social platforms are content discovery engines--OG optimization amplifies reach beyond organic search</span>
                 </li>
               </ul>
             </section>
@@ -143,7 +143,7 @@ export default function BlogPost() {
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">3. og:image - Use High-Impact Visuals</h4>
                     <p className="text-slate-700 mb-3">
-                      This is the MOST important OG tag. Content with compelling images gets 2.3x more clicks. Use 1200×630px (Facebook/LinkedIn) or 1200×628px (Twitter). File size under 8MB, ideally under 300KB for fast loading.
+                      This is the MOST important OG tag. Content with compelling images gets 2.3x more clicks. Use 1200x630px (Facebook/LinkedIn) or 1200x628px (Twitter). File size under 8MB, ideally under 300KB for fast loading.
                     </p>
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                       <p className="text-sm"><strong>Image Best Practices:</strong></p>
@@ -242,21 +242,21 @@ export default function BlogPost() {
                       <p className="font-mono text-xs">&lt;meta name="twitter:description" content="Compelling description..." /&gt;</p>
                       <p className="font-mono text-xs">&lt;meta name="twitter:image" content="https://example.com/twitter-image.jpg" /&gt;</p>
                     </div>
-                    <p className="text-sm text-slate-600 mt-2">Twitter image optimal size: 1200×675px (16:9 ratio) for summary_large_image cards</p>
+                    <p className="text-sm text-slate-600 mt-2">Twitter image optimal size: 1200x675px (16:9 ratio) for summary_large_image cards</p>
                   </div>
 
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. LinkedIn-Specific Considerations</h4>
                     <p className="text-slate-700 mb-3">
-                      LinkedIn uses Open Graph tags but has stricter image guidelines. Use professional, business-appropriate images. Minimum 1200×627px. Text overlays should be clear and readable.
+                      LinkedIn uses Open Graph tags but has stricter image guidelines. Use professional, business-appropriate images. Minimum 1200x627px. Text overlays should be clear and readable.
                     </p>
-                    <p className="text-sm text-slate-600">LinkedIn caches OG tags aggressively—use LinkedIn Post Inspector to force refresh after changes</p>
+                    <p className="text-sm text-slate-600">LinkedIn caches OG tags aggressively--use LinkedIn Post Inspector to force refresh after changes</p>
                   </div>
 
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">12. Multiple OG Images for Different Platforms</h4>
                     <p className="text-slate-700 mb-3">
-                      You can specify multiple og:image tags—platforms pick the best fit. Provide square image (1:1 ratio) for Pinterest/WhatsApp, landscape for Facebook/LinkedIn, and wide for Twitter.
+                      You can specify multiple og:image tags--platforms pick the best fit. Provide square image (1:1 ratio) for Pinterest/WhatsApp, landscape for Facebook/LinkedIn, and wide for Twitter.
                     </p>
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                       <p className="font-mono text-xs">&lt;meta property="og:image" content="https://example.com/image-1200x630.jpg" /&gt;</p>
@@ -290,7 +290,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       LinkedIn Post Inspector (linkedin.com/post-inspector) validates OG tags and refreshes LinkedIn\'s aggressive cache. Essential after making OG tag changes.
                     </p>
-                    <p className="text-sm text-slate-600">LinkedIn caches OG tags for 7 days—use Post Inspector to force immediate refresh</p>
+                    <p className="text-sm text-slate-600">LinkedIn caches OG tags for 7 days--use Post Inspector to force immediate refresh</p>
                   </div>
 
                   <div className="mb-6">
@@ -298,7 +298,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       OpenGraph.xyz shows how your content appears across Facebook, Twitter, LinkedIn, Slack, Discord, iMessage, and more in one view. Great for QA before publishing.
                     </p>
-                    <p className="text-sm text-slate-600">Free tool showing real-time previews across 10+ platforms—catches platform-specific rendering issues</p>
+                    <p className="text-sm text-slate-600">Free tool showing real-time previews across 10+ platforms--catches platform-specific rendering issues</p>
                   </div>
                 </div>
               </div>
@@ -311,7 +311,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Using Same Text for SEO Title and og:title:</strong>
-                    <p className="text-slate-700 mt-1">SEO titles optimize for search intent; social titles optimize for curiosity and emotion. Use different angles—social-optimized titles get 2.1x more clicks (CoSchedule, 2024)</p>
+                    <p className="text-slate-700 mt-1">SEO titles optimize for search intent; social titles optimize for curiosity and emotion. Use different angles--social-optimized titles get 2.1x more clicks (CoSchedule, 2024)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -325,7 +325,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Wrong Image Dimensions:</strong>
-                    <p className="text-slate-700 mt-1">Using square images for Facebook/LinkedIn results in cropping and poor presentation—use 1200×630px landscape format</p>
+                    <p className="text-slate-700 mt-1">Using square images for Facebook/LinkedIn results in cropping and poor presentation--use 1200x630px landscape format</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -339,7 +339,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Forgetting to Update OG Tags When Content Changes:</strong>
-                    <p className="text-slate-700 mt-1">Old titles/images in social cards hurt click-through rate—update OG tags whenever you update page content, then refresh caches</p>
+                    <p className="text-slate-700 mt-1">Old titles/images in social cards hurt click-through rate--update OG tags whenever you update page content, then refresh caches</p>
                   </div>
                 </li>
               </ul>
@@ -366,7 +366,7 @@ export default function BlogPost() {
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg">
                   <h3 className="text-xl font-bold mb-3">Canva</h3>
                   <p className="text-slate-700 mb-2">Best for: Creating OG images</p>
-                  <p className="text-sm text-slate-600">Pre-sized templates for social media graphics. Free tier includes 1200×630px Open Graph templates with text overlay options.</p>
+                  <p className="text-sm text-slate-600">Pre-sized templates for social media graphics. Free tier includes 1200x630px Open Graph templates with text overlay options.</p>
                 </div>
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg">
                   <h3 className="text-xl font-bold mb-3">LinkedIn Post Inspector</h3>
@@ -413,11 +413,11 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span><strong>43% longer average session duration</strong> from social visitors—better content targeting improved relevance</span>
+                    <span><strong>43% longer average session duration</strong> from social visitors--better content targeting improved relevance</span>
                   </li>
                 </ul>
                 <p className="text-sm text-slate-600 italic">
-                  "We\'d been posting great content on social for years but never understood why our competitors got more traffic from smaller followings. Turns out we were shooting ourselves in the foot with terrible social previews. Adding proper Open Graph tags tripled our social traffic in 3 months. It\'s the highest-ROI optimization we\'ve ever done—2 hours of setup for 312% more traffic." - Amanda Rodriguez, VP Marketing, CloudSync
+                  "We\'d been posting great content on social for years but never understood why our competitors got more traffic from smaller followings. Turns out we were shooting ourselves in the foot with terrible social previews. Adding proper Open Graph tags tripled our social traffic in 3 months. It\'s the highest-ROI optimization we\'ve ever done--2 hours of setup for 312% more traffic." - Amanda Rodriguez, VP Marketing, CloudSync
                 </p>
               </div>
             </section>
@@ -457,7 +457,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Open Graph Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements perfect Open Graph tags across your entire site automatically—custom images, optimized titles, platform-specific tags—delivering 312% more social traffic without manual work.
+                  SEOLOGY implements perfect Open Graph tags across your entire site automatically--custom images, optimized titles, platform-specific tags--delivering 312% more social traffic without manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -472,10 +472,10 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Open Graph optimization is the most overlooked traffic source in SEO. While everyone focuses on Google rankings, 31% of website traffic comes from social platforms—and proper OG implementation can triple that traffic. The CloudSync case study proves that 2 hours of OG setup work delivers 312% more social traffic, 89% higher engagement, and 127% more conversions from social visitors. That\'s an extraordinary ROI for a relatively simple technical optimization.
+                Open Graph optimization is the most overlooked traffic source in SEO. While everyone focuses on Google rankings, 31% of website traffic comes from social platforms--and proper OG implementation can triple that traffic. The CloudSync case study proves that 2 hours of OG setup work delivers 312% more social traffic, 89% higher engagement, and 127% more conversions from social visitors. That\'s an extraordinary ROI for a relatively simple technical optimization.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                Start by implementing OG tags on your top 20 highest-traffic pages, using custom images with text overlays, and writing social-optimized titles that differ from your SEO titles. Test every page with Facebook Sharing Debugger and Twitter Card Validator before sharing. The challenge is scale—creating custom OG images and optimizing hundreds of pages manually takes weeks. SEOLOGY automates the entire Open Graph workflow, from generating custom images to writing social titles to refreshing platform caches, so you get the 312% traffic increase without spending weeks on manual optimization.
+                Start by implementing OG tags on your top 20 highest-traffic pages, using custom images with text overlays, and writing social-optimized titles that differ from your SEO titles. Test every page with Facebook Sharing Debugger and Twitter Card Validator before sharing. The challenge is scale--creating custom OG images and optimizing hundreds of pages manually takes weeks. SEOLOGY automates the entire Open Graph workflow, from generating custom images to writing social titles to refreshing platform caches, so you get the 312% traffic increase without spending weeks on manual optimization.
               </p>
             </section>
 

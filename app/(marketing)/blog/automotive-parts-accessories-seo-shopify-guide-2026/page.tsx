@@ -82,7 +82,7 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
         <ul>
           <li><strong>Research Phase:</strong> 68% of automotive shoppers begin their journey with Google searches for specific part numbers, vehicle-specific solutions ("2018 Honda Civic brake pads"), or problem-based queries ("squeaking noise when braking"). These searches often include year/make/model combinations that must be captured in your SEO strategy.</li>
           <li><strong>Comparison Phase:</strong> Shoppers compare fitment compatibility, pricing, shipping speed, and return policies across multiple platforms. They frequently cross-reference Amazon, eBay Motors, and specialty auto parts sites before making purchasing decisions.</li>
-          <li><strong>Purchase Decision:</strong> Trust signals like verified fitment data, customer reviews with vehicle details ("Fits my 2020 F-150 perfectly"), and clear return policies drive conversions. Price is important but not the only factor—convenience, shipping speed, and compatibility confidence matter equally.</li>
+          <li><strong>Purchase Decision:</strong> Trust signals like verified fitment data, customer reviews with vehicle details ("Fits my 2020 F-150 perfectly"), and clear return policies drive conversions. Price is important but not the only factor--convenience, shipping speed, and compatibility confidence matter equally.</li>
           <li><strong>Post-Purchase Support:</strong> Installation guides, video tutorials, and compatibility verification reduce return rates. Nearly half of returns in automotive parts stem from fitment errors, making accurate data critical for retention.</li>
         </ul>
 
@@ -208,12 +208,12 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
         <h3>Essential Product Attributes</h3>
 
         <ul>
-          <li><strong>Dimensional Data:</strong> Length, width, height, weight, diameter, thread size, bolt pattern—critical for fitment verification</li>
-          <li><strong>Material Specifications:</strong> "Stainless steel," "carbon fiber," "ABS plastic," "aluminum alloy"—materials drive feature-based searches</li>
-          <li><strong>Performance Specs:</strong> Horsepower gains, torque ratings, flow rates, temperature ranges, pressure ratings—essential for performance parts</li>
-          <li><strong>Certifications:</strong> DOT approved, SAE certified, ISO compliant, CARB legal—critical for regulatory compliance and customer confidence</li>
-          <li><strong>Finish/Color Options:</strong> "Chrome," "matte black," "polished aluminum," "powder-coated red"—aesthetic preferences drive purchases for exterior accessories</li>
-          <li><strong>Installation Requirements:</strong> "Direct bolt-on," "welding required," "professional installation recommended"—sets customer expectations</li>
+          <li><strong>Dimensional Data:</strong> Length, width, height, weight, diameter, thread size, bolt pattern--critical for fitment verification</li>
+          <li><strong>Material Specifications:</strong> "Stainless steel," "carbon fiber," "ABS plastic," "aluminum alloy"--materials drive feature-based searches</li>
+          <li><strong>Performance Specs:</strong> Horsepower gains, torque ratings, flow rates, temperature ranges, pressure ratings--essential for performance parts</li>
+          <li><strong>Certifications:</strong> DOT approved, SAE certified, ISO compliant, CARB legal--critical for regulatory compliance and customer confidence</li>
+          <li><strong>Finish/Color Options:</strong> "Chrome," "matte black," "polished aluminum," "powder-coated red"--aesthetic preferences drive purchases for exterior accessories</li>
+          <li><strong>Installation Requirements:</strong> "Direct bolt-on," "welding required," "professional installation recommended"--sets customer expectations</li>
         </ul>
 
         <h3>Layered Navigation & Faceted Search</h3>
@@ -251,7 +251,7 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
         <h3>eBay Motors Best Practices</h3>
 
         <ul>
-          <li><strong>eBay Motors Compatibility Tool:</strong> eBay requires fitment data for most automotive categories. Use the Parts Compatibility widget to specify all compatible vehicles—this makes your listings appear in vehicle-specific searches.</li>
+          <li><strong>eBay Motors Compatibility Tool:</strong> eBay requires fitment data for most automotive categories. Use the Parts Compatibility widget to specify all compatible vehicles--this makes your listings appear in vehicle-specific searches.</li>
           <li><strong>Title Optimization:</strong> eBay allows 80 characters. Prioritize: part name, year range, make/model, key feature, and condition. Example: "2018-2022 Honda Accord Floor Mats All-Weather 4PC Set Black New OEM Quality"</li>
           <li><strong>Item Specifics:</strong> Complete ALL item specifics fields. eBay's Cassini algorithm heavily weights item specifics in search rankings. Include manufacturer part number, OEM part number, interchange part number, placement on vehicle, material, color, quantity, warranty, and surface finish.</li>
           <li><strong>Shipping Speed:</strong> eBay prioritizes listings with fast, free shipping. Offer free shipping on orders over $50 and same-day/next-day handling to boost rankings and conversions.</li>
@@ -417,7 +417,7 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
 
         <ul>
           <li><strong>Fitment Guarantees:</strong> "100% Fitment Guarantee or Your Money Back" reduces purchase hesitation for compatibility concerns</li>
-          <li><strong>Return Policies:</strong> Clearly display return policies. Automotive parts have higher return anxiety—transparent policies build confidence</li>
+          <li><strong>Return Policies:</strong> Clearly display return policies. Automotive parts have higher return anxiety--transparent policies build confidence</li>
           <li><strong>Certifications:</strong> Display industry certifications (ASE, SAE, ISO) and marketplace badges (Amazon's Choice, eBay Top Rated Seller)</li>
           <li><strong>Security Badges:</strong> Show SSL certificates, secure payment icons (Visa, Mastercard, PayPal), and privacy policy links</li>
         </ul>
@@ -471,7 +471,7 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Automotive Parts Stores</h2>
 
         <p>
-          The complexity of automotive parts SEO—managing thousands of SKUs, millions of MMY combinations, ACES/PIES data compliance, marketplace optimization, and seasonal demand fluctuations—makes manual optimization nearly impossible at scale.
+          The complexity of automotive parts SEO--managing thousands of SKUs, millions of MMY combinations, ACES/PIES data compliance, marketplace optimization, and seasonal demand fluctuations--makes manual optimization nearly impossible at scale.
         </p>
 
         <p>
@@ -489,7 +489,7 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine learns your catalog structure, identifies optimization opportunities, and implements fixes automatically—allowing you to focus on sourcing quality parts and serving customers while SEO runs on autopilot.
+          SEOLOGY.AI's AI engine learns your catalog structure, identifies optimization opportunities, and implements fixes automatically--allowing you to focus on sourcing quality parts and serving customers while SEO runs on autopilot.
         </p>
       </div>
 

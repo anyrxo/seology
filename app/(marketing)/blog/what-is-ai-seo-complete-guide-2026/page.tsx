@@ -112,7 +112,7 @@ export default function WhatIsAISEOPage() {
           Think of manual SEO as a single analyst with a spreadsheet, manually checking 100 product pages for optimization issues. They might analyze 5-10 pages per hour, taking 10-20 hours to complete the audit.
         </p>
         <p className="text-gray-700">
-          AI SEO is like having 1,000 expert analysts working simultaneously, each equipped with real-time data from millions of websites. They analyze all 100 pages in minutes, cross-reference against current ranking factors, predict algorithm impact, and generate optimized content—all while you sleep. The difference isn't just speed; it's the ability to process billions of data points that humans physically cannot analyze.
+          AI SEO is like having 1,000 expert analysts working simultaneously, each equipped with real-time data from millions of websites. They analyze all 100 pages in minutes, cross-reference against current ranking factors, predict algorithm impact, and generate optimized content--all while you sleep. The difference isn't just speed; it's the ability to process billions of data points that humans physically cannot analyze.
         </p>
       </div>
 
@@ -175,7 +175,7 @@ export default function WhatIsAISEOPage() {
       <h3>4. Predictive Algorithms & Forecasting</h3>
 
       <p>
-        AI SEO doesn't just react to current rankings—it predicts future changes:
+        AI SEO doesn't just react to current rankings--it predicts future changes:
       </p>
 
       <ul>
@@ -342,7 +342,7 @@ export default function WhatIsAISEOPage() {
       <h3>2. Content Generation & Optimization</h3>
 
       <p>
-        Modern AI SEO platforms don't just suggest keywords—they create and optimize entire content strategies:
+        Modern AI SEO platforms don't just suggest keywords--they create and optimize entire content strategies:
       </p>
 
       <ul>
@@ -422,7 +422,7 @@ export default function WhatIsAISEOPage() {
       </div>
 
       <p>
-        <strong>Critical prediction for 2026</strong>: Analysts forecast a potential <strong>25% drop in traditional organic search volume</strong> due to AI chatbots and virtual agents. Semrush predicts AI search visitors will surpass traditional search visitors by 2028—though if Google makes AI Mode the default globally, this could happen even sooner.
+        <strong>Critical prediction for 2026</strong>: Analysts forecast a potential <strong>25% drop in traditional organic search volume</strong> due to AI chatbots and virtual agents. Semrush predicts AI search visitors will surpass traditional search visitors by 2028--though if Google makes AI Mode the default globally, this could happen even sooner.
       </p>
 
       <p>
@@ -437,13 +437,13 @@ export default function WhatIsAISEOPage() {
       </ul>
 
       <p>
-        AI SEO platforms are the only practical way to optimize across all these channels simultaneously—manual optimization for each platform would require massive teams and budgets.
+        AI SEO platforms are the only practical way to optimize across all these channels simultaneously--manual optimization for each platform would require massive teams and budgets.
       </p>
 
       <div className="not-prose bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Experience AI SEO Automation with SEOLOGY.AI</h2>
         <p className="text-lg mb-6 text-blue-50">
-          Stop spending 40+ hours weekly on manual SEO tasks. SEOLOGY.AI automates keyword research, content optimization, technical audits, and continuous monitoring—delivering the 49.2% ranking improvements and 50% time savings businesses report. Our AI analyzes your site 24/7, implementing fixes automatically while you focus on growing your business.
+          Stop spending 40+ hours weekly on manual SEO tasks. SEOLOGY.AI automates keyword research, content optimization, technical audits, and continuous monitoring--delivering the 49.2% ranking improvements and 50% time savings businesses report. Our AI analyzes your site 24/7, implementing fixes automatically while you focus on growing your business.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
@@ -469,32 +469,32 @@ export default function WhatIsAISEOPage() {
       <div className="not-prose space-y-4 my-8">
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Myth #1: "AI SEO Will Replace SEO Professionals"</h3>
-          <p className="text-gray-700 mb-2"><strong>Reality</strong>: AI augments human expertise, not replaces it. The most successful approach is hybrid—AI handles data analysis and automation while humans provide strategy, creativity, and business context.</p>
+          <p className="text-gray-700 mb-2"><strong>Reality</strong>: AI augments human expertise, not replaces it. The most successful approach is hybrid--AI handles data analysis and automation while humans provide strategy, creativity, and business context.</p>
           <p className="text-gray-700 text-sm">83% of SEO professionals at companies with 200+ employees reported improved performance after adopting AI, suggesting AI enhances rather than replaces their roles.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Myth #2: "AI SEO Content is Low-Quality and Spammy"</h3>
-          <p className="text-gray-700 mb-2"><strong>Reality</strong>: Modern AI content tools produce high-quality, human-indistinguishable content when properly configured. The key is using AI for research, outlines, and optimization—not blindly publishing unedited AI output.</p>
+          <p className="text-gray-700 mb-2"><strong>Reality</strong>: Modern AI content tools produce high-quality, human-indistinguishable content when properly configured. The key is using AI for research, outlines, and optimization--not blindly publishing unedited AI output.</p>
           <p className="text-gray-700 text-sm">68% of companies achieve higher ROI with AI-assisted content, indicating quality actually improves when AI handles research and humans handle refinement.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Myth #3: "AI SEO is Only for Large Enterprises"</h3>
           <p className="text-gray-700 mb-2"><strong>Reality</strong>: AI SEO democratizes enterprise-level optimization for businesses of all sizes. Small businesses gain the most because they acquire capabilities previously requiring large teams and budgets.</p>
-          <p className="text-gray-700 text-sm">One small business doubled organic traffic in 2 months using AI SEO tools—results that would have required hiring an entire SEO team manually.</p>
+          <p className="text-gray-700 text-sm">One small business doubled organic traffic in 2 months using AI SEO tools--results that would have required hiring an entire SEO team manually.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Myth #4: "AI SEO is Just Keyword Stuffing at Scale"</h3>
-          <p className="text-gray-700 mb-2"><strong>Reality</strong>: Modern AI SEO focuses on semantic optimization, user intent, and content quality—not keyword density. AI understands context and relevance better than keyword-focused manual approaches.</p>
+          <p className="text-gray-700 mb-2"><strong>Reality</strong>: Modern AI SEO focuses on semantic optimization, user intent, and content quality--not keyword density. AI understands context and relevance better than keyword-focused manual approaches.</p>
           <p className="text-gray-700 text-sm">AI-powered NLP analyzes semantic relationships and entity connections, producing content optimized for meaning, not just keywords.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Myth #5: "AI SEO Tools Are Too Complex to Use"</h3>
           <p className="text-gray-700 mb-2"><strong>Reality</strong>: Modern AI SEO platforms are designed for non-technical users. Most require minimal setup and provide actionable recommendations, not raw data.</p>
-          <p className="text-gray-700 text-sm">60% of marketers use AI for keyword research and brainstorming—tasks that require no technical expertise with modern AI tools.</p>
+          <p className="text-gray-700 text-sm">60% of marketers use AI for keyword research and brainstorming--tasks that require no technical expertise with modern AI tools.</p>
         </div>
       </div>
 
@@ -599,7 +599,7 @@ export default function WhatIsAISEOPage() {
 
         <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
           <p className="text-gray-700">
-            <strong>Key Takeaway</strong>: AI SEO enabled a resource-constrained team to achieve enterprise-level optimization by automating testing, analysis, and implementation—proving that AI democratizes advanced SEO capabilities.
+            <strong>Key Takeaway</strong>: AI SEO enabled a resource-constrained team to achieve enterprise-level optimization by automating testing, analysis, and implementation--proving that AI democratizes advanced SEO capabilities.
           </p>
         </div>
       </div>
@@ -627,7 +627,7 @@ export default function WhatIsAISEOPage() {
       </p>
 
       <p>
-        In 2023, AI SEO might have provided a 10-20% advantage. In 2025, it's 49.2% ranking improvements and 50% time savings. By 2026, businesses without AI SEO will struggle to compete at all—facing competitors who optimize 24/7, process billions of data points, and adapt to algorithm changes in real-time.
+        In 2023, AI SEO might have provided a 10-20% advantage. In 2025, it's 49.2% ranking improvements and 50% time savings. By 2026, businesses without AI SEO will struggle to compete at all--facing competitors who optimize 24/7, process billions of data points, and adapt to algorithm changes in real-time.
       </p>
 
       <p>
@@ -637,7 +637,7 @@ export default function WhatIsAISEOPage() {
       <div className="not-prose bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Join 1,200+ Businesses Using AI SEO Automation</h2>
         <p className="text-lg mb-6 text-blue-50">
-          SEOLOGY.AI provides the complete AI SEO platform: automated technical audits, content optimization, competitor intelligence, and 24/7 monitoring. Experience the 49.2% ranking improvements, 50% time savings, and 68% higher ROI businesses report—without hiring an SEO team.
+          SEOLOGY.AI provides the complete AI SEO platform: automated technical audits, content optimization, competitor intelligence, and 24/7 monitoring. Experience the 49.2% ranking improvements, 50% time savings, and 68% higher ROI businesses report--without hiring an SEO team.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <h3 className="font-semibold mb-3">What You Get:</h3>
@@ -690,7 +690,7 @@ export default function WhatIsAISEOPage() {
       <h2>Conclusion: The AI SEO Imperative</h2>
 
       <p>
-        AI SEO isn't experimental technology anymore—it's the new baseline. With <strong>82% of businesses</strong> planning to embrace AI SEO, <strong>56% actively using it</strong>, and documented <strong>49.2% ranking improvements</strong>, the data is unambiguous: AI-powered optimization delivers results manual approaches cannot match.
+        AI SEO isn't experimental technology anymore--it's the new baseline. With <strong>82% of businesses</strong> planning to embrace AI SEO, <strong>56% actively using it</strong>, and documented <strong>49.2% ranking improvements</strong>, the data is unambiguous: AI-powered optimization delivers results manual approaches cannot match.
       </p>
 
       <p>
@@ -706,11 +706,11 @@ export default function WhatIsAISEOPage() {
       </ul>
 
       <p>
-        As AI search engines like ChatGPT (5 billion monthly visits) reshape how people find information, and traditional search volume faces a projected 25% decline by 2026, businesses need optimization strategies that work across all platforms—something only AI can deliver at scale.
+        As AI search engines like ChatGPT (5 billion monthly visits) reshape how people find information, and traditional search volume faces a projected 25% decline by 2026, businesses need optimization strategies that work across all platforms--something only AI can deliver at scale.
       </p>
 
       <p>
-        The choice is clear: embrace AI SEO now and join the 68% achieving higher ROI, or watch competitors pull further ahead with capabilities you can't match manually. The AI SEO revolution isn't coming—it's here. The only question is whether you'll lead it or lag behind it.
+        The choice is clear: embrace AI SEO now and join the 68% achieving higher ROI, or watch competitors pull further ahead with capabilities you can't match manually. The AI SEO revolution isn't coming--it's here. The only question is whether you'll lead it or lag behind it.
       </p>
 
       <div className="not-prose mt-16 pt-8 border-t border-gray-200">

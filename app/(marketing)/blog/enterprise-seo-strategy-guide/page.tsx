@@ -66,7 +66,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Makes Enterprise SEO Different</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Enterprise SEO isn\'t just "more SEO"—it\'s fundamentally different. Small site tactics fail catastrophically at enterprise scale.
+                  Enterprise SEO isn\'t just "more SEO"--it\'s fundamentally different. Small site tactics fail catastrophically at enterprise scale.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">

@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
-  title: 'Landing Page SEO: Rank High & Convert Better (16 Dual-Optimization Tactics) — 89% More Conversions',
-  description: "Landing pages optimized for SEO alone rank but don\'t convert. Dual-optimization strategy balanced rankings with conversions—increasing organic traffic 54% AND conversion rate 89% simultaneously.",
+  title: 'Landing Page SEO: Rank High & Convert Better (16 Dual-Optimization Tactics) -- 89% More Conversions',
+  description: "Landing pages optimized for SEO alone rank but don\'t convert. Dual-optimization strategy balanced rankings with conversions--increasing organic traffic 54% AND conversion rate 89% simultaneously.",
 }
 
 export default function BlogPost() {
@@ -32,7 +32,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Landing pages optimized for SEO alone rank but don\'t convert—traffic is worthless without conversions. Dual-optimization strategy increased organic traffic 54% AND conversion rate 89% simultaneously.
+            Landing pages optimized for SEO alone rank but don\'t convert--traffic is worthless without conversions. Dual-optimization strategy increased organic traffic 54% AND conversion rate 89% simultaneously.
           </p>
 
           <div className="mb-12">
@@ -53,12 +53,12 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li><strong>SEO-only optimization kills conversions:</strong> Landing pages stuffed with keywords for rankings sacrifice persuasive copy, clear CTAs, and conversion-focused design—traffic arrives but doesn\'t convert</li>
-                <li><strong>Conversion-only optimization kills rankings:</strong> Pages designed purely for conversions often lack keyword targeting, comprehensive content, and technical SEO—converts well but nobody finds it in search</li>
+                <li><strong>SEO-only optimization kills conversions:</strong> Landing pages stuffed with keywords for rankings sacrifice persuasive copy, clear CTAs, and conversion-focused design--traffic arrives but doesn\'t convert</li>
+                <li><strong>Conversion-only optimization kills rankings:</strong> Pages designed purely for conversions often lack keyword targeting, comprehensive content, and technical SEO--converts well but nobody finds it in search</li>
                 <li><strong>Dual-optimization balances both goals:</strong> Strategic keyword placement in headlines/CTAs (maintains rankings), persuasive benefit-driven copy (drives conversions), technical SEO foundation (enables discovery), conversion-focused UX (captures traffic)</li>
-                <li><strong>The ranking-conversion tradeoff is a myth:</strong> 89% of successful landing pages rank in top 10 AND convert above 5%—it\'s not either/or, it\'s both (source: Unbounce analysis of 44,000 landing pages)</li>
+                <li><strong>The ranking-conversion tradeoff is a myth:</strong> 89% of successful landing pages rank in top 10 AND convert above 5%--it\'s not either/or, it\'s both (source: Unbounce analysis of 44,000 landing pages)</li>
                 <li><strong>Different page types need different balances:</strong> Top-of-funnel pages (70% SEO / 30% conversion focus), mid-funnel (50/50 balance), bottom-of-funnel (30% SEO / 70% conversion focus)</li>
-                <li><strong>Real example: 54% traffic + 89% conversion increase:</strong> SaaS company rebalanced landing pages from SEO-only to dual-optimization—organic traffic increased 54%, conversion rate jumped from 2.3% to 4.3% (89% improvement)</li>
+                <li><strong>Real example: 54% traffic + 89% conversion increase:</strong> SaaS company rebalanced landing pages from SEO-only to dual-optimization--organic traffic increased 54%, conversion rate jumped from 2.3% to 4.3% (89% improvement)</li>
               </ul>
             </div>
 
@@ -66,16 +66,16 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Most Landing Pages Fail at Both SEO and Conversion</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  You optimize a landing page for "project management software." You stuff the keyword 47 times, add 2,000 words of keyword-rich content, internal link from 20 pages. Organic traffic increases 140%. Conversion rate: 0.7%. The traffic is worthless—visitors arrive, see keyword-stuffed garbage, and leave without converting.
+                  You optimize a landing page for "project management software." You stuff the keyword 47 times, add 2,000 words of keyword-rich content, internal link from 20 pages. Organic traffic increases 140%. Conversion rate: 0.7%. The traffic is worthless--visitors arrive, see keyword-stuffed garbage, and leave without converting.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Or the opposite: You create a beautiful landing page with persuasive copy, stunning visuals, crystal-clear CTA. Conversion rate: 8.4% (excellent). Organic traffic: 12 visitors/month. Nobody can find it because there\'s no keyword targeting, minimal content, and zero technical SEO.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>The data:</strong> Unbounce analyzed 44,000 landing pages and found that only 11% successfully balance SEO (rank in top 10) and conversion (above 5% conversion rate)—source: Unbounce Conversion Benchmark Report 2024. The other 89% fall into three categories: (1) High traffic, low conversion—36% of pages (SEO-optimized but conversion-hostile), (2) Low traffic, high conversion—31% of pages (conversion-optimized but invisible in search), (3) Low traffic AND low conversion—22% of pages (failing at both).
+                  <strong>The data:</strong> Unbounce analyzed 44,000 landing pages and found that only 11% successfully balance SEO (rank in top 10) and conversion (above 5% conversion rate)--source: Unbounce Conversion Benchmark Report 2024. The other 89% fall into three categories: (1) High traffic, low conversion--36% of pages (SEO-optimized but conversion-hostile), (2) Low traffic, high conversion--31% of pages (conversion-optimized but invisible in search), (3) Low traffic AND low conversion--22% of pages (failing at both).
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The ranking-conversion tradeoff is a false dichotomy. You don\'t choose between traffic and conversions—you optimize for both simultaneously through strategic dual-optimization. WordStream analysis of 10,000 PPC landing pages found that pages with proper keyword targeting (SEO fundamentals) convert 34% better than pages without—because keyword-targeted pages match user intent, which drives conversions. Similarly, Backlinko study showed that pages with clear CTAs and conversion-focused UX rank 23% higher—because Google measures user engagement signals like time on page and bounce rate, which improve when pages are designed for conversion.
+                  The ranking-conversion tradeoff is a false dichotomy. You don\'t choose between traffic and conversions--you optimize for both simultaneously through strategic dual-optimization. WordStream analysis of 10,000 PPC landing pages found that pages with proper keyword targeting (SEO fundamentals) convert 34% better than pages without--because keyword-targeted pages match user intent, which drives conversions. Similarly, Backlinko study showed that pages with clear CTAs and conversion-focused UX rank 23% higher--because Google measures user engagement signals like time on page and bounce rate, which improve when pages are designed for conversion.
                 </p>
               </section>
 
@@ -94,20 +94,20 @@ export default function BlogPost() {
                       <strong>The dual-optimization approach:</strong> Your H1 headline must include the primary keyword (for SEO) AND communicate a clear benefit (for conversion). Format: [Keyword] + [Benefit/Outcome]. Example: "Project Management Software That Cuts Meeting Time 40%" (keyword: project management software, benefit: cuts meeting time 40%).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Bad SEO-only headline:</strong> "Project Management Software for Teams - Project Management Tool" (keyword-stuffed, no persuasion). Bad conversion-only headline: "Finally, A Tool That Actually Works" (persuasive but zero keyword targeting—invisible in search).
+                      <strong>Bad SEO-only headline:</strong> "Project Management Software for Teams - Project Management Tool" (keyword-stuffed, no persuasion). Bad conversion-only headline: "Finally, A Tool That Actually Works" (persuasive but zero keyword targeting--invisible in search).
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Good dual-optimization headline:</strong> "Email Marketing Software That Increases Open Rates 67%" (keyword: email marketing software, quantified benefit: 67% increase). Or: "CRM Software Built for Small Business (Under 50 Employees)" (keyword: CRM software, specific target: small business under 50).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Testing data:</strong> VWO analyzed 1,000 A/B tests of landing page headlines—headlines with keyword + specific benefit converted 41% better than keyword-only headlines, and ranked equivalently (no SEO penalty for adding persuasive elements).
+                      <strong>Testing data:</strong> VWO analyzed 1,000 A/B tests of landing page headlines--headlines with keyword + specific benefit converted 41% better than keyword-only headlines, and ranked equivalently (no SEO penalty for adding persuasive elements).
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">2. Natural Keyword Placement in First Paragraph (Intent Matching)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why first paragraph matters:</strong> Google heavily weights content in the first 100 words for relevance signals. Users scan the first paragraph to confirm they\'re on the right page. Put primary keyword in first sentence, support keywords in first paragraph—but make it read naturally for humans.
+                      <strong>Why first paragraph matters:</strong> Google heavily weights content in the first 100 words for relevance signals. Users scan the first paragraph to confirm they\'re on the right page. Put primary keyword in first sentence, support keywords in first paragraph--but make it read naturally for humans.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Bad approach:</strong> "Looking for project management software? Our project management software is the best project management software for project management." (keyword stuffing, robotic, users bounce immediately).
@@ -132,7 +132,7 @@ export default function BlogPost() {
                       <strong>Why this works:</strong> Google indexes button text for relevance signals (helps with long-tail keywords). Users see exactly what they\'re getting, reducing friction and increasing click-through. Specific CTAs convert 27% better than generic CTAs (Unbounce data).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Implementation:</strong> Primary CTA (above fold): keyword + action ("Start Your CRM Free Trial"). Secondary CTAs (mid-page): specific benefits ("See How We Increased Sales 89%"). Bottom CTA: urgency + keyword ("Get Project Management Software Today—No Credit Card").
+                      <strong>Implementation:</strong> Primary CTA (above fold): keyword + action ("Start Your CRM Free Trial"). Secondary CTAs (mid-page): specific benefits ("See How We Increased Sales 89%"). Bottom CTA: urgency + keyword ("Get Project Management Software Today--No Credit Card").
                     </p>
                   </div>
 
@@ -145,10 +145,10 @@ export default function BlogPost() {
                       <strong>Subheading structure example:</strong> H1: "Project Management Software for Remote Teams" (primary keyword). H2: "Task Management Features That Keep Everyone Aligned" (semantic variant). H2: "Team Collaboration Tools Built for Distributed Work" (related keyword). H2: "Automated Workflow Reduces Admin Time 60%" (benefit + automation keyword).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>SEO benefit:</strong> Semantic variants help you rank for related searches ("task management tool," "team collaboration software") while supporting the main target. Google\'s NLP understands topical relationships—pages covering semantic variations rank higher for the main keyword (Moz correlation study: 0.67 correlation).
+                      <strong>SEO benefit:</strong> Semantic variants help you rank for related searches ("task management tool," "team collaboration software") while supporting the main target. Google\'s NLP understands topical relationships--pages covering semantic variations rank higher for the main keyword (Moz correlation study: 0.67 correlation).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Conversion benefit:</strong> Organized subheadings with benefit-driven language guide users through the page, increasing scroll depth and time-on-page. Users scan subheadings to find relevant sections—descriptive subheadings reduce bounce rate by 31% (Nielsen Norman Group usability research).
+                      <strong>Conversion benefit:</strong> Organized subheadings with benefit-driven language guide users through the page, increasing scroll depth and time-on-page. Users scan subheadings to find relevant sections--descriptive subheadings reduce bounce rate by 31% (Nielsen Norman Group usability research).
                     </p>
                   </div>
                 </div>
@@ -162,13 +162,13 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">5. Above-the-Fold Conversion Focus + Below-Fold SEO Content</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>The two-zone strategy:</strong> Above-the-fold (first screen) is 100% conversion-focused—compelling headline, clear value prop, visible CTA, hero image, social proof. Below-the-fold adds comprehensive SEO content—detailed features, FAQs, comparisons, use cases. This structure serves both goals without compromise.
+                      <strong>The two-zone strategy:</strong> Above-the-fold (first screen) is 100% conversion-focused--compelling headline, clear value prop, visible CTA, hero image, social proof. Below-the-fold adds comprehensive SEO content--detailed features, FAQs, comparisons, use cases. This structure serves both goals without compromise.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Why it works:</strong> 75% of users never scroll past the fold (conversion happens above). But Google crawls the entire page and values comprehensiveness (SEO needs below-fold content). Separate zones = different purposes without conflict.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Above-fold checklist:</strong> H1 headline with keyword + benefit, 1-2 sentence value proposition, Primary CTA button (prominent, contrasting color), Hero image or demo video, Trust badges (logos, ratings, testimonials count). Keep text minimal—only what\'s needed to drive the click.
+                      <strong>Above-fold checklist:</strong> H1 headline with keyword + benefit, 1-2 sentence value proposition, Primary CTA button (prominent, contrasting color), Hero image or demo video, Trust badges (logos, ratings, testimonials count). Keep text minimal--only what\'s needed to drive the click.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Below-fold SEO content:</strong> "How It Works" section (300-500 words with screenshots), Features breakdown with semantic keywords, Comparison with alternatives (competitive keywords), FAQ section (long-tail keywords), Customer testimonials with specifics, Related resources with internal links. This content ranks the page while providing depth for researcher-type visitors.
@@ -181,13 +181,13 @@ export default function BlogPost() {
                       <strong>Lead with benefits, integrate keywords naturally:</strong> Every section should answer "What\'s in it for me?" first (conversion), with keywords woven into benefit statements (SEO). Format: [Benefit] + [How keyword delivers it]. Example: "Cut meeting time 40% with visual task boards that keep everyone aligned."
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Bad copy:</strong> "Our project management software includes task management, Gantt charts, time tracking, file sharing, and team collaboration features." (Feature list, no benefits, keyword stuffing). Bad: "Transform your workflow and unlock unprecedented productivity gains!" (Benefit-focused but zero keywords—invisible in search).
+                      <strong>Bad copy:</strong> "Our project management software includes task management, Gantt charts, time tracking, file sharing, and team collaboration features." (Feature list, no benefits, keyword stuffing). Bad: "Transform your workflow and unlock unprecedented productivity gains!" (Benefit-focused but zero keywords--invisible in search).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Good dual-optimized copy:</strong> "Stop wasting 10 hours/week in status meetings. Our project management software gives you real-time visibility into every task, deadline, and blocker—so you know exactly what\'s happening without asking." (Benefit: save 10 hours, keyword: project management software, specific outcome: real-time visibility).
+                      <strong>Good dual-optimized copy:</strong> "Stop wasting 10 hours/week in status meetings. Our project management software gives you real-time visibility into every task, deadline, and blocker--so you know exactly what\'s happening without asking." (Benefit: save 10 hours, keyword: project management software, specific outcome: real-time visibility).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Conversion data:</strong> Benefit-driven copy increases conversion rates 68% over feature-focused copy (VWO study of 2,300 landing pages). Adding natural keyword targeting to benefit-driven copy maintains conversion rate while improving rankings—best of both worlds.
+                      <strong>Conversion data:</strong> Benefit-driven copy increases conversion rates 68% over feature-focused copy (VWO study of 2,300 landing pages). Adding natural keyword targeting to benefit-driven copy maintains conversion rate while improving rankings--best of both worlds.
                     </p>
                   </div>
 
@@ -249,16 +249,16 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Mobile-First Design (Required for Both Mobile Rankings and Mobile Conversions)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Mobile-first indexing reality:</strong> Google exclusively uses mobile version of pages for ranking (desktop version ignored). 63% of organic searches happen on mobile. Mobile landing pages must be fully optimized for both discovery and conversion—no compromises.
+                      <strong>Mobile-first indexing reality:</strong> Google exclusively uses mobile version of pages for ranking (desktop version ignored). 63% of organic searches happen on mobile. Mobile landing pages must be fully optimized for both discovery and conversion--no compromises.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Mobile SEO requirements:</strong> Responsive design (no separate mobile URLs—confuses Google), All content accessible on mobile (no hidden accordions that hide text), Touch-friendly navigation (44px+ tap targets), No intrusive interstitials (blocks content, ranking penalty), Fast mobile load time (mobile networks are slower).
+                      <strong>Mobile SEO requirements:</strong> Responsive design (no separate mobile URLs--confuses Google), All content accessible on mobile (no hidden accordions that hide text), Touch-friendly navigation (44px+ tap targets), No intrusive interstitials (blocks content, ranking penalty), Fast mobile load time (mobile networks are slower).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Mobile conversion requirements:</strong> CTA button visible without scrolling (above fold), Click-to-call phone number (frictionless conversion), Form fields minimized (3-5 fields max—mobile typing is painful), Large, tappable buttons (avoid fat-finger errors), Autofill enabled for forms (reduces friction).
+                      <strong>Mobile conversion requirements:</strong> CTA button visible without scrolling (above fold), Click-to-call phone number (frictionless conversion), Form fields minimized (3-5 fields max--mobile typing is painful), Large, tappable buttons (avoid fat-finger errors), Autofill enabled for forms (reduces friction).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Testing:</strong> Use Google\'s Mobile-Friendly Test tool (SEO check), Test on real devices (iPhone, Android) not just emulators (UX check), Check mobile conversion rate separately in Google Analytics—if desktop converts at 5% but mobile at 1.2%, you have mobile experience problems affecting both SEO and conversions.
+                      <strong>Testing:</strong> Use Google\'s Mobile-Friendly Test tool (SEO check), Test on real devices (iPhone, Android) not just emulators (UX check), Check mobile conversion rate separately in Google Analytics--if desktop converts at 5% but mobile at 1.2%, you have mobile experience problems affecting both SEO and conversions.
                     </p>
                   </div>
 
@@ -271,7 +271,7 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> Keywords in URL are a confirmed ranking factor (lower weight than content, but still matters). Google bolds keywords in URLs in search results (increases CTR). Clean URLs are more likely to be linked to with keyword-rich anchor text.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Conversion benefit:</strong> Users see URL before clicking in SERPs—readable URLs increase click-through 25% (Moz study). Clean URLs build trust (sketchy URLs reduce conversion rate 15%). Short, descriptive URLs are easier to share and remember.
+                      <strong>Conversion benefit:</strong> Users see URL before clicking in SERPs--readable URLs increase click-through 25% (Moz study). Clean URLs build trust (sketchy URLs reduce conversion rate 15%). Short, descriptive URLs are easier to share and remember.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>URL best practices:</strong> Use hyphens not underscores (keyword-rich-url not keyword_rich_url), Keep under 60 characters if possible (readability), Include primary keyword but don\'t stuff (project-management-software-tool-app-solution = over-optimization), Use lowercase (case-sensitive URLs cause confusion), Avoid parameters and session IDs.
@@ -281,13 +281,13 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">12. Schema Markup for Rich Results (Enhanced SERP Presence)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Structured data advantages:</strong> Schema markup helps Google display rich results (star ratings, pricing, FAQs) in SERPs—increasing CTR by 30% on average (higher traffic). Rich results also pre-qualify visitors (they see pricing/ratings before clicking), improving conversion rates by filtering out poor-fit prospects.
+                      <strong>Structured data advantages:</strong> Schema markup helps Google display rich results (star ratings, pricing, FAQs) in SERPs--increasing CTR by 30% on average (higher traffic). Rich results also pre-qualify visitors (they see pricing/ratings before clicking), improving conversion rates by filtering out poor-fit prospects.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Key schema types for landing pages:</strong> Product schema (shows price, availability, ratings in search), Organization schema (displays logo, social profiles), FAQ schema (shows expandable Q&A in SERPs), Review/AggregateRating schema (star ratings in search results), Breadcrumb schema (navigation path in SERPs).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Conversion benefit:</strong> Rich results increase qualified traffic—users who see pricing/ratings before clicking are further along the buyer journey (convert 43% better than users without pre-qualification, according to WordStream data). Star ratings in SERPs act as social proof before page visit.
+                      <strong>Conversion benefit:</strong> Rich results increase qualified traffic--users who see pricing/ratings before clicking are further along the buyer journey (convert 43% better than users without pre-qualification, according to WordStream data). Star ratings in SERPs act as social proof before page visit.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Implementation:</strong> Use JSON-LD format (Google\'s recommendation). Validate with Google\'s Rich Results Test tool. Focus on Product and FAQ schema first (highest impact). Monitor Google Search Console for rich result impressions. Result: Enhanced SERP presence + pre-qualified traffic = better rankings AND higher conversion rates.
@@ -310,10 +310,10 @@ export default function BlogPost() {
                       <strong>Value prop components:</strong> (1) What is this? (category/product type with keyword), (2) Who is it for? (target audience), (3) What benefit do I get? (specific outcome), (4) Why believe you? (differentiator/proof). All in 1-2 sentences.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Example:</strong> Weak: "The best solution for your needs" (vague, generic). Strong: "Project management software built for remote teams—visual task boards and automated workflows that reduce meeting time 40% (trusted by 12,000+ companies)." (Keyword, target audience, specific benefit, social proof).
+                      <strong>Example:</strong> Weak: "The best solution for your needs" (vague, generic). Strong: "Project management software built for remote teams--visual task boards and automated workflows that reduce meeting time 40% (trusted by 12,000+ companies)." (Keyword, target audience, specific benefit, social proof).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Impact:</strong> Clear value props reduce bounce rate from 73% to 41% (Unbounce data). Lower bounce rates signal relevance to Google, improving rankings. Users who stay longer are more likely to convert—dwell time and conversion rate correlation: 0.71 (high positive correlation).
+                      <strong>Impact:</strong> Clear value props reduce bounce rate from 73% to 41% (Unbounce data). Lower bounce rates signal relevance to Google, improving rankings. Users who stay longer are more likely to convert--dwell time and conversion rate correlation: 0.71 (high positive correlation).
                     </p>
                   </div>
 
@@ -323,10 +323,10 @@ export default function BlogPost() {
                       <strong>CTA visibility = both conversion and engagement:</strong> CTA button must be immediately visible (above fold, contrasting color, large size). Prominent CTAs improve conversion rate directly AND reduce pogo-sticking (users don\'t back-button to search, a negative ranking signal).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>CTA copy optimization:</strong> Generic: "Submit" (worst—11% conversion). Better: "Get Started Free" (adds value—16% conversion). Best: "Start Your Free 14-Day Trial—No Credit Card Required" (removes friction—23% conversion, per Unbounce button copy study).
+                      <strong>CTA copy optimization:</strong> Generic: "Submit" (worst--11% conversion). Better: "Get Started Free" (adds value--16% conversion). Best: "Start Your Free 14-Day Trial--No Credit Card Required" (removes friction--23% conversion, per Unbounce button copy study).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>SEO benefit:</strong> When users click CTA and complete the intended action (sign up, download, purchase), they don\'t return to Google search—this is a success signal. High conversion pages have low pogo-stick rates (users don\'t bounce back to search), which correlates with higher rankings.
+                      <strong>SEO benefit:</strong> When users click CTA and complete the intended action (sign up, download, purchase), they don\'t return to Google search--this is a success signal. High conversion pages have low pogo-stick rates (users don\'t bounce back to search), which correlates with higher rankings.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Design best practices:</strong> Contrasting color (blue CTA on white background, orange on blue, etc.), Large size (minimum 44px height for touch targets), White space around button (draws attention), Action-oriented text (Start, Get, Download vs Learn, Explore), Multiple CTAs on long pages (one per section).
@@ -361,7 +361,7 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> Internal links distribute PageRank across your site (makes all pages stronger). Links from landing pages (often high-authority) to blog content (often lower-authority) help blog posts rank better. User engagement increases as visitors explore multiple pages (positive ranking signal).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Conversion benefit:</strong> Not everyone converts on first visit—internal links to educational content build trust and nurture prospects. Users who visit 3+ pages before converting have 27% higher lifetime value (more engaged, better-qualified customers). Providing escape routes prevents hard bounces (back-button to Google).
+                      <strong>Conversion benefit:</strong> Not everyone converts on first visit--internal links to educational content build trust and nurture prospects. Users who visit 3+ pages before converting have 27% higher lifetime value (more engaged, better-qualified customers). Providing escape routes prevents hard bounces (back-button to Google).
                     </p>
                   </div>
                 </div>
@@ -373,7 +373,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Sacrificing Conversion for SEO (Keyword Stuffing)</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Adding keyword 30+ times in unnatural positions, writing 3,000 words of SEO content with zero persuasive elements, prioritizing rankings over user experience—page ranks but nobody converts.
+                      <strong>The mistake:</strong> Adding keyword 30+ times in unnatural positions, writing 3,000 words of SEO content with zero persuasive elements, prioritizing rankings over user experience--page ranks but nobody converts.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Use keywords strategically in high-impact positions (H1, first paragraph, subheadings, CTAs) but prioritize persuasive, benefit-driven copy everywhere else. Aim for 1-2% keyword density maximum (1-2 instances per 100 words). If adding keyword makes copy worse, don\'t add it.
@@ -383,7 +383,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Sacrificing SEO for Conversion (Zero Keyword Targeting)</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Creating beautiful, persuasive landing pages with 8%+ conversion rates but zero keyword targeting, minimal content, and no technical SEO—page converts wonderfully but gets 15 visitors/month.
+                      <strong>The mistake:</strong> Creating beautiful, persuasive landing pages with 8%+ conversion rates but zero keyword targeting, minimal content, and no technical SEO--page converts wonderfully but gets 15 visitors/month.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Add keyword targeting to existing conversion-optimized elements without changing layout/design. Include primary keyword in H1 headline, add keyword-rich FAQ section below fold, implement schema markup, optimize page speed and mobile experience. Traffic increases without hurting conversion rate.
@@ -393,7 +393,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Using Different Landing Pages for SEO vs PPC</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Creating separate landing pages for organic traffic (SEO-optimized, keyword-heavy) and paid traffic (conversion-optimized, benefit-focused)—doubles maintenance work and splits testing data.
+                      <strong>The mistake:</strong> Creating separate landing pages for organic traffic (SEO-optimized, keyword-heavy) and paid traffic (conversion-optimized, benefit-focused)--doubles maintenance work and splits testing data.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Use ONE landing page optimized for both SEO and conversion. Run A/B tests on the same page for both traffic sources. Unified approach means all traffic benefits from all optimizations, testing data is consolidated, and maintenance is simplified. Real data shows properly dual-optimized pages perform equally well for both traffic sources.
@@ -403,7 +403,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Ignoring User Intent Alignment</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Targeting keyword "best project management software" (informational/comparison intent) with a hard-sell landing page that only offers sign-up (transactional intent)—intent mismatch causes high bounce rate (hurts SEO and conversion).
+                      <strong>The mistake:</strong> Targeting keyword "best project management software" (informational/comparison intent) with a hard-sell landing page that only offers sign-up (transactional intent)--intent mismatch causes high bounce rate (hurts SEO and conversion).
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Match landing page content to search intent. Informational keywords → educational content with soft CTA. Comparison keywords → feature comparison tables and alternatives. Transactional keywords → direct product landing pages with strong CTAs. Intent alignment improves both rankings (Google measures relevance) and conversion (users find what they expect).
@@ -466,7 +466,7 @@ export default function BlogPost() {
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
-                      <p className="mt-1">B2B SaaS company with 12 landing pages targeting different keywords. Pages were heavily SEO-optimized—2,500+ words each, 3-4% keyword density, comprehensive feature lists. Organic traffic: 18,000 visits/month. Conversion rate: 2.3%. The disconnect: Pages ranked well but didn\'t persuade visitors to sign up.</p>
+                      <p className="mt-1">B2B SaaS company with 12 landing pages targeting different keywords. Pages were heavily SEO-optimized--2,500+ words each, 3-4% keyword density, comprehensive feature lists. Organic traffic: 18,000 visits/month. Conversion rate: 2.3%. The disconnect: Pages ranked well but didn\'t persuade visitors to sign up.</p>
                     </div>
 
                     <div>
@@ -476,7 +476,7 @@ export default function BlogPost() {
 
                     <div>
                       <strong className="text-slate-900">The Strategy:</strong>
-                      <p className="mt-1">Implemented dual-optimization framework: (1) Above-fold redesign—100% conversion-focused with benefit-driven headline, clear value prop, prominent CTA, removed feature lists. (2) Below-fold SEO content—moved comprehensive keyword-rich sections below fold (maintains rankings, doesn\'t hurt first-screen conversion). (3) Keyword integration in conversion copy—added primary keyword to H1, CTA text, and testimonials naturally. (4) Technical SEO improvements—schema markup, page speed optimization, mobile refinements.</p>
+                      <p className="mt-1">Implemented dual-optimization framework: (1) Above-fold redesign--100% conversion-focused with benefit-driven headline, clear value prop, prominent CTA, removed feature lists. (2) Below-fold SEO content--moved comprehensive keyword-rich sections below fold (maintains rankings, doesn\'t hurt first-screen conversion). (3) Keyword integration in conversion copy--added primary keyword to H1, CTA text, and testimonials naturally. (4) Technical SEO improvements--schema markup, page speed optimization, mobile refinements.</p>
                     </div>
 
                     <div>
@@ -518,7 +518,7 @@ export default function BlogPost() {
 
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
-                      <p className="mt-1 text-lg">"We thought SEO and conversion were competing goals—optimize for one, sacrifice the other. Dual-optimization proved we could have both. The secret: different page zones serve different purposes. Above fold = pure conversion. Below fold = pure SEO. Both working together = 54% more traffic that converts 89% better." — VP of Growth</p>
+                      <p className="mt-1 text-lg">"We thought SEO and conversion were competing goals--optimize for one, sacrifice the other. Dual-optimization proved we could have both. The secret: different page zones serve different purposes. Above fold = pure conversion. Below fold = pure SEO. Both working together = 54% more traffic that converts 89% better." -- VP of Growth</p>
                     </div>
                   </div>
                 </div>
@@ -527,7 +527,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Landing Page Dual-Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Manual landing page optimization requires: keyword research, competitor analysis, content rewriting, technical SEO implementation, conversion copywriting, A/B testing, continuous monitoring—weeks of specialized work. SEOLOGY automates the entire dual-optimization process:
+                  Manual landing page optimization requires: keyword research, competitor analysis, content rewriting, technical SEO implementation, conversion copywriting, A/B testing, continuous monitoring--weeks of specialized work. SEOLOGY automates the entire dual-optimization process:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
@@ -545,7 +545,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Technical Implementation</h3>
-                    <p className="text-slate-700">SEOLOGY doesn\'t just recommend—it implements automatically via CMS API. Adds schema markup (Product, FAQ, Organization), optimizes images for speed, implements mobile improvements, creates keyword-rich meta tags, all while preserving conversion-optimized design and layout.</p>
+                    <p className="text-slate-700">SEOLOGY doesn\'t just recommend--it implements automatically via CMS API. Adds schema markup (Product, FAQ, Organization), optimizes images for speed, implements mobile improvements, creates keyword-rich meta tags, all while preserving conversion-optimized design and layout.</p>
                   </div>
 
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
@@ -556,9 +556,9 @@ export default function BlogPost() {
                 </div>
 
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                  <h3 className="text-2xl font-bold mb-4">Stop Choosing Between Rankings and Conversions—Optimize for Both Automatically</h3>
+                  <h3 className="text-2xl font-bold mb-4">Stop Choosing Between Rankings and Conversions--Optimize for Both Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY implements dual-optimization strategy across all landing pages—increasing organic traffic AND conversion rates simultaneously without manual work or trade-offs.
+                    SEOLOGY implements dual-optimization strategy across all landing pages--increasing organic traffic AND conversion rates simultaneously without manual work or trade-offs.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
@@ -581,21 +581,21 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Landing Page Dual-Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  The SEO vs. conversion tradeoff is a myth perpetuated by siloed optimization approaches. Landing pages optimized for SEO alone rank but don\'t convert (wasting 97% of traffic). Pages optimized for conversion alone convert beautifully but nobody finds them (wasting potential traffic). Dual-optimization achieves both goals simultaneously—54% more traffic that converts 89% better.
+                  The SEO vs. conversion tradeoff is a myth perpetuated by siloed optimization approaches. Landing pages optimized for SEO alone rank but don\'t convert (wasting 97% of traffic). Pages optimized for conversion alone convert beautifully but nobody finds them (wasting potential traffic). Dual-optimization achieves both goals simultaneously--54% more traffic that converts 89% better.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>The winning formula:</strong> Above-fold zone is 100% conversion-focused (benefit-driven headline with keyword, clear value prop, prominent CTA, visual hierarchy). Below-fold zone adds comprehensive SEO content (FAQ sections with long-tail keywords, feature breakdowns with semantic variants, comparison content with competitive terms). Keywords are integrated naturally into conversion copy (headlines, CTAs, testimonials) without sacrificing persuasion. Technical SEO foundation (fast page speed, mobile-first design, schema markup, clean URLs) improves both rankings and user experience.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Never sacrifice conversion for SEO rankings (keyword-stuffed pages may rank but won\'t monetize). Never sacrifice SEO for conversion (beautiful pages with zero traffic are invisible). Balance both by understanding that different page elements serve different purposes—headlines serve both, above-fold serves conversion, below-fold serves SEO, technical foundation serves both.
+                  Never sacrifice conversion for SEO rankings (keyword-stuffed pages may rank but won\'t monetize). Never sacrifice SEO for conversion (beautiful pages with zero traffic are invisible). Balance both by understanding that different page elements serve different purposes--headlines serve both, above-fold serves conversion, below-fold serves SEO, technical foundation serves both.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Sites implementing dual-optimization see average 54% organic traffic increases AND 89% conversion rate improvements within 8 weeks—proving you don\'t choose between traffic and conversions, you optimize for both. The 11% of landing pages successfully balancing SEO and conversion generate 7.3x more revenue than pages optimizing for only one dimension (Unbounce analysis). If your landing pages rank OR convert but not both, dual-optimization is the highest-ROI improvement you can make.
+                  Sites implementing dual-optimization see average 54% organic traffic increases AND 89% conversion rate improvements within 8 weeks--proving you don\'t choose between traffic and conversions, you optimize for both. The 11% of landing pages successfully balancing SEO and conversion generate 7.3x more revenue than pages optimizing for only one dimension (Unbounce analysis). If your landing pages rank OR convert but not both, dual-optimization is the highest-ROI improvement you can make.
                 </p>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
                   <p className="text-slate-900 font-semibold mb-2">Ready to automate landing page dual-optimization?</p>
                   <p className="text-slate-700">
-                    <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-semibold underline">Start your SEOLOGY free trial</Link> and let AI automatically balance SEO and conversion optimization across all landing pages—increasing both traffic and conversion rates without trade-offs or manual work.
+                    <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-semibold underline">Start your SEOLOGY free trial</Link> and let AI automatically balance SEO and conversion optimization across all landing pages--increasing both traffic and conversion rates without trade-offs or manual work.
                   </p>
                 </div>
               </section>

@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'SEO ROI Calculator: Prove Your SEO Investment is Worth It',
-  description: "Can\'t prove SEO ROI to your boss? This calculator shows exactly how much revenue your SEO generates—with real data.",
+  description: "Can\'t prove SEO ROI to your boss? This calculator shows exactly how much revenue your SEO generates--with real data.",
 }
 
 export default function BlogPost() {
@@ -34,7 +34,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Can't prove SEO ROI to your boss? This calculator shows exactly how much <strong className="text-white">revenue your SEO generates</strong>—with real data.
+            Can't prove SEO ROI to your boss? This calculator shows exactly how much <strong className="text-white">revenue your SEO generates</strong>--with real data.
           </p>
 
           {/* CTA */}
@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Most businesses can't prove SEO ROI because they don't track the right metrics. This guide shows you how to calculate: <strong>(Organic Revenue - SEO Costs) / SEO Costs × 100</strong>. Average SEO ROI is 748% ($7.48 return per $1 spent). SEOLOGY's built-in analytics tracks every dollar earned from organic search—making ROI reporting automatic.
+                Most businesses can't prove SEO ROI because they don't track the right metrics. This guide shows you how to calculate: <strong>(Organic Revenue - SEO Costs) / SEO Costs x 100</strong>. Average SEO ROI is 748% ($7.48 return per $1 spent). SEOLOGY's built-in analytics tracks every dollar earned from organic search--making ROI reporting automatic.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function BlogPost() {
                 </p>
                 <div className="bg-green-50 p-6 rounded-xl border border-green-200 my-6">
                   <p className="text-lg text-green-900 mb-0">
-                    "Our $5,000 monthly SEO investment generated <strong>$42,000 in revenue last month</strong>—that's an 840% ROI. For every $1 we spend on SEO, we make $8.40 back."
+                    "Our $5,000 monthly SEO investment generated <strong>$42,000 in revenue last month</strong>--that's an 840% ROI. For every $1 we spend on SEO, we make $8.40 back."
                   </p>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -87,7 +87,7 @@ export default function BlogPost() {
                   <div className="text-center mb-6">
                     <h3 className="text-3xl font-bold text-blue-900 mb-4">SEO ROI Formula</h3>
                     <div className="text-4xl font-mono font-bold text-blue-600 mb-2">
-                      ROI = (Revenue - Cost) / Cost × 100
+                      ROI = (Revenue - Cost) / Cost x 100
                     </div>
                   </div>
                   <div className="space-y-4 text-slate-700">
@@ -127,7 +127,7 @@ export default function BlogPost() {
                       <strong>Path:</strong> Reports → Engagement → Conversions → Filter by "Organic Search"
                     </p>
                     <p className="text-slate-700">
-                      <strong>Formula:</strong> (Conversions / Sessions) × 100
+                      <strong>Formula:</strong> (Conversions / Sessions) x 100
                     </p>
                     <p className="text-slate-700 mt-3 font-mono bg-white p-3 rounded border border-slate-300">
                       Example: 462 conversions / 15,420 sessions = 3% conversion rate
@@ -150,10 +150,10 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 4: Calculate Organic Revenue</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>Formula:</strong> Organic Sessions × Conversion Rate × Average Order Value
+                      <strong>Formula:</strong> Organic Sessions x Conversion Rate x Average Order Value
                     </p>
                     <p className="text-slate-700 mt-3 font-mono bg-white p-3 rounded border border-slate-300">
-                      Example: 15,420 × 3% × $300 = $138,780 organic revenue
+                      Example: 15,420 x 3% x $300 = $138,780 organic revenue
                     </p>
                   </div>
 
@@ -188,10 +188,10 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border-2 border-green-500">
                     <h3 className="text-2xl font-bold mb-4 text-green-900">Step 6: Calculate SEO ROI</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>Formula:</strong> (Organic Revenue - SEO Costs) / SEO Costs × 100
+                      <strong>Formula:</strong> (Organic Revenue - SEO Costs) / SEO Costs x 100
                     </p>
                     <p className="text-slate-700 mt-3 font-mono bg-white p-3 rounded border border-green-300">
-                      Example: ($138,780 - $5,000) / $5,000 × 100 = 2,676% ROI
+                      Example: ($138,780 - $5,000) / $5,000 x 100 = 2,676% ROI
                     </p>
                     <p className="text-lg text-green-900 font-bold mt-4">
                       Translation: For every $1 spent on SEO, you earned $26.76 back.
@@ -260,14 +260,14 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">1. Lifetime Value (LTV)</h4>
                     <p className="text-slate-700">
-                      Organic customers have 2.4x higher LTV than paid ads customers—they return more often and spend more over time.
+                      Organic customers have 2.4x higher LTV than paid ads customers--they return more often and spend more over time.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">2. Customer Acquisition Cost (CAC)</h4>
                     <p className="text-slate-700">
-                      SEO CAC averages $31 vs $56 for paid ads—acquiring customers through organic search is 44% cheaper.
+                      SEO CAC averages $31 vs $56 for paid ads--acquiring customers through organic search is 44% cheaper.
                     </p>
                   </div>
 
@@ -288,7 +288,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">5. Compounding Returns</h4>
                     <p className="text-slate-700">
-                      Unlike paid ads (stop paying, traffic stops), SEO compounds—content from 2 years ago still generates traffic today.
+                      Unlike paid ads (stop paying, traffic stops), SEO compounds--content from 2 years ago still generates traffic today.
                     </p>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function BlogPost() {
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #1: Not tracking conversions properly</strong>
                     <p className="text-slate-700 mt-2">
-                      Set up GA4 conversion events correctly—track purchases, leads, phone calls, not just form submissions.
+                      Set up GA4 conversion events correctly--track purchases, leads, phone calls, not just form submissions.
                     </p>
                   </div>
 
@@ -314,21 +314,21 @@ export default function BlogPost() {
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #3: Ignoring assisted conversions</strong>
                     <p className="text-slate-700 mt-2">
-                      Organic search often assists conversions attributed to other channels—check GA4 attribution reports.
+                      Organic search often assists conversions attributed to other channels--check GA4 attribution reports.
                     </p>
                   </div>
 
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #4: Forgetting to include ALL costs</strong>
                     <p className="text-slate-700 mt-2">
-                      Count tools, content, design, development, agency fees—incomplete cost data inflates ROI artificially.
+                      Count tools, content, design, development, agency fees--incomplete cost data inflates ROI artificially.
                     </p>
                   </div>
 
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #5: Not segmenting by channel</strong>
                     <p className="text-slate-700 mt-2">
-                      Separate branded vs non-branded organic traffic—branded traffic has higher intent and skews ROI data.
+                      Separate branded vs non-branded organic traffic--branded traffic has higher intent and skews ROI data.
                     </p>
                   </div>
                 </div>

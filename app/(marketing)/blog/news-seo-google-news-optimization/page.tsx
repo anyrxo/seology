@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Google News and Top Stories drive massive traffic spikes—847% increase in 48 hours for breaking news. Yet only publishers with NewsArticle schema, proper technical setup, and consistent publishing frequency get featured. This guide reveals the exact tactics to get approved for Google News and dominate Top Stories carousels.
+            Google News and Top Stories drive massive traffic spikes--847% increase in 48 hours for breaking news. Yet only publishers with NewsArticle schema, proper technical setup, and consistent publishing frequency get featured. This guide reveals the exact tactics to get approved for Google News and dominate Top Stories carousels.
           </p>
 
           <div className="mb-12">
@@ -52,27 +52,27 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Google News drives 847% traffic spikes for breaking news</strong> (Parse.ly, 2024)—Top Stories placement = instant viral potential</span>
+                  <span><strong>Google News drives 847% traffic spikes for breaking news</strong> (Parse.ly, 2024)--Top Stories placement = instant viral potential</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>NewsArticle schema increases Top Stories eligibility 73%</strong> (Google, 2024)—structured data is required for carousel consideration</span>
+                  <span><strong>NewsArticle schema increases Top Stories eligibility 73%</strong> (Google, 2024)--structured data is required for carousel consideration</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Publishers posting 10+ articles per day get 94% more Top Stories appearances</strong> (BuzzSumo, 2024)—freshness and frequency are key ranking factors</span>
+                  <span><strong>Publishers posting 10+ articles per day get 94% more Top Stories appearances</strong> (BuzzSumo, 2024)--freshness and frequency are key ranking factors</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Articles published within 2 hours of breaking news rank 67% higher</strong> (Moz, 2024)—speed to publish is critical for news coverage</span>
+                  <span><strong>Articles published within 2 hours of breaking news rank 67% higher</strong> (Moz, 2024)--speed to publish is critical for news coverage</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Mobile-optimized articles get 82% more news traffic</strong> (Google, 2024)—58% of news consumption happens on mobile</span>
+                  <span><strong>Mobile-optimized articles get 82% more news traffic</strong> (Google, 2024)--58% of news consumption happens on mobile</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>847% referral traffic increase achieved with complete News SEO</strong> (case study below)—Google News is the ultimate traffic multiplier</span>
+                  <span><strong>847% referral traffic increase achieved with complete News SEO</strong> (case study below)--Google News is the ultimate traffic multiplier</span>
                 </li>
               </ul>
             </div>
@@ -80,17 +80,17 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Google News Destroys Regular SEO for Traffic</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Google News is not just another traffic source—it\'s a <strong>traffic multiplier</strong>. When your article appears in the Top Stories carousel or Google News feed, you get instant visibility to millions of users actively searching for breaking news.
+                Google News is not just another traffic source--it\'s a <strong>traffic multiplier</strong>. When your article appears in the Top Stories carousel or Google News feed, you get instant visibility to millions of users actively searching for breaking news.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Unlike regular SEO that takes weeks or months to rank, <strong>News SEO works in hours or minutes</strong>. Publish breaking news at the right time with proper optimization, and you can go from 0 to 100,000 visitors in 48 hours.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>The opportunity:</strong> Only 23% of publishers properly optimize for Google News (BuzzSumo, 2024). Most ignore NewsArticle schema, miss technical requirements, or publish too infrequently to establish authority. That\'s your competitive advantage—proper News SEO gets you featured when competitors don\'t.
+                <strong>The opportunity:</strong> Only 23% of publishers properly optimize for Google News (BuzzSumo, 2024). Most ignore NewsArticle schema, miss technical requirements, or publish too infrequently to establish authority. That\'s your competitive advantage--proper News SEO gets you featured when competitors don\'t.
               </p>
               <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600 my-8">
                 <p className="text-lg font-bold text-slate-900 mb-2">Real Impact:</p>
-                <p className="text-slate-700 mb-0">One technology news site implemented complete News SEO optimization—NewsArticle schema, Google News approval, consistent publishing schedule. Result: <strong>847% traffic increase during a major product launch announcement, 94% more Top Stories appearances, and 312% increase in overall referral traffic</strong> within 90 days.</p>
+                <p className="text-slate-700 mb-0">One technology news site implemented complete News SEO optimization--NewsArticle schema, Google News approval, consistent publishing schedule. Result: <strong>847% traffic increase during a major product launch announcement, 94% more Top Stories appearances, and 312% increase in overall referral traffic</strong> within 90 days.</p>
               </div>
             </section>
 
@@ -103,7 +103,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Apply to Google News via Publisher Center</h4>
                 <p className="text-slate-700 mb-4">
-                  Google News is not automatic—you must <strong>apply and get approved</strong> via Google Publisher Center (publishercenter.google.com). Approval requires meeting specific content and technical standards.
+                  Google News is not automatic--you must <strong>apply and get approved</strong> via Google Publisher Center (publishercenter.google.com). Approval requires meeting specific content and technical standards.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Eligibility requirements:</strong> Original, timely content (not aggregated), consistent publishing schedule (minimum 1-2 articles per day), proper bylines with author information, clear publication dates, transparent ownership (About Us, Contact pages), no deceptive practices.
@@ -112,7 +112,7 @@ export default function BlogPost() {
                   <strong>Application process:</strong> Create a Publisher Center account, add your publication details (name, URL, logo, description), verify ownership via HTML tag or Google Analytics, submit for review. Approval typically takes 2-4 weeks.
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Why it works:</strong> Only approved publishers appear in Google News app and are eligible for Top Stories carousels. Without approval, you\'re limited to standard organic results—no news placement.
+                  <strong>Why it works:</strong> Only approved publishers appear in Google News app and are eligible for Top Stories carousels. Without approval, you\'re limited to standard organic results--no news placement.
                 </p>
               </div>
 
@@ -135,13 +135,13 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Establish Consistent Publishing Frequency (10+ Articles/Day)</h4>
                 <p className="text-slate-700 mb-4">
-                  Google News favors publishers with <strong>consistent, high-frequency publishing</strong>. Sporadic posting hurts your authority—Google needs to trust you\'ll cover breaking news when it happens.
+                  Google News favors publishers with <strong>consistent, high-frequency publishing</strong>. Sporadic posting hurts your authority--Google needs to trust you\'ll cover breaking news when it happens.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Minimum frequency:</strong> 1-2 articles per day to maintain eligibility. Optimal frequency for top placement: 10+ articles per day. Major news publishers post 50-100+ articles daily.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Content strategy:</strong> Mix breaking news (2-4 per day), trending topics (3-5 per day), and evergreen analysis (2-3 per day). Prioritize speed for breaking news—publish within 2 hours of the event.
+                  <strong>Content strategy:</strong> Mix breaking news (2-4 per day), trending topics (3-5 per day), and evergreen analysis (2-3 per day). Prioritize speed for breaking news--publish within 2 hours of the event.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Data:</strong> Publishers posting 10+ articles per day get <strong>94% more Top Stories appearances</strong> than those posting fewer than 5 per day (BuzzSumo, 2024).
@@ -206,7 +206,7 @@ export default function BlogPost() {
 }`}</pre>
                 </div>
                 <p className="text-slate-700 mb-4">
-                  <strong>Validation:</strong> Test with Google\'s Rich Results Test and Schema Markup Validator. Fix all errors—invalid schema disqualifies you from Top Stories.
+                  <strong>Validation:</strong> Test with Google\'s Rich Results Test and Schema Markup Validator. Fix all errors--invalid schema disqualifies you from Top Stories.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Data:</strong> NewsArticle schema increases Top Stories eligibility <strong>73%</strong> compared to articles without schema (Google, 2024).
@@ -219,13 +219,13 @@ export default function BlogPost() {
                   Google News uses article metadata to determine freshness and relevance. Incorrect or missing dates hurt your ranking potential.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Publish date:</strong> Use accurate publish time in ISO 8601 format with timezone (2024-06-10T14:30:00-07:00). Display publish date prominently on the page for users. Don\'t backdated or future-date articles—Google penalizes this.
+                  <strong>Publish date:</strong> Use accurate publish time in ISO 8601 format with timezone (2024-06-10T14:30:00-07:00). Display publish date prominently on the page for users. Don\'t backdated or future-date articles--Google penalizes this.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Modified date:</strong> Update dateModified when you make significant updates to breaking news stories. Display "Updated: [time]" to users for transparency.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Headline optimization:</strong> Keep headlines 50-70 characters for mobile display. Front-load keywords. Avoid clickbait—Google News penalizes misleading headlines.
+                  <strong>Headline optimization:</strong> Keep headlines 50-70 characters for mobile display. Front-load keywords. Avoid clickbait--Google News penalizes misleading headlines.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Freshness is a top-3 ranking factor for news content. Articles published within 2 hours of breaking news rank <strong>67% higher</strong> than late coverage (Moz, 2024).
@@ -268,7 +268,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Optimize Mobile Page Speed ({'<'}2s Load Time)</h4>
                 <p className="text-slate-700 mb-4">
-                  58% of news consumption happens on mobile (Google, 2024). Slow-loading articles lose rankings and traffic—users abandon pages that don\'t load within 3 seconds.
+                  58% of news consumption happens on mobile (Google, 2024). Slow-loading articles lose rankings and traffic--users abandon pages that don\'t load within 3 seconds.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Target:</strong> Mobile page load time under 2 seconds. Use Google PageSpeed Insights and Core Web Vitals to measure. Focus on LCP (Largest Contentful Paint) under 2.5s, FID (First Input Delay) under 100ms, CLS (Cumulative Layout Shift) under 0.1.
@@ -287,13 +287,13 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #9: Target Trending Keywords with Google Trends</h4>
                 <p className="text-slate-700 mb-4">
-                  News SEO is about <strong>timing</strong>—covering trending topics before they peak. Google Trends identifies what\'s trending in real-time so you can publish ahead of the curve.
+                  News SEO is about <strong>timing</strong>--covering trending topics before they peak. Google Trends identifies what\'s trending in real-time so you can publish ahead of the curve.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Check Google Trends (trends.google.com) multiple times per day. Filter by "Past 4 hours" or "Past day" to see breaking trends. Set up Google Alerts for your niche keywords to get real-time notifications.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Keyword strategy:</strong> Target long-tail trending queries with low competition but rising search volume. Example: "iPhone 16 release date" trends 2 weeks before the actual announcement—early coverage ranks higher.
+                  <strong>Keyword strategy:</strong> Target long-tail trending queries with low competition but rising search volume. Example: "iPhone 16 release date" trends 2 weeks before the actual announcement--early coverage ranks higher.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Publishing content when a topic is trending (but before it peaks) gives you first-mover advantage. Early articles accumulate engagement signals (clicks, time on page) that boost rankings.
@@ -303,7 +303,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #10: Write Compelling, Accurate Headlines (No Clickbait)</h4>
                 <p className="text-slate-700 mb-4">
-                  Headlines drive clicks in Top Stories carousels—but clickbait headlines get penalized by Google News algorithms. You need compelling headlines that are accurate and informative.
+                  Headlines drive clicks in Top Stories carousels--but clickbait headlines get penalized by Google News algorithms. You need compelling headlines that are accurate and informative.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Best practices:</strong> Front-load main keyword (e.g., "iPhone 16 Announcement: 5 Key Features Revealed"). Include specific numbers, dates, or data points. Keep under 70 characters for mobile display. Avoid ALL CAPS, excessive punctuation, or misleading claims.
@@ -319,10 +319,10 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #11: Use High-Quality Featured Images (1200x630px Minimum)</h4>
                 <p className="text-slate-700 mb-4">
-                  Top Stories carousels display large featured images—poor image quality hurts CTR and disqualifies articles from premium placements.
+                  Top Stories carousels display large featured images--poor image quality hurts CTR and disqualifies articles from premium placements.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Image requirements:</strong> Minimum 1200px width (1200x630px recommended for 16:9 ratio, 1200x1200px for square). Maximum file size 200KB (compress with TinyPNG or Squoosh). Use WebP format for best compression. Avoid text-heavy images—Google prefers photos over graphics.
+                  <strong>Image requirements:</strong> Minimum 1200px width (1200x630px recommended for 16:9 ratio, 1200x1200px for square). Maximum file size 200KB (compress with TinyPNG or Squoosh). Use WebP format for best compression. Avoid text-heavy images--Google prefers photos over graphics.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Image SEO:</strong> Add descriptive alt text (include main keyword naturally). Use meaningful file names (iphone-16-announcement.jpg, not IMG_1234.jpg). Implement image schema markup (width, height, url).
@@ -341,7 +341,7 @@ export default function BlogPost() {
                   <strong>Optimal length by article type:</strong> Breaking news: 600-1200 words (get facts out fast, update later). Analysis/opinion: 1200-2000 words (deeper insights). Evergreen news: 2000+ words (comprehensive coverage).
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Content structure:</strong> Inverted pyramid style—most important info first (who, what, when, where, why). Use short paragraphs (2-3 sentences). Add subheadings every 200 words for scannability.
+                  <strong>Content structure:</strong> Inverted pyramid style--most important info first (who, what, when, where, why). Use short paragraphs (2-3 sentences). Add subheadings every 200 words for scannability.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Pro tip:</strong> For breaking news, publish a shorter version (600-800 words) within 2 hours, then update with more details as they emerge. Google rewards quick publishing + updates.
@@ -354,10 +354,10 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #13: Build Topical Authority in Specific News Verticals</h4>
                 <p className="text-slate-700 mb-4">
-                  Google News algorithms favor publishers with <strong>demonstrated expertise in specific topics</strong>. Covering everything dilutes authority—niche focus = higher rankings.
+                  Google News algorithms favor publishers with <strong>demonstrated expertise in specific topics</strong>. Covering everything dilutes authority--niche focus = higher rankings.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Strategy:</strong> Choose 2-3 primary verticals (e.g., "technology," "finance," "health"). Publish 70-80% of content in those verticals. Build author expertise—have the same authors cover the same topics consistently.
+                  <strong>Strategy:</strong> Choose 2-3 primary verticals (e.g., "technology," "finance," "health"). Publish 70-80% of content in those verticals. Build author expertise--have the same authors cover the same topics consistently.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Authority signals:</strong> Backlinks from authoritative news sites in your vertical, author credentials/bylines on industry publications, social media following in niche, consistent coverage of major events in your vertical.
@@ -370,13 +370,13 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #14: Update Breaking News Articles in Real-Time</h4>
                 <p className="text-slate-700 mb-4">
-                  Breaking news evolves quickly—initial reports get details wrong or miss key information. Publishers that update articles in real-time maintain Top Stories rankings longer.
+                  Breaking news evolves quickly--initial reports get details wrong or miss key information. Publishers that update articles in real-time maintain Top Stories rankings longer.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Publish initial article fast (within 2 hours of breaking news). Monitor for new developments every 30-60 minutes. Update article with new information, mark as "Updated: [time]" at the top, update dateModified in schema.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Update strategy:</strong> Add new sections for major updates (don\'t just edit existing text—readers want to see what\'s new). Use strikethrough for corrected information (transparency builds trust).
+                  <strong>Update strategy:</strong> Add new sections for major updates (don\'t just edit existing text--readers want to see what\'s new). Use strikethrough for corrected information (transparency builds trust).
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Google\'s algorithms reward freshness. Articles updated 3+ times during a breaking story stay in Top Stories <strong>48% longer</strong> than static articles (Moz, 2024).
@@ -386,7 +386,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #15: Implement AMP (Accelerated Mobile Pages) for Instant Loading</h4>
                 <p className="text-slate-700 mb-4">
-                  AMP pages load instantly on mobile devices—critical for news where users expect immediate access to breaking information.
+                  AMP pages load instantly on mobile devices--critical for news where users expect immediate access to breaking information.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Create AMP versions of all news articles. AMP uses stripped-down HTML and pre-caching for instant load times. Add <code>&lt;link rel="amphtml" href="amp-url"&gt;</code> to canonical page.
@@ -402,7 +402,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #16: Distribute to Google Discover with High-Quality Visuals</h4>
                 <p className="text-slate-700 mb-4">
-                  Google Discover (mobile feed) drives massive passive traffic—but only for articles with exceptional visuals and strong engagement signals.
+                  Google Discover (mobile feed) drives massive passive traffic--but only for articles with exceptional visuals and strong engagement signals.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Requirements:</strong> Indexed in Google News, high-quality featured image (1200px+ width), strong engagement signals (low bounce rate, high time on page), mobile-optimized, fresh content (published within 7 days).
@@ -437,7 +437,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Clickbait Headlines:</strong>
-                    <p className="text-slate-700 mt-1">Sensationalized or misleading headlines trigger Google News penalties. Be accurate and descriptive—clickbait might get initial clicks but kills long-term rankings.</p>
+                    <p className="text-slate-700 mt-1">Sensationalized or misleading headlines trigger Google News penalties. Be accurate and descriptive--clickbait might get initial clicks but kills long-term rankings.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -505,7 +505,7 @@ export default function BlogPost() {
                 </ul>
               </div>
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
-                <strong>Key Insight:</strong> The biggest lift came from combining fast publishing (within 2 hours of announcements) with proper NewsArticle schema. One article about a major product launch appeared in Top Stories for 18 hours straight, driving 167,000 visitors—more than their previous monthly total.
+                <strong>Key Insight:</strong> The biggest lift came from combining fast publishing (within 2 hours of announcements) with proper NewsArticle schema. One article about a major product launch appeared in Top Stories for 18 hours straight, driving 167,000 visitors--more than their previous monthly total.
               </p>
             </section>
 
@@ -544,7 +544,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Google News Domination</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements all 16 News SEO tactics automatically—getting you approved for Google News and ranking in Top Stories without manual work.
+                  SEOLOGY implements all 16 News SEO tactics automatically--getting you approved for Google News and ranking in Top Stories without manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -559,10 +559,10 @@ export default function BlogPost() {
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Google News is the <strong>ultimate traffic multiplier for publishers</strong>. Top Stories placement can drive 847% traffic spikes in 48 hours—going from zero to viral faster than any other traffic source.
+                Google News is the <strong>ultimate traffic multiplier for publishers</strong>. Top Stories placement can drive 847% traffic spikes in 48 hours--going from zero to viral faster than any other traffic source.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                The requirements are clear: <strong>NewsArticle schema, consistent publishing (10+ articles/day), proper technical setup, mobile optimization, and topical authority</strong>. Only 23% of publishers meet these standards—creating a massive opportunity for those who optimize properly.
+                The requirements are clear: <strong>NewsArticle schema, consistent publishing (10+ articles/day), proper technical setup, mobile optimization, and topical authority</strong>. Only 23% of publishers meet these standards--creating a massive opportunity for those who optimize properly.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Start with the basics: Apply to Publisher Center, implement schema, create a news section, and publish daily. Then level up with Google Trends monitoring, real-time updates, and AMP. Track your Top Stories appearances and double down on what works.

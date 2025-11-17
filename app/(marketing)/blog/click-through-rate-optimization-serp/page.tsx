@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'SERP Click-Through Rate: 31 Tactics That Increased CTR by 214%',
-  description: 'Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings—generating massive traffic growth from the same positions.',
+  description: 'Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings--generating massive traffic growth from the same positions.',
 }
 
 export default function BlogPost() {
@@ -31,7 +31,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings—generating massive traffic growth from the same positions.
+            Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings--generating massive traffic growth from the same positions.
           </p>
 
           <div className="mb-12">
@@ -62,7 +62,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Improving CTR by 3% can increase traffic by 50%+</strong> without ranking changes—this is free traffic sitting in your GSC</span>
+                  <span><strong>Improving CTR by 3% can increase traffic by 50%+</strong> without ranking changes--this is free traffic sitting in your GSC</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -104,7 +104,7 @@ export default function BlogPost() {
                 </p>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  <strong>Why Google cares about CTR:</strong> In leaked algorithm documents, Google confirmed they track "navboost" signals—essentially organic CTR. If users consistently click your result over competitors, Google interprets this as higher quality and adjusts rankings accordingly.
+                  <strong>Why Google cares about CTR:</strong> In leaked algorithm documents, Google confirmed they track "navboost" signals--essentially organic CTR. If users consistently click your result over competitors, Google interprets this as higher quality and adjusts rankings accordingly.
                 </p>
 
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -590,7 +590,7 @@ export default function BlogPost() {
                   </div>
 
                   <p className="text-slate-700 mt-6 italic">
-                    "We spent 9 months chasing better rankings when the real opportunity was right in front of us. Optimizing CTR gave us 187% more traffic without moving a single ranking. This was the highest ROI marketing project we\'ve ever done." — Rachel M., Head of Growth
+                    "We spent 9 months chasing better rankings when the real opportunity was right in front of us. Optimizing CTR gave us 187% more traffic without moving a single ranking. This was the highest ROI marketing project we\'ve ever done." -- Rachel M., Head of Growth
                   </p>
                 </div>
               </section>
@@ -609,7 +609,7 @@ export default function BlogPost() {
                       <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
                       <div>
                         <h4 className="font-bold text-lg mb-1">Analyzes Your CTR Performance in GSC</h4>
-                        <p className="text-slate-700">Identifies pages with good rankings but poor CTR—your biggest quick-win opportunities</p>
+                        <p className="text-slate-700">Identifies pages with good rankings but poor CTR--your biggest quick-win opportunities</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -664,7 +664,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your CTR Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop manually rewriting titles and descriptions. SEOLOGY analyzes your Google Search Console data, identifies CTR opportunities, optimizes titles/descriptions, implements schema markup, and monitors performance—all automatically.
+                    Stop manually rewriting titles and descriptions. SEOLOGY analyzes your Google Search Console data, identifies CTR opportunities, optimizes titles/descriptions, implements schema markup, and monitors performance--all automatically.
                   </p>
                   <Link
                     href="/sign-up"

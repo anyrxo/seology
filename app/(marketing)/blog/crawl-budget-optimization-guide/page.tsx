@@ -55,7 +55,7 @@ export default function BlogPost() {
                 <li>Crawl budget is how many pages Googlebot crawls on your site per day</li>
                 <li>Large sites (10,000+ pages) often waste crawl budget on low-value pages</li>
                 <li>Optimize by eliminating duplicate content, fixing redirects, and managing URL parameters</li>
-                <li>Most sites waste 70% of crawl budget—get it right and see faster indexing</li>
+                <li>Most sites waste 70% of crawl budget--get it right and see faster indexing</li>
                 <li>SEOLOGY automatically optimizes crawl budget for maximum efficiency</li>
               </ul>
             </div>
@@ -243,7 +243,7 @@ export default function BlogPost() {
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
                     <div>
                       <strong className="text-xl">Coverage Report</strong>
-                      <p className="text-slate-700 mt-1">Check which pages are "Discovered but not indexed"—likely crawl budget issues.</p>
+                      <p className="text-slate-700 mt-1">Check which pages are "Discovered but not indexed"--likely crawl budget issues.</p>
                     </div>
                   </li>
                 </ul>
@@ -277,7 +277,7 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">🚨</div>
                     <div>
                       <strong className="text-xl">Google crawls low-value pages</strong>
-                      <p className="text-slate-700 mt-1">Check server logs—if Google wastes time on admin pages, block them.</p>
+                      <p className="text-slate-700 mt-1">Check server logs--if Google wastes time on admin pages, block them.</p>
                     </div>
                   </li>
                 </ul>

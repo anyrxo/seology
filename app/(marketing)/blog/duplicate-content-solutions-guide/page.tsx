@@ -48,7 +48,7 @@ export default function BlogPost() {
               <h2 className="text-3xl font-bold mb-6">The Truth About Duplicate Content (It\'s Not What You Think)</h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Let\'s clear up the biggest myth: <strong>Google doesn\'t have a "duplicate content penalty."</strong> But duplicate content still kills your rankings—just not how you think.
+                Let\'s clear up the biggest myth: <strong>Google doesn\'t have a "duplicate content penalty."</strong> But duplicate content still kills your rankings--just not how you think.
               </p>
 
               <div className="bg-slate-50 p-6 rounded-xl mb-8">
@@ -64,7 +64,7 @@ export default function BlogPost() {
               </div>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>Real stat:</strong> Moz found that sites with duplicate content issues rank 50% lower on average than sites without duplication. Not because of a penalty—because Google can\'t tell which page to rank.
+                <strong>Real stat:</strong> Moz found that sites with duplicate content issues rank 50% lower on average than sites without duplication. Not because of a penalty--because Google can\'t tell which page to rank.
               </p>
             </section>
 
@@ -282,7 +282,7 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                       <ul className="text-slate-700 space-y-3">
                         <li><strong>Print version:</strong> Add canonical tag to printer-friendly URL pointing to main article</li>
                         <li><strong>Mobile subdomain:</strong> If you still use m.example.com (don\'t), add bidirectional canonical/alternate tags</li>
-                        <li><strong>Best practice:</strong> Use responsive design—no separate mobile/print URLs needed</li>
+                        <li><strong>Best practice:</strong> Use responsive design--no separate mobile/print URLs needed</li>
                       </ul>
                       <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm mt-3">
 {`<!-- On print version (/article?print=1) -->
@@ -368,7 +368,7 @@ site:http://example.com`}
               <h2 className="text-3xl font-bold mb-6">Canonical Tags: The Ultimate Duplicate Content Solution</h2>
 
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                When you have legitimate duplicates (you can\'t remove or redirect them), canonical tags tell Google: "This is the master version—index this one, ignore the others."
+                When you have legitimate duplicates (you can\'t remove or redirect them), canonical tags tell Google: "This is the master version--index this one, ignore the others."
               </p>
 
               <div className="bg-blue-50 p-6 rounded-xl mb-6">
@@ -404,7 +404,7 @@ site:http://example.com`}
                   <ul className="space-y-2 text-slate-700">
                     <li>• When 301 redirect is possible (redirects are stronger)</li>
                     <li>• Between pages with different content (canonical = "these are the same")</li>
-                    <li>• Cross-domain canonicals (risky—only for syndication)</li>
+                    <li>• Cross-domain canonicals (risky--only for syndication)</li>
                     <li>• On paginated pages where each page should rank independently</li>
                     <li>• As a band-aid for poor site architecture (fix the root cause)</li>
                   </ul>
@@ -444,7 +444,7 @@ site:http://example.com`}
                 <div>
                   <h3 className="text-2xl font-bold mb-3">2. Syndicated Content</h3>
                   <p className="text-slate-700 mb-3">
-                    You publish an article on Medium, LinkedIn, or industry publications—Google sees multiple identical copies.
+                    You publish an article on Medium, LinkedIn, or industry publications--Google sees multiple identical copies.
                   </p>
                   <p className="text-slate-700 mb-3"><strong>Fix:</strong></p>
                   <ul className="space-y-2 text-slate-700">
@@ -527,7 +527,7 @@ site:http://example.com`}
               </p>
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Auto-Fix Duplicate Content Issues with AI</h3>
-                <p className="text-lg mb-6 opacity-90">SEOLOGY automatically detects and resolves all 7 types of duplicate content—canonical tags, redirects, and URL normalization handled automatically.</p>
+                <p className="text-lg mb-6 opacity-90">SEOLOGY automatically detects and resolves all 7 types of duplicate content--canonical tags, redirects, and URL normalization handled automatically.</p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Fix Duplicate Content Now<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>

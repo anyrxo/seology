@@ -105,7 +105,7 @@ export default function HandmadeArtisanProductsSEOGuide() {
         <h2>Maker Storytelling SEO Strategy</h2>
 
         <p>
-          Authenticity and human connection differentiate handmade products from mass production. Maker storytelling is not optional—it's essential for SEO and conversion:
+          Authenticity and human connection differentiate handmade products from mass production. Maker storytelling is not optional--it's essential for SEO and conversion:
         </p>
 
         <h3>About Page Optimization</h3>
@@ -262,8 +262,8 @@ export default function HandmadeArtisanProductsSEOGuide() {
         </p>
 
         <ul>
-          <li><strong>Cottagecore Aesthetic:</strong> "The warm, nostalgic spin celebrating coziness, connection, and handmade beauty—think crocheted doilies, embroidered linens, tomato-red accents, and kitchen-inspired gifts that feel passed down through generations"</li>
-          <li><strong>Maximalist Joy:</strong> "Gen Z shoppers are rejecting minimalism and embracing maximalist joy—an invitation to lean into whimsy, humor, and bold design"</li>
+          <li><strong>Cottagecore Aesthetic:</strong> "The warm, nostalgic spin celebrating coziness, connection, and handmade beauty--think crocheted doilies, embroidered linens, tomato-red accents, and kitchen-inspired gifts that feel passed down through generations"</li>
+          <li><strong>Maximalist Joy:</strong> "Gen Z shoppers are rejecting minimalism and embracing maximalist joy--an invitation to lean into whimsy, humor, and bold design"</li>
           <li><strong>Texture Focus:</strong> "Shoppers crave cozy, plush, layered textures that feel handmade and comforting"</li>
         </ul>
 
@@ -420,7 +420,7 @@ export default function HandmadeArtisanProductsSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Handmade & Artisan Stores</h2>
 
         <p>
-          The complexity of handmade and artisan SEO—managing maker storytelling, sustainability narratives, customization options, Etsy marketplace optimization, multi-channel presence, and conscious consumer values—requires specialized automation.
+          The complexity of handmade and artisan SEO--managing maker storytelling, sustainability narratives, customization options, Etsy marketplace optimization, multi-channel presence, and conscious consumer values--requires specialized automation.
         </p>
 
         <p>
@@ -438,7 +438,7 @@ export default function HandmadeArtisanProductsSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine understands conscious consumer values, craft marketplace dynamics, and artisan brand positioning—automatically implementing optimizations that would take months of manual work, allowing you to focus on your craft and building authentic maker connections.
+          SEOLOGY.AI's AI engine understands conscious consumer values, craft marketplace dynamics, and artisan brand positioning--automatically implementing optimizations that would take months of manual work, allowing you to focus on your craft and building authentic maker connections.
         </p>
       </div>
 

@@ -40,8 +40,8 @@ export default function FashionApparelSEOPage() {
         </p>
         <div className="space-y-2 text-red-800 dark:text-red-200">
           <p><strong>Fashion ecommerce will reach $1.6 trillion by 2030</strong>, but most fashion brands struggle with online visibility despite massive market opportunity</p>
-          <p><strong>79.6% of fashion ecommerce traffic comes from mobile devices</strong>—if your site isn't mobile-optimized for visual browsing, you're losing 8 out of 10 potential customers</p>
-          <p><strong>25% of online apparel orders get returned</strong> due to size/fit issues—costing brands billions in reverse logistics and lost revenue</p>
+          <p><strong>79.6% of fashion ecommerce traffic comes from mobile devices</strong>--if your site isn't mobile-optimized for visual browsing, you're losing 8 out of 10 potential customers</p>
+          <p><strong>25% of online apparel orders get returned</strong> due to size/fit issues--costing brands billions in reverse logistics and lost revenue</p>
           <p className="font-semibold mt-4">Without fashion-specific SEO addressing <strong>seasonal trends, size concerns, and visual search</strong>, you're invisible to shoppers actively looking for styles like yours.</p>
         </div>
       </div>
@@ -89,17 +89,17 @@ export default function FashionApparelSEOPage() {
       <h3>Fashion-Specific SEO Challenges</h3>
 
       <ul>
-        <li><strong>Trend Volatility:</strong> Keywords that rank #1 in Q1 2026 ("oversized blazers") might be irrelevant by Q3—requiring constant keyword monitoring and content updates</li>
+        <li><strong>Trend Volatility:</strong> Keywords that rank #1 in Q1 2026 ("oversized blazers") might be irrelevant by Q3--requiring constant keyword monitoring and content updates</li>
         <li><strong>Seasonal Inventory Rotation:</strong> Summer dresses get delisted in fall, breaking SEO momentum and creating 404s if not managed properly</li>
-        <li><strong>Size/Fit Anxiety:</strong> "Will this fit me?" is the #1 conversion barrier—SEO must address fit questions before shoppers abandon</li>
-        <li><strong>Visual Discovery Dominance:</strong> Google Lens and Pinterest visual search change how people find fashion—text-only optimization isn't enough</li>
-        <li><strong>High Return Rates:</strong> 25% returns signal poor product-market fit or misleading descriptions—SEO content must set accurate expectations</li>
+        <li><strong>Size/Fit Anxiety:</strong> "Will this fit me?" is the #1 conversion barrier--SEO must address fit questions before shoppers abandon</li>
+        <li><strong>Visual Discovery Dominance:</strong> Google Lens and Pinterest visual search change how people find fashion--text-only optimization isn't enough</li>
+        <li><strong>High Return Rates:</strong> 25% returns signal poor product-market fit or misleading descriptions--SEO content must set accurate expectations</li>
       </ul>
 
       <h2>Seasonal SEO Strategy: Planning Content 6+ Months in Advance</h2>
 
       <p>
-        <strong>Fashion brands are planning content around holidays, sales, and seasonal fashion trends</strong>, such as "Winter coat trends 2026" and "Summer sandals 2026"—often 6-9 months before the actual season to capture early searchers.
+        <strong>Fashion brands are planning content around holidays, sales, and seasonal fashion trends</strong>, such as "Winter coat trends 2026" and "Summer sandals 2026"--often 6-9 months before the actual season to capture early searchers.
       </p>
 
       <h3>Seasonal Keyword Research Framework</h3>
@@ -119,11 +119,11 @@ export default function FashionApparelSEOPage() {
           </div>
           <div className="flex gap-3">
             <span className="font-bold">3.</span>
-            <p><strong>Pinterest Predicts Report:</strong> Pinterest releases annual trend forecasts showing what users are pinning before trends go mainstream—use to identify rising styles</p>
+            <p><strong>Pinterest Predicts Report:</strong> Pinterest releases annual trend forecasts showing what users are pinning before trends go mainstream--use to identify rising styles</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">4.</span>
-            <p><strong>Competitor Early Content:</strong> Major retailers publish "Spring 2026 trends" in December 2025—analyze their content to identify keyword opportunities</p>
+            <p><strong>Competitor Early Content:</strong> Major retailers publish "Spring 2026 trends" in December 2025--analyze their content to identify keyword opportunities</p>
           </div>
         </div>
       </div>
@@ -159,7 +159,7 @@ export default function FashionApparelSEOPage() {
           ⚠️ Critical Mistake: Dating Your URLs
         </p>
         <p className="text-yellow-800 dark:text-yellow-200">
-          <strong>Don't use year-specific URLs like "/summer-dresses-2026"</strong>—these become outdated and require new URLs each year, losing all SEO authority.
+          <strong>Don't use year-specific URLs like "/summer-dresses-2026"</strong>--these become outdated and require new URLs each year, losing all SEO authority.
         </p>
         <p className="text-yellow-800 dark:text-yellow-200 mt-2">
           <strong>Instead, use evergreen URLs like "/summer-dresses"</strong> and update the content annually with the latest trends, maintaining URL authority while staying current.
@@ -185,7 +185,7 @@ export default function FashionApparelSEOPage() {
           <div>
             <p className="font-semibold mb-1">👗 <strong>Fit Guides by Body Type</strong></p>
             <p className="text-sm text-gray-700 dark:text-gray-300">Create content like "Best Jeans for Petite Women", "Dresses for Curvy Body Types", "How This Fits on Different Body Shapes"</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1"><strong>SEO Impact:</strong> Captures long-tail searches with high purchase intent—people specifying body type are close to buying</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1"><strong>SEO Impact:</strong> Captures long-tail searches with high purchase intent--people specifying body type are close to buying</p>
           </div>
           <div>
             <p className="font-semibold mb-1">📹 <strong>Product Fit Videos</strong></p>
@@ -217,7 +217,7 @@ export default function FashionApparelSEOPage() {
       <h2>Visual Search Optimization: Google Lens & Pinterest Lens</h2>
 
       <p>
-        <strong>Google Lens and Pinterest visual search are changing how people discover fashion.</strong> Instead of typing "floral maxi dress", shoppers snap a photo of an outfit they like and search for similar items—requiring image-based SEO optimization.
+        <strong>Google Lens and Pinterest visual search are changing how people discover fashion.</strong> Instead of typing "floral maxi dress", shoppers snap a photo of an outfit they like and search for similar items--requiring image-based SEO optimization.
       </p>
 
       <h3>Optimizing for Visual Search in 2026</h3>
@@ -233,7 +233,7 @@ export default function FashionApparelSEOPage() {
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Descriptive Image File Names:</strong> Use "navy-blue-floral-maxi-dress-front.jpg" instead of "IMG_1234.jpg"—Google reads filenames</p>
+            <p><strong>Descriptive Image File Names:</strong> Use "navy-blue-floral-maxi-dress-front.jpg" instead of "IMG_1234.jpg"--Google reads filenames</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
@@ -257,7 +257,7 @@ export default function FashionApparelSEOPage() {
       <h3>Model Diversity and Visual SEO</h3>
 
       <p>
-        <strong>Model Swap lets shoppers preview clothing on different body types</strong>—showing the same dress on petite, curvy, tall, and plus-size models. This:
+        <strong>Model Swap lets shoppers preview clothing on different body types</strong>--showing the same dress on petite, curvy, tall, and plus-size models. This:
       </p>
 
       <ul>
@@ -320,7 +320,7 @@ export default function FashionApparelSEOPage() {
         <div className="space-y-3 text-purple-800 dark:text-purple-200">
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Swipeable Product Images:</strong> Enable swipe gestures for image galleries—mobile users expect Instagram-like browsing</p>
+            <p><strong>Swipeable Product Images:</strong> Enable swipe gestures for image galleries--mobile users expect Instagram-like browsing</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
@@ -348,14 +348,14 @@ export default function FashionApparelSEOPage() {
       <h2>User-Generated Content (UGC) for Fashion SEO</h2>
 
       <p>
-        <strong>81% of consumers prefer personalized experiences</strong>—and seeing real customers wearing products (not just professional models) creates authentic personalization that drives both conversions and SEO value.
+        <strong>81% of consumers prefer personalized experiences</strong>--and seeing real customers wearing products (not just professional models) creates authentic personalization that drives both conversions and SEO value.
       </p>
 
       <h3>UGC Content Types for Fashion Brands</h3>
 
       <ul>
         <li><strong>Customer Photos:</strong> Instagram integration or review photo uploads showing real customers wearing products</li>
-        <li><strong>Size/Fit Reviews:</strong> "I'm 5'4" and ordered size S—fits perfectly!" (provides fit context for similar shoppers)</li>
+        <li><strong>Size/Fit Reviews:</strong> "I'm 5'4" and ordered size S--fits perfectly!" (provides fit context for similar shoppers)</li>
         <li><strong>Styling Ideas:</strong> "I paired this dress with ankle boots and a denim jacket" (inspires outfit combinations)</li>
         <li><strong>Product Videos:</strong> Customer-submitted "haul" videos, try-on videos, outfit of the day (OOTD) content</li>
         <li><strong>Q&A Sections:</strong> "Does this dress have pockets?" answered by previous buyers (addresses common questions)</li>
@@ -368,7 +368,7 @@ export default function FashionApparelSEOPage() {
         <div className="space-y-3">
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Fresh Content:</strong> Customer reviews add new content continuously without manual work—Google rewards frequently updated pages</p>
+            <p><strong>Fresh Content:</strong> Customer reviews add new content continuously without manual work--Google rewards frequently updated pages</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
@@ -388,7 +388,7 @@ export default function FashionApparelSEOPage() {
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Dominate Fashion Search in 2026?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          SEOLOGY.AI automatically optimizes seasonal content, size/fit information, and visual search assets for fashion brands—reducing the 25% return rate while capturing the $1.6 trillion fashion ecommerce opportunity
+          SEOLOGY.AI automatically optimizes seasonal content, size/fit information, and visual search assets for fashion brands--reducing the 25% return rate while capturing the $1.6 trillion fashion ecommerce opportunity
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
@@ -412,7 +412,7 @@ export default function FashionApparelSEOPage() {
       <h2>Personalization and AI-Driven Fashion SEO</h2>
 
       <p>
-        <strong>81% of consumers prefer working with companies that offer personalized experiences</strong>—and in 2026, AI-powered personalization extends to SEO strategy.
+        <strong>81% of consumers prefer working with companies that offer personalized experiences</strong>--and in 2026, AI-powered personalization extends to SEO strategy.
       </p>
 
       <h3>Personalized Fashion SEO Tactics</h3>
@@ -437,12 +437,12 @@ export default function FashionApparelSEOPage() {
           🌱 High-Growth Sustainable Fashion Keywords (2026)
         </p>
         <div className="space-y-2 text-green-800 dark:text-green-200">
-          <p><strong>• "Secondhand [product]"</strong> — "secondhand designer handbags", "pre-owned luxury watches"</p>
-          <p><strong>• "Sustainable fashion brands"</strong> — Growing 45% YoY as consumers prioritize eco-friendly shopping</p>
-          <p><strong>• "Vintage [style]"</strong> — "vintage 90s jeans", "vintage band tees"</p>
-          <p><strong>• "Ethical clothing"</strong> — Fair trade, worker welfare, supply chain transparency</p>
-          <p><strong>• "Circular fashion"</strong> — Buy-back programs, rental services, clothing recycling</p>
-          <p><strong>• "Eco-friendly [product]"</strong> — "eco-friendly swimwear", "organic cotton t-shirts"</p>
+          <p><strong>• "Secondhand [product]"</strong> -- "secondhand designer handbags", "pre-owned luxury watches"</p>
+          <p><strong>• "Sustainable fashion brands"</strong> -- Growing 45% YoY as consumers prioritize eco-friendly shopping</p>
+          <p><strong>• "Vintage [style]"</strong> -- "vintage 90s jeans", "vintage band tees"</p>
+          <p><strong>• "Ethical clothing"</strong> -- Fair trade, worker welfare, supply chain transparency</p>
+          <p><strong>• "Circular fashion"</strong> -- Buy-back programs, rental services, clothing recycling</p>
+          <p><strong>• "Eco-friendly [product]"</strong> -- "eco-friendly swimwear", "organic cotton t-shirts"</p>
         </div>
       </div>
 
@@ -536,20 +536,20 @@ export default function FashionApparelSEOPage() {
         <ul className="space-y-2 text-indigo-800 dark:text-indigo-200">
           <li><strong>• AI Trend Prediction:</strong> Machine learning analyzes search patterns, social media, and runway shows to predict trends 6-9 months early</li>
           <li><strong>• Voice Shopping Integration:</strong> "Hey Google, find me a floral maxi dress under $50" requires conversational keyword optimization</li>
-          <li><strong>• Social Commerce SEO:</strong> Instagram Shopping, TikTok Shop, Pinterest Buyable Pins blur lines between social and search—require cross-platform optimization</li>
-          <li><strong>• AR/VR Try-On Ubiquity:</strong> Virtual fitting rooms become standard—brands without AR features lose to competitors offering try-before-you-buy experiences</li>
+          <li><strong>• Social Commerce SEO:</strong> Instagram Shopping, TikTok Shop, Pinterest Buyable Pins blur lines between social and search--require cross-platform optimization</li>
+          <li><strong>• AR/VR Try-On Ubiquity:</strong> Virtual fitting rooms become standard--brands without AR features lose to competitors offering try-before-you-buy experiences</li>
           <li><strong>• Hyper-Personalization:</strong> Dynamic landing pages showing products based on browsing history, body type, style preferences, and purchase patterns</li>
         </ul>
       </div>
 
       <p>
-        <strong>The fashion brands that thrive in 2026 will be those that treat SEO as a visual, mobile-first, trend-responsive discipline</strong>—not just text optimization, but a complete content strategy that addresses size anxiety, seasonal trends, and visual discovery across all touchpoints.
+        <strong>The fashion brands that thrive in 2026 will be those that treat SEO as a visual, mobile-first, trend-responsive discipline</strong>--not just text optimization, but a complete content strategy that addresses size anxiety, seasonal trends, and visual discovery across all touchpoints.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-pink-600 to-purple-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Fashion SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
-          Join leading fashion brands using SEOLOGY.AI to automatically optimize seasonal content, size/fit guides, and visual search assets—reducing the 25% return rate while capturing high-intent fashion shoppers in the $1.6 trillion market.
+          Join leading fashion brands using SEOLOGY.AI to automatically optimize seasonal content, size/fit guides, and visual search assets--reducing the 25% return rate while capturing high-intent fashion shoppers in the $1.6 trillion market.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <p className="font-semibold mb-3">✅ Fashion-Specific Features:</p>

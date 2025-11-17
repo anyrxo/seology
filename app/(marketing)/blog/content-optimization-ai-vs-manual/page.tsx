@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Manual content optimization is slow, expensive, and inconsistent. AI-powered content optimization analyzes semantic intent, competitor content, and search patterns to deliver <strong>3x better results in 95% less time</strong>. SEOLOGY's Claude AI integration optimizes title tags, meta descriptions, headings, body content, and internal links automatically—while maintaining your brand voice.
+                Manual content optimization is slow, expensive, and inconsistent. AI-powered content optimization analyzes semantic intent, competitor content, and search patterns to deliver <strong>3x better results in 95% less time</strong>. SEOLOGY's Claude AI integration optimizes title tags, meta descriptions, headings, body content, and internal links automatically--while maintaining your brand voice.
               </p>
             </div>
 
@@ -108,7 +108,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <h3 className="text-xl font-bold mb-3">Step 1: Semantic Analysis</h3>
                     <p className="text-slate-700">
-                      AI analyzes your existing content to understand topics, entities, and user intent—not just keywords.
+                      AI analyzes your existing content to understand topics, entities, and user intent--not just keywords.
                     </p>
                   </div>
 
@@ -129,7 +129,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-xl border border-cyan-200">
                     <h3 className="text-xl font-bold mb-3">Step 4: Content Enhancement</h3>
                     <p className="text-slate-700">
-                      AI generates optimized title tags, meta descriptions, headings, and suggests content improvements—all while preserving your brand voice.
+                      AI generates optimized title tags, meta descriptions, headings, and suggests content improvements--all while preserving your brand voice.
                     </p>
                   </div>
 
@@ -198,7 +198,7 @@ export default function BlogPost() {
                   </table>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  AI doesn't just work faster—it works <strong>smarter</strong>.
+                  AI doesn't just work faster--it works <strong>smarter</strong>.
                 </p>
               </section>
 
@@ -238,7 +238,7 @@ export default function BlogPost() {
                       <strong>Manual:</strong> Random headings, multiple H1s, no hierarchy
                     </p>
                     <p className="text-slate-700">
-                      <strong>AI-Optimized:</strong> Proper semantic structure—one H1, logical H2-H6 outline, keyword-rich but natural
+                      <strong>AI-Optimized:</strong> Proper semantic structure--one H1, logical H2-H6 outline, keyword-rich but natural
                     </p>
                   </div>
 
@@ -322,7 +322,7 @@ export default function BlogPost() {
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Myth:</strong> "AI just stuffs keywords into content."
                     <p className="text-slate-700 mt-2">
-                      <strong>Reality:</strong> Modern AI uses semantic analysis and natural language understanding—no keyword stuffing. It's smarter than humans at balancing optimization with readability.
+                      <strong>Reality:</strong> Modern AI uses semantic analysis and natural language understanding--no keyword stuffing. It's smarter than humans at balancing optimization with readability.
                     </p>
                   </div>
 
@@ -363,7 +363,7 @@ export default function BlogPost() {
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
                     <div>
                       <strong className="text-xl">Review AI Suggestions:</strong>
-                      <p className="text-slate-700 mt-1">AI generates optimized title tags, meta descriptions, content improvements—you approve.</p>
+                      <p className="text-slate-700 mt-1">AI generates optimized title tags, meta descriptions, content improvements--you approve.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -377,7 +377,7 @@ export default function BlogPost() {
                     <div className="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
                     <div>
                       <strong className="text-xl">Monitor Performance:</strong>
-                      <p className="text-slate-700 mt-1">Track rankings, traffic, and conversions—AI learns from results and improves over time.</p>
+                      <p className="text-slate-700 mt-1">Track rankings, traffic, and conversions--AI learns from results and improves over time.</p>
                     </div>
                   </li>
                 </ul>

@@ -23,7 +23,7 @@ export default function DropshippingSEOPage() {
           Dropshipping SEO for Shopify: Optimization Guide Without Inventory 2026
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          How dropshipping stores overcome duplicate content challenges, build trust without manufacturing, and compete in the $590 billion market—all without holding inventory
+          How dropshipping stores overcome duplicate content challenges, build trust without manufacturing, and compete in the $590 billion market--all without holding inventory
         </p>
         <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
           <span>By Nathan Chen</span>
@@ -39,9 +39,9 @@ export default function DropshippingSEOPage() {
           📦 The Dropshipping SEO Paradox
         </p>
         <div className="space-y-2 text-red-800 dark:text-red-200">
-          <p><strong>78% of new Shopify stores are dropshipping-based</strong>, making it the most popular ecommerce model—but also the most competitive</p>
-          <p><strong>Only 10-20% of dropshipping businesses succeed</strong> with good planning—and poor SEO is the #1 reason for failure</p>
-          <p><strong>8.5% of businesses struggle with SEO as a major challenge</strong>—and dropshipping stores face unique obstacles: duplicate content, thin product pages, and limited differentiation</p>
+          <p><strong>78% of new Shopify stores are dropshipping-based</strong>, making it the most popular ecommerce model--but also the most competitive</p>
+          <p><strong>Only 10-20% of dropshipping businesses succeed</strong> with good planning--and poor SEO is the #1 reason for failure</p>
+          <p><strong>8.5% of businesses struggle with SEO as a major challenge</strong>--and dropshipping stores face unique obstacles: duplicate content, thin product pages, and limited differentiation</p>
           <p className="font-semibold mt-4">Without dropshipping-specific SEO strategies addressing <strong>supplier content, trust signals, and competitive differentiation</strong>, you're invisible in the $590B market.</p>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function DropshippingSEOPage() {
       <h2>Why Dropshipping SEO Is Different (and Harder)</h2>
 
       <p>
-        The dropshipping model offers low barriers to entry—no inventory investment, no warehouse costs, minimal upfront capital. But these same advantages create significant SEO challenges that traditional ecommerce doesn't face.
+        The dropshipping model offers low barriers to entry--no inventory investment, no warehouse costs, minimal upfront capital. But these same advantages create significant SEO challenges that traditional ecommerce doesn't face.
       </p>
 
       <div className="not-prose bg-white dark:bg-gray-800 rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
@@ -93,7 +93,7 @@ export default function DropshippingSEOPage() {
         <div className="space-y-3 text-red-800 dark:text-red-200">
           <div>
             <p className="font-semibold mb-1">1. Duplicate Content Epidemic</p>
-            <p className="text-sm"><strong>The information, photographs, descriptions, and everything else in the feed is shared with every site that uses it</strong>—making it difficult for search engines to decide which one to rank higher. If 100 dropshippers use the same supplier product description, Google must choose one—and it's rarely the newest store.</p>
+            <p className="text-sm"><strong>The information, photographs, descriptions, and everything else in the feed is shared with every site that uses it</strong>--making it difficult for search engines to decide which one to rank higher. If 100 dropshippers use the same supplier product description, Google must choose one--and it's rarely the newest store.</p>
           </div>
           <div>
             <p className="font-semibold mb-1">2. Thin Content Penalties</p>
@@ -101,15 +101,15 @@ export default function DropshippingSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">3. Trust Deficit</p>
-            <p className="text-sm">As dropshippers don't manufacture their products, building trust through authoritative content becomes crucial—but most dropshippers skip this entirely, relying solely on product listings.</p>
+            <p className="text-sm">As dropshippers don't manufacture their products, building trust through authoritative content becomes crucial--but most dropshippers skip this entirely, relying solely on product listings.</p>
           </div>
           <div>
             <p className="font-semibold mb-1">4. High Competition, Low Barriers</p>
-            <p className="text-sm">With low barriers to entry, the dropshipping space is crowded with competitors selling similar products—often hundreds of stores targeting the exact same keywords.</p>
+            <p className="text-sm">With low barriers to entry, the dropshipping space is crowded with competitors selling similar products--often hundreds of stores targeting the exact same keywords.</p>
           </div>
           <div>
             <p className="font-semibold mb-1">5. Limited Profit Margins = Unsustainable Ads</p>
-            <p className="text-sm">Dropshipping typically operates on slimmer profit margins (15-30%), making paid advertising less sustainable in the long term—SEO becomes the only viable long-term acquisition channel.</p>
+            <p className="text-sm">Dropshipping typically operates on slimmer profit margins (15-30%), making paid advertising less sustainable in the long term--SEO becomes the only viable long-term acquisition channel.</p>
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function DropshippingSEOPage() {
       <h2>Solving the Duplicate Content Problem</h2>
 
       <p>
-        <strong>Many dropshippers rely on manufacturer-provided descriptions, creating duplicate content issues that can harm SEO rankings.</strong> The solution isn't to avoid supplier content entirely—it's to create unique value around it.
+        <strong>Many dropshippers rely on manufacturer-provided descriptions, creating duplicate content issues that can harm SEO rankings.</strong> The solution isn't to avoid supplier content entirely--it's to create unique value around it.
       </p>
 
       <h3>3-Layer Content Strategy for Dropshipping</h3>
@@ -138,7 +138,7 @@ export default function DropshippingSEOPage() {
           <div>
             <p className="font-semibold mb-2">❓ <strong>Layer 3: Comprehensive FAQ Sections</strong></p>
             <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">Add unique FAQ content addressing common questions, concerns, and comparisons that suppliers don't provide.</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">Example: "How is this different from [Competitor Product]?", "Will this work with [Common Use Case]?", "What's the return policy?"—all unique content that differentiates your page.</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Example: "How is this different from [Competitor Product]?", "Will this work with [Common Use Case]?", "What's the return policy?"--all unique content that differentiates your page.</p>
           </div>
         </div>
       </div>
@@ -160,11 +160,11 @@ export default function DropshippingSEOPage() {
           </div>
           <div className="flex gap-3">
             <span className="font-bold">❌</span>
-            <p><strong>Don't:</strong> Copy AI-generated content verbatim without editing—Google can detect generic AI content patterns</p>
+            <p><strong>Don't:</strong> Copy AI-generated content verbatim without editing--Google can detect generic AI content patterns</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">❌</span>
-            <p><strong>Don't:</strong> Use the exact same AI prompt for every product—vary your prompts to create genuinely unique content for each SKU</p>
+            <p><strong>Don't:</strong> Use the exact same AI prompt for every product--vary your prompts to create genuinely unique content for each SKU</p>
           </div>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function DropshippingSEOPage() {
       <h2>Building Trust Without Manufacturing Products</h2>
 
       <p>
-        Traditional ecommerce brands build trust through manufacturing expertise, quality control stories, and "behind-the-scenes" content. Dropshippers can't do this—but there are alternative trust-building strategies.
+        Traditional ecommerce brands build trust through manufacturing expertise, quality control stories, and "behind-the-scenes" content. Dropshippers can't do this--but there are alternative trust-building strategies.
       </p>
 
       <h3>Trust Signals for Dropshipping Stores</h3>
@@ -180,8 +180,8 @@ export default function DropshippingSEOPage() {
       <ul>
         <li><strong>Expert Curation Story:</strong> Position yourself as a curator who tests and selects the best products ("We tested 47 wireless earbuds to find the 5 best for runners")</li>
         <li><strong>Comparison Content:</strong> Create detailed comparison guides showing why you selected specific products over alternatives</li>
-        <li><strong>Customer Reviews (Real Ones):</strong> Encourage and prominently display genuine customer reviews with photos—social proof is critical when you're not the manufacturer</li>
-        <li><strong>Transparent Shipping Times:</strong> Address the elephant in the room—be upfront about 7-14 day shipping (or longer) and explain why ("Direct from manufacturer saves you 40% compared to retail")</li>
+        <li><strong>Customer Reviews (Real Ones):</strong> Encourage and prominently display genuine customer reviews with photos--social proof is critical when you're not the manufacturer</li>
+        <li><strong>Transparent Shipping Times:</strong> Address the elephant in the room--be upfront about 7-14 day shipping (or longer) and explain why ("Direct from manufacturer saves you 40% compared to retail")</li>
         <li><strong>Money-Back Guarantees:</strong> Reduce purchase anxiety with clear, easy return policies</li>
         <li><strong>About Page with Real Story:</strong> Explain why you started this store, what problem you're solving, and why you chose dropshipping (authenticity beats perfection)</li>
       </ul>
@@ -244,11 +244,11 @@ export default function DropshippingSEOPage() {
       <p><strong>Niche advantages:</strong></p>
 
       <ul>
-        <li>Lower keyword competition—easier to rank for long-tail searches</li>
-        <li>Higher conversion rates—niche targeting attracts ready-to-buy customers</li>
-        <li>Better profit margins—less price competition in specialized niches</li>
-        <li>Stronger brand identity—"The Running Gear Store" beats "General Products Store" every time</li>
-        <li>Focused content strategy—easier to create authoritative blog content when you have one clear focus</li>
+        <li>Lower keyword competition--easier to rank for long-tail searches</li>
+        <li>Higher conversion rates--niche targeting attracts ready-to-buy customers</li>
+        <li>Better profit margins--less price competition in specialized niches</li>
+        <li>Stronger brand identity--"The Running Gear Store" beats "General Products Store" every time</li>
+        <li>Focused content strategy--easier to create authoritative blog content when you have one clear focus</li>
       </ul>
 
       <h2>Product Page Optimization for Dropshipping</h2>
@@ -280,7 +280,7 @@ export default function DropshippingSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">5. <strong>Customer Reviews with Photos</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Encourage photo reviews with incentives—visual UGC builds trust and provides unique content</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Encourage photo reviews with incentives--visual UGC builds trust and provides unique content</p>
           </div>
           <div>
             <p className="font-semibold mb-1">6. <strong>Related Content Links</strong></p>
@@ -296,7 +296,7 @@ export default function DropshippingSEOPage() {
       </p>
 
       <ul>
-        <li><strong>Rename Image Files:</strong> Change "IMG_1234.jpg" to "waterproof-swim-earbuds-ipx8-front-view.jpg"—Google reads filenames</li>
+        <li><strong>Rename Image Files:</strong> Change "IMG_1234.jpg" to "waterproof-swim-earbuds-ipx8-front-view.jpg"--Google reads filenames</li>
         <li><strong>Write Unique Alt Text:</strong> "SwimPro waterproof Bluetooth earbuds shown on swimmer, IPX8 rated for lap swimming" (not just "wireless earbuds")</li>
         <li><strong>Add Lifestyle Images:</strong> If possible, order the product and take your own photos in use (huge differentiator), or hire UGC creators to create niche-specific lifestyle photos</li>
         <li><strong>Create Infographics:</strong> Design unique comparison charts, size guides, or feature callouts overlaid on product images</li>
@@ -305,7 +305,7 @@ export default function DropshippingSEOPage() {
       <h2>Mobile Optimization for Dropshipping Traffic</h2>
 
       <p>
-        <strong>With mobile commerce accounting for over 70% of ecommerce traffic in 2025, mobile optimization is non-negotiable.</strong> Dropshipping stores often have slower load times due to third-party integrations (supplier feeds, review apps, live chat)—making mobile speed even more critical.
+        <strong>With mobile commerce accounting for over 70% of ecommerce traffic in 2025, mobile optimization is non-negotiable.</strong> Dropshipping stores often have slower load times due to third-party integrations (supplier feeds, review apps, live chat)--making mobile speed even more critical.
       </p>
 
       <h3>Mobile Speed Optimization Priorities</h3>
@@ -317,11 +317,11 @@ export default function DropshippingSEOPage() {
         <div className="space-y-3 text-blue-800 dark:text-blue-200">
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Lazy Load Product Images:</strong> Only load images as user scrolls—critical for catalog pages with 50+ products</p>
+            <p><strong>Lazy Load Product Images:</strong> Only load images as user scrolls--critical for catalog pages with 50+ products</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Minimize Apps:</strong> Each Shopify app adds JavaScript—audit and remove unused apps (live chat you never respond to, review apps with no reviews)</p>
+            <p><strong>Minimize Apps:</strong> Each Shopify app adds JavaScript--audit and remove unused apps (live chat you never respond to, review apps with no reviews)</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
@@ -341,19 +341,19 @@ export default function DropshippingSEOPage() {
       <h2>Dealing with Longer Shipping Times in SEO Content</h2>
 
       <p>
-        One of dropshipping's biggest weaknesses is shipping speed—7-14 days (or longer) compared to Amazon's 2-day Prime. This creates customer anxiety that SEO content must address proactively.
+        One of dropshipping's biggest weaknesses is shipping speed--7-14 days (or longer) compared to Amazon's 2-day Prime. This creates customer anxiety that SEO content must address proactively.
       </p>
 
       <h3>Transparency-First Approach</h3>
 
       <div className="not-prose bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-6 rounded-lg mb-6">
         <p className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">
-          💡 Don't Hide Shipping Times—Reframe Them
+          💡 Don't Hide Shipping Times--Reframe Them
         </p>
         <div className="space-y-2 text-yellow-800 dark:text-yellow-200">
           <p><strong>❌ Wrong:</strong> Bury shipping times in fine print, hope customers don't notice until after purchase</p>
           <p className="mt-2"><strong>✅ Right:</strong> Display shipping times prominently on product pages with value proposition</p>
-          <p className="text-sm mt-2">"Ships directly from manufacturer in 7-12 business days—no middleman markup means you save 40% compared to retail stores."</p>
+          <p className="text-sm mt-2">"Ships directly from manufacturer in 7-12 business days--no middleman markup means you save 40% compared to retail stores."</p>
         </div>
       </div>
 
@@ -369,7 +369,7 @@ export default function DropshippingSEOPage() {
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Scale Your Dropshipping Store with SEO?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          SEOLOGY.AI automatically creates unique product descriptions, FAQ content, and trust-building blog posts for dropshipping stores—overcoming duplicate content and competing in the $590B market
+          SEOLOGY.AI automatically creates unique product descriptions, FAQ content, and trust-building blog posts for dropshipping stores--overcoming duplicate content and competing in the $590B market
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
@@ -393,7 +393,7 @@ export default function DropshippingSEOPage() {
       <h2>Voice Search Optimization for Dropshipping</h2>
 
       <p>
-        <strong>In 2025, voice search is essential</strong>—and dropshipping stores need to optimize for conversational queries that differ from typed searches.
+        <strong>In 2025, voice search is essential</strong>--and dropshipping stores need to optimize for conversational queries that differ from typed searches.
       </p>
 
       <h3>Voice Search Keyword Strategy</h3>
@@ -431,7 +431,7 @@ export default function DropshippingSEOPage() {
       <h2>AI and Automation Integration for Dropshipping SEO</h2>
 
       <p>
-        <strong>Advancements in AI are enhancing operational efficiency, improving logistics, customer service, and inventory management</strong>—and in 2026, AI-powered SEO automation becomes essential for dropshipping success.
+        <strong>Advancements in AI are enhancing operational efficiency, improving logistics, customer service, and inventory management</strong>--and in 2026, AI-powered SEO automation becomes essential for dropshipping success.
       </p>
 
       <h3>AI-Powered Dropshipping SEO Tools</h3>
@@ -456,7 +456,7 @@ export default function DropshippingSEOPage() {
           <div>
             <p className="font-semibold mb-1">2. Running General "Everything" Stores</p>
             <p className="text-sm">Problem: Competing against Amazon and Walmart for generic keywords with impossible difficulty scores</p>
-            <p className="text-sm font-semibold">Solution: Pick a profitable niche and dominate it—"The Best Store for X" beats "General Store" in SEO</p>
+            <p className="text-sm font-semibold">Solution: Pick a profitable niche and dominate it--"The Best Store for X" beats "General Store" in SEO</p>
           </div>
           <div>
             <p className="font-semibold mb-1">3. No Content Marketing Strategy</p>
@@ -540,13 +540,13 @@ export default function DropshippingSEOPage() {
       </div>
 
       <p>
-        <strong>Only 10-20% of dropshipping businesses succeed</strong>—and the difference is strategic SEO that builds brand authority, creates unique value, and positions the store as a trusted niche expert rather than a generic product catalog.
+        <strong>Only 10-20% of dropshipping businesses succeed</strong>--and the difference is strategic SEO that builds brand authority, creates unique value, and positions the store as a trusted niche expert rather than a generic product catalog.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-cyan-600 to-blue-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Dropshipping SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
-          Join successful dropshipping stores using SEOLOGY.AI to automatically generate unique product descriptions, FAQ content, and niche authority blog posts—overcoming duplicate content and building trust without holding inventory.
+          Join successful dropshipping stores using SEOLOGY.AI to automatically generate unique product descriptions, FAQ content, and niche authority blog posts--overcoming duplicate content and building trust without holding inventory.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <p className="font-semibold mb-3">✅ Dropshipping-Specific Features:</p>

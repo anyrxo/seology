@@ -130,12 +130,12 @@ export default function BestAISEOToolsPage() {
       </ul>
 
       <p>
-        This capability—called <strong>Generative Engine Optimization (GEO)</strong> or <strong>Answer Engine Optimization (AEO)</strong>—is the new frontier for 2026.
+        This capability--called <strong>Generative Engine Optimization (GEO)</strong> or <strong>Answer Engine Optimization (AEO)</strong>--is the new frontier for 2026.
       </p>
 
       <h2>Top 15 AI SEO Tools: Detailed Comparison</h2>
 
-      <h3>1. Search Atlas — Best All-in-One AI SEO Platform</h3>
+      <h3>1. Search Atlas -- Best All-in-One AI SEO Platform</h3>
 
       <div className="not-prose bg-white border-2 border-blue-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-4">
@@ -177,7 +177,7 @@ export default function BestAISEOToolsPage() {
         </div>
       </div>
 
-      <h3>2. Semrush — Best Enterprise SEO Suite with AI Features</h3>
+      <h3>2. Semrush -- Best Enterprise SEO Suite with AI Features</h3>
 
       <div className="not-prose bg-white border-2 border-purple-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-4">
@@ -221,7 +221,7 @@ export default function BestAISEOToolsPage() {
         </div>
       </div>
 
-      <h3>3. Surfer SEO — Best AI Content Optimization</h3>
+      <h3>3. Surfer SEO -- Best AI Content Optimization</h3>
 
       <div className="not-prose bg-white border-2 border-pink-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-4">
@@ -265,7 +265,7 @@ export default function BestAISEOToolsPage() {
         </div>
       </div>
 
-      <h3>4. SE Ranking — Best Value AI SEO Platform</h3>
+      <h3>4. SE Ranking -- Best Value AI SEO Platform</h3>
 
       <div className="not-prose bg-white border-2 border-cyan-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-4">
@@ -308,7 +308,7 @@ export default function BestAISEOToolsPage() {
         </div>
       </div>
 
-      <h3>5. Rank Prompt — Best for AI Search Visibility (GEO/AEO)</h3>
+      <h3>5. Rank Prompt -- Best for AI Search Visibility (GEO/AEO)</h3>
 
       <div className="not-prose bg-white border-2 border-orange-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-4">
@@ -352,7 +352,7 @@ export default function BestAISEOToolsPage() {
         </div>
       </div>
 
-      <h3>6. Clearscope — Best for Content Depth & Topical Authority</h3>
+      <h3>6. Clearscope -- Best for Content Depth & Topical Authority</h3>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-3">
@@ -365,7 +365,7 @@ export default function BestAISEOToolsPage() {
         <p className="text-xs text-gray-600"><strong>Best For:</strong> Publishers and enterprise content teams prioritizing topical authority and semantic relevance</p>
       </div>
 
-      <h3>7. Jasper AI — Best AI Writing with SEO Mode</h3>
+      <h3>7. Jasper AI -- Best AI Writing with SEO Mode</h3>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-3">
@@ -378,7 +378,7 @@ export default function BestAISEOToolsPage() {
         <p className="text-xs text-gray-600"><strong>Best For:</strong> Content agencies and marketers creating high volumes of SEO-optimized content quickly</p>
       </div>
 
-      <h3>8. Frase.io — Best for Question-Based Content Optimization</h3>
+      <h3>8. Frase.io -- Best for Question-Based Content Optimization</h3>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-3">
@@ -391,7 +391,7 @@ export default function BestAISEOToolsPage() {
         <p className="text-xs text-gray-600"><strong>Best For:</strong> Businesses targeting "People Also Ask" boxes and question-based queries</p>
       </div>
 
-      <h3>9. MarketMuse — Best AI Content Strategy Platform</h3>
+      <h3>9. MarketMuse -- Best AI Content Strategy Platform</h3>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-3">
@@ -404,7 +404,7 @@ export default function BestAISEOToolsPage() {
         <p className="text-xs text-gray-600"><strong>Best For:</strong> Enterprise content strategists building topical authority across large content libraries</p>
       </div>
 
-      <h3>10. Ahrefs — Best Traditional SEO Suite with AI Integration</h3>
+      <h3>10. Ahrefs -- Best Traditional SEO Suite with AI Integration</h3>
 
       <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 my-6">
         <div className="flex justify-between items-start mb-3">
@@ -423,19 +423,19 @@ export default function BestAISEOToolsPage() {
         <h4 className="font-semibold mb-4 text-gray-900">Additional Notable Tools</h4>
         <div className="space-y-3 text-sm">
           <div>
-            <strong className="text-gray-900">11. AthenaHQ</strong> — Leads Generative Engine Optimization (GEO), founded by Google Search & DeepMind experts. Purpose-built for AI-first search.
+            <strong className="text-gray-900">11. AthenaHQ</strong> -- Leads Generative Engine Optimization (GEO), founded by Google Search & DeepMind experts. Purpose-built for AI-first search.
           </div>
           <div>
-            <strong className="text-gray-900">12. Writesonic</strong> — Picked as top AI SEO tool for robust core features and ease of use. Strong AI writing with integrated SEO optimization.
+            <strong className="text-gray-900">12. Writesonic</strong> -- Picked as top AI SEO tool for robust core features and ease of use. Strong AI writing with integrated SEO optimization.
           </div>
           <div>
-            <strong className="text-gray-900">13. Alli AI</strong> — Automated on-page SEO changes at scale. G2 rating: 3.4/5 (8 reviews). Good for technical SEO automation.
+            <strong className="text-gray-900">13. Alli AI</strong> -- Automated on-page SEO changes at scale. G2 rating: 3.4/5 (8 reviews). Good for technical SEO automation.
           </div>
           <div>
-            <strong className="text-gray-900">14. ContentShake AI</strong> — Beginner-friendly AI content tool with built-in SEO recommendations. Good for small businesses new to SEO.
+            <strong className="text-gray-900">14. ContentShake AI</strong> -- Beginner-friendly AI content tool with built-in SEO recommendations. Good for small businesses new to SEO.
           </div>
           <div>
-            <strong className="text-gray-900">15. Goodie</strong> — Specialized for product-level visibility in AI-driven commerce. Tracks how your products appear in ChatGPT, Rufus (Amazon AI), and other AI shopping assistants.
+            <strong className="text-gray-900">15. Goodie</strong> -- Specialized for product-level visibility in AI-driven commerce. Tracks how your products appear in ChatGPT, Rufus (Amazon AI), and other AI shopping assistants.
           </div>
         </div>
       </div>
@@ -554,7 +554,7 @@ export default function BestAISEOToolsPage() {
       <div className="not-prose bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Why SEOLOGY.AI Outperforms Traditional AI SEO Tools</h2>
         <p className="text-lg mb-6 text-blue-50">
-          While the tools above require manual implementation of recommendations, <strong>SEOLOGY.AI automatically applies fixes</strong> to your Shopify or WordPress site 24/7. We combine the best features of Search Atlas (automation), Semrush (data), Surfer SEO (content optimization), and Rank Prompt (AI visibility)—in one platform.
+          While the tools above require manual implementation of recommendations, <strong>SEOLOGY.AI automatically applies fixes</strong> to your Shopify or WordPress site 24/7. We combine the best features of Search Atlas (automation), Semrush (data), Surfer SEO (content optimization), and Rank Prompt (AI visibility)--in one platform.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <h3 className="font-semibold mb-3">SEOLOGY.AI vs. Traditional AI SEO Tools:</h3>
@@ -614,7 +614,7 @@ export default function BestAISEOToolsPage() {
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
           <h3 className="font-semibold text-gray-900 mb-2">❌ Mistake #2: Buying Tools You Won't Actually Use</h3>
-          <p className="text-gray-700 text-sm">Enterprise platforms like Semrush Business ($499/mo) offer 40+ projects and API access—but if you only manage 1-2 sites, you're paying for unused capabilities. Match features to actual needs.</p>
+          <p className="text-gray-700 text-sm">Enterprise platforms like Semrush Business ($499/mo) offer 40+ projects and API access--but if you only manage 1-2 sites, you're paying for unused capabilities. Match features to actual needs.</p>
         </div>
 
         <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded">
@@ -668,7 +668,7 @@ export default function BestAISEOToolsPage() {
       <h3>4. Integration Consolidation</h3>
 
       <p>
-        Expect fewer point solutions and more all-in-one platforms. Managing 5-10 separate SEO tools creates fragmentation—integrated platforms will win in 2026.
+        Expect fewer point solutions and more all-in-one platforms. Managing 5-10 separate SEO tools creates fragmentation--integrated platforms will win in 2026.
       </p>
 
       <h2>Conclusion: Choose AI SEO Tools That Match Your Goals</h2>
@@ -686,7 +686,7 @@ export default function BestAISEOToolsPage() {
       </ul>
 
       <p>
-        With <strong>56% of marketers</strong> already using AI for SEO and <strong>82% of enterprise teams</strong> planning increased investment, choosing the right AI SEO tool isn't optional—it's essential for competitive survival in 2026. The tools above represent the market leaders, but the landscape is evolving rapidly as AI search reshapes how customers find businesses.
+        With <strong>56% of marketers</strong> already using AI for SEO and <strong>82% of enterprise teams</strong> planning increased investment, choosing the right AI SEO tool isn't optional--it's essential for competitive survival in 2026. The tools above represent the market leaders, but the landscape is evolving rapidly as AI search reshapes how customers find businesses.
       </p>
 
       <p>

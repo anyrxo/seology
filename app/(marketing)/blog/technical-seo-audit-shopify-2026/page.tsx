@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist | SEOLOGY.AI',
-  description: 'Google released new technical audit methodology (Nov 2025). Master Shopify technical SEO with this comprehensive audit checklist—fix crawlability, indexation, and Core Web Vitals issues.',
+  description: 'Google released new technical audit methodology (Nov 2025). Master Shopify technical SEO with this comprehensive audit checklist--fix crawlability, indexation, and Core Web Vitals issues.',
   keywords: 'technical SEO audit, Shopify technical SEO, crawlability, indexation, canonical URLs, duplicate content, robots.txt, XML sitemap, Google Search Console, Core Web Vitals, site architecture, crawl budget',
   openGraph: {
     title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',
@@ -60,7 +60,7 @@ export default function TechnicalSEOAuditShopifyPage() {
         <ul className="text-sm space-y-2 text-gray-700 dark:text-gray-300">
           <li className="flex items-start gap-3">
             <span className="text-red-500 font-bold mt-1">•</span>
-            <span><strong>Focus on prevention, not arbitrary scores.</strong> Technical audits should prevent issues from interfering with crawling/indexing—not just generate lists of findings.</span>
+            <span><strong>Focus on prevention, not arbitrary scores.</strong> Technical audits should prevent issues from interfering with crawling/indexing--not just generate lists of findings.</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-red-500 font-bold mt-1">•</span>
@@ -104,7 +104,7 @@ export default function TechnicalSEOAuditShopifyPage() {
           </p>
 
           <p className="mb-6">
-            Think of it as a health checkup for your Shopify store's infrastructure—diagnosing problems that prevent Google from properly discovering, crawling, indexing, and ranking your pages.
+            Think of it as a health checkup for your Shopify store's infrastructure--diagnosing problems that prevent Google from properly discovering, crawling, indexing, and ranking your pages.
           </p>
 
           <div className="not-prose bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 mb-8">
@@ -154,7 +154,7 @@ export default function TechnicalSEOAuditShopifyPage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">Prevent Issues Before They Impact Revenue</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    According to Google's 2025 guidance, the purpose of technical audits is <strong>prevention</strong>—stopping issues from interfering with crawling or indexing before they hurt your business.
+                    According to Google's 2025 guidance, the purpose of technical audits is <strong>prevention</strong>--stopping issues from interfering with crawling or indexing before they hurt your business.
                   </p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function TechnicalSEOAuditShopifyPage() {
                   <h5 className="font-bold text-lg text-gray-900 dark:text-gray-100">Start with Google Search Console</h5>
                 </div>
                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                  Check real crawl and indexation data—not synthetic test scores. Focus on actual errors Google encountered while crawling your site.
+                  Check real crawl and indexation data--not synthetic test scores. Focus on actual errors Google encountered while crawling your site.
                 </p>
               </div>
 
@@ -239,7 +239,7 @@ export default function TechnicalSEOAuditShopifyPage() {
           <h2 className="text-3xl font-bold mb-6">Crawlability: Ensuring Google Can Access Your Pages</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            Crawlability is Google's ability to discover and access your pages. If Google can't crawl a page, it can't index or rank it—no matter how good your content is.
+            Crawlability is Google's ability to discover and access your pages. If Google can't crawl a page, it can't index or rank it--no matter how good your content is.
           </p>
 
           <h3 className="text-2xl font-bold mb-4 mt-8">Critical Crawlability Checks</h3>
@@ -267,7 +267,7 @@ export default function TechnicalSEOAuditShopifyPage() {
             <div className="bg-white dark:bg-gray-900 border-2 border-purple-500 rounded-lg p-6">
               <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">2. XML Sitemap Quality</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                <strong>What to check:</strong> Sitemaps should include all product pages, category pages, and valuable content—while excluding low-value pages.
+                <strong>What to check:</strong> Sitemaps should include all product pages, category pages, and valuable content--while excluding low-value pages.
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 rounded p-4 mb-4 text-sm">
                 <strong className="text-gray-900 dark:text-gray-100 block mb-2">Shopify sitemap locations:</strong>
@@ -346,7 +346,7 @@ export default function TechnicalSEOAuditShopifyPage() {
             </div>
 
             <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-              Use an SEO crawler (Screaming Frog, Sitebulb) to find what's stopping proper indexing—then fix those specific issues.
+              Use an SEO crawler (Screaming Frog, Sitebulb) to find what's stopping proper indexing--then fix those specific issues.
             </p>
           </div>
 
@@ -363,7 +363,7 @@ export default function TechnicalSEOAuditShopifyPage() {
             <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-4">
               <h4 className="font-bold text-red-900 dark:text-red-200 mb-2">2. Canonical URL Points to Different Page</h4>
               <p className="text-sm text-red-800 dark:text-red-300">
-                If your canonical tag points to a different URL, Google won't index the current page—it will index the canonical version instead.
+                If your canonical tag points to a different URL, Google won't index the current page--it will index the canonical version instead.
               </p>
             </div>
 
@@ -545,7 +545,7 @@ export default function TechnicalSEOAuditShopifyPage() {
             Automate Technical SEO Audits 24/7
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            SEOLOGY.AI continuously monitors crawlability, indexation, and Core Web Vitals—fixing issues automatically
+            SEOLOGY.AI continuously monitors crawlability, indexation, and Core Web Vitals--fixing issues automatically
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">

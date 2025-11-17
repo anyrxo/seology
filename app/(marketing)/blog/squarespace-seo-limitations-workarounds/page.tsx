@@ -59,7 +59,7 @@ export default function BlogPost() {
                   Squarespace markets itself as an SEO-friendly platform. Their website says: "Built-in SEO tools to help you get discovered."
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  That&apos;s technically true—but misleading. Yes, Squarespace has <em>basic</em> SEO features. But it lacks <strong>advanced</strong> SEO capabilities that competitive sites need to rank on page one.
+                  That&apos;s technically true--but misleading. Yes, Squarespace has <em>basic</em> SEO features. But it lacks <strong>advanced</strong> SEO capabilities that competitive sites need to rank on page one.
                 </p>
 
                 <div className="bg-slate-50 p-6 rounded-lg my-8">
@@ -102,7 +102,7 @@ export default function BlogPost() {
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">1. No Custom Schema Markup</h3>
                     <p className="text-lg text-slate-700 mb-4">
-                      <strong>The Problem:</strong> Squarespace doesn&apos;t allow custom schema markup (structured data). Schema helps Google understand your content and display rich snippets—star ratings, FAQs, product prices, event dates, etc.
+                      <strong>The Problem:</strong> Squarespace doesn&apos;t allow custom schema markup (structured data). Schema helps Google understand your content and display rich snippets--star ratings, FAQs, product prices, event dates, etc.
                     </p>
                     <p className="text-lg text-slate-700 mb-4">
                       Rich snippets increase click-through rates by 30-50%. Without them, you&apos;re at a massive disadvantage.
@@ -595,7 +595,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-2xl p-12 text-center">
                   <h2 className="text-4xl font-bold mb-6">Automate Your Squarespace SEO</h2>
                   <p className="text-xl mb-8 text-blue-100">
-                    SEOLOGY works with Squarespace to automatically fix technical SEO issues, add schema markup, and optimize your site—no coding required.
+                    SEOLOGY works with Squarespace to automatically fix technical SEO issues, add schema markup, and optimize your site--no coding required.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
@@ -651,7 +651,7 @@ export default function BlogPost() {
                   <strong>The Bottom Line:</strong> Squarespace is a great platform for design, but it&apos;s not built for serious SEO. If organic traffic is critical to your business, invest in a more SEO-friendly platform like WordPress, Webflow, or Shopify.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  And if you want to automate 90% of your SEO work—regardless of platform—SEOLOGY handles technical optimizations, schema markup, and continuous monitoring so you can focus on growing your business.
+                  And if you want to automate 90% of your SEO work--regardless of platform--SEOLOGY handles technical optimizations, schema markup, and continuous monitoring so you can focus on growing your business.
                 </p>
               </section>
 

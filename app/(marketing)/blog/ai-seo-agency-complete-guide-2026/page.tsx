@@ -321,7 +321,7 @@ export default function AISEOAgencyGuidePage() {
           </div>
 
           <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-            iPullRank leads the enterprise AI SEO space with documented results across multiple AI platforms. Their MERIT framework delivers 3.4× higher visibility in AI-generated responses compared to traditional SEO approaches.
+            iPullRank leads the enterprise AI SEO space with documented results across multiple AI platforms. Their MERIT framework delivers 3.4x higher visibility in AI-generated responses compared to traditional SEO approaches.
           </p>
 
           <div className="bg-white/60 dark:bg-gray-800/60 rounded-lg p-4">
@@ -654,7 +654,7 @@ export default function AISEOAgencyGuidePage() {
 
             <div className="bg-cyan-50 dark:bg-cyan-900/20 rounded-lg p-4 border-l-4 border-cyan-500">
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                <strong>💡 Key Insight:</strong> Software often delivers results <strong>20-40% faster</strong> than agencies due to automated implementation. Agencies may deliver slightly higher performance ceiling (+10-15%) due to custom strategy, but at 10-50× the cost.
+                <strong>💡 Key Insight:</strong> Software often delivers results <strong>20-40% faster</strong> than agencies due to automated implementation. Agencies may deliver slightly higher performance ceiling (+10-15%) due to custom strategy, but at 10-50x the cost.
               </p>
             </div>
           </div>
@@ -731,7 +731,7 @@ export default function AISEOAgencyGuidePage() {
       <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 text-white rounded-2xl p-8 my-12 shadow-xl">
         <h2 className="text-3xl font-bold mb-4 text-white">Get Agency-Level AI SEO Results at Software Prices</h2>
         <p className="text-xl mb-6 text-blue-50">
-          Why pay $5,000-$25,000/month for an agency when <strong>SEOLOGY.AI</strong> delivers automated AI SEO optimization for $99-$299/month? Our autonomous AI agents implement the same strategies top agencies use—but 24/7, at 95-99% lower cost.
+          Why pay $5,000-$25,000/month for an agency when <strong>SEOLOGY.AI</strong> delivers automated AI SEO optimization for $99-$299/month? Our autonomous AI agents implement the same strategies top agencies use--but 24/7, at 95-99% lower cost.
         </p>
         <div className="grid md:grid-cols-3 gap-6 mb-6">
           <div className="text-center">
@@ -785,7 +785,7 @@ export default function AISEOAgencyGuidePage() {
               Is an AI SEO agency worth the cost compared to software?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              It depends on your budget and needs. Agencies ($2k-25k/mo) provide strategic expertise and hands-off management but cost <strong>10-50× more</strong> than software ($39-499/mo). Software delivers <strong>similar performance</strong> (25-49.2% ranking improvements vs 30-50%) at 90-99% lower cost. <strong>Best value: Hybrid approach</strong> combining software automation with quarterly agency consulting.
+              It depends on your budget and needs. Agencies ($2k-25k/mo) provide strategic expertise and hands-off management but cost <strong>10-50x more</strong> than software ($39-499/mo). Software delivers <strong>similar performance</strong> (25-49.2% ranking improvements vs 30-50%) at 90-99% lower cost. <strong>Best value: Hybrid approach</strong> combining software automation with quarterly agency consulting.
             </p>
           </div>
 
@@ -840,24 +840,24 @@ export default function AISEOAgencyGuidePage() {
       <section className="mb-12">
         <h2>Conclusion: Making the Right AI SEO Investment</h2>
         <p>
-          The AI SEO agency market in 2025 offers unprecedented capabilities—from <strong>340% ChatGPT mention increases</strong> to <strong>4,162% traffic growth</strong> in documented case studies. With <strong>61% of agencies</strong> now offering AI SEO services and <strong>38% planning price increases</strong> in 2026, the market is maturing rapidly.
+          The AI SEO agency market in 2025 offers unprecedented capabilities--from <strong>340% ChatGPT mention increases</strong> to <strong>4,162% traffic growth</strong> in documented case studies. With <strong>61% of agencies</strong> now offering AI SEO services and <strong>38% planning price increases</strong> in 2026, the market is maturing rapidly.
         </p>
         <p>
-          But the critical decision isn't whether to invest in AI SEO—it's <em>how</em>. The data clearly shows:
+          But the critical decision isn't whether to invest in AI SEO--it's <em>how</em>. The data clearly shows:
         </p>
         <ul>
           <li><strong>AI SEO Agencies:</strong> Deliver expert strategy and hands-off management at $2,000-$25,000/month</li>
           <li><strong>AI SEO Software:</strong> Provides automated execution and continuous optimization at $39-$499/month (90-99% cost savings)</li>
-          <li><strong>Hybrid Approach:</strong> Combines best of both worlds—quarterly agency consulting + daily software automation—at 65-85% cost savings versus full agency</li>
+          <li><strong>Hybrid Approach:</strong> Combines best of both worlds--quarterly agency consulting + daily software automation--at 65-85% cost savings versus full agency</li>
         </ul>
         <p>
-          The performance gap between agencies and software is narrowing. While top agencies deliver <strong>30-75% traffic increases</strong>, leading software platforms achieve <strong>20-65% increases</strong>—often faster due to automated implementation. The primary differentiator is strategic expertise, which can be acquired through quarterly consulting without ongoing $5k-25k/month retainers.
+          The performance gap between agencies and software is narrowing. While top agencies deliver <strong>30-75% traffic increases</strong>, leading software platforms achieve <strong>20-65% increases</strong>--often faster due to automated implementation. The primary differentiator is strategic expertise, which can be acquired through quarterly consulting without ongoing $5k-25k/month retainers.
         </p>
         <p>
           For most businesses, the optimal 2026 strategy is clear: Use AI SEO software for <strong>execution and automation</strong>, supplement with strategic consulting as needed, and reserve full agency engagements for enterprises with complex custom requirements and budgets exceeding $10k/month.
         </p>
         <p>
-          The future of SEO isn't human OR machine—it's human strategy amplified by machine execution. Choose the investment level that matches your business stage, budget, and growth goals. But whatever you choose, act now: <strong>early AI SEO adopters</strong> are achieving <strong>30-40% visibility advantages</strong> over competitors still using traditional approaches.
+          The future of SEO isn't human OR machine--it's human strategy amplified by machine execution. Choose the investment level that matches your business stage, budget, and growth goals. But whatever you choose, act now: <strong>early AI SEO adopters</strong> are achieving <strong>30-40% visibility advantages</strong> over competitors still using traditional approaches.
         </p>
       </section>
 
@@ -865,7 +865,7 @@ export default function AISEOAgencyGuidePage() {
       <div className="bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white rounded-2xl p-8 my-12 shadow-xl">
         <h2 className="text-3xl font-bold mb-4 text-white">Skip the $5k-$25k/Month Agency. Get Autonomous AI SEO Today.</h2>
         <p className="text-xl mb-6 text-purple-50">
-          <strong>SEOLOGY.AI</strong> delivers what agencies promise—automated AI SEO optimization across Google, ChatGPT, Perplexity, and AI Overviews—but at software prices. No retainer. No contracts. Just results.
+          <strong>SEOLOGY.AI</strong> delivers what agencies promise--automated AI SEO optimization across Google, ChatGPT, Perplexity, and AI Overviews--but at software prices. No retainer. No contracts. Just results.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
           <div className="grid md:grid-cols-4 gap-4 text-center">

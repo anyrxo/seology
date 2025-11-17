@@ -100,7 +100,7 @@ export default function KeywordResearchShopifyGuidePage() {
           <h2 className="text-3xl font-bold mb-6">Why Keyword Research Matters More in 2026</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            In December 2025, keyword research isn't just about finding words with high search volume—it's about <strong>understanding buyer intent in an AI-powered search landscape</strong>. Here's why keyword research is more critical than ever:
+            In December 2025, keyword research isn't just about finding words with high search volume--it's about <strong>understanding buyer intent in an AI-powered search landscape</strong>. Here's why keyword research is more critical than ever:
           </p>
 
           <div className="not-prose bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 mb-8">
@@ -160,7 +160,7 @@ export default function KeywordResearchShopifyGuidePage() {
           <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 p-6 mb-8">
             <p className="text-sm font-semibold text-yellow-900 dark:text-yellow-200 mb-2">📊 December 2025 Research Finding</p>
             <p className="text-sm text-yellow-800 dark:text-yellow-300">
-              The SEO industry's market size is expected to hit <strong>$107 billion in 2025</strong>, yet competition is fiercer than ever. The stores that win are those that target the RIGHT keywords—not the most obvious ones.
+              The SEO industry's market size is expected to hit <strong>$107 billion in 2025</strong>, yet competition is fiercer than ever. The stores that win are those that target the RIGHT keywords--not the most obvious ones.
             </p>
           </div>
 
@@ -290,7 +290,7 @@ export default function KeywordResearchShopifyGuidePage() {
           <h2 className="text-3xl font-bold mb-6">The 4 Types of Search Intent (And How to Target Them)</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            <strong>Search intent is the "why" behind a search query.</strong> Understanding search intent is crucial when using long-tail keywords in ecommerce—the key is to match user intent with specific keywords that align with your product offerings.
+            <strong>Search intent is the "why" behind a search query.</strong> Understanding search intent is crucial when using long-tail keywords in ecommerce--the key is to match user intent with specific keywords that align with your product offerings.
           </p>
 
           <div className="not-prose bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800 rounded-xl overflow-hidden mb-8">
@@ -431,7 +431,7 @@ export default function KeywordResearchShopifyGuidePage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">3. Lower PPC Costs</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    In Google Ads, long-tail keywords cost significantly less per click while converting better—the perfect combination for profitable campaigns.
+                    In Google Ads, long-tail keywords cost significantly less per click while converting better--the perfect combination for profitable campaigns.
                   </p>
                 </div>
               </div>
@@ -493,7 +493,7 @@ export default function KeywordResearchShopifyGuidePage() {
                 <tr>
                   <td className="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">Monthly Revenue</td>
                   <td className="px-4 py-3 text-gray-700 dark:text-gray-300">$0 (can't rank)</td>
-                  <td className="px-4 py-3 text-green-600 dark:text-green-400 font-bold">$1,814/month (480 × 4.2% × $90 AOV)</td>
+                  <td className="px-4 py-3 text-green-600 dark:text-green-400 font-bold">$1,814/month (480 x 4.2% x $90 AOV)</td>
                 </tr>
               </tbody>
             </table>
@@ -551,7 +551,7 @@ export default function KeywordResearchShopifyGuidePage() {
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Stop Guessing—Automate Keyword Research
+            Stop Guessing--Automate Keyword Research
           </h2>
           <p className="text-xl mb-8 text-blue-100">
             SEOLOGY.AI continuously finds high-intent keywords and optimizes your Shopify pages automatically

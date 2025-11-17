@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Mobile SEO for Shopify: Complete 2026 Guide to Mobile-First Optimization | SEOLOGY.AI',
-  description: 'Master mobile SEO for your Shopify store in 2026. 62.66% of traffic is mobile—learn Core Web Vitals, mobile-first indexing, and proven optimization strategies that increase conversions by 32%.',
+  description: 'Master mobile SEO for your Shopify store in 2026. 62.66% of traffic is mobile--learn Core Web Vitals, mobile-first indexing, and proven optimization strategies that increase conversions by 32%.',
   keywords: 'mobile SEO Shopify, mobile-first indexing, Core Web Vitals, Shopify mobile optimization, mobile page speed, responsive design Shopify, mobile commerce 2026, LCP INP CLS, mobile conversion optimization',
   openGraph: {
     title: 'Mobile SEO for Shopify: Complete 2026 Guide to Mobile-First Optimization',
@@ -33,7 +33,7 @@ export default function MobileSEOShopifyGuidePage() {
         </h1>
 
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          With 62.66% of all web traffic coming from mobile devices and Google's mobile-first indexing now standard, mobile SEO isn't optional—it's survival. Learn how to optimize your Shopify store for mobile search and increase conversions by 32%.
+          With 62.66% of all web traffic coming from mobile devices and Google's mobile-first indexing now standard, mobile SEO isn't optional--it's survival. Learn how to optimize your Shopify store for mobile search and increase conversions by 32%.
         </p>
 
         <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
@@ -120,11 +120,11 @@ export default function MobileSEOShopifyGuidePage() {
           <ul className="space-y-3 mb-6">
             <li className="flex items-start gap-3">
               <span className="text-green-500 font-bold mt-1">✓</span>
-              <span><strong>Mobile content determines rankings:</strong> Google uses your mobile site's content, performance, and structure to rank you—even for desktop searches</span>
+              <span><strong>Mobile content determines rankings:</strong> Google uses your mobile site's content, performance, and structure to rank you--even for desktop searches</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-green-500 font-bold mt-1">✓</span>
-              <span><strong>Page speed is critical:</strong> 83% of users expect websites to load in 3 seconds or less—every second of delay costs you 20% of mobile conversions</span>
+              <span><strong>Page speed is critical:</strong> 83% of users expect websites to load in 3 seconds or less--every second of delay costs you 20% of mobile conversions</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-green-500 font-bold mt-1">✓</span>
@@ -200,7 +200,7 @@ export default function MobileSEOShopifyGuidePage() {
           <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
             <h4 className="font-bold text-lg mb-4 text-gray-900 dark:text-gray-100">✓ Responsive Design</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">
-              Google strongly prefers responsive websites because they create a seamless user experience—a key ranking factor. Responsive design automatically adapts to any screen size without serving different HTML.
+              Google strongly prefers responsive websites because they create a seamless user experience--a key ranking factor. Responsive design automatically adapts to any screen size without serving different HTML.
             </p>
           </div>
 
@@ -377,7 +377,7 @@ export default function MobileSEOShopifyGuidePage() {
                 Shopify automatically uses a global CDN (Fastly) to serve your content from servers closest to your users. This reduces latency significantly.
               </p>
               <div className="bg-blue-50 dark:bg-blue-950/30 rounded p-4 text-sm">
-                <strong className="text-blue-900 dark:text-blue-200">Good News:</strong> This is handled automatically on Shopify—no setup required. Your product images and theme files are served globally.
+                <strong className="text-blue-900 dark:text-blue-200">Good News:</strong> This is handled automatically on Shopify--no setup required. Your product images and theme files are served globally.
               </div>
             </div>
 
@@ -476,7 +476,7 @@ export default function MobileSEOShopifyGuidePage() {
           <h2 className="text-3xl font-bold mb-6">Mobile User Experience Best Practices</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            Mobile SEO isn't just about technical performance—user experience directly impacts rankings and conversions.
+            Mobile SEO isn't just about technical performance--user experience directly impacts rankings and conversions.
           </p>
 
           <div className="bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-8">
@@ -498,7 +498,7 @@ export default function MobileSEOShopifyGuidePage() {
               <div className="flex items-start gap-3">
                 <input type="checkbox" className="mt-1" />
                 <label className="text-gray-700 dark:text-gray-300">
-                  <strong>Visible search bar:</strong> Search is critical on mobile—make it prominent with predictive suggestions.
+                  <strong>Visible search bar:</strong> Search is critical on mobile--make it prominent with predictive suggestions.
                 </label>
               </div>
               <div className="flex items-start gap-3">

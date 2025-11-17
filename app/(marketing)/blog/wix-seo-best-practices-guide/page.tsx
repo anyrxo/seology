@@ -26,7 +26,7 @@ export default function BlogPost() {
             <span className="px-3 py-1 bg-purple-900/30 rounded-full text-purple-300 text-sm">Platform SEO</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Wix has massively improved its SEO capabilities since 2016—but serious limitations remain. This honest guide shows what Wix can and cannot do for SEO, with best practices to maximize rankings and when you should consider switching platforms.
+            Wix has massively improved its SEO capabilities since 2016--but serious limitations remain. This honest guide shows what Wix can and cannot do for SEO, with best practices to maximize rankings and when you should consider switching platforms.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -42,7 +42,7 @@ export default function BlogPost() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
-              <p className="text-slate-700 mb-4">Wix CAN rank on Google—but it requires more work than SEO-optimized platforms like WordPress or Webflow. The verdict:</p>
+              <p className="text-slate-700 mb-4">Wix CAN rank on Google--but it requires more work than SEO-optimized platforms like WordPress or Webflow. The verdict:</p>
               <ul className="space-y-2 text-slate-700">
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" /><span><strong>Yes, Wix sites can rank</strong> - Many Wix sites rank #1 for competitive keywords</span></li>
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" /><span><strong>But...</strong> Wix has technical limitations that make ranking harder than necessary</span></li>

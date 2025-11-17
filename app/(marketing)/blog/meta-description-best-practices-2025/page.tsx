@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Meta Description Best Practices: Boost CTR by 214% in 2025',
-  description: 'Most meta descriptions get ignored by Google. These proven formulas guarantee Google uses yours—and users click.',
+  description: 'Most meta descriptions get ignored by Google. These proven formulas guarantee Google uses yours--and users click.',
 }
 
 export default function BlogPost() {
@@ -20,7 +20,7 @@ export default function BlogPost() {
             <span>Sarah Park</span><span>•</span><span>November 15, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            70% of meta descriptions get rewritten by Google. Here\'s how to write descriptions Google actually uses—and users can\'t resist clicking.
+            70% of meta descriptions get rewritten by Google. Here\'s how to write descriptions Google actually uses--and users can\'t resist clicking.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -35,9 +35,9 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Meta descriptions don\'t directly affect rankings</strong>—but they massively impact CTR (click-through rate)</li>
+                <li><strong>Meta descriptions don\'t directly affect rankings</strong>--but they massively impact CTR (click-through rate)</li>
                 <li><strong>Higher CTR = indirect ranking boost</strong>: Google sees clicks as quality signal</li>
-                <li><strong>Google rewrites 70% of descriptions</strong>—follow proven formulas to keep yours</li>
+                <li><strong>Google rewrites 70% of descriptions</strong>--follow proven formulas to keep yours</li>
                 <li><strong>Optimal length: 155-160 characters</strong> (desktop) or 120 characters (mobile-safe)</li>
                 <li><strong>Include target keyword</strong>: Google bolds matching search terms in SERPs</li>
                 <li><strong>Add emotional triggers + numbers</strong>: "Save $2,400 annually" beats "save money"</li>
@@ -48,7 +48,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Meta Descriptions Matter (The Data)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Meta descriptions are your Google ad copy—except they\'re free. A great description can double your traffic without changing rankings.
+                  Meta descriptions are your Google ad copy--except they\'re free. A great description can double your traffic without changing rankings.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -92,7 +92,7 @@ export default function BlogPost() {
                     <div className="bg-green-50 border-l-4 border-green-500 p-4 my-4">
                       <p className="text-green-900 font-semibold mb-2">✅ Perfect Length (155 chars):</p>
                       <p className="font-mono text-sm text-slate-700">
-                        "Save $2,400/year on marketing. Our AI-powered SEO tool automates 17 time-consuming tasks. 5,000+ agencies trust us. Start free—no credit card required."
+                        "Save $2,400/year on marketing. Our AI-powered SEO tool automates 17 time-consuming tasks. 5,000+ agencies trust us. Start free--no credit card required."
                       </p>
                       <p className="text-slate-700 mt-2 text-sm">(Fits perfectly on desktop and mobile)</p>
                     </div>
@@ -228,7 +228,7 @@ export default function BlogPost() {
                     </p>
                     <div className="bg-white p-4 rounded mt-3">
                       <p className="font-mono text-sm text-slate-700">
-                        "Increase email open rates by 34% in 30 days. Automated testing finds your perfect subject lines. Free 14-day trial—no credit card required."
+                        "Increase email open rates by 34% in 30 days. Automated testing finds your perfect subject lines. Free 14-day trial--no credit card required."
                       </p>
                     </div>
                   </div>
@@ -252,7 +252,7 @@ export default function BlogPost() {
                     </p>
                     <div className="bg-white p-4 rounded mt-3">
                       <p className="font-mono text-sm text-slate-700">
-                        "12,000+ SaaS companies use our onboarding flows to convert 40% more trial users. See our template library. Start free—takes 5 minutes to set up."
+                        "12,000+ SaaS companies use our onboarding flows to convert 40% more trial users. See our template library. Start free--takes 5 minutes to set up."
                       </p>
                     </div>
                   </div>
@@ -300,7 +300,7 @@ export default function BlogPost() {
 
                 <div className="space-y-6">
                   <p className="text-lg text-slate-700 leading-relaxed">
-                    Google rewrites 70% of meta descriptions. Here\'s why—and how to make yours stick:
+                    Google rewrites 70% of meta descriptions. Here\'s why--and how to make yours stick:
                   </p>
 
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
@@ -417,7 +417,7 @@ export default function BlogPost() {
                       <strong>Bad:</strong> "Our platform helps businesses grow their online presence."
                     </p>
                     <p className="text-slate-700">
-                      <strong>Fix:</strong> "Grow online presence 67% in 90 days. Start free trial—no credit card."
+                      <strong>Fix:</strong> "Grow online presence 67% in 90 days. Start free trial--no credit card."
                     </p>
                   </div>
 
@@ -506,7 +506,7 @@ export default function BlogPost() {
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
                   <p className="text-blue-900 font-semibold mb-2">💡 SEOLOGY Result:</p>
                   <p className="text-slate-700 mb-0">
-                    Average client sees <strong>41% CTR improvement</strong> within 30 days of implementing SEOLOGY\'s meta description optimization. One e-commerce client increased organic traffic 28% with zero ranking changes—purely from better descriptions.
+                    Average client sees <strong>41% CTR improvement</strong> within 30 days of implementing SEOLOGY\'s meta description optimization. One e-commerce client increased organic traffic 28% with zero ranking changes--purely from better descriptions.
                   </p>
                 </div>
               </section>

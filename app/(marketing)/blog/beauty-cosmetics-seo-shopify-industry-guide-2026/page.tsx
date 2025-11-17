@@ -40,8 +40,8 @@ export default function BeautyCosmeticsSEOPage() {
         </p>
         <div className="space-y-2 text-red-800 dark:text-red-200">
           <p><strong>Beauty ecommerce will hit $358.4 billion by 2026</strong>, but competition is fierce with online beauty capturing 33% of total beauty sales by 2030</p>
-          <p><strong>87% of beauty product discovery happens on social platforms</strong>—making traditional SEO strategies insufficient without social commerce integration</p>
-          <p><strong>72.04% average cart abandonment rate in beauty</strong>—the highest of any ecommerce category—requiring specialized conversion optimization</p>
+          <p><strong>87% of beauty product discovery happens on social platforms</strong>--making traditional SEO strategies insufficient without social commerce integration</p>
+          <p><strong>72.04% average cart abandonment rate in beauty</strong>--the highest of any ecommerce category--requiring specialized conversion optimization</p>
           <p className="font-semibold mt-4">Without beauty-specific SEO addressing <strong>ingredient searches, influencer content, and visual discovery</strong>, you're invisible to the 37% of US consumers starting searches on Amazon.</p>
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>Ingredient-Focused SEO Strategy</h2>
 
       <p>
-        <strong>Getting specific about what your product solves and what it's made of is crucial for 2025 SEO success.</strong> Modern beauty consumers are ingredient-educated—they know what niacinamide, ceramides, and centella asiatica do.
+        <strong>Getting specific about what your product solves and what it's made of is crucial for 2025 SEO success.</strong> Modern beauty consumers are ingredient-educated--they know what niacinamide, ceramides, and centella asiatica do.
       </p>
 
       <h3>Top Trending Ingredients for 2026 SEO</h3>
@@ -112,7 +112,7 @@ export default function BeautyCosmeticsSEOPage() {
           🧪 High-Volume Ingredient Keywords (2025-2026)
         </p>
         <div className="space-y-2 text-rose-800 dark:text-rose-200">
-          <p><strong>• Centella Asiatica (Cica):</strong> 1.4 million monthly searches (+16% YoY) — soothing, anti-inflammatory</p>
+          <p><strong>• Centella Asiatica (Cica):</strong> 1.4 million monthly searches (+16% YoY) -- soothing, anti-inflammatory</p>
           <p><strong>• Niacinamide:</strong> Continues to lead as trusted ingredient for brightening and barrier repair</p>
           <p><strong>• Bakuchiol:</strong> Botanical retinol alternative surging in popularity for sensitive skin</p>
           <p><strong>• Hyaluronic Acid:</strong> Evergreen hydration ingredient with consistent high search volume</p>
@@ -134,15 +134,15 @@ export default function BeautyCosmeticsSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">2. <strong>Key Ingredients Section (Above the Fold)</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">List star ingredients with percentages and benefits: "10% Niacinamide — Reduces hyperpigmentation and controls oil"</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">List star ingredients with percentages and benefits: "10% Niacinamide -- Reduces hyperpigmentation and controls oil"</p>
           </div>
           <div>
             <p className="font-semibold mb-1">3. <strong>Full Ingredient List (INCI Names + Common Names)</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Example: "Aqua (Water), Niacinamide (Vitamin B3), Zinc PCA" — targets both scientific and common searches</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Example: "Aqua (Water), Niacinamide (Vitamin B3), Zinc PCA" -- targets both scientific and common searches</p>
           </div>
           <div>
             <p className="font-semibold mb-1">4. <strong>Skin Concern Targeting</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">"Best for: Hyperpigmentation, Enlarged Pores, Oily Skin, Acne-Prone Skin" — captures concern-based searches</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">"Best for: Hyperpigmentation, Enlarged Pores, Oily Skin, Acne-Prone Skin" -- captures concern-based searches</p>
           </div>
           <div>
             <p className="font-semibold mb-1">5. <strong>How to Use & When to Apply</strong></p>
@@ -158,7 +158,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h3>Clean Beauty & Transparency SEO</h3>
 
       <p>
-        <strong>Today's beauty consumer wants ingredient integrity, ethical sourcing, and clean formulations</strong>—making transparency crucial for SEO and conversion success. However, <strong>the influence of "clean beauty" and "nontoxic" labels is starting to fade as they're not regulated or clearly defined</strong>.
+        <strong>Today's beauty consumer wants ingredient integrity, ethical sourcing, and clean formulations</strong>--making transparency crucial for SEO and conversion success. However, <strong>the influence of "clean beauty" and "nontoxic" labels is starting to fade as they're not regulated or clearly defined</strong>.
       </p>
 
       <p><strong>SEO strategy for clean beauty brands:</strong></p>
@@ -219,7 +219,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>Influencer UGC and Social Commerce SEO</h2>
 
       <p>
-        <strong>87% of beauty product discovery happens on social platforms</strong>—making them the top channel for influence and visibility. But how do you integrate influencer content into your SEO strategy?
+        <strong>87% of beauty product discovery happens on social platforms</strong>--making them the top channel for influence and visibility. But how do you integrate influencer content into your SEO strategy?
       </p>
 
       <h3>Embedding Influencer Content for SEO Value</h3>
@@ -231,11 +231,11 @@ export default function BeautyCosmeticsSEOPage() {
         <div className="space-y-3 text-purple-800 dark:text-purple-200">
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Instagram/TikTok Embed Galleries:</strong> Embed influencer posts showing products in use on product pages—Google indexes this as fresh, relevant content</p>
+            <p><strong>Instagram/TikTok Embed Galleries:</strong> Embed influencer posts showing products in use on product pages--Google indexes this as fresh, relevant content</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Video Testimonials:</strong> Host influencer review videos on your site (not just YouTube)—video content ranks in Google Video results</p>
+            <p><strong>Video Testimonials:</strong> Host influencer review videos on your site (not just YouTube)--video content ranks in Google Video results</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
@@ -243,7 +243,7 @@ export default function BeautyCosmeticsSEOPage() {
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Tutorial Content:</strong> Turn influencer tutorials into written guides on your blog with embedded videos—captures both text and video search traffic</p>
+            <p><strong>Tutorial Content:</strong> Turn influencer tutorials into written guides on your blog with embedded videos--captures both text and video search traffic</p>
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>Visual Search Optimization for Beauty Products</h2>
 
       <p>
-        <strong>Voice and visual search are changing discovery in the beauty space.</strong> Consumers snap photos of makeup looks they like and search for similar products—requiring image-first optimization.
+        <strong>Voice and visual search are changing discovery in the beauty space.</strong> Consumers snap photos of makeup looks they like and search for similar products--requiring image-first optimization.
       </p>
 
       <h3>Beauty Visual Search Checklist</h3>
@@ -278,11 +278,11 @@ export default function BeautyCosmeticsSEOPage() {
         <div className="space-y-3 text-pink-800 dark:text-pink-200">
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Product Swatch Photos:</strong> Include color swatches on different skin tones—visual search users look for specific shades</p>
+            <p><strong>Product Swatch Photos:</strong> Include color swatches on different skin tones--visual search users look for specific shades</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
-            <p><strong>Before/After Images:</strong> Show product results over time—highly sharable and visually searchable</p>
+            <p><strong>Before/After Images:</strong> Show product results over time--highly sharable and visually searchable</p>
           </div>
           <div className="flex gap-3">
             <input type="checkbox" className="mt-1" />
@@ -313,9 +313,9 @@ export default function BeautyCosmeticsSEOPage() {
 
       <ul>
         <li><strong>Create Recap Content:</strong> Turn live shopping sessions into blog posts ("5 Products from Our Live Event"), capturing keywords discussed during stream</li>
-        <li><strong>Host Replays on Your Site:</strong> Embed replay videos on product pages—don't just leave them on social platforms</li>
-        <li><strong>Timestamp Key Moments:</strong> Add chapter markers to video replays for specific products ("3:45 — Niacinamide Serum Demo")</li>
-        <li><strong>Transcribe Live Sessions:</strong> Convert audio to text for indexable content—target questions asked during live Q&A</li>
+        <li><strong>Host Replays on Your Site:</strong> Embed replay videos on product pages--don't just leave them on social platforms</li>
+        <li><strong>Timestamp Key Moments:</strong> Add chapter markers to video replays for specific products ("3:45 -- Niacinamide Serum Demo")</li>
+        <li><strong>Transcribe Live Sessions:</strong> Convert audio to text for indexable content--target questions asked during live Q&A</li>
         <li><strong>Create "Shop the Look" Landing Pages:</strong> Dedicated pages for products featured in live events with direct links</li>
       </ul>
 
@@ -356,7 +356,7 @@ export default function BeautyCosmeticsSEOPage() {
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Dominate Beauty Search in 2026?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          SEOLOGY.AI automatically optimizes ingredient-focused content, influencer UGC integration, and visual search assets for beauty brands—capturing the $358.4B beauty ecommerce opportunity
+          SEOLOGY.AI automatically optimizes ingredient-focused content, influencer UGC integration, and visual search assets for beauty brands--capturing the $358.4B beauty ecommerce opportunity
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
@@ -380,7 +380,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>Overcoming the 72% Cart Abandonment Rate</h2>
 
       <p>
-        <strong>Beauty and personal care face unique ecommerce challenges: Average cart abandonment rate: 72.04%</strong>—the highest of any category. SEO content must address pre-purchase anxiety proactively.
+        <strong>Beauty and personal care face unique ecommerce challenges: Average cart abandonment rate: 72.04%</strong>--the highest of any category. SEO content must address pre-purchase anxiety proactively.
       </p>
 
       <h3>Conversion-Focused SEO Content</h3>
@@ -408,7 +408,7 @@ export default function BeautyCosmeticsSEOPage() {
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Sample/Trial Sizes:</strong> Offer mini sizes to reduce commitment anxiety—create dedicated SEO landing pages for samples</p>
+            <p><strong>Sample/Trial Sizes:</strong> Offer mini sizes to reduce commitment anxiety--create dedicated SEO landing pages for samples</p>
           </div>
         </div>
       </div>
@@ -445,7 +445,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>Amazon SEO for Beauty Brands</h2>
 
       <p>
-        <strong>37% of US beauty consumers start their product search on Amazon</strong>—meaning your beauty brand needs dual-channel SEO: Google + Amazon.
+        <strong>37% of US beauty consumers start their product search on Amazon</strong>--meaning your beauty brand needs dual-channel SEO: Google + Amazon.
       </p>
 
       <h3>Amazon A9 Algorithm Optimization</h3>
@@ -454,7 +454,7 @@ export default function BeautyCosmeticsSEOPage() {
         <li><strong>Backend Keywords:</strong> Fill all 250 characters with relevant search terms (ingredient names, use cases, skin concerns)</li>
         <li><strong>Enhanced Brand Content (A+ Content):</strong> Rich media product descriptions with comparison charts, ingredient breakdowns</li>
         <li><strong>Amazon-Specific Keywords:</strong> Target "best [product] on Amazon", "[brand] Amazon", "Amazon's Choice [category]"</li>
-        <li><strong>Review Management:</strong> Amazon heavily weights review velocity and rating—actively request reviews from verified purchasers</li>
+        <li><strong>Review Management:</strong> Amazon heavily weights review velocity and rating--actively request reviews from verified purchasers</li>
         <li><strong>Sponsored Products Strategy:</strong> Use PPC to boost visibility for high-intent keywords while building organic ranking</li>
       </ul>
 
@@ -466,7 +466,7 @@ export default function BeautyCosmeticsSEOPage() {
           <div>
             <p className="font-semibold mb-1">1. Generic Product Descriptions Without Ingredients</p>
             <p className="text-sm">Problem: "Our amazing serum makes skin glow" with no ingredient information</p>
-            <p className="text-sm font-semibold">Solution: Lead with ingredients and percentages—beauty consumers research formulations</p>
+            <p className="text-sm font-semibold">Solution: Lead with ingredients and percentages--beauty consumers research formulations</p>
           </div>
           <div>
             <p className="font-semibold mb-1">2. Ignoring Influencer Content Integration</p>
@@ -475,7 +475,7 @@ export default function BeautyCosmeticsSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">3. No Shade/Color Variant Pages</p>
-            <p className="text-sm">Problem: Single product page with dropdown for 30 lipstick shades—search engines can't index individual shades</p>
+            <p className="text-sm">Problem: Single product page with dropdown for 30 lipstick shades--search engines can't index individual shades</p>
             <p className="text-sm font-semibold">Solution: Create unique pages for each shade with specific keywords ("[Brand] Lipstick in Nude Rose")</p>
           </div>
           <div>
@@ -538,7 +538,7 @@ export default function BeautyCosmeticsSEOPage() {
       <h2>The Future of Beauty SEO (2026 and Beyond)</h2>
 
       <p>
-        With beauty ecommerce reaching $358.4 billion by 2026 and 87% of discovery happening on social platforms, the brands that win will be those that seamlessly integrate social commerce with traditional SEO—creating omnichannel discovery experiences.
+        With beauty ecommerce reaching $358.4 billion by 2026 and 87% of discovery happening on social platforms, the brands that win will be those that seamlessly integrate social commerce with traditional SEO--creating omnichannel discovery experiences.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-fuchsia-50 to-purple-50 dark:from-fuchsia-900/20 dark:to-purple-900/20 border-l-4 border-fuchsia-500 p-6 rounded-lg mb-6">
@@ -547,21 +547,21 @@ export default function BeautyCosmeticsSEOPage() {
         </p>
         <ul className="space-y-2 text-fuchsia-800 dark:text-fuchsia-200">
           <li><strong>• AI-Powered Personalization:</strong> Dynamic product recommendations based on skin analysis, ingredient preferences, and purchase history</li>
-          <li><strong>• AR Try-On Ubiquity:</strong> Virtual makeup try-on becomes standard—brands without AR lose to competitors offering try-before-you-buy</li>
+          <li><strong>• AR Try-On Ubiquity:</strong> Virtual makeup try-on becomes standard--brands without AR lose to competitors offering try-before-you-buy</li>
           <li><strong>• Biotech Ingredient Trend:</strong> Exosomes, PDRN, and peptide technology dominate searches as consumers seek clinical-grade results</li>
-          <li><strong>• Live Shopping as Sales Driver:</strong> 20% of beauty sales happen via live streaming—recap content and on-site replays critical for SEO</li>
+          <li><strong>• Live Shopping as Sales Driver:</strong> 20% of beauty sales happen via live streaming--recap content and on-site replays critical for SEO</li>
           <li><strong>• Clean Beauty Redefined:</strong> Move away from vague "clean" claims toward specific, science-backed ingredient transparency</li>
         </ul>
       </div>
 
       <p>
-        <strong>The beauty brands that thrive in 2026 will be those that educate consumers through ingredient-focused content, integrate influencer UGC seamlessly, and optimize for visual discovery</strong>—building trust through transparency and expertise, not just pretty packaging.
+        <strong>The beauty brands that thrive in 2026 will be those that educate consumers through ingredient-focused content, integrate influencer UGC seamlessly, and optimize for visual discovery</strong>--building trust through transparency and expertise, not just pretty packaging.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-rose-600 to-pink-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Beauty SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
-          Join leading beauty brands using SEOLOGY.AI to automatically optimize ingredient-focused content, influencer UGC integration, and visual search assets—overcoming the 72% cart abandonment rate while capturing the $358.4B beauty ecommerce market.
+          Join leading beauty brands using SEOLOGY.AI to automatically optimize ingredient-focused content, influencer UGC integration, and visual search assets--overcoming the 72% cart abandonment rate while capturing the $358.4B beauty ecommerce market.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <p className="font-semibold mb-3">✅ Beauty-Specific Features:</p>

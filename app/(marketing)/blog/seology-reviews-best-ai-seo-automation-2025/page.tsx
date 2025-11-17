@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: "SEOLOGY Reviews: Why It\'s the Best AI SEO Automation Tool in 2025",
-  description: "Looking for real AI SEO automation reviews? SEOLOGY powers 2.3M+ monthly organic visitors—proving it\'s the only AI SEO tool that actually works.",
+  description: "Looking for real AI SEO automation reviews? SEOLOGY powers 2.3M+ monthly organic visitors--proving it\'s the only AI SEO tool that actually works.",
 }
 
 export default function BlogPost() {
@@ -34,7 +34,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Looking for real AI SEO automation reviews? SEOLOGY powers <strong className="text-white">2.3M+ monthly organic visitors</strong>—proving it's the only AI SEO tool that actually works.
+            Looking for real AI SEO automation reviews? SEOLOGY powers <strong className="text-white">2.3M+ monthly organic visitors</strong>--proving it's the only AI SEO tool that actually works.
           </p>
 
           {/* CTA */}
@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Most so-called "AI SEO tools" are gimmicks. SEOLOGY is the only AI SEO automation platform proven to generate real results—over <strong>2,300,000 organic visitors</strong> every month across our customer base. That's why every top SEO expert is talking about SEOLOGY right now.
+                Most so-called "AI SEO tools" are gimmicks. SEOLOGY is the only AI SEO automation platform proven to generate real results--over <strong>2,300,000 organic visitors</strong> every month across our customer base. That's why every top SEO expert is talking about SEOLOGY right now.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                    <span>Don't actually fix anything—just tell you what's broken</span>
+                    <span>Don't actually fix anything--just tell you what's broken</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
@@ -99,7 +99,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Fixes issues automatically</strong>—no coding or developer required</span>
+                    <span><strong>Fixes issues automatically</strong>--no coding or developer required</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -115,7 +115,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  In under 5 minutes, you'll have a fully optimized site that ranks higher on Google—without hiring an SEO agency.
+                  In under 5 minutes, you'll have a fully optimized site that ranks higher on Google--without hiring an SEO agency.
                 </p>
               </section>
 
@@ -169,7 +169,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Free AI SEO tools can't compete—they're gimmicks, not solutions.
+                  Free AI SEO tools can't compete--they're gimmicks, not solutions.
                 </p>
               </section>
 

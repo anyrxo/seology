@@ -80,7 +80,7 @@ export default function VoiceSearchSEOShopifyPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Voice search isn't the future—it's the present. The adoption rates are staggering:
+          Voice search isn't the future--it's the present. The adoption rates are staggering:
         </p>
 
         <div className="bg-indigo-50 dark:bg-indigo-950/30 border-l-4 border-indigo-500 rounded-lg p-8 my-8">
@@ -111,7 +111,7 @@ export default function VoiceSearchSEOShopifyPage() {
         </ul>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Between 2020-2024, monthly voice assistant usage surged: <strong>Google Assistant +46%, Siri +40%, Alexa +26%</strong>. This isn't a trend—it's a fundamental shift in how people search and shop online.
+          Between 2020-2024, monthly voice assistant usage surged: <strong>Google Assistant +46%, Siri +40%, Alexa +26%</strong>. This isn't a trend--it's a fundamental shift in how people search and shop online.
         </p>
 
         {/* Section 2 */}
@@ -186,7 +186,7 @@ export default function VoiceSearchSEOShopifyPage() {
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Google Assistant and Alexa read <strong>one answer</strong>—usually from a featured snippet (position zero). There's no page 2, no scrolling. You either win position zero or you're invisible.
+          Google Assistant and Alexa read <strong>one answer</strong>--usually from a featured snippet (position zero). There's no page 2, no scrolling. You either win position zero or you're invisible.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -627,7 +627,7 @@ export default function VoiceSearchSEOShopifyPage() {
             Automate Voice Search Optimization with AI
           </h2>
           <p className="text-xl mb-8 text-indigo-100">
-            SEOLOGY.AI automatically optimizes your Shopify store for voice search—FAQ schema generation, featured snippet formatting, conversational keyword suggestions, and structured data implementation. Capture the $290B voice commerce market while you focus on growing your business.
+            SEOLOGY.AI automatically optimizes your Shopify store for voice search--FAQ schema generation, featured snippet formatting, conversational keyword suggestions, and structured data implementation. Capture the $290B voice commerce market while you focus on growing your business.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

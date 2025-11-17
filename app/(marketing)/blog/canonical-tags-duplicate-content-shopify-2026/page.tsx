@@ -221,7 +221,7 @@ export default function CanonicalTagsDuplicateContentShopify2026() {
             <li>✓ Google chooses the canonical URL automatically if you don't specify</li>
             <li>✓ Canonical tags are <em>strong hints</em>, not directives (Google can ignore them)</li>
             <li>✓ Duplicate content is inefficient but not penalized</li>
-            <li>× Copying content from OTHER sites (plagiarism) IS harmful and can result in manual actions</li>
+            <li>x Copying content from OTHER sites (plagiarism) IS harmful and can result in manual actions</li>
           </ul>
         </div>
       </section>
@@ -429,10 +429,10 @@ With tracking:
             <strong>✓ Works cross-domain:</strong> Can canonicalize to different domain (useful for syndicated content)
           </li>
           <li>
-            <strong>× Not a replacement for 301 redirects:</strong> If content truly shouldn't exist at duplicate URL, redirect instead
+            <strong>x Not a replacement for 301 redirects:</strong> If content truly shouldn't exist at duplicate URL, redirect instead
           </li>
           <li>
-            <strong>× Google can ignore them:</strong> Contradictory signals (sitemap, internal links) may cause Google to choose different canonical
+            <strong>x Google can ignore them:</strong> Contradictory signals (sitemap, internal links) may cause Google to choose different canonical
           </li>
         </ul>
       </section>
@@ -741,7 +741,7 @@ With tracking:
       <section className="not-prose bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg mt-12">
         <h2 className="text-3xl font-bold mb-4">Automate Canonical Tag & Duplicate Content Management</h2>
         <p className="text-xl mb-6 opacity-90">
-          SEOLOGY.AI automatically audits your Shopify store for duplicate content, verifies canonical tag implementation, identifies conflicting signals, and fixes internal linking to canonical URLs—all without manual intervention.
+          SEOLOGY.AI automatically audits your Shopify store for duplicate content, verifies canonical tag implementation, identifies conflicting signals, and fixes internal linking to canonical URLs--all without manual intervention.
         </p>
         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6">
           <div className="grid md:grid-cols-3 gap-4 text-center">

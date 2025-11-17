@@ -66,7 +66,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Hidden Cost of Manual SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Here's what most businesses don't realize: manual SEO isn't just slow—it's expensive and ineffective.
+                  Here's what most businesses don't realize: manual SEO isn't just slow--it's expensive and ineffective.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The average ecommerce site with 500 pages requires:
@@ -169,7 +169,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The entire process happens without human intervention—while you focus on growing your business.
+                  The entire process happens without human intervention--while you focus on growing your business.
                 </p>
               </section>
 
@@ -243,7 +243,7 @@ export default function BlogPost() {
                   </div>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  These aren't hypothetical numbers—they're averages across 5,000+ active sites.
+                  These aren't hypothetical numbers--they're averages across 5,000+ active sites.
                 </p>
               </section>
 

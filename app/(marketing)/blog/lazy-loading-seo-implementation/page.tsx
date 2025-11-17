@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Bad lazy loading kills SEO—Google can\'t crawl hidden content, LCP suffers, and rankings tank. Yet proper lazy loading reduces page load times 67% and improves Core Web Vitals without hurting rankings. This guide reveals SEO-safe lazy loading techniques that preserve crawlability while dramatically improving page speed.
+            Bad lazy loading kills SEO--Google can\'t crawl hidden content, LCP suffers, and rankings tank. Yet proper lazy loading reduces page load times 67% and improves Core Web Vitals without hurting rankings. This guide reveals SEO-safe lazy loading techniques that preserve crawlability while dramatically improving page speed.
           </p>
 
           <div className="mb-12">
@@ -52,27 +52,27 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Native lazy loading reduces initial page load by 67%</strong> (Google, 2024)—loading="lazy" defers below-the-fold images without JavaScript</span>
+                  <span><strong>Native lazy loading reduces initial page load by 67%</strong> (Google, 2024)--loading="lazy" defers below-the-fold images without JavaScript</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Googlebot fully supports native lazy loading</strong> (Google, 2024)—no risk of content being hidden from search engines</span>
+                  <span><strong>Googlebot fully supports native lazy loading</strong> (Google, 2024)--no risk of content being hidden from search engines</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Intersection Observer improves LCP by 2.1 seconds</strong> (Web.dev, 2024)—critical for Core Web Vitals rankings</span>
+                  <span><strong>Intersection Observer improves LCP by 2.1 seconds</strong> (Web.dev, 2024)--critical for Core Web Vitals rankings</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>73% of sites lazy load incorrectly</strong> (HTTPArchive, 2024)—hiding content from crawlers or breaking LCP</span>
+                  <span><strong>73% of sites lazy load incorrectly</strong> (HTTPArchive, 2024)--hiding content from crawlers or breaking LCP</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Never lazy load above-the-fold content</strong> (Google, 2024)—LCP hero images must load immediately or rankings suffer</span>
+                  <span><strong>Never lazy load above-the-fold content</strong> (Google, 2024)--LCP hero images must load immediately or rankings suffer</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>67% faster load times without ranking loss</strong> (case study below)—SEO-safe lazy loading is the ultimate speed win</span>
+                  <span><strong>67% faster load times without ranking loss</strong> (case study below)--SEO-safe lazy loading is the ultimate speed win</span>
                 </li>
               </ul>
             </div>
@@ -80,7 +80,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Bad Lazy Loading Destroys SEO (And How to Fix It)</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Lazy loading is a <strong>double-edged sword</strong>. Done right, it dramatically improves page speed, Core Web Vitals, and user experience—all positive ranking signals. Done wrong, it hides content from Googlebot, destroys Largest Contentful Paint (LCP), and tanks your rankings.
+                Lazy loading is a <strong>double-edged sword</strong>. Done right, it dramatically improves page speed, Core Web Vitals, and user experience--all positive ranking signals. Done wrong, it hides content from Googlebot, destroys Largest Contentful Paint (LCP), and tanks your rankings.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 The problem: 73% of sites implement lazy loading incorrectly (HTTPArchive, 2024). They use JavaScript libraries that cloak content, lazy load above-the-fold images (killing LCP), or fail to provide fallbacks for crawlers. Result: Google can\'t see their content, page speed metrics tank, and rankings drop.
@@ -90,7 +90,7 @@ export default function BlogPost() {
               </p>
               <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600 my-8">
                 <p className="text-lg font-bold text-slate-900 mb-2">Real Impact:</p>
-                <p className="text-slate-700 mb-0">One e-commerce site with 2500+ product images implemented SEO-safe lazy loading across their catalog. Result: <strong>67% reduction in initial page load time, 2.1-second LCP improvement, 43% lower bounce rate, zero ranking loss</strong>—even saw a 12% organic traffic increase from improved Core Web Vitals.</p>
+                <p className="text-slate-700 mb-0">One e-commerce site with 2500+ product images implemented SEO-safe lazy loading across their catalog. Result: <strong>67% reduction in initial page load time, 2.1-second LCP improvement, 43% lower bounce rate, zero ranking loss</strong>--even saw a 12% organic traffic increase from improved Core Web Vitals.</p>
               </div>
             </section>
 
@@ -103,7 +103,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Use Native Browser Lazy Loading (loading="lazy")</h4>
                 <p className="text-slate-700 mb-4">
-                  Native lazy loading is the <strong>simplest, most SEO-safe</strong> method. Browsers defer loading off-screen images automatically—no JavaScript required. Googlebot fully supports it.
+                  Native lazy loading is the <strong>simplest, most SEO-safe</strong> method. Browsers defer loading off-screen images automatically--no JavaScript required. Googlebot fully supports it.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Add <code>loading="lazy"</code> attribute to all images below the fold. Works for <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> tags. Browsers load images as users scroll them into view.
@@ -119,7 +119,7 @@ export default function BlogPost() {
 />`}</pre>
                 </div>
                 <p className="text-slate-700 mb-4">
-                  <strong>Why it works:</strong> Native lazy loading is implemented at the browser level—crawlers see the full HTML with image URLs intact. No cloaking, no hidden content. Plus, 95% browser support (Chrome, Firefox, Safari, Edge).
+                  <strong>Why it works:</strong> Native lazy loading is implemented at the browser level--crawlers see the full HTML with image URLs intact. No cloaking, no hidden content. Plus, 95% browser support (Chrome, Firefox, Safari, Edge).
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Data:</strong> Native lazy loading reduces initial page load by <strong>67%</strong> for image-heavy pages (Google, 2024).
@@ -165,7 +165,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Add Width & Height Attributes to Prevent Layout Shift</h4>
                 <p className="text-slate-700 mb-4">
-                  Lazy-loaded images without dimensions cause Cumulative Layout Shift (CLS)—content jumps around as images load. CLS is a Core Web Vitals metric that affects rankings.
+                  Lazy-loaded images without dimensions cause Cumulative Layout Shift (CLS)--content jumps around as images load. CLS is a Core Web Vitals metric that affects rankings.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Always specify width and height attributes on all images (lazy-loaded or not). Browsers reserve space for the image before it loads, preventing layout shift.
@@ -245,7 +245,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #5: Use Intersection Observer API for Dynamic Content Loading</h4>
                 <p className="text-slate-700 mb-4">
-                  Intersection Observer lets you lazy load content modules (product grids, blog posts, comments) as users scroll. It\'s <strong>SEO-safe because the HTML exists in the DOM</strong>—just hidden until needed.
+                  Intersection Observer lets you lazy load content modules (product grids, blog posts, comments) as users scroll. It\'s <strong>SEO-safe because the HTML exists in the DOM</strong>--just hidden until needed.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Pre-render content in HTML (so crawlers see it), then use Intersection Observer to load/show modules as they enter the viewport.
@@ -287,7 +287,7 @@ document.querySelectorAll('.lazy-section').forEach(section => {
 </style>`}</pre>
                 </div>
                 <p className="text-slate-700 mb-0">
-                  <strong>Why it works:</strong> Content is server-rendered in HTML, so crawlers see everything. Intersection Observer only controls visibility, not content loading—no cloaking risk.
+                  <strong>Why it works:</strong> Content is server-rendered in HTML, so crawlers see everything. Intersection Observer only controls visibility, not content loading--no cloaking risk.
                 </p>
               </div>
 
@@ -349,7 +349,7 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
                   <strong>What NOT to lazy load:</strong> Product descriptions, article body text, pricing, specifications, main navigation, breadcrumbs, titles/headings.
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Why it works:</strong> Google can render JavaScript but it\'s resource-intensive and not guaranteed. Server-rendered content is always indexed—zero risk.
+                  <strong>Why it works:</strong> Google can render JavaScript but it\'s resource-intensive and not guaranteed. Server-rendered content is always indexed--zero risk.
                 </p>
               </div>
 
@@ -716,18 +716,18 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                   <li>• <strong>CLS improved 76%</strong> (0.24 → 0.06, good rating)</li>
                   <li>• <strong>43% lower bounce rate</strong> (68% → 39%)</li>
                   <li>• <strong>12% increase in organic traffic</strong> from improved Core Web Vitals rankings</li>
-                  <li>• <strong>Zero ranking loss</strong>—all content remained fully crawlable</li>
+                  <li>• <strong>Zero ranking loss</strong>--all content remained fully crawlable</li>
                 </ul>
               </div>
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
-                <strong>Key Insight:</strong> The combination of native lazy loading (for simplicity and SEO safety) with Intersection Observer (for dynamic modules) provided massive speed wins without any crawlability risk. Preloading the LCP image was critical—without it, LCP actually got worse.
+                <strong>Key Insight:</strong> The combination of native lazy loading (for simplicity and SEO safety) with Intersection Observer (for dynamic modules) provided massive speed wins without any crawlability risk. Preloading the LCP image was critical--without it, LCP actually got worse.
               </p>
             </section>
 
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Lazy Loading SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Manual lazy loading implementation is error-prone—easy to accidentally lazy load LCP images or break crawlability. SEOLOGY automates it safely:
+                Manual lazy loading implementation is error-prone--easy to accidentally lazy load LCP images or break crawlability. SEOLOGY automates it safely:
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
@@ -759,7 +759,7 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Lazy Loading Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements all 15 lazy loading tactics automatically—improving page speed 67% without risking rankings or crawlability.
+                  SEOLOGY implements all 15 lazy loading tactics automatically--improving page speed 67% without risking rankings or crawlability.
                 </p>
                 <Link
                   href="/sign-up"
@@ -777,13 +777,13 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 Lazy loading is the <strong>easiest page speed win</strong> when done correctly. Native <code>loading="lazy"</code> makes it trivial to defer below-the-fold images without JavaScript or SEO risk.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                The critical rule: <strong>Never lazy load above-the-fold content</strong>. Your LCP image must load immediately. Everything else below the fold—images, iframes, dynamic modules—can and should be lazy loaded.
+                The critical rule: <strong>Never lazy load above-the-fold content</strong>. Your LCP image must load immediately. Everything else below the fold--images, iframes, dynamic modules--can and should be lazy loaded.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Implement the basics first: Add <code>loading="lazy"</code> to below-fold images, preload your LCP image, add dimensions to prevent CLS. This alone provides 50-70% of the performance benefit with zero complexity.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
-                <strong>Bottom line:</strong> SEO-safe lazy loading is the highest-ROI page speed optimization. It\'s simple to implement, dramatically improves Core Web Vitals, and maintains full crawlability—if you follow the rules.
+                <strong>Bottom line:</strong> SEO-safe lazy loading is the highest-ROI page speed optimization. It\'s simple to implement, dramatically improves Core Web Vitals, and maintains full crawlability--if you follow the rules.
               </p>
             </section>
 

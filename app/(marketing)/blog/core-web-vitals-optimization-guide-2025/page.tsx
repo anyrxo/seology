@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Core Web Vitals Optimization: Complete Guide for 2025',
-  description: 'Core Web Vitals are now a ranking factor. This guide shows you how to optimize LCP, FID, and CLS—and SEOLOGY automates it all.',
+  description: 'Core Web Vitals are now a ranking factor. This guide shows you how to optimize LCP, FID, and CLS--and SEOLOGY automates it all.',
 }
 
 export default function BlogPost() {
@@ -36,7 +36,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Core Web Vitals are now a <strong className="text-white">confirmed Google ranking factor</strong>. This guide shows you how to optimize LCP, FID, and CLS—and SEOLOGY automates it all.
+            Core Web Vitals are now a <strong className="text-white">confirmed Google ranking factor</strong>. This guide shows you how to optimize LCP, FID, and CLS--and SEOLOGY automates it all.
           </p>
 
           {/* CTA */}

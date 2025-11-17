@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Ecommerce SEO Strategy: 25 Tactics That Drive Real Sales in 2025',
-  description: 'Ecommerce SEO is different. These 25 proven tactics help online stores rank higher and sell more—automatically.',
+  description: 'Ecommerce SEO is different. These 25 proven tactics help online stores rank higher and sell more--automatically.',
 }
 
 export default function BlogPost() {
@@ -34,7 +34,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Ecommerce SEO is different. These <strong className="text-white">25 proven tactics</strong> help online stores rank higher and sell more—automatically.
+            Ecommerce SEO is different. These <strong className="text-white">25 proven tactics</strong> help online stores rank higher and sell more--automatically.
           </p>
 
           {/* CTA */}
@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Ecommerce SEO isn't like blog SEO—product pages, category pages, filters, and duplicate content create unique challenges. This guide covers <strong>25 ecommerce-specific tactics</strong>: product schema, faceted navigation, category optimization, internal linking, user-generated content, and more. SEOLOGY automates 90% of these optimizations for Shopify, WooCommerce, and custom ecommerce sites.
+                Ecommerce SEO isn't like blog SEO--product pages, category pages, filters, and duplicate content create unique challenges. This guide covers <strong>25 ecommerce-specific tactics</strong>: product schema, faceted navigation, category optimization, internal linking, user-generated content, and more. SEOLOGY automates 90% of these optimizations for Shopify, WooCommerce, and custom ecommerce sites.
               </p>
             </div>
 
@@ -439,7 +439,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Driving Ecommerce Sales with SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Ecommerce SEO is complex—but it's the most profitable channel when done right.
+                  Ecommerce SEO is complex--but it's the most profitable channel when done right.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   With SEOLOGY, you get:

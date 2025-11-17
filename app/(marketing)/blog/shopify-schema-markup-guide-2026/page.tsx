@@ -32,7 +32,7 @@ export default function BlogPost() {
 
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           Schema markup gets your products <strong>star ratings, prices, and availability displayed directly in Google
-          search results</strong>—increasing click-through rates by <strong>35% on average</strong>. This comprehensive
+          search results</strong>--increasing click-through rates by <strong>35% on average</strong>. This comprehensive
           guide shows exactly how to implement structured data on Shopify, with code examples and December 2025 best practices.
         </p>
 
@@ -53,7 +53,7 @@ export default function BlogPost() {
 
           <p className="mb-6 text-lg text-neutral-700">
             <strong>Schema markup</strong> (also called <strong>structured data</strong>) is code you add to your Shopify
-            store that tells Google exactly what your content is about—in a language Google understands perfectly.
+            store that tells Google exactly what your content is about--in a language Google understands perfectly.
           </p>
 
           <div className="mb-8 grid gap-6 md:grid-cols-2">
@@ -109,7 +109,7 @@ export default function BlogPost() {
             <h3 className="mb-2 font-bold text-green-900">📊 Rich Snippets Increase CTR by 35%</h3>
             <p className="text-sm text-neutral-700">
               Search results with star ratings, prices, and availability get clicked <strong>35% more often</strong> than
-              plain blue links—even when ranking in the same position.
+              plain blue links--even when ranking in the same position.
             </p>
           </div>
 
@@ -198,7 +198,7 @@ export default function BlogPost() {
               <h4 className="text-xl font-bold text-green-900">Review Schema (AggregateRating)</h4>
             </div>
             <p className="mb-3 text-sm text-neutral-700">
-              Displays star ratings in search results. <strong>Critical for ecommerce</strong>—products with visible
+              Displays star ratings in search results. <strong>Critical for ecommerce</strong>--products with visible
               star ratings get 17% higher CTR than products without.
             </p>
             <p className="text-sm text-neutral-600">
@@ -231,7 +231,7 @@ export default function BlogPost() {
               knowledge panels and brand searches.
             </p>
             <p className="text-sm text-neutral-600">
-              <strong>Add once:</strong> Include in your site footer or homepage—applies to entire store
+              <strong>Add once:</strong> Include in your site footer or homepage--applies to entire store
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export default function BlogPost() {
 
           <p className="mb-4 text-neutral-700">
             <strong>Good news:</strong> Shopify automatically includes basic Product and Organization schema on all stores.
-            You don't need to do anything—it's already there.
+            You don't need to do anything--it's already there.
           </p>
 
           <div className="mb-6 rounded-lg bg-white p-6">
@@ -416,7 +416,7 @@ export default function BlogPost() {
         </h2>
 
         <p className="mb-6 text-lg">
-          After implementing schema, you <strong>must</strong> validate it. Broken schema is worse than no schema—
+          After implementing schema, you <strong>must</strong> validate it. Broken schema is worse than no schema--
           Google may penalize you for errors.
         </p>
 
@@ -592,8 +592,8 @@ export default function BlogPost() {
         <div className="mb-12 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-12 text-center text-white not-prose">
           <h2 className="mb-4 text-4xl font-bold">Get Perfect Schema Markup in 60 Seconds</h2>
           <p className="mb-8 text-xl opacity-90">
-            Stop wrestling with JSON-LD code. SEOLOGY.AI implements all 6 essential schema types automatically—
-            Product, Review, Offer, Organization, Breadcrumb, and Article—across your entire store in one click.
+            Stop wrestling with JSON-LD code. SEOLOGY.AI implements all 6 essential schema types automatically--
+            Product, Review, Offer, Organization, Breadcrumb, and Article--across your entire store in one click.
           </p>
 
           <div className="mb-8 inline-block rounded-xl bg-white/20 px-8 py-4">

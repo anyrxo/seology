@@ -52,7 +52,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                <strong>301 redirects permanently move one URL to another</strong> while preserving 90-99% of SEO value. But most people screw them up—causing massive traffic losses during site migrations, redesigns, and URL changes. This guide covers proper implementation, redirect chains, testing, and the 7 fatal redirect mistakes that tank rankings.
+                <strong>301 redirects permanently move one URL to another</strong> while preserving 90-99% of SEO value. But most people screw them up--causing massive traffic losses during site migrations, redesigns, and URL changes. This guide covers proper implementation, redirect chains, testing, and the 7 fatal redirect mistakes that tank rankings.
               </p>
             </div>
 
@@ -111,7 +111,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>Rule of thumb:</strong> If the change is permanent, use 301. If temporary, use 302. Never use 302 when you mean 301—you\'ll lose rankings.
+                  <strong>Rule of thumb:</strong> If the change is permanent, use 301. If temporary, use 302. Never use 302 when you mean 301--you\'ll lose rankings.
                 </p>
               </section>
 
@@ -213,7 +213,7 @@ location ~ ^/blog/(.*)$ {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                    <span><strong>Using 302 instead of 301:</strong> Temporary redirects don\'t pass link equity—rankings drop</span>
+                    <span><strong>Using 302 instead of 301:</strong> Temporary redirects don\'t pass link equity--rankings drop</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
@@ -225,7 +225,7 @@ location ~ ^/blog/(.*)$ {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                    <span><strong>Forgetting to test:</strong> Always test redirects before going live—use redirect checker tools</span>
+                    <span><strong>Forgetting to test:</strong> Always test redirects before going live--use redirect checker tools</span>
                   </li>
                 </ul>
               </section>

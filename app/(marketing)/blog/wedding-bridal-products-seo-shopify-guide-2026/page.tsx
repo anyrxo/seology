@@ -101,7 +101,7 @@ export default function WeddingBridalProductsSEOGuide() {
         </p>
 
         <ul>
-          <li><strong>The "Yes to the Dress" Moment:</strong> Brides often describe an emotional reaction when finding "the one"—gut feelings, tears, and immediate certainty. SEO must capture both rational searches ("A-line wedding dress under $2000") and emotional ones ("romantic wedding dress," "timeless bridal gown").</li>
+          <li><strong>The "Yes to the Dress" Moment:</strong> Brides often describe an emotional reaction when finding "the one"--gut feelings, tears, and immediate certainty. SEO must capture both rational searches ("A-line wedding dress under $2000") and emotional ones ("romantic wedding dress," "timeless bridal gown").</li>
           <li><strong>Identity Expression:</strong> Modern couples approach weddings as deeply personal expressions. As industry experts note: "Every detail, from tablescapes to menus, is curated with shareability and personal expression in mind. It's less about following what's been done before, and more about creating a once-in-a-lifetime event that feels distinctly theirs."</li>
           <li><strong>Pinterest-Driven Vision:</strong> <strong>Pinterest recorded over 3.8 billion wedding-related searches and 13.4 billion ideas saved globally</strong> last year. Brides curate extensive vision boards months before purchasing, making Pinterest optimization critical.</li>
           <li><strong>Peer Validation & Social Proof:</strong> Wedding decisions are heavily influenced by friends, family, and online communities. Reviews, real wedding photos, and bride testimonials carry enormous weight.</li>
@@ -178,7 +178,7 @@ export default function WeddingBridalProductsSEOGuide() {
           <li><strong>Rich Pins:</strong> Implement Pinterest Rich Pins (Product Pins) to automatically sync pricing, availability, and product information from your Shopify store</li>
           <li><strong>High-Quality Vertical Images:</strong> Use 2:3 aspect ratio images (1000x1500px minimum) optimized for Pinterest feeds. Vertical images get 2-4x more saves than horizontal</li>
           <li><strong>Keyword-Rich Pin Descriptions:</strong> Write detailed descriptions with keywords: "Romantic A-line wedding dress with Chantilly lace and basque waist - perfect for garden weddings and outdoor ceremonies - available in sizes 0-26"</li>
-          <li><strong>Board Organization:</strong> Create specific boards: "Romantic Wedding Dresses," "Boho Bridal Fashion," "Classic Bridal Gowns," "Beach Wedding Dresses"—each targeting different aesthetic keywords</li>
+          <li><strong>Board Organization:</strong> Create specific boards: "Romantic Wedding Dresses," "Boho Bridal Fashion," "Classic Bridal Gowns," "Beach Wedding Dresses"--each targeting different aesthetic keywords</li>
           <li><strong>Seasonal Boards:</strong> Create and update seasonal boards: "Spring 2026 Bridal Trends," "Fall Wedding Inspiration," "Winter Wonderland Weddings"</li>
           <li><strong>Lifestyle Context:</strong> Show products styled in wedding contexts (not just white backgrounds). Pins showing dresses "in action" at real weddings get 5-10x more engagement</li>
           <li><strong>Verified Merchant Program:</strong> Join Pinterest's Verified Merchant Program to display the blue checkmark, improving trust and click-through rates</li>
@@ -188,7 +188,7 @@ export default function WeddingBridalProductsSEOGuide() {
 
         <ul>
           <li><strong>Shopping Campaigns:</strong> Run Pinterest Shopping ads targeting wedding-related keywords and interests. Shopping Pins convert 2-3x higher than standard pins for product-focused searches</li>
-          <li><strong>Retargeting:</strong> Retarget Pinterest users who engaged with your pins but haven't purchased—brides often save pins months before buying</li>
+          <li><strong>Retargeting:</strong> Retarget Pinterest users who engaged with your pins but haven't purchased--brides often save pins months before buying</li>
           <li><strong>Lookalike Audiences:</strong> Create lookalike audiences based on your customer list to reach similar brides planning weddings</li>
         </ul>
 
@@ -353,7 +353,7 @@ export default function WeddingBridalProductsSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Wedding & Bridal Stores</h2>
 
         <p>
-          The complexity of wedding and bridal SEO—managing seasonal engagement patterns, 8-12 month buyer journeys, Pinterest optimization, emotional search intent, trend-driven content, and personalization demands—requires specialized automation.
+          The complexity of wedding and bridal SEO--managing seasonal engagement patterns, 8-12 month buyer journeys, Pinterest optimization, emotional search intent, trend-driven content, and personalization demands--requires specialized automation.
         </p>
 
         <p>
@@ -371,7 +371,7 @@ export default function WeddingBridalProductsSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine understands bridal psychology, seasonal patterns, and emotional decision-making—automatically implementing optimizations that would take months of manual work, allowing you to focus on creating beautiful products and unforgettable bridal experiences.
+          SEOLOGY.AI's AI engine understands bridal psychology, seasonal patterns, and emotional decision-making--automatically implementing optimizations that would take months of manual work, allowing you to focus on creating beautiful products and unforgettable bridal experiences.
         </p>
       </div>
 

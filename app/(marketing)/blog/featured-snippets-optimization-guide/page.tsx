@@ -112,9 +112,9 @@ export default function BlogPost() {
                 <h3 className="text-2xl font-bold mb-4 mt-8">9. Add Schema Markup</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">Use FAQPage or HowTo schema to increase snippet chances.</p>
                 <h3 className="text-2xl font-bold mb-4 mt-8">10. Optimize for "People Also Ask"</h3>
-                <p className="text-lg text-slate-700 leading-relaxed">Answer related questions in your content—Google uses these for snippets.</p>
+                <p className="text-lg text-slate-700 leading-relaxed">Answer related questions in your content--Google uses these for snippets.</p>
                 <h3 className="text-2xl font-bold mb-4 mt-8">11. Use High-Quality Images</h3>
-                <p className="text-lg text-slate-700 leading-relaxed">Google sometimes includes images in featured snippets—optimize with alt text.</p>
+                <p className="text-lg text-slate-700 leading-relaxed">Google sometimes includes images in featured snippets--optimize with alt text.</p>
                 <h3 className="text-2xl font-bold mb-4 mt-8">12. Target Long-Tail Keywords</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">Longer, more specific queries are easier to win snippets for.</p>
                 <h3 className="text-2xl font-bold mb-4 mt-8">13. Monitor and Iterate</h3>
@@ -133,9 +133,9 @@ export default function BlogPost() {
                 <h2 className="text-3xl font-bold mb-6">Featured Snippet Optimization Mistakes</h2>
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Burying the answer</strong><p className="text-slate-700 mt-1">Answer must appear early in the content, not 2,000 words in.</p></div></li>
-                  <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Being too vague</strong><p className="text-slate-700 mt-1">Give specific, actionable answers—not fluffy generalities.</p></div></li>
+                  <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Being too vague</strong><p className="text-slate-700 mt-1">Give specific, actionable answers--not fluffy generalities.</p></div></li>
                   <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Using unclear headings</strong><p className="text-slate-700 mt-1">Headings must match the exact query users are searching.</p></div></li>
-                  <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Ignoring existing rankings</strong><p className="text-slate-700 mt-1">Optimize pages that already rank well—don't start from scratch.</p></div></li>
+                  <li className="flex items-start gap-3"><div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">❌</div><div><strong className="text-xl">Ignoring existing rankings</strong><p className="text-slate-700 mt-1">Optimize pages that already rank well--don't start from scratch.</p></div></li>
                 </ul>
               </section>
               <section>
@@ -151,7 +151,7 @@ export default function BlogPost() {
               </section>
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Position Zero = Maximum Visibility</h2>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6">Featured snippets are the ultimate SERP real estate. They get 35% of all clicks—even more than the #1 organic result.</p>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">Featured snippets are the ultimate SERP real estate. They get 35% of all clicks--even more than the #1 organic result.</p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">The secret is answering questions directly, structuring content clearly, and targeting keywords you already rank for.</p>
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Win Featured Snippets Automatically</h3>

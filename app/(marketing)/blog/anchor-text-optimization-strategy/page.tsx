@@ -60,7 +60,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Anchor text is the clickable text in a hyperlink—and it\'s one of Google\'s <strong>most powerful ranking signals</strong>. But here\'s the trap: over-optimized anchor text (using exact-match keywords too often) triggers Google penalties. This guide shows you the exact anchor text distribution formula that ranks pages without getting penalized—and how SEOLOGY automates this for safe, natural link building.
+                Anchor text is the clickable text in a hyperlink--and it\'s one of Google\'s <strong>most powerful ranking signals</strong>. But here\'s the trap: over-optimized anchor text (using exact-match keywords too often) triggers Google penalties. This guide shows you the exact anchor text distribution formula that ranks pages without getting penalized--and how SEOLOGY automates this for safe, natural link building.
               </p>
             </div>
 
@@ -81,7 +81,7 @@ export default function BlogPost() {
                 </p>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                   <div className="text-2xl font-bold text-blue-900 mb-2">Anchor Text Impact on Rankings</div>
-                  <div className="text-slate-700">Studies show anchor text is among the <strong>top 3 most important ranking factors</strong> for Google\'s algorithm—but only when it appears natural.</div>
+                  <div className="text-slate-700">Studies show anchor text is among the <strong>top 3 most important ranking factors</strong> for Google\'s algorithm--but only when it appears natural.</div>
                 </div>
               </section>
 
@@ -112,7 +112,7 @@ export default function BlogPost() {
                     <div>
                       <strong className="text-xl">Branded:</strong>
                       <p className="text-slate-700 mt-1">Uses your brand name (e.g., "SEOLOGY" or "SEOLOGY.AI")</p>
-                      <p className="text-slate-700 text-sm mt-1"><strong>Risk Level:</strong> Very low—always safe</p>
+                      <p className="text-slate-700 text-sm mt-1"><strong>Risk Level:</strong> Very low--always safe</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -206,7 +206,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Avoid Generic Anchors:</strong> "Click here" doesn\'t help internal SEO—use descriptive keywords instead</span>
+                    <span><strong>Avoid Generic Anchors:</strong> "Click here" doesn\'t help internal SEO--use descriptive keywords instead</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -284,7 +284,7 @@ export default function BlogPost() {
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <h3 className="text-xl font-bold text-purple-900 mb-2">Tactic 2: Guest Post Outreach</h3>
-                    <p className="text-slate-700">When guest posting, request natural partial match or LSI anchors—never exact match.</p>
+                    <p className="text-slate-700">When guest posting, request natural partial match or LSI anchors--never exact match.</p>
                   </div>
                   <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                     <h3 className="text-xl font-bold text-pink-900 mb-2">Tactic 3: Brand Mention Conversion</h3>
@@ -325,7 +325,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Build Safe, Natural Anchor Text Profiles</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically optimizes your anchor text distribution—avoiding penalties while maximizing ranking power.
+                    SEOLOGY automatically optimizes your anchor text distribution--avoiding penalties while maximizing ranking power.
                   </p>
                   <Link
                     href="/sign-up"

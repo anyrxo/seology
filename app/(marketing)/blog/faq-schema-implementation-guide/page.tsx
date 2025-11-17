@@ -150,14 +150,14 @@ export default function BlogPost() {
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
                     <div>
                       <strong className="text-xl">Format Answers Correctly:</strong>
-                      <p className="text-slate-700 mt-1">Keep answers 40-300 words. Include keywords naturally. Answer completely—don\'t tease users to "read more." Google prefers self-contained answers.</p>
+                      <p className="text-slate-700 mt-1">Keep answers 40-300 words. Include keywords naturally. Answer completely--don\'t tease users to "read more." Google prefers self-contained answers.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
                     <div>
                       <strong className="text-xl">Add JSON-LD to HTML:</strong>
-                      <p className="text-slate-700 mt-1">Place the schema code in your page\'s &lt;head&gt; section or before the closing &lt;/body&gt; tag. Both locations work—Google crawls entire pages.</p>
+                      <p className="text-slate-700 mt-1">Place the schema code in your page\'s &lt;head&gt; section or before the closing &lt;/body&gt; tag. Both locations work--Google crawls entire pages.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -228,7 +228,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Include schema on category pages:</strong> Not just blog posts—ecommerce categories benefit hugely</span>
+                    <span><strong>Include schema on category pages:</strong> Not just blog posts--ecommerce categories benefit hugely</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

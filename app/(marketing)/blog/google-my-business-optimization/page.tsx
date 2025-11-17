@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Google Business Profile (formerly Google My Business) is the single most powerful local SEO tool—76% of people who search for something nearby visit a business within 24 hours. Complete optimization increases map pack appearances 94% and local traffic 487%. Yet 63% of businesses have incomplete profiles, leaving massive opportunities on the table.
+            Google Business Profile (formerly Google My Business) is the single most powerful local SEO tool--76% of people who search for something nearby visit a business within 24 hours. Complete optimization increases map pack appearances 94% and local traffic 487%. Yet 63% of businesses have incomplete profiles, leaving massive opportunities on the table.
           </p>
 
           <div className="mb-12">
@@ -52,27 +52,27 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>76% of local searches result in store visits within 24 hours</strong> (Google, 2024)—GBP optimization directly drives foot traffic and phone calls</span>
+                  <span><strong>76% of local searches result in store visits within 24 hours</strong> (Google, 2024)--GBP optimization directly drives foot traffic and phone calls</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Complete profiles get 94% more map pack appearances</strong> (BrightLocal, 2024)—filling all fields and categories is critical for visibility</span>
+                  <span><strong>Complete profiles get 94% more map pack appearances</strong> (BrightLocal, 2024)--filling all fields and categories is critical for visibility</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Businesses with photos get 42% more direction requests</strong> (Google, 2024)—visual content dramatically increases engagement</span>
+                  <span><strong>Businesses with photos get 42% more direction requests</strong> (Google, 2024)--visual content dramatically increases engagement</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Weekly Google Posts increase search queries 48%</strong> (Sterling Sky, 2024)—fresh content signals active business and improves rankings</span>
+                  <span><strong>Weekly Google Posts increase search queries 48%</strong> (Sterling Sky, 2024)--fresh content signals active business and improves rankings</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Responding to reviews improves conversion rates 35%</strong> (ReviewTrackers, 2024)—engagement builds trust and credibility</span>
+                  <span><strong>Responding to reviews improves conversion rates 35%</strong> (ReviewTrackers, 2024)--engagement builds trust and credibility</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>487% local traffic increase achieved with complete optimization</strong> (case study below)—GBP is the highest-ROI local SEO tactic</span>
+                  <span><strong>487% local traffic increase achieved with complete optimization</strong> (case study below)--GBP is the highest-ROI local SEO tactic</span>
                 </li>
               </ul>
             </div>
@@ -80,13 +80,13 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Google Business Profile Destroys Local Competition</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Google Business Profile is not just a listing—it\'s your business\'s primary presence in Google Search and Maps. When someone searches for "coffee shop near me" or "emergency plumber," Google doesn\'t show 10 blue links anymore. It shows the <strong>Local 3-Pack</strong>: three businesses with photos, ratings, and direct action buttons.
+                Google Business Profile is not just a listing--it\'s your business\'s primary presence in Google Search and Maps. When someone searches for "coffee shop near me" or "emergency plumber," Google doesn\'t show 10 blue links anymore. It shows the <strong>Local 3-Pack</strong>: three businesses with photos, ratings, and direct action buttons.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Getting into that 3-pack means <strong>instant visibility, credibility, and conversions</strong>. You appear above organic results, with more visual real estate than any other result type. You get direction requests, phone calls, and website visits—all from a single optimized profile.
+                Getting into that 3-pack means <strong>instant visibility, credibility, and conversions</strong>. You appear above organic results, with more visual real estate than any other result type. You get direction requests, phone calls, and website visits--all from a single optimized profile.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>The opportunity:</strong> 63% of businesses have incomplete profiles (BrightLocal, 2024). They leave NAP (Name, Address, Phone) inconsistent, ignore categories, never post updates, and let reviews pile up unanswered. That\'s your competitive advantage—complete, active, optimized profiles dominate the map pack.
+                <strong>The opportunity:</strong> 63% of businesses have incomplete profiles (BrightLocal, 2024). They leave NAP (Name, Address, Phone) inconsistent, ignore categories, never post updates, and let reviews pile up unanswered. That\'s your competitive advantage--complete, active, optimized profiles dominate the map pack.
               </p>
               <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600 my-8">
                 <p className="text-lg font-bold text-slate-900 mb-2">Real Impact:</p>
@@ -98,7 +98,7 @@ export default function BlogPost() {
               <h2 className="text-3xl font-bold mb-6">17 Tactics for Google Business Profile Domination</h2>
 
               <h3 className="text-2xl font-bold mt-8 mb-4 text-blue-900">Category 1: Profile Setup & Completeness (Tactics 1-5)</h3>
-              <p className="text-slate-700 mb-6">A complete profile is the foundation. Google\'s algorithm explicitly rewards profile completeness—missing fields = lower rankings.</p>
+              <p className="text-slate-700 mb-6">A complete profile is the foundation. Google\'s algorithm explicitly rewards profile completeness--missing fields = lower rankings.</p>
 
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Claim and Verify Your Profile with Exact NAP</h4>
@@ -106,7 +106,7 @@ export default function BlogPost() {
                   Your NAP (Name, Address, Phone) must be <strong>100% consistent</strong> across Google Business Profile, your website footer, schema markup, and all citations (Yelp, Facebook, directories). Even a period vs. "Street" difference can hurt rankings.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Implementation:</strong> Claim your profile at business.google.com. Verify via postcard, phone, or email (postcard verification is most trusted). Use your exact legal business name—no keyword stuffing like "Best Seattle Plumber | Joe\'s Plumbing."
+                  <strong>Implementation:</strong> Claim your profile at business.google.com. Verify via postcard, phone, or email (postcard verification is most trusted). Use your exact legal business name--no keyword stuffing like "Best Seattle Plumber | Joe\'s Plumbing."
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Why it works:</strong> Google matches your GBP NAP against your website and other sources. Inconsistencies create confusion and hurt local rankings. Verified profiles rank 84% higher than unverified ones (Moz, 2024).
@@ -122,7 +122,7 @@ export default function BlogPost() {
                   Categories are the <strong>single most important ranking factor</strong> after NAP consistency. Google uses categories to determine when your business should appear. Wrong category = invisible for relevant searches.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Implementation:</strong> Choose 1 primary category (most important) and up to 9 secondary categories. Primary category should match your main service/product. Use Google\'s predefined categories—no custom text allowed.
+                  <strong>Implementation:</strong> Choose 1 primary category (most important) and up to 9 secondary categories. Primary category should match your main service/product. Use Google\'s predefined categories--no custom text allowed.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Research method:</strong> Search your target keywords in Google Maps. What categories do top 3 competitors use? Check their GBP profiles. Use similar categories to compete in the same space.
@@ -135,7 +135,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Write a Keyword-Rich Business Description (750 Characters)</h4>
                 <p className="text-slate-700 mb-4">
-                  Your business description (up to 750 characters) is your chance to include relevant keywords naturally. Google uses this text for semantic understanding—not direct ranking, but helps with relevance signals.
+                  Your business description (up to 750 characters) is your chance to include relevant keywords naturally. Google uses this text for semantic understanding--not direct ranking, but helps with relevance signals.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Write for humans first, then optimize for keywords. Structure: [What you do] + [Who you serve] + [What makes you unique] + [Location keywords]. Include 3-5 target keywords naturally.
@@ -154,13 +154,13 @@ export default function BlogPost() {
                   Attributes are structured data points that appear as filters in Google Maps (e.g., "Outdoor seating," "Accepts credit cards," "Wheelchair accessible"). Complete profiles with all relevant attributes rank higher.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Implementation:</strong> Fill out all applicable attributes in the GBP dashboard. Be honest—false attributes can trigger customer complaints and profile suspension. Update attributes seasonally if needed (e.g., "Outdoor seating" only in summer).
+                  <strong>Implementation:</strong> Fill out all applicable attributes in the GBP dashboard. Be honest--false attributes can trigger customer complaints and profile suspension. Update attributes seasonally if needed (e.g., "Outdoor seating" only in summer).
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Why it works:</strong> Attributes improve user experience and help Google match your business to specific search intents (e.g., "dog-friendly restaurants"). Profiles with complete attributes get 37% more clicks (BrightLocal, 2024).
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Pro tip:</strong> Check your competitors\' attributes. If they\'re highlighting "Free Wi-Fi" or "Vegan options" and you have those too, add them—it\'s a competitive signal.
+                  <strong>Pro tip:</strong> Check your competitors\' attributes. If they\'re highlighting "Free Wi-Fi" or "Vegan options" and you have those too, add them--it\'s a competitive signal.
                 </p>
               </div>
 
@@ -181,7 +181,7 @@ export default function BlogPost() {
               </div>
 
               <h3 className="text-2xl font-bold mt-12 mb-4 text-purple-900">Category 2: Content & Engagement (Tactics 6-10)</h3>
-              <p className="text-slate-700 mb-6">Active profiles rank higher. Google tracks engagement signals—posts, Q&A, bookings—and rewards businesses that actively use the platform.</p>
+              <p className="text-slate-700 mb-6">Active profiles rank higher. Google tracks engagement signals--posts, Q&A, bookings--and rewards businesses that actively use the platform.</p>
 
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #6: Publish Google Posts Weekly (Updates, Offers, Events)</h4>
@@ -202,7 +202,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #7: Monitor & Answer Questions in Q&A Section</h4>
                 <p className="text-slate-700 mb-4">
-                  The Q&A section allows customers to ask questions publicly—and anyone can answer, including competitors posting misinformation. You <strong>must</strong> monitor and answer questions yourself to control your narrative.
+                  The Q&A section allows customers to ask questions publicly--and anyone can answer, including competitors posting misinformation. You <strong>must</strong> monitor and answer questions yourself to control your narrative.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Check Q&A weekly. Answer all questions within 24 hours with helpful, keyword-rich responses. Pre-seed questions by asking yourself common questions (e.g., "Do you offer gluten-free options?") and answering them.
@@ -224,7 +224,7 @@ export default function BlogPost() {
                   <strong>Implementation:</strong> Enable messaging in GBP settings. Link to your phone number or use Google\'s app-based messaging. Respond within 1 hour during business hours to earn the fast-response badge.
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Why it works:</strong> Messaging removes friction—customers can ask quick questions without calling. Fast response badge builds credibility and increases conversion rates 28% (Google, 2024).
+                  <strong>Why it works:</strong> Messaging removes friction--customers can ask quick questions without calling. Fast response badge builds credibility and increases conversion rates 28% (Google, 2024).
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Automation tip:</strong> Set up auto-replies for common questions (hours, location, services) to maintain fast response times even during busy periods.
@@ -281,7 +281,7 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Businesses with 20+ reviews rank 54% higher than those with fewer reviews (Moz, 2024). Fresh reviews signal an active, trusted business.
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Compliance:</strong> Don\'t offer incentives for reviews (violates Google\'s policy). Do ask all customers equally—don\'t cherry-pick happy ones.
+                  <strong>Compliance:</strong> Don\'t offer incentives for reviews (violates Google\'s policy). Do ask all customers equally--don\'t cherry-pick happy ones.
                 </p>
               </div>
 
@@ -313,7 +313,7 @@ export default function BlogPost() {
                   <strong>Implementation:</strong> Monitor new reviews daily. Red flags for fake reviews: Generic content, no customer record in your system, reviewer has no other reviews, suspicious timing (multiple negatives in one day).
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Reporting process:</strong> Flag the review in GBP dashboard as "inappropriate." In the report, explain why it\'s fake (e.g., "This person was never a customer—we have no record of this name or transaction"). Google typically reviews within 3-5 days.
+                  <strong>Reporting process:</strong> Flag the review in GBP dashboard as "inappropriate." In the report, explain why it\'s fake (e.g., "This person was never a customer--we have no record of this name or transaction"). Google typically reviews within 3-5 days.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Pro tip:</strong> If Google doesn\'t remove it, respond publicly and professionally: "We have no record of serving you and would love to resolve this. Please contact us with your order details."
@@ -326,13 +326,13 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #14: Build NAP Citations on High-Authority Directories</h4>
                 <p className="text-slate-700 mb-4">
-                  Citations (mentions of your NAP on other websites) are a core local SEO ranking factor. Google checks if your NAP is consistent across the web—more consistent citations = higher trust = better rankings.
+                  Citations (mentions of your NAP on other websites) are a core local SEO ranking factor. Google checks if your NAP is consistent across the web--more consistent citations = higher trust = better rankings.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> Submit your business to 20-50 high-authority directories: Yelp, Facebook, Apple Maps, Bing Places, Yellow Pages, industry-specific directories (e.g., Avvo for lawyers, Healthgrades for doctors).
                 </p>
                 <p className="text-slate-700 mb-4">
-                  <strong>Tools:</strong> BrightLocal, Moz Local, Yext (automate citation building). Manually check top competitors\' citations using tools like Whitespark Citation Finder—build citations where they are.
+                  <strong>Tools:</strong> BrightLocal, Moz Local, Yext (automate citation building). Manually check top competitors\' citations using tools like Whitespark Citation Finder--build citations where they are.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Citations create a "trust network" around your business. Google cross-references these to verify your business is legitimate and accurately represented.
@@ -342,7 +342,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #15: Add Service Areas (If You Serve Multiple Locations)</h4>
                 <p className="text-slate-700 mb-4">
-                  If you\'re a service area business (plumber, electrician, mobile pet grooming), you don\'t show a street address—you show service areas. Google allows you to specify cities, zip codes, or radius where you operate.
+                  If you\'re a service area business (plumber, electrician, mobile pet grooming), you don\'t show a street address--you show service areas. Google allows you to specify cities, zip codes, or radius where you operate.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong> In GBP settings, select "I deliver goods and services to my customers" and hide your address. Add service areas by city name or zip code (up to 20 areas). Or use radius (up to 100 miles from your business location).
@@ -351,7 +351,7 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Service areas tell Google where you\'re eligible to rank. A Seattle plumber can rank in "Bellevue plumber" searches if Bellevue is in their service area.
                 </p>
                 <p className="text-slate-700 mb-0">
-                  <strong>Pro tip:</strong> Don\'t add service areas beyond where you actually serve—Google can penalize overly broad areas. Be specific and realistic.
+                  <strong>Pro tip:</strong> Don\'t add service areas beyond where you actually serve--Google can penalize overly broad areas. Be specific and realistic.
                 </p>
               </div>
 
@@ -403,7 +403,7 @@ export default function BlogPost() {
 }`}</pre>
                 </div>
                 <p className="text-slate-700 mb-4">
-                  <strong>Validation:</strong> Test with Google\'s Rich Results Test (search.google.com/test/rich-results). Fix any errors—valid schema reinforces your GBP data.
+                  <strong>Validation:</strong> Test with Google\'s Rich Results Test (search.google.com/test/rich-results). Fix any errors--valid schema reinforces your GBP data.
                 </p>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Schema + GBP create redundant signals that increase Google\'s confidence in your NAP accuracy. This boosts local rankings and eligibility for rich snippets.
@@ -418,7 +418,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Inconsistent NAP Across Platforms:</strong>
-                    <p className="text-slate-700 mt-1">Even small differences (periods, abbreviations) hurt rankings. Audit your NAP on GBP, website, Yelp, Facebook—make them 100% identical.</p>
+                    <p className="text-slate-700 mt-1">Even small differences (periods, abbreviations) hurt rankings. Audit your NAP on GBP, website, Yelp, Facebook--make them 100% identical.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -432,7 +432,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Ignoring Negative Reviews:</strong>
-                    <p className="text-slate-700 mt-1">Not responding to negative reviews makes you look negligent. Always respond professionally—future customers are watching how you handle criticism.</p>
+                    <p className="text-slate-700 mt-1">Not responding to negative reviews makes you look negligent. Always respond professionally--future customers are watching how you handle criticism.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -446,7 +446,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Using Low-Quality Photos:</strong>
-                    <p className="text-slate-700 mt-1">Blurry, dark, or amateur photos hurt your credibility. Invest in professional photography—photos drive 42% more direction requests.</p>
+                    <p className="text-slate-700 mt-1">Blurry, dark, or amateur photos hurt your credibility. Invest in professional photography--photos drive 42% more direction requests.</p>
                   </div>
                 </li>
               </ul>
@@ -469,7 +469,7 @@ export default function BlogPost() {
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Real Example: 487% Local Traffic Increase</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                <strong>Client:</strong> Regional restaurant chain with 47 locations across 3 states. Most locations had basic GBP profiles—verified but incomplete, no posts, few photos, sporadic review responses.
+                <strong>Client:</strong> Regional restaurant chain with 47 locations across 3 states. Most locations had basic GBP profiles--verified but incomplete, no posts, few photos, sporadic review responses.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Problem:</strong> Low map pack visibility, inconsistent NAP across locations, losing local search traffic to competitors with more complete profiles.
@@ -499,7 +499,7 @@ export default function BlogPost() {
                 </ul>
               </div>
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
-                <strong>Key Insight:</strong> The biggest lift came from NAP consistency fixes and weekly Google Posts. Many locations had been invisible for "[cuisine] near me" searches due to generic categories—switching to specific categories immediately improved map pack rankings.
+                <strong>Key Insight:</strong> The biggest lift came from NAP consistency fixes and weekly Google Posts. Many locations had been invisible for "[cuisine] near me" searches due to generic categories--switching to specific categories immediately improved map pack rankings.
               </p>
             </section>
 
@@ -538,7 +538,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Local SEO Domination</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements all 17 GBP optimization tactics automatically—boosting map pack visibility and local traffic without manual work.
+                  SEOLOGY implements all 17 GBP optimization tactics automatically--boosting map pack visibility and local traffic without manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -553,10 +553,10 @@ export default function BlogPost() {
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Google Business Profile optimization is the <strong>highest-ROI local SEO tactic</strong>. Complete, active profiles dominate map pack results—and map pack visibility directly drives foot traffic, phone calls, and revenue.
+                Google Business Profile optimization is the <strong>highest-ROI local SEO tactic</strong>. Complete, active profiles dominate map pack results--and map pack visibility directly drives foot traffic, phone calls, and revenue.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                The data is clear: <strong>76% of local searchers visit a store within 24 hours, businesses with complete profiles get 94% more map pack appearances, and optimized profiles generate 487% more local traffic</strong>. Yet 63% of businesses have incomplete profiles—creating a massive opportunity for those who optimize properly.
+                The data is clear: <strong>76% of local searchers visit a store within 24 hours, businesses with complete profiles get 94% more map pack appearances, and optimized profiles generate 487% more local traffic</strong>. Yet 63% of businesses have incomplete profiles--creating a massive opportunity for those who optimize properly.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Start with the basics: Complete your profile, add photos, choose the right categories, and respond to reviews. Then level up with weekly Google Posts, Q&A management, and citation building. Track your Insights weekly to measure progress.

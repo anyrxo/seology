@@ -286,9 +286,9 @@ export default function CoreWebVitalsPageExperienceShopify2026() {
             Consider a Shopify store with $500,000 in monthly revenue and a 2% conversion rate. If their average page load time is 500ms slower than optimal:
           </p>
           <div className="bg-white dark:bg-gray-800 p-6 rounded mb-4">
-            <p className="font-mono text-sm mb-2">500ms delay × 7% per 100ms = <strong className="text-red-600">35% conversion rate loss</strong></p>
-            <p className="font-mono text-sm mb-2">2.0% conversion rate × 35% loss = 1.3% actual conversion rate</p>
-            <p className="font-mono text-sm mb-4">$500,000 monthly revenue × 35% loss = <strong className="text-red-600">$175,000 monthly revenue lost</strong></p>
+            <p className="font-mono text-sm mb-2">500ms delay x 7% per 100ms = <strong className="text-red-600">35% conversion rate loss</strong></p>
+            <p className="font-mono text-sm mb-2">2.0% conversion rate x 35% loss = 1.3% actual conversion rate</p>
+            <p className="font-mono text-sm mb-4">$500,000 monthly revenue x 35% loss = <strong className="text-red-600">$175,000 monthly revenue lost</strong></p>
             <p className="font-bold text-lg text-green-600">By optimizing Core Web Vitals, this store could recover $2.1M annually.</p>
           </div>
         </div>

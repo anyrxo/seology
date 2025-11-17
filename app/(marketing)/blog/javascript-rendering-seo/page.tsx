@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed — 73% More Pages',
+  title: 'JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed -- 73% More Pages',
   description: 'JavaScript-heavy sites lose 42% of indexable content to rendering failures. JavaScript rendering SEO tactics recovered 73% more indexed pages and improved rankings 23 positions by ensuring Google properly renders and crawls JS content.',
 }
 
@@ -31,7 +31,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            JavaScript-heavy sites lose 42% of indexable content to rendering failures. This comprehensive guide shows exactly how to ensure Google properly crawls, renders, and indexes your JavaScript content—with 15 proven tactics that recovered 73% more indexed pages and improved rankings by 23 positions on average.
+            JavaScript-heavy sites lose 42% of indexable content to rendering failures. This comprehensive guide shows exactly how to ensure Google properly crawls, renders, and indexes your JavaScript content--with 15 proven tactics that recovered 73% more indexed pages and improved rankings by 23 positions on average.
           </p>
 
           <div className="mb-12">
@@ -52,11 +52,11 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Google can render JavaScript</strong> — but it\'s slow, unreliable, and often fails completely</li>
+                <li><strong>Google can render JavaScript</strong> -- but it\'s slow, unreliable, and often fails completely</li>
                 <li><strong>42% of JS-rendered content never gets indexed</strong> due to rendering timeouts, errors, or crawl budget limits (Onely study)</li>
-                <li><strong>Server-side rendering (SSR) or static generation</strong> is the gold standard for SEO—content available in initial HTML</li>
-                <li><strong>Dynamic rendering serves different HTML</strong> to bots vs users—effective fallback but not ideal long-term</li>
-                <li><strong>Critical content must load without JavaScript</strong> — test with JavaScript disabled to verify</li>
+                <li><strong>Server-side rendering (SSR) or static generation</strong> is the gold standard for SEO--content available in initial HTML</li>
+                <li><strong>Dynamic rendering serves different HTML</strong> to bots vs users--effective fallback but not ideal long-term</li>
+                <li><strong>Critical content must load without JavaScript</strong> -- test with JavaScript disabled to verify</li>
                 <li><strong>SEOLOGY detects and fixes JavaScript rendering issues</strong> automatically across your entire site</li>
               </ul>
             </div>
@@ -65,7 +65,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why JavaScript Rendering Matters for SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Modern websites heavily rely on JavaScript frameworks like React, Vue, Angular, and Next.js. While these create amazing user experiences, they create massive SEO challenges—because search engine crawlers don\'t process JavaScript the same way browsers do.
+                  Modern websites heavily rely on JavaScript frameworks like React, Vue, Angular, and Next.js. While these create amazing user experiences, they create massive SEO challenges--because search engine crawlers don\'t process JavaScript the same way browsers do.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The problem: Google\'s crawler downloads your HTML first, then queues JavaScript for rendering later. This two-stage process causes delays, failures, and indexing gaps that tank your rankings.
@@ -80,7 +80,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>5-7 second rendering delay</strong> before Google even sees JS-generated content—slowing indexing and ranking updates</span>
+                    <span><strong>5-7 second rendering delay</strong> before Google even sees JS-generated content--slowing indexing and ranking updates</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -96,14 +96,14 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Google\'s crawler isn\'t a modern Chrome browser—it\'s a headless renderer with strict timeouts, no infinite scroll support, and limited resources. If your content requires JavaScript to appear, you\'re gambling that Google will successfully render it. Often, it doesn\'t.
+                  Google\'s crawler isn\'t a modern Chrome browser--it\'s a headless renderer with strict timeouts, no infinite scroll support, and limited resources. If your content requires JavaScript to appear, you\'re gambling that Google will successfully render it. Often, it doesn\'t.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-3xl font-bold mb-6">15 JavaScript Rendering SEO Tactics That Actually Work</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                  Here are the exact tactics that recovered 73% more indexed pages and improved rankings by 23 positions across 2,400+ JavaScript-heavy websites. These aren\'t theoretical—they\'re battle-tested solutions.
+                  Here are the exact tactics that recovered 73% more indexed pages and improved rankings by 23 positions across 2,400+ JavaScript-heavy websites. These aren\'t theoretical--they\'re battle-tested solutions.
                 </p>
 
                 <h3 className="text-2xl font-bold mb-4 text-blue-900">Category 1: Rendering Architecture Strategy</h3>
@@ -116,7 +116,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">1. Implement Server-Side Rendering (SSR) or Static Site Generation (SSG)</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Gold Standard:</strong> Server-side rendering generates HTML on the server for each request. Static site generation pre-builds HTML at build time. Both deliver complete HTML to crawlers immediately—no JavaScript execution required.
+                        <strong>The Gold Standard:</strong> Server-side rendering generates HTML on the server for each request. Static site generation pre-builds HTML at build time. Both deliver complete HTML to crawlers immediately--no JavaScript execution required.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Content exists in the initial HTML response, so Google sees everything instantly without waiting for JavaScript rendering. SSR/SSG sites get indexed 5-7 days faster and have 73% more pages indexed on average.
@@ -224,7 +224,7 @@ if (isBot(req.headers['user-agent'])) {
                         <li>Start with semantic HTML (headings, paragraphs, links, lists)</li>
                         <li>Add CSS for styling</li>
                         <li>Layer JavaScript for interactions (not content display)</li>
-                        <li>Test with JavaScript disabled—content should still be readable</li>
+                        <li>Test with JavaScript disabled--content should still be readable</li>
                       </ul>
                       <p className="text-slate-700">
                         <strong>How to Implement:</strong> Build HTML templates first with all content present. Use JavaScript to enhance interactions (accordions, tabs, filters) rather than generate content. For React apps, use Next.js SSG/SSR to ensure HTML baseline.
@@ -234,7 +234,7 @@ if (isBot(req.headers['user-agent'])) {
                     <div>
                       <h4 className="font-bold text-lg mb-2">4. Avoid Client-Side Routing for Important Pages</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Problem:</strong> Single-page apps (SPAs) use client-side routing—URLs change in the browser, but no new HTML is requested. Google struggles with this pattern.
+                        <strong>The Problem:</strong> Single-page apps (SPAs) use client-side routing--URLs change in the browser, but no new HTML is requested. Google struggles with this pattern.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Matters:</strong> Google may not discover client-side routes, or may struggle to associate content with specific URLs. Traditional server-rendered pages are far more reliable for SEO.
@@ -262,7 +262,7 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>The Tool:</strong> Google\'s Mobile-Friendly Test (<code>search.google.com/test/mobile-friendly</code>) shows exactly what Google sees after rendering JavaScript.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> This uses Google\'s actual rendering engine—the same one that processes your pages for indexing. The screenshot shows precisely what content Google extracted.
+                        <strong>Why It Works:</strong> This uses Google\'s actual rendering engine--the same one that processes your pages for indexing. The screenshot shows precisely what content Google extracted.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>What to Check:</strong>
@@ -298,7 +298,7 @@ if (isBot(req.headers['user-agent'])) {
                         <li>Compare "Crawled page" HTML vs "Live test" HTML</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>Red Flags:</strong> If "Crawled page" HTML is nearly empty but "Live test" shows content, Google is relying on JavaScript rendering—which is risky. If "More Info" shows JavaScript errors, those are blocking indexing.
+                        <strong>Red Flags:</strong> If "Crawled page" HTML is nearly empty but "Live test" shows content, Google is relying on JavaScript rendering--which is risky. If "More Info" shows JavaScript errors, those are blocking indexing.
                       </p>
                     </div>
 
@@ -308,7 +308,7 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>The Test:</strong> Disable JavaScript in your browser and reload your page. If critical content disappears, it\'s JavaScript-dependent and vulnerable to indexing failures.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Simulates the initial crawl phase before JavaScript execution. Any content missing without JS won\'t be in the initial HTML—meaning Google has to successfully render it later.
+                        <strong>Why It Works:</strong> Simulates the initial crawl phase before JavaScript execution. Any content missing without JS won\'t be in the initial HTML--meaning Google has to successfully render it later.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>How to Test:</strong>
@@ -327,7 +327,7 @@ if (isBot(req.headers['user-agent'])) {
                     <div>
                       <h4 className="font-bold text-lg mb-2">8. Monitor JavaScript Errors in Search Console</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Report:</strong> Search Console\'s Coverage report shows "Page indexed but with JavaScript errors"—pages that were indexed despite JS failures.
+                        <strong>The Report:</strong> Search Console\'s Coverage report shows "Page indexed but with JavaScript errors"--pages that were indexed despite JS failures.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Matters:</strong> JavaScript errors during rendering can cause partial or complete indexing failures. Even if the page is indexed, errors may prevent Google from seeing key content.
@@ -478,7 +478,7 @@ export default function ProductPage() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">12. Include Structured Data in Server-Rendered HTML</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> JSON-LD structured data (Product, Article, FAQs, etc.) must be in the initial HTML response—not added by JavaScript after page load.
+                        <strong>The Rule:</strong> JSON-LD structured data (Product, Article, FAQs, etc.) must be in the initial HTML response--not added by JavaScript after page load.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Matters:</strong> Google may process structured data before JavaScript renders. JavaScript-injected schema has a 40% lower chance of being recognized for rich results.
@@ -523,7 +523,7 @@ export default function ProductPage({ product }) {
                     <div>
                       <h4 className="font-bold text-lg mb-2">13. Set Meta Tags on the Server, Not Client-Side</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Title tags, meta descriptions, Open Graph tags, and canonical URLs must be in the initial HTML <code>&lt;head&gt;</code>—not injected by JavaScript libraries like React Helmet.
+                        <strong>The Rule:</strong> Title tags, meta descriptions, Open Graph tags, and canonical URLs must be in the initial HTML <code>&lt;head&gt;</code>--not injected by JavaScript libraries like React Helmet.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> While Google can process client-side meta tags, social media crawlers (Facebook, Twitter, LinkedIn) cannot execute JavaScript. Server-rendered meta tags ensure consistent previews everywhere.
@@ -537,14 +537,14 @@ export default function ProductPage({ product }) {
                         <li><strong>Angular Universal:</strong> Use <code>Meta</code> service with SSR</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>How to Verify:</strong> View page source and check that title, meta description, and OG tags are present in raw HTML. If they\'re added by JavaScript, they won\'t be in the source—only in the rendered DOM.
+                        <strong>How to Verify:</strong> View page source and check that title, meta description, and OG tags are present in raw HTML. If they\'re added by JavaScript, they won\'t be in the source--only in the rendered DOM.
                       </p>
                     </div>
 
                     <div>
                       <h4 className="font-bold text-lg mb-2">14. Use Semantic HTML Elements</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Strategy:</strong> Use proper HTML5 semantic elements (<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;main&gt;</code>) in your server-rendered HTML—not generic divs styled to look semantic.
+                        <strong>The Strategy:</strong> Use proper HTML5 semantic elements (<code>&lt;nav&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;main&gt;</code>) in your server-rendered HTML--not generic divs styled to look semantic.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Semantic HTML helps Google understand page structure even if JavaScript rendering fails. Proper heading hierarchy (<code>&lt;h1&gt;</code> → <code>&lt;h2&gt;</code> → <code>&lt;h3&gt;</code>) signals content importance.
@@ -581,10 +581,10 @@ export default function ProductPage({ product }) {
                     <div>
                       <h4 className="font-bold text-lg mb-2">15. Implement Proper Internal Linking in HTML</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> All important internal links must be actual <code>&lt;a href=""&gt;</code> tags in the HTML—not JavaScript click handlers or client-side routing with <code>&lt;div onClick&gt;</code>.
+                        <strong>The Rule:</strong> All important internal links must be actual <code>&lt;a href=""&gt;</code> tags in the HTML--not JavaScript click handlers or client-side routing with <code>&lt;div onClick&gt;</code>.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Google discovers new URLs by following <code>&lt;a&gt;</code> tag href attributes. JavaScript-based navigation (button clicks, programmatic routing) doesn\'t create crawlable links—Google never discovers those pages.
+                        <strong>Why It Works:</strong> Google discovers new URLs by following <code>&lt;a&gt;</code> tag href attributes. JavaScript-based navigation (button clicks, programmatic routing) doesn\'t create crawlable links--Google never discovers those pages.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Correct Implementation:</strong>
@@ -674,7 +674,7 @@ export default function ProductPage({ product }) {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <strong>Google Mobile-Friendly Test:</strong> Shows exactly what Google sees after rendering JavaScript—screenshot and rendered HTML.
+                      <strong>Google Mobile-Friendly Test:</strong> Shows exactly what Google sees after rendering JavaScript--screenshot and rendered HTML.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -711,13 +711,13 @@ export default function ProductPage({ product }) {
                     <strong>Client:</strong> E-commerce site with 12,000 products built as React SPA (client-side rendering only)
                   </p>
                   <p className="text-slate-700 mb-4">
-                    <strong>Problem:</strong> Only 4,200 product pages indexed (35% of site). Search Console showed "Crawled but not indexed" for 67% of products. Mobile-Friendly Test revealed blank pages—JavaScript timeout errors prevented rendering.
+                    <strong>Problem:</strong> Only 4,200 product pages indexed (35% of site). Search Console showed "Crawled but not indexed" for 67% of products. Mobile-Friendly Test revealed blank pages--JavaScript timeout errors prevented rendering.
                   </p>
                   <p className="text-slate-700 mb-4">
                     <strong>Solution:</strong> Migrated from React SPA to Next.js with server-side rendering:
                   </p>
                   <ul className="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                    <li>Implemented Next.js <code>getStaticProps()</code> for all product pages—pre-rendered at build time</li>
+                    <li>Implemented Next.js <code>getStaticProps()</code> for all product pages--pre-rendered at build time</li>
                     <li>Added Incremental Static Regeneration (ISR) to update products every 60 minutes without full rebuild</li>
                     <li>Moved JSON-LD Product schema from client-side injection to server-rendered HTML</li>
                     <li>Ensured all product details (name, price, description, images) present in initial HTML</li>
@@ -728,7 +728,7 @@ export default function ProductPage({ product }) {
                     <strong>Results after 120 days:</strong>
                   </p>
                   <ul className="list-disc list-inside text-slate-700 space-y-2">
-                    <li><strong>10,470 product pages indexed</strong> (up from 4,200) — 73% increase in indexed pages</li>
+                    <li><strong>10,470 product pages indexed</strong> (up from 4,200) -- 73% increase in indexed pages</li>
                     <li><strong>Average ranking improvement of 23 positions</strong> for previously unindexed products</li>
                     <li><strong>284% increase in organic product traffic</strong> from newly indexed pages</li>
                     <li><strong>Zero JavaScript rendering errors</strong> in Search Console (down from 4,800+ errors)</li>
@@ -736,7 +736,7 @@ export default function ProductPage({ product }) {
                   </ul>
                 </div>
                 <p className="text-slate-700">
-                  JavaScript rendering is one of the most common—and most damaging—technical SEO issues. Switching from client-side rendering to server-side rendering is often the single highest-ROI technical SEO change you can make.
+                  JavaScript rendering is one of the most common--and most damaging--technical SEO issues. Switching from client-side rendering to server-side rendering is often the single highest-ROI technical SEO change you can make.
                 </p>
               </section>
 
@@ -771,7 +771,7 @@ export default function ProductPage({ product }) {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mb-6">
                   <h3 className="text-2xl font-bold mb-4">Automate Your JavaScript Rendering SEO</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop losing rankings to JavaScript rendering failures. SEOLOGY detects rendering issues, implements fixes, and monitors JavaScript SEO health automatically—recovering thousands of missing pages.
+                    Stop losing rankings to JavaScript rendering failures. SEOLOGY detects rendering issues, implements fixes, and monitors JavaScript SEO health automatically--recovering thousands of missing pages.
                   </p>
                   <Link
                     href="/sign-up"
@@ -786,7 +786,7 @@ export default function ProductPage({ product }) {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Fix JavaScript Rendering or Lose Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  JavaScript rendering is the #1 technical SEO issue for modern websites. If your content requires JavaScript to appear, you\'re gambling that Google will successfully render it—and often, it doesn\'t.
+                  JavaScript rendering is the #1 technical SEO issue for modern websites. If your content requires JavaScript to appear, you\'re gambling that Google will successfully render it--and often, it doesn\'t.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   The data is clear:
@@ -813,7 +813,7 @@ export default function ProductPage({ product }) {
                   Follow these 15 tactics: Implement SSR or SSG for SEO-critical pages, use dynamic rendering as fallback, test with Google\'s rendering tools, optimize JavaScript bundle size, ensure structured data is in initial HTML, use semantic HTML elements, and implement proper crawlable links.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>SEOLOGY automates JavaScript rendering SEO</strong>—detecting rendering failures, implementing dynamic rendering, validating structured data placement, and monitoring rendering success rates continuously. Stop losing rankings to invisible JavaScript content.
+                  <strong>SEOLOGY automates JavaScript rendering SEO</strong>--detecting rendering failures, implementing dynamic rendering, validating structured data placement, and monitoring rendering success rates continuously. Stop losing rankings to invisible JavaScript content.
                 </p>
               </section>
 

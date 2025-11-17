@@ -57,7 +57,7 @@ export default function BlogPost() {
                 XML sitemaps tell Google which pages to crawl and how often. A properly optimized sitemap can <strong>reduce crawl time by 40-60%</strong> and get new content indexed within hours instead of days. This guide covers sitemap structure, priority settings, image/video sitemaps, sitemap index files, and common mistakes that waste crawl budget.
               </p>
               <p className="text-slate-700 mb-0">
-                <strong>Bottom line:</strong> Sites with optimized sitemaps get crawled 3x more efficiently than sites with default sitemaps—more pages indexed, faster ranking improvements.
+                <strong>Bottom line:</strong> Sites with optimized sitemaps get crawled 3x more efficiently than sites with default sitemaps--more pages indexed, faster ranking improvements.
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export default function BlogPost() {
                       <strong>Format:</strong> YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS+00:00 (ISO 8601)
                     </p>
                     <p className="text-slate-700">
-                      <strong>Best practice:</strong> Only include if you accurately track last modified dates—false dates hurt more than help
+                      <strong>Best practice:</strong> Only include if you accurately track last modified dates--false dates hurt more than help
                     </p>
                   </div>
 
@@ -198,7 +198,7 @@ export default function BlogPost() {
                       <strong>Values:</strong> always, hourly, daily, weekly, monthly, yearly, never
                     </p>
                     <p className="text-slate-700">
-                      <strong>Reality check:</strong> Google mostly ignores this now—focus on lastmod instead
+                      <strong>Reality check:</strong> Google mostly ignores this now--focus on lastmod instead
                     </p>
                   </div>
 
@@ -242,7 +242,7 @@ export default function BlogPost() {
 
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
-                    <strong>⚠️ Common mistake:</strong> Setting everything to 1.0 defeats the purpose. Use priority to create a hierarchy—it\'s about RELATIVE importance within your site.
+                    <strong>⚠️ Common mistake:</strong> Setting everything to 1.0 defeats the purpose. Use priority to create a hierarchy--it\'s about RELATIVE importance within your site.
                   </p>
                 </div>
 
@@ -250,7 +250,7 @@ export default function BlogPost() {
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Always:</strong> Never use this—it\'s spam signal to Google</span>
+                    <span><strong>Always:</strong> Never use this--it\'s spam signal to Google</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -308,7 +308,7 @@ export default function BlogPost() {
                   Image Sitemaps: Get Your Images Indexed
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Image sitemaps help Google discover and index images—critical for image search rankings and visual content:
+                  Image sitemaps help Google discover and index images--critical for image search rankings and visual content:
                 </p>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Image Sitemap Structure</h3>
@@ -354,7 +354,7 @@ export default function BlogPost() {
                       <strong>Purpose:</strong> Caption/description of the image
                     </p>
                     <p className="text-slate-700">
-                      <strong>SEO impact:</strong> Used for image search relevance—include target keywords naturally
+                      <strong>SEO impact:</strong> Used for image search relevance--include target keywords naturally
                     </p>
                   </div>
 
@@ -393,7 +393,7 @@ export default function BlogPost() {
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Include all images:</strong> Product images, infographics, charts—anything you want indexed</span>
+                    <span><strong>Include all images:</strong> Product images, infographics, charts--anything you want indexed</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -611,7 +611,7 @@ export default function BlogPost() {
                   Submitting Sitemaps to Google Search Console
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Creating a sitemap is only half the battle—you need to submit it properly:
+                  Creating a sitemap is only half the battle--you need to submit it properly:
                 </p>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Step-by-Step Submission Process</h3>

@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Digital PR earns editorial links from high-authority publications—the most powerful backlinks you can get. Unlike link building, Digital PR focuses on newsworthiness and media coverage. This strategy earned <strong>156 links from DR 70+ publications</strong> including Forbes, TechCrunch, and Business Insider. This guide covers 14 proven tactics: data journalism, expert commentary, original research, trend-jacking, and media relationship building. SEOLOGY automates digital PR outreach and link tracking.
+                Digital PR earns editorial links from high-authority publications--the most powerful backlinks you can get. Unlike link building, Digital PR focuses on newsworthiness and media coverage. This strategy earned <strong>156 links from DR 70+ publications</strong> including Forbes, TechCrunch, and Business Insider. This guide covers 14 proven tactics: data journalism, expert commentary, original research, trend-jacking, and media relationship building. SEOLOGY automates digital PR outreach and link tracking.
               </p>
             </div>
 
@@ -96,7 +96,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">1. Conduct Original Research Studies</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why it works:</strong> Journalists need data for their stories—you become their source.
+                      <strong>Why it works:</strong> Journalists need data for their stories--you become their source.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to do it:</strong> Survey 500+ people in your industry, analyze the data, release findings with charts/infographics.
@@ -125,7 +125,7 @@ export default function BlogPost() {
                       <strong>Examples:</strong> Calculators, benchmarking tools, interactive charts, comparison engines.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why journalists love them:</strong> Readers engage with interactive content—higher time on site.
+                      <strong>Why journalists love them:</strong> Readers engage with interactive content--higher time on site.
                     </p>
                     <p className="text-slate-700">
                       <strong>Impact:</strong> Tools get linked repeatedly over months/years as evergreen resources.
@@ -135,7 +135,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Analyze Public Datasets</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Opportunity:</strong> Government data, public APIs, academic research—analyze it for insights.
+                      <strong>Opportunity:</strong> Government data, public APIs, academic research--analyze it for insights.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Angle:</strong> "We analyzed 10,000 X and found surprising trend Y."
@@ -157,14 +157,14 @@ export default function BlogPost() {
                       <strong>How:</strong> Share their articles, offer expert quotes (no strings attached), provide data when they ask.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Payoff:</strong> They remember you when they need sources—ongoing coverage.
+                      <strong>Payoff:</strong> They remember you when they need sources--ongoing coverage.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Use HARO (Help A Reporter Out)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>What it is:</strong> Journalists post requests for expert sources—you respond with quotes.
+                      <strong>What it is:</strong> Journalists post requests for expert sources--you respond with quotes.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Strategy:</strong> Respond to 5-10 relevant requests daily with thoughtful, quotable responses.
@@ -183,7 +183,7 @@ export default function BlogPost() {
                       <strong>SEO optimization:</strong> Rank for "[your company] press" and similar brand queries.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Purpose:</strong> Makes journalists\' jobs easier—increases coverage likelihood.
+                      <strong>Purpose:</strong> Makes journalists\' jobs easier--increases coverage likelihood.
                     </p>
                   </div>
 
@@ -225,7 +225,7 @@ export default function BlogPost() {
                       <strong>Timing:</strong> Pitch seasonal stories 4-6 weeks before the season starts.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Advantage:</strong> Journalists actively seek seasonal angles—high acceptance rate.
+                      <strong>Advantage:</strong> Journalists actively seek seasonal angles--high acceptance rate.
                     </p>
                   </div>
 
@@ -238,7 +238,7 @@ export default function BlogPost() {
                       <strong>Tactic:</strong> When competitor gets coverage, pitch journalists a different angle or updated data.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Result:</strong> "Another perspective" stories often include multiple sources—you get linked.
+                      <strong>Result:</strong> "Another perspective" stories often include multiple sources--you get linked.
                     </p>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function BlogPost() {
                       <strong>Still works:</strong> Well-designed infographics summarizing complex data get links.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Design quality matters:</strong> Hire professional designer—amateur infographics get ignored.
+                      <strong>Design quality matters:</strong> Hire professional designer--amateur infographics get ignored.
                     </p>
                     <p className="text-slate-700">
                       <strong>Distribution:</strong> Offer journalists "embed code" to make it easy to include in articles.
@@ -277,7 +277,7 @@ export default function BlogPost() {
                       <strong>Strategy:</strong> Interview 20+ industry experts on a topic, publish comprehensive roundup.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Distribution:</strong> Featured experts share it—amplification + links from their audiences.
+                      <strong>Distribution:</strong> Featured experts share it--amplification + links from their audiences.
                     </p>
                     <p className="text-slate-700">
                       <strong>SEO benefit:</strong> Experts often link back when they share, building authority.
@@ -309,7 +309,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 1: Pitching Promotional Content</h4>
                     <p className="text-slate-700">
-                      Journalists don\'t care about your product launch. They care about newsworthy information. Lead with data, trends, or expert analysis—not your company.
+                      Journalists don\'t care about your product launch. They care about newsworthy information. Lead with data, trends, or expert analysis--not your company.
                     </p>
                   </div>
 

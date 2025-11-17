@@ -60,7 +60,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Google Search Console is <strong>the most underutilized SEO tool</strong>. It contains exact keyword data, performance metrics, and technical issues—but most people only scratch the surface. This guide shows advanced Search Console tactics that found $2.7M in hidden SEO opportunities for our clients.
+                Google Search Console is <strong>the most underutilized SEO tool</strong>. It contains exact keyword data, performance metrics, and technical issues--but most people only scratch the surface. This guide shows advanced Search Console tactics that found $2.7M in hidden SEO opportunities for our clients.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Exact impressions and clicks:</strong> No estimates—direct from Google\'s index</span>
+                    <span><strong>Exact impressions and clicks:</strong> No estimates--direct from Google\'s index</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -203,7 +203,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Fix URLs showing "Poor" status first—these lose rankings to faster competitors.
+                  Fix URLs showing "Poor" status first--these lose rankings to faster competitors.
                 </p>
               </section>
 
@@ -252,7 +252,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Monitor Manual Actions:</strong> Check weekly—manual penalties tank rankings instantly</span>
+                    <span><strong>Monitor Manual Actions:</strong> Check weekly--manual penalties tank rankings instantly</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

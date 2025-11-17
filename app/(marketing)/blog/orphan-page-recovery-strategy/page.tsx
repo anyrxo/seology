@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics) — 67% Traffic Boost',
+  title: 'Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics) -- 67% Traffic Boost',
   description: "Orphan pages with no internal links waste 34% of your site\'s ranking potential. Orphan page recovery strategy identified 284 hidden pages and recovered 67% more organic traffic by integrating them into site architecture.",
 }
 
@@ -32,7 +32,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Orphan pages waste 34% of your site\'s ranking potential—hidden from Google with zero internal links. Orphan page recovery identified 284 hidden pages and recovered 67% more organic traffic.
+            Orphan pages waste 34% of your site\'s ranking potential--hidden from Google with zero internal links. Orphan page recovery identified 284 hidden pages and recovered 67% more organic traffic.
           </p>
 
           <div className="mb-12">
@@ -53,9 +53,9 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li><strong>Orphan pages have zero internal links:</strong> Pages exist on your site but have no links pointing to them from other pages—Google can\'t crawl them efficiently, they receive no PageRank, and they don\'t rank</li>
-                <li><strong>34% of site content is typically orphaned:</strong> Average website has 284 orphan pages per 1,000 total pages—wasting 1/3 of potential rankings (source: Screaming Frog analysis of 10,000 sites)</li>
-                <li><strong>Finding orphans requires comparing crawl data to indexed pages:</strong> Crawl your site to find linked pages, check Google Search Console for indexed pages, compare lists—pages in Search Console but not in crawl = orphans</li>
+                <li><strong>Orphan pages have zero internal links:</strong> Pages exist on your site but have no links pointing to them from other pages--Google can\'t crawl them efficiently, they receive no PageRank, and they don\'t rank</li>
+                <li><strong>34% of site content is typically orphaned:</strong> Average website has 284 orphan pages per 1,000 total pages--wasting 1/3 of potential rankings (source: Screaming Frog analysis of 10,000 sites)</li>
+                <li><strong>Finding orphans requires comparing crawl data to indexed pages:</strong> Crawl your site to find linked pages, check Google Search Console for indexed pages, compare lists--pages in Search Console but not in crawl = orphans</li>
                 <li><strong>Not all orphans should be fixed:</strong> Prioritize by traffic potential (existing rankings, search volume for target keywords), content quality (comprehensive vs thin), and business value (conversion potential)</li>
                 <li><strong>Recovery tactics vary by page type:</strong> High-value content pages get contextual links from related content, low-value pages get consolidated via redirects, temporary pages (expired promotions) get removed</li>
                 <li><strong>67% traffic recovery:</strong> Site with 284 orphan pages added strategic internal links to 147 high-value orphans, redirected 89 low-value orphans, increased organic traffic 67% within 8 weeks</li>
@@ -66,13 +66,13 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Orphan Pages Destroy Your SEO Performance</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  You have 1,000 pages on your site. Google indexes 653 of them. You run a site crawl and discover your crawler only found 719 pages by following internal links. The math: 1,000 pages exist, but only 719 are linked from other pages. That means 281 pages are "orphans"—isolated pages with zero internal links pointing to them.
+                  You have 1,000 pages on your site. Google indexes 653 of them. You run a site crawl and discover your crawler only found 719 pages by following internal links. The math: 1,000 pages exist, but only 719 are linked from other pages. That means 281 pages are "orphans"--isolated pages with zero internal links pointing to them.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Here\'s what happens to orphaned pages: Google\'s crawler follows links from page to page to discover content. Orphans have no links, so Googlebot rarely visits them (maybe once every few months via sitemap alone). They receive zero PageRank from your internal linking structure—like having valuable content locked in a basement with no door. Even if Google somehow finds and indexes them, they rank poorly because they\'re isolated from your site\'s link equity distribution.
+                  Here\'s what happens to orphaned pages: Google\'s crawler follows links from page to page to discover content. Orphans have no links, so Googlebot rarely visits them (maybe once every few months via sitemap alone). They receive zero PageRank from your internal linking structure--like having valuable content locked in a basement with no door. Even if Google somehow finds and indexes them, they rank poorly because they\'re isolated from your site\'s link equity distribution.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>The data:</strong> Screaming Frog analyzed 10,000 websites and found that the average site has 34% orphan pages (source: Screaming Frog study 2023). For a 1,000-page site, that\'s 340 pages producing zero SEO value. Ahrefs\' analysis of 1 million domains showed that orphan pages receive 94% less organic traffic than properly linked pages—even when targeting the same keywords. Moz\'s correlation study found that internal links are the 4th strongest ranking factor (correlation coefficient: 0.71).
+                  <strong>The data:</strong> Screaming Frog analyzed 10,000 websites and found that the average site has 34% orphan pages (source: Screaming Frog study 2023). For a 1,000-page site, that\'s 340 pages producing zero SEO value. Ahrefs\' analysis of 1 million domains showed that orphan pages receive 94% less organic traffic than properly linked pages--even when targeting the same keywords. Moz\'s correlation study found that internal links are the 4th strongest ranking factor (correlation coefficient: 0.71).
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Orphans happen for several reasons: Old pages created before your current site architecture was established. Content management systems that create pages automatically (like blog tag pages or parameter URLs) without adding navigation links. Developers removing links during redesigns without deleting the actual pages. Product pages no longer featured in category pages but still live on the site. The result: valuable content exists but contributes nothing to your rankings or traffic.
@@ -91,13 +91,13 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">1. Compare Site Crawl Data to Google Search Console</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>The definitive orphan detection method:</strong> Crawl your entire site using Screaming Frog or similar tool—this finds all pages discoverable via internal links. Export indexed pages from Google Search Console (Coverage report → Valid pages). Compare the two lists: pages in Search Console but NOT in your crawl = orphan pages.
+                      <strong>The definitive orphan detection method:</strong> Crawl your entire site using Screaming Frog or similar tool--this finds all pages discoverable via internal links. Export indexed pages from Google Search Console (Coverage report → Valid pages). Compare the two lists: pages in Search Console but NOT in your crawl = orphan pages.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why this works:</strong> Your crawler follows links like Googlebot does—if your crawler can\'t find a page by following links, it\'s orphaned. Search Console shows pages Google has indexed (often via sitemap submission or external links). The difference reveals orphans that Google knows about but can\'t reach via internal navigation.
+                      <strong>Why this works:</strong> Your crawler follows links like Googlebot does--if your crawler can\'t find a page by following links, it\'s orphaned. Search Console shows pages Google has indexed (often via sitemap submission or external links). The difference reveals orphans that Google knows about but can\'t reach via internal navigation.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to do it:</strong> (1) Crawl your site with Screaming Frog (mode: Spider, max crawl depth: unlimited). Export the URL list. (2) In Google Search Console → Coverage → Valid → Export all valid URLs. (3) Use a spreadsheet or tool like Screaming Frog\'s "Crawl Analysis" to compare lists. (4) Sort by URLs in Search Console NOT found in crawl—these are your orphans.
+                      <strong>How to do it:</strong> (1) Crawl your site with Screaming Frog (mode: Spider, max crawl depth: unlimited). Export the URL list. (2) In Google Search Console → Coverage → Valid → Export all valid URLs. (3) Use a spreadsheet or tool like Screaming Frog\'s "Crawl Analysis" to compare lists. (4) Sort by URLs in Search Console NOT found in crawl--these are your orphans.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Pro tip:</strong> Some pages may legitimately not be linked (like thank-you pages, form submissions). Filter out URLs containing <code>/thanks</code>, <code>/confirmation</code>, <code>/unsubscribe</code> to focus on actual content orphans worth fixing.
@@ -107,7 +107,7 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">2. Check Pages in XML Sitemap But Not in Navigation</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Quick detection method:</strong> If a page exists in your XML sitemap but you can\'t reach it by clicking through your site\'s navigation, it\'s likely an orphan. Sitemaps tell Google "these pages exist"—but without internal links, they\'re hard for Googlebot to discover and crawl regularly.
+                      <strong>Quick detection method:</strong> If a page exists in your XML sitemap but you can\'t reach it by clicking through your site\'s navigation, it\'s likely an orphan. Sitemaps tell Google "these pages exist"--but without internal links, they\'re hard for Googlebot to discover and crawl regularly.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to check:</strong> Load your sitemap (<code>yoursite.com/sitemap.xml</code>) and randomly select 10-20 URLs from different sections. Try to navigate to each URL starting from your homepage using only internal links (no direct URL entry). If you can\'t reach a page via site navigation, it\'s orphaned.
@@ -123,23 +123,23 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">3. Use Analytics to Find High-Traffic Pages With Zero Referrals</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Traffic-based detection:</strong> In Google Analytics 4, find pages receiving organic traffic (Landing Page report) but showing zero or near-zero internal referrals (Previous Page = none). These pages get traffic via Google search but have no internal links—classic orphan pattern.
+                      <strong>Traffic-based detection:</strong> In Google Analytics 4, find pages receiving organic traffic (Landing Page report) but showing zero or near-zero internal referrals (Previous Page = none). These pages get traffic via Google search but have no internal links--classic orphan pattern.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to find them:</strong> GA4 → Reports → Engagement → Pages and screens → Add filter "Traffic source = Organic Search" → Add second dimension "Previous page path" → Sort by landing page views. Look for pages with high traffic but "Previous page path = (not set)" or "(entrance)"—indicates users only enter from Google, never from internal navigation.
+                      <strong>How to find them:</strong> GA4 → Reports → Engagement → Pages and screens → Add filter "Traffic source = Organic Search" → Add second dimension "Previous page path" → Sort by landing page views. Look for pages with high traffic but "Previous page path = (not set)" or "(entrance)"--indicates users only enter from Google, never from internal navigation.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Why these matter most:</strong> If a page is already getting organic traffic despite being orphaned, adding internal links will multiply its performance. It\'s proven Google-worthy content that\'s handicapped by lack of internal PageRank. Easy win: add contextual links and watch rankings improve.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Prioritization:</strong> Sort by landing page views descending. Pages with 100+ monthly visits but zero internal referrals are your highest-priority orphans to fix—they already have traffic, adding links will amplify results quickly.
+                      <strong>Prioritization:</strong> Sort by landing page views descending. Pages with 100+ monthly visits but zero internal referrals are your highest-priority orphans to fix--they already have traffic, adding links will amplify results quickly.
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">4. Identify Technical Orphans (Disallowed in Robots.txt or Noindex)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Technical orphans vs content orphans:</strong> Some pages are orphaned intentionally via technical directives—blocked in robots.txt (can\'t be crawled), marked noindex (can\'t be indexed), or require authentication. These aren\'t linking issues but configuration problems.
+                      <strong>Technical orphans vs content orphans:</strong> Some pages are orphaned intentionally via technical directives--blocked in robots.txt (can\'t be crawled), marked noindex (can\'t be indexed), or require authentication. These aren\'t linking issues but configuration problems.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to find them:</strong> In Screaming Frog crawl data, filter by "Indexability" column → check for: "Blocked by robots.txt" (Googlebot can\'t access), "Noindex" (page says don\'t index me), "Canonical to another page" (consolidates to different URL), "Disallowed" (configuration issues).
@@ -148,21 +148,21 @@ export default function BlogPost() {
                       <strong>Common mistakes:</strong> Accidentally blocking entire sections in robots.txt (<code>Disallow: /blog/</code> when you meant <code>/blog/archive/</code>), leaving staging site noindex tags in production, blocking JavaScript/CSS files that render page content, disallowing URL parameters that create unique pages.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Fix:</strong> Review robots.txt for overly broad disallow rules. Check <code>&lt;meta name="robots"&gt;</code> tags on important pages—remove noindex if unintentional. Use Google Search Console → URL Inspection to test if a URL is blocked and why.
+                      <strong>Fix:</strong> Review robots.txt for overly broad disallow rules. Check <code>&lt;meta name="robots"&gt;</code> tags on important pages--remove noindex if unintentional. Use Google Search Console → URL Inspection to test if a URL is blocked and why.
                     </p>
                   </div>
                 </div>
 
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 2: Prioritizing Which Orphans to Fix</h3>
-                  <p className="text-slate-700 mb-0">Not all orphans are worth saving—focus on high-value pages first</p>
+                  <p className="text-slate-700 mb-0">Not all orphans are worth saving--focus on high-value pages first</p>
                 </div>
 
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">5. Prioritize Pages With Existing Rankings and Traffic</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Quick win orphans:</strong> Pages already ranking on page 2-5 of Google (positions 11-50) despite being orphaned. These pages have proven they\'re Google-worthy—adding internal links can push them to page 1. Use Google Search Console → Performance → Pages to find orphans with impressions but low clicks (high impression count = ranking, low clicks = poor position).
+                      <strong>Quick win orphans:</strong> Pages already ranking on page 2-5 of Google (positions 11-50) despite being orphaned. These pages have proven they\'re Google-worthy--adding internal links can push them to page 1. Use Google Search Console → Performance → Pages to find orphans with impressions but low clicks (high impression count = ranking, low clicks = poor position).
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How to identify:</strong> Cross-reference your orphan list with Search Console Performance data. Filter for pages with: 1,000+ impressions/month (showing up in search), average position 11-50 (page 2-5), low CTR (under 2% = not page 1). These are your highest-potential orphans.
@@ -184,7 +184,7 @@ export default function BlogPost() {
                       <strong>Quality indicators:</strong> High-quality orphans (worth saving): 1,000+ words, covers topic comprehensively, includes images/media, targets keywords with search volume, provides unique value. Low-quality orphans (consider removing): Under 300 words, duplicate content, outdated information (2+ years old), no clear keyword target, minimal engagement.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Automated quality check:</strong> Export your orphan list with word count and last modified date (Screaming Frog provides this). Sort by word count ascending. Pages under 300 words are candidates for consolidation unless they\'re high-converting landing pages. Pages not updated in 3+ years may have outdated information—review before linking.
+                      <strong>Automated quality check:</strong> Export your orphan list with word count and last modified date (Screaming Frog provides this). Sort by word count ascending. Pages under 300 words are candidates for consolidation unless they\'re high-converting landing pages. Pages not updated in 3+ years may have outdated information--review before linking.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Decision matrix:</strong> High quality + existing traffic = add internal links immediately. High quality + no traffic = add links + improve content. Low quality + no traffic = redirect to similar comprehensive page or remove. Low quality + existing traffic = improve content quality first, then add links.
@@ -197,10 +197,10 @@ export default function BlogPost() {
                       <strong>ROI-focused prioritization:</strong> Some orphans drive direct revenue (product pages, service landing pages, high-intent comparison content). Others provide informational value but don\'t convert (basic definitions, generic how-to guides). Fix high-business-value orphans first even if they have lower traffic.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>High-value orphan types:</strong> Product/service pages (direct sales), comparison pages ("Product A vs Product B"—high purchase intent), pricing pages (bottom-of-funnel), location/contact pages (local business critical), lead magnet landing pages (email capture), case study pages (social proof for conversions).
+                      <strong>High-value orphan types:</strong> Product/service pages (direct sales), comparison pages ("Product A vs Product B"--high purchase intent), pricing pages (bottom-of-funnel), location/contact pages (local business critical), lead magnet landing pages (email capture), case study pages (social proof for conversions).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to identify:</strong> Check which orphans are in your conversion funnels (GA4 → Advertising → Conversion paths). Pages appearing in conversion paths but orphaned are losing potential conversions. Also check orphans with goal completions or ecommerce transactions in GA4—they\'re converting despite being orphaned.
+                      <strong>How to identify:</strong> Check which orphans are in your conversion funnels (GA4 → Advertising → Conversion paths). Pages appearing in conversion paths but orphaned are losing potential conversions. Also check orphans with goal completions or ecommerce transactions in GA4--they\'re converting despite being orphaned.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Example:</strong> E-commerce site found 18 product pages orphaned (removed from category navigation during redesign). These products had historical conversion rates of 4.2% (above site average of 2.8%). Re-adding to category pages and related product links recovered $47,000/month in revenue within 6 weeks.
@@ -210,13 +210,13 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">8. Check for External Backlinks (Authority to Leverage)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Hidden authority:</strong> Some orphans have external backlinks from other websites—valuable PageRank flowing in from external sources but not being distributed internally. These pages have authority that\'s wasted by orphan status. Recovering them multiplies their SEO impact.
+                      <strong>Hidden authority:</strong> Some orphans have external backlinks from other websites--valuable PageRank flowing in from external sources but not being distributed internally. These pages have authority that\'s wasted by orphan status. Recovering them multiplies their SEO impact.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to find them:</strong> Use Ahrefs, SEMrush, or Moz to check backlinks for your orphan pages. Filter orphan list by "Referring domains &gt; 0"—these are orphans with external authority. Sort by referring domains descending—orphans with 10+ backlinks are high-priority recovery targets.
+                      <strong>How to find them:</strong> Use Ahrefs, SEMrush, or Moz to check backlinks for your orphan pages. Filter orphan list by "Referring domains &gt; 0"--these are orphans with external authority. Sort by referring domains descending--orphans with 10+ backlinks are high-priority recovery targets.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why this matters:</strong> External backlinks pass PageRank to the orphan page, but with zero internal links, that authority dies there—it\'s not distributed to other pages on your site. Adding internal links from the orphan to related pages spreads that external authority across your site architecture.
+                      <strong>Why this matters:</strong> External backlinks pass PageRank to the orphan page, but with zero internal links, that authority dies there--it\'s not distributed to other pages on your site. Adding internal links from the orphan to related pages spreads that external authority across your site architecture.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Strategy:</strong> For orphans with 5+ backlinks, add internal links pointing TO the orphan (helps it rank) AND from the orphan to related pages (distributes its authority). This creates a two-way authority flow that benefits multiple pages.
@@ -236,29 +236,29 @@ export default function BlogPost() {
                       <strong>Best recovery method for valuable orphans:</strong> Add 3-5 contextual internal links from related, topically-relevant pages that already rank well. Contextual links (within body content) pass more value than navigational links and provide better user experience than arbitrary sidebar links.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>How to find linking opportunities:</strong> For each orphan, identify its primary topic/keyword. Search your site (<code>site:yoursite.com "topic keyword"</code>) to find related pages already covering similar topics. These are natural candidates to add contextual links to the orphan. Aim for 3-5 links minimum—more is better if contextually relevant.
+                      <strong>How to find linking opportunities:</strong> For each orphan, identify its primary topic/keyword. Search your site (<code>site:yoursite.com "topic keyword"</code>) to find related pages already covering similar topics. These are natural candidates to add contextual links to the orphan. Aim for 3-5 links minimum--more is better if contextually relevant.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Anchor text strategy:</strong> Use descriptive anchor text matching the orphan\'s target keyword, but vary it across links. Example: orphan targets "wireless headphones buying guide." Link 1: "wireless headphones buying guide," Link 2: "comprehensive headphone guide," Link 3: "learn how to choose headphones," Link 4: "headphone selection tips."
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Placement:</strong> Add links in the first 2-3 paragraphs (higher weight), within list items discussing related topics, in "Related Resources" sections at article end. Never force unnatural links—if there\'s no topical relevance, find different source pages to link from.
+                      <strong>Placement:</strong> Add links in the first 2-3 paragraphs (higher weight), within list items discussing related topics, in "Related Resources" sections at article end. Never force unnatural links--if there\'s no topical relevance, find different source pages to link from.
                     </p>
                   </div>
 
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Add to Site-Wide Navigation or Footer</h4>
                     <p className="text-lg text-slate-700 leading-relaxed">
-                      <strong>When to use site-wide links:</strong> For important pages that should be accessible from everywhere (contact, about, services, key resources), site-wide links in header navigation or footer are appropriate. But use sparingly—too many site-wide links dilute their value and create navigation clutter.
+                      <strong>When to use site-wide links:</strong> For important pages that should be accessible from everywhere (contact, about, services, key resources), site-wide links in header navigation or footer are appropriate. But use sparingly--too many site-wide links dilute their value and create navigation clutter.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Footer links strategy:</strong> Create logical footer sections: Company (About, Careers, Press), Resources (Blog, Guides, Case Studies), Legal (Privacy, Terms), Support (Contact, FAQ, Help). Orphaned pages in these categories naturally fit in footer—solving orphan status while improving site-wide navigation.
+                      <strong>Footer links strategy:</strong> Create logical footer sections: Company (About, Careers, Press), Resources (Blog, Guides, Case Studies), Legal (Privacy, Terms), Support (Contact, FAQ, Help). Orphaned pages in these categories naturally fit in footer--solving orphan status while improving site-wide navigation.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Navigation menu additions:</strong> If orphan is a top-level category or important service, add to main navigation. Example: "SEO Services" page was orphaned after redesign—adding back to main nav recovered rankings within 3 weeks. But don\'t bloat navigation with too many items (keep under 7 main nav items for UX).
+                      <strong>Navigation menu additions:</strong> If orphan is a top-level category or important service, add to main navigation. Example: "SEO Services" page was orphaned after redesign--adding back to main nav recovered rankings within 3 weeks. But don\'t bloat navigation with too many items (keep under 7 main nav items for UX).
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>Caution:</strong> Site-wide links from footer or navigation pass less value than contextual body links because they appear on every page (Google may discount them). Use for pages that legitimately belong in site-wide navigation—not as a shortcut to fix orphans that need contextual links.
+                      <strong>Caution:</strong> Site-wide links from footer or navigation pass less value than contextual body links because they appear on every page (Google may discount them). Use for pages that legitimately belong in site-wide navigation--not as a shortcut to fix orphans that need contextual links.
                     </p>
                   </div>
 
@@ -281,7 +281,7 @@ export default function BlogPost() {
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">12. Implement Automated Related Posts or Recommendations</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Scalable linking solution:</strong> For sites with hundreds of pages (blogs, news sites, large e-commerce catalogs), manually adding contextual links is time-consuming. Automated "related posts" or "recommended products" plugins/widgets ensure every page links to related pages—preventing future orphans.
+                      <strong>Scalable linking solution:</strong> For sites with hundreds of pages (blogs, news sites, large e-commerce catalogs), manually adding contextual links is time-consuming. Automated "related posts" or "recommended products" plugins/widgets ensure every page links to related pages--preventing future orphans.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>How it works:</strong> Algorithm analyzes page content (title, tags, categories, keywords) and automatically displays 3-8 related internal pages at article end or sidebar. Each page now has automatic internal links to related content, ensuring nothing becomes orphaned as you publish new content.
@@ -307,10 +307,10 @@ export default function BlogPost() {
                       <strong>Process-based prevention:</strong> Make internal linking a required step in your content creation workflow. Before any new page goes live, it must have: (1) Minimum 3 internal links pointing TO it from existing content, (2) Minimum 3 internal links FROM it to related existing pages. This prevents orphans at publication.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Workflow implementation:</strong> Create a content publishing checklist: ☐ Draft written, ☐ Images optimized, ☐ Meta tags added, ☐ Internal links added TO this page (min 3), ☐ Internal links added FROM this page (min 3), ☐ Peer review complete, ☐ Published. Don\'t skip the internal linking steps—they\'re as critical as content quality.
+                      <strong>Workflow implementation:</strong> Create a content publishing checklist: ☐ Draft written, ☐ Images optimized, ☐ Meta tags added, ☐ Internal links added TO this page (min 3), ☐ Internal links added FROM this page (min 3), ☐ Peer review complete, ☐ Published. Don\'t skip the internal linking steps--they\'re as critical as content quality.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Team training:</strong> Educate content creators on internal linking strategy. Provide examples of good contextual links. Create a spreadsheet of "high-authority pages to link from" (your top 50 pages by traffic/authority)—writers should aim to earn links from these pages for new content.
+                      <strong>Team training:</strong> Educate content creators on internal linking strategy. Provide examples of good contextual links. Create a spreadsheet of "high-authority pages to link from" (your top 50 pages by traffic/authority)--writers should aim to earn links from these pages for new content.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>CMS enforcement:</strong> Some CMS plugins can enforce linking requirements. WordPress example: require custom field "Internal Links Added" to be filled with URLs before publishing. Or use editorial workflow tools (e.g., Edit Flow, PublishPress) that include internal linking as a checklist item in approval process.
@@ -326,7 +326,7 @@ export default function BlogPost() {
                       <strong>Audit process:</strong> (1) Run full site crawl with Screaming Frog, (2) Export indexed pages from Google Search Console, (3) Compare lists to identify orphans, (4) Prioritize by traffic/authority/business value (use tactics #5-8), (5) Fix top 20-50 orphans per audit cycle, (6) Track recovery in next audit cycle.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Set benchmarks:</strong> Track your orphan percentage over time: (Orphan pages ÷ Total pages) × 100. Healthy sites have under 10% orphans. If your orphan rate increases month-over-month, it indicates process problems (content published without proper linking, navigation changes removing links, etc.).
+                      <strong>Set benchmarks:</strong> Track your orphan percentage over time: (Orphan pages ÷ Total pages) x 100. Healthy sites have under 10% orphans. If your orphan rate increases month-over-month, it indicates process problems (content published without proper linking, navigation changes removing links, etc.).
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>Automation:</strong> Set up monitoring alerts in Screaming Frog Cloud or OnCrawl to automatically detect new orphans and notify you via email. Some enterprise SEO platforms (BrightEdge, Conductor, seoClarity) include orphan page monitoring in their dashboards with trend tracking.
@@ -341,17 +341,17 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Fixing Low-Value Orphans Before High-Value Ones</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Systematically fixing ALL orphans alphabetically or by page type without prioritizing by business value or traffic potential—wasting time on thin content orphans (old tag pages, duplicate content, archived posts) while high-traffic orphans stay broken.
+                      <strong>The mistake:</strong> Systematically fixing ALL orphans alphabetically or by page type without prioritizing by business value or traffic potential--wasting time on thin content orphans (old tag pages, duplicate content, archived posts) while high-traffic orphans stay broken.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>The fix:</strong> Always prioritize orphans with existing traffic (use GA4 + Search Console data), external backlinks (check Ahrefs/SEMrush), or high conversion potential (product/service pages). Fix top 20 highest-value orphans first—you\'ll see 80% of the traffic recovery from 20% of the work.
+                      <strong>The fix:</strong> Always prioritize orphans with existing traffic (use GA4 + Search Console data), external backlinks (check Ahrefs/SEMrush), or high conversion potential (product/service pages). Fix top 20 highest-value orphans first--you\'ll see 80% of the traffic recovery from 20% of the work.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Adding Irrelevant Links Just to "Fix" Orphan Status</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Adding random, non-contextual internal links to orphans just to technically de-orphan them—e.g., linking a blog post about "SEO tips" from a product page about "wireless headphones" because both exist on the site. This doesn\'t help users or SEO.
+                      <strong>The mistake:</strong> Adding random, non-contextual internal links to orphans just to technically de-orphan them--e.g., linking a blog post about "SEO tips" from a product page about "wireless headphones" because both exist on the site. This doesn\'t help users or SEO.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Only add topically-relevant contextual links that provide value to users reading the source page. If you can\'t find 3+ relevant pages to naturally link from, create a hub page or resource directory where the orphan logically belongs. Quality of links matters more than quantity.
@@ -371,17 +371,17 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Ignoring Orphans Created During Site Redesigns</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Launching a site redesign with new navigation structure but failing to check which pages lost all internal links in the process. Category pages removed from menus, old product lines no longer featured, blog archives no longer linked—hundreds of orphans created overnight.
+                      <strong>The mistake:</strong> Launching a site redesign with new navigation structure but failing to check which pages lost all internal links in the process. Category pages removed from menus, old product lines no longer featured, blog archives no longer linked--hundreds of orphans created overnight.
                     </p>
                     <p className="text-slate-700 mb-0">
-                      <strong>The fix:</strong> Before launching redesigns, crawl the current site to document all internal links. After redesign launch, crawl again and compare—any pages previously linked but now not reachable = redesign-created orphans. Proactively add these pages back to navigation or create redirect maps if they\'re being consolidated.
+                      <strong>The fix:</strong> Before launching redesigns, crawl the current site to document all internal links. After redesign launch, crawl again and compare--any pages previously linked but now not reachable = redesign-created orphans. Proactively add these pages back to navigation or create redirect maps if they\'re being consolidated.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Relying Only on XML Sitemaps to "Fix" Orphans</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>The mistake:</strong> Assuming that adding orphan pages to your XML sitemap is sufficient to fix the problem—"Google can find them via sitemap, so they\'re not really orphans." Sitemaps help discovery but don\'t pass PageRank or provide user navigation paths.
+                      <strong>The mistake:</strong> Assuming that adding orphan pages to your XML sitemap is sufficient to fix the problem--"Google can find them via sitemap, so they\'re not really orphans." Sitemaps help discovery but don\'t pass PageRank or provide user navigation paths.
                     </p>
                     <p className="text-slate-700 mb-0">
                       <strong>The fix:</strong> Sitemaps are a band-aid, not a solution. Google may crawl orphans via sitemap but crawls them infrequently and they receive zero internal PageRank. Real fix: add 3-5 contextual internal links from related content. Sitemap + internal links = properly integrated pages that rank well.
@@ -443,17 +443,17 @@ export default function BlogPost() {
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
-                      <p className="mt-1">B2B SaaS company with 850-page website (blog, resources, product docs) noticed flat organic traffic despite publishing 50+ new blog posts in past 6 months. Traffic wasn\'t growing proportionally to content volume—something was systematically wrong with site architecture.</p>
+                      <p className="mt-1">B2B SaaS company with 850-page website (blog, resources, product docs) noticed flat organic traffic despite publishing 50+ new blog posts in past 6 months. Traffic wasn\'t growing proportionally to content volume--something was systematically wrong with site architecture.</p>
                     </div>
 
                     <div>
                       <strong className="text-slate-900">The Discovery:</strong>
-                      <p className="mt-1">Full site crawl with Screaming Frog revealed crawler only discovered 566 pages by following internal links. Google Search Console showed 850 pages indexed. Math: 284 pages (33%) were orphans—no internal links pointing to them. Cross-check with Google Analytics showed 147 orphans had existing organic traffic (2,500+ visits/month combined), meaning they were ranking despite being handicapped.</p>
+                      <p className="mt-1">Full site crawl with Screaming Frog revealed crawler only discovered 566 pages by following internal links. Google Search Console showed 850 pages indexed. Math: 284 pages (33%) were orphans--no internal links pointing to them. Cross-check with Google Analytics showed 147 orphans had existing organic traffic (2,500+ visits/month combined), meaning they were ranking despite being handicapped.</p>
                     </div>
 
                     <div>
                       <strong className="text-slate-900">The Strategy:</strong>
-                      <p className="mt-1">Three-tier approach: (Tier 1) 147 orphans with existing traffic—add 3-5 contextual internal links from related high-authority blog posts and resource pages. (Tier 2) 89 orphans with zero traffic but high quality (1,000+ words, comprehensive)—add to relevant resource hubs and topic cluster pages. (Tier 3) 48 orphans with low quality/thin content—301 redirect to comprehensive related pages or delete with 410 status.</p>
+                      <p className="mt-1">Three-tier approach: (Tier 1) 147 orphans with existing traffic--add 3-5 contextual internal links from related high-authority blog posts and resource pages. (Tier 2) 89 orphans with zero traffic but high quality (1,000+ words, comprehensive)--add to relevant resource hubs and topic cluster pages. (Tier 3) 48 orphans with low quality/thin content--301 redirect to comprehensive related pages or delete with 410 status.</p>
                     </div>
 
                     <div>
@@ -495,7 +495,7 @@ export default function BlogPost() {
 
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
-                      <p className="mt-1 text-lg">"We were creating great content but it was invisible to Google and users because we weren\'t systematically adding internal links. Fixing 284 orphan pages unlocked 67% more traffic from content we already had—no new content required. The ROI was immediate and massive." — VP of Marketing</p>
+                      <p className="mt-1 text-lg">"We were creating great content but it was invisible to Google and users because we weren\'t systematically adding internal links. Fixing 284 orphan pages unlocked 67% more traffic from content we already had--no new content required. The ROI was immediate and massive." -- VP of Marketing</p>
                     </div>
                   </div>
                 </div>
@@ -504,7 +504,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Orphan Page Detection and Recovery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Manual orphan page recovery requires: running site crawls, comparing data sources, prioritizing hundreds of orphans, finding contextual linking opportunities, manually editing pages to add links, monitoring results—taking weeks of work. SEOLOGY automates the entire process:
+                  Manual orphan page recovery requires: running site crawls, comparing data sources, prioritizing hundreds of orphans, finding contextual linking opportunities, manually editing pages to add links, monitoring results--taking weeks of work. SEOLOGY automates the entire process:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
@@ -522,7 +522,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Link Integration</h3>
-                    <p className="text-slate-700">SEOLOGY doesn\'t just find orphans—it fixes them automatically. AI identifies topically-relevant source pages for contextual links, generates natural anchor text variations, adds 3-5 internal links per orphan from high-authority pages, deploys changes via CMS API (Shopify, WordPress, etc.).</p>
+                    <p className="text-slate-700">SEOLOGY doesn\'t just find orphans--it fixes them automatically. AI identifies topically-relevant source pages for contextual links, generates natural anchor text variations, adds 3-5 internal links per orphan from high-authority pages, deploys changes via CMS API (Shopify, WordPress, etc.).</p>
                   </div>
 
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
@@ -533,9 +533,9 @@ export default function BlogPost() {
                 </div>
 
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
-                  <h3 className="text-2xl font-bold mb-4">Stop Wasting 34% of Your Site\'s Ranking Potential—Automate Orphan Recovery</h3>
+                  <h3 className="text-2xl font-bold mb-4">Stop Wasting 34% of Your Site\'s Ranking Potential--Automate Orphan Recovery</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically detects orphan pages, prioritizes by business value, adds strategic internal links, and monitors traffic recovery—recovering 67% more organic traffic from content you already have.
+                    SEOLOGY automatically detects orphan pages, prioritizes by business value, adds strategic internal links, and monitors traffic recovery--recovering 67% more organic traffic from content you already have.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
@@ -558,16 +558,16 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Orphan Page Recovery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Orphan pages represent the single largest waste of existing SEO potential on most websites—34% of site content typically orphaned, receiving 94% less traffic than properly linked pages. Recovering orphans doesn\'t require creating new content—just integrating existing content into your site architecture through strategic internal linking.
+                  Orphan pages represent the single largest waste of existing SEO potential on most websites--34% of site content typically orphaned, receiving 94% less traffic than properly linked pages. Recovering orphans doesn\'t require creating new content--just integrating existing content into your site architecture through strategic internal linking.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>The recovery formula:</strong> Identify orphans by comparing site crawl data to Google Search Console indexed pages. Prioritize orphans with existing traffic (quick wins), external backlinks (authority to leverage), high-quality content (worth promoting), and business value (conversion potential). Add 3-5 contextual internal links from topically-relevant high-authority pages. Monitor ranking improvements over 4-8 weeks.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Never add irrelevant links just to technically de-orphan pages—quality and topical relevance matter more than quantity. Don\'t try to save every orphan—low-quality thin content should be redirected to comprehensive pages or removed entirely. Focus efforts on top 20% of orphans (by business value) to achieve 80% of potential traffic recovery.
+                  Never add irrelevant links just to technically de-orphan pages--quality and topical relevance matter more than quantity. Don\'t try to save every orphan--low-quality thin content should be redirected to comprehensive pages or removed entirely. Focus efforts on top 20% of orphans (by business value) to achieve 80% of potential traffic recovery.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Sites that systematically recover orphan pages see average 67% organic traffic increases within 8 weeks—just from better internal linking of existing content. The ongoing maintenance requirement is minimal: monthly or quarterly audits to catch new orphans, plus enforcing publishing workflows that require internal linking before content goes live. If you have 100+ pages on your site, you almost certainly have orphans wasting ranking potential right now.
+                  Sites that systematically recover orphan pages see average 67% organic traffic increases within 8 weeks--just from better internal linking of existing content. The ongoing maintenance requirement is minimal: monthly or quarterly audits to catch new orphans, plus enforcing publishing workflows that require internal linking before content goes live. If you have 100+ pages on your site, you almost certainly have orphans wasting ranking potential right now.
                 </p>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
                   <p className="text-slate-900 font-semibold mb-2">Ready to automate orphan page recovery?</p>

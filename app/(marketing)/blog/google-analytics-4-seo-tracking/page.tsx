@@ -60,7 +60,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Universal Analytics is dead. GA4 is mandatory but completely different. This guide shows exactly how to set up <strong>GA4 for SEO tracking</strong>—custom events, conversion tracking, organic performance reports, and attribution models that prove SEO ROI. Stop flying blind in GA4.
+                Universal Analytics is dead. GA4 is mandatory but completely different. This guide shows exactly how to set up <strong>GA4 for SEO tracking</strong>--custom events, conversion tracking, organic performance reports, and attribution models that prove SEO ROI. Stop flying blind in GA4.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why GA4 Changes Everything for SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  GA4 isn\'t just an upgrade—it\'s a complete rebuild. For SEO professionals, this means:
+                  GA4 isn\'t just an upgrade--it\'s a complete rebuild. For SEO professionals, this means:
                 </p>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -89,7 +89,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Custom reports rebuilt from scratch:</strong> Old reports are gone—you must recreate them</span>
+                    <span><strong>Custom reports rebuilt from scratch:</strong> Old reports are gone--you must recreate them</span>
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">

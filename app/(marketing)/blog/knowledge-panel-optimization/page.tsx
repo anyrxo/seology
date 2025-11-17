@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'Knowledge Panel Optimization: 14 Tactics to Own Your Brand SERP — 92% Recognition',
+  title: 'Knowledge Panel Optimization: 14 Tactics to Own Your Brand SERP -- 92% Recognition',
   description: "Knowledge panels dominate 85% of brand searches but 68% show inaccurate info. Knowledge panel optimization increased brand recognition 92% and click-through rates 47% by claiming and optimizing Google\'s knowledge graph.",
 }
 
@@ -31,7 +31,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Knowledge panels dominate 85% of brand searches but 68% display inaccurate information. This comprehensive guide shows exactly how to claim, verify, and optimize your Google Knowledge Panel—with 14 proven tactics that increased brand recognition by 92% and organic CTR by 47%.
+            Knowledge panels dominate 85% of brand searches but 68% display inaccurate information. This comprehensive guide shows exactly how to claim, verify, and optimize your Google Knowledge Panel--with 14 proven tactics that increased brand recognition by 92% and organic CTR by 47%.
           </p>
 
           <div className="mb-12">
@@ -52,11 +52,11 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Knowledge panels appear for 85% of brand searches</strong> — dominating the right side of desktop results and top of mobile</li>
+                <li><strong>Knowledge panels appear for 85% of brand searches</strong> -- dominating the right side of desktop results and top of mobile</li>
                 <li><strong>68% of knowledge panels contain inaccurate information</strong> that damages brand perception and trust</li>
                 <li><strong>Claiming your panel is mandatory</strong> via Google Search Console verification to suggest edits and monitor changes</li>
-                <li><strong>Wikipedia is the #1 data source</strong> for knowledge panels—creating or improving your Wikipedia entry is critical</li>
-                <li><strong>Schema.org Organization markup helps</strong> but doesn\'t directly control panel content—focus on authoritative sources Google trusts</li>
+                <li><strong>Wikipedia is the #1 data source</strong> for knowledge panels--creating or improving your Wikipedia entry is critical</li>
+                <li><strong>Schema.org Organization markup helps</strong> but doesn\'t directly control panel content--focus on authoritative sources Google trusts</li>
                 <li><strong>SEOLOGY monitors knowledge panel accuracy</strong> and alerts you to unauthorized changes or errors automatically</li>
               </ul>
             </div>
@@ -65,10 +65,10 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Knowledge Panels Matter for Brand SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Google Knowledge Panels are the information boxes that appear on the right side of search results (desktop) or at the top (mobile) when someone searches for your brand, company, person, product, or organization. They display key facts, images, social links, and related searches—essentially becoming your brand\'s "first impression" in Google.
+                  Google Knowledge Panels are the information boxes that appear on the right side of search results (desktop) or at the top (mobile) when someone searches for your brand, company, person, product, or organization. They display key facts, images, social links, and related searches--essentially becoming your brand\'s "first impression" in Google.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The problem: These panels populate automatically from Google\'s Knowledge Graph, pulling data from Wikipedia, Wikidata, your website, social profiles, and hundreds of other sources. Google decides what appears—not you. And often, it gets things wrong.
+                  The problem: These panels populate automatically from Google\'s Knowledge Graph, pulling data from Wikipedia, Wikidata, your website, social profiles, and hundreds of other sources. Google decides what appears--not you. And often, it gets things wrong.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The stakes are enormous:
@@ -76,7 +76,7 @@ export default function BlogPost() {
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>85% of brand searches</strong> trigger a knowledge panel—making it the first thing users see when searching your brand name</span>
+                    <span><strong>85% of brand searches</strong> trigger a knowledge panel--making it the first thing users see when searching your brand name</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -92,11 +92,11 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Negative panels damage trust</strong> — inaccurate information, missing key facts, or competitor infiltration harms brand perception instantly</span>
+                    <span><strong>Negative panels damage trust</strong> -- inaccurate information, missing key facts, or competitor infiltration harms brand perception instantly</span>
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Knowledge panels are Google\'s "answer box" for your brand. If you don\'t claim and optimize it, Google controls your brand narrative—often incorrectly. Worse, competitors or vandals can suggest malicious edits that Google may accept.
+                  Knowledge panels are Google\'s "answer box" for your brand. If you don\'t claim and optimize it, Google controls your brand narrative--often incorrectly. Worse, competitors or vandals can suggest malicious edits that Google may accept.
                 </p>
               </section>
 
@@ -119,7 +119,7 @@ export default function BlogPost() {
                         <strong>The Process:</strong> If Google has created a knowledge panel for your brand, you can claim it through Google Search Console. This gives you the ability to suggest edits, monitor changes, and receive alerts when Google modifies your panel.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Unclaimed panels are editable by anyone—including competitors, vandals, or well-meaning but misinformed users. Claiming your panel makes you the authoritative source for edit suggestions.
+                        <strong>Why It Works:</strong> Unclaimed panels are editable by anyone--including competitors, vandals, or well-meaning but misinformed users. Claiming your panel makes you the authoritative source for edit suggestions.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>How to Claim:</strong>
@@ -132,7 +132,7 @@ export default function BlogPost() {
                         <li>Once verified, you\'ll get a "Manage this knowledge panel" button in Search Console</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>Important:</strong> Even after claiming, you can only <em>suggest</em> edits—Google still decides what gets approved based on their data confidence. However, verified owners have significantly higher approval rates (78% vs 34% for non-verified suggestions).
+                        <strong>Important:</strong> Even after claiming, you can only <em>suggest</em> edits--Google still decides what gets approved based on their data confidence. However, verified owners have significantly higher approval rates (78% vs 34% for non-verified suggestions).
                       </p>
                     </div>
 
@@ -176,7 +176,7 @@ export default function BlogPost() {
                         <li>Ensure social profiles use consistent branding (logos, names, descriptions)</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>Which Profiles Matter Most:</strong> Twitter/X, LinkedIn, Facebook, Instagram, YouTube (verified channels especially). Wikipedia external links section also helps—include your official site and social profiles in Wikipedia references if your entity has a page.
+                        <strong>Which Profiles Matter Most:</strong> Twitter/X, LinkedIn, Facebook, Instagram, YouTube (verified channels especially). Wikipedia external links section also helps--include your official site and social profiles in Wikipedia references if your entity has a page.
                       </p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function BlogPost() {
                 <h3 className="text-2xl font-bold mb-4 text-purple-900">Category 2: Wikipedia & Wikidata Optimization</h3>
                 <div className="bg-purple-50 p-6 rounded-lg mb-8 border-l-4 border-purple-600">
                   <p className="text-slate-700 mb-6">
-                    Wikipedia is the #1 data source for knowledge panels—optimize or create your Wikipedia presence.
+                    Wikipedia is the #1 data source for knowledge panels--optimize or create your Wikipedia presence.
                   </p>
 
                   <div className="space-y-6">
@@ -204,7 +204,7 @@ export default function BlogPost() {
                         <li><strong>Notability requirement:</strong> Your entity must meet Wikipedia\'s notability guidelines (significant media coverage from independent sources)</li>
                         <li><strong>Don\'t write it yourself:</strong> Wikipedia prohibits organizations writing their own pages (conflict of interest)</li>
                         <li><strong>Hire a Wikipedia expert:</strong> Professional Wikipedia editors understand policies and can create pages that survive deletion reviews</li>
-                        <li><strong>Provide reliable sources:</strong> Major news coverage (New York Times, Forbes, TechCrunch), academic journals, books—not press releases or your blog</li>
+                        <li><strong>Provide reliable sources:</strong> Major news coverage (New York Times, Forbes, TechCrunch), academic journals, books--not press releases or your blog</li>
                       </ul>
                       <p className="text-slate-700 mb-3">
                         <strong>Improving an Existing Page:</strong>
@@ -260,7 +260,7 @@ export default function BlogPost() {
                         <strong>The Risk:</strong> Wikipedia pages can be edited by anyone. Competitors, disgruntled employees, or vandals may add false information, negative content, or delete key facts.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Matters:</strong> Since knowledge panels pull from Wikipedia, vandalism appears in your panel within hours—damaging your brand on Google\'s most visible real estate.
+                        <strong>Why It Matters:</strong> Since knowledge panels pull from Wikipedia, vandalism appears in your panel within hours--damaging your brand on Google\'s most visible real estate.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Monitoring Tools:</strong>
@@ -288,7 +288,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">7. Add Organization Schema to Your Homepage</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Schema:</strong> Organization schema (schema.org/Organization) provides structured data about your company—name, logo, social profiles, contact info, and more.
+                        <strong>The Schema:</strong> Organization schema (schema.org/Organization) provides structured data about your company--name, logo, social profiles, contact info, and more.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Helps:</strong> While Organization schema doesn\'t directly populate knowledge panels (Wikipedia does), it reinforces your entity\'s identity in Google\'s Knowledge Graph and can influence which logo appears.
@@ -351,7 +351,7 @@ export default function BlogPost() {
                         <li><strong>File format:</strong> PNG with transparent background preferred, JPG acceptable</li>
                         <li><strong>File size:</strong> Under 200KB for fast loading</li>
                         <li><strong>Branding consistency:</strong> Use the same logo across website, social profiles, and Wikipedia</li>
-                        <li><strong>Stable URL:</strong> Host at <code>/logo.png</code> or similar—don\'t change the URL frequently</li>
+                        <li><strong>Stable URL:</strong> Host at <code>/logo.png</code> or similar--don\'t change the URL frequently</li>
                       </ul>
                       <p className="text-slate-700 mb-3">
                         <strong>How to Specify:</strong>
@@ -375,7 +375,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">9. Implement Breadcrumb Schema for Site Hierarchy</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Strategy:</strong> While not directly related to knowledge panels, breadcrumb schema helps Google understand your site structure and entity relationships—supporting overall knowledge graph integration.
+                        <strong>The Strategy:</strong> While not directly related to knowledge panels, breadcrumb schema helps Google understand your site structure and entity relationships--supporting overall knowledge graph integration.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Helps:</strong> Breadcrumb schema reinforces your domain as the authoritative source for your brand entity, improving the "Official site" link prominence in your knowledge panel.
@@ -420,7 +420,7 @@ export default function BlogPost() {
                         <strong>The Necessity:</strong> Google updates knowledge panels automatically when it finds new data. These updates can introduce errors, remove information, or reflect vandalism from Wikipedia.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Matters:</strong> You need to know immediately when your panel changes—especially if changes are negative or inaccurate.
+                        <strong>Why It Matters:</strong> You need to know immediately when your panel changes--especially if changes are negative or inaccurate.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Monitoring Methods:</strong>
@@ -448,10 +448,10 @@ export default function BlogPost() {
                         <strong>Optimization Tactics:</strong>
                       </p>
                       <ul className="list-disc list-inside text-slate-700 space-y-2 mb-3">
-                        <li><strong>Description clarity:</strong> Ensure panel description clearly communicates your value proposition (pulled from Wikipedia intro—optimize there)</li>
+                        <li><strong>Description clarity:</strong> Ensure panel description clearly communicates your value proposition (pulled from Wikipedia intro--optimize there)</li>
                         <li><strong>Social proof:</strong> Add review aggregators (Google Business Profile reviews, Trustpilot) to show ratings</li>
                         <li><strong>Social links:</strong> Verify all social profiles appear with follower counts (demonstrates credibility)</li>
-                        <li><strong>"People also search for" optimization:</strong> These are entities Google associates with you—if competitors appear, create content linking to better associations</li>
+                        <li><strong>"People also search for" optimization:</strong> These are entities Google associates with you--if competitors appear, create content linking to better associations</li>
                       </ul>
                       <p className="text-slate-700">
                         <strong>Testing Impact:</strong> Track branded search traffic in Google Analytics before/after panel optimizations. Look for increases in direct traffic from brand searches (knowledge panel clicks show as direct or google.com referral).
@@ -464,7 +464,7 @@ export default function BlogPost() {
                         <strong>NAP = Name, Address, Phone.</strong> For local businesses and organizations, consistent NAP information across all platforms is critical for knowledge panel accuracy.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Matters:</strong> Inconsistent NAP confuses Google\'s entity resolution. If your business name varies (e.g., "SEOLOGY" vs "SEOLOGY AI" vs "Seology, Inc."), Google may not consolidate data properly—resulting in missing or fragmented knowledge panels.
+                        <strong>Why It Matters:</strong> Inconsistent NAP confuses Google\'s entity resolution. If your business name varies (e.g., "SEOLOGY" vs "SEOLOGY AI" vs "Seology, Inc."), Google may not consolidate data properly--resulting in missing or fragmented knowledge panels.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Where NAP Must Match:</strong>
@@ -485,7 +485,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">13. Build High-Quality Backlinks to Strengthen Entity Authority</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Connection:</strong> While backlinks don\'t directly populate knowledge panels, they signal entity importance to Google—making panels more likely to appear and contain comprehensive information.
+                        <strong>The Connection:</strong> While backlinks don\'t directly populate knowledge panels, they signal entity importance to Google--making panels more likely to appear and contain comprehensive information.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Entities with high authority (measured partly by backlinks) get fuller, more prominent knowledge panels. Unknown entities may not trigger panels at all.
@@ -494,8 +494,8 @@ export default function BlogPost() {
                         <strong>Link Building for Entity Authority:</strong>
                       </p>
                       <ul className="list-disc list-inside text-slate-700 space-y-2 mb-3">
-                        <li><strong>Media coverage:</strong> Get featured in major publications (TechCrunch, Forbes, industry journals)—these citations strengthen Wikipedia notability too</li>
-                        <li><strong>Award mentions:</strong> Industry awards often link to winners—strengthens entity recognition</li>
+                        <li><strong>Media coverage:</strong> Get featured in major publications (TechCrunch, Forbes, industry journals)--these citations strengthen Wikipedia notability too</li>
+                        <li><strong>Award mentions:</strong> Industry awards often link to winners--strengthens entity recognition</li>
                         <li><strong>Speaking engagements:</strong> Conference speaker bios link to companies and personal brands</li>
                         <li><strong>Guest posts and interviews:</strong> Bylines on authoritative sites reinforce entity expertise</li>
                       </ul>
@@ -510,7 +510,7 @@ export default function BlogPost() {
                         <strong>For Local Businesses Only:</strong> If your knowledge panel is tied to a Google Business Profile (local businesses, restaurants, retail stores), you can publish Google Posts directly in the panel.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Google Posts appear in your knowledge panel and Google Maps listing—giving you direct control over timely messaging (events, promotions, announcements).
+                        <strong>Why It Works:</strong> Google Posts appear in your knowledge panel and Google Maps listing--giving you direct control over timely messaging (events, promotions, announcements).
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Post Types:</strong>
@@ -539,7 +539,7 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Not Claiming Your Knowledge Panel</strong>
-                      <p className="text-slate-700 mt-1">Unclaimed panels are editable by anyone—including competitors and vandals. Claim your panel immediately via Google Search Console verification.</p>
+                      <p className="text-slate-700 mt-1">Unclaimed panels are editable by anyone--including competitors and vandals. Claim your panel immediately via Google Search Console verification.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -595,13 +595,13 @@ export default function BlogPost() {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <strong>Wikipedia & Wikidata:</strong> Primary data sources—create pages, add properties, monitor for vandalism.
+                      <strong>Wikipedia & Wikidata:</strong> Primary data sources--create pages, add properties, monitor for vandalism.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <strong>Google Business Profile:</strong> For local businesses—manage posts, reviews, photos that appear in knowledge panels.
+                      <strong>Google Business Profile:</strong> For local businesses--manage posts, reviews, photos that appear in knowledge panels.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -648,9 +648,9 @@ export default function BlogPost() {
                   <ul className="list-disc list-inside text-slate-700 space-y-2">
                     <li><strong>92% increase in brand recognition</strong> measured by unaided brand recall surveys (from 34% to 65%)</li>
                     <li><strong>47% increase in CTR</strong> from branded searches to official website (knowledge panel "Official site" click-through)</li>
-                    <li><strong>100% knowledge panel accuracy</strong> — all information now correct and current</li>
+                    <li><strong>100% knowledge panel accuracy</strong> -- all information now correct and current</li>
                     <li><strong>Social profiles linked</strong> with verified badges showing 47K+ LinkedIn followers, 23K+ Twitter followers</li>
-                    <li><strong>"People also search for" improved</strong> — competitors replaced with industry partners and complementary tools</li>
+                    <li><strong>"People also search for" improved</strong> -- competitors replaced with industry partners and complementary tools</li>
                     <li><strong>Zero vandalism incidents</strong> caught and reverted within 4 hours via monitoring alerts</li>
                   </ul>
                 </div>
@@ -667,7 +667,7 @@ export default function BlogPost() {
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Automated Daily Monitoring:</strong> SEOLOGY screenshots your knowledge panel daily and compares against baseline—alerting you to any changes within hours.</span>
+                    <span><strong>Automated Daily Monitoring:</strong> SEOLOGY screenshots your knowledge panel daily and compares against baseline--alerting you to any changes within hours.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -690,7 +690,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mb-6">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Knowledge Panel Monitoring</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop manually checking your knowledge panel for errors. SEOLOGY monitors your panel 24/7, detects changes instantly, and alerts you to inaccuracies—protecting your brand presence on Google automatically.
+                    Stop manually checking your knowledge panel for errors. SEOLOGY monitors your panel 24/7, detects changes instantly, and alerts you to inaccuracies--protecting your brand presence on Google automatically.
                   </p>
                   <Link
                     href="/sign-up"
@@ -705,7 +705,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Own Your Brand SERP with Knowledge Panels</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Knowledge panels appear for 85% of brand searches—making them the first (and often only) thing users see when searching your brand. If you don\'t claim and optimize your panel, you lose control of your brand narrative.
+                  Knowledge panels appear for 85% of brand searches--making them the first (and often only) thing users see when searching your brand. If you don\'t claim and optimize your panel, you lose control of your brand narrative.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   The data proves knowledge panel optimization works:
@@ -732,7 +732,7 @@ export default function BlogPost() {
                   Follow these 14 tactics: Claim your panel via Google Search Console, optimize Wikipedia and Wikidata entries, implement Organization schema, use high-quality square logos, maintain consistent NAP, monitor for changes daily, and optimize panel content for CTR.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>SEOLOGY automates knowledge panel monitoring</strong>—tracking changes, detecting errors, monitoring Wikipedia for vandalism, and alerting you to inaccuracies instantly. Protect your brand\'s most visible Google real estate automatically.
+                  <strong>SEOLOGY automates knowledge panel monitoring</strong>--tracking changes, detecting errors, monitoring Wikipedia for vandalism, and alerting you to inaccuracies instantly. Protect your brand\'s most visible Google real estate automatically.
                 </p>
               </section>
 

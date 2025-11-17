@@ -52,8 +52,8 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="text-slate-700">Content pruning (deleting outdated pages) increased organic traffic 73% in 60 days by improving site quality signals (HubSpot case study)</li>
                 <li className="text-slate-700">Sites with content pruning strategies rank 3.2 positions higher on average for remaining pages (Ahrefs study of 12,000 sites)</li>
-                <li className="text-slate-700">Google\'s "Helpful Content" update punishes sites with large volumes of low-quality content—pruning is now essential, not optional (Google, 2023)</li>
-                <li className="text-slate-700">Delete pages with &lt;10 organic visits/month AND &lt;1 backlink AND &gt;2 years old—these drag down your entire site (SEMrush pruning criteria)</li>
+                <li className="text-slate-700">Google\'s "Helpful Content" update punishes sites with large volumes of low-quality content--pruning is now essential, not optional (Google, 2023)</li>
+                <li className="text-slate-700">Delete pages with &lt;10 organic visits/month AND &lt;1 backlink AND &gt;2 years old--these drag down your entire site (SEMrush pruning criteria)</li>
                 <li className="text-slate-700">Update vs delete decision: pages with &gt;5 backlinks or &gt;50 visits/month should be updated, not deleted (Moz recommendation)</li>
                 <li className="text-slate-700">SEOLOGY automates content pruning: identifies low-quality pages, recommends delete/update/consolidate actions, and executes changes automatically</li>
               </ul>
@@ -63,7 +63,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Content Pruning Dramatically Boosts Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Content pruning is the practice of strategically deleting, consolidating, or updating outdated content to improve your site\'s overall quality. It\'s counterintuitive—<strong>deleting content to rank better</strong>—but the data is overwhelming.
+                  Content pruning is the practice of strategically deleting, consolidating, or updating outdated content to improve your site\'s overall quality. It\'s counterintuitive--<strong>deleting content to rank better</strong>--but the data is overwhelming.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Here\'s why it works:</strong>
@@ -189,7 +189,7 @@ export default function BlogPost() {
                         <li>Content about discontinued products/services/events</li>
                         <li>Duplicate content available elsewhere on your site</li>
                       </ul>
-                      <p className="text-slate-600 mt-2 italic">Use 410 status code (Gone) instead of 404—signals intentional removal to Google</p>
+                      <p className="text-slate-600 mt-2 italic">Use 410 status code (Gone) instead of 404--signals intentional removal to Google</p>
                     </div>
 
                     <div>
@@ -286,7 +286,7 @@ export default function BlogPost() {
                         <li>Brand/product mentions in the URL</li>
                       </ul>
                       <p className="text-slate-700 mt-2">Set up 301 redirects to the most relevant existing page. This preserves link equity and user experience.</p>
-                      <p className="text-slate-600 mt-2 italic"><strong>Never redirect to homepage</strong>—redirect to the closest topically-relevant page</p>
+                      <p className="text-slate-600 mt-2 italic"><strong>Never redirect to homepage</strong>--redirect to the closest topically-relevant page</p>
                     </div>
 
                     <div>
@@ -460,7 +460,7 @@ export default function BlogPost() {
                     <li>Revenue from organic traffic exceeded pre-update levels by 18% (better qualified traffic)</li>
                   </ul>
                   <p className="text-slate-800 text-lg font-semibold italic">
-                    "We were terrified to delete 60% of our content, but the data was clear—those pages were hurting us. Within 90 days we\'d recovered all our lost traffic and our remaining pages ranked significantly better." — SEO Manager
+                    "We were terrified to delete 60% of our content, but the data was clear--those pages were hurting us. Within 90 days we\'d recovered all our lost traffic and our remaining pages ranked significantly better." -- SEO Manager
                   </p>
                 </div>
               </section>
@@ -485,7 +485,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Internal Link Updates:</strong> After pruning, SEOLOGY automatically finds and updates all internal links pointing to deleted pages—eliminating broken links without manual work</span>
+                    <span><strong>Internal Link Updates:</strong> After pruning, SEOLOGY automatically finds and updates all internal links pointing to deleted pages--eliminating broken links without manual work</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -500,7 +500,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Content Pruning Strategy</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY identifies low-quality pages, recommends delete/update/consolidate actions, and executes changes automatically—recovering lost rankings without weeks of manual analysis.
+                    SEOLOGY identifies low-quality pages, recommends delete/update/consolidate actions, and executes changes automatically--recovering lost rankings without weeks of manual analysis.
                   </p>
                   <Link
                     href="/sign-up"
@@ -515,7 +515,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Content Pruning is Essential for Modern SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Content pruning is no longer optional—it\'s essential for SEO success in 2024-2025. Google\'s Helpful Content Update specifically penalizes sites with large volumes of low-quality content, and the data is overwhelming: <strong>sites that prune strategically rank 3.2 positions higher on average</strong> for their remaining content.
+                  Content pruning is no longer optional--it\'s essential for SEO success in 2024-2025. Google\'s Helpful Content Update specifically penalizes sites with large volumes of low-quality content, and the data is overwhelming: <strong>sites that prune strategically rank 3.2 positions higher on average</strong> for their remaining content.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   The key is using multi-factor criteria (traffic + backlinks + age + engagement) rather than deleting based on traffic alone. Pages with strong backlink profiles should be updated, not deleted. Pages with zero strategic value should use 410 (Gone) status. Pages with some value should be 301 redirected to relevant existing content.

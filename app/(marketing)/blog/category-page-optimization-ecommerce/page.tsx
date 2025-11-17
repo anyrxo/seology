@@ -88,7 +88,7 @@ export default function BlogPost() {
                 </p>
 
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Think about how people search. Someone looking for running shoes searches "running shoes" (18,000 monthly searches)—not "Nike Air Zoom Pegasus 40" (720 monthly searches). That broad, high-volume keyword is what category pages rank for.
+                  Think about how people search. Someone looking for running shoes searches "running shoes" (18,000 monthly searches)--not "Nike Air Zoom Pegasus 40" (720 monthly searches). That broad, high-volume keyword is what category pages rank for.
                 </p>
 
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
@@ -471,7 +471,7 @@ export default function BlogPost() {
                       <strong>Reduce friction:</strong> Let users view product details or add to cart without leaving the category page.
                     </p>
                     <p className="text-slate-700 mb-4">
-                      <strong>Engagement metric boost:</strong> Quick View increases time on site and reduces bounce rate—both positive SEO signals.
+                      <strong>Engagement metric boost:</strong> Quick View increases time on site and reduces bounce rate--both positive SEO signals.
                     </p>
                     <p className="text-slate-700">
                       <strong>Technical note:</strong> Implement Quick View as an overlay/modal, not a new page load.
@@ -611,7 +611,7 @@ export default function BlogPost() {
                   </div>
 
                   <p className="text-slate-700 mt-6 italic">
-                    "Category pages went from being our weakest SEO asset to our strongest. The traffic surge from optimized categories increased our overall organic revenue by 214%. Best ROI optimization we\'ve ever done." — Marcus T., E-commerce Director
+                    "Category pages went from being our weakest SEO asset to our strongest. The traffic surge from optimized categories increased our overall organic revenue by 214%. Best ROI optimization we\'ve ever done." -- Marcus T., E-commerce Director
                   </p>
                 </div>
               </section>
@@ -685,7 +685,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Category Page Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop manually writing buying guides and fixing technical issues. SEOLOGY analyzes your categories, generates optimized content, fixes faceted navigation, implements schema markup, and monitors performance—all automatically.
+                    Stop manually writing buying guides and fixing technical issues. SEOLOGY analyzes your categories, generates optimized content, fixes faceted navigation, implements schema markup, and monitors performance--all automatically.
                   </p>
                   <Link
                     href="/sign-up"

@@ -35,12 +35,12 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>WooCommerce has unique SEO challenges</strong>—duplicate product pages, thin category content, slow page speed</li>
-                <li><strong>Product schema is critical</strong>—stores with proper schema get 35% more clicks from rich snippets</li>
-                <li><strong>Category page optimization matters</strong>—most stores ignore these, losing 60% of potential traffic</li>
-                <li><strong>Page speed kills conversions</strong>—every 1-second delay = 7% fewer sales (Google data)</li>
-                <li><strong>Internal linking structure</strong>—proper hub-and-spoke linking increased rankings 43%</li>
-                <li><strong>Mobile optimization is non-negotiable</strong>—74% of e-commerce traffic is mobile (Statista)</li>
+                <li><strong>WooCommerce has unique SEO challenges</strong>--duplicate product pages, thin category content, slow page speed</li>
+                <li><strong>Product schema is critical</strong>--stores with proper schema get 35% more clicks from rich snippets</li>
+                <li><strong>Category page optimization matters</strong>--most stores ignore these, losing 60% of potential traffic</li>
+                <li><strong>Page speed kills conversions</strong>--every 1-second delay = 7% fewer sales (Google data)</li>
+                <li><strong>Internal linking structure</strong>--proper hub-and-spoke linking increased rankings 43%</li>
+                <li><strong>Mobile optimization is non-negotiable</strong>--74% of e-commerce traffic is mobile (Statista)</li>
               </ul>
             </div>
 
@@ -113,7 +113,7 @@ export default function BlogPost() {
                     Optimize Category Pages with Unique Content
                   </h3>
                   <p className="text-slate-700 ml-11">
-                    <strong>Why:</strong> Category pages are your money pages—they rank for high-volume keywords.<br/>
+                    <strong>Why:</strong> Category pages are your money pages--they rank for high-volume keywords.<br/>
                     <strong>Add:</strong> 500+ word category description (above products), buying guide, comparison table, FAQ section.<br/>
                     <strong>Example:</strong> "Running Shoes" category → Add "How to Choose Running Shoes" buying guide.
                   </p>
@@ -478,7 +478,7 @@ export default function BlogPost() {
                 WooCommerce SEO isn\'t just "WordPress SEO with products". It requires specific optimizations that most store owners miss: product schema, unique descriptions, category optimization, duplicate content management, page speed fixes.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                The good news? Implementing these 21 optimizations gives you massive competitive advantage. Most WooCommerce stores ignore 80% of these—which means you can dominate your niche just by doing the basics right.
+                The good news? Implementing these 21 optimizations gives you massive competitive advantage. Most WooCommerce stores ignore 80% of these--which means you can dominate your niche just by doing the basics right.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 You can implement these manually (months of work rewriting descriptions, adding schema, optimizing images). Or you can let SEOLOGY do it automatically in days.
@@ -486,7 +486,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate WooCommerce SEO</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY handles product schema, unique descriptions, category optimization, image compression, and internal linking—automatically. See 180% more traffic and 120% more sales from SEO.
+                  SEOLOGY handles product schema, unique descriptions, category optimization, image compression, and internal linking--automatically. See 180% more traffic and 120% more sales from SEO.
                 </p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">
                   Try SEOLOGY Free<ArrowRight className="w-5 h-5" />

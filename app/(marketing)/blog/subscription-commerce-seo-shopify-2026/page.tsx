@@ -23,7 +23,7 @@ export default function SubscriptionCommerceSEOPage() {
           Subscription Commerce SEO for Shopify: Recurring Revenue Optimization Guide 2026
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          How to optimize subscription boxes, membership sites, and recurring product models for SEO—capturing high-LTV customers who spend 3-5x more than one-time buyers
+          How to optimize subscription boxes, membership sites, and recurring product models for SEO--capturing high-LTV customers who spend 3-5x more than one-time buyers
         </p>
         <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
           <span>By Rachel Kim</span>
@@ -40,7 +40,7 @@ export default function SubscriptionCommerceSEOPage() {
         </p>
         <div className="space-y-2 text-red-800 dark:text-red-200">
           <p><strong>Subscription models grow revenue 5-8x faster</strong> than traditional ecommerce by reducing reliance on new customer acquisition and boosting lifetime value through recurring purchases</p>
-          <p><strong>Subscription customers spend 3-5x more over 12 months</strong> compared to one-time purchasers—a subscription customer acquired today generates predictable revenue for years</p>
+          <p><strong>Subscription customers spend 3-5x more over 12 months</strong> compared to one-time purchasers--a subscription customer acquired today generates predictable revenue for years</p>
           <p><strong>Shopify's Monthly Recurring Revenue (MRR) exceeds $178 million</strong>, reflecting the platform's commitment to subscription infrastructure and merchant retention</p>
           <p className="font-semibold mt-4">Without subscription-optimized SEO, you're attracting one-time buyers instead of <strong>high-LTV recurring customers</strong> who could generate 3-5x more revenue.</p>
         </div>
@@ -49,7 +49,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h2>Why Subscription Commerce Is Exploding in 2026</h2>
 
       <p>
-        The ecommerce landscape has shifted from one-time transactions to recurring relationships. Subscription models—whether subscription boxes, membership sites, or auto-replenishment products—offer predictable revenue that traditional stores can't match.
+        The ecommerce landscape has shifted from one-time transactions to recurring relationships. Subscription models--whether subscription boxes, membership sites, or auto-replenishment products--offer predictable revenue that traditional stores can't match.
       </p>
 
       <div className="not-prose bg-white dark:bg-gray-800 rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
@@ -115,7 +115,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h2>Subscription SEO Strategy: Beyond One-Time Purchase Keywords</h2>
 
       <p>
-        Traditional ecommerce SEO targets transactional keywords ("buy coffee beans online"). Subscription SEO requires a different approach—targeting recurring intent, convenience, and lifestyle fit.
+        Traditional ecommerce SEO targets transactional keywords ("buy coffee beans online"). Subscription SEO requires a different approach--targeting recurring intent, convenience, and lifestyle fit.
       </p>
 
       <h3>Subscription Intent Keywords vs One-Time Purchase Keywords</h3>
@@ -156,12 +156,12 @@ export default function SubscriptionCommerceSEOPage() {
           ✅ High-Converting Subscription Keywords
         </p>
         <div className="space-y-2 text-green-800 dark:text-green-200">
-          <p><strong>• "[Product] subscription for [audience]"</strong> — "beauty box subscription for moms"</p>
-          <p><strong>• "Best [category] subscription boxes [year]"</strong> — "best book subscription boxes 2026"</p>
-          <p><strong>• "[Frequency] delivery of [product]"</strong> — "monthly delivery of organic snacks"</p>
-          <p><strong>• "Subscribe and save [product]"</strong> — "subscribe and save dog food"</p>
-          <p><strong>• "[Product] subscription vs one-time"</strong> — "coffee subscription vs buying coffee"</p>
-          <p><strong>• "Cancel anytime [product] subscription"</strong> — "cancel anytime vitamin subscription" (addresses objection)</p>
+          <p><strong>• "[Product] subscription for [audience]"</strong> -- "beauty box subscription for moms"</p>
+          <p><strong>• "Best [category] subscription boxes [year]"</strong> -- "best book subscription boxes 2026"</p>
+          <p><strong>• "[Frequency] delivery of [product]"</strong> -- "monthly delivery of organic snacks"</p>
+          <p><strong>• "Subscribe and save [product]"</strong> -- "subscribe and save dog food"</p>
+          <p><strong>• "[Product] subscription vs one-time"</strong> -- "coffee subscription vs buying coffee"</p>
+          <p><strong>• "Cancel anytime [product] subscription"</strong> -- "cancel anytime vitamin subscription" (addresses objection)</p>
         </div>
       </div>
 
@@ -213,7 +213,7 @@ export default function SubscriptionCommerceSEOPage() {
       </ul>
 
       <p>
-        Each cluster article links back to the pillar page, and the pillar links to all clusters—creating a strong internal linking structure that boosts SEO authority.
+        Each cluster article links back to the pillar page, and the pillar links to all clusters--creating a strong internal linking structure that boosts SEO authority.
       </p>
 
       <h2>FAQ Schema and Featured Snippets for Subscriptions</h2>
@@ -321,7 +321,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h2>Retention-Focused SEO: Keeping Subscribers Engaged</h2>
 
       <p>
-        Acquisition SEO gets subscribers in the door—but <strong>retention SEO keeps them subscribed long-term</strong>. SEO-driven content keeps subscribers engaged, offering them valuable insights that encourage retention.
+        Acquisition SEO gets subscribers in the door--but <strong>retention SEO keeps them subscribed long-term</strong>. SEO-driven content keeps subscribers engaged, offering them valuable insights that encourage retention.
       </p>
 
       <h3>Subscriber-Only Content Strategy</h3>
@@ -345,7 +345,7 @@ export default function SubscriptionCommerceSEOPage() {
           💡 AI-Age SEO Strategy (2025)
         </p>
         <p className="text-yellow-800 dark:text-yellow-200">
-          <strong>Create SEO value through free teaser content</strong> by offering 300-500 word introductions, infographics with key takeaways, and public-facing FAQs to give both users and search engines a taste of premium material—without giving away the full subscriber value.
+          <strong>Create SEO value through free teaser content</strong> by offering 300-500 word introductions, infographics with key takeaways, and public-facing FAQs to give both users and search engines a taste of premium material--without giving away the full subscriber value.
         </p>
       </div>
 
@@ -356,7 +356,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h2>Technical SEO for Subscription Sites</h2>
 
       <p>
-        Subscription models often include gated content, member-only areas, and dynamic pricing—creating technical SEO challenges you need to address.
+        Subscription models often include gated content, member-only areas, and dynamic pricing--creating technical SEO challenges you need to address.
       </p>
 
       <h3>Indexing Strategy for Member Areas</h3>
@@ -422,7 +422,7 @@ export default function SubscriptionCommerceSEOPage() {
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Scale Recurring Revenue with SEO?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          SEOLOGY.AI automatically optimizes subscription landing pages, FAQ schema, and retention content—helping you attract high-LTV customers who spend 3-5x more than one-time buyers
+          SEOLOGY.AI automatically optimizes subscription landing pages, FAQ schema, and retention content--helping you attract high-LTV customers who spend 3-5x more than one-time buyers
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
@@ -446,7 +446,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h2>Reducing Churn with Proactive SEO Content</h2>
 
       <p>
-        <strong>Proactive customer support involves anticipating customer needs and resolving potential issues before they escalate</strong>—and SEO content plays a critical role in this strategy.
+        <strong>Proactive customer support involves anticipating customer needs and resolving potential issues before they escalate</strong>--and SEO content plays a critical role in this strategy.
       </p>
 
       <h3>Churn Prevention Content</h3>
@@ -478,7 +478,7 @@ export default function SubscriptionCommerceSEOPage() {
       <h3>Downgrade Pages as Retention Tool</h3>
 
       <p>
-        <strong>Offering subscribers contemplating cancellation the opportunity to downgrade to a more affordable option</strong>—such as a box delivered quarterly instead of monthly—can retain revenue that would otherwise be lost.
+        <strong>Offering subscribers contemplating cancellation the opportunity to downgrade to a more affordable option</strong>--such as a box delivered quarterly instead of monthly--can retain revenue that would otherwise be lost.
       </p>
 
       <p>
@@ -576,19 +576,19 @@ export default function SubscriptionCommerceSEOPage() {
           <li><strong>• AI-Powered Personalization:</strong> Dynamic landing pages that show subscription options based on user behavior and search intent</li>
           <li><strong>• Voice Search Optimization:</strong> Target conversational queries like "What's the best monthly coffee subscription?" for smart speaker shopping</li>
           <li><strong>• Retention Automation:</strong> SEO content tied to lifecycle emails (engagement content for at-risk subscribers, upsell content for long-term customers)</li>
-          <li><strong>• Transparent Pricing:</strong> Subscription fatigue is real—brands that clearly communicate value, pricing, and cancellation terms will win trust</li>
+          <li><strong>• Transparent Pricing:</strong> Subscription fatigue is real--brands that clearly communicate value, pricing, and cancellation terms will win trust</li>
           <li><strong>• Community SEO:</strong> User-generated content from subscribers (reviews, unboxings, usage photos) becomes powerful SEO and social proof</li>
         </ul>
       </div>
 
       <p>
-        <strong>The subscription brands that thrive in 2026 will be those that use SEO not just to acquire subscribers, but to retain them</strong>—creating content experiences that justify ongoing commitment and deliver continuous value beyond the physical product.
+        <strong>The subscription brands that thrive in 2026 will be those that use SEO not just to acquire subscribers, but to retain them</strong>--creating content experiences that justify ongoing commitment and deliver continuous value beyond the physical product.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-green-600 to-emerald-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Subscription SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
-          Join subscription brands using SEOLOGY.AI to automatically optimize tier landing pages, FAQ schema, and retention content—attracting high-LTV customers who generate 3-5x more revenue than one-time buyers.
+          Join subscription brands using SEOLOGY.AI to automatically optimize tier landing pages, FAQ schema, and retention content--attracting high-LTV customers who generate 3-5x more revenue than one-time buyers.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <p className="font-semibold mb-3">✅ Subscription Commerce Features:</p>

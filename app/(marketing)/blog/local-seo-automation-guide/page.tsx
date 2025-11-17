@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Local SEO requires managing <strong>Google Business Profile, citations, reviews, NAP consistency, local content, and 50+ ranking factors</strong>. Manual management takes 15-20 hours weekly for single-location businesses, 100+ hours for multi-location. SEOLOGY automates citation building, review monitoring, GMB optimization, local schema, and rank tracking—freeing you to focus on customers instead of SEO busywork.
+                Local SEO requires managing <strong>Google Business Profile, citations, reviews, NAP consistency, local content, and 50+ ranking factors</strong>. Manual management takes 15-20 hours weekly for single-location businesses, 100+ hours for multi-location. SEOLOGY automates citation building, review monitoring, GMB optimization, local schema, and rank tracking--freeing you to focus on customers instead of SEO busywork.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Without automation, local SEO becomes a full-time job—taking time away from actually running your business.
+                  Without automation, local SEO becomes a full-time job--taking time away from actually running your business.
                 </p>
               </section>
 
@@ -101,7 +101,7 @@ export default function BlogPost() {
                       <strong>Manual approach:</strong> Log into GMB dashboard, update each field individually, add photos weekly.
                     </p>
                     <p className="text-slate-700">
-                      <strong>SEOLOGY automation:</strong> Automatically optimizes business name, categories, description, hours, attributes, and posts—keeping profile fresh with minimal effort.
+                      <strong>SEOLOGY automation:</strong> Automatically optimizes business name, categories, description, hours, attributes, and posts--keeping profile fresh with minimal effort.
                     </p>
                   </div>
 
@@ -161,7 +161,7 @@ export default function BlogPost() {
                       <strong>Manual approach:</strong> Manually create and publish Google Posts weekly (they expire after 7 days).
                     </p>
                     <p className="text-slate-700">
-                      <strong>SEOLOGY automation:</strong> Schedules and auto-publishes Google Posts highlighting offers, events, updates—keeping profile active.
+                      <strong>SEOLOGY automation:</strong> Schedules and auto-publishes Google Posts highlighting offers, events, updates--keeping profile active.
                     </p>
                   </div>
 
@@ -171,7 +171,7 @@ export default function BlogPost() {
                       <strong>Manual approach:</strong> Manually search Google from different locations to check rankings.
                     </p>
                     <p className="text-slate-700">
-                      <strong>SEOLOGY automation:</strong> Tracks local pack rankings, organic positions, and map visibility daily—generates trend reports automatically.
+                      <strong>SEOLOGY automation:</strong> Tracks local pack rankings, organic positions, and map visibility daily--generates trend reports automatically.
                     </p>
                   </div>
 
@@ -208,7 +208,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">12. Multi-Location Management</h3>
                     <p className="text-slate-700 mb-3">
-                      <strong>Manual approach:</strong> Repeat every task for each location—10 locations = 10x the work.
+                      <strong>Manual approach:</strong> Repeat every task for each location--10 locations = 10x the work.
                     </p>
                     <p className="text-slate-700">
                       <strong>SEOLOGY automation:</strong> Bulk operations across all locations, location-specific templates, centralized dashboard for managing 1-1,000+ locations.
@@ -333,7 +333,7 @@ export default function BlogPost() {
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
                     <div>
                       <strong className="text-xl">Centralized Dashboard:</strong>
-                      <p className="text-slate-700 mt-1">Manage all locations from one interface—no logging into 50 separate GMB accounts.</p>
+                      <p className="text-slate-700 mt-1">Manage all locations from one interface--no logging into 50 separate GMB accounts.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -363,7 +363,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Automating Local SEO Today</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Local SEO automation isn't optional anymore—it's the only way to compete in saturated markets.
+                  Local SEO automation isn't optional anymore--it's the only way to compete in saturated markets.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   With SEOLOGY, you get:

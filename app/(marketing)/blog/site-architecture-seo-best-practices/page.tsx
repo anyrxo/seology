@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Site Architecture: SEO Best Practices for Maximum Crawlability in 2025',
-  description: 'Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google—with 67% more pages indexed.',
+  description: 'Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google--with 67% more pages indexed.',
 }
 
 export default function BlogPost() {
@@ -20,7 +20,7 @@ export default function BlogPost() {
             <span>David Kim</span><span>•</span><span>November 18, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google—with 67% more pages indexed.
+            Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google--with 67% more pages indexed.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -35,19 +35,19 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Site architecture determines what Google can crawl and index</strong>—bad structure means pages never rank</li>
-                <li><strong>The 3-click rule is real</strong>—pages beyond 3 clicks get 85% less organic traffic</li>
-                <li><strong>Flat architecture beats deep hierarchy</strong>—reducing site depth from 7 to 3 clicks increased indexed pages by 67%</li>
-                <li><strong>Internal linking distributes PageRank</strong>—strategic link placement can boost rankings 40%</li>
-                <li><strong>Most sites waste 60% of their crawl budget</strong>—proper architecture fixes this automatically</li>
-                <li><strong>SEOLOGY audits and fixes site architecture issues</strong>—31% more pages indexed in 60 days on average</li>
+                <li><strong>Site architecture determines what Google can crawl and index</strong>--bad structure means pages never rank</li>
+                <li><strong>The 3-click rule is real</strong>--pages beyond 3 clicks get 85% less organic traffic</li>
+                <li><strong>Flat architecture beats deep hierarchy</strong>--reducing site depth from 7 to 3 clicks increased indexed pages by 67%</li>
+                <li><strong>Internal linking distributes PageRank</strong>--strategic link placement can boost rankings 40%</li>
+                <li><strong>Most sites waste 60% of their crawl budget</strong>--proper architecture fixes this automatically</li>
+                <li><strong>SEOLOGY audits and fixes site architecture issues</strong>--31% more pages indexed in 60 days on average</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Site Architecture Breaks SEO (The Numbers)</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Most SEOs obsess over content and backlinks. They ignore site architecture—the foundation that determines whether Google can even <em>find</em> your pages.
+                Most SEOs obsess over content and backlinks. They ignore site architecture--the foundation that determines whether Google can even <em>find</em> your pages.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Here\'s what bad architecture costs you:
@@ -392,7 +392,7 @@ Disallow: /*?*brand=</pre>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Ignoring Orphan Pages</h3>
                     <p className="text-slate-700">
-                      40% of pages on average sites are orphans (no internal links). These pages rarely rank—no matter how good the content.
+                      40% of pages on average sites are orphans (no internal links). These pages rarely rank--no matter how good the content.
                     </p>
                   </div>
                 </div>
@@ -586,7 +586,7 @@ Disallow: /*?*brand=</pre>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Monthly architecture audits:</strong> Tracks crawl depth, orphan pages, internal link distribution—fixes issues as they appear</span>
+                  <span><strong>Monthly architecture audits:</strong> Tracks crawl depth, orphan pages, internal link distribution--fixes issues as they appear</span>
                 </li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed mt-6">
@@ -608,7 +608,7 @@ Disallow: /*?*brand=</pre>
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Fix Your Site Architecture Automatically</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY audits site depth, finds orphan pages, optimizes internal linking, and implements breadcrumbs—automatically. See 31% more pages indexed in 60 days.
+                  SEOLOGY audits site depth, finds orphan pages, optimizes internal linking, and implements breadcrumbs--automatically. See 31% more pages indexed in 60 days.
                 </p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">
                   Try SEOLOGY Free<ArrowRight className="w-5 h-5" />

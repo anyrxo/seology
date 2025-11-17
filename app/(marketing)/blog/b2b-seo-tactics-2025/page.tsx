@@ -194,7 +194,7 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>[Your Product] vs [Competitor]:</strong> Head-to-head feature comparisons</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Best [Category] Software:</strong> Rank your product alongside competitors objectively</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Comparison tables:</strong> Visual side-by-side feature matrices with schema markup</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Be objective:</strong> Don\'t trash competitors—let features speak for themselves</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Be objective:</strong> Don\'t trash competitors--let features speak for themselves</span></li>
                   </ul>
                 </div>
 
@@ -242,7 +242,7 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>App vs marketing site:</strong> Use subdomain (app.yoursite.com) to keep user dashboard unindexed</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Login page SEO:</strong> Noindex /login and /signup pages (they dilute crawl budget)</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>JavaScript rendering:</strong> Use server-side rendering for marketing pages (B2B decision-makers use Chrome, but Googlebot needs SSR)</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Page speed:</strong> B2B buyers tolerate 3-4s load times, but Google doesn\'t—optimize Core Web Vitals</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Page speed:</strong> B2B buyers tolerate 3-4s load times, but Google doesn\'t--optimize Core Web Vitals</span></li>
                   </ul>
                 </div>
 
@@ -469,7 +469,7 @@ export default function BlogPost() {
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #2: Gating All Content</h3>
                   <p className="text-slate-700 mb-2">Hiding valuable content behind forms kills SEO. If Google can\'t index it, you won\'t rank for it.</p>
-                  <p className="text-slate-700"><strong>Fix:</strong> Use the ungated preview strategy—first 30% public, full version gated.</p>
+                  <p className="text-slate-700"><strong>Fix:</strong> Use the ungated preview strategy--first 30% public, full version gated.</p>
                 </div>
 
                 <div className="bg-red-50 p-6 rounded-xl">
@@ -538,7 +538,7 @@ export default function BlogPost() {
               </p>
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Generate $12M+ in B2B Pipeline with Automated SEO</h3>
-                <p className="text-lg mb-6 opacity-90">SEOLOGY implements all 23 B2B SEO tactics automatically. Your competitors are already using AI—don\'t fall behind.</p>
+                <p className="text-lg mb-6 opacity-90">SEOLOGY implements all 23 B2B SEO tactics automatically. Your competitors are already using AI--don\'t fall behind.</p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Start Free Trial (No Credit Card)<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>

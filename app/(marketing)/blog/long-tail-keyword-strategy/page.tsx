@@ -53,11 +53,11 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li><strong>Long-tail keywords (3+ words) convert 2.5x better</strong> than head terms—more specific intent = higher purchase rates (WordStream)</li>
+                <li><strong>Long-tail keywords (3+ words) convert 2.5x better</strong> than head terms--more specific intent = higher purchase rates (WordStream)</li>
                 <li><strong>70% of all search traffic comes from long-tail queries</strong>, not the high-volume head keywords everyone fights over (Ahrefs)</li>
-                <li><strong>47% lower keyword difficulty on average</strong> for long-tail terms—easier to rank without massive backlink budgets (Moz)</li>
-                <li><strong>Voice search is 76% long-tail queries</strong>—optimizing for conversational searches captures growing voice traffic (Backlinko)</li>
-                <li><strong>Cost-per-click is 55% lower for long-tail keywords</strong> in paid search—better ROI for both organic and paid (Google Ads data)</li>
+                <li><strong>47% lower keyword difficulty on average</strong> for long-tail terms--easier to rank without massive backlink budgets (Moz)</li>
+                <li><strong>Voice search is 76% long-tail queries</strong>--optimizing for conversational searches captures growing voice traffic (Backlinko)</li>
+                <li><strong>Cost-per-click is 55% lower for long-tail keywords</strong> in paid search--better ROI for both organic and paid (Google Ads data)</li>
                 <li><strong>Long-tail strategy increased conversions 187%</strong> for an e-commerce site by targeting 342 specific buyer-intent queries (case study below)</li>
               </ul>
             </div>
@@ -91,7 +91,7 @@ export default function BlogPost() {
               <div className="bg-slate-100 p-6 rounded-lg my-8">
                 <p className="text-base text-slate-800 font-semibold mb-2">Real Data:</p>
                 <p className="text-slate-700 mb-0">
-                  Ahrefs analyzed 1.9 billion keywords and found that <strong>70% of all searches are long-tail queries</strong>. Yet most sites focus their SEO efforts on the 30% of high-volume head keywords—missing the massive opportunity in the long tail. Additionally, <strong>92% of all keywords get 10 or fewer searches per month</strong> (Ahrefs), meaning the real volume is spread across millions of specific long-tail variations.
+                  Ahrefs analyzed 1.9 billion keywords and found that <strong>70% of all searches are long-tail queries</strong>. Yet most sites focus their SEO efforts on the 30% of high-volume head keywords--missing the massive opportunity in the long tail. Additionally, <strong>92% of all keywords get 10 or fewer searches per month</strong> (Ahrefs), meaning the real volume is spread across millions of specific long-tail variations.
                 </p>
               </div>
             </section>
@@ -102,7 +102,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Mine Google Autocomplete and Related Searches</h3>
                 <p className="text-slate-700 mb-4">
-                  Google shows you exactly what real users are searching for—use autocomplete suggestions and "People also search for" boxes at the bottom of SERPs to discover long-tail variations.
+                  Google shows you exactly what real users are searching for--use autocomplete suggestions and "People also search for" boxes at the bottom of SERPs to discover long-tail variations.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>How to do it:</strong>
@@ -115,7 +115,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm font-mono text-slate-800 mb-0">
-                    <strong>Example:</strong> "running shoes" → autocomplete suggests "running shoes for flat feet", "running shoes for overpronation", "running shoes for plantar fasciitis"—each is a long-tail keyword with specific buyer intent
+                    <strong>Example:</strong> "running shoes" → autocomplete suggests "running shoes for flat feet", "running shoes for overpronation", "running shoes for plantar fasciitis"--each is a long-tail keyword with specific buyer intent
                   </p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">2. Analyze "People Also Ask" Boxes for Question-Based Long-Tail Keywords</h3>
                 <p className="text-slate-700 mb-4">
-                  Google\'s "People Also Ask" (PAA) boxes reveal the exact questions users are asking—these question-based queries are perfect long-tail keywords with clear search intent.
+                  Google\'s "People Also Ask" (PAA) boxes reveal the exact questions users are asking--these question-based queries are perfect long-tail keywords with clear search intent.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Implementation:</strong>
@@ -145,7 +145,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Mine Competitor Content Gaps with Keyword Gap Analysis</h3>
                 <p className="text-slate-700 mb-4">
-                  Find long-tail keywords your competitors rank for that you don\'t—these are proven opportunities with existing search demand.
+                  Find long-tail keywords your competitors rank for that you don\'t--these are proven opportunities with existing search demand.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Using Ahrefs, SEMrush, or similar tools:</strong>
@@ -155,7 +155,7 @@ export default function BlogPost() {
                   <li>• Filter for keywords where competitors rank in top 20 but you don\'t rank at all</li>
                   <li>• Filter for long-tail keywords (3+ words) with keyword difficulty under 30</li>
                   <li>• Prioritize keywords with search volume 100-1,000/month (sweet spot for long-tail)</li>
-                  <li>• Look for patterns—if multiple competitors rank for similar long-tail terms, there\'s real opportunity</li>
+                  <li>• Look for patterns--if multiple competitors rank for similar long-tail terms, there\'s real opportunity</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-pink-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
@@ -181,7 +181,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-green-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Pro tip:</strong> Export all long-tail variations (aim for 500-1,000 keywords) and cluster them by topic to inform your content strategy—don\'t cherry-pick individual keywords.
+                    <strong>Pro tip:</strong> Export all long-tail variations (aim for 500-1,000 keywords) and cluster them by topic to inform your content strategy--don\'t cherry-pick individual keywords.
                   </p>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">5. Assess Search Intent Alignment with Your Content</h3>
                 <p className="text-slate-700 mb-4">
-                  Not all long-tail keywords are worth targeting—only pursue keywords where your content can satisfy the searcher\'s specific intent.
+                  Not all long-tail keywords are worth targeting--only pursue keywords where your content can satisfy the searcher\'s specific intent.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Intent classification:</strong>
@@ -206,7 +206,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Critical:</strong> Search the keyword in Google and analyze the top 10 results. If they\'re all blog posts and you have a product page (or vice versa), Google won\'t rank you—intent mismatch kills rankings.
+                    <strong>Critical:</strong> Search the keyword in Google and analyze the top 10 results. If they\'re all blog posts and you have a product page (or vice versa), Google won\'t rank you--intent mismatch kills rankings.
                   </p>
                 </div>
               </div>
@@ -214,20 +214,20 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">6. Check Keyword Difficulty vs. Your Domain Authority</h3>
                 <p className="text-slate-700 mb-4">
-                  Keyword difficulty (KD) estimates how hard it is to rank—but it\'s relative to your site\'s authority. A KD 40 keyword is easy for a DR 70 site but impossible for a DR 15 site.
+                  Keyword difficulty (KD) estimates how hard it is to rank--but it\'s relative to your site\'s authority. A KD 40 keyword is easy for a DR 70 site but impossible for a DR 15 site.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>General guidelines:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• <strong>New sites (DR 0-20):</strong> Target KD 0-15 keywords only—you need ultra-low competition</li>
-                  <li>• <strong>Established sites (DR 20-40):</strong> Target KD 0-30 keywords—moderate competition</li>
-                  <li>• <strong>Authority sites (DR 40+):</strong> Target KD 0-50 keywords—you can compete with stronger sites</li>
-                  <li>• Always manually check the top 10—KD scores are estimates, not guarantees</li>
+                  <li>• <strong>New sites (DR 0-20):</strong> Target KD 0-15 keywords only--you need ultra-low competition</li>
+                  <li>• <strong>Established sites (DR 20-40):</strong> Target KD 0-30 keywords--moderate competition</li>
+                  <li>• <strong>Authority sites (DR 40+):</strong> Target KD 0-50 keywords--you can compete with stronger sites</li>
+                  <li>• Always manually check the top 10--KD scores are estimates, not guarantees</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-purple-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Red flag:</strong> If the top 10 results all have DR 60+ and hundreds of referring domains, skip that keyword regardless of the KD score—you won\'t outrank them.
+                    <strong>Red flag:</strong> If the top 10 results all have DR 60+ and hundreds of referring domains, skip that keyword regardless of the KD score--you won\'t outrank them.
                   </p>
                 </div>
               </div>
@@ -235,7 +235,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">7. Calculate Conversion Potential Based on Query Specificity</h3>
                 <p className="text-slate-700 mb-4">
-                  The more specific the long-tail keyword, the closer to conversion—use query specificity as a proxy for conversion probability.
+                  The more specific the long-tail keyword, the closer to conversion--use query specificity as a proxy for conversion probability.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Conversion probability framework:</strong>
@@ -256,21 +256,21 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">8. Analyze SERP Features and Competition Level</h3>
                 <p className="text-slate-700 mb-4">
-                  SERP features (featured snippets, PAA boxes, local packs) steal clicks from organic results—factor this into your keyword prioritization.
+                  SERP features (featured snippets, PAA boxes, local packs) steal clicks from organic results--factor this into your keyword prioritization.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>SERP feature impact:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• <strong>Featured snippet:</strong> Captures 35.1% of clicks (Ahrefs)—target these aggressively if you can format content for snippet optimization</li>
+                  <li>• <strong>Featured snippet:</strong> Captures 35.1% of clicks (Ahrefs)--target these aggressively if you can format content for snippet optimization</li>
                   <li>• <strong>People Also Ask boxes:</strong> Lower click-through but provide secondary ranking opportunities</li>
-                  <li>• <strong>Local pack:</strong> If present, skip the keyword unless you\'re a local business—you can\'t compete</li>
-                  <li>• <strong>Shopping results:</strong> E-commerce opportunity—optimize product pages with schema markup</li>
-                  <li>• <strong>"Clean" SERP (10 blue links):</strong> Best opportunity—all traffic goes to organic results</li>
+                  <li>• <strong>Local pack:</strong> If present, skip the keyword unless you\'re a local business--you can\'t compete</li>
+                  <li>• <strong>Shopping results:</strong> E-commerce opportunity--optimize product pages with schema markup</li>
+                  <li>• <strong>"Clean" SERP (10 blue links):</strong> Best opportunity--all traffic goes to organic results</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-green-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Strategy:</strong> Prioritize long-tail keywords with featured snippet opportunities—even if you rank #4, you can capture position zero and steal clicks from #1-3.
+                    <strong>Strategy:</strong> Prioritize long-tail keywords with featured snippet opportunities--even if you rank #4, you can capture position zero and steal clicks from #1-3.
                   </p>
                 </div>
               </div>
@@ -282,7 +282,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">9. Create Dedicated Pages for High-Value Long-Tail Keywords</h3>
                 <p className="text-slate-700 mb-4">
-                  Don\'t try to rank one page for 50 long-tail keywords—create dedicated, focused pages for your highest-value long-tail targets.
+                  Don\'t try to rank one page for 50 long-tail keywords--create dedicated, focused pages for your highest-value long-tail targets.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>When to create dedicated pages:</strong>
@@ -295,7 +295,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Example:</strong> Instead of trying to rank your generic "running shoes" page for "best running shoes for plantar fasciitis," create a dedicated guide specifically about running shoes for plantar fasciitis—Google rewards topical focus.
+                    <strong>Example:</strong> Instead of trying to rank your generic "running shoes" page for "best running shoes for plantar fasciitis," create a dedicated guide specifically about running shoes for plantar fasciitis--Google rewards topical focus.
                   </p>
                 </div>
               </div>
@@ -303,7 +303,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">10. Use Topic Cluster Strategy for Related Long-Tail Variations</h3>
                 <p className="text-slate-700 mb-4">
-                  Group related long-tail keywords into topic clusters with a pillar page and supporting cluster content—this builds topical authority and internal linking power.
+                  Group related long-tail keywords into topic clusters with a pillar page and supporting cluster content--this builds topical authority and internal linking power.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Cluster structure:</strong>
@@ -316,7 +316,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-purple-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Result:</strong> HubSpot implemented topic clusters across their blog and saw <strong>pillar pages rank for 2,330% more keywords</strong> within months—topical authority compounds rankings for all related long-tail terms.
+                    <strong>Result:</strong> HubSpot implemented topic clusters across their blog and saw <strong>pillar pages rank for 2,330% more keywords</strong> within months--topical authority compounds rankings for all related long-tail terms.
                   </p>
                 </div>
               </div>
@@ -324,7 +324,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">11. Optimize Existing Content with Natural Long-Tail Keyword Integration</h3>
                 <p className="text-slate-700 mb-4">
-                  You don\'t always need new pages—often you can optimize existing content to rank for multiple related long-tail keywords.
+                  You don\'t always need new pages--often you can optimize existing content to rank for multiple related long-tail keywords.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Optimization tactics:</strong>
@@ -334,7 +334,7 @@ export default function BlogPost() {
                   <li>• Expand sections to comprehensively answer related long-tail queries</li>
                   <li>• Add FAQ section targeting question-based long-tail keywords</li>
                   <li>• Integrate long-tail keywords in first 100 words, headings, and image alt text</li>
-                  <li>• Use semantic variations naturally—don\'t keyword stuff</li>
+                  <li>• Use semantic variations naturally--don\'t keyword stuff</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-pink-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
@@ -346,7 +346,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">12. Target Informational vs. Transactional Long-Tail Queries Separately</h3>
                 <p className="text-slate-700 mb-4">
-                  Long-tail keywords span the entire buyer journey—create different content types for informational (top-of-funnel) vs. transactional (bottom-of-funnel) long-tail keywords.
+                  Long-tail keywords span the entire buyer journey--create different content types for informational (top-of-funnel) vs. transactional (bottom-of-funnel) long-tail keywords.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Content-to-intent mapping:</strong>
@@ -371,7 +371,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">13. Place Long-Tail Keywords in Strategic On-Page Locations</h3>
                 <p className="text-slate-700 mb-4">
-                  Where you place your long-tail keyword matters—certain on-page locations carry more ranking weight than others.
+                  Where you place your long-tail keyword matters--certain on-page locations carry more ranking weight than others.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Priority locations (in order of importance):</strong>
@@ -387,7 +387,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Balance:</strong> Aim for 1-2% keyword density for your primary long-tail keyword—natural usage, not keyword stuffing. Google\'s NLP understands semantic variations.
+                    <strong>Balance:</strong> Aim for 1-2% keyword density for your primary long-tail keyword--natural usage, not keyword stuffing. Google\'s NLP understands semantic variations.
                   </p>
                 </div>
               </div>
@@ -395,7 +395,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">14. Use Semantic Variations and LSI Keywords Naturally</h3>
                 <p className="text-slate-700 mb-4">
-                  Google\'s algorithm understands semantic relationships—you don\'t need to repeat the exact long-tail keyword 20 times. Use natural variations and related terms.
+                  Google\'s algorithm understands semantic relationships--you don\'t need to repeat the exact long-tail keyword 20 times. Use natural variations and related terms.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Semantic optimization:</strong>
@@ -416,7 +416,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">15. Optimize for Featured Snippets with Long-Tail Keywords</h3>
                 <p className="text-slate-700 mb-4">
-                  Long-tail, question-based keywords are perfect featured snippet opportunities—format your content to capture position zero.
+                  Long-tail, question-based keywords are perfect featured snippet opportunities--format your content to capture position zero.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Featured snippet optimization tactics:</strong>
@@ -430,7 +430,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-pink-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Impact:</strong> Featured snippets receive <strong>35.1% of clicks</strong> (Ahrefs)—even if you rank #4, capturing the snippet puts you above positions #1-3 and dramatically increases traffic.
+                    <strong>Impact:</strong> Featured snippets receive <strong>35.1% of clicks</strong> (Ahrefs)--even if you rank #4, capturing the snippet puts you above positions #1-3 and dramatically increases traffic.
                   </p>
                 </div>
               </div>
@@ -438,7 +438,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">16. Monitor Rankings and Conversion Rates by Long-Tail Keyword</h3>
                 <p className="text-slate-700 mb-4">
-                  Track which long-tail keywords drive rankings AND conversions—not all rankings are created equal.
+                  Track which long-tail keywords drive rankings AND conversions--not all rankings are created equal.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Monitoring framework:</strong>
@@ -447,12 +447,12 @@ export default function BlogPost() {
                   <li>• Set up rank tracking for all target long-tail keywords (use Ahrefs, SEMrush, or Google Search Console)</li>
                   <li>• Tag landing pages in Google Analytics to track conversions by organic landing page</li>
                   <li>• Compare conversion rates across different long-tail keyword types (informational vs. transactional)</li>
-                  <li>• Double down on high-converting long-tail keywords—create more content around those topics</li>
+                  <li>• Double down on high-converting long-tail keywords--create more content around those topics</li>
                   <li>• Prune or de-prioritize long-tail keywords that rank but don\'t convert</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-green-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Key metric:</strong> Track "revenue per ranking keyword"—a #1 ranking for a low-intent keyword is less valuable than a #5 ranking for a high-intent long-tail keyword.
+                    <strong>Key metric:</strong> Track "revenue per ranking keyword"--a #1 ranking for a low-intent keyword is less valuable than a #5 ranking for a high-intent long-tail keyword.
                   </p>
                 </div>
               </div>
@@ -479,14 +479,14 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Keyword Stuffing Long-Tail Keywords:</strong>
-                    <p className="text-slate-700 mt-1">Repeating "best waterproof trail running shoes for wide feet" 30 times looks spammy. Use the exact phrase 2-3 times and semantic variations the rest of the time—Google understands context.</p>
+                    <p className="text-slate-700 mt-1">Repeating "best waterproof trail running shoes for wide feet" 30 times looks spammy. Use the exact phrase 2-3 times and semantic variations the rest of the time--Google understands context.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Creating Thin Content for Long-Tail Keywords:</strong>
-                    <p className="text-slate-700 mt-1">Just because it\'s a long-tail keyword doesn\'t mean you can write 300 words and rank. Create comprehensive content (1,500+ words) that fully answers the query—depth still matters.</p>
+                    <p className="text-slate-700 mt-1">Just because it\'s a long-tail keyword doesn\'t mean you can write 300 words and rank. Create comprehensive content (1,500+ words) that fully answers the query--depth still matters.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -543,11 +543,11 @@ export default function BlogPost() {
                   <strong>The Results (6 months):</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700 mb-4">
-                  <li>• <strong>Ranked for 2,847 new long-tail keywords</strong> (avg. position 6.2)—far exceeding the initial 342 target keywords</li>
+                  <li>• <strong>Ranked for 2,847 new long-tail keywords</strong> (avg. position 6.2)--far exceeding the initial 342 target keywords</li>
                   <li>• <strong>Organic traffic increased 214%</strong> from long-tail keyword rankings</li>
-                  <li>• <strong>Conversion rate increased from 1.8% to 4.7%</strong> (161% increase)—long-tail traffic converted 2.6x better than head keyword traffic</li>
+                  <li>• <strong>Conversion rate increased from 1.8% to 4.7%</strong> (161% increase)--long-tail traffic converted 2.6x better than head keyword traffic</li>
                   <li>• <strong>Organic revenue increased 187%</strong> while reducing Google Ads spend by 60%</li>
-                  <li>• <strong>Average order value was 23% higher</strong> from long-tail organic traffic vs. paid head keyword traffic—more specific searches led to more confident purchases</li>
+                  <li>• <strong>Average order value was 23% higher</strong> from long-tail organic traffic vs. paid head keyword traffic--more specific searches led to more confident purchases</li>
                 </ul>
                 <p className="text-slate-700 font-semibold">
                   <strong>Key Insight:</strong> By targeting 342 specific long-tail keywords instead of 12 head keywords, they ranked for 2,847 total keywords organically (ripple effect from semantic relationships) and drove more qualified traffic at a fraction of the cost.
@@ -567,7 +567,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Intent-Based Prioritization:</strong> AI evaluates search intent, keyword difficulty, and conversion potential to rank opportunities by revenue impact—not just search volume</span>
+                  <span><strong>Intent-Based Prioritization:</strong> AI evaluates search intent, keyword difficulty, and conversion potential to rank opportunities by revenue impact--not just search volume</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -586,7 +586,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Long-Tail Keyword Strategy</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY finds and optimizes for profitable long-tail keywords automatically—increasing conversions without the manual research and implementation work.
+                  SEOLOGY finds and optimizes for profitable long-tail keywords automatically--increasing conversions without the manual research and implementation work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -607,7 +607,7 @@ export default function BlogPost() {
                 <strong>The data is clear:</strong> long-tail keywords convert 2.5x better, face 47% less competition, and account for 70% of all search traffic. The challenge is the manual work required to find, evaluate, and optimize for hundreds of long-tail opportunities.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>SEOLOGY eliminates the manual work.</strong> Our AI automatically discovers profitable long-tail keywords, prioritizes by conversion potential, and optimizes your content—delivering the traffic and revenue benefits of a comprehensive long-tail strategy without the time investment.
+                <strong>SEOLOGY eliminates the manual work.</strong> Our AI automatically discovers profitable long-tail keywords, prioritizes by conversion potential, and optimizes your content--delivering the traffic and revenue benefits of a comprehensive long-tail strategy without the time investment.
               </p>
               <Link
                 href="/sign-up"

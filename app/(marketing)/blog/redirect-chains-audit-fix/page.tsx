@@ -108,7 +108,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
-                  <span><strong>Page Speed Impact:</strong> Each hop adds 350ms average delay—3 hops = 1+ second slower (Google Web Vitals, 2024)</span>
+                  <span><strong>Page Speed Impact:</strong> Each hop adds 350ms average delay--3 hops = 1+ second slower (Google Web Vitals, 2024)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
@@ -176,7 +176,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       Use Ahrefs Site Explorer to find backlinks pointing to redirected URLs. Filter by "Redirect" status to identify external links creating redirect chains.
                     </p>
-                    <p className="text-sm text-slate-600">High-authority backlinks caught in redirect chains waste valuable link equity—prioritize these for outreach or redirect fixes.</p>
+                    <p className="text-sm text-slate-600">High-authority backlinks caught in redirect chains waste valuable link equity--prioritize these for outreach or redirect fixes.</p>
                   </div>
                 </div>
 
@@ -189,7 +189,7 @@ export default function BlogPost() {
                       In Google Search Console, check "Crawl Stats" to see how many crawl requests hit redirects. Compare against total crawl budget to calculate waste percentage.
                     </p>
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
-                      <p className="font-mono text-sm"><strong>Formula:</strong> (Redirect crawls / Total crawls) × 100 = % wasted crawl budget</p>
+                      <p className="font-mono text-sm"><strong>Formula:</strong> (Redirect crawls / Total crawls) x 100 = % wasted crawl budget</p>
                       <p className="text-sm text-slate-600 mt-2">Sites with 20%+ redirect crawls are wasting significant crawl budget on chains and broken redirects</p>
                     </div>
                   </div>
@@ -318,14 +318,14 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Not Testing After Fixes:</strong>
-                    <p className="text-slate-700 mt-1">Always re-crawl with Screaming Frog after updating redirects to verify chains are actually resolved—73% of first-time fixes create new issues (Moz study, 2024)</p>
+                    <p className="text-slate-700 mt-1">Always re-crawl with Screaming Frog after updating redirects to verify chains are actually resolved--73% of first-time fixes create new issues (Moz study, 2024)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Fixing Only Server Redirects:</strong>
-                    <p className="text-slate-700 mt-1">JavaScript redirects and meta refresh redirects also create chains—audit client-side redirects too</p>
+                    <p className="text-slate-700 mt-1">JavaScript redirects and meta refresh redirects also create chains--audit client-side redirects too</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -339,14 +339,14 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Leaving Old Redirect Rules in Place:</strong>
-                    <p className="text-slate-700 mt-1">Delete obsolete redirect rules after consolidating chains—otherwise they create maintenance debt and confusion for future changes</p>
+                    <p className="text-slate-700 mt-1">Delete obsolete redirect rules after consolidating chains--otherwise they create maintenance debt and confusion for future changes</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Not Prioritizing by Impact:</strong>
-                    <p className="text-slate-700 mt-1">Fix high-traffic and high-authority backlink chains first—a 5-hop chain on a page with 1 visit/month is less urgent than a 2-hop chain on your homepage</p>
+                    <p className="text-slate-700 mt-1">Fix high-traffic and high-authority backlink chains first--a 5-hop chain on a page with 1 visit/month is less urgent than a 2-hop chain on your homepage</p>
                   </div>
                 </li>
               </ul>
@@ -383,7 +383,7 @@ export default function BlogPost() {
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg">
                   <h3 className="text-xl font-bold mb-3">Redirect Path (Chrome Extension)</h3>
                   <p className="text-slate-700 mb-2">Best for: Quick redirect checks while browsing</p>
-                  <p className="text-sm text-slate-600">Free extension by Ayima. Shows redirect chain in toolbar icon—great for spot-checking pages.</p>
+                  <p className="text-sm text-slate-600">Free extension by Ayima. Shows redirect chain in toolbar icon--great for spot-checking pages.</p>
                 </div>
               </div>
             </section>
@@ -464,7 +464,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Eliminate Redirect Chains Automatically</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY finds and fixes every redirect chain on your site automatically—improving page speed 82% and crawl efficiency 63% without manual work.
+                  SEOLOGY finds and fixes every redirect chain on your site automatically--improving page speed 82% and crawl efficiency 63% without manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -479,10 +479,10 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Redirect chains are low-hanging fruit for SEO improvement. They waste crawl budget, slow page loads, dilute PageRank, and delay indexing—yet they\'re straightforward to fix. A single redirect chain audit and fix session can improve page speed 82%, increase crawl efficiency 63%, and boost organic traffic 28% by letting Google crawl actual content instead of redirect loops. The TechGear case study proves that fixing accumulated redirect chains delivers immediate, measurable improvements in both technical metrics and business outcomes.
+                Redirect chains are low-hanging fruit for SEO improvement. They waste crawl budget, slow page loads, dilute PageRank, and delay indexing--yet they\'re straightforward to fix. A single redirect chain audit and fix session can improve page speed 82%, increase crawl efficiency 63%, and boost organic traffic 28% by letting Google crawl actual content instead of redirect loops. The TechGear case study proves that fixing accumulated redirect chains delivers immediate, measurable improvements in both technical metrics and business outcomes.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                Start with Screaming Frog to identify all chains 3+ hops long, prioritize by traffic and backlink authority, update redirects to skip intermediate URLs, and implement monitoring to catch future chains. Tools exist to make this process efficient, but SEOLOGY automates the entire workflow—from detection through fixes to ongoing monitoring—so you get the 82% page speed improvement without spending hours in redirect rules configuration files.
+                Start with Screaming Frog to identify all chains 3+ hops long, prioritize by traffic and backlink authority, update redirects to skip intermediate URLs, and implement monitoring to catch future chains. Tools exist to make this process efficient, but SEOLOGY automates the entire workflow--from detection through fixes to ongoing monitoring--so you get the 82% page speed improvement without spending hours in redirect rules configuration files.
               </p>
             </section>
 

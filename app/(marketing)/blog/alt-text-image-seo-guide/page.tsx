@@ -60,7 +60,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Alt text is a <strong>dual-purpose SEO weapon</strong>: it helps Google understand your images AND makes your site accessible to visually impaired users. Most sites waste this opportunity with generic descriptions like "image1.jpg" or keyword stuffing. This guide shows you how to write alt text that ranks in Google Images, improves accessibility, and drives traffic—automatically with SEOLOGY.
+                Alt text is a <strong>dual-purpose SEO weapon</strong>: it helps Google understand your images AND makes your site accessible to visually impaired users. Most sites waste this opportunity with generic descriptions like "image1.jpg" or keyword stuffing. This guide shows you how to write alt text that ranks in Google Images, improves accessibility, and drives traffic--automatically with SEOLOGY.
               </p>
             </div>
 
@@ -73,7 +73,7 @@ export default function BlogPost() {
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>SEO Ranking Signal:</strong> Google can\'t "see" images—alt text tells search engines what your images show</span>
+                    <span><strong>SEO Ranking Signal:</strong> Google can\'t "see" images--alt text tells search engines what your images show</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -81,11 +81,11 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Image Search Traffic:</strong> Proper alt text helps images rank in Google Image Search—which drives 30% more traffic</span>
+                    <span><strong>Image Search Traffic:</strong> Proper alt text helps images rank in Google Image Search--which drives 30% more traffic</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Fallback Display:</strong> When images fail to load, alt text shows instead—preserving user experience</span>
+                    <span><strong>Fallback Display:</strong> When images fail to load, alt text shows instead--preserving user experience</span>
                   </li>
                 </ul>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
@@ -184,14 +184,14 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Keyword Stuffing:</strong>
-                      <p className="text-slate-700 mt-1">Never repeat keywords multiple times—Google penalizes this and it hurts accessibility</p>
+                      <p className="text-slate-700 mt-1">Never repeat keywords multiple times--Google penalizes this and it hurts accessibility</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Using "Image of" or "Picture of":</strong>
-                      <p className="text-slate-700 mt-1">Screen readers already announce it\'s an image—just describe what it shows</p>
+                      <p className="text-slate-700 mt-1">Screen readers already announce it\'s an image--just describe what it shows</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -205,14 +205,14 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Being Too Vague:</strong>
-                      <p className="text-slate-700 mt-1">"Product photo" doesn\'t help—describe WHAT product and its key attributes</p>
+                      <p className="text-slate-700 mt-1">"Product photo" doesn\'t help--describe WHAT product and its key attributes</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Alt Text Too Long:</strong>
-                      <p className="text-slate-700 mt-1">Keep it under 125 characters—screen readers cut off longer descriptions</p>
+                      <p className="text-slate-700 mt-1">Keep it under 125 characters--screen readers cut off longer descriptions</p>
                     </div>
                   </li>
                 </ul>
@@ -232,7 +232,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-xl font-bold text-purple-900 mb-2">Title Attribute</div>
                     <div className="text-slate-700 text-sm mb-2">Purpose: Tooltip on hover</div>
-                    <div className="text-slate-700 text-sm">Shows when users hover over image. Optional—not used for SEO ranking.</div>
+                    <div className="text-slate-700 text-sm">Shows when users hover over image. Optional--not used for SEO ranking.</div>
                   </div>
                   <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                     <div className="text-xl font-bold text-pink-900 mb-2">Caption</div>
@@ -267,7 +267,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                   <p className="text-slate-700 mb-0">
-                    <strong>SEOLOGY Advantage:</strong> Automatically scans every image on your site, identifies missing or poor alt text, and generates optimized descriptions using AI—no manual work required.
+                    <strong>SEOLOGY Advantage:</strong> Automatically scans every image on your site, identifies missing or poor alt text, and generates optimized descriptions using AI--no manual work required.
                   </p>
                 </div>
               </section>
@@ -304,7 +304,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Every Image on Your Site</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically generates perfect alt text for every image—boosting Google Image rankings and accessibility compliance.
+                    SEOLOGY automatically generates perfect alt text for every image--boosting Google Image rankings and accessibility compliance.
                   </p>
                   <Link
                     href="/sign-up"

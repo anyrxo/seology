@@ -31,7 +31,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
 
         <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            <strong className="text-orange-600 dark:text-orange-400">Local search is exploding:</strong> <strong>1.5 billion "near me" searches</strong> happen every month—that's <strong>50 million per day</strong>. Here's the kicker: <strong>76% of those mobile searches lead to a store visit within 24 hours</strong>, and <strong>88% of consumers visit or call the business within a day</strong>. If your Shopify store has physical locations or local pickup, local SEO isn't optional—it's your highest-ROI growth channel.
+            <strong className="text-orange-600 dark:text-orange-400">Local search is exploding:</strong> <strong>1.5 billion "near me" searches</strong> happen every month--that's <strong>50 million per day</strong>. Here's the kicker: <strong>76% of those mobile searches lead to a store visit within 24 hours</strong>, and <strong>88% of consumers visit or call the business within a day</strong>. If your Shopify store has physical locations or local pickup, local SEO isn't optional--it's your highest-ROI growth channel.
           </p>
         </div>
       </header>
@@ -80,7 +80,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Local search isn't a niche tactic—it's mainstream consumer behavior. The data tells a compelling story:
+          Local search isn't a niche tactic--it's mainstream consumer behavior. The data tells a compelling story:
         </p>
 
         <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 rounded-lg p-8 my-8">
@@ -98,7 +98,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          The conversion rate tells the real story: <strong>18% of local mobile searches result in a purchase within 24 hours</strong>—2.5x higher than non-local searches (7%). For Shopify stores with physical locations, local pickup, or regional inventory, local SEO drives <strong>immediate, high-intent traffic</strong>.
+          The conversion rate tells the real story: <strong>18% of local mobile searches result in a purchase within 24 hours</strong>--2.5x higher than non-local searches (7%). For Shopify stores with physical locations, local pickup, or regional inventory, local SEO drives <strong>immediate, high-intent traffic</strong>.
         </p>
 
         {/* Section 2 */}
@@ -115,7 +115,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          If you have a brick-and-mortar store, showroom, or pop-up shop, local SEO drives foot traffic. <strong>76% of "near me" searches result in a store visit within 24 hours</strong>—that's same-day customers.
+          If you have a brick-and-mortar store, showroom, or pop-up shop, local SEO drives foot traffic. <strong>76% of "near me" searches result in a store visit within 24 hours</strong>--that's same-day customers.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -123,7 +123,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Shopify's local pickup feature lets customers buy online and collect in-store. Optimizing for local search captures <strong>"available near me"</strong> queries—users who want products today, not in 2-3 days.
+          Shopify's local pickup feature lets customers buy online and collect in-store. Optimizing for local search captures <strong>"available near me"</strong> queries--users who want products today, not in 2-3 days.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -139,7 +139,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Hair salons, tattoo shops, repair services, consultants—if you sell services through Shopify, local SEO is your #1 customer acquisition channel. <strong>80% of consumers search for local services weekly</strong>.
+          Hair salons, tattoo shops, repair services, consultants--if you sell services through Shopify, local SEO is your #1 customer acquisition channel. <strong>80% of consumers search for local services weekly</strong>.
         </p>
 
         {/* Section 3 */}
@@ -170,7 +170,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">✅ Essential GBP Fields (Must Complete 100%)</h4>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
             <li><strong>Business name:</strong> Exact match to real-world signage (no keyword stuffing)</li>
-            <li><strong>Primary category:</strong> THE most important ranking factor—choose most specific category</li>
+            <li><strong>Primary category:</strong> THE most important ranking factor--choose most specific category</li>
             <li><strong>Additional categories:</strong> Add up to 9 secondary categories (relevant only)</li>
             <li><strong>Address:</strong> Physical location (P.O. boxes not allowed for most categories)</li>
             <li><strong>Phone number:</strong> Local number preferred (tracked number OK if forwarded)</li>
@@ -178,7 +178,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             <li><strong>Hours:</strong> Accurate operating hours + special hours (holidays)</li>
             <li><strong>Service area:</strong> If you deliver/service beyond your address</li>
             <li><strong>Attributes:</strong> "Women-led," "Black-owned," "Wheelchair accessible," etc.</li>
-            <li><strong>Description:</strong> 750 characters max—include keywords naturally</li>
+            <li><strong>Description:</strong> 750 characters max--include keywords naturally</li>
           </ul>
         </div>
 
@@ -332,7 +332,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
 
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Set your canonical NAP format</strong> (the "master" version you'll use everywhere)</li>
-          <li><strong>Update your website:</strong> Footer, contact page, location pages—all must match exactly</li>
+          <li><strong>Update your website:</strong> Footer, contact page, location pages--all must match exactly</li>
           <li><strong>Update Google Business Profile:</strong> Match your canonical NAP</li>
           <li><strong>Audit major directories:</strong> Yelp, Bing Places, Apple Maps, Facebook, LinkedIn</li>
           <li><strong>Fix discrepancies:</strong> Update every listing to match canonical NAP</li>
@@ -670,7 +670,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             Automate Local SEO with AI-Powered Optimization
           </h2>
           <p className="text-xl mb-8 text-orange-100">
-            SEOLOGY.AI automatically optimizes your Shopify store for local search—NAP consistency checks, schema markup generation, location page creation, and Google Business Profile monitoring. Our AI ensures your store dominates local pack rankings while you focus on serving customers.
+            SEOLOGY.AI automatically optimizes your Shopify store for local search--NAP consistency checks, schema markup generation, location page creation, and Google Business Profile monitoring. Our AI ensures your store dominates local pack rankings while you focus on serving customers.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

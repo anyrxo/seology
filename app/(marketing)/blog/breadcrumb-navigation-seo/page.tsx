@@ -315,7 +315,7 @@ export default function BlogPost() {
                       <strong>Why everywhere:</strong> Consistent breadcrumbs across all pages strengthen your site structure signals and ensure every page passes link equity to parent pages.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Exception:</strong> Don\'t show breadcrumbs on the homepage—there\'s no parent page to link to.
+                      <strong>Exception:</strong> Don\'t show breadcrumbs on the homepage--there\'s no parent page to link to.
                     </p>
                   </div>
 
@@ -341,7 +341,7 @@ export default function BlogPost() {
                       <strong>Why:</strong> Inconsistent naming confuses users and sends mixed signals to Google about your site structure.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Audit:</strong> Review breadcrumbs against your main menu—category names should match exactly.
+                      <strong>Audit:</strong> Review breadcrumbs against your main menu--category names should match exactly.
                     </p>
                   </div>
 
@@ -528,7 +528,7 @@ export default function BlogPost() {
                   </div>
 
                   <p className="text-slate-700 mt-6 italic">
-                    "Breadcrumbs were one of those 'why didn\'t we do this sooner' optimizations. The implementation took our developer 3 hours, and the results have been incredible—especially for our category pages which now rank much better." — Emily R., SEO Manager
+                    "Breadcrumbs were one of those 'why didn\'t we do this sooner' optimizations. The implementation took our developer 3 hours, and the results have been incredible--especially for our category pages which now rank much better." -- Emily R., SEO Manager
                   </p>
                 </div>
               </section>
@@ -602,7 +602,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Breadcrumb Navigation SEO</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop manually implementing breadcrumbs and schema markup. SEOLOGY analyzes your site structure, generates proper breadcrumbs with BreadcrumbList schema, and applies them to every page automatically—improving rankings without developer time.
+                    Stop manually implementing breadcrumbs and schema markup. SEOLOGY analyzes your site structure, generates proper breadcrumbs with BreadcrumbList schema, and applies them to every page automatically--improving rankings without developer time.
                   </p>
                   <Link
                     href="/sign-up"

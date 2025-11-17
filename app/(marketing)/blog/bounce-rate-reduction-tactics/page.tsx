@@ -52,7 +52,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Bounce rate is the percentage of visitors who leave your site after viewing just one page—and it\'s killing your SEO. Google uses engagement metrics like bounce rate as ranking signals. High bounce rates signal poor content quality, leading to <strong>lower rankings and lost revenue</strong>. This guide reveals 27 proven tactics that reduced bounce rates by 43% and increased conversions by 67%—all automatically implemented by SEOLOGY.
+                Bounce rate is the percentage of visitors who leave your site after viewing just one page--and it\'s killing your SEO. Google uses engagement metrics like bounce rate as ranking signals. High bounce rates signal poor content quality, leading to <strong>lower rankings and lost revenue</strong>. This guide reveals 27 proven tactics that reduced bounce rates by 43% and increased conversions by 67%--all automatically implemented by SEOLOGY.
               </p>
             </div>
 
@@ -98,11 +98,11 @@ export default function BlogPost() {
                   </div>
                   <div className="bg-orange-50 p-6 rounded-xl border border-orange-200">
                     <div className="text-xl font-bold text-orange-900 mb-2">⚠️ Fair: 56-70%</div>
-                    <div className="text-slate-700 text-sm">Needs improvement—losing potential conversions</div>
+                    <div className="text-slate-700 text-sm">Needs improvement--losing potential conversions</div>
                   </div>
                   <div className="bg-red-50 p-6 rounded-xl border border-red-200">
                     <div className="text-xl font-bold text-red-900 mb-2">❌ Poor: 70%+</div>
-                    <div className="text-slate-700 text-sm">Critical issue—major SEO and UX problems</div>
+                    <div className="text-slate-700 text-sm">Critical issue--major SEO and UX problems</div>
                   </div>
                 </div>
               </section>
@@ -117,7 +117,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <h3 className="text-xl font-bold text-blue-900 mb-4">Speed & Performance (Tactics 1-5)</h3>
                     <ul className="space-y-2 text-slate-700">
-                      <li><strong>1. Optimize Page Load Speed:</strong> Aim for under 2 seconds—every 1s delay increases bounce rate by 11%</li>
+                      <li><strong>1. Optimize Page Load Speed:</strong> Aim for under 2 seconds--every 1s delay increases bounce rate by 11%</li>
                       <li><strong>2. Implement Lazy Loading:</strong> Load images below the fold only when needed</li>
                       <li><strong>3. Minimize JavaScript:</strong> Remove render-blocking scripts</li>
                       <li><strong>4. Use CDN:</strong> Deliver content from servers closest to users</li>
@@ -141,7 +141,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                     <h3 className="text-xl font-bold text-pink-900 mb-4">User Experience (Tactics 13-19)</h3>
                     <ul className="space-y-2 text-slate-700">
-                      <li><strong>13. Mobile Optimization:</strong> 60% of traffic is mobile—ensure responsive design</li>
+                      <li><strong>13. Mobile Optimization:</strong> 60% of traffic is mobile--ensure responsive design</li>
                       <li><strong>14. Remove Pop-ups:</strong> Intrusive interstitials increase bounce rate by 34%</li>
                       <li><strong>15. Fix Broken Links:</strong> 404 errors cause instant bounces</li>
                       <li><strong>16. Improve Navigation:</strong> Clear menus help users explore more pages</li>
@@ -199,21 +199,21 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Obsessing Over Single-Page Sessions:</strong>
-                      <p className="text-slate-700 mt-1">Not all bounces are bad—if users find what they need and leave satisfied, that\'s okay</p>
+                      <p className="text-slate-700 mt-1">Not all bounces are bad--if users find what they need and leave satisfied, that\'s okay</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Using Intrusive Pop-ups:</strong>
-                      <p className="text-slate-700 mt-1">Immediate pop-ups frustrate users and increase bounce rate—wait at least 10 seconds</p>
+                      <p className="text-slate-700 mt-1">Immediate pop-ups frustrate users and increase bounce rate--wait at least 10 seconds</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Ignoring Mobile Experience:</strong>
-                      <p className="text-slate-700 mt-1">Mobile bounce rates are typically 15% higher—optimize for mobile first</p>
+                      <p className="text-slate-700 mt-1">Mobile bounce rates are typically 15% higher--optimize for mobile first</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -253,7 +253,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Cut Bounce Rate by 43% Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY implements all 27 bounce rate reduction tactics automatically—boosting engagement and rankings.
+                    SEOLOGY implements all 27 bounce rate reduction tactics automatically--boosting engagement and rankings.
                   </p>
                   <Link
                     href="/sign-up"

@@ -258,7 +258,7 @@ export default function BlogPost() {
           </div>
           <p className="mb-4 text-neutral-700">
             Once you rank #1 for "organic coffee beans," every visitor costs you $0. Whether you get 100 visitors or
-            10,000 visitors per month—still $0.
+            10,000 visitors per month--still $0.
           </p>
           <div className="rounded-lg bg-white p-6">
             <p className="mb-3 text-sm font-semibold text-neutral-900">12-Month Cost Comparison (500 Customers/Month Goal)</p>
@@ -329,7 +329,7 @@ export default function BlogPost() {
             </div>
             <p className="text-sm text-neutral-700">
               Ranking #1 makes you look like the industry leader. "If Google ranked them first, they must be the best."
-              This halo effect increases conversion rates across all channels—even your paid ads perform better.
+              This halo effect increases conversion rates across all channels--even your paid ads perform better.
             </p>
           </div>
 

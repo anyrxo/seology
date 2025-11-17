@@ -32,7 +32,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Server log analysis reveals 47% more crawl data than Google Search Console alone (OnCrawl study). Most sites rely solely on Search Console, missing critical insights about how Googlebot actually crawls their site—including pages Google accesses but never indexes, crawl budget waste, and technical errors invisible in standard reports.
+            Server log analysis reveals 47% more crawl data than Google Search Console alone (OnCrawl study). Most sites rely solely on Search Console, missing critical insights about how Googlebot actually crawls their site--including pages Google accesses but never indexes, crawl budget waste, and technical errors invisible in standard reports.
           </p>
 
           <div className="mb-12">
@@ -53,10 +53,10 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li><strong>Log files reveal 47% more crawl data</strong> than Google Search Console reports—including pages crawled but never indexed (OnCrawl)</li>
-                <li><strong>67% of sites waste crawl budget on low-value pages</strong>—pagination, faceted navigation, URL parameters consume budget without adding value (Screaming Frog study)</li>
+                <li><strong>Log files reveal 47% more crawl data</strong> than Google Search Console reports--including pages crawled but never indexed (OnCrawl)</li>
+                <li><strong>67% of sites waste crawl budget on low-value pages</strong>--pagination, faceted navigation, URL parameters consume budget without adding value (Screaming Frog study)</li>
                 <li><strong>Fixing crawl budget waste increased indexation by 156%</strong> for large e-commerce sites by redirecting Googlebot to high-value pages (OnCrawl case study)</li>
-                <li><strong>Server response times over 500ms reduce Googlebot crawl rate by 38%</strong>—faster servers get crawled more frequently (Google)</li>
+                <li><strong>Server response times over 500ms reduce Googlebot crawl rate by 38%</strong>--faster servers get crawled more frequently (Google)</li>
                 <li><strong>82% of log file analysis reveals orphaned pages</strong> (pages with no internal links) that Google found via external backlinks but aren\'t in your navigation (Oncrawl)</li>
                 <li><strong>Log analysis identified 2,847 pages wasting crawl budget</strong> for a news site, freeing budget for 12,000 new articles to be crawled weekly (case study below)</li>
               </ul>
@@ -65,7 +65,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Log File Analysis Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Google Search Console shows you what Google <em>indexed</em>. Server log files show you what Google <em>crawled</em>—and the difference is massive.
+                Google Search Console shows you what Google <em>indexed</em>. Server log files show you what Google <em>crawled</em>--and the difference is massive.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 <strong>The crawl → index gap reveals critical SEO problems:</strong>
@@ -73,7 +73,7 @@ export default function BlogPost() {
               <ul className="space-y-3 my-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Pages Google crawls but doesn\'t index:</strong> Server logs show Googlebot visited 50,000 pages, but only 30,000 are indexed—what\'s wrong with the other 20,000?</span>
+                  <span><strong>Pages Google crawls but doesn\'t index:</strong> Server logs show Googlebot visited 50,000 pages, but only 30,000 are indexed--what\'s wrong with the other 20,000?</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -81,7 +81,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Orphaned pages Google finds:</strong> Log files reveal pages Googlebot crawls that aren\'t in your sitemap or internal navigation—found via external backlinks</span>
+                  <span><strong>Orphaned pages Google finds:</strong> Log files reveal pages Googlebot crawls that aren\'t in your sitemap or internal navigation--found via external backlinks</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -91,7 +91,7 @@ export default function BlogPost() {
               <div className="bg-slate-100 p-6 rounded-lg my-8">
                 <p className="text-base text-slate-800 font-semibold mb-2">Real Data:</p>
                 <p className="text-slate-700 mb-0">
-                  OnCrawl analyzed millions of URLs across hundreds of sites and found that <strong>server log files reveal 47% more crawl data than Google Search Console</strong> reports. The study also discovered that <strong>67% of enterprise sites waste more than half their crawl budget on low-value pages</strong>—pagination, filters, and duplicate content—instead of important product pages, blog posts, and landing pages that drive revenue.
+                  OnCrawl analyzed millions of URLs across hundreds of sites and found that <strong>server log files reveal 47% more crawl data than Google Search Console</strong> reports. The study also discovered that <strong>67% of enterprise sites waste more than half their crawl budget on low-value pages</strong>--pagination, filters, and duplicate content--instead of important product pages, blog posts, and landing pages that drive revenue.
                 </p>
               </div>
             </section>
@@ -102,7 +102,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Access and Extract Server Log Files</h3>
                 <p className="text-slate-700 mb-4">
-                  Your web server (Apache, Nginx, IIS) records every single request in access logs—this is the raw data you need for SEO analysis.
+                  Your web server (Apache, Nginx, IIS) records every single request in access logs--this is the raw data you need for SEO analysis.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>How to access logs by server type:</strong>
@@ -113,7 +113,7 @@ export default function BlogPost() {
                   <li>• <strong>IIS (Windows):</strong> C:\\inetpub\\logs\\LogFiles\\</li>
                   <li>• <strong>CDN logs (Cloudflare, Fastly):</strong> Download via dashboard or API (often paid feature)</li>
                   <li>• <strong>Hosting providers:</strong> cPanel, Plesk usually provide log access under "Logs" or "Statistics"</li>
-                  <li>• Download logs via FTP, SSH, or hosting control panel—aim for at least 30 days of data for meaningful analysis</li>
+                  <li>• Download logs via FTP, SSH, or hosting control panel--aim for at least 30 days of data for meaningful analysis</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
@@ -125,7 +125,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">2. Filter Logs for Googlebot User Agent</h3>
                 <p className="text-slate-700 mb-4">
-                  Log files contain ALL traffic—humans, bots, scrapers. Filter for Googlebot to focus on what matters for SEO.
+                  Log files contain ALL traffic--humans, bots, scrapers. Filter for Googlebot to focus on what matters for SEO.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Googlebot user agents to filter for:</strong>
@@ -136,7 +136,7 @@ export default function BlogPost() {
                   <li>• <strong>Googlebot Image:</strong> "Googlebot-Image"</li>
                   <li>• <strong>Google AdSense:</strong> "Mediapartners-Google"</li>
                   <li>• Use grep command: <code className="text-sm">grep "Googlebot" access.log &gt; googlebot.log</code></li>
-                  <li>• <strong>Verify real Googlebot:</strong> Fake bots spoof user agent—use reverse DNS lookup to verify IP is actually Google (host 66.249.*.* should resolve to googlebot.com)</li>
+                  <li>• <strong>Verify real Googlebot:</strong> Fake bots spoof user agent--use reverse DNS lookup to verify IP is actually Google (host 66.249.*.* should resolve to googlebot.com)</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-purple-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
@@ -148,7 +148,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Choose Log Analysis Tools for SEO Insights</h3>
                 <p className="text-slate-700 mb-4">
-                  Analyzing millions of log entries manually is impossible—use specialized tools that parse logs and provide SEO-focused insights.
+                  Analyzing millions of log entries manually is impossible--use specialized tools that parse logs and provide SEO-focused insights.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Best log analysis tools for SEO:</strong>
@@ -175,21 +175,21 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">4. Identify Most and Least Crawled Pages</h3>
                 <p className="text-slate-700 mb-4">
-                  Not all pages are crawled equally—analyze which pages Googlebot visits most frequently and which it ignores.
+                  Not all pages are crawled equally--analyze which pages Googlebot visits most frequently and which it ignores.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Crawl frequency segmentation:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• <strong>High-frequency pages (crawled daily):</strong> Homepage, category pages, new content—usually 5-10% of total pages</li>
-                  <li>• <strong>Medium-frequency (weekly):</strong> Established blog posts, product pages—usually 20-30% of pages</li>
-                  <li>• <strong>Low-frequency (monthly or less):</strong> Deep content, old blog posts—often 40-50% of pages</li>
-                  <li>• <strong>Never crawled:</strong> Pages in sitemap but never visited by Googlebot—investigate why (orphaned? blocked in robots.txt? server errors?)</li>
-                  <li>• Compare crawl frequency to page importance (traffic, conversions, revenue)—high-value pages should be crawled frequently</li>
+                  <li>• <strong>High-frequency pages (crawled daily):</strong> Homepage, category pages, new content--usually 5-10% of total pages</li>
+                  <li>• <strong>Medium-frequency (weekly):</strong> Established blog posts, product pages--usually 20-30% of pages</li>
+                  <li>• <strong>Low-frequency (monthly or less):</strong> Deep content, old blog posts--often 40-50% of pages</li>
+                  <li>• <strong>Never crawled:</strong> Pages in sitemap but never visited by Googlebot--investigate why (orphaned? blocked in robots.txt? server errors?)</li>
+                  <li>• Compare crawl frequency to page importance (traffic, conversions, revenue)--high-value pages should be crawled frequently</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Red flag:</strong> If your most important landing pages are crawled less frequently than pagination or filter pages, you have a crawl budget problem—Googlebot is wasting time on low-value URLs.
+                    <strong>Red flag:</strong> If your most important landing pages are crawled less frequently than pagination or filter pages, you have a crawl budget problem--Googlebot is wasting time on low-value URLs.
                   </p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">5. Find Crawl Budget Waste on Low-Value Pages</h3>
                 <p className="text-slate-700 mb-4">
-                  Googlebot has limited time to crawl your site—identify pages consuming budget without adding SEO value.
+                  Googlebot has limited time to crawl your site--identify pages consuming budget without adding SEO value.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Common crawl budget waste culprits:</strong>
@@ -213,7 +213,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-purple-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Common finding:</strong> OnCrawl found that <strong>e-commerce sites waste 67% of crawl budget on faceted navigation and pagination</strong>—leaving only 33% for actual product pages. Blocking these low-value URLs doubled product page crawl frequency.
+                    <strong>Common finding:</strong> OnCrawl found that <strong>e-commerce sites waste 67% of crawl budget on faceted navigation and pagination</strong>--leaving only 33% for actual product pages. Blocking these low-value URLs doubled product page crawl frequency.
                   </p>
                 </div>
               </div>
@@ -221,18 +221,18 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">6. Analyze Googlebot HTTP Status Code Distribution</h3>
                 <p className="text-slate-700 mb-4">
-                  Log files show the exact status codes Googlebot receives—revealing errors, redirects, and server issues invisible in Search Console.
+                  Log files show the exact status codes Googlebot receives--revealing errors, redirects, and server issues invisible in Search Console.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Key status codes to monitor:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• <strong>200 (Success):</strong> Should be 80-90% of Googlebot requests—content served successfully</li>
-                  <li>• <strong>301/302 (Redirects):</strong> Should be under 10%—too many redirects waste crawl budget and dilute link equity</li>
-                  <li>• <strong>404 (Not Found):</strong> Should be under 5%—high 404 rate indicates broken internal links or deleted content</li>
-                  <li>• <strong>500/503 (Server Errors):</strong> Should be near 0%—server errors cause Googlebot to reduce crawl rate significantly</li>
-                  <li>• <strong>429 (Too Many Requests):</strong> You\'re blocking Googlebot too aggressively—increase crawl rate limits</li>
-                  <li>• Track status code trends over time—sudden spike in 500s or 404s indicates site problems</li>
+                  <li>• <strong>200 (Success):</strong> Should be 80-90% of Googlebot requests--content served successfully</li>
+                  <li>• <strong>301/302 (Redirects):</strong> Should be under 10%--too many redirects waste crawl budget and dilute link equity</li>
+                  <li>• <strong>404 (Not Found):</strong> Should be under 5%--high 404 rate indicates broken internal links or deleted content</li>
+                  <li>• <strong>500/503 (Server Errors):</strong> Should be near 0%--server errors cause Googlebot to reduce crawl rate significantly</li>
+                  <li>• <strong>429 (Too Many Requests):</strong> You\'re blocking Googlebot too aggressively--increase crawl rate limits</li>
+                  <li>• Track status code trends over time--sudden spike in 500s or 404s indicates site problems</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-pink-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
@@ -244,7 +244,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">7. Detect Fake Googlebot vs. Real Googlebot Traffic</h3>
                 <p className="text-slate-700 mb-4">
-                  Many bots spoof "Googlebot" user agent to scrape content or bypass restrictions—verify IPs to ensure you\'re analyzing real Google traffic.
+                  Many bots spoof "Googlebot" user agent to scrape content or bypass restrictions--verify IPs to ensure you\'re analyzing real Google traffic.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Verification methods:</strong>
@@ -253,7 +253,7 @@ export default function BlogPost() {
                   <li>• <strong>Reverse DNS lookup:</strong> <code className="text-sm">host 66.249.73.135</code> should resolve to *.googlebot.com or *.google.com</li>
                   <li>• <strong>Forward DNS confirmation:</strong> After reverse lookup, resolve the hostname back to IP to confirm match</li>
                   <li>• <strong>Check against Google IP ranges:</strong> Google publishes official IP ranges at developers.google.com/search/apis/ipranges/googlebot.json</li>
-                  <li>• <strong>Filter out fake Googlebot:</strong> Remove requests from non-Google IPs before analysis—they skew crawl budget calculations</li>
+                  <li>• <strong>Filter out fake Googlebot:</strong> Remove requests from non-Google IPs before analysis--they skew crawl budget calculations</li>
                   <li>• Most log analysis tools (Screaming Frog, OnCrawl) have built-in Googlebot verification</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-green-200 mt-4">
@@ -270,7 +270,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">8. Discover Pages Google Crawls But Doesn\'t Index</h3>
                 <p className="text-slate-700 mb-4">
-                  The most valuable log file insight: pages Googlebot visits but never appear in Search Console—revealing why content isn\'t ranking.
+                  The most valuable log file insight: pages Googlebot visits but never appear in Search Console--revealing why content isn\'t ranking.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Finding "crawled, not indexed" pages:</strong>
@@ -280,11 +280,11 @@ export default function BlogPost() {
                   <li>• Export all indexed URLs from Google Search Console (Performance report or Index Coverage)</li>
                   <li>• Compare lists: URLs in logs but NOT in Search Console = crawled but not indexed</li>
                   <li>• Common reasons: thin content, duplicate content, noindex tag, canonical pointing elsewhere, low quality</li>
-                  <li>• Prioritize investigation by traffic potential—fix high-value pages first</li>
+                  <li>• Prioritize investigation by traffic potential--fix high-value pages first</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-blue-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Case study:</strong> An e-commerce site found <strong>12,000 product pages crawled weekly but never indexed</strong>—investigation revealed thin content (just product specs, no descriptions). Adding 300-word descriptions increased indexation from 34% to 87% within 60 days.
+                    <strong>Case study:</strong> An e-commerce site found <strong>12,000 product pages crawled weekly but never indexed</strong>--investigation revealed thin content (just product specs, no descriptions). Adding 300-word descriptions increased indexation from 34% to 87% within 60 days.
                   </p>
                 </div>
               </div>
@@ -292,7 +292,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">9. Find Orphaned Pages That Google Discovers Externally</h3>
                 <p className="text-slate-700 mb-4">
-                  Log files reveal pages Googlebot crawls that aren\'t in your sitemap or internal navigation—often discovered via external backlinks.
+                  Log files reveal pages Googlebot crawls that aren\'t in your sitemap or internal navigation--often discovered via external backlinks.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Identifying orphaned pages:</strong>
@@ -306,7 +306,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-purple-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Common finding:</strong> OnCrawl found that <strong>82% of log file analyses reveal orphaned pages</strong>—often old blog posts or moved pages that have valuable backlinks but zero internal linking, causing poor rankings despite external authority.
+                    <strong>Common finding:</strong> OnCrawl found that <strong>82% of log file analyses reveal orphaned pages</strong>--often old blog posts or moved pages that have valuable backlinks but zero internal linking, causing poor rankings despite external authority.
                   </p>
                 </div>
               </div>
@@ -314,7 +314,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">10. Identify Redirect Chains and Loops Wasting Crawl Budget</h3>
                 <p className="text-slate-700 mb-4">
-                  Log files show when Googlebot follows redirect chains (A → B → C) or redirect loops—both waste crawl budget and dilute link equity.
+                  Log files show when Googlebot follows redirect chains (A → B → C) or redirect loops--both waste crawl budget and dilute link equity.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Finding redirect issues in logs:</strong>
@@ -336,21 +336,21 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">11. Analyze Server Response Times for Googlebot</h3>
                 <p className="text-slate-700 mb-4">
-                  Slow server response times cause Googlebot to reduce crawl rate—log files show exact response times for every Googlebot request.
+                  Slow server response times cause Googlebot to reduce crawl rate--log files show exact response times for every Googlebot request.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Server speed analysis:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• Log files include time-to-first-byte (TTFB) for each request—measure this for Googlebot traffic</li>
+                  <li>• Log files include time-to-first-byte (TTFB) for each request--measure this for Googlebot traffic</li>
                   <li>• <strong>Target:</strong> TTFB under 200ms (excellent), under 500ms (acceptable), over 1000ms (problem)</li>
-                  <li>• Segment by page type: product pages, category pages, blog posts—identify which types are slow</li>
-                  <li>• Compare Googlebot response times to regular user response times—if Googlebot is slower, server prioritization issue</li>
+                  <li>• Segment by page type: product pages, category pages, blog posts--identify which types are slow</li>
+                  <li>• Compare Googlebot response times to regular user response times--if Googlebot is slower, server prioritization issue</li>
                   <li>• <strong>Google\'s response:</strong> Server response times over 500ms cause Googlebot to reduce crawl rate by 38% to avoid overloading server</li>
                 </ul>
                 <div className="bg-white p-4 rounded border border-green-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Fix priority:</strong> Optimizing server response time from 1200ms to 300ms increased Googlebot crawl rate by <strong>127% within 2 weeks</strong> (OnCrawl case study)—more pages crawled = more pages indexed = better rankings.
+                    <strong>Fix priority:</strong> Optimizing server response time from 1200ms to 300ms increased Googlebot crawl rate by <strong>127% within 2 weeks</strong> (OnCrawl case study)--more pages crawled = more pages indexed = better rankings.
                   </p>
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">12. Block Googlebot from Low-Value Pages Using Robots.txt</h3>
                 <p className="text-slate-700 mb-4">
-                  Once you\'ve identified pages wasting crawl budget, use robots.txt to prevent Googlebot from crawling them—redirecting budget to important content.
+                  Once you\'ve identified pages wasting crawl budget, use robots.txt to prevent Googlebot from crawling them--redirecting budget to important content.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Robots.txt optimization based on log insights:</strong>
@@ -385,13 +385,13 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">13. Prioritize Important Pages in XML Sitemap Based on Crawl Data</h3>
                 <p className="text-slate-700 mb-4">
-                  Log file analysis reveals which pages Google already prioritizes—use this data to optimize your XML sitemap for maximum crawl efficiency.
+                  Log file analysis reveals which pages Google already prioritizes--use this data to optimize your XML sitemap for maximum crawl efficiency.
                 </p>
                 <p className="text-slate-700 mb-4">
                   <strong>Sitemap optimization with log insights:</strong>
                 </p>
                 <ul className="space-y-2 text-slate-700">
-                  <li>• Identify pages in sitemap that Googlebot never crawls (30+ days)—remove or investigate why</li>
+                  <li>• Identify pages in sitemap that Googlebot never crawls (30+ days)--remove or investigate why</li>
                   <li>• Prioritize frequently crawled pages in sitemap (put them near top of sitemap file)</li>
                   <li>• Use <code className="text-sm">&lt;priority&gt;</code> tag based on actual crawl frequency: 1.0 for daily crawls, 0.5 for weekly, 0.3 for monthly</li>
                   <li>• Use <code className="text-sm">&lt;changefreq&gt;</code> based on observed Googlebot behavior, not arbitrary values</li>
@@ -422,7 +422,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-white p-4 rounded border border-pink-200 mt-4">
                   <p className="text-sm text-slate-700 mb-0">
-                    <strong>Early warning system:</strong> Log file monitoring detected a <strong>68% crawl rate drop 3 days before</strong> Search Console reflected the issue—site migration had accidentally blocked Googlebot via robots.txt. Fixing it immediately prevented 2-3 weeks of delayed re-crawling that Search Console alone wouldn\'t have caught until too late.
+                    <strong>Early warning system:</strong> Log file monitoring detected a <strong>68% crawl rate drop 3 days before</strong> Search Console reflected the issue--site migration had accidentally blocked Googlebot via robots.txt. Fixing it immediately prevented 2-3 weeks of delayed re-crawling that Search Console alone wouldn\'t have caught until too late.
                   </p>
                 </div>
               </div>
@@ -435,14 +435,14 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Analyzing Fake Googlebot Traffic:</strong>
-                    <p className="text-slate-700 mt-1">23% of "Googlebot" traffic is fake scrapers. Always verify IPs with reverse DNS before making crawl budget decisions—fake traffic will lead to completely wrong conclusions.</p>
+                    <p className="text-slate-700 mt-1">23% of "Googlebot" traffic is fake scrapers. Always verify IPs with reverse DNS before making crawl budget decisions--fake traffic will lead to completely wrong conclusions.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Relying Only on Google Search Console:</strong>
-                    <p className="text-slate-700 mt-1">Search Console shows what Google indexed, not what it crawled. Log files reveal 47% more crawl data including pages visited but never indexed—critical for understanding crawl budget waste.</p>
+                    <p className="text-slate-700 mt-1">Search Console shows what Google indexed, not what it crawled. Log files reveal 47% more crawl data including pages visited but never indexed--critical for understanding crawl budget waste.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -463,7 +463,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Ignoring Server Response Time Issues:</strong>
-                    <p className="text-slate-700 mt-1">Response times over 500ms reduce Googlebot crawl rate by 38%. If logs show slow TTFB for Googlebot, fix server performance immediately—it\'s costing you crawl budget and rankings.</p>
+                    <p className="text-slate-700 mt-1">Response times over 500ms reduce Googlebot crawl rate by 38%. If logs show slow TTFB for Googlebot, fix server performance immediately--it\'s costing you crawl budget and rankings.</p>
                   </div>
                 </li>
               </ul>
@@ -508,7 +508,7 @@ export default function BlogPost() {
                   <li>• Analyzed with OnCrawl to segment crawl behavior by URL pattern and content type</li>
                   <li>• <strong>Discovery #1:</strong> 47% of crawl budget was wasted on paginated archive pages (/news/2018/page/47/) instead of actual articles</li>
                   <li>• <strong>Discovery #2:</strong> 2,847 tag pages (low-value aggregation pages) consumed 18% of crawl budget despite driving zero traffic</li>
-                  <li>• <strong>Discovery #3:</strong> 12,000 new articles published weekly but Googlebot only crawled 4,200 (35%)—the rest weren\'t discovered for 30+ days</li>
+                  <li>• <strong>Discovery #3:</strong> 12,000 new articles published weekly but Googlebot only crawled 4,200 (35%)--the rest weren\'t discovered for 30+ days</li>
                 </ul>
                 <p className="text-slate-700 mb-4">
                   <strong>The Optimizations:</strong>
@@ -531,7 +531,7 @@ export default function BlogPost() {
                   <li>• <strong>Crawl frequency doubled:</strong> Average article now crawled every 3 days instead of weekly</li>
                 </ul>
                 <p className="text-slate-700 font-semibold">
-                  <strong>Key Insight:</strong> The CTO noted: "Search Console told us we had indexation issues, but log file analysis showed us exactly why—we were feeding Googlebot 500,000 URLs of pagination garbage instead of our actual content. Fixing crawl budget allocation was the single highest-ROI technical SEO project we\'ve ever done."
+                  <strong>Key Insight:</strong> The CTO noted: "Search Console told us we had indexation issues, but log file analysis showed us exactly why--we were feeding Googlebot 500,000 URLs of pagination garbage instead of our actual content. Fixing crawl budget allocation was the single highest-ROI technical SEO project we\'ve ever done."
                 </p>
               </div>
             </section>
@@ -539,7 +539,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Log File Analysis</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Manual log file analysis requires downloading gigabytes of data, parsing millions of entries, verifying Googlebot IPs, and cross-referencing with Search Console—a 20+ hour monthly task. SEOLOGY automates the entire process:
+                Manual log file analysis requires downloading gigabytes of data, parsing millions of entries, verifying Googlebot IPs, and cross-referencing with Search Console--a 20+ hour monthly task. SEOLOGY automates the entire process:
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
@@ -552,7 +552,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Crawled vs. Indexed Gap Analysis:</strong> Automatically cross-references log data with Search Console to find pages Google visits but never indexes—revealing indexation blockers</span>
+                  <span><strong>Crawled vs. Indexed Gap Analysis:</strong> Automatically cross-references log data with Search Console to find pages Google visits but never indexes--revealing indexation blockers</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -567,7 +567,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Log File Analysis</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY analyzes your server logs automatically, identifies crawl budget waste, and optimizes Googlebot behavior—increasing indexation without the manual data processing work.
+                  SEOLOGY analyzes your server logs automatically, identifies crawl budget waste, and optimizes Googlebot behavior--increasing indexation without the manual data processing work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -582,13 +582,13 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Log file analysis is the most underutilized technical SEO tactic with the highest ROI. While everyone focuses on keywords and backlinks, log files reveal exactly how Google crawls your site—and why valuable content isn\'t getting indexed.
+                Log file analysis is the most underutilized technical SEO tactic with the highest ROI. While everyone focuses on keywords and backlinks, log files reveal exactly how Google crawls your site--and why valuable content isn\'t getting indexed.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>The data is clear:</strong> Log analysis reveals 47% more crawl data than Search Console, identifies crawl budget waste consuming 67% of Googlebot\'s time on low-value pages, and finds orphaned pages with backlink authority that aren\'t ranking because they lack internal links.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                <strong>SEOLOGY eliminates the manual work.</strong> Our AI automatically processes your server logs, verifies Googlebot traffic, identifies crawl budget waste, and recommends optimizations—delivering the indexation benefits of log file analysis without requiring you to become a data analyst.
+                <strong>SEOLOGY eliminates the manual work.</strong> Our AI automatically processes your server logs, verifies Googlebot traffic, identifies crawl budget waste, and recommends optimizations--delivering the indexation benefits of log file analysis without requiring you to become a data analyst.
               </p>
               <Link
                 href="/sign-up"

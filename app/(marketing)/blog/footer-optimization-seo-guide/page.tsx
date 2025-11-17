@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Most websites treat footers as an afterthought—a dumping ground for legal links and boilerplate text. But optimized footers are powerful SEO assets that distribute link equity, improve crawlability, and drive conversions. These 17 tactics increased internal link equity distribution 41% and conversion rate 23%.
+            Most websites treat footers as an afterthought--a dumping ground for legal links and boilerplate text. But optimized footers are powerful SEO assets that distribute link equity, improve crawlability, and drive conversions. These 17 tactics increased internal link equity distribution 41% and conversion rate 23%.
           </p>
 
           <div className="mb-12">
@@ -53,16 +53,16 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>Footer links pass 60-70% of the PageRank value</strong> that main navigation links pass, making them valuable for internal linking (Moz, 2024)</li>
                 <li className="text-slate-700"><strong>41% improvement in internal link equity distribution</strong> by strategically organizing footer links (case study below)</li>
                 <li className="text-slate-700"><strong>23% increase in conversion rate</strong> by adding trust signals and strategic CTAs to footers (HubSpot, 2024)</li>
-                <li className="text-slate-700"><strong>Avoid Google penalties:</strong> Footer keyword stuffing or excessive footer links can trigger manual actions—keep footers clean and user-focused</li>
+                <li className="text-slate-700"><strong>Avoid Google penalties:</strong> Footer keyword stuffing or excessive footer links can trigger manual actions--keep footers clean and user-focused</li>
                 <li className="text-slate-700"><strong>Mobile footers need collapse/expand functionality</strong> or they hurt mobile UX and increase bounce rate (Google Mobile-First Indexing, 2024)</li>
-                <li className="text-slate-700"><strong>SEOLOGY automates footer optimization</strong>—analyzing your footer structure, removing spam patterns, and implementing strategic internal links without manual work</li>
+                <li className="text-slate-700"><strong>SEOLOGY automates footer optimization</strong>--analyzing your footer structure, removing spam patterns, and implementing strategic internal links without manual work</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Footer Optimization Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Your footer appears on every page of your website—making it one of the most powerful elements for site-wide SEO improvements. An optimized footer:
+                Your footer appears on every page of your website--making it one of the most powerful elements for site-wide SEO improvements. An optimized footer:
               </p>
               <ul className="space-y-3 my-6">
                 <li className="flex items-start gap-3">
@@ -87,7 +87,7 @@ export default function BlogPost() {
                 </li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                <strong>The risk:</strong> Over-optimized footers with keyword-stuffed anchor text or excessive links can trigger Google penalties. The key is balance—strategic optimization without spam patterns.
+                <strong>The risk:</strong> Over-optimized footers with keyword-stuffed anchor text or excessive links can trigger Google penalties. The key is balance--strategic optimization without spam patterns.
               </p>
             </section>
 
@@ -126,14 +126,14 @@ export default function BlogPost() {
                   <li><strong>Medium sites:</strong> 30-40 footer links total</li>
                   <li><strong>Large sites:</strong> 40-60 footer links maximum</li>
                 </ul>
-                <p className="text-slate-700 mt-2"><strong>Critical:</strong> Every additional link dilutes the PageRank value passed to other footer links—prioritize your most important pages.</p>
+                <p className="text-slate-700 mt-2"><strong>Critical:</strong> Every additional link dilutes the PageRank value passed to other footer links--prioritize your most important pages.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Reducing footer links from 120 to 45 increased average PageRank per link 2.7x (Moz study, 2024).</p>
               </div>
 
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #3: Link to High-Value Pages (Not Site Map Dumps)</h4>
                 <p className="text-slate-700 mb-2">
-                  Your footer should link to pages that need SEO boost—not every page on your site.
+                  Your footer should link to pages that need SEO boost--not every page on your site.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Prioritize links to:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -149,7 +149,7 @@ export default function BlogPost() {
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #4: Use Descriptive Anchor Text (Not "Click Here")</h4>
                 <p className="text-slate-700 mb-2">
-                  Footer anchor text should describe the destination page—this helps both SEO and accessibility.
+                  Footer anchor text should describe the destination page--this helps both SEO and accessibility.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Good anchor text examples:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -178,14 +178,14 @@ export default function BlogPost() {
                   <li><strong>Phone Number:</strong> Clickable tel: link with local area code</li>
                   <li><strong>Schema Markup:</strong> LocalBusiness schema in footer (optional but recommended)</li>
                 </ul>
-                <p className="text-slate-700 mt-2"><strong>Critical:</strong> NAP must match exactly across your website, Google Business Profile, and citations—inconsistencies hurt local rankings.</p>
+                <p className="text-slate-700 mt-2"><strong>Critical:</strong> NAP must match exactly across your website, Google Business Profile, and citations--inconsistencies hurt local rankings.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Consistent NAP in footer increased local pack rankings 2.4 positions on average (Whitespark, 2024).</p>
               </div>
 
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #6: Include Legal Pages (Privacy Policy, Terms, Security)</h4>
                 <p className="text-slate-700 mb-2">
-                  Legal pages in your footer build trust with both users and Google—especially important for GDPR compliance and Google Ads campaigns.
+                  Legal pages in your footer build trust with both users and Google--especially important for GDPR compliance and Google Ads campaigns.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Required legal pages:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -210,7 +210,7 @@ export default function BlogPost() {
                   <li><strong>Industry Certifications:</strong> SOC 2, ISO 27001, HIPAA compliance</li>
                   <li><strong>Review Platforms:</strong> Trustpilot, G2, Capterra ratings</li>
                 </ul>
-                <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Only display badges you\'ve actually earned—fake badges hurt credibility and may violate TOS.</p>
+                <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Only display badges you\'ve actually earned--fake badges hurt credibility and may violate TOS.</p>
               </div>
 
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
@@ -246,29 +246,29 @@ export default function BlogPost() {
 
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 3: Mobile Footer Optimization</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Mobile footers need special handling—Google\'s mobile-first indexing prioritizes mobile UX.
+                Mobile footers need special handling--Google\'s mobile-first indexing prioritizes mobile UX.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #10: Use Collapsible/Accordion Footer on Mobile</h4>
                 <p className="text-slate-700 mb-2">
-                  Long footers hurt mobile UX—collapse footer sections by default with expand/collapse functionality.
+                  Long footers hurt mobile UX--collapse footer sections by default with expand/collapse functionality.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Implementation:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
                   <li>Show footer category headings (Products, Resources, etc.)</li>
-                  <li>Hide links by default—users tap to expand</li>
+                  <li>Hide links by default--users tap to expand</li>
                   <li>Use + icon to indicate expandable sections</li>
                   <li>Allow multiple sections to be open simultaneously</li>
                 </ul>
-                <p className="text-slate-700 mt-2"><strong>Critical:</strong> Google crawls collapsed content normally—collapsing doesn\'t hurt SEO (confirmed by Google).</p>
+                <p className="text-slate-700 mt-2"><strong>Critical:</strong> Google crawls collapsed content normally--collapsing doesn\'t hurt SEO (confirmed by Google).</p>
                 <p className="text-slate-700"><strong>Result:</strong> Collapsible mobile footers reduced mobile bounce rate 14% (Google Analytics Benchmarks, 2024).</p>
               </div>
 
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #11: Ensure Footer Links Are Tappable (44px Minimum)</h4>
                 <p className="text-slate-700 mb-2">
-                  Google penalizes sites with links too small to tap on mobile—minimum 44x44px touch targets.
+                  Google penalizes sites with links too small to tap on mobile--minimum 44x44px touch targets.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Mobile footer requirements:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -283,7 +283,7 @@ export default function BlogPost() {
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #12: Reduce Footer Bloat on Mobile</h4>
                 <p className="text-slate-700 mb-2">
-                  Mobile footers should be shorter than desktop footers—remove non-essential elements on mobile.
+                  Mobile footers should be shorter than desktop footers--remove non-essential elements on mobile.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Hide on mobile:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -297,7 +297,7 @@ export default function BlogPost() {
 
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 4: Avoiding Footer Penalties</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Over-optimization in footers triggers Google penalties—here\'s how to stay safe.
+                Over-optimization in footers triggers Google penalties--here\'s how to stay safe.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
@@ -313,7 +313,7 @@ export default function BlogPost() {
                 <p className="text-slate-700 bg-green-50 p-3 rounded border border-green-200 my-2">
                   "SEO Services | Content Marketing | Technical SEO | Link Building"
                 </p>
-                <p className="text-slate-700 mt-2"><strong>Rule:</strong> Use brand names or natural descriptive phrases—never stuff keywords into anchor text.</p>
+                <p className="text-slate-700 mt-2"><strong>Rule:</strong> Use brand names or natural descriptive phrases--never stuff keywords into anchor text.</p>
               </div>
 
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
@@ -327,7 +327,7 @@ export default function BlogPost() {
                   <li>"SEO Services [City Name]" pages with only city name swapped</li>
                   <li>Location pages with no unique value or real presence</li>
                 </ul>
-                <p className="text-slate-700 mt-2"><strong>Alternative:</strong> If you serve multiple locations, link to a "Service Areas" page that lists all cities—don\'t create separate pages unless you have unique content for each.</p>
+                <p className="text-slate-700 mt-2"><strong>Alternative:</strong> If you serve multiple locations, link to a "Service Areas" page that lists all cities--don\'t create separate pages unless you have unique content for each.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Google\'s Panda and Penguin updates specifically target this pattern.</p>
               </div>
 
@@ -380,7 +380,7 @@ export default function BlogPost() {
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #17: Optimize Footer Load Performance</h4>
                 <p className="text-slate-700 mb-2">
-                  Heavy footers slow page load—optimize images, defer non-critical scripts, and minimize footer bloat.
+                  Heavy footers slow page load--optimize images, defer non-critical scripts, and minimize footer bloat.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Performance optimizations:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -400,14 +400,14 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Footer Link Overload (100+ Links):</strong>
-                    <p className="text-slate-700 mt-1">Massive footers dilute link equity and overwhelm users—keep it under 60 links maximum</p>
+                    <p className="text-slate-700 mt-1">Massive footers dilute link equity and overwhelm users--keep it under 60 links maximum</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Keyword-Stuffed Anchor Text:</strong>
-                    <p className="text-slate-700 mt-1">"Best cheap SEO services near me" as footer link = spam penalty—use natural anchor text</p>
+                    <p className="text-slate-700 mt-1">"Best cheap SEO services near me" as footer link = spam penalty--use natural anchor text</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -486,7 +486,7 @@ export default function BlogPost() {
                 </div>
 
                 <p className="text-slate-700 mt-4">
-                  <strong>Key insight:</strong> Removing 92 footer links increased the SEO value of the remaining 48 links significantly—quality over quantity.
+                  <strong>Key insight:</strong> Removing 92 footer links increased the SEO value of the remaining 48 links significantly--quality over quantity.
                 </p>
               </div>
             </section>
@@ -522,7 +522,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Footer Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY analyzes your footer structure, removes spam patterns, and implements strategic internal links automatically—increasing link equity distribution and conversions.
+                  SEOLOGY analyzes your footer structure, removes spam patterns, and implements strategic internal links automatically--increasing link equity distribution and conversions.
                 </p>
                 <Link
                   href="/sign-up"
@@ -537,7 +537,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Footer optimization is one of the highest-ROI SEO improvements you can make—it affects every page on your site simultaneously.
+                Footer optimization is one of the highest-ROI SEO improvements you can make--it affects every page on your site simultaneously.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
                 <strong>Start with cleanup:</strong> Remove excessive links, keyword-stuffed anchor text, and spam patterns. Get under 60 total links.
@@ -549,7 +549,7 @@ export default function BlogPost() {
                 <strong>Finally, optimize for mobile:</strong> Collapsible footers, proper tap targets, and faster load times.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                <strong>The result:</strong> Better internal link distribution, higher trust signals, and more conversions—all from one site-wide element.
+                <strong>The result:</strong> Better internal link distribution, higher trust signals, and more conversions--all from one site-wide element.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
                 Or let SEOLOGY automate everything and see results in 30-60 days.

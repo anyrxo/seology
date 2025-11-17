@@ -111,7 +111,7 @@ export default function BlogPost() {
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
                     <div>
                       <strong className="text-xl">Video Descriptions:</strong>
-                      <p className="text-slate-700 mt-1">First 150 characters are critical—include primary keyword and CTA. Write 300+ word descriptions with timestamps, links, keyword variations, and related terms.</p>
+                      <p className="text-slate-700 mt-1">First 150 characters are critical--include primary keyword and CTA. Write 300+ word descriptions with timestamps, links, keyword variations, and related terms.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -132,7 +132,7 @@ export default function BlogPost() {
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
                     <div>
                       <strong className="text-xl">Video Transcripts:</strong>
-                      <p className="text-slate-700 mt-1">Upload full transcripts—YouTube indexes every word. Include keywords naturally. Improves accessibility and rankings simultaneously.</p>
+                      <p className="text-slate-700 mt-1">Upload full transcripts--YouTube indexes every word. Include keywords naturally. Improves accessibility and rankings simultaneously.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -217,7 +217,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Mobile Optimization:</strong> Test video playback on mobile devices—65% of video views come from mobile</span>
+                    <span><strong>Mobile Optimization:</strong> Test video playback on mobile devices--65% of video views come from mobile</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

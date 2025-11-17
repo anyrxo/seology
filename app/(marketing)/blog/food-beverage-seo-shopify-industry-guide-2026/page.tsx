@@ -39,9 +39,9 @@ export default function FoodBeverageSEOPage() {
           🍕 The Food Ecommerce SEO Opportunity
         </p>
         <div className="space-y-2 text-red-800 dark:text-red-200">
-          <p><strong>Food ecommerce market will reach $1.03 trillion by 2032</strong>, growing at 20% CAGR—fastest-growing ecommerce category</p>
+          <p><strong>Food ecommerce market will reach $1.03 trillion by 2032</strong>, growing at 20% CAGR--fastest-growing ecommerce category</p>
           <p><strong>Grocery will be the largest US ecommerce category by 2026</strong>, accounting for 19% of all ecommerce sales</p>
-          <p><strong>Food & beverage has 4.95% conversion rate</strong>—highest of any ecommerce category—making SEO traffic exceptionally valuable</p>
+          <p><strong>Food & beverage has 4.95% conversion rate</strong>--highest of any ecommerce category--making SEO traffic exceptionally valuable</p>
           <p className="font-semibold mt-4">Without food-specific SEO addressing <strong>local discovery, health certifications, and freshness concerns</strong>, you're missing 90% of customers who find local food businesses online.</p>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function FoodBeverageSEOPage() {
       <h3>Food-Specific Search Behavior</h3>
 
       <p>
-        Food shoppers search differently than other ecommerce customers—they're looking for freshness indicators, local availability, dietary compatibility, and often have immediate purchase intent ("where to buy fresh udon noodles near me").
+        Food shoppers search differently than other ecommerce customers--they're looking for freshness indicators, local availability, dietary compatibility, and often have immediate purchase intent ("where to buy fresh udon noodles near me").
       </p>
 
       <ul>
@@ -102,7 +102,7 @@ export default function FoodBeverageSEOPage() {
       <h2>Local SEO for Food Businesses</h2>
 
       <p>
-        <strong>Almost 90% of customers find local businesses by searching online</strong>—and food businesses benefit most from local SEO because of geographic delivery constraints and "near me" search behavior.
+        <strong>Almost 90% of customers find local businesses by searching online</strong>--and food businesses benefit most from local SEO because of geographic delivery constraints and "near me" search behavior.
       </p>
 
       <h3>Google Business Profile Optimization</h3>
@@ -152,7 +152,7 @@ export default function FoodBeverageSEOPage() {
       <h2>Organic & Health Certification SEO</h2>
 
       <p>
-        <strong>Consumers are increasingly seeking transparency and authenticity in their food choices</strong>, driving demand for clean label and natural ingredients—and searching for specific certifications.
+        <strong>Consumers are increasingly seeking transparency and authenticity in their food choices</strong>, driving demand for clean label and natural ingredients--and searching for specific certifications.
       </p>
 
       <h3>Certification-Based Keywords</h3>
@@ -162,15 +162,15 @@ export default function FoodBeverageSEOPage() {
         <div className="space-y-3">
           <div>
             <p className="font-semibold mb-1">🌾 <strong>USDA Organic</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Include "USDA Organic Certified" in product titles and descriptions—searchers specifically look for this certification</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Include "USDA Organic Certified" in product titles and descriptions--searchers specifically look for this certification</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🌱 <strong>Regenerative Organic</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">More brands and farms are getting regenerative organic certification for added transparency—emerging high-growth keyword</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">More brands and farms are getting regenerative organic certification for added transparency--emerging high-growth keyword</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🌍 <strong>Fair Trade</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">"Fair Trade Certified coffee", "Fair Trade chocolate"—strong ethical positioning</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">"Fair Trade Certified coffee", "Fair Trade chocolate"--strong ethical positioning</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🚫 <strong>Non-GMO Project Verified</strong></p>
@@ -178,7 +178,7 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">🐄 <strong>Grass-Fed / Pasture-Raised</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">"Grass-fed beef delivery", "Pasture-raised chicken"—premium meat keywords</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">"Grass-fed beef delivery", "Pasture-raised chicken"--premium meat keywords</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🌊 <strong>Wild-Caught / Sustainable Seafood</strong></p>
@@ -190,7 +190,7 @@ export default function FoodBeverageSEOPage() {
       <h3>Dietary Restriction & Allergen SEO</h3>
 
       <p>
-        Create dedicated category pages and filters for dietary needs—these are high-intent searches:
+        Create dedicated category pages and filters for dietary needs--these are high-intent searches:
       </p>
 
       <ul>
@@ -214,18 +214,18 @@ export default function FoodBeverageSEOPage() {
           📦 Food Subscription SEO Strategy
         </p>
         <div className="space-y-2 text-green-800 dark:text-green-200">
-          <p><strong>• "Monthly [food] subscription box"</strong> — "Monthly coffee subscription box", "Artisan cheese monthly subscription"</p>
-          <p><strong>• "[Food type] delivery service"</strong> — "Organic produce delivery service", "Specialty spice delivery"</p>
-          <p><strong>• "Subscribe and save [product]"</strong> — Shoppers explicitly looking for recurring delivery</p>
-          <p><strong>• "Best [food] subscription 2026"</strong> — Comparison intent, create roundup content</p>
-          <p><strong>• "[Dietary] meal kit delivery"</strong> — "Keto meal kit delivery", "Vegan meal box subscription"</p>
+          <p><strong>• "Monthly [food] subscription box"</strong> -- "Monthly coffee subscription box", "Artisan cheese monthly subscription"</p>
+          <p><strong>• "[Food type] delivery service"</strong> -- "Organic produce delivery service", "Specialty spice delivery"</p>
+          <p><strong>• "Subscribe and save [product]"</strong> -- Shoppers explicitly looking for recurring delivery</p>
+          <p><strong>• "Best [food] subscription 2026"</strong> -- Comparison intent, create roundup content</p>
+          <p><strong>• "[Dietary] meal kit delivery"</strong> -- "Keto meal kit delivery", "Vegan meal box subscription"</p>
         </div>
       </div>
 
       <h2>Product Page Optimization for Food Items</h2>
 
       <p>
-        Food product pages require specific information that other categories don't—nutritional facts, ingredient sourcing, freshness guarantees, and storage instructions.
+        Food product pages require specific information that other categories don't--nutritional facts, ingredient sourcing, freshness guarantees, and storage instructions.
       </p>
 
       <h3>Food Product Page Formula</h3>
@@ -248,7 +248,7 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">4. <strong>Nutrition Facts (Structured Data)</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Use NutritionInformation schema for calories, protein, fat, carbs—helps Google understand product</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Use NutritionInformation schema for calories, protein, fat, carbs--helps Google understand product</p>
           </div>
           <div>
             <p className="font-semibold mb-1">5. <strong>Ingredient List (Transparency)</strong></p>
@@ -256,11 +256,11 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">6. <strong>Storage & Shelf Life</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">"Frozen upon arrival. Thaw in refrigerator. Use within 3 days of thawing."—addresses perishability concerns</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">"Frozen upon arrival. Thaw in refrigerator. Use within 3 days of thawing."--addresses perishability concerns</p>
           </div>
           <div>
             <p className="font-semibold mb-1">7. <strong>Serving Suggestions & Recipes</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Link to recipes using the product ("Best Recipes for Grass-Fed Beef")—creates internal linking and extended engagement</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Link to recipes using the product ("Best Recipes for Grass-Fed Beef")--creates internal linking and extended engagement</p>
           </div>
         </div>
       </div>
@@ -268,24 +268,24 @@ export default function FoodBeverageSEOPage() {
       <h2>Content Marketing for Food Brands</h2>
 
       <p>
-        Food brands have natural content advantages—recipes, cooking tips, nutritional education, and sourcing stories create authentic, valuable content that ranks and converts.
+        Food brands have natural content advantages--recipes, cooking tips, nutritional education, and sourcing stories create authentic, valuable content that ranks and converts.
       </p>
 
       <h3>High-Performing Food Content Types</h3>
 
       <ul>
-        <li><strong>Recipe Content:</strong> "10 Easy Recipes with [Your Product]", "How to Cook [Ingredient]"—evergreen, high-traffic content</li>
-        <li><strong>Ingredient Guides:</strong> "What Is [Ingredient]? Health Benefits, Uses, Where to Buy"—educational authority building</li>
-        <li><strong>Sourcing Stories:</strong> "Meet Our Farmers: Behind the Scenes at [Farm Name]"—builds trust and brand differentiation</li>
-        <li><strong>Nutrition Education:</strong> "Complete Guide to Protein: Types, Benefits, How Much You Need"—positions brand as health expert</li>
+        <li><strong>Recipe Content:</strong> "10 Easy Recipes with [Your Product]", "How to Cook [Ingredient]"--evergreen, high-traffic content</li>
+        <li><strong>Ingredient Guides:</strong> "What Is [Ingredient]? Health Benefits, Uses, Where to Buy"--educational authority building</li>
+        <li><strong>Sourcing Stories:</strong> "Meet Our Farmers: Behind the Scenes at [Farm Name]"--builds trust and brand differentiation</li>
+        <li><strong>Nutrition Education:</strong> "Complete Guide to Protein: Types, Benefits, How Much You Need"--positions brand as health expert</li>
         <li><strong>Pairing Guides:</strong> "Wine Pairing Guide for [Food Category]", "Best Cheese Pairings for [Occasion]"</li>
-        <li><strong>Seasonal Content:</strong> "Summer Grilling Guide 2026", "Holiday Baking Essentials"—captures seasonal search volume spikes</li>
+        <li><strong>Seasonal Content:</strong> "Summer Grilling Guide 2026", "Holiday Baking Essentials"--captures seasonal search volume spikes</li>
       </ul>
 
       <h3>Recipe Schema Markup</h3>
 
       <p>
-        Recipes are Google's favorite food content—use Recipe schema to get rich snippets with ratings, cook time, and ingredients:
+        Recipes are Google's favorite food content--use Recipe schema to get rich snippets with ratings, cook time, and ingredients:
       </p>
 
       <div className="not-prose bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mb-6 overflow-x-auto">
@@ -331,7 +331,7 @@ export default function FoodBeverageSEOPage() {
         <div className="space-y-3 text-blue-800 dark:text-blue-200">
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Harvest-to-Delivery Timeline:</strong> "Picked Monday, shipped Tuesday, delivered Wednesday"—specific timing builds trust</p>
+            <p><strong>Harvest-to-Delivery Timeline:</strong> "Picked Monday, shipped Tuesday, delivered Wednesday"--specific timing builds trust</p>
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
@@ -347,7 +347,7 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div className="flex gap-3">
             <span className="font-bold">→</span>
-            <p><strong>Customer Unboxing Photos:</strong> Encourage customers to share photos of products upon arrival—social proof of quality</p>
+            <p><strong>Customer Unboxing Photos:</strong> Encourage customers to share photos of products upon arrival--social proof of quality</p>
           </div>
         </div>
       </div>
@@ -355,7 +355,7 @@ export default function FoodBeverageSEOPage() {
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Dominate Food Ecommerce in 2026?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          SEOLOGY.AI automatically optimizes local SEO, certification content, and subscription strategies for food brands—capturing the $1.03 trillion market with 4.95% conversion rates
+          SEOLOGY.AI automatically optimizes local SEO, certification content, and subscription strategies for food brands--capturing the $1.03 trillion market with 4.95% conversion rates
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
@@ -392,19 +392,19 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">🌾 <strong>Fiber Emerges as Next Big Nutrient</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Fiber will be the nutrient to watch next year—Keywords: "high-fiber snacks", "gut health foods", "prebiotic fiber"</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Fiber will be the nutrient to watch next year--Keywords: "high-fiber snacks", "gut health foods", "prebiotic fiber"</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🌱 <strong>Authentic Plant-Based</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Plant-based transitioning from imitating meat to providing own nutrition benefits—Keywords: "whole food plant-based", "legume protein"</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Plant-based transitioning from imitating meat to providing own nutrition benefits--Keywords: "whole food plant-based", "legume protein"</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🍄 <strong>Functional Beverages & Adaptogens</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">Adaptogens like Ashwaganda and Shilajit emerging—Keywords: "adaptogenic coffee", "functional mushroom drinks"</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Adaptogens like Ashwaganda and Shilajit emerging--Keywords: "adaptogenic coffee", "functional mushroom drinks"</p>
           </div>
           <div>
             <p className="font-semibold mb-1">🥩 <strong>Back to Basics: Animal Fats</strong></p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">2026 is all about going back to basics—platforming animal-based fats—Keywords: "grass-fed butter", "tallow for cooking"</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">2026 is all about going back to basics--platforming animal-based fats--Keywords: "grass-fed butter", "tallow for cooking"</p>
           </div>
         </div>
       </div>
@@ -412,7 +412,7 @@ export default function FoodBeverageSEOPage() {
       <h2>Delivery & Shipping SEO for Food</h2>
 
       <p>
-        <strong>The use of grocery delivery services in 2024 has risen by 56% compared to 2022</strong>—but delivery logistics create unique SEO requirements for food businesses.
+        <strong>The use of grocery delivery services in 2024 has risen by 56% compared to 2022</strong>--but delivery logistics create unique SEO requirements for food businesses.
       </p>
 
       <h3>Shipping Page Optimization</h3>
@@ -420,15 +420,15 @@ export default function FoodBeverageSEOPage() {
       <ul>
         <li><strong>Delivery Zone Pages:</strong> "Food Delivery to [City/Zip Code]" targeting local searches</li>
         <li><strong>Shipping Cost Transparency:</strong> Create FAQ targeting "how much does [food] delivery cost" keywords</li>
-        <li><strong>Temperature Control Explanation:</strong> "How We Keep Food Fresh During Shipping"—builds trust and targets informational searches</li>
+        <li><strong>Temperature Control Explanation:</strong> "How We Keep Food Fresh During Shipping"--builds trust and targets informational searches</li>
         <li><strong>Delivery Timeline Calculator:</strong> "Order by 2pm for next-day delivery" with zip code lookup</li>
-        <li><strong>Subscription Delivery Benefits:</strong> "Free delivery on all subscription orders"—highlight recurring delivery advantages</li>
+        <li><strong>Subscription Delivery Benefits:</strong> "Free delivery on all subscription orders"--highlight recurring delivery advantages</li>
       </ul>
 
       <h2>Retail Media & Walmart/Amazon Food SEO</h2>
 
       <p>
-        <strong>Walmart generated significant profits by turning its eCommerce platform into a robust advertising channel for the food industry</strong>—meaning food brands need multi-platform SEO strategies.
+        <strong>Walmart generated significant profits by turning its eCommerce platform into a robust advertising channel for the food industry</strong>--meaning food brands need multi-platform SEO strategies.
       </p>
 
       <h3>Amazon Fresh & Walmart Grocery Optimization</h3>
@@ -437,7 +437,7 @@ export default function FoodBeverageSEOPage() {
         <li><strong>Platform-Specific Keywords:</strong> "Best [product] on Amazon Fresh", "Walmart grocery delivery [product]"</li>
         <li><strong>Amazon A+ Content:</strong> Rich product descriptions with comparison charts, sourcing stories, nutritional breakdowns</li>
         <li><strong>Walmart Marketplace SEO:</strong> Optimize for Walmart's search algorithm (prioritizes ratings, fulfillment speed, price competitiveness)</li>
-        <li><strong>Review Velocity:</strong> Both platforms heavily weight recent review activity—actively request reviews from purchasers</li>
+        <li><strong>Review Velocity:</strong> Both platforms heavily weight recent review activity--actively request reviews from purchasers</li>
       </ul>
 
       <h2>Common Food & Beverage SEO Mistakes</h2>
@@ -457,7 +457,7 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">3. Missing Nutrition Information Schema</p>
-            <p className="text-sm">Problem: Nutrition facts displayed as image only—Google can't index or understand nutritional content</p>
+            <p className="text-sm">Problem: Nutrition facts displayed as image only--Google can't index or understand nutritional content</p>
             <p className="text-sm font-semibold">Solution: Use NutritionInformation schema markup for calories, protein, macros</p>
           </div>
           <div>
@@ -467,7 +467,7 @@ export default function FoodBeverageSEOPage() {
           </div>
           <div>
             <p className="font-semibold mb-1">5. Ignoring Dietary Restriction Filters</p>
-            <p className="text-sm">Problem: No clear filtering for gluten-free, vegan, keto products—high-intent searches can't find relevant products</p>
+            <p className="text-sm">Problem: No clear filtering for gluten-free, vegan, keto products--high-intent searches can't find relevant products</p>
             <p className="text-sm font-semibold">Solution: Create dedicated category pages for each dietary need with unique content</p>
           </div>
         </div>
@@ -529,21 +529,21 @@ export default function FoodBeverageSEOPage() {
         </p>
         <ul className="space-y-2 text-yellow-800 dark:text-yellow-200">
           <li><strong>• Hyperlocal Discovery:</strong> Voice search and Google Maps integration for "fresh [ingredient] near me" queries</li>
-          <li><strong>• Blockchain Transparency:</strong> Sourcing verification via blockchain—SEO content showcasing farm-to-table traceability</li>
-          <li><strong>• AI Nutrition Assistants:</strong> Chatbots recommending products based on dietary goals—optimize for conversational queries</li>
-          <li><strong>• Subscription-First Models:</strong> Free delivery subscriptions becoming standard—optimize for recurring customer SEO</li>
-          <li><strong>• Regenerative Organic Rise:</strong> Beyond organic—regenerative practices become major SEO differentiator</li>
+          <li><strong>• Blockchain Transparency:</strong> Sourcing verification via blockchain--SEO content showcasing farm-to-table traceability</li>
+          <li><strong>• AI Nutrition Assistants:</strong> Chatbots recommending products based on dietary goals--optimize for conversational queries</li>
+          <li><strong>• Subscription-First Models:</strong> Free delivery subscriptions becoming standard--optimize for recurring customer SEO</li>
+          <li><strong>• Regenerative Organic Rise:</strong> Beyond organic--regenerative practices become major SEO differentiator</li>
         </ul>
       </div>
 
       <p>
-        <strong>The food brands that thrive in 2026 will be those that leverage local SEO dominance, certification transparency, and health trend authority</strong>—building trust through content that educates consumers and showcases the quality and freshness that can't be experienced through a screen.
+        <strong>The food brands that thrive in 2026 will be those that leverage local SEO dominance, certification transparency, and health trend authority</strong>--building trust through content that educates consumers and showcases the quality and freshness that can't be experienced through a screen.
       </p>
 
       <div className="not-prose bg-gradient-to-r from-orange-600 to-amber-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Food & Beverage SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
-          Join specialty food brands using SEOLOGY.AI to automatically optimize local SEO, certification content, and nutrition schema—achieving the 4.95% conversion rate while capturing the $1.03 trillion food ecommerce market.
+          Join specialty food brands using SEOLOGY.AI to automatically optimize local SEO, certification content, and nutrition schema--achieving the 4.95% conversion rate while capturing the $1.03 trillion food ecommerce market.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <p className="font-semibold mb-3">✅ Food & Beverage Features:</p>

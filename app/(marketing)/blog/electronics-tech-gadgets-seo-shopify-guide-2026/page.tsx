@@ -128,11 +128,11 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
             <div>
               <p className="font-semibold">2. HTML-First Content</p>
               <p className="text-sm mt-1">Reviews and ratings must be available in the served HTML without relying on JavaScript<br/>
-              AI agents can't execute JavaScript—ensure critical data is server-rendered</p>
+              AI agents can't execute JavaScript--ensure critical data is server-rendered</p>
             </div>
             <div>
               <p className="font-semibold">3. Complete Specifications</p>
-              <p className="text-sm mt-1">Product cards display specs, ratings, and review summaries—missing data excludes you<br/>
+              <p className="text-sm mt-1">Product cards display specs, ratings, and review summaries--missing data excludes you<br/>
               Every product needs comprehensive technical specifications in structured format</p>
             </div>
             <div>
@@ -150,11 +150,11 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         </p>
 
         <ul>
-          <li><strong>Complete Attribute Coverage:</strong> Fill every available field—color, size, material, brand, MPN, UPC/EAN/ISBN</li>
+          <li><strong>Complete Attribute Coverage:</strong> Fill every available field--color, size, material, brand, MPN, UPC/EAN/ISBN</li>
           <li><strong>Detailed Descriptions:</strong> 500-1000 character descriptions with key features, specifications, and use cases</li>
-          <li><strong>High-Quality Images:</strong> Multiple angles, lifestyle shots, size comparisons—minimum 800x800px</li>
+          <li><strong>High-Quality Images:</strong> Multiple angles, lifestyle shots, size comparisons--minimum 800x800px</li>
           <li><strong>Accurate Pricing:</strong> Real-time price updates, sale price with sale_price_effective_date, shipping costs</li>
-          <li><strong>Availability Status:</strong> In stock, out of stock, pre-order, discontinued—accurate real-time status</li>
+          <li><strong>Availability Status:</strong> In stock, out of stock, pre-order, discontinued--accurate real-time status</li>
         </ul>
 
         <h2>Technical Specifications SEO Strategy</h2>
@@ -162,7 +162,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         <h3>Why Specifications Drive Electronics SEO</h3>
 
         <p>
-          Electronics buyers are specification-driven—they search for exact models, chipsets, screen sizes, battery capacities, and compatibility requirements. Complete, accurate specifications are non-negotiable for electronics ecommerce success.
+          Electronics buyers are specification-driven--they search for exact models, chipsets, screen sizes, battery capacities, and compatibility requirements. Complete, accurate specifications are non-negotiable for electronics ecommerce success.
         </p>
 
         <div className="not-prose bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900/20 dark:to-gray-900/20 p-6 rounded-lg my-8">
@@ -263,7 +263,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
 
         <ul>
           <li><strong>Guided Review Forms:</strong> Prompt reviewers to rate specific attributes (battery life, sound quality, build quality, value)</li>
-          <li><strong>Photo/Video Reviews:</strong> Visual reviews increase trust and engagement—offer incentives for media uploads</li>
+          <li><strong>Photo/Video Reviews:</strong> Visual reviews increase trust and engagement--offer incentives for media uploads</li>
           <li><strong>Pros/Cons Structure:</strong> Structured feedback helps buyers quickly assess fit for their needs</li>
           <li><strong>Usage Context:</strong> "I use this for..." helps others determine relevance (gaming, work, travel, etc.)</li>
           <li><strong>Comparison Mentions:</strong> "Coming from [previous product]" provides context for existing users of competitors</li>
@@ -324,7 +324,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         <h3>Rapid Release Cycles and SEO</h3>
 
         <p>
-          Electronics have short product lifecycles—new smartphone models every year, updated gadgets every 6-12 months. This creates unique SEO challenges around outdated products, successor models, and discontinued inventory.
+          Electronics have short product lifecycles--new smartphone models every year, updated gadgets every 6-12 months. This creates unique SEO challenges around outdated products, successor models, and discontinued inventory.
         </p>
 
         <div className="not-prose bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-6 rounded-lg my-8">
@@ -355,7 +355,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
               <p className="text-sm mt-1">✅ Convert to comparison/review content page<br/>
               ✅ "Samsung Galaxy S23 Ultra Review: Still Worth It in 2026?"<br/>
               ✅ Recommend successor model and similar alternatives<br/>
-              ❌ DON'T delete page—preserves authority and backlinks</p>
+              ❌ DON'T delete page--preserves authority and backlinks</p>
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
             </div>
             <div>
               <p className="font-semibold">2. Feature Demonstrations</p>
-              <p className="text-sm mt-1">Show features in action—camera samples, gaming performance, battery test<br/>
+              <p className="text-sm mt-1">Show features in action--camera samples, gaming performance, battery test<br/>
               Target: "[Product] camera test", "[Product] gaming performance", "[Product] battery life real world"</p>
             </div>
             <div>
@@ -564,7 +564,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         <h3>Bulk and Wholesale Optimization</h3>
 
         <p>
-          Many electronics purchases are B2B—corporate IT departments, resellers, educational institutions, government contracts. Capture this high-value segment:
+          Many electronics purchases are B2B--corporate IT departments, resellers, educational institutions, government contracts. Capture this high-value segment:
         </p>
 
         <div className="not-prose bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 p-6 rounded-lg my-8">
@@ -668,7 +668,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         <h2>Conclusion: Precision-Driven SEO for Electronics</h2>
 
         <p>
-          The consumer electronics ecommerce market's explosive growth—reaching <strong>$736.5 billion in 2025</strong> and projected to <strong>$1.22 trillion by 2032</strong>, with <strong>72% of consumers starting their search online</strong> and <strong>55% of revenue from ecommerce</strong>—represents unprecedented opportunity for Shopify electronics and tech gadget stores willing to invest in specification-focused, AI-optimized SEO strategies.
+          The consumer electronics ecommerce market's explosive growth--reaching <strong>$736.5 billion in 2025</strong> and projected to <strong>$1.22 trillion by 2032</strong>, with <strong>72% of consumers starting their search online</strong> and <strong>55% of revenue from ecommerce</strong>--represents unprecedented opportunity for Shopify electronics and tech gadget stores willing to invest in specification-focused, AI-optimized SEO strategies.
         </p>
 
         <p>
@@ -680,7 +680,7 @@ export default function ElectronicsTechGadgetsSEOGuide2026() {
         </p>
 
         <p>
-          The future of electronics ecommerce belongs to stores that recognize tech buyers are researchers—they want complete specifications, honest reviews, detailed comparisons, and confidence that they're purchasing the right device for their specific needs at the best possible price.
+          The future of electronics ecommerce belongs to stores that recognize tech buyers are researchers--they want complete specifications, honest reviews, detailed comparisons, and confidence that they're purchasing the right device for their specific needs at the best possible price.
         </p>
 
         {/* Author Bio */}

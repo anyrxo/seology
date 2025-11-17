@@ -60,7 +60,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Every 404 error is a lost opportunity. Most sites treat broken pages as throwaway experiences, but smart brands turn 404 pages into <strong>conversion assets</strong>. This guide shows you how to audit, optimize, and monetize every 404 error on your site—automatically with SEOLOGY.
+                Every 404 error is a lost opportunity. Most sites treat broken pages as throwaway experiences, but smart brands turn 404 pages into <strong>conversion assets</strong>. This guide shows you how to audit, optimize, and monetize every 404 error on your site--automatically with SEOLOGY.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  SEOLOGY automatically detects every 404 error across your site and implements intelligent redirect strategies—no manual work required.
+                  SEOLOGY automatically detects every 404 error across your site and implements intelligent redirect strategies--no manual work required.
                 </p>
               </section>
 
@@ -103,7 +103,7 @@ export default function BlogPost() {
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
                     <div>
                       <strong className="text-xl">Google Search Console:</strong>
-                      <p className="text-slate-700 mt-1">Check Coverage report for "Not found (404)" errors—but this only shows pages Google tried to crawl</p>
+                      <p className="text-slate-700 mt-1">Check Coverage report for "Not found (404)" errors--but this only shows pages Google tried to crawl</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -124,13 +124,13 @@ export default function BlogPost() {
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
                     <div>
                       <strong className="text-xl">Backlink Analysis:</strong>
-                      <p className="text-slate-700 mt-1">Check Ahrefs or SEMrush for external links pointing to 404 pages—these are high-priority fixes</p>
+                      <p className="text-slate-700 mt-1">Check Ahrefs or SEMrush for external links pointing to 404 pages--these are high-priority fixes</p>
                     </div>
                   </li>
                 </ul>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                   <p className="text-slate-700 mb-0">
-                    <strong>Pro Tip:</strong> SEOLOGY automatically monitors all these sources and alerts you to new 404 errors in real-time—no manual checking required.
+                    <strong>Pro Tip:</strong> SEOLOGY automatically monitors all these sources and alerts you to new 404 errors in real-time--no manual checking required.
                   </p>
                 </div>
               </section>
@@ -159,7 +159,7 @@ export default function BlogPost() {
                   <div className="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-xl border border-red-200">
                     <h3 className="text-xl font-bold text-red-900 mb-2">Scenario 4: Spam or Malicious URLs</h3>
                     <p className="text-slate-700 mb-2"><strong>Action:</strong> Return proper 404 status and block via robots.txt if needed</p>
-                    <p className="text-slate-700">Don\'t redirect junk URLs—just let them 404 properly.</p>
+                    <p className="text-slate-700">Don\'t redirect junk URLs--just let them 404 properly.</p>
                   </div>
                 </div>
               </section>
@@ -188,7 +188,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Brand Voice:</strong> Use your brand personality—humor works well on 404 pages</span>
+                    <span><strong>Brand Voice:</strong> Use your brand personality--humor works well on 404 pages</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -209,7 +209,7 @@ export default function BlogPost() {
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">Real-Time Monitoring</div>
-                    <div className="text-slate-700">SEOLOGY alerts you immediately when new 404s appear—before they hurt rankings</div>
+                    <div className="text-slate-700">SEOLOGY alerts you immediately when new 404s appear--before they hurt rankings</div>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-4xl font-bold text-purple-600 mb-2">Automatic Fixes</div>
@@ -233,28 +233,28 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Soft 404s:</strong>
-                      <p className="text-slate-700 mt-1">Returning 200 status for 404 pages confuses Google—always return proper 404 status codes</p>
+                      <p className="text-slate-700 mt-1">Returning 200 status for 404 pages confuses Google--always return proper 404 status codes</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Blanket Homepage Redirects:</strong>
-                      <p className="text-slate-700 mt-1">Don\'t redirect all 404s to homepage—this wastes link equity and frustrates users</p>
+                      <p className="text-slate-700 mt-1">Don\'t redirect all 404s to homepage--this wastes link equity and frustrates users</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Ignoring Server Logs:</strong>
-                      <p className="text-slate-700 mt-1">Google Search Console only shows a fraction of 404s—check your server logs too</p>
+                      <p className="text-slate-700 mt-1">Google Search Console only shows a fraction of 404s--check your server logs too</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Redirect Chains:</strong>
-                      <p className="text-slate-700 mt-1">Never redirect 404 → Page A → Page B—always redirect directly to the final destination</p>
+                      <p className="text-slate-700 mt-1">Never redirect 404 → Page A → Page B--always redirect directly to the final destination</p>
                     </div>
                   </li>
                 </ul>
@@ -288,7 +288,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Stop Losing Traffic to 404 Errors</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically detects and fixes every 404 error on your site—turning dead pages into revenue opportunities.
+                    SEOLOGY automatically detects and fixes every 404 error on your site--turning dead pages into revenue opportunities.
                   </p>
                   <Link
                     href="/sign-up"

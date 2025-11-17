@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions | SEOLOGY.AI',
-  description: 'Every 0.1s speed improvement increases conversions by 8.4%. Learn proven Shopify speed optimization strategies with December 2025 benchmarks—boost performance and rankings now.',
+  description: 'Every 0.1s speed improvement increases conversions by 8.4%. Learn proven Shopify speed optimization strategies with December 2025 benchmarks--boost performance and rankings now.',
   keywords: 'Shopify speed optimization, Shopify page speed, site speed SEO, Core Web Vitals Shopify, LCP optimization, Shopify performance, fast Shopify store, page load time, ecommerce speed, Shopify lighthouse score',
   openGraph: {
     title: 'Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions',
@@ -163,7 +163,7 @@ export default function ShopifySpeedOptimizationPage() {
           <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 p-6 mb-8">
             <p className="text-sm font-semibold text-yellow-900 dark:text-yellow-200 mb-2">📊 Real-World Example (December 2025)</p>
             <p className="text-sm text-yellow-800 dark:text-yellow-300">
-              A mid-sized Shopify apparel store reduced their LCP from 4.2s to 1.8s through optimization. Result: <strong>+34% conversion rate increase and +$47,000 additional monthly revenue</strong>—without spending a dollar on ads.
+              A mid-sized Shopify apparel store reduced their LCP from 4.2s to 1.8s through optimization. Result: <strong>+34% conversion rate increase and +$47,000 additional monthly revenue</strong>--without spending a dollar on ads.
             </p>
           </div>
         </section>
@@ -292,7 +292,7 @@ export default function ShopifySpeedOptimizationPage() {
           <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-6 mb-8">
             <p className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Key Takeaway</p>
             <p className="text-sm text-blue-800 dark:text-blue-300">
-              <strong>70% of consumers say page speed impacts their willingness to buy from an online retailer.</strong> Speed isn't just a technical metric—it's a trust signal. Slow sites feel unprofessional and reduce customer confidence.
+              <strong>70% of consumers say page speed impacts their willingness to buy from an online retailer.</strong> Speed isn't just a technical metric--it's a trust signal. Slow sites feel unprofessional and reduce customer confidence.
             </p>
           </div>
         </section>
@@ -314,7 +314,7 @@ export default function ShopifySpeedOptimizationPage() {
                 <div>
                   <strong className="text-gray-900 dark:text-gray-100">Real User Data from Chrome (CrUX)</strong>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Google uses the Chrome User Experience Report (CrUX)—real performance data from actual Chrome users visiting your site. This isn't simulated; it's how your actual visitors experience your store.
+                    Google uses the Chrome User Experience Report (CrUX)--real performance data from actual Chrome users visiting your site. This isn't simulated; it's how your actual visitors experience your store.
                   </p>
                 </div>
               </li>
@@ -380,7 +380,7 @@ export default function ShopifySpeedOptimizationPage() {
           <div className="bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-500 p-6 mb-8">
             <p className="text-sm font-semibold text-purple-900 dark:text-purple-200 mb-2">🎯 Strategic Insight</p>
             <p className="text-sm text-purple-800 dark:text-purple-300">
-              While content quality beats speed as a ranking factor, <strong>speed is easier to optimize</strong> than creating better content. It's the fastest path to outranking competitors with similar content quality—especially in competitive niches.
+              While content quality beats speed as a ranking factor, <strong>speed is easier to optimize</strong> than creating better content. It's the fastest path to outranking competitors with similar content quality--especially in competitive niches.
             </p>
           </div>
         </section>
@@ -531,7 +531,7 @@ export default function ShopifySpeedOptimizationPage() {
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 mb-8">
             <p className="text-sm font-semibold text-red-900 dark:text-red-200 mb-2">⚠️ The US Retail Problem</p>
             <p className="text-sm text-red-800 dark:text-red-300">
-              The average US retail site takes <strong>6.3 seconds to load on mobile</strong>—more than double Google's recommended 2.5-second benchmark. This creates a massive opportunity: even modest speed improvements can vault you ahead of 70% of competitors.
+              The average US retail site takes <strong>6.3 seconds to load on mobile</strong>--more than double Google's recommended 2.5-second benchmark. This creates a massive opportunity: even modest speed improvements can vault you ahead of 70% of competitors.
             </p>
           </div>
         </section>
@@ -683,13 +683,13 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
 
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                Every Shopify app adds JavaScript and CSS to your store—even inactive apps often leave code behind that slows down your site.
+                Every Shopify app adds JavaScript and CSS to your store--even inactive apps often leave code behind that slows down your site.
               </p>
 
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-4">
                 <strong className="text-sm text-gray-900 dark:text-gray-100 block mb-2">Implementation Steps:</strong>
                 <ul className="text-sm space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Audit your apps quarterly—uninstall anything you haven't used in 30 days</li>
+                  <li>• Audit your apps quarterly--uninstall anything you haven't used in 30 days</li>
                   <li>• After uninstalling, manually remove leftover code from your theme</li>
                   <li>• Use Chrome DevTools Network tab to identify which apps add the most load</li>
                   <li>• Consolidate functionality (e.g., one review app instead of multiple)</li>
@@ -766,7 +766,7 @@ export default function ShopifySpeedOptimizationPage() {
                   <strong>14. Enable Gzip Compression:</strong> Shopify handles this automatically for text-based files
                 </div>
                 <div>
-                  <strong>15. Monitor and Iterate:</strong> Speed optimization is ongoing—test monthly and fix regressions
+                  <strong>15. Monitor and Iterate:</strong> Speed optimization is ongoing--test monthly and fix regressions
                 </div>
               </div>
             </div>
@@ -779,7 +779,7 @@ export default function ShopifySpeedOptimizationPage() {
             Stop Losing Revenue to Slow Load Times
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            SEOLOGY.AI automatically optimizes your Shopify store's speed 24/7—no manual work required
+            SEOLOGY.AI automatically optimizes your Shopify store's speed 24/7--no manual work required
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">

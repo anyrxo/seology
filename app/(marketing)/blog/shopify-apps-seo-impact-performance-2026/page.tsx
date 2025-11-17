@@ -32,7 +32,7 @@ export default function ShopifyAppsSEOImpact2026() {
           Shopify Apps SEO Impact: Performance & Ranking Effects in 2026
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          The average Shopify app adds 1.2 seconds to page load time and 400KB of JavaScript. Stores lose 40% of potential customers to app-induced slowdowns. A fashion retailer with 18 apps experienced 7.2-second load times; reducing to 7 apps dropped it to 2.3 seconds. With average Shopify stores scoring 25-30 (poor) on speed tests, app bloat is the #1 performance killer—and Google's Core Web Vitals are ranking factors in 2026.
+          The average Shopify app adds 1.2 seconds to page load time and 400KB of JavaScript. Stores lose 40% of potential customers to app-induced slowdowns. A fashion retailer with 18 apps experienced 7.2-second load times; reducing to 7 apps dropped it to 2.3 seconds. With average Shopify stores scoring 25-30 (poor) on speed tests, app bloat is the #1 performance killer--and Google's Core Web Vitals are ranking factors in 2026.
         </p>
         <div className="flex items-center gap-4 mt-6 text-sm text-gray-500">
           <time dateTime="2025-12-22">December 22, 2025</time>
@@ -876,7 +876,7 @@ export default function ShopifyAppsSEOImpact2026() {
       <section className="not-prose bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg mt-12">
         <h2 className="text-3xl font-bold mb-4">Automate Shopify App Performance Monitoring</h2>
         <p className="text-xl mb-6 opacity-90">
-          SEOLOGY.AI automatically audits your installed apps, identifies performance bottlenecks, detects orphaned scripts, and recommends lightweight alternatives—all without manual testing.
+          SEOLOGY.AI automatically audits your installed apps, identifies performance bottlenecks, detects orphaned scripts, and recommends lightweight alternatives--all without manual testing.
         </p>
         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6">
           <div className="grid md:grid-cols-3 gap-4 text-center">

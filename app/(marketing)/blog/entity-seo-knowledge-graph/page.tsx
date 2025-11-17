@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Google shifted from "strings to things" with MUM, BERT, and the Knowledge Graph. Entity SEO is how you tell Google exactly what your brand is—not just what keywords you rank for. These 15 tactics increased knowledge panel impressions 347% and organic traffic 89% in 90 days.
+            Google shifted from "strings to things" with MUM, BERT, and the Knowledge Graph. Entity SEO is how you tell Google exactly what your brand is--not just what keywords you rank for. These 15 tactics increased knowledge panel impressions 347% and organic traffic 89% in 90 days.
           </p>
 
           <div className="mb-12">
@@ -50,19 +50,19 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li className="text-slate-700"><strong>Google\'s Knowledge Graph contains 500B+ facts about 5B+ entities</strong> (Google, 2023)—entities rank higher than keyword-only pages</li>
+                <li className="text-slate-700"><strong>Google\'s Knowledge Graph contains 500B+ facts about 5B+ entities</strong> (Google, 2023)--entities rank higher than keyword-only pages</li>
                 <li className="text-slate-700"><strong>Sites recognized as entities rank 2.7 positions higher</strong> for branded queries and 1.8 positions higher for category queries (SEMrush, 2024)</li>
                 <li className="text-slate-700"><strong>Knowledge panels increase CTR 37% for branded searches</strong> by occupying more SERP real estate (Moz, 2024)</li>
                 <li className="text-slate-700"><strong>Entity-rich content ranks 2.3x higher</strong> than keyword-stuffed content for semantic queries (Ahrefs, 2024)</li>
                 <li className="text-slate-700"><strong>Schema markup + entity optimization = 89% organic traffic increase</strong> in 90 days for B2B SaaS brand (case study below)</li>
-                <li className="text-slate-700"><strong>SEOLOGY automates entity SEO</strong>—adding schema markup, claiming knowledge panels, building entity relationships, and maintaining NAP consistency across the web</li>
+                <li className="text-slate-700"><strong>SEOLOGY automates entity SEO</strong>--adding schema markup, claiming knowledge panels, building entity relationships, and maintaining NAP consistency across the web</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Entity SEO Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Google doesn\'t see your website as keywords anymore—it sees <strong>entities</strong>. Entities are "things, not strings"—people, places, organizations, products, concepts that Google recognizes as distinct objects with attributes and relationships.
+                Google doesn\'t see your website as keywords anymore--it sees <strong>entities</strong>. Entities are "things, not strings"--people, places, organizations, products, concepts that Google recognizes as distinct objects with attributes and relationships.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 When Google understands your brand as an entity, you unlock:
@@ -82,7 +82,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>BERT and MUM advantage:</strong> Google\'s language models prioritize entities over keyword matches—entity SEO is future-proof</span>
+                  <span><strong>BERT and MUM advantage:</strong> Google\'s language models prioritize entities over keyword matches--entity SEO is future-proof</span>
                 </li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -95,7 +95,7 @@ export default function BlogPost() {
 
               <h3 className="text-2xl font-bold mt-8 mb-4">Category 1: Establishing Your Brand as an Entity</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                These tactics tell Google "we are a legitimate, recognized entity"—the foundation of entity SEO.
+                These tactics tell Google "we are a legitimate, recognized entity"--the foundation of entity SEO.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
@@ -106,7 +106,7 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-2"><strong>How to do it:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
                   <li>Meet Wikipedia\'s notability guidelines (press coverage from reliable sources, significant achievements, or industry recognition)</li>
-                  <li>Write neutrally—no promotional language (Wikipedia editors will delete marketing copy)</li>
+                  <li>Write neutrally--no promotional language (Wikipedia editors will delete marketing copy)</li>
                   <li>Include citations to reliable third-party sources (news articles, industry publications, academic papers)</li>
                   <li>Add your page to relevant Wikipedia categories (e.g., "B2B SaaS companies," "SEO software")</li>
                   <li>Link to your official website, social profiles, and relevant resources</li>
@@ -191,7 +191,7 @@ export default function BlogPost() {
               <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-indigo-900 mb-2">Tactic #5: Create a Wikidata Entry</h4>
                 <p className="text-slate-700 mb-2">
-                  Wikidata is the structured database behind Wikipedia—and Google pulls entity data directly from Wikidata. Even without a Wikipedia page, you can create a Wikidata entry.
+                  Wikidata is the structured database behind Wikipedia--and Google pulls entity data directly from Wikidata. Even without a Wikipedia page, you can create a Wikidata entry.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>How to create a Wikidata item:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -212,7 +212,7 @@ export default function BlogPost() {
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #6: Create Dedicated Entity Pages</h4>
                 <p className="text-slate-700 mb-2">
-                  Build standalone pages for important entities your brand relates to—people, products, locations, concepts.
+                  Build standalone pages for important entities your brand relates to--people, products, locations, concepts.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Examples:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -396,28 +396,28 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Inconsistent NAP Data:</strong>
-                    <p className="text-slate-700 mt-1">Different business names or addresses across platforms confuses Google\'s entity recognition—use the exact same NAP everywhere</p>
+                    <p className="text-slate-700 mt-1">Different business names or addresses across platforms confuses Google\'s entity recognition--use the exact same NAP everywhere</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Missing Schema Markup:</strong>
-                    <p className="text-slate-700 mt-1">Schema is how you explicitly tell Google "this is an entity"—without it, Google has to guess (and often guesses wrong)</p>
+                    <p className="text-slate-700 mt-1">Schema is how you explicitly tell Google "this is an entity"--without it, Google has to guess (and often guesses wrong)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Ignoring Wikidata:</strong>
-                    <p className="text-slate-700 mt-1">Many brands focus only on Wikipedia but ignore Wikidata—Wikidata is actually more important for entity recognition</p>
+                    <p className="text-slate-700 mt-1">Many brands focus only on Wikipedia but ignore Wikidata--Wikidata is actually more important for entity recognition</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Keyword-Stuffing Entity Pages:</strong>
-                    <p className="text-slate-700 mt-1">Entity pages should describe what the entity IS, not just repeat keywords—write naturally for humans</p>
+                    <p className="text-slate-700 mt-1">Entity pages should describe what the entity IS, not just repeat keywords--write naturally for humans</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -513,7 +513,7 @@ export default function BlogPost() {
                 </div>
 
                 <p className="text-slate-700 mt-4">
-                  <strong>Key insight:</strong> The knowledge panel appeared on Day 47—once Google had enough entity signals to confidently recognize the brand as a legitimate entity.
+                  <strong>Key insight:</strong> The knowledge panel appeared on Day 47--once Google had enough entity signals to confidently recognize the brand as a legitimate entity.
                 </p>
               </div>
             </section>
@@ -521,7 +521,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Entity SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Entity SEO requires ongoing maintenance—schema updates, NAP monitoring, citation building, content optimization. SEOLOGY automates the entire process:
+                Entity SEO requires ongoing maintenance--schema updates, NAP monitoring, citation building, content optimization. SEOLOGY automates the entire process:
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
@@ -549,7 +549,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Entity SEO</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements all 15 entity SEO tactics automatically—from schema markup to knowledge panel optimization. Get entity recognition without the manual work.
+                  SEOLOGY implements all 15 entity SEO tactics automatically--from schema markup to knowledge panel optimization. Get entity recognition without the manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -564,7 +564,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Entity SEO is the future of search. Google has moved from "10 blue links" to entity-rich SERPs—knowledge panels, AI Overviews, People Also Ask, featured snippets all depend on entity recognition.
+                Entity SEO is the future of search. Google has moved from "10 blue links" to entity-rich SERPs--knowledge panels, AI Overviews, People Also Ask, featured snippets all depend on entity recognition.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
                 <strong>Start with the foundation:</strong> Wikidata entry, Organization schema, Google Business Profile, NAP citations. This gets you recognized as an entity.

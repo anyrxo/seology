@@ -26,7 +26,7 @@ export default function BlogPost() {
             <span className="px-3 py-1 bg-red-900/30 rounded-full text-red-300 text-sm">Link Building</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Toxic backlinks are killing your rankings. This comprehensive guide shows you how to identify, audit, and remove toxic links before Google penalizes you—and how to recover if you have already been hit.
+            Toxic backlinks are killing your rankings. This comprehensive guide shows you how to identify, audit, and remove toxic links before Google penalizes you--and how to recover if you have already been hit.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">

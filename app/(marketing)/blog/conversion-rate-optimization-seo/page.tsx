@@ -50,8 +50,8 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li className="text-slate-700">CRO for SEO increased revenue per visitor 156% without increasing traffic—optimizing for conversions matters more than rankings alone (Unbounce case study)</li>
-                <li className="text-slate-700">Organic traffic converts 14.6% on average vs 1.7% for paid traffic—making CRO optimization of SEO traffic 8.6x more valuable per visit (BrightEdge)</li>
+                <li className="text-slate-700">CRO for SEO increased revenue per visitor 156% without increasing traffic--optimizing for conversions matters more than rankings alone (Unbounce case study)</li>
+                <li className="text-slate-700">Organic traffic converts 14.6% on average vs 1.7% for paid traffic--making CRO optimization of SEO traffic 8.6x more valuable per visit (BrightEdge)</li>
                 <li className="text-slate-700">Pages with above-the-fold CTAs convert 2.8x higher than pages with below-the-fold CTAs (Nielsen Norman Group eye-tracking study)</li>
                 <li className="text-slate-700">Adding trust signals (reviews, badges, guarantees) increases conversions 42% on average for organic visitors (Baymard Institute)</li>
                 <li className="text-slate-700">Reducing form fields from 11 to 4 increased conversions 120% without impacting lead quality (Unbounce multi-site study)</li>
@@ -63,7 +63,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why CRO for SEO Matters More Than Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Most SEOs obsess over rankings and traffic. But <strong>rankings don\'t pay the bills—conversions do</strong>. A page ranking #3 with 5% conversion rate generates more revenue than a page ranking #1 with 1% conversion rate.
+                  Most SEOs obsess over rankings and traffic. But <strong>rankings don\'t pay the bills--conversions do</strong>. A page ranking #3 with 5% conversion rate generates more revenue than a page ranking #1 with 1% conversion rate.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Here\'s why CRO optimization of organic traffic is critical:</strong>
@@ -161,7 +161,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mb-2">
                         Trust badges increase conversions 17-42% depending on industry (Baymard). For e-commerce, payment security badges (Norton, McAfee, SSL badges) are most effective. For B2B SaaS, industry certifications and privacy badges work best.
                       </p>
-                      <p className="text-slate-700 mt-2"><strong>Where to Place:</strong> Near payment forms, checkout buttons, or sign-up forms. Badges should be small and unobtrusive—trust signals, not visual clutter.</p>
+                      <p className="text-slate-700 mt-2"><strong>Where to Place:</strong> Near payment forms, checkout buttons, or sign-up forms. Badges should be small and unobtrusive--trust signals, not visual clutter.</p>
                     </div>
 
                     <div>
@@ -216,7 +216,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">11. Use Single-Column Forms (Not Multi-Column)</h4>
                       <p className="text-slate-700 mb-2">
-                        Single-column forms convert 15.4% higher than multi-column forms (CXL Institute eye-tracking study). Users\' eyes follow a natural vertical flow—multiple columns create confusion and increase cognitive load.
+                        Single-column forms convert 15.4% higher than multi-column forms (CXL Institute eye-tracking study). Users\' eyes follow a natural vertical flow--multiple columns create confusion and increase cognitive load.
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Layout:</strong> Stack form fields vertically with labels above inputs (not beside). One field per row. Minimum 12px spacing between fields.</p>
                     </div>
@@ -274,7 +274,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">16. Make Forms Mobile-Friendly (Large Touch Targets)</h4>
                       <p className="text-slate-700 mb-2">
-                        60% of organic traffic is mobile, but mobile conversion rates are 2.5x lower than desktop—mostly due to poor form UX (Google). Making forms mobile-friendly can double mobile conversions.
+                        60% of organic traffic is mobile, but mobile conversion rates are 2.5x lower than desktop--mostly due to poor form UX (Google). Making forms mobile-friendly can double mobile conversions.
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Mobile Form Best Practices:</strong></p>
                       <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
@@ -454,7 +454,7 @@ export default function BlogPost() {
                     <li>Annual recurring revenue (ARR) increased $100,000+ without spending on more SEO/traffic</li>
                   </ul>
                   <p className="text-slate-800 text-lg font-semibold italic">
-                    "We were obsessed with ranking #1 for more keywords. Then we realized our existing rankings weren\'t converting. These CRO changes generated $100K+ in new ARR without ranking higher or getting more traffic." — Growth Lead
+                    "We were obsessed with ranking #1 for more keywords. Then we realized our existing rankings weren\'t converting. These CRO changes generated $100K+ in new ARR without ranking higher or getting more traffic." -- Growth Lead
                   </p>
                 </div>
               </section>
@@ -498,7 +498,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate CRO for Your Organic Traffic</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically optimizes your SEO landing pages for conversions—testing headlines, CTAs, forms, and trust signals to maximize revenue per visitor without manual A/B testing.
+                    SEOLOGY automatically optimizes your SEO landing pages for conversions--testing headlines, CTAs, forms, and trust signals to maximize revenue per visitor without manual A/B testing.
                   </p>
                   <Link
                     href="/sign-up"
@@ -516,7 +516,7 @@ export default function BlogPost() {
                   Most SEOs chase more traffic and higher rankings. But if your pages aren\'t optimized for conversions, you\'re leaving massive revenue on the table. <strong>A 2x improvement in conversion rate doubles your revenue without ranking higher or getting more traffic.</strong>
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  The ROI on CRO for SEO traffic is exceptional because organic visitors are already high-intent (they actively searched for your solution). Converting at 14.6% vs 1.7% for paid traffic, organic visitors are 8.6x more valuable—making every percentage point of conversion improvement worth significantly more.
+                  The ROI on CRO for SEO traffic is exceptional because organic visitors are already high-intent (they actively searched for your solution). Converting at 14.6% vs 1.7% for paid traffic, organic visitors are 8.6x more valuable--making every percentage point of conversion improvement worth significantly more.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Start with the highest-leverage optimizations: above-the-fold CTAs, benefit-focused headlines, form field reduction, and trust signals. These typically deliver 30-150% conversion improvements in weeks, not months.

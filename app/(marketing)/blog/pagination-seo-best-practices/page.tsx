@@ -52,7 +52,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Pagination is an SEO nightmare. Blog archives, product categories, and search results spread across pages 2, 3, 4+ create <strong>duplicate content, waste crawl budget, and dilute authority</strong>. This guide covers 5 proven pagination strategies—from "View All" to rel=next/prev—and when to use each. SEOLOGY implements optimal pagination automatically.
+                Pagination is an SEO nightmare. Blog archives, product categories, and search results spread across pages 2, 3, 4+ create <strong>duplicate content, waste crawl budget, and dilute authority</strong>. This guide covers 5 proven pagination strategies--from "View All" to rel=next/prev--and when to use each. SEOLOGY implements optimal pagination automatically.
               </p>
             </div>
 
@@ -158,7 +158,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Robots meta noindex for deep pages:</strong> Pages 10+ rarely get traffic—noindex to save crawl budget</span>
+                    <span><strong>Robots meta noindex for deep pages:</strong> Pages 10+ rarely get traffic--noindex to save crawl budget</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

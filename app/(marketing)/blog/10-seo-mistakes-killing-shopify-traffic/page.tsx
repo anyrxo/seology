@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026 | SEOLOGY.AI',
-  description: "Discover the critical SEO mistakes destroying your Shopify rankings after Google\'s 2025 algorithm updates. Expert analysis from SEOLOGY.AI reveals why 87% of stores are losing traffic—and how to fix it automatically.",
+  description: "Discover the critical SEO mistakes destroying your Shopify rankings after Google\'s 2025 algorithm updates. Expert analysis from SEOLOGY.AI reveals why 87% of stores are losing traffic--and how to fix it automatically.",
   keywords: 'Shopify SEO mistakes, Shopify SEO 2026, Google algorithm updates, ecommerce SEO errors, Shopify ranking factors, AI SEO automation',
   openGraph: {
     title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026',
@@ -32,7 +32,7 @@ export default function BlogPost() {
 
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           After analyzing over 14,500 Shopify stores and Google's December 2025 algorithm updates,
-          we discovered that <strong>87% of stores are making at least 5 of these critical SEO mistakes</strong>—
+          we discovered that <strong>87% of stores are making at least 5 of these critical SEO mistakes</strong>--
           costing them an average of 42% in organic traffic. Here's what's destroying your rankings and
           how SEOLOGY.AI fixes them automatically.
         </p>
@@ -95,7 +95,7 @@ export default function BlogPost() {
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">Why This Destroys Your Rankings</h3>
         <p className="mb-4">
           According to Google's <strong>John Mueller</strong> (December 2024 update), duplicate content doesn't just
-          "confuse" Google—it actively <strong>dilutes your authority</strong>. When you have 4 URLs for one product:
+          "confuse" Google--it actively <strong>dilutes your authority</strong>. When you have 4 URLs for one product:
         </p>
         <ul className="mb-6 space-y-2">
           <li>• Backlinks get split across multiple URLs instead of consolidating</li>
@@ -127,7 +127,7 @@ export default function BlogPost() {
 
         <p className="mb-4 text-lg">
           Google's <strong>Core Web Vitals</strong> are no longer optional. After the <strong>March 2024 Page Experience Update</strong>,
-          sites with poor vitals lost an average of 23% traffic—even with perfect content.
+          sites with poor vitals lost an average of 23% traffic--even with perfect content.
         </p>
 
         <p className="mb-4">
@@ -225,7 +225,7 @@ export default function BlogPost() {
 
         <p className="mb-4 text-lg">
           Here's a truth bomb: <strong>Google's AI can detect when you've copied manufacturer descriptions.</strong>
-          The December 2024 Spam Update specifically targets thin, unoriginal content—and product pages are prime targets.
+          The December 2024 Spam Update specifically targets thin, unoriginal content--and product pages are prime targets.
         </p>
 
         <p className="mb-4">
@@ -256,7 +256,7 @@ export default function BlogPost() {
         <div className="mb-8 rounded-lg bg-neutral-900 p-8 text-white not-prose">
           <h3 className="mb-4 text-2xl font-bold">Case Study: Coffee Store Traffic Explosion</h3>
           <p className="mb-4 opacity-90">
-            A specialty coffee Shopify store had 142 products—all with 80-word manufacturer descriptions. After SEOLOGY.AI's
+            A specialty coffee Shopify store had 142 products--all with 80-word manufacturer descriptions. After SEOLOGY.AI's
             AI engine optimized them:
           </p>
           <div className="mb-6 grid gap-4 md:grid-cols-2">
@@ -311,7 +311,7 @@ export default function BlogPost() {
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">6. No Schema Markup (Missing Rich Results)</h3>
             <p className="mb-3 text-neutral-700">
-              <strong>Impact:</strong> Schema markup (structured data) earns you rich results—star ratings, prices, availability—
+              <strong>Impact:</strong> Schema markup (structured data) earns you rich results--star ratings, prices, availability--
               which increase CTR by 35%.
             </p>
             <p className="text-sm text-neutral-600">
@@ -327,7 +327,7 @@ export default function BlogPost() {
               budget and create dead ends for users.
             </p>
             <p className="text-sm text-neutral-600">
-              <strong>Fix:</strong> Our crawler identifies orphan pages, broken links, and redirect chains—then fixes them
+              <strong>Fix:</strong> Our crawler identifies orphan pages, broken links, and redirect chains--then fixes them
               automatically with proper internal linking strategy.
             </p>
           </div>
@@ -382,7 +382,7 @@ export default function BlogPost() {
           <h3 className="mb-4 text-xl font-bold text-red-900">Manual SEO: The Brutal Truth</h3>
           <div className="mb-6 space-y-3 text-red-800">
             <div className="flex justify-between">
-              <span>Rewrite product descriptions (200 products × 20 min)</span>
+              <span>Rewrite product descriptions (200 products x 20 min)</span>
               <strong>67 hours</strong>
             </div>
             <div className="flex justify-between">
@@ -487,7 +487,7 @@ export default function BlogPost() {
             <div>
               <h4 className="mb-2 text-lg font-bold text-neutral-900">Complete Store Audit (2 Minutes)</h4>
               <p className="text-neutral-700">
-                Our AI scans your entire store—products, collections, pages, blog, technical SEO. Identifies 50-200+ issues.
+                Our AI scans your entire store--products, collections, pages, blog, technical SEO. Identifies 50-200+ issues.
               </p>
             </div>
           </div>
@@ -502,7 +502,7 @@ export default function BlogPost() {
               <h4 className="mb-2 text-lg font-bold text-neutral-900">AI Fixes Everything (Automatically)</h4>
               <p className="text-neutral-700">
                 You choose execution mode (Automatic, Plan & Approve, or Manual Review). Our AI logs in and makes changes
-                directly in Shopify—no CSV exports, no copy-paste.
+                directly in Shopify--no CSV exports, no copy-paste.
               </p>
             </div>
           </div>
@@ -563,7 +563,7 @@ export default function BlogPost() {
                 "We went from 800 monthly visitors to 4,200 in 3 months. SEOLOGY.AI found and fixed 147 SEO issues we had no
                 idea existed. Our organic revenue went from $2,400/month to $11,800/month."
               </p>
-              <p className="text-sm font-semibold">— James Peterson, Outdoor Gear Store</p>
+              <p className="text-sm font-semibold">-- James Peterson, Outdoor Gear Store</p>
             </div>
 
             <div className="rounded-lg bg-white/10 p-6">
@@ -571,7 +571,7 @@ export default function BlogPost() {
                 "I was paying an agency $4,000/month and seeing slow results. SEOLOGY.AI costs $199/month and delivered better
                 results in the first month than the agency did in 6 months."
               </p>
-              <p className="text-sm font-semibold">— Maria Rodriguez, Fashion Boutique</p>
+              <p className="text-sm font-semibold">-- Maria Rodriguez, Fashion Boutique</p>
             </div>
 
             <div className="rounded-lg bg-white/10 p-6">
@@ -579,7 +579,7 @@ export default function BlogPost() {
                 "The product description rewrites alone were worth it. SEOLOGY.AI's AI wrote better descriptions than our copywriter,
                 and it optimized all 340 products in 2 hours. That would've taken us 2 months."
               </p>
-              <p className="text-sm font-semibold">— David Chang, Home Decor Store</p>
+              <p className="text-sm font-semibold">-- David Chang, Home Decor Store</p>
             </div>
           </div>
         </div>

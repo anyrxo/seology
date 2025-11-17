@@ -75,15 +75,15 @@ export default function BlogPost() {
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-purple-50 p-6 rounded-xl border border-green-200">
                     <div className="text-4xl font-bold text-green-600 mb-2">Unlimited</div>
-                    <div className="text-slate-700">Product categories on BigCommerce—Shopify limits categories significantly</div>
+                    <div className="text-slate-700">Product categories on BigCommerce--Shopify limits categories significantly</div>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-4xl font-bold text-purple-600 mb-2">Native</div>
-                    <div className="text-slate-700">Schema markup built into BigCommerce—Shopify requires apps or coding</div>
+                    <div className="text-slate-700">Schema markup built into BigCommerce--Shopify requires apps or coding</div>
                   </div>
                   <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                     <div className="text-4xl font-bold text-pink-600 mb-2">Full</div>
-                    <div className="text-slate-700">URL control and custom redirects without apps—major advantage over Shopify</div>
+                    <div className="text-slate-700">URL control and custom redirects without apps--major advantage over Shopify</div>
                   </div>
                 </div>
               </section>
@@ -242,7 +242,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Write Unique Product Descriptions (300+ Words)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Problem:</strong> Most stores copy manufacturer descriptions—instant duplicate content.
+                      <strong>Problem:</strong> Most stores copy manufacturer descriptions--instant duplicate content.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Solution:</strong> Write original descriptions targeting related keywords and addressing customer questions.
@@ -368,7 +368,7 @@ export default function BlogPost() {
                       <strong>Action:</strong> Submit to Google Search Console and Bing Webmaster Tools.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Frequency:</strong> Updates automatically—no maintenance needed.
+                      <strong>Frequency:</strong> Updates automatically--no maintenance needed.
                     </p>
                   </div>
 
@@ -446,7 +446,7 @@ export default function BlogPost() {
                       <strong>Best SEO apps:</strong> Yoast SEO, SEO Manager, and Shogun Page Builder (for content-rich pages).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Warning:</strong> Too many apps slow your site—use sparingly and test performance impact.
+                      <strong>Warning:</strong> Too many apps slow your site--use sparingly and test performance impact.
                     </p>
                     <p className="text-slate-700">
                       <strong>Alternative:</strong> Hire BigCommerce developer for custom SEO features without app bloat.
@@ -491,7 +491,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Not Using Built-in Schema</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Missed opportunity:</strong> BigCommerce includes schema automatically—but only if configured correctly.
+                      <strong>Missed opportunity:</strong> BigCommerce includes schema automatically--but only if configured correctly.
                     </p>
                     <p className="text-slate-700">
                       <strong>Verify:</strong> Test all product and category pages with Google\'s Rich Results Test to ensure schema is working.

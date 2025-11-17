@@ -51,18 +51,18 @@ export default function BlogPost() {
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
                 <li className="text-slate-700"><strong>Rich snippets boost CTR by 35% on average</strong> and can increase clicks by up to 200% for high-performing types (BrightLocal + Milestone)</li>
-                <li className="text-slate-700"><strong>Star rating snippets deliver +58% higher CTR</strong> than standard results—the single most powerful rich result type (Moz)</li>
+                <li className="text-slate-700"><strong>Star rating snippets deliver +58% higher CTR</strong> than standard results--the single most powerful rich result type (Moz)</li>
                 <li className="text-slate-700"><strong>23 different rich snippet types are available</strong> including FAQ (+20-28% CTR), HowTo (+18-25%), Product (+25-30%), Video (+41%), and Recipe (+150% CTR)</li>
                 <li className="text-slate-700"><strong>Only 29% of websites use any schema markup</strong> leaving massive opportunity for early adopters (Bing Webmaster)</li>
                 <li className="text-slate-700"><strong>Rich snippets occupy 2-3x more SERP real estate</strong> than standard listings, pushing competitors down the page (SEMrush analysis)</li>
-                <li className="text-slate-700"><strong>SEOLOGY automates rich snippet implementation</strong> across all 23 types—analyzing content, generating correct schema, and deploying automatically to your CMS</li>
+                <li className="text-slate-700"><strong>SEOLOGY automates rich snippet implementation</strong> across all 23 types--analyzing content, generating correct schema, and deploying automatically to your CMS</li>
               </ul>
             </div>
 
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Rich Snippets Dominate Modern SERPs</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Rich snippets (also called "rich results") are enhanced search listings that display additional structured data beyond the standard title, URL, and meta description. When you search for "chocolate chip cookies," the results showing star ratings, cooking time, and calorie counts aren\'t magic—they\'re rich snippets powered by schema markup.
+                Rich snippets (also called "rich results") are enhanced search listings that display additional structured data beyond the standard title, URL, and meta description. When you search for "chocolate chip cookies," the results showing star ratings, cooking time, and calorie counts aren\'t magic--they\'re rich snippets powered by schema markup.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Here\'s why they matter:</strong> Google analyzed billions of searches and found that rich snippets increase CTR by 35% on average across all types. But specific types perform even better:
@@ -90,7 +90,7 @@ export default function BlogPost() {
                 </li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                <strong>The competitive advantage is massive:</strong> Only 29% of websites use any schema markup at all (Bing Webmaster data). That means 71% of your competitors are leaving CTR gains on the table. Early adopters dominate SERPs—Google rewards properly implemented schema with better visibility.
+                <strong>The competitive advantage is massive:</strong> Only 29% of websites use any schema markup at all (Bing Webmaster data). That means 71% of your competitors are leaving CTR gains on the table. Early adopters dominate SERPs--Google rewards properly implemented schema with better visibility.
               </p>
             </section>
 
@@ -111,11 +111,11 @@ export default function BlogPost() {
               </div>
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 mb-6">
                 <h3 className="text-xl font-bold text-pink-900 mb-3">Featured Snippets (Position Zero)</h3>
-                <p className="text-slate-700 mb-2">The answer box that appears above all organic results (position zero). Google extracts this content algorithmically. Schema helps but doesn\'t guarantee featured snippets—content structure and quality matter most.</p>
+                <p className="text-slate-700 mb-2">The answer box that appears above all organic results (position zero). Google extracts this content algorithmically. Schema helps but doesn\'t guarantee featured snippets--content structure and quality matter most.</p>
                 <p className="text-sm text-slate-600 italic">Example: Definition box, list, table, or paragraph answering "What is SEO?"</p>
               </div>
               <p className="text-lg text-slate-700 leading-relaxed">
-                <strong>This guide focuses on rich snippets</strong>—the enhanced listings you control directly through schema markup implementation.
+                <strong>This guide focuses on rich snippets</strong>--the enhanced listings you control directly through schema markup implementation.
               </p>
             </section>
 
@@ -301,7 +301,7 @@ export default function BlogPost() {
                   <h3 className="text-2xl font-bold text-indigo-900 mb-3">6. Video Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +41% (Wistia) | <strong>Priority:</strong> HIGH (if you have video)</p>
                   <p className="text-slate-700 mb-3">
-                    Video thumbnails, duration, and upload date appear in search results. Google may show "key moments" that let users jump to specific parts. Critical for video content—dramatically increases visibility in both standard and video search results.
+                    Video thumbnails, duration, and upload date appear in search results. Google may show "key moments" that let users jump to specific parts. Critical for video content--dramatically increases visibility in both standard and video search results.
                   </p>
                   <div className="bg-slate-100 p-4 rounded-lg overflow-x-auto">
                     <pre className="text-sm"><code>{`<script type="application/ld+json">
@@ -626,12 +626,12 @@ export default function BlogPost() {
               <div className="space-y-4">
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                   <h3 className="text-xl font-bold text-blue-900 mb-2">Google Rich Results Test</h3>
-                  <p className="text-slate-700 mb-2">Primary validation tool—shows exactly which rich results Google finds on your page and highlights errors/warnings.</p>
+                  <p className="text-slate-700 mb-2">Primary validation tool--shows exactly which rich results Google finds on your page and highlights errors/warnings.</p>
                   <p className="text-sm text-slate-600">URL: search.google.com/test/rich-results | Use this first before any other tool.</p>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                   <h3 className="text-xl font-bold text-purple-900 mb-2">Schema Markup Validator</h3>
-                  <p className="text-slate-700 mb-2">Official schema.org validator—checks if your markup follows schema.org standards (not Google-specific).</p>
+                  <p className="text-slate-700 mb-2">Official schema.org validator--checks if your markup follows schema.org standards (not Google-specific).</p>
                   <p className="text-sm text-slate-600">URL: validator.schema.org | Good for catching syntax errors in JSON-LD.</p>
                 </div>
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
@@ -666,7 +666,7 @@ export default function BlogPost() {
               </p>
               <ul className="space-y-2 my-4 text-slate-700">
                 <li>✅ <strong>CTR increased 214%</strong> (8.2% → 25.7%) for pages with Product + Rating snippets</li>
-                <li>✅ <strong>Organic traffic up 187%</strong> without ranking changes—pure CTR improvement</li>
+                <li>✅ <strong>Organic traffic up 187%</strong> without ranking changes--pure CTR improvement</li>
                 <li>✅ <strong>Rich results showing for 92% of product pages</strong> (319 of 347 products)</li>
                 <li>✅ <strong>Video snippets appeared for 89% of video-enhanced pages</strong> (113 of 127)</li>
                 <li>✅ <strong>Revenue per session increased 43%</strong> due to higher-intent visitors from rich snippets</li>
@@ -685,11 +685,11 @@ export default function BlogPost() {
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                   <h3 className="text-xl font-bold text-blue-900 mb-3">1. Intelligent Content Analysis</h3>
-                  <p className="text-slate-700">AI scans every page and identifies which schema types match your content—Product, Recipe, Article, HowTo, etc. Automatically detects existing ratings, prices, and structured data.</p>
+                  <p className="text-slate-700">AI scans every page and identifies which schema types match your content--Product, Recipe, Article, HowTo, etc. Automatically detects existing ratings, prices, and structured data.</p>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                   <h3 className="text-xl font-bold text-purple-900 mb-3">2. Perfect Schema Generation</h3>
-                  <p className="text-slate-700">Generates syntactically perfect JSON-LD schema with all required AND recommended properties. Includes aggregateRating, offers, images, breadcrumbs—everything Google rewards.</p>
+                  <p className="text-slate-700">Generates syntactically perfect JSON-LD schema with all required AND recommended properties. Includes aggregateRating, offers, images, breadcrumbs--everything Google rewards.</p>
                 </div>
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                   <h3 className="text-xl font-bold text-pink-900 mb-3">3. Automatic CMS Deployment</h3>
@@ -704,7 +704,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Rich Snippets in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  Connect your site, and SEOLOGY will analyze content, generate perfect schema markup, and deploy rich snippets automatically across all 23 types—boosting CTR without manual work.
+                  Connect your site, and SEOLOGY will analyze content, generate perfect schema markup, and deploy rich snippets automatically across all 23 types--boosting CTR without manual work.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
@@ -727,7 +727,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">The Verdict: Rich Snippets Are Non-Negotiable in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                With only 29% of websites using schema markup, rich snippets remain one of the highest-ROI SEO tactics available. The average 35% CTR increase translates directly to more traffic, leads, and revenue—without improving rankings at all.
+                With only 29% of websites using schema markup, rich snippets remain one of the highest-ROI SEO tactics available. The average 35% CTR increase translates directly to more traffic, leads, and revenue--without improving rankings at all.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Start with these high-priority implementations:</strong>
@@ -741,7 +741,7 @@ export default function BlogPost() {
                 <li>✅ <strong>Video content:</strong> VideoObject schema for any embedded videos</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Or let SEOLOGY handle all 23 rich snippet types automatically—analyzing your content, generating perfect schema, deploying to your CMS, and monitoring performance continuously. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
+                Or let SEOLOGY handle all 23 rich snippet types automatically--analyzing your content, generating perfect schema, deploying to your CMS, and monitoring performance continuously. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
 

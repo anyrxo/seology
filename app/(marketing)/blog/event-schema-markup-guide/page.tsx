@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Event schema markup is the fastest way to increase event visibility and ticket sales. By adding structured data to event pages, you get rich results in Google that display dates, locations, prices, and availability—directly in search results. These 18 tactics increased event page CTR 67% and ticket sales 43%.
+            Event schema markup is the fastest way to increase event visibility and ticket sales. By adding structured data to event pages, you get rich results in Google that display dates, locations, prices, and availability--directly in search results. These 18 tactics increased event page CTR 67% and ticket sales 43%.
           </p>
 
           <div className="mb-12">
@@ -55,7 +55,7 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>43% increase in ticket sales</strong> from event pages with complete Event schema markup (case study below)</li>
                 <li className="text-slate-700"><strong>Events with offers (ticket pricing) get 2.1x more clicks</strong> than events without pricing data (Google, 2023)</li>
                 <li className="text-slate-700"><strong>Virtual events need EventAttendanceMode property</strong> or Google won\'t show online event badges (critical for webinars and virtual conferences)</li>
-                <li className="text-slate-700"><strong>SEOLOGY automates Event schema implementation</strong>—analyzing your event pages and adding complete, valid structured data for all event types (in-person, virtual, hybrid)</li>
+                <li className="text-slate-700"><strong>SEOLOGY automates Event schema implementation</strong>--analyzing your event pages and adding complete, valid structured data for all event types (in-person, virtual, hybrid)</li>
               </ul>
             </div>
 
@@ -102,7 +102,7 @@ export default function BlogPost() {
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #1: Add Event Name</h4>
                 <p className="text-slate-700 mb-2">
-                  The event name is the most important property—it appears as the headline in rich results.
+                  The event name is the most important property--it appears as the headline in rich results.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Best practices:</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700">
@@ -140,7 +140,7 @@ export default function BlogPost() {
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #3: Specify Event Location (Place or VirtualLocation)</h4>
                 <p className="text-slate-700 mb-2">
-                  Every event must have a location—either a physical <code className="bg-slate-200 px-2 py-1 rounded">Place</code> or a <code className="bg-slate-200 px-2 py-1 rounded">VirtualLocation</code>.
+                  Every event must have a location--either a physical <code className="bg-slate-200 px-2 py-1 rounded">Place</code> or a <code className="bg-slate-200 px-2 py-1 rounded">VirtualLocation</code>.
                 </p>
                 <p className="text-slate-700 mb-2"><strong>Physical event location:</strong></p>
                 <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
@@ -201,7 +201,7 @@ export default function BlogPost() {
                 <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`"eventStatus": "https://schema.org/EventScheduled"`}
                 </pre>
-                <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Update eventStatus immediately if plans change—Google will update rich results automatically.</p>
+                <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Update eventStatus immediately if plans change--Google will update rich results automatically.</p>
               </div>
 
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 2: Ticket & Pricing Information</h3>
@@ -238,7 +238,7 @@ export default function BlogPost() {
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #7: Handle Free Events Correctly</h4>
                 <p className="text-slate-700 mb-2">
-                  Free events require special handling—set <code className="bg-slate-200 px-2 py-1 rounded">price</code> to <code className="bg-slate-200 px-2 py-1 rounded">"0"</code> and <code className="bg-slate-200 px-2 py-1 rounded">isAccessibleForFree</code> to <code className="bg-slate-200 px-2 py-1 rounded">true</code>.
+                  Free events require special handling--set <code className="bg-slate-200 px-2 py-1 rounded">price</code> to <code className="bg-slate-200 px-2 py-1 rounded">"0"</code> and <code className="bg-slate-200 px-2 py-1 rounded">isAccessibleForFree</code> to <code className="bg-slate-200 px-2 py-1 rounded">true</code>.
                 </p>
                 <p className="text-slate-700 mt-2"><strong>Code example for free events:</strong></p>
                 <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
@@ -424,7 +424,7 @@ export default function BlogPost() {
 
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 5: Testing & Validation</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Schema validation is critical—one error can prevent all rich results from appearing.
+                Schema validation is critical--one error can prevent all rich results from appearing.
               </p>
 
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
@@ -515,35 +515,35 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Incorrect Date Format:</strong>
-                    <p className="text-slate-700 mt-1">Using "06/15/2025" instead of ISO 8601 format causes validation errors—always use <code className="bg-slate-200 px-2 py-1 rounded">2025-06-15T09:00:00-07:00</code></p>
+                    <p className="text-slate-700 mt-1">Using "06/15/2025" instead of ISO 8601 format causes validation errors--always use <code className="bg-slate-200 px-2 py-1 rounded">2025-06-15T09:00:00-07:00</code></p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Missing eventAttendanceMode:</strong>
-                    <p className="text-slate-700 mt-1">Virtual events won\'t show "Online event" badges without this property—it\'s required for webinars and online conferences</p>
+                    <p className="text-slate-700 mt-1">Virtual events won\'t show "Online event" badges without this property--it\'s required for webinars and online conferences</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Not Updating Sold Out Status:</strong>
-                    <p className="text-slate-700 mt-1">Leaving availability as "InStock" when tickets are sold out creates poor UX—update to "SoldOut" immediately</p>
+                    <p className="text-slate-700 mt-1">Leaving availability as "InStock" when tickets are sold out creates poor UX--update to "SoldOut" immediately</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Using Relative URLs:</strong>
-                    <p className="text-slate-700 mt-1">Schema requires full URLs—use <code className="bg-slate-200 px-2 py-1 rounded">https://example.com/tickets</code> not <code className="bg-slate-200 px-2 py-1 rounded">/tickets</code></p>
+                    <p className="text-slate-700 mt-1">Schema requires full URLs--use <code className="bg-slate-200 px-2 py-1 rounded">https://example.com/tickets</code> not <code className="bg-slate-200 px-2 py-1 rounded">/tickets</code></p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Adding Schema to Past Events:</strong>
-                    <p className="text-slate-700 mt-1">Google ignores Event schema for events with startDate in the past—remove schema after events end</p>
+                    <p className="text-slate-700 mt-1">Google ignores Event schema for events with startDate in the past--remove schema after events end</p>
                   </div>
                 </li>
               </ul>
@@ -588,7 +588,7 @@ export default function BlogPost() {
                 </div>
 
                 <p className="text-slate-700 mt-4">
-                  <strong>Key insight:</strong> Early Bird ticket offers drove the most conversions—showing pricing created urgency that increased early ticket purchases 78%.
+                  <strong>Key insight:</strong> Early Bird ticket offers drove the most conversions--showing pricing created urgency that increased early ticket purchases 78%.
                 </p>
               </div>
             </section>
@@ -624,7 +624,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Event Schema</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY implements Event schema on all your event pages automatically—increasing CTR and ticket sales without manual work.
+                  SEOLOGY implements Event schema on all your event pages automatically--increasing CTR and ticket sales without manual work.
                 </p>
                 <Link
                   href="/sign-up"

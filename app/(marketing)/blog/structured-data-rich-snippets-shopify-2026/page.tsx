@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026 | SEOLOGY.AI',
-  description: 'Rich snippets increase CTR by 20-35%, and pages with schema are 3x more likely to appear in rich results. Master Product, Review, FAQ, and Breadcrumb schema for Shopify—boost visibility, CTR, and rankings with structured data optimization.',
+  description: 'Rich snippets increase CTR by 20-35%, and pages with schema are 3x more likely to appear in rich results. Master Product, Review, FAQ, and Breadcrumb schema for Shopify--boost visibility, CTR, and rankings with structured data optimization.',
   keywords: 'structured data Shopify, schema markup, rich snippets, Product schema, Review schema, FAQ schema, Breadcrumb schema, JSON-LD, rich results Google, CTR optimization, schema.org',
   openGraph: {
     title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026',
@@ -80,7 +80,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Structured data isn't a ranking factor—but it's a <strong>click-through rate multiplier</strong>. Here's the December 2025 data:
+          Structured data isn't a ranking factor--but it's a <strong>click-through rate multiplier</strong>. Here's the December 2025 data:
         </p>
 
         <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 rounded-lg p-8 my-8">
@@ -97,7 +97,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          The impact goes beyond CTR. Case studies show rich snippets also <strong>increase dwell time</strong>, and improved CTR signals to Google that your content is valuable—leading to <strong>better rankings over time</strong>.
+          The impact goes beyond CTR. Case studies show rich snippets also <strong>increase dwell time</strong>, and improved CTR signals to Google that your content is valuable--leading to <strong>better rankings over time</strong>.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -378,7 +378,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          FAQ schema displays expandable question-answer pairs directly in search results—capturing extra SERP real estate and answering user questions before the click.
+          FAQ schema displays expandable question-answer pairs directly in search results--capturing extra SERP real estate and answering user questions before the click.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -661,7 +661,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
                 <li>☐ Audit existing schema markup (if any) using Rich Results Test</li>
                 <li>☐ Add Product schema to top 20 products (name, image, offers, price)</li>
                 <li>☐ Add AggregateRating to products with reviews (5+ reviews minimum)</li>
-                <li>☐ Test all pages with Rich Results Test—fix errors</li>
+                <li>☐ Test all pages with Rich Results Test--fix errors</li>
                 <li>☐ Request indexing in Google Search Console</li>
                 <li>☐ Monitor Rich Results report in GSC for issues</li>
               </ul>

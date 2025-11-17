@@ -51,10 +51,10 @@ export default function BlogPost() {
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
                 <li className="text-slate-700"><strong>Intent mismatch is why 76% of content fails to rank</strong> despite good keywords, backlinks, and technical SEO (SEMrush study of 100K underperforming pages)</li>
-                <li className="text-slate-700"><strong>Google categorizes searches into 4 intent types</strong>—Informational (80%), Navigational (10%), Commercial Investigation (6%), Transactional (4%)—each requiring different content formats</li>
+                <li className="text-slate-700"><strong>Google categorizes searches into 4 intent types</strong>--Informational (80%), Navigational (10%), Commercial Investigation (6%), Transactional (4%)--each requiring different content formats</li>
                 <li className="text-slate-700"><strong>Pages matching search intent rank 3.8 positions higher on average</strong> than intent-mismatched content for the same keywords (Ahrefs analysis)</li>
                 <li className="text-slate-700"><strong>Intent-optimized content converts 5.2x better</strong> because it delivers exactly what searchers want at their specific buying stage (HubSpot data)</li>
-                <li className="text-slate-700"><strong>Google\'s RankBrain uses behavioral signals to detect intent mismatches</strong>—high bounce rate + low dwell time = rankings tank within 48 hours (Google patent analysis)</li>
+                <li className="text-slate-700"><strong>Google\'s RankBrain uses behavioral signals to detect intent mismatches</strong>--high bounce rate + low dwell time = rankings tank within 48 hours (Google patent analysis)</li>
                 <li className="text-slate-700"><strong>SEOLOGY automates intent analysis</strong> by analyzing SERP patterns, identifying dominant content types, and restructuring pages to match winning intent formats automatically</li>
               </ul>
             </div>
@@ -65,7 +65,7 @@ export default function BlogPost() {
                 Search intent (also called "user intent") is <strong>what the searcher is actually trying to accomplish</strong> when they type a query into Google. Are they looking for information? Comparing products? Ready to buy? Trying to reach a specific website?
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                <strong>Here\'s the brutal truth:</strong> You can have perfect keyword optimization, dozens of backlinks, and flawless technical SEO—but if your content doesn\'t match search intent, you won\'t rank. Period.
+                <strong>Here\'s the brutal truth:</strong> You can have perfect keyword optimization, dozens of backlinks, and flawless technical SEO--but if your content doesn\'t match search intent, you won\'t rank. Period.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Why intent matters more than ever:</strong>
@@ -81,7 +81,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>76% of content fails to rank due to intent mismatch</strong> (SEMrush study)—not due to technical issues or weak backlinks.</span>
+                  <span><strong>76% of content fails to rank due to intent mismatch</strong> (SEMrush study)--not due to technical issues or weak backlinks.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -263,9 +263,9 @@ export default function BlogPost() {
                         Intent correlates with <strong>buyer journey stage</strong>:
                       </p>
                       <ul className="space-y-2 text-slate-700 ml-6">
-                        <li>• <strong>Awareness stage (top of funnel):</strong> Informational intent—they\'re learning about problems</li>
-                        <li>• <strong>Consideration stage (middle of funnel):</strong> Commercial investigation—they\'re comparing solutions</li>
-                        <li>• <strong>Decision stage (bottom of funnel):</strong> Transactional—they\'re ready to buy</li>
+                        <li>• <strong>Awareness stage (top of funnel):</strong> Informational intent--they\'re learning about problems</li>
+                        <li>• <strong>Consideration stage (middle of funnel):</strong> Commercial investigation--they\'re comparing solutions</li>
+                        <li>• <strong>Decision stage (bottom of funnel):</strong> Transactional--they\'re ready to buy</li>
                       </ul>
                     </div>
                   </div>
@@ -286,7 +286,7 @@ export default function BlogPost() {
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">7. Mirror Ranking Content Structure and Depth</h4>
                       <p className="text-slate-700 mb-3">
-                        Don\'t just match format—<strong>match depth and structure</strong>. Analyze the top 3 ranking pages:
+                        Don\'t just match format--<strong>match depth and structure</strong>. Analyze the top 3 ranking pages:
                       </p>
                       <ul className="space-y-2 text-slate-700 ml-6">
                         <li>• What word count range do they fall in? (Aim to match or exceed by 10-20%)</li>
@@ -332,7 +332,7 @@ export default function BlogPost() {
                         <li>• <strong>Commercial investigation pages:</strong> "Compare options," "See pricing," "Start free trial," "Request demo"</li>
                         <li>• <strong>Transactional pages:</strong> "Buy now," "Add to cart," "Get started," "Sign up," "Purchase"</li>
                       </ul>
-                      <p className="text-sm text-slate-600 italic mt-3">Don\'t put "Buy Now" buttons on informational content—users aren\'t ready and it hurts trust.</p>
+                      <p className="text-sm text-slate-600 italic mt-3">Don\'t put "Buy Now" buttons on informational content--users aren\'t ready and it hurts trust.</p>
                     </div>
 
                     <div className="border-l-4 border-pink-600 pl-6">
@@ -441,7 +441,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Creating Blog Content for Transactional Keywords</strong>
-                    <p className="text-slate-700 mt-1">If someone searches "buy running shoes," they don\'t want an article about running—they want product pages. <strong>Never create informational content for transactional queries.</strong></p>
+                    <p className="text-slate-700 mt-1">If someone searches "buy running shoes," they don\'t want an article about running--they want product pages. <strong>Never create informational content for transactional queries.</strong></p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -478,7 +478,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company Triples Organic Traffic by Fixing Intent Mismatches</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                <strong>Challenge:</strong> A project management SaaS tool had 200+ blog posts ranking on pages 2-4 with great backlinks and technical SEO. Despite solid keyword targeting, organic traffic plateaued at 8,500 monthly visits. The problem? <strong>Massive intent mismatch</strong>—they were targeting commercial investigation keywords ("best project management software," "Asana alternatives") with generic informational blog posts.
+                <strong>Challenge:</strong> A project management SaaS tool had 200+ blog posts ranking on pages 2-4 with great backlinks and technical SEO. Despite solid keyword targeting, organic traffic plateaued at 8,500 monthly visits. The problem? <strong>Massive intent mismatch</strong>--they were targeting commercial investigation keywords ("best project management software," "Asana alternatives") with generic informational blog posts.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Intent Optimization Implementation (6 weeks):</strong>
@@ -488,7 +488,7 @@ export default function BlogPost() {
                 <li><strong>Week 2:</strong> Rewrote top 20 highest-traffic mismatched posts from generic guides to comparison articles (e.g., "What is project management?" → "Best Project Management Software: 10 Tools Compared")</li>
                 <li><strong>Week 3:</strong> Added comparison tables, pros/cons sections, pricing comparisons, and "See Pricing" CTAs to match winning SERP format.</li>
                 <li><strong>Week 4:</strong> Created 15 new intent-optimized pages for high-volume keywords they were missing (alternative comparison pages: "[Competitor] Alternative: Top 5 Options").</li>
-                <li><strong>Week 5:</strong> Fixed remaining 48 mismatched posts—converted to proper format or redirected to newly created intent-matched pages.</li>
+                <li><strong>Week 5:</strong> Fixed remaining 48 mismatched posts--converted to proper format or redirected to newly created intent-matched pages.</li>
                 <li><strong>Week 6:</strong> Updated internal linking to guide users from informational → commercial → transactional pages following natural intent flow.</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -523,7 +523,7 @@ export default function BlogPost() {
                 </div>
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                   <h3 className="text-xl font-bold text-pink-900 mb-3">3. Content Format Restructuring</h3>
-                  <p className="text-slate-700">Automatically suggests (or implements) content restructuring to match winning intent formats—converting blog posts to comparison pages, adding tables, adjusting CTAs, etc.</p>
+                  <p className="text-slate-700">Automatically suggests (or implements) content restructuring to match winning intent formats--converting blog posts to comparison pages, adding tables, adjusting CTAs, etc.</p>
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                   <h3 className="text-xl font-bold text-green-900 mb-3">4. Behavioral Signal Monitoring</h3>
@@ -534,7 +534,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Search Intent Optimization in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  Connect your site, and SEOLOGY will analyze intent for all your keywords, detect mismatches, restructure content to match winning formats, and monitor behavioral signals—all automatically.
+                  Connect your site, and SEOLOGY will analyze intent for all your keywords, detect mismatches, restructure content to match winning formats, and monitor behavioral signals--all automatically.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
@@ -557,13 +557,13 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">The Verdict: Match Intent or Don\'t Bother Creating Content</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Search intent optimization is <strong>the most overlooked ranking factor</strong> despite being one of the most powerful. You can have perfect technical SEO and strong backlinks, but if your content doesn\'t match what Google believes users want, you won\'t rank—period.
+                Search intent optimization is <strong>the most overlooked ranking factor</strong> despite being one of the most powerful. You can have perfect technical SEO and strong backlinks, but if your content doesn\'t match what Google believes users want, you won\'t rank--period.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Start with these high-priority actions:</strong>
               </p>
               <ul className="space-y-2 my-4 text-slate-700">
-                <li>✅ Google every target keyword before creating content—analyze the top 10 results</li>
+                <li>✅ Google every target keyword before creating content--analyze the top 10 results</li>
                 <li>✅ Match your content format to the dominant SERP type (blog post vs product page vs comparison)</li>
                 <li>✅ Use intent-specific title tag and meta description formulas</li>
                 <li>✅ Monitor behavioral metrics (bounce rate, dwell time) to detect intent problems</li>
@@ -571,7 +571,7 @@ export default function BlogPost() {
                 <li>✅ Update content quarterly as search intent evolves over time</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Or let SEOLOGY handle all 18 intent optimization tactics automatically—analyzing SERPs, detecting mismatches, restructuring content, and monitoring behavioral signals to ensure every page matches its target intent perfectly. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
+                Or let SEOLOGY handle all 18 intent optimization tactics automatically--analyzing SERPs, detecting mismatches, restructuring content, and monitoring behavioral signals to ensure every page matches its target intent perfectly. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
 

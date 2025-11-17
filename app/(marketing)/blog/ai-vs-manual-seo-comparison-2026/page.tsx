@@ -38,7 +38,7 @@ export default function AIvsManualSEOComparisonPage() {
           <span>23 min read</span>
         </div>
         <p className="text-xl text-gray-700 leading-relaxed">
-          AI SEO automation delivers <strong>527% traffic growth</strong>, <strong>50% time savings on data analysis</strong>, and <strong>6-10% revenue increases</strong>—but costs <strong>$1,200-$3,600 annually</strong> compared to manual SEO teams at <strong>$66,000+ per specialist</strong>. With <strong>65% of businesses reporting better performance</strong> using AI and only <strong>25% of manual SEO professionals</strong> feeling they can keep pace with algorithm changes, the data reveals a clear shift toward automation. This comprehensive comparison analyzes costs, time investment, results, and the hybrid approach delivering 2.3× faster ranking improvements than manual-only strategies.
+          AI SEO automation delivers <strong>527% traffic growth</strong>, <strong>50% time savings on data analysis</strong>, and <strong>6-10% revenue increases</strong>--but costs <strong>$1,200-$3,600 annually</strong> compared to manual SEO teams at <strong>$66,000+ per specialist</strong>. With <strong>65% of businesses reporting better performance</strong> using AI and only <strong>25% of manual SEO professionals</strong> feeling they can keep pace with algorithm changes, the data reveals a clear shift toward automation. This comprehensive comparison analyzes costs, time investment, results, and the hybrid approach delivering 2.3x faster ranking improvements than manual-only strategies.
         </p>
       </header>
 
@@ -205,7 +205,7 @@ export default function AIvsManualSEOComparisonPage() {
           </div>
         </div>
         <p className="text-xs text-gray-600 mt-4">
-          <strong>Note</strong>: Excludes benefits (health insurance, 401k, paid time off), office space, equipment, training, and management overhead—typically adding 25-40% to base salaries.
+          <strong>Note</strong>: Excludes benefits (health insurance, 401k, paid time off), office space, equipment, training, and management overhead--typically adding 25-40% to base salaries.
         </p>
       </div>
 
@@ -481,7 +481,7 @@ export default function AIvsManualSEOComparisonPage() {
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <div className="text-4xl font-bold mb-2">2.3×</div>
+              <div className="text-4xl font-bold mb-2">2.3x</div>
               <div className="text-sm text-green-100">Faster ranking improvements for brands using hybrid SEO (AI + human) vs manual-only</div>
             </div>
             <div>
@@ -559,7 +559,7 @@ export default function AIvsManualSEOComparisonPage() {
           </div>
         </div>
         <p className="text-sm text-gray-600 mt-4">
-          <strong>Cost Savings</strong>: $191,000-197,000 annually (92-95% reduction) while achieving 2.3× faster results than manual-only SEO.
+          <strong>Cost Savings</strong>: $191,000-197,000 annually (92-95% reduction) while achieving 2.3x faster results than manual-only SEO.
         </p>
       </div>
 
@@ -606,7 +606,7 @@ export default function AIvsManualSEOComparisonPage() {
               <div className="text-xs text-gray-600">Traffic growth (2,800 → 11,200)</div>
             </div>
             <div className="bg-white rounded p-3 text-center">
-              <div className="text-2xl font-bold text-purple-600">2.7×</div>
+              <div className="text-2xl font-bold text-purple-600">2.7x</div>
               <div className="text-xs text-gray-600">ROI vs manual team</div>
             </div>
           </div>
@@ -681,7 +681,7 @@ export default function AIvsManualSEOComparisonPage() {
         <ul className="space-y-2 text-sm text-gray-700">
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
-            <span>You want <strong>best results</strong> (2.3× faster than manual-only)</span>
+            <span>You want <strong>best results</strong> (2.3x faster than manual-only)</span>
           </li>
           <li className="flex items-start">
             <span className="text-green-500 mr-2">✓</span>
@@ -712,7 +712,7 @@ export default function AIvsManualSEOComparisonPage() {
       <div className="not-prose bg-gradient-to-br from-orange-500 to-red-500 text-white rounded-xl p-8 my-12">
         <h2 className="text-2xl font-bold mb-4">Experience Hybrid SEO with SEOLOGY.AI</h2>
         <p className="text-lg mb-6 text-orange-50">
-          Stop choosing between expensive manual teams ($207k/year) and uncertain pure automation. SEOLOGY.AI provides the proven hybrid approach: 95% AI automation for execution + optional strategic consultation. Achieve the 2.3× faster results, 65% better performance, and 91%+ cost savings businesses report.
+          Stop choosing between expensive manual teams ($207k/year) and uncertain pure automation. SEOLOGY.AI provides the proven hybrid approach: 95% AI automation for execution + optional strategic consultation. Achieve the 2.3x faster results, 65% better performance, and 91%+ cost savings businesses report.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
           <h3 className="font-semibold mb-3">SEOLOGY.AI Hybrid Model:</h3>
@@ -731,7 +731,7 @@ export default function AIvsManualSEOComparisonPage() {
             </div>
             <div className="flex items-start">
               <span className="mr-2">✓</span>
-              <span><strong>Best results:</strong> 2.3× faster ranking improvements than manual-only</span>
+              <span><strong>Best results:</strong> 2.3x faster ranking improvements than manual-only</span>
             </div>
             <div className="flex items-start">
               <span className="mr-2">✓</span>
@@ -774,11 +774,11 @@ export default function AIvsManualSEOComparisonPage() {
         <li><strong>65% better performance</strong> reported by businesses using AI</li>
         <li><strong>50% time savings</strong> on data analysis tasks</li>
         <li><strong>85% faster keyword research</strong> with automation</li>
-        <li><strong>2.3× faster results</strong> with hybrid approach vs manual-only</li>
+        <li><strong>2.3x faster results</strong> with hybrid approach vs manual-only</li>
       </ul>
 
       <p>
-        While manual SEO retains advantages in strategic thinking, creative ideation, and relationship building, pure manual SEO becomes economically unjustifiable for most businesses. The hybrid model—95% AI automation + 5% human strategic oversight—delivers superior results at a fraction of manual team costs.
+        While manual SEO retains advantages in strategic thinking, creative ideation, and relationship building, pure manual SEO becomes economically unjustifiable for most businesses. The hybrid model--95% AI automation + 5% human strategic oversight--delivers superior results at a fraction of manual team costs.
       </p>
 
       <p>

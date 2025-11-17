@@ -50,10 +50,10 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li className="text-slate-700">Dwell time (time on page before returning to search results) is a top 3 ranking signal—pages with 7+ minute dwell time rank 2.4 positions higher on average (SEMrush study)</li>
+                <li className="text-slate-700">Dwell time (time on page before returning to search results) is a top 3 ranking signal--pages with 7+ minute dwell time rank 2.4 positions higher on average (SEMrush study)</li>
                 <li className="text-slate-700">Google\'s RankBrain uses behavioral signals (dwell time, bounce rate, pogo-sticking) to determine content quality and adjust rankings accordingly (Google patent)</li>
                 <li className="text-slate-700">Adding a table of contents with jump links increased dwell time 89% by helping users find relevant sections faster (Nielsen Norman Group)</li>
-                <li className="text-slate-700">Embedding relevant videos increased average dwell time 2.6x (Wistia study)—users who watch videos spend 88% longer on pages</li>
+                <li className="text-slate-700">Embedding relevant videos increased average dwell time 2.6x (Wistia study)--users who watch videos spend 88% longer on pages</li>
                 <li className="text-slate-700">Using bucket brigade transitions ("Here\'s the thing:", "But wait:", "The truth is:") increased scroll depth 47% by creating curiosity gaps (CXL Institute)</li>
                 <li className="text-slate-700">SEOLOGY automates dwell time optimization: adds content hooks, embeds relevant media, optimizes readability, and A/B tests engagement tactics automatically</li>
               </ul>
@@ -88,7 +88,7 @@ export default function BlogPost() {
                 </ul>
                 <div className="bg-slate-100 p-6 rounded-xl my-6">
                   <p className="text-slate-800 text-lg font-semibold mb-2">Real Impact Data:</p>
-                  <p className="text-slate-700">Content site improved dwell time from 1:43 (103 seconds) to 7:42 (462 seconds)—a <strong>347% increase</strong>. Within 45 days, average ranking position improved from 8.4 to 4.2 for 200+ keywords. Organic traffic increased 156% from improved rankings.</p>
+                  <p className="text-slate-700">Content site improved dwell time from 1:43 (103 seconds) to 7:42 (462 seconds)--a <strong>347% increase</strong>. Within 45 days, average ranking position improved from 8.4 to 4.2 for 200+ keywords. Organic traffic increased 156% from improved rankings.</p>
                 </div>
               </section>
 
@@ -116,7 +116,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Examples:</strong></p>
                       <ul className="list-disc list-inside space-y-1 text-slate-700 ml-4">
                         <li>"Here\'s the thing:"</li>
-                        <li>"But wait—there\'s more:"</li>
+                        <li>"But wait--there\'s more:"</li>
                         <li>"The truth is:"</li>
                         <li>"Here\'s why that matters:"</li>
                         <li>"You might be wondering:"</li>
@@ -138,7 +138,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mb-2">
                         Scanners (54% of web users) prefer to skim for key points before committing to read deeply (Nielsen Norman Group). Adding a TL;DR with 3-5 bullet points increases engagement 67%.
                       </p>
-                      <p className="text-slate-700 mt-2"><strong>Best Practice:</strong> Place TL;DR in a visually distinct box (blue background, border) immediately after your intro. Include specific statistics or numbers—they\'re 3x more likely to be read than general statements.</p>
+                      <p className="text-slate-700 mt-2"><strong>Best Practice:</strong> Place TL;DR in a visually distinct box (blue background, border) immediately after your intro. Include specific statistics or numbers--they\'re 3x more likely to be read than general statements.</p>
                     </div>
 
                     <div>
@@ -173,7 +173,7 @@ export default function BlogPost() {
                         <li>Keep videos under 3 minutes for maximum completion rate</li>
                         <li>Use custom thumbnails with clear value propositions</li>
                       </ul>
-                      <p className="text-slate-600 mt-2 italic">Result: B2B SaaS added explainer video to product page—dwell time increased from 2:14 to 6:38</p>
+                      <p className="text-slate-600 mt-2 italic">Result: B2B SaaS added explainer video to product page--dwell time increased from 2:14 to 6:38</p>
                     </div>
 
                     <div>
@@ -181,7 +181,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mb-2">
                         Custom visuals (screenshots, annotated images, flowcharts) increase engagement 94% compared to generic stock photos (Venngage). Users scroll 32% deeper on pages with custom visuals every 150-200 words.
                       </p>
-                      <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Add 1 relevant image per 150-200 words. Use tools like Snagit for annotated screenshots, Canva for simple diagrams. Avoid generic stock photos of people in business attire—they harm credibility.</p>
+                      <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Add 1 relevant image per 150-200 words. Use tools like Snagit for annotated screenshots, Canva for simple diagrams. Avoid generic stock photos of people in business attire--they harm credibility.</p>
                     </div>
 
                     <div>
@@ -283,7 +283,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mb-2">
                         Contextual internal links within content increase engagement 89% compared to sidebar links (Backlinko). They keep users on your site longer by offering relevant next steps.
                       </p>
-                      <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Link to 3-5 related articles within your content body using descriptive anchor text. Place links after you\'ve provided value—not in your intro. Example: "For more on this topic, see our complete guide to [topic]."</p>
+                      <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Link to 3-5 related articles within your content body using descriptive anchor text. Place links after you\'ve provided value--not in your intro. Example: "For more on this topic, see our complete guide to [topic]."</p>
                     </div>
 
                     <div>
@@ -305,14 +305,14 @@ export default function BlogPost() {
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Creating "Content for SEO" Instead of "Content for Humans"</strong>
-                      <p className="text-slate-700 mt-1">Keyword-stuffed, robotic content optimized only for search engines causes immediate bounces. Write naturally for humans first—Google\'s algorithm measures user engagement, not keyword density. Content that reads well keeps users engaged.</p>
+                      <p className="text-slate-700 mt-1">Keyword-stuffed, robotic content optimized only for search engines causes immediate bounces. Write naturally for humans first--Google\'s algorithm measures user engagement, not keyword density. Content that reads well keeps users engaged.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl">Burying Your Main Point in Paragraphs of Fluff</strong>
-                      <p className="text-slate-700 mt-1">Recipe bloggers are infamous for this—3,000 words about their grandmother before the recipe. Users searching for quick answers bounce when they can\'t find the value. Front-load your key insights, then expand with context.</p>
+                      <p className="text-slate-700 mt-1">Recipe bloggers are infamous for this--3,000 words about their grandmother before the recipe. Users searching for quick answers bounce when they can\'t find the value. Front-load your key insights, then expand with context.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -411,7 +411,7 @@ export default function BlogPost() {
                     <li>Trial sign-ups from organic traffic increased 247% (better engagement led to more conversions)</li>
                   </ul>
                   <p className="text-slate-800 text-lg font-semibold italic">
-                    "We were ranking well but nobody was converting. When we focused on keeping visitors engaged longer, Google rewarded us with even better rankings. Dwell time optimization created a virtuous cycle: better engagement → better rankings → more traffic → more conversions." — Content Marketing Director
+                    "We were ranking well but nobody was converting. When we focused on keeping visitors engaged longer, Google rewarded us with even better rankings. Dwell time optimization created a virtuous cycle: better engagement → better rankings → more traffic → more conversions." -- Content Marketing Director
                   </p>
                 </div>
               </section>
@@ -455,7 +455,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Dwell Time Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    SEOLOGY automatically optimizes your content for maximum engagement—adding hooks, improving readability, and enhancing visuals to keep visitors engaged longer and signal quality to Google.
+                    SEOLOGY automatically optimizes your content for maximum engagement--adding hooks, improving readability, and enhancing visuals to keep visitors engaged longer and signal quality to Google.
                   </p>
                   <Link
                     href="/sign-up"
@@ -476,7 +476,7 @@ export default function BlogPost() {
                   Google\'s RankBrain uses dwell time as a real-time quality signal. Pages that consistently keep users engaged for 5+ minutes rank higher, while pages causing quick bounces get demoted. This creates a direct, measurable feedback loop: improve engagement → better rankings → more traffic.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  The tactics in this guide—table of contents, bucket brigades, videos, custom visuals, improved readability—are all implementable immediately without technical expertise. Most sites see 100-300% dwell time improvements within weeks, followed by ranking improvements within 30-60 days.
+                  The tactics in this guide--table of contents, bucket brigades, videos, custom visuals, improved readability--are all implementable immediately without technical expertise. Most sites see 100-300% dwell time improvements within weeks, followed by ranking improvements within 30-60 days.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> Stop obsessing over keyword density and meta tags. Focus on creating content so engaging that users can\'t help but spend 5-10 minutes consuming it. Google will reward you with better rankings.

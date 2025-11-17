@@ -66,7 +66,7 @@ export default function PetProductsSuppliesSEOGuide() {
         </p>
 
         <p>
-          According to the 2025 APPA National Pet Owners Survey, <strong>94 million U.S. households own a pet</strong>, representing around 82 million households that owned at least one pet in 2023. In the United States, industry-wide pet ecommerce revenue has been growing at <strong>5.5% CAGR</strong> and is expected to total <strong>$28.8 billion in 2025</strong>. Remarkably, <strong>79% of pet care dollars now come from omnichannel shoppers</strong>—those who engage with both online and in-store channels—while <strong>86% of pet owners prefer to shop online</strong>, with the majority visiting Amazon for pet products.
+          According to the 2025 APPA National Pet Owners Survey, <strong>94 million U.S. households own a pet</strong>, representing around 82 million households that owned at least one pet in 2023. In the United States, industry-wide pet ecommerce revenue has been growing at <strong>5.5% CAGR</strong> and is expected to total <strong>$28.8 billion in 2025</strong>. Remarkably, <strong>79% of pet care dollars now come from omnichannel shoppers</strong>--those who engage with both online and in-store channels--while <strong>86% of pet owners prefer to shop online</strong>, with the majority visiting Amazon for pet products.
         </p>
 
         <p>
@@ -76,7 +76,7 @@ export default function PetProductsSuppliesSEOGuide() {
         <h2>Understanding Pet Parent Psychology & Shopping Behavior</h2>
 
         <p>
-          Pet owners—increasingly called "pet parents"—view their animals as family members, driving emotionally charged purchasing decisions:
+          Pet owners--increasingly called "pet parents"--view their animals as family members, driving emotionally charged purchasing decisions:
         </p>
 
         <h3>The Pet Humanization Trend</h3>
@@ -375,7 +375,7 @@ export default function PetProductsSuppliesSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Pet Product Stores</h2>
 
         <p>
-          The complexity of pet products SEO—managing species, breed, and life-stage targeting, subscription optimization, premium positioning, omnichannel strategies, and emotional pet parent psychology—requires specialized automation.
+          The complexity of pet products SEO--managing species, breed, and life-stage targeting, subscription optimization, premium positioning, omnichannel strategies, and emotional pet parent psychology--requires specialized automation.
         </p>
 
         <p>
@@ -393,7 +393,7 @@ export default function PetProductsSuppliesSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine understands pet parent psychology, subscription dynamics, and wellness trends—automatically implementing optimizations that would take months of manual work, allowing you to focus on sourcing quality products and serving passionate pet parents.
+          SEOLOGY.AI's AI engine understands pet parent psychology, subscription dynamics, and wellness trends--automatically implementing optimizations that would take months of manual work, allowing you to focus on sourcing quality products and serving passionate pet parents.
         </p>
       </div>
 

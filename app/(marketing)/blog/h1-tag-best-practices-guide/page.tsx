@@ -1,5 +1,5 @@
 export const metadata: Metadata = {
-  title: 'H1 Tag Best Practices: 17 Rules for H1s That Rank & Convert — 36% Higher CTR',
+  title: 'H1 Tag Best Practices: 17 Rules for H1s That Rank & Convert -- 36% Higher CTR',
   description: 'H1 tags with target keywords rank 47% higher than generic headlines. H1 tag best practices increased organic CTR 36% and rankings 12 positions by implementing descriptive, keyword-rich H1s on 1,847 pages.',
 }
 
@@ -31,7 +31,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            H1 tags with target keywords rank 47% higher than generic headlines. This comprehensive guide shows exactly how to write H1s that rank in search results and convert visitors into customers—with 17 proven tactics backed by data from analyzing 2.3 million pages.
+            H1 tags with target keywords rank 47% higher than generic headlines. This comprehensive guide shows exactly how to write H1s that rank in search results and convert visitors into customers--with 17 proven tactics backed by data from analyzing 2.3 million pages.
           </p>
 
           <div className="mb-12">
@@ -52,12 +52,12 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>H1 tags are your page\'s main headline</strong> — visible to users and critical for SEO rankings</li>
+                <li><strong>H1 tags are your page\'s main headline</strong> -- visible to users and critical for SEO rankings</li>
                 <li><strong>Pages with optimized H1s rank 47% higher</strong> than pages with generic or missing H1 tags (SEMrush study of 2.3M pages)</li>
-                <li><strong>One H1 per page is mandatory</strong> — multiple H1s confuse search engines and dilute topical focus</li>
-                <li><strong>Include target keyword in first 5 words</strong> — front-loaded keywords receive 23% more ranking weight</li>
-                <li><strong>Keep H1s between 20-70 characters</strong> — the sweet spot for both SEO and user engagement</li>
-                <li><strong>SEOLOGY automates H1 optimization</strong> — automatically audits, optimizes, and tests H1 tags across your entire site</li>
+                <li><strong>One H1 per page is mandatory</strong> -- multiple H1s confuse search engines and dilute topical focus</li>
+                <li><strong>Include target keyword in first 5 words</strong> -- front-loaded keywords receive 23% more ranking weight</li>
+                <li><strong>Keep H1s between 20-70 characters</strong> -- the sweet spot for both SEO and user engagement</li>
+                <li><strong>SEOLOGY automates H1 optimization</strong> -- automatically audits, optimizes, and tests H1 tags across your entire site</li>
               </ul>
             </div>
 
@@ -65,7 +65,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why H1 Tags Matter for Rankings & Conversions</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Your H1 tag is the single most important on-page text element for SEO—second only to your title tag. While title tags tell search engines what your page is about, H1 tags tell <strong>users</strong> what they\'re about to read.
+                  Your H1 tag is the single most important on-page text element for SEO--second only to your title tag. While title tags tell search engines what your page is about, H1 tags tell <strong>users</strong> what they\'re about to read.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The data is clear:
@@ -89,11 +89,11 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Multiple H1s harm rankings</strong> — pages with 2+ H1 tags rank on average 19% lower (Search Engine Journal)</span>
+                    <span><strong>Multiple H1s harm rankings</strong> -- pages with 2+ H1 tags rank on average 19% lower (Search Engine Journal)</span>
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Think of your H1 as the headline of a newspaper article. If it\'s vague, generic, or doesn\'t match what the reader searched for, they bounce immediately—sending negative engagement signals to Google.
+                  Think of your H1 as the headline of a newspaper article. If it\'s vague, generic, or doesn\'t match what the reader searched for, they bounce immediately--sending negative engagement signals to Google.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   But when your H1 is clear, descriptive, keyword-rich, and perfectly aligned with search intent, visitors stay longer, engage more, and convert at higher rates. Google notices these positive signals and rewards your page with higher rankings.
@@ -103,7 +103,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">17 H1 Tag Best Practices That Actually Work</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                  Here are the exact H1 optimization tactics that increased organic CTR by 36% and improved rankings by an average of 12 positions across 1,847 pages. These aren\'t theory—they\'re proven strategies backed by real data.
+                  Here are the exact H1 optimization tactics that increased organic CTR by 36% and improved rankings by an average of 12 positions across 1,847 pages. These aren\'t theory--they\'re proven strategies backed by real data.
                 </p>
 
                 <h3 className="text-2xl font-bold mb-4 text-blue-900">Category 1: H1 Fundamentals & Structure</h3>
@@ -116,7 +116,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">1. Use Exactly One H1 Tag Per Page</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Every page should have exactly one H1 tag—no more, no less. While HTML5 technically allows multiple H1s, SEO best practice is crystal clear: one H1 per page.
+                        <strong>The Rule:</strong> Every page should have exactly one H1 tag--no more, no less. While HTML5 technically allows multiple H1s, SEO best practice is crystal clear: one H1 per page.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Search engines use your H1 to understand your page\'s primary topic. Multiple H1s dilute this signal and confuse Google about what your page is actually about. Pages with 2+ H1s rank 19% lower on average.
@@ -129,7 +129,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">2. Make H1 the First Heading Tag</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Your H1 should be the first heading tag on the page—never start with H2 or H3. Proper heading hierarchy matters for both SEO and accessibility.
+                        <strong>The Rule:</strong> Your H1 should be the first heading tag on the page--never start with H2 or H3. Proper heading hierarchy matters for both SEO and accessibility.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Search engines expect a logical content structure: H1 → H2 → H3. Starting with H2 signals poor content organization. Screen readers rely on proper heading hierarchy for navigation.
@@ -145,7 +145,7 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Optimal H1 length is 20-70 characters (about 4-12 words). Too short is vague, too long is diluted.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Short H1s (under 20 characters) lack specificity and context for both users and search engines. Long H1s (over 70 characters) bury the keyword and lose impact. The sweet spot is 40-60 characters—long enough to be descriptive, short enough to be scannable.
+                        <strong>Why It Works:</strong> Short H1s (under 20 characters) lack specificity and context for both users and search engines. Long H1s (over 70 characters) bury the keyword and lose impact. The sweet spot is 40-60 characters--long enough to be descriptive, short enough to be scannable.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Examples:</strong>
@@ -166,7 +166,7 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Your H1 should be the largest, most visually prominent text element on the page. If a visitor glances at your page, the H1 should be the first thing they see.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Visual hierarchy reinforces semantic HTML structure. If your H1 looks small or hidden, it confuses users and reduces engagement—which Google tracks and uses for rankings.
+                        <strong>Why It Works:</strong> Visual hierarchy reinforces semantic HTML structure. If your H1 looks small or hidden, it confuses users and reduces engagement--which Google tracks and uses for rankings.
                       </p>
                       <p className="text-slate-700">
                         <strong>How to Implement:</strong> Use CSS to make H1 tags significantly larger than body text and H2 tags. Typical sizing: H1 (32-48px), H2 (24-32px), H3 (20-24px), body text (16-18px). Ensure sufficient contrast for readability.
@@ -179,10 +179,10 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Don\'t use <code>display: none</code>, <code>visibility: hidden</code>, or off-screen positioning to hide H1 tags. This is considered cloaking and can trigger manual penalties.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Hidden H1s show different content to search engines vs users—the definition of cloaking. Google\'s algorithms can detect this and may penalize your site.
+                        <strong>Why It Works:</strong> Hidden H1s show different content to search engines vs users--the definition of cloaking. Google\'s algorithms can detect this and may penalize your site.
                       </p>
                       <p className="text-slate-700">
-                        <strong>How to Implement:</strong> Audit your CSS for H1-specific rules that hide content. Common patterns to avoid: <code>h1 &#123; display: none; &#125;</code>, <code>position: absolute; left: -9999px;</code>, <code>font-size: 0;</code>. If your design doesn\'t show an H1, change the design—don\'t hide the tag.
+                        <strong>How to Implement:</strong> Audit your CSS for H1-specific rules that hide content. Common patterns to avoid: <code>h1 &#123; display: none; &#125;</code>, <code>position: absolute; left: -9999px;</code>, <code>font-size: 0;</code>. If your design doesn\'t show an H1, change the design--don\'t hide the tag.
                       </p>
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Include your exact target keyword in the H1 when it reads naturally. 68% of top-ranking pages use their exact keyword in the H1.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Exact keyword matches send the strongest relevance signal to search engines. However, forced or unnatural phrasing can reduce engagement—balance is key.
+                        <strong>Why It Works:</strong> Exact keyword matches send the strongest relevance signal to search engines. However, forced or unnatural phrasing can reduce engagement--balance is key.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Examples for "keyword research tools":</strong>
@@ -242,7 +242,7 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Your H1 should align with the searcher\'s intent for your target keyword. If users search for "how to", your H1 should promise a tutorial. If they search for "best", your H1 should promise a comparison or list.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Intent mismatch causes immediate bounces. If someone searches "how to do keyword research" and your H1 says "Buy Our Keyword Tool", they leave instantly—harming your rankings.
+                        <strong>Why It Works:</strong> Intent mismatch causes immediate bounces. If someone searches "how to do keyword research" and your H1 says "Buy Our Keyword Tool", they leave instantly--harming your rankings.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Intent Types and H1 Patterns:</strong>
@@ -254,7 +254,7 @@ export default function BlogPost() {
                         <li><strong>Navigational (brand name):</strong> "[Brand] [Product]: [Key Feature]"</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>How to Implement:</strong> Google your target keyword and analyze the top 10 H1 tags. Look for patterns—are they how-tos, listicles, comparisons, or product pages? Match your H1 format to the dominant intent.
+                        <strong>How to Implement:</strong> Google your target keyword and analyze the top 10 H1 tags. Look for patterns--are they how-tos, listicles, comparisons, or product pages? Match your H1 format to the dominant intent.
                       </p>
                     </div>
 
@@ -310,7 +310,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">11. Add Specificity with Numbers</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Include specific numbers in your H1 whenever possible—list sizes, percentages, years, or statistics.
+                        <strong>The Rule:</strong> Include specific numbers in your H1 whenever possible--list sizes, percentages, years, or statistics.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Numbers stand out visually in search results and on the page. Headlines with numbers receive 36% higher CTR than generic headlines. Numbers also set clear expectations ("17 tips" promises a complete list).
@@ -350,7 +350,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">13. Use Power Words Sparingly</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Include one impactful power word to add emotional resonance—but don\'t overdo it. Words like "proven", "ultimate", "secret", "guaranteed" can increase engagement when used authentically.
+                        <strong>The Rule:</strong> Include one impactful power word to add emotional resonance--but don\'t overdo it. Words like "proven", "ultimate", "secret", "guaranteed" can increase engagement when used authentically.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Power words trigger emotional responses and make headlines more compelling. However, overuse ("Ultimate Secret Proven Guaranteed SEO") sounds like spam.
@@ -365,7 +365,7 @@ export default function BlogPost() {
                         <li>Easy, Simple, Effortless (ease)</li>
                       </ul>
                       <p className="text-slate-700">
-                        <strong>How to Implement:</strong> Use one power word per H1 maximum. Choose words you can back up with content—don\'t promise "ultimate" if your guide is basic, or "guaranteed" if results vary.
+                        <strong>How to Implement:</strong> Use one power word per H1 maximum. Choose words you can back up with content--don\'t promise "ultimate" if your guide is basic, or "guaranteed" if results vary.
                       </p>
                     </div>
 
@@ -394,7 +394,7 @@ export default function BlogPost() {
                     <div>
                       <h4 className="font-bold text-lg mb-2">15. Use Semantic HTML5 Structure</h4>
                       <p className="text-slate-700 mb-3">
-                        <strong>The Rule:</strong> Use actual <code>&lt;h1&gt;</code> tags in your HTML—not divs or spans styled to look like headings. Semantic HTML is critical for SEO and accessibility.
+                        <strong>The Rule:</strong> Use actual <code>&lt;h1&gt;</code> tags in your HTML--not divs or spans styled to look like headings. Semantic HTML is critical for SEO and accessibility.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Why It Works:</strong> Search engines rely on HTML semantics to understand page structure. Using <code>&lt;div class="h1"&gt;</code> instead of <code>&lt;h1&gt;</code> means search engines won\'t recognize it as a heading.
@@ -423,7 +423,7 @@ export default function BlogPost() {
                         <strong>The Rule:</strong> Regularly audit your H1 tags with SEO tools to catch missing, duplicate, or poorly optimized H1s across your site.
                       </p>
                       <p className="text-slate-700 mb-3">
-                        <strong>Why It Works:</strong> Manual checking doesn\'t scale. Automated tools can crawl your entire site and flag H1 issues—missing H1s, multiple H1s per page, duplicate H1s across pages, H1s that don\'t match title tags, etc.
+                        <strong>Why It Works:</strong> Manual checking doesn\'t scale. Automated tools can crawl your entire site and flag H1 issues--missing H1s, multiple H1s per page, duplicate H1s across pages, H1s that don\'t match title tags, etc.
                       </p>
                       <p className="text-slate-700 mb-3">
                         <strong>Best Tools for H1 Audits:</strong>
@@ -550,7 +550,7 @@ export default function BlogPost() {
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                     <div>
-                      <strong>Chrome DevTools:</strong> Quick manual inspection—right-click page, select Inspect, search for <code>&lt;h1&gt;</code> to verify proper implementation.
+                      <strong>Chrome DevTools:</strong> Quick manual inspection--right-click page, select Inspect, search for <code>&lt;h1&gt;</code> to verify proper implementation.
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -575,7 +575,7 @@ export default function BlogPost() {
                     <strong>Solution:</strong> Complete H1 optimization following these 17 best practices:
                   </p>
                   <ul className="list-disc list-inside text-slate-700 space-y-2 mb-4">
-                    <li>Audited 1,847 pages with Screaming Frog—found 284 pages with missing H1s, 412 pages with multiple H1s, 637 pages with generic/duplicate H1s</li>
+                    <li>Audited 1,847 pages with Screaming Frog--found 284 pages with missing H1s, 412 pages with multiple H1s, 637 pages with generic/duplicate H1s</li>
                     <li>Added unique H1s to all 284 pages without them</li>
                     <li>Consolidated multiple H1s into single H1 per page (changed secondary H1s to H2s)</li>
                     <li>Rewrote all 637 generic H1s to include target keywords in first 5 words</li>
@@ -595,14 +595,14 @@ export default function BlogPost() {
                   </ul>
                 </div>
                 <p className="text-slate-700">
-                  H1 optimization isn\'t glamorous, but it\'s one of the highest-ROI SEO tactics. Proper H1 tags signal relevance to search engines while setting clear expectations for users—driving both rankings and conversions.
+                  H1 optimization isn\'t glamorous, but it\'s one of the highest-ROI SEO tactics. Proper H1 tags signal relevance to search engines while setting clear expectations for users--driving both rankings and conversions.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates H1 Tag Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Manual H1 optimization across hundreds or thousands of pages is tedious and error-prone. SEOLOGY automates the entire process—from auditing to implementation to ongoing monitoring:
+                  Manual H1 optimization across hundreds or thousands of pages is tedious and error-prone. SEOLOGY automates the entire process--from auditing to implementation to ongoing monitoring:
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
@@ -611,11 +611,11 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>AI-Powered H1 Generation:</strong> Claude AI analyzes each page\'s content and target keyword to generate optimized H1s that follow all 17 best practices—proper length, keyword placement, intent matching, and benefit-driven language.</span>
+                    <span><strong>AI-Powered H1 Generation:</strong> Claude AI analyzes each page\'s content and target keyword to generate optimized H1s that follow all 17 best practices--proper length, keyword placement, intent matching, and benefit-driven language.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Automatic Implementation:</strong> SEOLOGY logs directly into your CMS (Shopify, WordPress, etc.) and applies optimized H1s across all flagged pages—no manual copying and pasting.</span>
+                    <span><strong>Automatic Implementation:</strong> SEOLOGY logs directly into your CMS (Shopify, WordPress, etc.) and applies optimized H1s across all flagged pages--no manual copying and pasting.</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -630,7 +630,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mb-6">
                   <h3 className="text-2xl font-bold mb-4">Automate Your H1 Tag Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop optimizing H1 tags manually. SEOLOGY audits, optimizes, and implements perfect H1s across your entire site automatically—boosting rankings and conversions without manual work.
+                    Stop optimizing H1 tags manually. SEOLOGY audits, optimizes, and implements perfect H1s across your entire site automatically--boosting rankings and conversions without manual work.
                   </p>
                   <Link
                     href="/sign-up"
@@ -672,7 +672,7 @@ export default function BlogPost() {
                   Follow these 17 H1 best practices: Use exactly one H1 per page, include your target keyword in the first 5 words, keep length between 20-70 characters, match search intent, add specificity with numbers, promise clear benefits, ensure mobile-friendliness, use semantic HTML, and test regularly.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>SEOLOGY automates the entire process</strong>—auditing thousands of pages, generating optimized H1s with AI, implementing changes in your CMS, and monitoring performance continuously. Stop optimizing H1s manually and let SEOLOGY handle it automatically.
+                  <strong>SEOLOGY automates the entire process</strong>--auditing thousands of pages, generating optimized H1s with AI, implementing changes in your CMS, and monitoring performance continuously. Stop optimizing H1s manually and let SEOLOGY handle it automatically.
                 </p>
               </section>
 

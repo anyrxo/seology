@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Shopify stores average 3.5-4.5 second load times—way too slow. Every <strong>100ms delay</strong> costs you 7% in conversions. This guide covers 17 proven tactics to get your Shopify store under 2 seconds: image optimization, code minification, app auditing, lazy loading, CDN setup, and more. SEOLOGY automates most of these optimizations for you.
+                Shopify stores average 3.5-4.5 second load times--way too slow. Every <strong>100ms delay</strong> costs you 7% in conversions. This guide covers 17 proven tactics to get your Shopify store under 2 seconds: image optimization, code minification, app auditing, lazy loading, CDN setup, and more. SEOLOGY automates most of these optimizations for you.
               </p>
             </div>
 
@@ -66,7 +66,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Shopify Speed Matters</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Page speed isn't just a nice-to-have—it directly impacts revenue:
+                  Page speed isn't just a nice-to-have--it directly impacts revenue:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl border border-red-200">
@@ -128,7 +128,7 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Add loading="lazy" attribute to below-the-fold images.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Impact:</strong> Images load only when user scrolls to them—40% faster initial load.
+                      <strong>Impact:</strong> Images load only when user scrolls to them--40% faster initial load.
                     </p>
                   </div>
 
@@ -206,7 +206,7 @@ export default function BlogPost() {
                       <strong>Problem:</strong> Each app adds tracking scripts, slowing your store.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Solution:</strong> Audit apps monthly—uninstall unused ones, consolidate overlapping tools.
+                      <strong>Solution:</strong> Audit apps monthly--uninstall unused ones, consolidate overlapping tools.
                     </p>
                     <p className="text-slate-700">
                       <strong>Target:</strong> Keep under 10 apps for optimal speed.

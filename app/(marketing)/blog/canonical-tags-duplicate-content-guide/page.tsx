@@ -52,7 +52,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Duplicate content dilutes your rankings. <strong>Canonical tags tell Google which version to index</strong>, consolidating ranking signals into one URL. This guide covers every canonical tag scenario—from basic implementation to complex ecommerce situations. SEOLOGY implements canonical tags automatically.
+                Duplicate content dilutes your rankings. <strong>Canonical tags tell Google which version to index</strong>, consolidating ranking signals into one URL. This guide covers every canonical tag scenario--from basic implementation to complex ecommerce situations. SEOLOGY implements canonical tags automatically.
               </p>
             </div>
 
@@ -175,7 +175,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Only one canonical tag:</strong> Multiple canonical tags confuse Google—use only one per page</span>
+                    <span><strong>Only one canonical tag:</strong> Multiple canonical tags confuse Google--use only one per page</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

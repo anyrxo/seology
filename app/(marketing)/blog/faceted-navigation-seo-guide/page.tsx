@@ -29,7 +29,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            E-commerce filters create millions of duplicate pages that waste crawl budget. This guide shows 17 tactics to handle faceted navigation strategically—blocking low-value combinations while indexing high-demand filtered pages.
+            E-commerce filters create millions of duplicate pages that waste crawl budget. This guide shows 17 tactics to handle faceted navigation strategically--blocking low-value combinations while indexing high-demand filtered pages.
           </p>
 
           <div className="mb-12">
@@ -50,10 +50,10 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li className="text-slate-700">Faceted navigation creates <strong>exponential URL growth</strong>—4 filters with 5 options each = 625 possible URL combinations</li>
+                <li className="text-slate-700">Faceted navigation creates <strong>exponential URL growth</strong>--4 filters with 5 options each = 625 possible URL combinations</li>
                 <li className="text-slate-700">Sites with uncontrolled faceted navigation waste <strong>73% of crawl budget</strong> on duplicate filter pages (Botify study, 2024)</li>
                 <li className="text-slate-700">Strategic faceted nav optimization reduced duplicate content <strong>94%</strong> and increased valuable indexed pages <strong>67%</strong> (case study below)</li>
-                <li className="text-slate-700">Only <strong>5-10% of filter combinations</strong> have actual search demand—index these, block the rest (Ahrefs research, 2024)</li>
+                <li className="text-slate-700">Only <strong>5-10% of filter combinations</strong> have actual search demand--index these, block the rest (Ahrefs research, 2024)</li>
                 <li className="text-slate-700">Proper implementation increased organic traffic <strong>127%</strong> by preserving crawl budget for valuable pages</li>
                 <li className="text-slate-700">Tools: Google Search Console (URL Parameters), Screaming Frog (audit filter URLs), OnCrawl (crawl budget analysis)</li>
               </ul>
@@ -126,10 +126,10 @@ export default function BlogPost() {
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">2. Calculate URL Explosion Potential</h4>
                     <p className="text-slate-700 mb-3">
-                      Count filter options per facet and calculate potential combinations: (Options in Filter A) × (Options in Filter B) × (Options in Filter C) = Total Possible URLs.
+                      Count filter options per facet and calculate potential combinations: (Options in Filter A) x (Options in Filter B) x (Options in Filter C) = Total Possible URLs.
                     </p>
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
-                      <p className="text-sm"><strong>Example:</strong> Category with 10 brands × 8 colors × 12 sizes × 5 price ranges = 4,800 possible URLs</p>
+                      <p className="text-sm"><strong>Example:</strong> Category with 10 brands x 8 colors x 12 sizes x 5 price ranges = 4,800 possible URLs</p>
                       <p className="text-sm mt-2">If you have 50 categories, that\'s 240,000 filter URLs Google could crawl!</p>
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">Disallow: *&color=</p>
                       <p className="font-mono text-sm">Disallow: *&size=</p>
                     </div>
-                    <p className="text-sm text-slate-600 mt-2"><strong>Caution:</strong> robots.txt is blunt tool—blocks ALL instances of parameter. Use for truly worthless filters only.</p>
+                    <p className="text-sm text-slate-600 mt-2"><strong>Caution:</strong> robots.txt is blunt tool--blocks ALL instances of parameter. Use for truly worthless filters only.</p>
                   </div>
 
                   <div className="mb-6">
@@ -240,7 +240,7 @@ export default function BlogPost() {
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. Create Unique Content for Indexed Filter Pages</h4>
                     <p className="text-slate-700 mb-3">
-                      Filter pages you want to rank need unique content—not just filtered products. Add: category description (150-300 words), buyer\'s guide, size charts, FAQs, comparison tables.
+                      Filter pages you want to rank need unique content--not just filtered products. Add: category description (150-300 words), buyer\'s guide, size charts, FAQs, comparison tables.
                     </p>
                     <p className="text-sm text-slate-600">Example: "Nike Black Running Shoes" filter page should have unique content about Nike\'s black shoe technologies, styling tips, etc.</p>
                   </div>
@@ -282,7 +282,7 @@ export default function BlogPost() {
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">15. Implement Proper Pagination for Filter Results</h4>
                     <p className="text-slate-700 mb-3">
-                      Use rel="next" and rel="prev" or View All canonical for filter result pagination. Prevents exponential URL growth from filters × pagination combinations.
+                      Use rel="next" and rel="prev" or View All canonical for filter result pagination. Prevents exponential URL growth from filters x pagination combinations.
                     </p>
                     <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                       <p className="font-mono text-sm">&lt;link rel="canonical" href="/shoes?brand=nike" /&gt;</p>
@@ -319,35 +319,35 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Indexing All Filter Combinations:</strong>
-                    <p className="text-slate-700 mt-1">95% of filter combos have zero search demand—indexing everything wastes crawl budget and creates thin content (Ahrefs study, 2024)</p>
+                    <p className="text-slate-700 mt-1">95% of filter combos have zero search demand--indexing everything wastes crawl budget and creates thin content (Ahrefs study, 2024)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Using robots.txt for Potentially Valuable Filters:</strong>
-                    <p className="text-slate-700 mt-1">robots.txt blocks ALL instances—you can\'t selectively allow high-value combinations. Use noindex instead for flexibility</p>
+                    <p className="text-slate-700 mt-1">robots.txt blocks ALL instances--you can\'t selectively allow high-value combinations. Use noindex instead for flexibility</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Not Adding Unique Content to Strategic Filter Pages:</strong>
-                    <p className="text-slate-700 mt-1">Filter pages with only filtered products won\'t rank—they need 150-300 words unique content to differentiate from base category</p>
+                    <p className="text-slate-700 mt-1">Filter pages with only filtered products won\'t rank--they need 150-300 words unique content to differentiate from base category</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Ignoring Mobile Faceted Navigation:</strong>
-                    <p className="text-slate-700 mt-1">Mobile filter implementations often create different URLs than desktop—audit both versions separately</p>
+                    <p className="text-slate-700 mt-1">Mobile filter implementations often create different URLs than desktop--audit both versions separately</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Not Monitoring Crawl Budget Impact:</strong>
-                    <p className="text-slate-700 mt-1">Set it and forget it doesn\'t work—filter behavior changes over time, requiring ongoing optimization based on GSC data</p>
+                    <p className="text-slate-700 mt-1">Set it and forget it doesn\'t work--filter behavior changes over time, requiring ongoing optimization based on GSC data</p>
                   </div>
                 </li>
               </ul>
@@ -425,7 +425,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-sm text-slate-600 italic">
-                  "We knew our filter URLs were a problem but didn\'t realize the scale—3.2 million possible combinations! Google was spending 90% of its crawl budget on worthless filter pages instead of our actual products. After fixing faceted navigation, our crawl efficiency increased 10x and traffic more than doubled. This was the single biggest SEO win we\'ve ever had." - Jennifer Wu, Director of SEO, StyleHub Fashion
+                  "We knew our filter URLs were a problem but didn\'t realize the scale--3.2 million possible combinations! Google was spending 90% of its crawl budget on worthless filter pages instead of our actual products. After fixing faceted navigation, our crawl efficiency increased 10x and traffic more than doubled. This was the single biggest SEO win we\'ve ever had." - Jennifer Wu, Director of SEO, StyleHub Fashion
                 </p>
               </div>
             </section>
@@ -465,7 +465,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Faceted Navigation Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY analyzes your filter URLs, identifies high-value combinations, and implements perfect indexing rules automatically—delivering 94% crawl savings and 127% traffic increase without manual technical work.
+                  SEOLOGY analyzes your filter URLs, identifies high-value combinations, and implements perfect indexing rules automatically--delivering 94% crawl savings and 127% traffic increase without manual technical work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -480,10 +480,10 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Faceted navigation is the silent killer of e-commerce SEO. It creates exponential URL growth that wastes 70-90% of crawl budget on duplicate, low-value pages. The StyleHub case study proves that strategic faceted navigation optimization—blocking 90%+ of filter combinations while indexing only high-demand filters—delivers 94% crawl budget savings, 67% more indexed valuable pages, and 127% organic traffic increase. This is one of the highest-ROI technical SEO optimizations for e-commerce sites.
+                Faceted navigation is the silent killer of e-commerce SEO. It creates exponential URL growth that wastes 70-90% of crawl budget on duplicate, low-value pages. The StyleHub case study proves that strategic faceted navigation optimization--blocking 90%+ of filter combinations while indexing only high-demand filters--delivers 94% crawl budget savings, 67% more indexed valuable pages, and 127% organic traffic increase. This is one of the highest-ROI technical SEO optimizations for e-commerce sites.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                Start by auditing your filter URLs with Screaming Frog, calculating URL explosion potential, and checking crawl budget allocation in GSC. Then implement a hybrid strategy: block obvious low-value filters with robots.txt/noindex, research which filter combinations have search demand, and create unique content for only those strategic combinations. The challenge is ongoing monitoring—filter usage changes as inventory grows. SEOLOGY automates the entire workflow, from discovering filter URLs to analyzing keyword demand to implementing perfect indexing rules to monitoring crawl budget impact, so you get the 127% traffic increase without months of manual technical optimization.
+                Start by auditing your filter URLs with Screaming Frog, calculating URL explosion potential, and checking crawl budget allocation in GSC. Then implement a hybrid strategy: block obvious low-value filters with robots.txt/noindex, research which filter combinations have search demand, and create unique content for only those strategic combinations. The challenge is ongoing monitoring--filter usage changes as inventory grows. SEOLOGY automates the entire workflow, from discovering filter URLs to analyzing keyword demand to implementing perfect indexing rules to monitoring crawl budget impact, so you get the 127% traffic increase without months of manual technical optimization.
               </p>
             </section>
 

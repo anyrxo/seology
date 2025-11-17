@@ -376,7 +376,7 @@ export default function MusicInstrumentsSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Music & Instrument Stores</h2>
 
         <p>
-          The complexity of musical instruments SEO—managing seasonal spikes, skill-level differentiation, instrument-specific technical details, and educational content integration—requires specialized automation.
+          The complexity of musical instruments SEO--managing seasonal spikes, skill-level differentiation, instrument-specific technical details, and educational content integration--requires specialized automation.
         </p>
 
         <p>
@@ -394,7 +394,7 @@ export default function MusicInstrumentsSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine understands musician psychology, seasonal patterns, and learning curves—automatically implementing optimizations that would take months of manual work, allowing you to focus on providing quality instruments and supporting aspiring musicians.
+          SEOLOGY.AI's AI engine understands musician psychology, seasonal patterns, and learning curves--automatically implementing optimizations that would take months of manual work, allowing you to focus on providing quality instruments and supporting aspiring musicians.
         </p>
       </div>
 

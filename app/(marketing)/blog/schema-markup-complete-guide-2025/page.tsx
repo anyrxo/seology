@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Schema Markup in 2025: The Complete Guide (With Real Examples)',
-  description: "Schema markup can 3x your click-through rates. Here\'s how to implement it correctly—or let SEOLOGY do it automatically.",
+  description: "Schema markup can 3x your click-through rates. Here\'s how to implement it correctly--or let SEOLOGY do it automatically.",
 }
 
 export default function BlogPost() {
@@ -34,7 +34,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Schema markup can <strong className="text-white">3x your click-through rates</strong>. Here's how to implement it correctly—or let SEOLOGY do it automatically.
+            Schema markup can <strong className="text-white">3x your click-through rates</strong>. Here's how to implement it correctly--or let SEOLOGY do it automatically.
           </p>
 
           {/* CTA */}
@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                Schema markup (structured data) helps Google understand your content and display rich results—star ratings, prices, FAQs, recipes, events, and more. Sites with schema get <strong>30% higher CTR</strong> and better rankings. Manual implementation requires JSON-LD coding knowledge. SEOLOGY adds schema automatically to all your pages in minutes.
+                Schema markup (structured data) helps Google understand your content and display rich results--star ratings, prices, FAQs, recipes, events, and more. Sites with schema get <strong>30% higher CTR</strong> and better rankings. Manual implementation requires JSON-LD coding knowledge. SEOLOGY adds schema automatically to all your pages in minutes.
               </p>
             </div>
 
@@ -327,7 +327,7 @@ export default function BlogPost() {
                     <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl text-red-600">Marking Up Invisible Content</strong>
-                      <p className="text-slate-700 mt-1">Schema must match visible page content—hiding content just for schema violates guidelines.</p>
+                      <p className="text-slate-700 mt-1">Schema must match visible page content--hiding content just for schema violates guidelines.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -341,7 +341,7 @@ export default function BlogPost() {
                     <div className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                     <div>
                       <strong className="text-xl text-red-600">Missing Required Properties</strong>
-                      <p className="text-slate-700 mt-1">Each schema type has required fields—missing them breaks rich results eligibility.</p>
+                      <p className="text-slate-700 mt-1">Each schema type has required fields--missing them breaks rich results eligibility.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -382,7 +382,7 @@ export default function BlogPost() {
                     <div className="bg-cyan-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
                     <div>
                       <strong className="text-xl">Automatic Insertion:</strong>
-                      <p className="text-slate-700 mt-1">Injects schema into page &lt;head&gt; or footer—no manual coding required.</p>
+                      <p className="text-slate-700 mt-1">Injects schema into page &lt;head&gt; or footer--no manual coding required.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -398,7 +398,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Using Schema Markup Today</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Schema markup is no longer optional—it's essential for competitive SEO in 2025.
+                  Schema markup is no longer optional--it's essential for competitive SEO in 2025.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   With SEOLOGY, you get:

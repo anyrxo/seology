@@ -32,7 +32,7 @@ export default function XMLSitemapsIndexingShopify2026() {
           XML Sitemaps & Indexing for Shopify: Complete 2026 Guide
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-          An estimated 90% of web pages don't get indexed by search engines—and without indexing, you can't rank. While XML sitemaps aren't a Google ranking factor, they're critical for indexing, especially for Shopify stores with thousands of products. Shopify automatically generates sitemaps at yourstorename.com/sitemap.xml, but optimization is required: proper submission to Google Search Console, crawl budget management for large catalogs, and strategic use of priority tags for important pages.
+          An estimated 90% of web pages don't get indexed by search engines--and without indexing, you can't rank. While XML sitemaps aren't a Google ranking factor, they're critical for indexing, especially for Shopify stores with thousands of products. Shopify automatically generates sitemaps at yourstorename.com/sitemap.xml, but optimization is required: proper submission to Google Search Console, crawl budget management for large catalogs, and strategic use of priority tags for important pages.
         </p>
         <div className="flex items-center gap-4 mt-6 text-sm text-gray-500">
           <time dateTime="2025-12-23">December 23, 2025</time>
@@ -136,7 +136,7 @@ export default function XMLSitemapsIndexingShopify2026() {
         <h2 className="text-3xl font-bold mb-6">Why XML Sitemaps Matter for SEO (And Why They Don't)</h2>
 
         <p className="mb-4">
-          XML sitemaps have a specific, limited role in SEO. Understanding what they do—and don't do—is critical for proper optimization.
+          XML sitemaps have a specific, limited role in SEO. Understanding what they do--and don't do--is critical for proper optimization.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -342,7 +342,7 @@ export default function XMLSitemapsIndexingShopify2026() {
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg">
             <h4 className="font-bold mb-2">3. Update Efficiency</h4>
             <p className="text-sm mb-2">
-              When you add a new product, only the products sitemap updates—not the entire sitemap. Google can re-crawl just that section.
+              When you add a new product, only the products sitemap updates--not the entire sitemap. Google can re-crawl just that section.
             </p>
           </div>
         </div>
@@ -456,8 +456,8 @@ export default function XMLSitemapsIndexingShopify2026() {
             <li>✓ If you add/remove large numbers of products (100+)</li>
             <li>✓ When changing from myshopify.com to custom domain</li>
             <li>✓ If Search Console shows sitemap errors</li>
-            <li>× <strong>NOT needed</strong> for routine product additions (Shopify auto-updates)</li>
-            <li>× <strong>NOT needed</strong> monthly - only when structure changes</li>
+            <li>x <strong>NOT needed</strong> for routine product additions (Shopify auto-updates)</li>
+            <li>x <strong>NOT needed</strong> monthly - only when structure changes</li>
           </ul>
         </div>
       </section>
@@ -837,7 +837,7 @@ export default function XMLSitemapsIndexingShopify2026() {
       <section className="not-prose bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg mt-12">
         <h2 className="text-3xl font-bold mb-4">Automate Sitemap Monitoring & Indexing Optimization</h2>
         <p className="text-xl mb-6 opacity-90">
-          SEOLOGY.AI automatically monitors your Shopify sitemap health, tracks indexing status, identifies pages not being crawled, and alerts you to coverage issues—all integrated with Google Search Console data.
+          SEOLOGY.AI automatically monitors your Shopify sitemap health, tracks indexing status, identifies pages not being crawled, and alerts you to coverage issues--all integrated with Google Search Console data.
         </p>
         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6">
           <div className="grid md:grid-cols-3 gap-4 text-center">

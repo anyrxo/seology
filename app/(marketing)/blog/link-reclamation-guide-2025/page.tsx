@@ -33,7 +33,7 @@ export default function BlogPost() {
           </div>
 
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            You're losing valuable backlinks every month. This proven guide shows how to <strong className="text-white">reclaim broken, lost, and stolen links</strong>—and recover the authority you've already earned.
+            You're losing valuable backlinks every month. This proven guide shows how to <strong className="text-white">reclaim broken, lost, and stolen links</strong>--and recover the authority you've already earned.
           </p>
 
           <div className="mb-12">
@@ -54,7 +54,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-4">
-                Most websites lose <strong>15-30% of their backlinks every year</strong> to broken links, removed content, site migrations, and content theft. Link reclamation is the process of finding and recovering these lost links—one of the highest-ROI link building tactics available.
+                Most websites lose <strong>15-30% of their backlinks every year</strong> to broken links, removed content, site migrations, and content theft. Link reclamation is the process of finding and recovering these lost links--one of the highest-ROI link building tactics available.
               </p>
               <p className="text-slate-700 mb-0">
                 <strong>Why it works:</strong> You've already earned these links once. Getting them back is 10x easier than building new links from scratch.
@@ -101,7 +101,7 @@ export default function BlogPost() {
 
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
-                    <strong>The shocking truth:</strong> A study of 10,000 websites found that sites lose an average of <strong>9.1% of their backlinks every 6 months</strong>. That\'s nearly 20% per year—and most site owners never notice.
+                    <strong>The shocking truth:</strong> A study of 10,000 websites found that sites lose an average of <strong>9.1% of their backlinks every 6 months</strong>. That\'s nearly 20% per year--and most site owners never notice.
                   </p>
                 </div>
               </section>
@@ -145,7 +145,7 @@ export default function BlogPost() {
                   </ol>
                 </div>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong>What to look for:</strong> Links that disappeared in the last 90 days from DR 40+ domains—these are high-priority recovery targets.
+                  <strong>What to look for:</strong> Links that disappeared in the last 90 days from DR 40+ domains--these are high-priority recovery targets.
                 </p>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 3: SEMrush Backlink Audit</h3>
@@ -210,7 +210,7 @@ export default function BlogPost() {
                   Step 2: Find Unlinked Brand Mentions
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Unlinked brand mentions are mentions of your brand, product, or content without a hyperlink—easy link reclamation wins.
+                  Unlinked brand mentions are mentions of your brand, product, or content without a hyperlink--easy link reclamation wins.
                 </p>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Finding Unlinked Mentions</h3>
@@ -237,14 +237,14 @@ export default function BlogPost() {
                       <strong>Frequency:</strong> Set to "As-it-happens" for real-time monitoring
                     </p>
                     <p className="text-slate-700">
-                      <strong>Action:</strong> Check each mention to see if it includes a link—if not, reach out immediately
+                      <strong>Action:</strong> Check each mention to see if it includes a link--if not, reach out immediately
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Tool 3: Brand24 or Mention.com</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Benefit:</strong> More comprehensive than Google Alerts—catches social media, forums, blogs
+                      <strong>Benefit:</strong> More comprehensive than Google Alerts--catches social media, forums, blogs
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Setup:</strong> Monitor brand name, common misspellings, product names, founder names
@@ -257,7 +257,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Tool 4: BuzzSumo Monitoring</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Use case:</strong> Track content mentions—when someone references your blog posts, studies, or data
+                      <strong>Use case:</strong> Track content mentions--when someone references your blog posts, studies, or data
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Alert setup:</strong> Monitor URLs of your top-performing content pieces
@@ -287,7 +287,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Track recency:</strong> Reach out within 48 hours—fresher content is easier to update</span>
+                    <span><strong>Track recency:</strong> Reach out within 48 hours--fresher content is easier to update</span>
                   </li>
                 </ul>
               </section>
@@ -381,7 +381,7 @@ export default function BlogPost() {
                     I came across your article "[Article Title]" and loved how you covered [specific detail]. Great work!
                   </p>
                   <p className="text-slate-700 mb-4">
-                    I noticed you mentioned [Your Brand/Content] in the piece—thank you for the reference! Would you be open to adding a link to [URL] so readers can learn more?
+                    I noticed you mentioned [Your Brand/Content] in the piece--thank you for the reference! Would you be open to adding a link to [URL] so readers can learn more?
                   </p>
                   <p className="text-slate-700 mb-4">
                     Either way, thanks for including us. Keep up the great content!
@@ -425,7 +425,7 @@ export default function BlogPost() {
                     Hi [Name],
                   </p>
                   <p className="text-slate-700 mb-4">
-                    I noticed you recently updated your article "[Article Title]"—it looks great!
+                    I noticed you recently updated your article "[Article Title]"--it looks great!
                   </p>
                   <p className="text-slate-700 mb-4">
                     I also noticed the link to [Your Content Title] ([Your URL]) was removed in the update. Was there a specific reason?
@@ -468,7 +468,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Keep it short:</strong> Under 150 words—busy editors skim quickly</span>
+                    <span><strong>Keep it short:</strong> Under 150 words--busy editors skim quickly</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -561,13 +561,13 @@ export default function BlogPost() {
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 1: Reclaim Competitor Mentions</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-3">
-                    <strong>Strategy:</strong> Find articles that mention competitors but not you—then get added
+                    <strong>Strategy:</strong> Find articles that mention competitors but not you--then get added
                   </p>
                   <p className="text-slate-700 mb-3">
                     <strong>Process:</strong> Search Content Explorer for "competitor name" + "your topic"
                   </p>
                   <p className="text-slate-700 mb-3">
-                    <strong>Pitch:</strong> "I noticed you mentioned [Competitor] but not [Your Brand]—we have a similar solution with [unique benefit]"
+                    <strong>Pitch:</strong> "I noticed you mentioned [Competitor] but not [Your Brand]--we have a similar solution with [unique benefit]"
                   </p>
                   <p className="text-slate-700">
                     <strong>Success rate:</strong> Lower than pure reclamation (5-10%) but still valuable
@@ -576,7 +576,7 @@ export default function BlogPost() {
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 2: Resource Page Link Reclamation</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  Resource pages often link to outdated or broken resources—replace them with yours:
+                  Resource pages often link to outdated or broken resources--replace them with yours:
                 </p>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -605,7 +605,7 @@ export default function BlogPost() {
                     <strong>Solution:</strong> Email sites linking to old URLs with new correct links
                   </p>
                   <p className="text-slate-700">
-                    <strong>Priority:</strong> High-authority links first (DR 50+)—these are worth the manual effort
+                    <strong>Priority:</strong> High-authority links first (DR 50+)--these are worth the manual effort
                   </p>
                 </div>
 
@@ -620,7 +620,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Message:</strong> "We updated [Content] with [new data/insights]—thought you\'d want to know since you linked to it"</span>
+                    <span><strong>Message:</strong> "We updated [Content] with [new data/insights]--thought you\'d want to know since you linked to it"</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -637,7 +637,7 @@ export default function BlogPost() {
                     <strong>Setup:</strong> Get notified immediately when you lose a backlink
                   </p>
                   <p className="text-slate-700 mb-3">
-                    <strong>Benefit:</strong> Catch link losses within 24 hours—much easier to reclaim fresh losses
+                    <strong>Benefit:</strong> Catch link losses within 24 hours--much easier to reclaim fresh losses
                   </p>
                   <p className="text-slate-700">
                     <strong>Action:</strong> Automated emails trigger when DR 40+ backlink is lost
@@ -658,21 +658,21 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Chasing Low-Value Links</h4>
                     <p className="text-slate-700">
-                      <strong>Problem:</strong> Spending hours reclaiming DR 10 links with no traffic. <strong>Solution:</strong> Focus on DR 40+ sites with actual organic traffic—these move the needle.
+                      <strong>Problem:</strong> Spending hours reclaiming DR 10 links with no traffic. <strong>Solution:</strong> Focus on DR 40+ sites with actual organic traffic--these move the needle.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: No Follow-up</h4>
                     <p className="text-slate-700">
-                      <strong>Problem:</strong> Sending one email and giving up—people are busy and emails get buried. <strong>Solution:</strong> Always send one polite follow-up 5-7 days after initial email. Increases success rate by 40%.
+                      <strong>Problem:</strong> Sending one email and giving up--people are busy and emails get buried. <strong>Solution:</strong> Always send one polite follow-up 5-7 days after initial email. Increases success rate by 40%.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Ignoring 301 Redirects</h4>
                     <p className="text-slate-700">
-                      <strong>Problem:</strong> Leaving broken pages as 404s when you could redirect them. <strong>Solution:</strong> Always set up 301 redirects for broken pages with backlinks—captures 90-95% of link equity automatically.
+                      <strong>Problem:</strong> Leaving broken pages as 404s when you could redirect them. <strong>Solution:</strong> Always set up 301 redirects for broken pages with backlinks--captures 90-95% of link equity automatically.
                     </p>
                   </div>
 

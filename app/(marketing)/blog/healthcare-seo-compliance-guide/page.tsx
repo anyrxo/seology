@@ -67,14 +67,14 @@ export default function BlogPost() {
                       <Shield className="w-8 h-8 text-red-600" />
                       <div className="text-2xl font-bold text-red-600">HIPAA</div>
                     </div>
-                    <div className="text-slate-700">Strict patient privacy laws prevent using testimonials, case studies, and patient data—traditional SEO tactics</div>
+                    <div className="text-slate-700">Strict patient privacy laws prevent using testimonials, case studies, and patient data--traditional SEO tactics</div>
                   </div>
                   <div className="bg-orange-50 p-6 rounded-xl border border-orange-200">
                     <div className="flex items-center gap-3 mb-3">
                       <AlertTriangle className="w-8 h-8 text-orange-600" />
                       <div className="text-2xl font-bold text-orange-600">YMYL</div>
                     </div>
-                    <div className="text-slate-700">Your Money or Your Life content requires extreme E-A-T signals—Google holds medical content to highest standards</div>
+                    <div className="text-slate-700">Your Money or Your Life content requires extreme E-A-T signals--Google holds medical content to highest standards</div>
                   </div>
                   <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-4xl font-bold text-purple-600 mb-2">$50K+</div>
@@ -82,12 +82,12 @@ export default function BlogPost() {
                   </div>
                   <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">78%</div>
-                    <div className="text-slate-700">Of healthcare searches are local—"doctor near me" queries dominate medical search</div>
+                    <div className="text-slate-700">Of healthcare searches are local--"doctor near me" queries dominate medical search</div>
                   </div>
                 </div>
 
                 <p className="text-lg text-slate-700 leading-relaxed mt-6">
-                  Healthcare providers must navigate HIPAA regulations, maintain patient trust, establish medical expertise, and compete for visibility—all simultaneously.
+                  Healthcare providers must navigate HIPAA regulations, maintain patient trust, establish medical expertise, and compete for visibility--all simultaneously.
                 </p>
               </section>
 
@@ -166,13 +166,13 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">1. Google Business Profile Optimization</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Critical for healthcare:</strong> 78% of medical searches are local—"dentist near me," "urgent care near me," "dermatologist in [city]."
+                      <strong>Critical for healthcare:</strong> 78% of medical searches are local--"dentist near me," "urgent care near me," "dermatologist in [city]."
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Complete profile:</strong> Accurate hours, phone, address, medical categories, insurance accepted, languages spoken, accessibility features.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Photos:</strong> Office exterior/interior, staff (with consent), equipment—no patient photos without authorization.
+                      <strong>Photos:</strong> Office exterior/interior, staff (with consent), equipment--no patient photos without authorization.
                     </p>
                     <p className="text-slate-700">
                       <strong>Reviews:</strong> Respond to all reviews professionally, never reveal PHI in responses, thank patients generally without specifics.
@@ -252,7 +252,7 @@ export default function BlogPost() {
                       <strong>Critical elements:</strong> Real-time hours in GBP, current wait times (if available), insurance accepted, conditions treated.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Mobile optimization:</strong> Click-to-call buttons, driving directions, parking information—urgent searches happen on mobile.
+                      <strong>Mobile optimization:</strong> Click-to-call buttons, driving directions, parking information--urgent searches happen on mobile.
                     </p>
                     <p className="text-slate-700">
                       <strong>Schema:</strong> Use EmergencyService schema with opening hours, address, phone for immediate visibility.
@@ -265,7 +265,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Condition-Specific Educational Content</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Opportunity:</strong> Patients research symptoms and conditions before booking appointments—rank for these searches.
+                      <strong>Opportunity:</strong> Patients research symptoms and conditions before booking appointments--rank for these searches.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Content types:</strong> "What is [condition]?", "Symptoms of [disease]", "Treatment options for [condition]", "[Condition] diagnosis guide."
@@ -313,7 +313,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Medical Procedure Explanation Pages</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>High-value content:</strong> Patients research procedures before committing—answer all questions upfront.
+                      <strong>High-value content:</strong> Patients research procedures before committing--answer all questions upfront.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Structure:</strong> What is the procedure?, Why is it performed?, How to prepare, What to expect during, Recovery timeline, Risks and benefits, Cost and insurance coverage.
@@ -367,7 +367,7 @@ export default function BlogPost() {
                       <strong>HIPAA requirement:</strong> All healthcare websites must use SSL/TLS encryption (HTTPS).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>SEO benefit:</strong> HTTPS is a confirmed ranking factor—unencrypted sites rank lower and show browser warnings.
+                      <strong>SEO benefit:</strong> HTTPS is a confirmed ranking factor--unencrypted sites rank lower and show browser warnings.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Implementation:</strong> SSL certificate from trusted CA, force HTTPS redirects, update all internal links, fix mixed content warnings.
@@ -428,13 +428,13 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Accessibility Compliance (ADA)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Legal requirement:</strong> Healthcare websites must be ADA-compliant—lawsuits increasing 256% year-over-year.
+                      <strong>Legal requirement:</strong> Healthcare websites must be ADA-compliant--lawsuits increasing 256% year-over-year.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>WCAG 2.1 Level AA standards:</strong> Alt text for images, keyboard navigation, sufficient color contrast, screen reader compatibility, captions for videos.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>SEO benefit:</strong> Accessible sites rank higher—proper headings, alt text, and semantic HTML improve crawlability.
+                      <strong>SEO benefit:</strong> Accessible sites rank higher--proper headings, alt text, and semantic HTML improve crawlability.
                     </p>
                     <p className="text-slate-700">
                       <strong>Testing:</strong> WAVE accessibility tool, axe DevTools, manual screen reader testing, regular accessibility audits.
@@ -469,7 +469,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Missing Author Credentials</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> Medical content without physician authors ranks poorly—Google requires E-A-T signals for YMYL content.
+                      <strong>Impact:</strong> Medical content without physician authors ranks poorly--Google requires E-A-T signals for YMYL content.
                     </p>
                     <p className="text-slate-700">
                       <strong>Fix:</strong> Add physician bylines with full credentials, link to detailed bio pages, display board certifications.
@@ -489,7 +489,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Ignoring Local SEO</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> 78% of healthcare searches are local—missing local optimization loses majority of potential patients.
+                      <strong>Impact:</strong> 78% of healthcare searches are local--missing local optimization loses majority of potential patients.
                     </p>
                     <p className="text-slate-700">
                       <strong>Fix:</strong> Claim and optimize Google Business Profile, build local citations, create location pages, earn local reviews.

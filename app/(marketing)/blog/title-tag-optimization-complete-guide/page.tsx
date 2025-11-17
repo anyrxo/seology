@@ -55,7 +55,7 @@ export default function BlogPost() {
                 <li>Title tags are the most important on-page SEO element</li>
                 <li>Optimal length: 50-60 characters (Google truncates at ~600px)</li>
                 <li>Include primary keyword near the beginning</li>
-                <li>Write for clicks, not just rankings—CTR affects rankings</li>
+                <li>Write for clicks, not just rankings--CTR affects rankings</li>
                 <li>These 47 formulas have generated 2.3M+ clicks</li>
               </ul>
             </div>
@@ -279,7 +279,7 @@ export default function BlogPost() {
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
                     <div>
                       <strong className="text-xl">Create alternative title</strong>
-                      <p className="text-slate-700 mt-1">Test different formulas—add numbers, power words, or brackets.</p>
+                      <p className="text-slate-700 mt-1">Test different formulas--add numbers, power words, or brackets.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">

@@ -65,7 +65,7 @@ export default function BlogPost() {
                 Legal SEO is brutally competitive. Law firms spend <strong>$10,000-$50,000/month</strong> on SEO because a single case can be worth $50K-$500K+. This guide reveals the exact strategies 41 law firms used to rank #1 for high-value keywords like "personal injury lawyer [city]" and "criminal defense attorney near me."
               </p>
               <p className="text-slate-700 mb-0">
-                <strong>Key insight:</strong> Legal SEO isn\'t about ranking for generic terms—it\'s about dominating local, high-intent searches where prospects are ready to hire NOW.
+                <strong>Key insight:</strong> Legal SEO isn\'t about ranking for generic terms--it\'s about dominating local, high-intent searches where prospects are ready to hire NOW.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  The good news? Solo practitioners and small firms can compete using smart legal SEO tactics—you don\'t need a massive budget.
+                  The good news? Solo practitioners and small firms can compete using smart legal SEO tactics--you don\'t need a massive budget.
                 </p>
               </section>
 
@@ -177,7 +177,7 @@ export default function BlogPost() {
                   Strategy #2: Content Marketing for Law Firms
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  Content marketing establishes your expertise and captures searchers in the research phase—before they contact competitors.
+                  Content marketing establishes your expertise and captures searchers in the research phase--before they contact competitors.
                 </p>
 
                 <h3 className="text-2xl font-bold mt-8 mb-4">The Legal Content Framework</h3>
@@ -291,10 +291,10 @@ export default function BlogPost() {
                 <h3 className="text-2xl font-bold mt-8 mb-4">Directory Profile Optimization</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
-                    <strong>Complete every field:</strong> Most lawyers leave 60% of fields blank—this is free SEO equity!
+                    <strong>Complete every field:</strong> Most lawyers leave 60% of fields blank--this is free SEO equity!
                   </p>
                   <ul className="space-y-2 text-slate-700">
-                    <li>• Practice areas (be specific—not just "Criminal Law" but "DUI Defense," "Drug Charges," etc.)</li>
+                    <li>• Practice areas (be specific--not just "Criminal Law" but "DUI Defense," "Drug Charges," etc.)</li>
                     <li>• Bar admissions (include year admitted, state bar number)</li>
                     <li>• Education (law school, undergrad, graduation years)</li>
                     <li>• Professional associations (ABA, state bar, specialty organizations)</li>

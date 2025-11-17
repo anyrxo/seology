@@ -33,7 +33,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
         </h1>
 
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          Google's John Mueller confirms that internal links are "supercritical" for SEO—one of the most important elements that help Googlebot understand page importance. Learn how to structure your Shopify store's URLs and architecture for maximum crawlability, link equity distribution, and rankings.
+          Google's John Mueller confirms that internal links are "supercritical" for SEO--one of the most important elements that help Googlebot understand page importance. Learn how to structure your Shopify store's URLs and architecture for maximum crawlability, link equity distribution, and rankings.
         </p>
 
         <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
@@ -99,7 +99,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
           <h2 className="text-3xl font-bold mb-6">What Is Site Architecture & Why It Matters</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            Site architecture is <strong>how your website is organized and structured</strong>—the hierarchy of pages, the relationships between them, and how users and search engines navigate through your content.
+            Site architecture is <strong>how your website is organized and structured</strong>--the hierarchy of pages, the relationships between them, and how users and search engines navigate through your content.
           </p>
 
           <p className="mb-6">
@@ -129,7 +129,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">User Experience & Conversion Rate</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Having great site architecture significantly impacts SEO as factors like <strong>bounce rate, engagement, and conversions are boosted when it's done correctly</strong>—or damaged when it's done wrong.
+                    Having great site architecture significantly impacts SEO as factors like <strong>bounce rate, engagement, and conversions are boosted when it's done correctly</strong>--or damaged when it's done wrong.
                   </p>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
                   <h4 className="font-bold text-lg text-gray-900 dark:text-gray-100">User Patience Limit</h4>
                 </div>
                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                  Studies show users lose patience after 3 clicks. If they can't find what they need quickly, they leave—increasing bounce rate and hurting rankings.
+                  Studies show users lose patience after 3 clicks. If they can't find what they need quickly, they leave--increasing bounce rate and hurting rankings.
                 </p>
               </div>
 
@@ -338,7 +338,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
             </div>
 
             <div className="bg-blue-50 dark:bg-blue-950/30 rounded p-4 text-sm">
-              <strong className="text-blue-900 dark:text-blue-200">Pro Tip:</strong> Use your main navigation, footer links, and breadcrumbs to create multiple pathways to important pages—don't rely on a single click path.
+              <strong className="text-blue-900 dark:text-blue-200">Pro Tip:</strong> Use your main navigation, footer links, and breadcrumbs to create multiple pathways to important pages--don't rely on a single click path.
             </div>
           </div>
         </section>
@@ -436,7 +436,7 @@ export default function URLStructureSiteArchitectureShopifyPage() {
           <h2 className="text-3xl font-bold mb-6">Strategic Internal Linking (Google: "Supercritical")</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            Google has confirmed that <strong>internal links are supercritical for SEO</strong>—one of the most important elements. Strategic internal linking distributes link equity, helps crawlability, and signals page importance.
+            Google has confirmed that <strong>internal links are supercritical for SEO</strong>--one of the most important elements. Strategic internal linking distributes link equity, helps crawlability, and signals page importance.
           </p>
 
           <div className="not-prose bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border border-purple-200 dark:border-purple-800 rounded-xl p-8 mb-8">

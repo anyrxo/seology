@@ -62,7 +62,7 @@ export default function HomeDecorFurnitureSEOGuide() {
       {/* Main Content */}
       <div className="prose prose-lg max-w-none">
         <p className="lead">
-          The home decor and furniture market is experiencing a digital transformation as consumers increasingly shop online for high-ticket furnishing purchases. The global home decor market is expected to reach <strong>$681.05 billion in 2025</strong> and grow at a CAGR of 5.26% to reach <strong>$880.13 billion by 2030</strong>. The online home decor market specifically is valued at <strong>$120.65 billion in 2025</strong> and anticipated to grow to <strong>$255.27 billion by 2032</strong> with a steady CAGR of 11.3%—significantly outpacing traditional retail.
+          The home decor and furniture market is experiencing a digital transformation as consumers increasingly shop online for high-ticket furnishing purchases. The global home decor market is expected to reach <strong>$681.05 billion in 2025</strong> and grow at a CAGR of 5.26% to reach <strong>$880.13 billion by 2030</strong>. The online home decor market specifically is valued at <strong>$120.65 billion in 2025</strong> and anticipated to grow to <strong>$255.27 billion by 2032</strong> with a steady CAGR of 11.3%--significantly outpacing traditional retail.
         </p>
 
         <p>
@@ -204,7 +204,7 @@ export default function HomeDecorFurnitureSEOGuide() {
         </p>
 
         <ul>
-          <li><strong>Earthy Palette:</strong> "Earthy greens," "rusty oranges," "ochre yellows," "deep burgundies"—optimize for these specific color searches</li>
+          <li><strong>Earthy Palette:</strong> "Earthy greens," "rusty oranges," "ochre yellows," "deep burgundies"--optimize for these specific color searches</li>
           <li><strong>Dark Woods:</strong> "Natural materials remain key, with dark woods particularly in demand." Target "dark wood furniture," "walnut furniture," "espresso finish," "rich wood tones"</li>
           <li><strong>Muted Playful:</strong> Moving away from overdone shades to more nuanced versions. Optimize for "muted color furniture," "dusty pink decor," "sage green furniture"</li>
         </ul>
@@ -364,7 +364,7 @@ export default function HomeDecorFurnitureSEOGuide() {
         <h2>Implementing SEOLOGY.AI for Home Decor & Furniture Stores</h2>
 
         <p>
-          The complexity of home decor and furniture SEO—managing AR visualization, room-based targeting, style aesthetics, high-ticket conversion, and visual commerce—requires specialized automation.
+          The complexity of home decor and furniture SEO--managing AR visualization, room-based targeting, style aesthetics, high-ticket conversion, and visual commerce--requires specialized automation.
         </p>
 
         <p>
@@ -382,7 +382,7 @@ export default function HomeDecorFurnitureSEOGuide() {
         </ul>
 
         <p>
-          SEOLOGY.AI's AI engine understands interior design psychology, spatial visualization needs, and style preferences—automatically implementing optimizations that would take months of manual work, allowing you to focus on sourcing beautiful, quality furniture and helping customers create homes they love.
+          SEOLOGY.AI's AI engine understands interior design psychology, spatial visualization needs, and style preferences--automatically implementing optimizations that would take months of manual work, allowing you to focus on sourcing beautiful, quality furniture and helping customers create homes they love.
         </p>
       </div>
 

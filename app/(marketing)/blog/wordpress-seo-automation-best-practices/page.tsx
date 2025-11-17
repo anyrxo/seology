@@ -58,7 +58,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <p className="text-slate-700 mb-0">
-                WordPress powers 43% of all websites, but most owners waste <strong>10+ hours weekly</strong> on manual SEO tasks. SEOLOGY's WordPress SEO automation handles meta tags, XML sitemaps, schema markup, image optimization, and 11 other critical tasks—automatically. Stop installing 15+ plugins. Start ranking higher.
+                WordPress powers 43% of all websites, but most owners waste <strong>10+ hours weekly</strong> on manual SEO tasks. SEOLOGY's WordPress SEO automation handles meta tags, XML sitemaps, schema markup, image optimization, and 11 other critical tasks--automatically. Stop installing 15+ plugins. Start ranking higher.
               </p>
             </div>
 

@@ -33,7 +33,7 @@ export default function BlogPost() {
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           The $4.5 billion AI SEO market is dismantling the traditional agency model. New data from December 2025 shows
           AI-powered SEO delivers <strong>45% higher organic traffic</strong>, <strong>38% better conversion rates</strong>,
-          and costs <strong>98% less than agencies</strong>. This isn't hype—it's a paradigm shift backed by real revenue data.
+          and costs <strong>98% less than agencies</strong>. This isn't hype--it's a paradigm shift backed by real revenue data.
         </p>
 
         <div className="flex items-center gap-4">
@@ -199,7 +199,7 @@ export default function BlogPost() {
 
         <p className="mb-4">
           Human SEO specialists can analyze maybe 50-100 pages thoroughly in a day. AI analyzes every single page,
-          every single element, every single relationship—simultaneously.
+          every single element, every single relationship--simultaneously.
         </p>
 
         <p className="mb-4">
@@ -257,7 +257,7 @@ export default function BlogPost() {
         </p>
 
         <p className="mb-4">
-          AI delivers identical quality every single time—whether it's analyzing the 1st product or the 10,000th product.
+          AI delivers identical quality every single time--whether it's analyzing the 1st product or the 10,000th product.
         </p>
 
         <div className="mb-6 not-prose">
@@ -319,7 +319,7 @@ export default function BlogPost() {
         </h2>
 
         <p className="mb-4 text-lg">
-          This isn't about "AI is cool"—it's about cold, hard ROI. Let's compare the economics for a mid-sized
+          This isn't about "AI is cool"--it's about cold, hard ROI. Let's compare the economics for a mid-sized
           Shopify store (annual revenue: $500k-$2M).
         </p>
 
@@ -434,7 +434,7 @@ export default function BlogPost() {
         </h2>
 
         <p className="mb-4 text-lg">
-          The AI SEO revolution isn't coming—it's here. And the gap between AI-optimized stores and manually-managed
+          The AI SEO revolution isn't coming--it's here. And the gap between AI-optimized stores and manually-managed
           stores is widening every month.
         </p>
 
@@ -484,7 +484,7 @@ export default function BlogPost() {
           <div className="rounded-lg border-2 border-green-200 bg-green-50 p-6">
             <h4 className="mb-3 text-lg font-bold text-green-900">✅ Option 3: Full AI Automation (The Winner)</h4>
             <p className="mb-3 text-green-800">
-              Deploy SEOLOGY.AI—complete end-to-end AI SEO automation. Zero manual work. Real-time optimization.
+              Deploy SEOLOGY.AI--complete end-to-end AI SEO automation. Zero manual work. Real-time optimization.
               24/7 monitoring and fixes. 98% lower cost than agencies.
             </p>
             <p className="text-sm text-green-700">
@@ -502,7 +502,7 @@ export default function BlogPost() {
             <div className="rounded-lg bg-white/10 p-6">
               <h3 className="mb-3 text-xl font-bold">🤖 Complete Automation</h3>
               <p className="text-sm opacity-90">
-                We don't just report issues—we log into your Shopify store and fix everything automatically.
+                We don't just report issues--we log into your Shopify store and fix everything automatically.
                 No CSV exports, no manual work, no waiting.
               </p>
             </div>

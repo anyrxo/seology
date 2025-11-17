@@ -75,7 +75,7 @@ export default function BlogPost() {
                   Mobile-first indexing means Google predominantly uses the mobile version of your content for indexing and ranking.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Before 2019, Google crawled the desktop version first. Now it's the opposite—<strong>mobile is the default</strong>.
+                  Before 2019, Google crawled the desktop version first. Now it's the opposite--<strong>mobile is the default</strong>.
                 </p>
                 <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg my-6">
                   <p className="text-slate-700 mb-0">
@@ -350,7 +350,7 @@ export default function BlogPost() {
                   Mobile-first indexing isn't optional. Google only looks at your mobile version when ranking your site.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  If your mobile site is broken, slow, or missing content, you'll lose rankings—even if your desktop site is perfect.
+                  If your mobile site is broken, slow, or missing content, you'll lose rankings--even if your desktop site is perfect.
                 </p>
 
                 {/* Final CTA */}

@@ -106,7 +106,7 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-3">
                     The fastest way to find rankable FAQ questions: Google your main keywords and expand every "People Also Ask" (PAA) box. Each expansion reveals 4 more related questions. <strong>Collect 50-100 questions per topic</strong> by expanding PAA boxes recursively.
                   </p>
-                  <p className="text-slate-700 mb-3"><strong>Why this works:</strong> PAA questions are pulled directly from Google\'s search data—they represent real queries with significant search volume. If Google shows it in PAA, people are searching for it.</p>
+                  <p className="text-slate-700 mb-3"><strong>Why this works:</strong> PAA questions are pulled directly from Google\'s search data--they represent real queries with significant search volume. If Google shows it in PAA, people are searching for it.</p>
                   <p className="text-sm text-slate-600 italic">Tool: Use AlsoAsked.com to automatically map PAA question trees and find hidden question clusters.</p>
                 </div>
 
@@ -115,13 +115,13 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-3">
                     Answer The Public visualizes every "how," "what," "why," "when," "where," and "who" question variation for your keywords. Export the full list and cluster questions by topic. <strong>Aim for 10-15 questions per topic cluster.</strong>
                   </p>
-                  <p className="text-slate-700 mb-3"><strong>Pro tip:</strong> Sort by "comparison" and "preposition" questions—these have lower competition and higher conversion rates (e.g., "X vs Y" or "X with Z").</p>
+                  <p className="text-slate-700 mb-3"><strong>Pro tip:</strong> Sort by "comparison" and "preposition" questions--these have lower competition and higher conversion rates (e.g., "X vs Y" or "X with Z").</p>
                 </div>
 
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold text-pink-900 mb-3">3. Analyze Competitor FAQ Pages for Gaps</h3>
                   <p className="text-slate-700 mb-3">
-                    Find your top 5 competitors\' FAQ pages. Export all their questions. Identify questions they answer that you don\'t—these are low-hanging fruit. More importantly, <strong>find questions they DON\'T answer</strong> by cross-referencing with PAA and Answer The Public data.
+                    Find your top 5 competitors\' FAQ pages. Export all their questions. Identify questions they answer that you don\'t--these are low-hanging fruit. More importantly, <strong>find questions they DON\'T answer</strong> by cross-referencing with PAA and Answer The Public data.
                   </p>
                   <p className="text-slate-700 mb-3"><strong>Strategy:</strong> Answer the questions competitors skip. Less competition = faster rankings.</p>
                 </div>
@@ -131,7 +131,7 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-3">
                     Your customer service team hears the same questions repeatedly. Export 6 months of support tickets, chat transcripts, and email inquiries. Categorize by frequency. <strong>Questions asked 10+ times deserve FAQ answers.</strong>
                   </p>
-                  <p className="text-slate-700 mb-3"><strong>Bonus benefit:</strong> These questions reflect your actual customers\' language and pain points—making your answers more relevant than generic SEO content.</p>
+                  <p className="text-slate-700 mb-3"><strong>Bonus benefit:</strong> These questions reflect your actual customers\' language and pain points--making your answers more relevant than generic SEO content.</p>
                 </div>
 
                 <div className="border-l-4 border-yellow-600 pl-6">
@@ -169,7 +169,7 @@ export default function BlogPost() {
                 <div className="border-l-4 border-red-600 pl-6">
                   <h3 className="text-2xl font-bold text-red-900 mb-3">7. Write Comprehensive But Concise Answers (150-300 Words)</h3>
                   <p className="text-slate-700 mb-3">
-                    Answers should be <strong>complete enough to satisfy the query</strong> but <strong>short enough to win featured snippets</strong>. Target 150-300 words per answer. Start with a direct answer in the first 2-3 sentences (40-60 words)—this is your featured snippet target.
+                    Answers should be <strong>complete enough to satisfy the query</strong> but <strong>short enough to win featured snippets</strong>. Target 150-300 words per answer. Start with a direct answer in the first 2-3 sentences (40-60 words)--this is your featured snippet target.
                   </p>
                   <p className="text-slate-700 mb-3"><strong>Answer structure that works:</strong></p>
                   <ol className="space-y-2 text-slate-700 ml-6">
@@ -256,7 +256,7 @@ export default function BlogPost() {
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold text-purple-900 mb-3">13. Add a Table of Contents with Jump Links</h3>
                   <p className="text-slate-700 mb-3">
-                    If your FAQ page has 20+ questions, add a table of contents at the top with anchor links to each section. This improves UX and generates sitelink jumplinks in search results—increasing CTR by 8-12%.
+                    If your FAQ page has 20+ questions, add a table of contents at the top with anchor links to each section. This improves UX and generates sitelink jumplinks in search results--increasing CTR by 8-12%.
                   </p>
                   <div className="bg-slate-100 p-4 rounded-lg mt-3">
                     <p className="text-sm font-bold text-slate-900 mb-2">Example TOC:</p>
@@ -314,7 +314,7 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-3">
                     Beyond your main FAQ page, embed 3-5 targeted FAQs on every product page, service page, and category page. These page-specific FAQs answer questions about that specific offering. <strong>Benefit:</strong> Each page can rank for its own set of question keywords.
                   </p>
-                  <p className="text-slate-700 mb-3">Example: Your pricing page should have FAQs about pricing, payment methods, refunds, etc.—not general company questions.</p>
+                  <p className="text-slate-700 mb-3">Example: Your pricing page should have FAQs about pricing, payment methods, refunds, etc.--not general company questions.</p>
                 </div>
 
                 <div className="border-l-4 border-orange-600 pl-6">
@@ -350,7 +350,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Vague or One-Sentence Answers</strong>
-                    <p className="text-slate-700 mt-1">"Yes" or "Contact support" aren\'t answers—they\'re conversation-enders. Every FAQ answer should be 100-300 words with complete information. If you can\'t write 100 words, the question isn\'t valuable enough for your FAQ page.</p>
+                    <p className="text-slate-700 mt-1">"Yes" or "Contact support" aren\'t answers--they\'re conversation-enders. Every FAQ answer should be 100-300 words with complete information. If you can\'t write 100 words, the question isn\'t valuable enough for your FAQ page.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -412,7 +412,7 @@ export default function BlogPost() {
               </p>
               <ul className="space-y-2 my-4 text-slate-700">
                 <li>✅ <strong>Organic traffic to FAQ pages increased 47%</strong> (200 → 294 monthly visits across all FAQ pages)</li>
-                <li>✅ <strong>Main FAQ page now ranks for 134 keywords</strong> (up from 8)—including 23 page-one rankings</li>
+                <li>✅ <strong>Main FAQ page now ranks for 134 keywords</strong> (up from 8)--including 23 page-one rankings</li>
                 <li>✅ <strong>Won 7 featured snippets</strong> for high-value question keywords (average position 0.0)</li>
                 <li>✅ <strong>Support ticket volume decreased 32%</strong> as users found answers on FAQ pages instead of contacting support</li>
                 <li>✅ <strong>Product page conversions increased 18%</strong> thanks to FAQ sections addressing objections at point of decision</li>
@@ -450,7 +450,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your FAQ Optimization in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  Connect your site, and SEOLOGY will analyze search trends, generate comprehensive FAQ content, implement schema markup, and monitor featured snippet wins—all automatically.
+                  Connect your site, and SEOLOGY will analyze search trends, generate comprehensive FAQ content, implement schema markup, and monitor featured snippet wins--all automatically.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
@@ -487,7 +487,7 @@ export default function BlogPost() {
                 <li>✅ Update FAQ content quarterly based on new support questions and search trends</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Or let SEOLOGY handle all 19 optimization tactics automatically—mining questions from multiple sources, generating comprehensive answers, implementing schema, monitoring featured snippets, and updating content based on performance. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
+                Or let SEOLOGY handle all 19 optimization tactics automatically--mining questions from multiple sources, generating comprehensive answers, implementing schema, monitoring featured snippets, and updating content based on performance. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
 

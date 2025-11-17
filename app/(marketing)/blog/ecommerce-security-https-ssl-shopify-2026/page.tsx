@@ -31,7 +31,7 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
 
         <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border border-red-200 dark:border-red-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            <strong className="text-red-600 dark:text-red-400">Security isn't optional—it's survival:</strong> <strong>85% of shoppers avoid unsecured websites</strong>, and <strong>82% stop engaging with brands after a data breach</strong>. The average ecommerce breach costs <strong>$3.54 million</strong>, and <strong>80% of retailers were attacked last year</strong>. Meanwhile, HTTPS gives a <strong>5% ranking boost</strong> and improves SEO by <strong>35%</strong>. Shopify provides free <strong>256-bit SSL and Level 1 PCI compliance</strong>, but you still need proper security implementation to build trust and protect your business.
+            <strong className="text-red-600 dark:text-red-400">Security isn't optional--it's survival:</strong> <strong>85% of shoppers avoid unsecured websites</strong>, and <strong>82% stop engaging with brands after a data breach</strong>. The average ecommerce breach costs <strong>$3.54 million</strong>, and <strong>80% of retailers were attacked last year</strong>. Meanwhile, HTTPS gives a <strong>5% ranking boost</strong> and improves SEO by <strong>35%</strong>. Shopify provides free <strong>256-bit SSL and Level 1 PCI compliance</strong>, but you still need proper security implementation to build trust and protect your business.
           </p>
         </div>
       </header>
@@ -80,7 +80,7 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Ecommerce is under siege. Retailers are among the most targeted sectors for cyberattacks, and the costs—financial and reputational—are devastating.
+          Ecommerce is under siege. Retailers are among the most targeted sectors for cyberattacks, and the costs--financial and reputational--are devastating.
         </p>
 
         <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 rounded-lg p-8 my-8">
@@ -287,7 +287,7 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
         </ul>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          <strong>Shopify certification:</strong> Level 1 PCI compliant—the highest standard, regardless of your store size. This means strict security protocols, annual audits, and continuous monitoring.
+          <strong>Shopify certification:</strong> Level 1 PCI compliant--the highest standard, regardless of your store size. This means strict security protocols, annual audits, and continuous monitoring.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -453,7 +453,7 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          68% of breaches involve a human element—often compromised passwords. Two-factor authentication (2FA) is your strongest defense.
+          68% of breaches involve a human element--often compromised passwords. Two-factor authentication (2FA) is your strongest defense.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -494,9 +494,9 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
         </h3>
 
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-          <li><strong>High risk:</strong> Red flag—contact customer before fulfilling</li>
-          <li><strong>Medium risk:</strong> Yellow flag—review order details carefully</li>
-          <li><strong>Low risk:</strong> Green flag—likely legitimate</li>
+          <li><strong>High risk:</strong> Red flag--contact customer before fulfilling</li>
+          <li><strong>Medium risk:</strong> Yellow flag--review order details carefully</li>
+          <li><strong>Low risk:</strong> Green flag--likely legitimate</li>
         </ul>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
@@ -585,7 +585,7 @@ export default function EcommerceSecurityHTTPSSSLShopifyPage() {
             Automated Security Monitoring for Shopify
           </h2>
           <p className="text-xl mb-8 text-red-100">
-            SEOLOGY.AI monitors your Shopify store for security vulnerabilities, ensures HTTPS implementation is correct, validates SSL certificates, checks for security best practices, and alerts you to potential threats—all automatically. Focus on selling; we'll handle security monitoring.
+            SEOLOGY.AI monitors your Shopify store for security vulnerabilities, ensures HTTPS implementation is correct, validates SSL certificates, checks for security best practices, and alerts you to potential threats--all automatically. Focus on selling; we'll handle security monitoring.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

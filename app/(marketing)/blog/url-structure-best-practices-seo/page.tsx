@@ -35,12 +35,12 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>URLs are a ranking factor</strong>—keywords in URLs correlate with 45% higher rankings (Backlinko study)</li>
-                <li><strong>Short URLs win</strong>—URLs under 50 characters get 28% more clicks than 100+ character URLs</li>
-                <li><strong>Descriptive beats cryptic</strong>—/blog/seo-guide outperforms /p?id=12345 by every metric</li>
-                <li><strong>Hyphens, not underscores</strong>—Google treats hyphens as spaces, underscores as one word</li>
-                <li><strong>HTTPS is required</strong>—it\'s a confirmed ranking factor (and Chrome marks HTTP as "Not Secure")</li>
-                <li><strong>Changing URLs requires 301 redirects</strong>—or you lose 100% of existing rankings and traffic</li>
+                <li><strong>URLs are a ranking factor</strong>--keywords in URLs correlate with 45% higher rankings (Backlinko study)</li>
+                <li><strong>Short URLs win</strong>--URLs under 50 characters get 28% more clicks than 100+ character URLs</li>
+                <li><strong>Descriptive beats cryptic</strong>--/blog/seo-guide outperforms /p?id=12345 by every metric</li>
+                <li><strong>Hyphens, not underscores</strong>--Google treats hyphens as spaces, underscores as one word</li>
+                <li><strong>HTTPS is required</strong>--it\'s a confirmed ranking factor (and Chrome marks HTTP as "Not Secure")</li>
+                <li><strong>Changing URLs requires 301 redirects</strong>--or you lose 100% of existing rankings and traffic</li>
               </ul>
             </div>
 
@@ -552,7 +552,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                URL structure is one of the easiest SEO wins—if you do it right from the start. Clean URLs with keywords boost CTR, improve rankings, and build user trust.
+                URL structure is one of the easiest SEO wins--if you do it right from the start. Clean URLs with keywords boost CTR, improve rankings, and build user trust.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 If you already have messy URLs, fixing them requires careful planning and proper 301 redirects. But the payoff is worth it: 28% better CTR, 45% ranking improvement.
@@ -563,7 +563,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Optimize Your URLs Automatically</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY audits URL structure, optimizes slugs, implements 301 redirects, and monitors results—automatically. See 28% CTR improvement and 34% better rankings.
+                  SEOLOGY audits URL structure, optimizes slugs, implements 301 redirects, and monitors results--automatically. See 28% CTR improvement and 34% better rankings.
                 </p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">
                   Try SEOLOGY Free<ArrowRight className="w-5 h-5" />

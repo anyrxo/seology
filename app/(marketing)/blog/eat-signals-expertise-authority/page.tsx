@@ -50,8 +50,8 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="space-y-2 mb-0">
-                <li className="text-slate-700"><strong>E-E-A-T accounts for 40% of quality assessment factors</strong> in Google\'s Search Quality Rater Guidelines—making it one of the most influential ranking concepts (Google SQRG 2024)</li>
-                <li className="text-slate-700"><strong>Google added "Experience" in December 2022</strong> expanding E-A-T to E-E-A-T—now prioritizing first-hand experience alongside expertise, authority, and trust</li>
+                <li className="text-slate-700"><strong>E-E-A-T accounts for 40% of quality assessment factors</strong> in Google\'s Search Quality Rater Guidelines--making it one of the most influential ranking concepts (Google SQRG 2024)</li>
+                <li className="text-slate-700"><strong>Google added "Experience" in December 2022</strong> expanding E-A-T to E-E-A-T--now prioritizing first-hand experience alongside expertise, authority, and trust</li>
                 <li className="text-slate-700"><strong>YMYL (Your Money Your Life) sites must have strong E-E-A-T</strong> or face 60-80% traffic drops during core updates (SEMrush analysis of health/finance sites)</li>
                 <li className="text-slate-700"><strong>Author bylines with credentials boost rankings by 12-18%</strong> for YMYL content compared to anonymous posts (Moz study of 10K medical articles)</li>
                 <li className="text-slate-700"><strong>Sites with verified author profiles rank 3.4 positions higher on average</strong> than sites without author attribution (Ahrefs correlation study)</li>
@@ -62,10 +62,10 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">What Is E-E-A-T and Why It Dominates Modern SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                E-E-A-T stands for <strong>Experience, Expertise, Authoritativeness, and Trustworthiness</strong>—the four pillars Google uses to assess content quality. Originally just "E-A-T" (Expertise, Authoritativeness, Trust), Google added the first "E" for Experience in December 2022, recognizing that first-hand experience often matters as much as formal credentials.
+                E-E-A-T stands for <strong>Experience, Expertise, Authoritativeness, and Trustworthiness</strong>--the four pillars Google uses to assess content quality. Originally just "E-A-T" (Expertise, Authoritativeness, Trust), Google added the first "E" for Experience in December 2022, recognizing that first-hand experience often matters as much as formal credentials.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                <strong>Here\'s the critical context:</strong> E-E-A-T isn\'t a direct ranking factor like title tags or backlinks. Instead, it\'s a <strong>quality assessment framework</strong> that Google\'s human quality raters use to evaluate search results. However, Google\'s algorithms are trained on these human assessments, making E-E-A-T indirectly—but powerfully—influential on rankings.
+                <strong>Here\'s the critical context:</strong> E-E-A-T isn\'t a direct ranking factor like title tags or backlinks. Instead, it\'s a <strong>quality assessment framework</strong> that Google\'s human quality raters use to evaluate search results. However, Google\'s algorithms are trained on these human assessments, making E-E-A-T indirectly--but powerfully--influential on rankings.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Why E-E-A-T matters more than ever:</strong>
@@ -81,7 +81,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Core algorithm updates disproportionately impact low E-E-A-T sites</strong>—60-80% traffic drops are common for YMYL sites without strong signals (SEMrush).</span>
+                  <span><strong>Core algorithm updates disproportionately impact low E-E-A-T sites</strong>--60-80% traffic drops are common for YMYL sites without strong signals (SEMrush).</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -89,7 +89,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <span><strong>Experience signals (new in 2022) level the playing field</strong>—first-hand product reviews, case studies, and real examples now compete with credentialed expertise.</span>
+                  <span><strong>Experience signals (new in 2022) level the playing field</strong>--first-hand product reviews, case studies, and real examples now compete with credentialed expertise.</span>
                 </li>
               </ul>
             </section>
@@ -132,7 +132,7 @@ export default function BlogPost() {
                     <li>• Financial planning from CFP (Certified Financial Planner) professionals</li>
                     <li>• Technical tutorials from certified software engineers</li>
                   </ul>
-                  <p className="text-sm text-slate-600 mt-3 italic">Important: Everyday expertise counts too—e.g., hobbyist photographer reviewing cameras has "everyday expertise."</p>
+                  <p className="text-sm text-slate-600 mt-3 italic">Important: Everyday expertise counts too--e.g., hobbyist photographer reviewing cameras has "everyday expertise."</p>
                 </div>
 
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
@@ -150,7 +150,7 @@ export default function BlogPost() {
                     <li>• Awards, certifications, or industry recognition</li>
                     <li>• High-quality backlinks from authoritative sites in your niche</li>
                   </ul>
-                  <p className="text-sm text-slate-600 mt-3 italic">Authority is earned through reputation—others must validate your expertise.</p>
+                  <p className="text-sm text-slate-600 mt-3 italic">Authority is earned through reputation--others must validate your expertise.</p>
                 </div>
 
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
@@ -170,7 +170,7 @@ export default function BlogPost() {
                     <li>• Secure payment processing (for e-commerce)</li>
                     <li>• Clear editorial policies and fact-checking processes</li>
                   </ul>
-                  <p className="text-sm text-slate-600 mt-3 italic">Trust is foundational—without it, expertise and authority don\'t matter.</p>
+                  <p className="text-sm text-slate-600 mt-3 italic">Trust is foundational--without it, expertise and authority don\'t matter.</p>
                 </div>
               </div>
             </section>
@@ -224,7 +224,7 @@ export default function BlogPost() {
                     <div className="border-l-4 border-yellow-600 pl-6">
                       <h4 className="text-xl font-bold text-yellow-900 mb-3">5. Add "Pros & Cons from Experience" Sections</h4>
                       <p className="text-slate-700 mb-3">
-                        Honest pros/cons based on actual usage demonstrate real experience. Include <strong>specific drawbacks</strong> you discovered—perfection isn\'t believable.
+                        Honest pros/cons based on actual usage demonstrate real experience. Include <strong>specific drawbacks</strong> you discovered--perfection isn\'t believable.
                       </p>
                       <p className="text-slate-700 mb-3">Example Cons: "The mobile app crashed twice during testing when switching between accounts" or "Setup took 45 minutes longer than advertised."</p>
                     </div>
@@ -310,7 +310,7 @@ export default function BlogPost() {
                       <p className="text-slate-700 mb-3">
                         Wikipedia pages are <strong>authoritative trust signals</strong> Google heavily weights. If your company/brand/author qualifies for Wikipedia inclusion (notability guidelines), create and maintain a page.
                       </p>
-                      <p className="text-slate-700 mb-3">Requirements: Significant news coverage from independent reliable sources, awards/recognition, major achievements. Don\'t spam—Wikipedia is strict.</p>
+                      <p className="text-slate-700 mb-3">Requirements: Significant news coverage from independent reliable sources, awards/recognition, major achievements. Don\'t spam--Wikipedia is strict.</p>
                     </div>
 
                     <div className="border-l-4 border-yellow-600 pl-6">
@@ -336,7 +336,7 @@ export default function BlogPost() {
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">17. Implement HTTPS (SSL Certificate)</h4>
                       <p className="text-slate-700 mb-3">
-                        HTTPS is <strong>mandatory</strong> for trustworthiness, especially for e-commerce or sites handling personal data. Chrome marks HTTP sites as "Not Secure"—users bounce, trust tanks.
+                        HTTPS is <strong>mandatory</strong> for trustworthiness, especially for e-commerce or sites handling personal data. Chrome marks HTTP sites as "Not Secure"--users bounce, trust tanks.
                       </p>
                       <p className="text-sm text-slate-600 italic">Sites without HTTPS rank lower and convert 20-30% worse (Google data).</p>
                     </div>
@@ -438,7 +438,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Health Site Recovers from Core Update with E-E-A-T Overhaul</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                <strong>Challenge:</strong> A health information website publishing nutrition and wellness advice saw 68% organic traffic drop after Google\'s August 2023 core update. The site had solid content volume (800+ articles) but weak E-E-A-T signals—anonymous authors, no credentials displayed, outdated medical information, zero citations to studies.
+                <strong>Challenge:</strong> A health information website publishing nutrition and wellness advice saw 68% organic traffic drop after Google\'s August 2023 core update. The site had solid content volume (800+ articles) but weak E-E-A-T signals--anonymous authors, no credentials displayed, outdated medical information, zero citations to studies.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>E-E-A-T Implementation (12-week overhaul):</strong>
@@ -448,22 +448,22 @@ export default function BlogPost() {
                 <li><strong>Weeks 3-4:</strong> Added prominent "Medically Reviewed by [Name], RD" badges to all 800+ articles with reviewer credentials and photos at article top.</li>
                 <li><strong>Weeks 5-7:</strong> Updated 200 highest-traffic articles with recent studies (2022-2024), replaced outdated guidelines, added citations to PubMed, NIH, and major medical journals.</li>
                 <li><strong>Weeks 8-9:</strong> Implemented comprehensive About Us page with team bios, editorial policy, fact-checking process, and medical review standards.</li>
-                <li><strong>Week 10:</strong> Added first-hand experience elements—RD authors shared personal client success stories (anonymized), meal prep photos, and nutrition coaching insights.</li>
-                <li><strong>Weeks 11-12:</strong> Earned backlinks through PR outreach—3 features in health publications, 2 podcast interviews with RD authors, 1 university (.edu) citation.</li>
+                <li><strong>Week 10:</strong> Added first-hand experience elements--RD authors shared personal client success stories (anonymized), meal prep photos, and nutrition coaching insights.</li>
+                <li><strong>Weeks 11-12:</strong> Earned backlinks through PR outreach--3 features in health publications, 2 podcast interviews with RD authors, 1 university (.edu) citation.</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 <strong>Results after 6 months:</strong>
               </p>
               <ul className="space-y-2 my-4 text-slate-700">
                 <li>✅ <strong>Organic traffic recovered 89% of pre-update levels</strong> (32% loss reduced to 3% loss vs peak)</li>
-                <li>✅ <strong>YMYL keyword rankings improved dramatically</strong>—117 health keywords moved from pages 3-5 to page 1</li>
+                <li>✅ <strong>YMYL keyword rankings improved dramatically</strong>--117 health keywords moved from pages 3-5 to page 1</li>
                 <li>✅ <strong>Featured snippets won for 23 medical queries</strong> after adding credentialed authors and study citations</li>
                 <li>✅ <strong>Average time on page increased 2.8 minutes</strong> thanks to comprehensive, cited content</li>
                 <li>✅ <strong>Bounce rate decreased 22%</strong> as trust signals improved (author photos, credentials, updated dates)</li>
                 <li>✅ <strong>Affiliate revenue recovered to 94% of pre-update levels</strong> despite remaining 3% traffic gap</li>
               </ul>
               <p className="text-lg text-slate-700 leading-relaxed">
-                <strong>Key Insight:</strong> The founder said: <em>"We had great content but zero E-E-A-T signals. Google couldn\'t verify our expertise. After adding credentialed authors, medical citations, and transparent editorial policies, we went from \'who are you?\' to \'trusted health source\' in Google\'s eyes. E-E-A-T isn\'t optional for YMYL—it\'s survival."</em>
+                <strong>Key Insight:</strong> The founder said: <em>"We had great content but zero E-E-A-T signals. Google couldn\'t verify our expertise. After adding credentialed authors, medical citations, and transparent editorial policies, we went from \'who are you?\' to \'trusted health source\' in Google\'s eyes. E-E-A-T isn\'t optional for YMYL--it\'s survival."</em>
               </p>
             </section>
 
@@ -479,7 +479,7 @@ export default function BlogPost() {
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                   <h3 className="text-xl font-bold text-purple-900 mb-3">2. Author Profile Generation</h3>
-                  <p className="text-slate-700">Creates complete author profile pages with schema markup, credential displays, social verification links, and published content archives—all automatically.</p>
+                  <p className="text-slate-700">Creates complete author profile pages with schema markup, credential displays, social verification links, and published content archives--all automatically.</p>
                 </div>
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                   <h3 className="text-xl font-bold text-pink-900 mb-3">3. Citation and Source Linking</h3>
@@ -494,7 +494,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your E-E-A-T Optimization in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  Connect your site, and SEOLOGY will analyze E-E-A-T gaps, implement author profiles, add authoritative citations, and monitor trust signals—all automatically.
+                  Connect your site, and SEOLOGY will analyze E-E-A-T gaps, implement author profiles, add authoritative citations, and monitor trust signals--all automatically.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
@@ -530,7 +530,7 @@ export default function BlogPost() {
                 <li>5. <strong>Authority building:</strong> High-quality backlinks, brand mentions, industry recognition</li>
               </ol>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Or let SEOLOGY handle all 21 E-E-A-T optimization tactics automatically—gap analysis, author profile creation, citation linking, trust signal monitoring, and continuous improvement based on ranking performance. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
+                Or let SEOLOGY handle all 21 E-E-A-T optimization tactics automatically--gap analysis, author profile creation, citation linking, trust signal monitoring, and continuous improvement based on ranking performance. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
 

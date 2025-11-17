@@ -54,15 +54,15 @@ export default function BlogPost() {
               <ul className="space-y-2 mb-0">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Your SEO competitors aren\'t your business competitors</strong>—they\'re whoever ranks for your target keywords (identify them first)</span>
+                  <span><strong>Your SEO competitors aren\'t your business competitors</strong>--they\'re whoever ranks for your target keywords (identify them first)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Keyword gap analysis reveals 200-500 easy wins</strong>—keywords competitors rank for that you don\'t (average per site, Ahrefs data)</span>
+                  <span><strong>Keyword gap analysis reveals 200-500 easy wins</strong>--keywords competitors rank for that you don\'t (average per site, Ahrefs data)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Backlink gap = 3x faster authority growth</strong>—target sites linking to 2+ competitors but not you (58% success rate)</span>
+                  <span><strong>Backlink gap = 3x faster authority growth</strong>--target sites linking to 2+ competitors but not you (58% success rate)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -70,7 +70,7 @@ export default function BlogPost() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span><strong>Top-performing competitor pages reveal winning formulas</strong>—reverse-engineer their structure, length, format</span>
+                  <span><strong>Top-performing competitor pages reveal winning formulas</strong>--reverse-engineer their structure, length, format</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
@@ -155,7 +155,7 @@ export default function BlogPost() {
                       </ol>
                     </div>
                     <p className="text-slate-700">
-                      <strong>Example:</strong> A SaaS company selling project management software might compete SEO-wise with blog sites, freelance marketplaces, and niche tools—not just other SaaS companies.
+                      <strong>Example:</strong> A SaaS company selling project management software might compete SEO-wise with blog sites, freelance marketplaces, and niche tools--not just other SaaS companies.
                     </p>
                   </div>
 
@@ -285,7 +285,7 @@ export default function BlogPost() {
                   <div className="border-l-4 border-yellow-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">9. Identify Competitor Keyword Decline</h4>
                     <p className="text-slate-700 mb-4">
-                      <strong>Steal declining rankings.</strong> Find keywords competitors are losing rankings for. Their content is likely outdated—your opportunity.
+                      <strong>Steal declining rankings.</strong> Find keywords competitors are losing rankings for. Their content is likely outdated--your opportunity.
                     </p>
                     <div className="bg-slate-50 p-4 rounded-lg my-4">
                       <h5 className="font-bold mb-2">How to find:</h5>
@@ -581,7 +581,7 @@ export default function BlogPost() {
                   </div>
 
                   <p className="text-slate-700 mt-6 italic">
-                    "We couldn\'t compete head-to-head with Mailchimp. But competitive analysis revealed 380 keywords they ignored—mostly long-tail "how to" searches. We dominated those gaps and now own an entire category of search traffic they overlooked." — James L., Head of Growth
+                    "We couldn\'t compete head-to-head with Mailchimp. But competitive analysis revealed 380 keywords they ignored--mostly long-tail "how to" searches. We dominated those gaps and now own an entire category of search traffic they overlooked." -- James L., Head of Growth
                   </p>
                 </div>
               </section>
@@ -637,7 +637,7 @@ export default function BlogPost() {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Competitive SEO Analysis</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Stop paying for multiple SEO tools and spending hours on manual analysis. SEOLOGY continuously monitors competitors, identifies keyword gaps, finds backlink opportunities, and alerts you to changes—all automatically.
+                    Stop paying for multiple SEO tools and spending hours on manual analysis. SEOLOGY continuously monitors competitors, identifies keyword gaps, finds backlink opportunities, and alerts you to changes--all automatically.
                   </p>
                   <Link
                     href="/sign-up"

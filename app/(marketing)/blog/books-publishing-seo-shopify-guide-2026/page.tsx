@@ -207,7 +207,7 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Primary BISAC:</strong> Main genre category (e.g., "FIC031080 - Fiction / Thrillers / Psychological")</li>
           <li><strong>Secondary BISAC:</strong> Additional relevant categories (e.g., "FIC030000 - Fiction / Noir")</li>
           <li><strong>SEO Benefit:</strong> Creates natural hierarchy for site architecture: /fiction/thrillers/psychological/</li>
-          <li><strong>Amazon KDP:</strong> Choose categories wisely—you can select two, but strategically pick less competitive niches</li>
+          <li><strong>Amazon KDP:</strong> Choose categories wisely--you can select two, but strategically pick less competitive niches</li>
         </ul>
 
         <h2>Amazon Kindle SEO Optimization</h2>
@@ -238,12 +238,12 @@ export default function BooksPublishingSEOGuide2026() {
             <div>
               <p className="font-semibold">3. Optimized Book Titles</p>
               <p className="text-sm mt-1">Include primary keyword in subtitle: "The Lost Heir: A Medieval Fantasy Romance"<br/>
-              Amazon indexes subtitle heavily—use it strategically<br/>
+              Amazon indexes subtitle heavily--use it strategically<br/>
               Avoid keyword stuffing; maintain readability</p>
             </div>
             <div>
               <p className="font-semibold">4. Compelling Book Descriptions</p>
-              <p className="text-sm mt-1">First 150 characters appear in search—hook readers immediately<br/>
+              <p className="text-sm mt-1">First 150 characters appear in search--hook readers immediately<br/>
               Use HTML formatting: &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italics&lt;/i&gt;, &lt;h2&gt;headings&lt;/h2&gt;<br/>
               Include keywords naturally while maintaining sales copy quality</p>
             </div>
@@ -395,7 +395,7 @@ export default function BooksPublishingSEOGuide2026() {
             <div>
               <p className="font-semibold">4. Editorial Reviews</p>
               <p className="text-sm mt-1">Professional reviews from Kirkus, Publishers Weekly, Library Journal<br/>
-              Display prominently—carries more weight than customer reviews<br/>
+              Display prominently--carries more weight than customer reviews<br/>
               Excerpt compelling quotes for product descriptions</p>
             </div>
           </div>
@@ -408,8 +408,8 @@ export default function BooksPublishingSEOGuide2026() {
         </p>
 
         <ul>
-          <li><strong>Never Argue:</strong> Don't respond defensively to negative reviews—damages author reputation</li>
-          <li><strong>Encourage Balanced Reviews:</strong> Don't only ask happy readers—let all readers share honestly</li>
+          <li><strong>Never Argue:</strong> Don't respond defensively to negative reviews--damages author reputation</li>
+          <li><strong>Encourage Balanced Reviews:</strong> Don't only ask happy readers--let all readers share honestly</li>
           <li><strong>Monitor for Violations:</strong> Report reviews that violate platform policies (personal attacks, spoilers without warnings)</li>
           <li><strong>Learn From Criticism:</strong> Recurring complaints about pacing, editing, etc. inform future works</li>
         </ul>
@@ -693,7 +693,7 @@ export default function BooksPublishingSEOGuide2026() {
         <h2>Conclusion: Discoverability in the Digital Age</h2>
 
         <p>
-          The online books market's steady growth—reaching <strong>$26.04 billion in 2025</strong> and projected to <strong>$48.27 billion by 2034</strong>, with audiobooks exploding at <strong>25% annual growth</strong> and independent bookstores doubling to 2,400+ locations—represents evolving opportunities for publishers, authors, and bookstores willing to adapt to digital discovery patterns.
+          The online books market's steady growth--reaching <strong>$26.04 billion in 2025</strong> and projected to <strong>$48.27 billion by 2034</strong>, with audiobooks exploding at <strong>25% annual growth</strong> and independent bookstores doubling to 2,400+ locations--represents evolving opportunities for publishers, authors, and bookstores willing to adapt to digital discovery patterns.
         </p>
 
         <p>
@@ -705,7 +705,7 @@ export default function BooksPublishingSEOGuide2026() {
         </p>
 
         <p>
-          The future of book publishing belongs to those who recognize that discovery has evolved—readers find books through genre searches, author platforms, review sites, audiobook narrators, social media recommendations, and local bookstore partnerships, not just browsing physical shelves. Digital discoverability determines which books find their readers in 2026 and beyond.
+          The future of book publishing belongs to those who recognize that discovery has evolved--readers find books through genre searches, author platforms, review sites, audiobook narrators, social media recommendations, and local bookstore partnerships, not just browsing physical shelves. Digital discoverability determines which books find their readers in 2026 and beyond.
         </p>
 
         {/* Author Bio */}

@@ -35,7 +35,7 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Guest posting still works in 2025</strong>—but only when done correctly with high-authority, relevant sites</li>
+                <li><strong>Guest posting still works in 2025</strong>--but only when done correctly with high-authority, relevant sites</li>
                 <li><strong>90% of guest posts are worthless:</strong> Low-DA sites, irrelevant niches, and "write for us" pages that accept anyone</li>
                 <li><strong>Quality over quantity always wins:</strong> One link from a DR70+ site beats 100 links from DR20 blogs</li>
                 <li><strong>Average guest post takes 8-12 hours:</strong> Research, outreach, writing, revisions, and follow-up</li>
@@ -88,7 +88,7 @@ export default function BlogPost() {
                     Target Industry Publications, Not SEO Blogs
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    The best links come from authoritative publications in your industry—not generic "marketing blogs" that accept guest posts from anyone.
+                    The best links come from authoritative publications in your industry--not generic "marketing blogs" that accept guest posts from anyone.
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>B2B SaaS:</strong> TechCrunch, VentureBeat, Business Insider, Forbes Technology Council</span></li>
@@ -180,7 +180,7 @@ site:techcrunch.com "competitor name" contributor
                       <li><strong>Month 3:</strong> Leave meaningful comments on 3-5 of their blog posts</li>
                       <li><strong>Month 4:</strong> Email them a genuine compliment about a recent article (no ask)</li>
                       <li><strong>Month 5:</strong> Share a relevant resource that might help them (again, no ask)</li>
-                      <li><strong>Month 6:</strong> Now pitch your guest post idea—they already know who you are</li>
+                      <li><strong>Month 6:</strong> Now pitch your guest post idea--they already know who you are</li>
                     </ol>
                     <p className="text-slate-700 mt-3"><strong>Result:</strong> Editors remember you, trust you, and are more likely to say yes.</p>
                   </div>
@@ -198,7 +198,7 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Set Google Alerts for industry keywords</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>When news breaks, write 500-word pitch within 24 hours</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Pitch to 5-10 relevant publications simultaneously</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> "Google just announced X—here\'s what it means for SEO professionals" (pitched within hours of announcement)</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> "Google just announced X--here\'s what it means for SEO professionals" (pitched within hours of announcement)</span></li>
                   </ul>
                 </div>
 
@@ -208,11 +208,11 @@ site:techcrunch.com "competitor name" contributor
                     The "Contrary Opinion" Angle
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    Publications love contrarian views—they spark debate and drive engagement.
+                    Publications love contrarian views--they spark debate and drive engagement.
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>"Why [popular tactic] Doesn\'t Work Anymore"</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>"Stop Doing [common practice]—Here\'s What Actually Works"</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>"Stop Doing [common practice]--Here\'s What Actually Works"</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>"The Truth About [controversial topic] (Data-Backed)"</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> "Why Backlinks Matter Less Than You Think in 2025" (contrarian SEO post that gets clicks)</span></li>
                   </ul>
@@ -224,12 +224,12 @@ site:techcrunch.com "competitor name" contributor
                     Guest Posting on Competitor Sites
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    Yes, you can publish on competitor blogs—if you provide value to <em>their</em> audience (not just promote yourself).
+                    Yes, you can publish on competitor blogs--if you provide value to <em>their</em> audience (not just promote yourself).
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Shopify merchants guest post on BigCommerce blog (and vice versa)</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>HubSpot writes for Marketo, Salesforce writes for HubSpot</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Key:</strong> Don\'t compare products—provide objective educational content</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Key:</strong> Don\'t compare products--provide objective educational content</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Benefit:</strong> Exposure to competitor\'s audience + high-authority backlink</span></li>
                   </ul>
                 </div>
@@ -250,7 +250,7 @@ site:techcrunch.com "competitor name" contributor
                       <li><strong>3.</strong> Each guest post references your comprehensive guide naturally</li>
                       <li><strong>4.</strong> Result: 10 high-authority backlinks pointing to one asset (link equity concentrates)</li>
                     </ol>
-                    <p className="text-slate-700 mt-3"><strong>Example:</strong> Backlinko created "Google Ranking Factors" study, then published 20+ guest posts referencing it—earned 1,200+ backlinks.</p>
+                    <p className="text-slate-700 mt-3"><strong>Example:</strong> Backlinko created "Google Ranking Factors" study, then published 20+ guest posts referencing it--earned 1,200+ backlinks.</p>
                   </div>
                 </div>
 
@@ -260,7 +260,7 @@ site:techcrunch.com "competitor name" contributor
                     Podcast Guest Appearances (Audio Guest Posts)
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    Podcast guest appearances often include show notes with backlinks—and they\'re easier to get than written guest posts.
+                    Podcast guest appearances often include show notes with backlinks--and they\'re easier to get than written guest posts.
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Search "top [industry] podcasts" to find opportunities</span></li>
@@ -276,7 +276,7 @@ site:techcrunch.com "competitor name" contributor
                     Co-Author with Industry Influencers
                   </h3>
                   <p className="text-slate-700 mb-4 pl-13">
-                    Partner with established industry experts to co-author guest posts—you get their credibility + access to their network.
+                    Partner with established industry experts to co-author guest posts--you get their credibility + access to their network.
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Identify influencers with 10K+ Twitter followers in your niche</span></li>
@@ -302,7 +302,7 @@ site:techcrunch.com "competitor name" contributor
 Hi [Editor Name],
 
 I noticed your "Ultimate Guide to [Topic]" from 2019
-is still ranking well—but the data is outdated.
+is still ranking well--but the data is outdated.
 
 I\'d love to refresh it with:
 • 2025 statistics
@@ -362,7 +362,7 @@ Would you be open to this?
                   </p>
                   <ul className="space-y-2 pl-13">
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Create free tool on your site (ROI calculator, SEO analyzer, etc.)</span></li>
-                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Write guest post: "We built a free [tool name]—here\'s what we learned"</span></li>
+                    <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Write guest post: "We built a free [tool name]--here\'s what we learned"</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Publications love covering new tools (newsworthy)</span></li>
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> Ahrefs writes "We launched Webmaster Tools (free)" → gets published on 10+ authority sites</span></li>
                   </ul>
@@ -572,7 +572,7 @@ Either way, keep up the great work!
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict: Guest Posting in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Guest posting still works—but the bar is higher than ever. <strong>One high-quality guest post on a DR70+ site beats 100 low-quality posts.</strong>
+                Guest posting still works--but the bar is higher than ever. <strong>One high-quality guest post on a DR70+ site beats 100 low-quality posts.</strong>
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 The tactics in this guide require real effort: original research, relationship building, and high-quality writing. But the results are worth it: measurable rankings improvements, referral traffic, and brand exposure.
@@ -582,7 +582,7 @@ Either way, keep up the great work!
               </p>
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Guest Post Prospecting with AI</h3>
-                <p className="text-lg mb-6 opacity-90">SEOLOGY identifies high-authority guest posting opportunities, suggests topics, and generates personalized outreach templates—all automatically.</p>
+                <p className="text-lg mb-6 opacity-90">SEOLOGY identifies high-authority guest posting opportunities, suggests topics, and generates personalized outreach templates--all automatically.</p>
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Find Guest Post Opportunities<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>

@@ -35,12 +35,12 @@ export default function BlogPost() {
             <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-blue-900 mb-4 mt-0">TL;DR</h2>
               <ul className="text-slate-700 mb-0 space-y-2">
-                <li><strong>Hreflang tells Google which language/region version to show users</strong>—without it, you\'ll lose international rankings</li>
+                <li><strong>Hreflang tells Google which language/region version to show users</strong>--without it, you\'ll lose international rankings</li>
                 <li><strong>Choose URL structure carefully</strong>: ccTLDs (.co.uk) rank best but cost more; subdirectories (/uk/) are easiest</li>
-                <li><strong>Implement hreflang in HTML {`<head>`}, HTTP headers, or XML sitemap</strong>—pick one method and be consistent</li>
+                <li><strong>Implement hreflang in HTML {`<head>`}, HTTP headers, or XML sitemap</strong>--pick one method and be consistent</li>
                 <li><strong>Always include self-referencing hreflang</strong> (page must reference itself) and x-default for unmatched regions</li>
-                <li><strong>Use correct language-region codes</strong>: en-US (not en-us), fr-CA (not fr-ca)—case matters</li>
-                <li><strong>Test with Google Search Console</strong> and hreflang validator tools—errors are common and deadly</li>
+                <li><strong>Use correct language-region codes</strong>: en-US (not en-us), fr-CA (not fr-ca)--case matters</li>
+                <li><strong>Test with Google Search Console</strong> and hreflang validator tools--errors are common and deadly</li>
               </ul>
             </div>
 
@@ -189,7 +189,7 @@ export default function BlogPost() {
                       <li>❌ Weaker geographical signal than ccTLDs</li>
                       <li>❌ All hosted in same location (unless using CDN)</li>
                     </ul>
-                    <p className="text-slate-700 mt-3"><strong>Best for:</strong> 95% of businesses—best balance of cost, simplicity, and SEO benefit</p>
+                    <p className="text-slate-700 mt-3"><strong>Best for:</strong> 95% of businesses--best balance of cost, simplicity, and SEO benefit</p>
                   </div>
                 </div>
 
@@ -204,7 +204,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step 2: Implement Hreflang Tags</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                  You have three options for implementing hreflang. Pick <strong>one method only</strong>—mixing methods causes errors.
+                  You have three options for implementing hreflang. Pick <strong>one method only</strong>--mixing methods causes errors.
                 </p>
 
                 <div className="space-y-8">
@@ -307,10 +307,10 @@ export default function BlogPost() {
                 <div className="bg-red-50 border-l-4 border-red-500 p-6 my-6">
                   <p className="text-red-900 font-semibold mb-2">❌ Common Errors:</p>
                   <ul className="text-slate-700 space-y-1">
-                    <li>• en-US (wrong—region must be lowercase)</li>
-                    <li>• EN-us (wrong—language must be lowercase)</li>
-                    <li>• en_us (wrong—must use hyphen, not underscore)</li>
-                    <li>• english-us (wrong—must use ISO codes)</li>
+                    <li>• en-US (wrong--region must be lowercase)</li>
+                    <li>• EN-us (wrong--language must be lowercase)</li>
+                    <li>• en_us (wrong--must use hyphen, not underscore)</li>
+                    <li>• english-us (wrong--must use ISO codes)</li>
                   </ul>
                 </div>
 
@@ -339,7 +339,7 @@ export default function BlogPost() {
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><code>hreflang="en"</code> targets all English speakers globally (not recommended—too broad)</span>
+                    <span><code>hreflang="en"</code> targets all English speakers globally (not recommended--too broad)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -375,7 +375,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>A user from Australia (en-au) visits—no matching hreflang</span>
+                    <span>A user from Australia (en-au) visits--no matching hreflang</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -440,7 +440,7 @@ export default function BlogPost() {
                       <strong>Error:</strong> Hreflang tag points to example.com/uk, which redirects to example.com/uk/
                     </p>
                     <p className="text-slate-700 mb-2">
-                      <strong>Impact:</strong> Google follows one redirect, then stops—hreflang breaks.
+                      <strong>Impact:</strong> Google follows one redirect, then stops--hreflang breaks.
                     </p>
                     <p className="text-slate-700">
                       <strong>Fix:</strong> Always use final destination URLs in hreflang tags (including trailing slashes if needed)
@@ -569,7 +569,7 @@ export default function BlogPost() {
                     <ul className="space-y-2">
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <span>Don\'t translate keywords literally—research each market separately</span>
+                        <span>Don\'t translate keywords literally--research each market separately</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -623,7 +623,7 @@ export default function BlogPost() {
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <span>Page speed affects rankings—users in Germany shouldn\'t wait for US servers</span>
+                        <span>Page speed affects rankings--users in Germany shouldn\'t wait for US servers</span>
                       </li>
                     </ul>
                   </div>
@@ -666,7 +666,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Updates hreflang when new pages added</strong>—no manual work</span>
+                    <span><strong>Updates hreflang when new pages added</strong>--no manual work</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -685,7 +685,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  If you\'re targeting multiple countries or languages, hreflang isn\'t optional—it\'s the difference between capturing international traffic and losing it to competitors.
+                  If you\'re targeting multiple countries or languages, hreflang isn\'t optional--it\'s the difference between capturing international traffic and losing it to competitors.
                 </p>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   The tactics in this guide work. Choose subdirectories, implement hreflang correctly, test thoroughly, and you\'ll see international traffic increase 25-50% within 90 days.

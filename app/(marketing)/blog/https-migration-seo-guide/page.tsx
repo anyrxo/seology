@@ -58,7 +58,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why HTTPS Migration Matters for SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  HTTPS isn\'t just security—it\'s essential for modern SEO:
+                  HTTPS isn\'t just security--it\'s essential for modern SEO:
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -67,19 +67,19 @@ export default function BlogPost() {
                       <Lock className="w-8 h-8 text-green-600" />
                       <div className="text-2xl font-bold text-green-600">Ranking Factor</div>
                     </div>
-                    <div className="text-slate-700">Google confirmed HTTPS as ranking signal in 2014—HTTPS sites rank higher than HTTP equivalents</div>
+                    <div className="text-slate-700">Google confirmed HTTPS as ranking signal in 2014--HTTPS sites rank higher than HTTP equivalents</div>
                   </div>
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">94%</div>
-                    <div className="text-slate-700">Of page one Google results use HTTPS—HTTP sites are increasingly rare at top of SERPs</div>
+                    <div className="text-slate-700">Of page one Google results use HTTPS--HTTP sites are increasingly rare at top of SERPs</div>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <div className="text-4xl font-bold text-purple-600 mb-2">Browser Warnings</div>
-                    <div className="text-slate-700">Chrome, Firefox, Safari show "Not Secure" warnings on HTTP sites—destroying user trust instantly</div>
+                    <div className="text-slate-700">Chrome, Firefox, Safari show "Not Secure" warnings on HTTP sites--destroying user trust instantly</div>
                   </div>
                   <div className="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl border border-red-200">
                     <div className="text-4xl font-bold text-red-600 mb-2">15-30%</div>
-                    <div className="text-slate-700">Average traffic drop from incorrect HTTPS migration—recoverable but takes 3-6 months</div>
+                    <div className="text-slate-700">Average traffic drop from incorrect HTTPS migration--recoverable but takes 3-6 months</div>
                   </div>
                 </div>
 
@@ -98,7 +98,7 @@ export default function BlogPost() {
                       <strong>Certificate types:</strong> Domain Validation (DV), Organization Validation (OV), Extended Validation (EV).
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>For most sites:</strong> DV certificate sufficient—free options like Let\'s Encrypt work perfectly for SEO.
+                      <strong>For most sites:</strong> DV certificate sufficient--free options like Let\'s Encrypt work perfectly for SEO.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>For ecommerce/corporate:</strong> OV or EV certificate provides green address bar and higher trust signals.
@@ -120,20 +120,20 @@ export default function BlogPost() {
                       <strong>Export data:</strong> Save complete URL list, internal link structure, external links, images, CSS, JavaScript files.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Baseline metrics:</strong> Document current rankings, traffic, backlinks—you\'ll compare these post-migration.
+                      <strong>Baseline metrics:</strong> Document current rankings, traffic, backlinks--you\'ll compare these post-migration.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Backup Everything</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Critical step:</strong> Full site backup before making any changes—migrations can go wrong.
+                      <strong>Critical step:</strong> Full site backup before making any changes--migrations can go wrong.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Backup components:</strong> Database export, all files (code, images, CSS, JS), server configuration files, .htaccess or nginx.conf.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Test restoration:</strong> Verify backups work by restoring to staging environment—broken backups are useless.
+                      <strong>Test restoration:</strong> Verify backups work by restoring to staging environment--broken backups are useless.
                     </p>
                     <p className="text-slate-700">
                       <strong>Keep backups accessible:</strong> Store off-server in case of catastrophic failure during migration.
@@ -149,10 +149,10 @@ export default function BlogPost() {
                       <strong>Server configuration:</strong> Configure web server (Apache, Nginx) to serve site over HTTPS on port 443.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Test HTTPS:</strong> Visit https://yoursite.com manually—verify green padlock appears and certificate is valid.
+                      <strong>Test HTTPS:</strong> Visit https://yoursite.com manually--verify green padlock appears and certificate is valid.
                     </p>
                     <p className="text-slate-700">
-                      <strong>SSL Labs test:</strong> Run SSL Labs SSL Server Test—aim for A or A+ grade before proceeding.
+                      <strong>SSL Labs test:</strong> Run SSL Labs SSL Server Test--aim for A or A+ grade before proceeding.
                     </p>
                   </div>
 
@@ -194,7 +194,7 @@ export default function BlogPost() {
                       <br /><code>server {'{'} listen 80; return 301 https://$host$request_uri; {'}'}</code>
                     </p>
                     <p className="text-slate-700">
-                      <strong>Test redirects:</strong> Verify every HTTP URL redirects to HTTPS equivalent—no redirect chains or loops.
+                      <strong>Test redirects:</strong> Verify every HTTP URL redirects to HTTPS equivalent--no redirect chains or loops.
                     </p>
                   </div>
 
@@ -207,7 +207,7 @@ export default function BlogPost() {
                       <strong>Sitemap location:</strong> Ensure sitemap.xml is accessible at https://yoursite.com/sitemap.xml.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>WordPress:</strong> Yoast SEO and Rank Math auto-update sitemaps—verify URLs are HTTPS.
+                      <strong>WordPress:</strong> Yoast SEO and Rank Math auto-update sitemaps--verify URLs are HTTPS.
                     </p>
                     <p className="text-slate-700">
                       <strong>Submit new sitemap:</strong> Submit HTTPS sitemap to Google Search Console and Bing Webmaster Tools.
@@ -223,7 +223,7 @@ export default function BlogPost() {
                       <strong>Check implementation:</strong> View page source, find &lt;link rel="canonical"&gt; tag, verify it uses https://.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Common mistake:</strong> Canonical tags still pointing to HTTP versions after migration—confuses Google.
+                      <strong>Common mistake:</strong> Canonical tags still pointing to HTTP versions after migration--confuses Google.
                     </p>
                     <p className="text-slate-700">
                       <strong>Automated check:</strong> Use Screaming Frog to crawl site and verify all canonicals use HTTPS.
@@ -236,7 +236,7 @@ export default function BlogPost() {
                       <strong>Problem:</strong> HTTPS pages loading HTTP resources (images, CSS, JS) trigger browser security warnings.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Detection:</strong> Open Chrome DevTools Console—mixed content warnings appear in yellow/red.
+                      <strong>Detection:</strong> Open Chrome DevTools Console--mixed content warnings appear in yellow/red.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Fix method 1:</strong> Update all resource URLs to use HTTPS instead of HTTP.
@@ -245,7 +245,7 @@ export default function BlogPost() {
                       <strong>Fix method 2:</strong> Use protocol-relative URLs (//example.com/image.jpg) for external resources.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Third-party content:</strong> Update embeds (YouTube, Twitter) to use HTTPS versions—most support it now.
+                      <strong>Third-party content:</strong> Update embeds (YouTube, Twitter) to use HTTPS versions--most support it now.
                     </p>
                   </div>
 
@@ -258,10 +258,10 @@ export default function BlogPost() {
                       <strong>Verification:</strong> Verify ownership using DNS, HTML file upload, Google Analytics, or Tag Manager.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Submit sitemap:</strong> Submit HTTPS sitemap to new property—helps Google discover HTTPS versions faster.
+                      <strong>Submit sitemap:</strong> Submit HTTPS sitemap to new property--helps Google discover HTTPS versions faster.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Address change tool:</strong> Google Search Console has "Change of Address" tool for migrations—use it.
+                      <strong>Address change tool:</strong> Google Search Console has "Change of Address" tool for migrations--use it.
                     </p>
                   </div>
 
@@ -290,23 +290,23 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Enable HSTS (HTTP Strict Transport Security)</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Security enhancement:</strong> HSTS forces browsers to only connect via HTTPS—prevents downgrade attacks.
+                      <strong>Security enhancement:</strong> HSTS forces browsers to only connect via HTTPS--prevents downgrade attacks.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Implementation:</strong> Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Preload list:</strong> Submit site to HSTS preload list at hstspreload.org—browsers will enforce HTTPS permanently.
+                      <strong>Preload list:</strong> Submit site to HSTS preload list at hstspreload.org--browsers will enforce HTTPS permanently.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Warning:</strong> Only enable HSTS after confirming entire site works perfectly on HTTPS—it\'s irreversible.
+                      <strong>Warning:</strong> Only enable HSTS after confirming entire site works perfectly on HTTPS--it\'s irreversible.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Monitor Rankings Daily</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Tracking period:</strong> Monitor rankings daily for 30 days post-migration—fluctuations are normal.
+                      <strong>Tracking period:</strong> Monitor rankings daily for 30 days post-migration--fluctuations are normal.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Key metrics:</strong> Track position changes, impressions, clicks, CTR in Google Search Console.
@@ -322,16 +322,16 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Check for Indexation Issues</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Index coverage:</strong> Monitor Google Search Console Index Coverage report—ensure HTTPS pages get indexed.
+                      <strong>Index coverage:</strong> Monitor Google Search Console Index Coverage report--ensure HTTPS pages get indexed.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Check deindexation:</strong> Use site:yoursite.com search—verify HTTP pages disappear and HTTPS pages appear.
+                      <strong>Check deindexation:</strong> Use site:yoursite.com search--verify HTTP pages disappear and HTTPS pages appear.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Request indexing:</strong> For critical pages, manually request indexing via Google Search Console URL Inspection tool.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Timeline:</strong> Full reindexation takes 2-4 weeks for most sites—be patient but vigilant.
+                      <strong>Timeline:</strong> Full reindexation takes 2-4 weeks for most sites--be patient but vigilant.
                     </p>
                   </div>
 
@@ -359,17 +359,17 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 1: Using 302 Instead of 301 Redirects</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> 302 (temporary) redirects don\'t pass link equity—causes ranking drops.
+                      <strong>Impact:</strong> 302 (temporary) redirects don\'t pass link equity--causes ranking drops.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Fix:</strong> Always use 301 (permanent) redirects for HTTPS migration—signals permanent move to Google.
+                      <strong>Fix:</strong> Always use 301 (permanent) redirects for HTTPS migration--signals permanent move to Google.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Mixed Content Warnings</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> HTTPS pages loading HTTP resources show security warnings—users bounce, rankings suffer.
+                      <strong>Impact:</strong> HTTPS pages loading HTTP resources show security warnings--users bounce, rankings suffer.
                     </p>
                     <p className="text-slate-700">
                       <strong>Fix:</strong> Update all internal resources to HTTPS, use protocol-relative URLs for external resources.
@@ -382,14 +382,14 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Canonical tags pointing to HTTP versions prevent HTTPS pages from ranking.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Fix:</strong> Update all canonical tags to point to HTTPS versions—critical for duplicate content prevention.
+                      <strong>Fix:</strong> Update all canonical tags to point to HTTPS versions--critical for duplicate content prevention.
                     </p>
                   </div>
 
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Not Updating Search Console</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> Google continues crawling HTTP version if not notified—delays HTTPS indexation.
+                      <strong>Impact:</strong> Google continues crawling HTTP version if not notified--delays HTTPS indexation.
                     </p>
                     <p className="text-slate-700">
                       <strong>Fix:</strong> Add HTTPS property to Google Search Console, submit sitemap, use Change of Address tool.
@@ -399,10 +399,10 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Redirect Chains</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Impact:</strong> HTTP → www HTTPS → non-www HTTPS creates redirect chain—wastes crawl budget, dilutes link equity.
+                      <strong>Impact:</strong> HTTP → www HTTPS → non-www HTTPS creates redirect chain--wastes crawl budget, dilutes link equity.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Fix:</strong> Implement single-hop redirects—HTTP → final HTTPS destination directly.
+                      <strong>Fix:</strong> Implement single-hop redirects--HTTP → final HTTPS destination directly.
                     </p>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span>Monitors rankings and traffic daily post-migration—alerts to any issues</span>
+                    <span>Monitors rankings and traffic daily post-migration--alerts to any issues</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

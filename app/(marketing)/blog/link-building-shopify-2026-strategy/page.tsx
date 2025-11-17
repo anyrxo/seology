@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks | SEOLOGY.AI',
-  description: 'Top Google pages have 3.8x more backlinks. Learn proven Shopify link building strategies with December 2025 data—quality backlinks that boost rankings and drive traffic.',
+  description: 'Top Google pages have 3.8x more backlinks. Learn proven Shopify link building strategies with December 2025 data--quality backlinks that boost rankings and drive traffic.',
   keywords: 'link building Shopify, Shopify backlinks, ecommerce link building, SEO backlinks, domain authority, guest blogging, broken link building, digital PR, HARO, link building strategy 2026',
   openGraph: {
     title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks',
@@ -33,7 +33,7 @@ export default function LinkBuildingShopifyStrategyPage() {
         </h1>
 
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-          December 2025 research shows that top-ranking pages have 3.8x more backlinks than positions 2-10, yet 95% of websites have zero backlinks. Learn proven link building strategies that actually work for Shopify stores in 2026—quality over quantity.
+          December 2025 research shows that top-ranking pages have 3.8x more backlinks than positions 2-10, yet 95% of websites have zero backlinks. Learn proven link building strategies that actually work for Shopify stores in 2026--quality over quantity.
         </p>
 
         <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
@@ -149,7 +149,7 @@ export default function LinkBuildingShopifyStrategyPage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-gray-100 mb-2">AI Search Impact</h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
-                    <strong>73.2% of SEO professionals say your website won't show up in AI-powered results</strong> (ChatGPT, Gemini, Perplexity) unless it has strong backlinks. AI models rely on external validation to decide whose answer to trust—backlinks act as that validation.
+                    <strong>73.2% of SEO professionals say your website won't show up in AI-powered results</strong> (ChatGPT, Gemini, Perplexity) unless it has strong backlinks. AI models rely on external validation to decide whose answer to trust--backlinks act as that validation.
                   </p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default function LinkBuildingShopifyStrategyPage() {
           <h2 className="text-3xl font-bold mb-6">How Google Uses Backlinks as a Ranking Factor</h2>
 
           <p className="text-lg leading-relaxed mb-6">
-            Backlinks are still a Google ranking factor in 2026, but their impact is more nuanced than ever. They're no longer a numbers game—instead, they form part of a broader <strong>E-E-A-T framework</strong> (Experience, Expertise, Authoritativeness, Trustworthiness).
+            Backlinks are still a Google ranking factor in 2026, but their impact is more nuanced than ever. They're no longer a numbers game--instead, they form part of a broader <strong>E-E-A-T framework</strong> (Experience, Expertise, Authoritativeness, Trustworthiness).
           </p>
 
           <h3 className="text-2xl font-bold mb-4 mt-8">The Evolution of Backlink Importance</h3>
@@ -391,7 +391,7 @@ export default function LinkBuildingShopifyStrategyPage() {
                 Thousands of stores sell similar products. Why would a blogger link to YOUR store instead of a competitor or Amazon?
               </p>
               <div className="bg-white dark:bg-gray-900 rounded p-3 text-sm">
-                <strong className="text-green-900 dark:text-green-200">✓ Solution:</strong> Differentiate with unique value—better guides, original research, exclusive data, or superior customer stories.
+                <strong className="text-green-900 dark:text-green-200">✓ Solution:</strong> Differentiate with unique value--better guides, original research, exclusive data, or superior customer stories.
               </div>
             </div>
 
@@ -537,7 +537,7 @@ export default function LinkBuildingShopifyStrategyPage() {
             Build Authority Backlinks While You Sleep
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            SEOLOGY.AI identifies link opportunities and automates outreach—growing your backlink profile 24/7
+            SEOLOGY.AI identifies link opportunities and automates outreach--growing your backlink profile 24/7
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">

@@ -423,7 +423,7 @@ export default function HomeGardenSEOGuide2026() {
             <div>
               <p className="font-semibold">Growing Information (for plants)</p>
               <p className="text-sm mt-1">• Hardiness zones • Sun requirements (full sun, partial shade, full shade)<br/>
-              • Mature size (height × spread) • Bloom time/harvest time<br/>
+              • Mature size (height x spread) • Bloom time/harvest time<br/>
               • Soil type preferences • Water needs • Growth rate</p>
             </div>
             <div>
@@ -721,7 +721,7 @@ export default function HomeGardenSEOGuide2026() {
         <h2>Conclusion: Cultivating Organic Growth</h2>
 
         <p>
-          The home and garden ecommerce market's explosive growth—<strong>$49.62 billion expansion from 2025-2029</strong>—represents unprecedented opportunity for Shopify stores willing to invest in sophisticated SEO strategies. Success requires understanding the unique characteristics of this market: seasonal volatility, regional plant requirements, the DIY culture's demand for educational content, and the omnichannel shopping behavior of 40% of homeowners.
+          The home and garden ecommerce market's explosive growth--<strong>$49.62 billion expansion from 2025-2029</strong>--represents unprecedented opportunity for Shopify stores willing to invest in sophisticated SEO strategies. Success requires understanding the unique characteristics of this market: seasonal volatility, regional plant requirements, the DIY culture's demand for educational content, and the omnichannel shopping behavior of 40% of homeowners.
         </p>
 
         <p>
@@ -729,7 +729,7 @@ export default function HomeGardenSEOGuide2026() {
         </p>
 
         <p>
-          The future of home and garden ecommerce belongs to stores that recognize shopping in this category is about more than transactions—it's about helping customers create beautiful, thriving outdoor spaces and supporting their gardening journeys with expertise, quality products, and genuine passion for plants.
+          The future of home and garden ecommerce belongs to stores that recognize shopping in this category is about more than transactions--it's about helping customers create beautiful, thriving outdoor spaces and supporting their gardening journeys with expertise, quality products, and genuine passion for plants.
         </p>
 
         {/* Author Bio */}

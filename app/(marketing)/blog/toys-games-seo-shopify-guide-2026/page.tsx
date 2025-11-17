@@ -442,7 +442,7 @@ export default function ToysGamesSEOGuide2026() {
           <li><strong>Trending (2026):</strong> Current movie releases, new TV shows, viral YouTube kids content</li>
           <li><strong>Evergreen:</strong> Disney Princesses, LEGO themes, Barbie, Hot Wheels, Pokémon, Marvel, Star Wars</li>
           <li><strong>Seasonal Spikes:</strong> Halloween characters (October), Christmas characters (November-December)</li>
-          <li><strong>Nostalgia Brands:</strong> 49% of parents buy for nostalgia—Transformers, Care Bears, Teenage Mutant Ninja Turtles</li>
+          <li><strong>Nostalgia Brands:</strong> 49% of parents buy for nostalgia--Transformers, Care Bears, Teenage Mutant Ninja Turtles</li>
         </ul>
 
         <h2>Board Games and Tabletop Gaming SEO</h2>
@@ -696,7 +696,7 @@ export default function ToysGamesSEOGuide2026() {
         <h2>Conclusion: Play-Driven SEO for Toy Success</h2>
 
         <p>
-          The online toys and games market's robust growth—expanding from <strong>$18.86 billion in 2024 to $35.91 billion by 2032</strong>, with <strong>90% YoY growth in December 2024 educational toy searches</strong> and <strong>60% of parents prioritizing STEM skills</strong>—represents massive opportunity for Shopify toy stores willing to navigate age targeting, safety compliance, and extreme holiday seasonality.
+          The online toys and games market's robust growth--expanding from <strong>$18.86 billion in 2024 to $35.91 billion by 2032</strong>, with <strong>90% YoY growth in December 2024 educational toy searches</strong> and <strong>60% of parents prioritizing STEM skills</strong>--represents massive opportunity for Shopify toy stores willing to navigate age targeting, safety compliance, and extreme holiday seasonality.
         </p>
 
         <p>
@@ -708,7 +708,7 @@ export default function ToysGamesSEOGuide2026() {
         </p>
 
         <p>
-          The future of toy ecommerce belongs to stores that recognize parents are buying for developmental benefits, safety peace of mind, and children's joy—not just products, but memories, learning experiences, and childhood magic captured in every carefully selected toy.
+          The future of toy ecommerce belongs to stores that recognize parents are buying for developmental benefits, safety peace of mind, and children's joy--not just products, but memories, learning experiences, and childhood magic captured in every carefully selected toy.
         </p>
 
         {/* Author Bio */}

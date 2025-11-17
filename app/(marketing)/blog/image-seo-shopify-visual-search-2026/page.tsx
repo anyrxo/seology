@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   keywords: 'image SEO Shopify, visual search optimization, Google Lens SEO, WebP AVIF optimization, product image SEO, alt text best practices, Core Web Vitals images, ecommerce image optimization, visual search statistics 2026',
   openGraph: {
     title: 'Image SEO for Shopify: Visual Search Optimization Guide 2026',
-    description: 'Google Lens processes 20 billion visual searches monthly—4 billion for shopping. Master image optimization for the 35% of ecommerce searches going visual in 2026.',
+    description: 'Google Lens processes 20 billion visual searches monthly--4 billion for shopping. Master image optimization for the 35% of ecommerce searches going visual in 2026.',
     type: 'article',
     publishedTime: '2025-12-19T09:00:00Z',
     authors: ['Nina Patel, Visual Search Specialist & Image Optimization Expert'],
@@ -31,7 +31,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
 
         <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            <strong className="text-purple-600 dark:text-purple-400">Visual search is exploding:</strong> Google Lens now processes <strong>20 billion visual searches per month</strong>—with <strong>4 billion related to shopping</strong>. By 2026, visual search will dominate <strong>35% of all ecommerce search functions</strong>. If your Shopify store isn't optimized for visual discovery, you're invisible to 40% of Gen Z shoppers who prefer searching with images over text.
+            <strong className="text-purple-600 dark:text-purple-400">Visual search is exploding:</strong> Google Lens now processes <strong>20 billion visual searches per month</strong>--with <strong>4 billion related to shopping</strong>. By 2026, visual search will dominate <strong>35% of all ecommerce search functions</strong>. If your Shopify store isn't optimized for visual discovery, you're invisible to 40% of Gen Z shoppers who prefer searching with images over text.
           </p>
         </div>
       </header>
@@ -98,7 +98,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          The shift is generational: <strong>1 in 3 online searches will be visual or voice-based by 2025</strong>. For Shopify merchants selling visually-driven products (fashion, home decor, furniture, beauty, accessories), optimizing for visual search is no longer optional—it's survival.
+          The shift is generational: <strong>1 in 3 online searches will be visual or voice-based by 2025</strong>. For Shopify merchants selling visually-driven products (fashion, home decor, furniture, beauty, accessories), optimizing for visual search is no longer optional--it's survival.
         </p>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
@@ -183,7 +183,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">⚠️ Critical Performance Trade-off</h4>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
-            While AVIF offers superior compression, its <strong>complex algorithms require more CPU power to decode</strong>. A smaller AVIF file might download faster, but <strong>longer decode time could negate that benefit</strong>—especially on mobile devices.
+            While AVIF offers superior compression, its <strong>complex algorithms require more CPU power to decode</strong>. A smaller AVIF file might download faster, but <strong>longer decode time could negate that benefit</strong>--especially on mobile devices.
           </p>
           <p className="text-gray-700 dark:text-gray-300">
             <strong>Best practice for LCP:</strong> Prioritize WebP for hero/above-fold images where instant rendering matters. Use AVIF for below-fold content where total bandwidth reduction is more important than decode speed.
@@ -216,7 +216,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Images directly impact your Core Web Vitals score—a confirmed Google ranking factor. Here's the critical statistic:
+          Images directly impact your Core Web Vitals score--a confirmed Google ranking factor. Here's the critical statistic:
         </p>
 
         <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 rounded-lg p-8 my-8">
@@ -381,7 +381,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Image sitemaps help Google discover and index your product images faster—especially important for new products or frequent inventory updates.
+          Image sitemaps help Google discover and index your product images faster--especially important for new products or frequent inventory updates.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -475,7 +475,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         </h2>
 
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          With <strong>62.66% of traffic coming from mobile devices</strong>, mobile image optimization is non-negotiable. Mobile users have slower connections and smaller screens—optimize accordingly.
+          With <strong>62.66% of traffic coming from mobile devices</strong>, mobile image optimization is non-negotiable. Mobile users have slower connections and smaller screens--optimize accordingly.
         </p>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
@@ -518,7 +518,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Vertical images:</strong> 2:3 aspect ratio (1000x1500px) performs best</li>
           <li><strong>Rich Pins:</strong> Add Product Pins with pricing, availability, descriptions</li>
-          <li><strong>High contrast:</strong> Pinterest users browse quickly—bold visuals stand out</li>
+          <li><strong>High contrast:</strong> Pinterest users browse quickly--bold visuals stand out</li>
           <li><strong>Text overlays:</strong> Add benefit-driven text to product images</li>
           <li><strong>Lifestyle context:</strong> Show products in use, not just on white backgrounds</li>
         </ul>
@@ -596,7 +596,7 @@ export default function ImageSEOShopifyVisualSearchPage() {
             Automate Image SEO with AI-Powered Precision
           </h2>
           <p className="text-xl mb-8 text-purple-100">
-            SEOLOGY.AI automatically optimizes your Shopify product images for Google Lens, visual search, and Core Web Vitals. Our AI writes perfect alt text, compresses images to WebP/AVIF, and implements structured data—while you focus on selling.
+            SEOLOGY.AI automatically optimizes your Shopify product images for Google Lens, visual search, and Core Web Vitals. Our AI writes perfect alt text, compresses images to WebP/AVIF, and implements structured data--while you focus on selling.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

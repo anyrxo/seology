@@ -271,7 +271,7 @@ Allow: /staging/
           <ul className="space-y-2 text-sm">
             <li>✓ <strong>Use robots.txt Disallow for:</strong> Pages you don't want crawled (waste of crawl budget, no SEO value)</li>
             <li>✓ <strong>Use meta robots noindex for:</strong> Pages you don't want indexed (appear in search results)</li>
-            <li>× <strong>Never use robots.txt to hide pages from search</strong> - it doesn't work reliably</li>
+            <li>x <strong>Never use robots.txt to hide pages from search</strong> - it doesn't work reliably</li>
           </ul>
         </div>
       </section>
@@ -502,8 +502,8 @@ Sitemap: https://yourstore.com/blogs/news/sitemap.xml`}
             <li>✓ Test in Google Search Console Robots.txt Tester before deploying</li>
             <li>✓ Keep a backup copy of your robots.txt.liquid file</li>
             <li>✓ Monitor Search Console Coverage report after changes</li>
-            <li>× Never use <code>Disallow: /</code> for all user-agents (blocks everything)</li>
-            <li>× Don't block URLs that have noindex meta tags</li>
+            <li>x Never use <code>Disallow: /</code> for all user-agents (blocks everything)</li>
+            <li>x Don't block URLs that have noindex meta tags</li>
           </ul>
         </div>
       </section>
@@ -905,7 +905,7 @@ Disallow: /`}
       <section className="not-prose bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg mt-12">
         <h2 className="text-3xl font-bold mb-4">Automate Robots.txt Monitoring & Crawl Control</h2>
         <p className="text-xl mb-6 opacity-90">
-          SEOLOGY.AI automatically monitors your Shopify robots.txt for errors, alerts you to catastrophic blocking mistakes, manages AI crawler directives, and optimizes crawl budget allocation—preventing traffic loss before it happens.
+          SEOLOGY.AI automatically monitors your Shopify robots.txt for errors, alerts you to catastrophic blocking mistakes, manages AI crawler directives, and optimizes crawl budget allocation--preventing traffic loss before it happens.
         </p>
         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mb-6">
           <div className="grid md:grid-cols-3 gap-4 text-center">

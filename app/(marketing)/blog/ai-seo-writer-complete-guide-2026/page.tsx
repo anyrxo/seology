@@ -74,7 +74,7 @@ export default function AISEOWriterGuidePage() {
       <section className="mb-12">
         <h2>The AI SEO Writer Revolution in 2025</h2>
         <p>
-          AI SEO writers have transformed content creation in 2025. With <strong>86% of SEO experts</strong> now using AI writing tools and <strong>19% of Google search results</strong> containing AI-generated content, the question is no longer whether to use AI writers—it's how to use them effectively while maintaining quality and search rankings.
+          AI SEO writers have transformed content creation in 2025. With <strong>86% of SEO experts</strong> now using AI writing tools and <strong>19% of Google search results</strong> containing AI-generated content, the question is no longer whether to use AI writers--it's how to use them effectively while maintaining quality and search rankings.
         </p>
         <p>
           The results speak for themselves: Xponent21 achieved <strong>4,162% traffic growth</strong> using AI content strategies, Alton Lex grew organic traffic <strong>80% in 4 months</strong> with 1,000 automated articles ranking for 700+ keywords on page 1, and Diggity Marketing's client increased monthly revenue from <strong>$166k to $491k</strong> with AI-driven content.
@@ -91,7 +91,7 @@ export default function AISEOWriterGuidePage() {
       <section className="mb-12">
         <h2>What is an AI SEO Writer?</h2>
         <p>
-          An AI SEO writer is software that uses artificial intelligence—specifically natural language processing (NLP) and large language models (LLMs)—to generate SEO-optimized content. These tools analyze top-ranking content, understand semantic relationships, and produce articles optimized for both traditional search engines (Google) and AI-powered platforms (ChatGPT, Perplexity, AI Overviews).
+          An AI SEO writer is software that uses artificial intelligence--specifically natural language processing (NLP) and large language models (LLMs)--to generate SEO-optimized content. These tools analyze top-ranking content, understand semantic relationships, and produce articles optimized for both traditional search engines (Google) and AI-powered platforms (ChatGPT, Perplexity, AI Overviews).
         </p>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 my-8 border border-gray-200 dark:border-gray-700">
@@ -147,7 +147,7 @@ export default function AISEOWriterGuidePage() {
         </div>
 
         <p>
-          The key advantage of AI SEO writers is <strong>speed and scale</strong>. What takes a human writer 4-8 hours, AI completes in 15-45 minutes. This allows content teams to scale from 5-10 articles/month to 50-200 articles/month with the same budget—<strong>if</strong> they implement proper quality controls.
+          The key advantage of AI SEO writers is <strong>speed and scale</strong>. What takes a human writer 4-8 hours, AI completes in 15-45 minutes. This allows content teams to scale from 5-10 articles/month to 50-200 articles/month with the same budget--<strong>if</strong> they implement proper quality controls.
         </p>
       </section>
 
@@ -191,7 +191,7 @@ export default function AISEOWriterGuidePage() {
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Best For:</h4>
               <ul className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
                 <li>• Blog posts and long-form content</li>
-                <li>• Content teams scaling output 5-10×</li>
+                <li>• Content teams scaling output 5-10x</li>
                 <li>• Multi-platform SEO (Google + AI engines)</li>
                 <li>• Businesses prioritizing ranking performance</li>
               </ul>
@@ -485,7 +485,7 @@ export default function AISEOWriterGuidePage() {
           <div className="space-y-6">
             {/* C - Cut */}
             <div>
-              <h4 className="text-xl font-semibold text-blue-600 mb-3">C — Cut (Ruthless Editing)</h4>
+              <h4 className="text-xl font-semibold text-blue-600 mb-3">C -- Cut (Ruthless Editing)</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                 AI tends to be verbose and repetitive. Cut unnecessary words, remove fluff, and eliminate redundant sections.
               </p>
@@ -503,7 +503,7 @@ export default function AISEOWriterGuidePage() {
 
             {/* R - Review */}
             <div>
-              <h4 className="text-xl font-semibold text-purple-600 mb-3">R — Review (Structure & Flow)</h4>
+              <h4 className="text-xl font-semibold text-purple-600 mb-3">R -- Review (Structure & Flow)</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                 Review the article structure, headings hierarchy, and logical flow. Ensure it reads naturally and follows a coherent narrative.
               </p>
@@ -521,7 +521,7 @@ export default function AISEOWriterGuidePage() {
 
             {/* A - Add */}
             <div>
-              <h4 className="text-xl font-semibold text-green-600 mb-3">A — Add (E-E-A-T Elements)</h4>
+              <h4 className="text-xl font-semibold text-green-600 mb-3">A -- Add (E-E-A-T Elements)</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                 Add elements that AI cannot generate: real-world examples, first-hand experience, expert quotes, original data, and specific statistics.
               </p>
@@ -539,7 +539,7 @@ export default function AISEOWriterGuidePage() {
 
             {/* F - Fact-check */}
             <div>
-              <h4 className="text-xl font-semibold text-orange-600 mb-3">F — Fact-check (Verify Everything)</h4>
+              <h4 className="text-xl font-semibold text-orange-600 mb-3">F -- Fact-check (Verify Everything)</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                 AI can hallucinate statistics, misattribute quotes, or present outdated information as current. Verify every claim.
               </p>
@@ -557,7 +557,7 @@ export default function AISEOWriterGuidePage() {
 
             {/* T - Trust */}
             <div>
-              <h4 className="text-xl font-semibold text-cyan-600 mb-3">T — Trust (Build E-E-A-T Signals)</h4>
+              <h4 className="text-xl font-semibold text-cyan-600 mb-3">T -- Trust (Build E-E-A-T Signals)</h4>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                 Add trust signals that demonstrate expertise, authoritativeness, and transparency.
               </p>
@@ -577,7 +577,7 @@ export default function AISEOWriterGuidePage() {
 
         <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-6 my-6 border-l-4 border-yellow-500">
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            <strong>⚠️ Critical:</strong> Bankrate.com's success demonstrates the importance of SME review. They employ <strong>subject matter experts to review, fact-check, correct, and sometimes rewrite</strong> AI content before publishing. This is not optional in 2025—it's required for competitive rankings.
+            <strong>⚠️ Critical:</strong> Bankrate.com's success demonstrates the importance of SME review. They employ <strong>subject matter experts to review, fact-check, correct, and sometimes rewrite</strong> AI content before publishing. This is not optional in 2025--it's required for competitive rankings.
           </p>
         </div>
       </section>
@@ -711,7 +711,7 @@ export default function AISEOWriterGuidePage() {
           <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 border-l-4 border-red-500">
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">❌ Ignoring E-E-A-T (Experience, Expertise, Authoritativeness, Trust)</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">
-              <strong>Why it fails:</strong> E-E-A-T is the most important ranking factor in 2025. AI cannot add genuine experience or expertise—only humans can.<br/>
+              <strong>Why it fails:</strong> E-E-A-T is the most important ranking factor in 2025. AI cannot add genuine experience or expertise--only humans can.<br/>
               <strong>Solution:</strong> Add author bios with real credentials, personal anecdotes, original research, expert quotes, and cited sources.
             </p>
           </div>
@@ -754,7 +754,7 @@ export default function AISEOWriterGuidePage() {
       <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 text-white rounded-2xl p-8 my-12 shadow-xl">
         <h2 className="text-3xl font-bold mb-4 text-white">Want AI That Writes AND Publishes SEO Content Automatically?</h2>
         <p className="text-xl mb-6 text-blue-50">
-          <strong>SEOLOGY.AI</strong> goes beyond AI writing tools. Our autonomous agents not only generate SEO-optimized content—they log into your CMS and publish it automatically. No copy-pasting. No manual optimization. Just results.
+          <strong>SEOLOGY.AI</strong> goes beyond AI writing tools. Our autonomous agents not only generate SEO-optimized content--they log into your CMS and publish it automatically. No copy-pasting. No manual optimization. Just results.
         </p>
         <div className="grid md:grid-cols-3 gap-6 mb-6">
           <div className="text-center">
@@ -799,7 +799,7 @@ export default function AISEOWriterGuidePage() {
               Can AI-written content rank on Google in 2025?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Yes—<strong>13% of top-rated content on Google is AI-generated</strong> as of 2025. However, it must be properly edited with human expertise. Pure unedited AI content struggles post-June 2025 update. The key is <strong>human-AI collaboration</strong>: AI drafts + human CRAFT editing (Cut, Review, Add E-E-A-T, Fact-check, Trust signals). This approach delivers 4,162% traffic growth in documented case studies.
+              Yes--<strong>13% of top-rated content on Google is AI-generated</strong> as of 2025. However, it must be properly edited with human expertise. Pure unedited AI content struggles post-June 2025 update. The key is <strong>human-AI collaboration</strong>: AI drafts + human CRAFT editing (Cut, Review, Add E-E-A-T, Fact-check, Trust signals). This approach delivers 4,162% traffic growth in documented case studies.
             </p>
           </div>
 
@@ -817,7 +817,7 @@ export default function AISEOWriterGuidePage() {
               How much time does AI SEO writing save?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Human-AI workflow takes <strong>2-3 hours per article</strong> vs 5.5-9.5 hours for 100% manual writing—a <strong>65% time savings</strong>. This allows scaling from 5-10 articles/month to 50-200 articles/month with same team. AI handles research (10 min), outline (15 min), and drafting (15-30 min), while humans focus on high-value editing and E-E-A-T optimization (1.5-2.5 hours).
+              Human-AI workflow takes <strong>2-3 hours per article</strong> vs 5.5-9.5 hours for 100% manual writing--a <strong>65% time savings</strong>. This allows scaling from 5-10 articles/month to 50-200 articles/month with same team. AI handles research (10 min), outline (15 min), and drafting (15-30 min), while humans focus on high-value editing and E-E-A-T optimization (1.5-2.5 hours).
             </p>
           </div>
 
@@ -835,7 +835,7 @@ export default function AISEOWriterGuidePage() {
               What is E-E-A-T and why does it matter for AI content?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              E-E-A-T stands for <strong>Experience, Expertise, Authoritativeness, Trustworthiness</strong>—Google's primary quality signals in 2025. AI cannot add genuine experience or expertise; only humans can. To make AI content rank, you must <strong>manually add</strong>: author bios with credentials, personal anecdotes, original research, expert quotes, cited sources, and transparent fact-checking. This is why Bankrate.com uses SME review for every AI article.
+              E-E-A-T stands for <strong>Experience, Expertise, Authoritativeness, Trustworthiness</strong>--Google's primary quality signals in 2025. AI cannot add genuine experience or expertise; only humans can. To make AI content rank, you must <strong>manually add</strong>: author bios with credentials, personal anecdotes, original research, expert quotes, cited sources, and transparent fact-checking. This is why Bankrate.com uses SME review for every AI article.
             </p>
           </div>
 
@@ -853,7 +853,7 @@ export default function AISEOWriterGuidePage() {
               How do I prevent AI content detection?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 text-sm">
-              <strong>Wrong question.</strong> Focus on quality, not detection avoidance. Google's official stance: AI-generated content is acceptable if it's helpful and meets quality standards. The <strong>CRAFT method</strong> naturally makes content sound human: Cut verbose AI language, Review for natural flow, Add personal experience and examples, Fact-check everything, add Trust signals. This produces content that's genuinely valuable—whether AI can detect it is irrelevant.
+              <strong>Wrong question.</strong> Focus on quality, not detection avoidance. Google's official stance: AI-generated content is acceptable if it's helpful and meets quality standards. The <strong>CRAFT method</strong> naturally makes content sound human: Cut verbose AI language, Review for natural flow, Add personal experience and examples, Fact-check everything, add Trust signals. This produces content that's genuinely valuable--whether AI can detect it is irrelevant.
             </p>
           </div>
         </div>
@@ -863,7 +863,7 @@ export default function AISEOWriterGuidePage() {
       <section className="mb-12">
         <h2>Conclusion: The Future of AI SEO Writing</h2>
         <p>
-          AI SEO writers have transformed from experimental tools to essential infrastructure in 2025. With <strong>86% of SEO experts</strong> using AI writers and <strong>19% of Google results</strong> containing AI content, the question isn't whether to use AI—it's how to use it effectively.
+          AI SEO writers have transformed from experimental tools to essential infrastructure in 2025. With <strong>86% of SEO experts</strong> using AI writers and <strong>19% of Google results</strong> containing AI content, the question isn't whether to use AI--it's how to use it effectively.
         </p>
         <p>
           The evidence is overwhelming: <strong>4,162% traffic growth</strong> (Xponent21), <strong>80% organic increases in 4 months</strong> (Alton Lex), <strong>$166k → $491k revenue growth</strong> (Diggity Marketing), and <strong>125,000 monthly visitors</strong> (Bankrate.com) demonstrate what's possible when AI writing is done correctly.
@@ -877,10 +877,10 @@ export default function AISEOWriterGuidePage() {
           <li><strong>Together they deliver:</strong> 65% faster production + ranking content that converts</li>
         </ul>
         <p>
-          The CRAFT method (Cut, Review, Add, Fact-check, Trust) is your quality assurance framework. The 7-step human-AI workflow is your production process. E-E-A-T optimization is your competitive advantage. These aren't optional—they're required for success in Google's post-June 2025 landscape.
+          The CRAFT method (Cut, Review, Add, Fact-check, Trust) is your quality assurance framework. The 7-step human-AI workflow is your production process. E-E-A-T optimization is your competitive advantage. These aren't optional--they're required for success in Google's post-June 2025 landscape.
         </p>
         <p>
-          Looking ahead to 2026, expect continued evolution: AI will get better at mimicking human expertise, but Google will get better at detecting it. The businesses that win will be those who use AI as a force multiplier for human creativity—not as a replacement for human value.
+          Looking ahead to 2026, expect continued evolution: AI will get better at mimicking human expertise, but Google will get better at detecting it. The businesses that win will be those who use AI as a force multiplier for human creativity--not as a replacement for human value.
         </p>
         <p>
           Start with the right tools (QuickCreator, Koala, Frase, or ChatGPT depending on your needs), implement the human-AI workflow, apply CRAFT editing rigorously, and never publish without adding genuine E-E-A-T signals. Do this consistently, and you'll join the 67% who report improved content quality and the documented case studies showing 80-4,162% growth.
@@ -894,7 +894,7 @@ export default function AISEOWriterGuidePage() {
       <div className="bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white rounded-2xl p-8 my-12 shadow-xl">
         <h2 className="text-3xl font-bold mb-4 text-white">Ready for AI That Writes, Optimizes, AND Publishes Automatically?</h2>
         <p className="text-xl mb-6 text-purple-50">
-          <strong>SEOLOGY.AI</strong> is the only platform that combines AI writing with autonomous publishing. Our agents generate E-E-A-T optimized content, implement SEO fixes, and publish directly to your Shopify store or WordPress site—while you focus on strategy.
+          <strong>SEOLOGY.AI</strong> is the only platform that combines AI writing with autonomous publishing. Our agents generate E-E-A-T optimized content, implement SEO fixes, and publish directly to your Shopify store or WordPress site--while you focus on strategy.
         </p>
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
           <div className="grid md:grid-cols-4 gap-4 text-center">

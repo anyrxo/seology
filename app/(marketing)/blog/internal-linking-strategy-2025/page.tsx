@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Internal Linking Strategy: Boost Rankings Without Building Links',
-  description: 'Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by 40% in 90 days—no backlinks needed.',
+  description: 'Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by 40% in 90 days--no backlinks needed.',
 }
 
 export default function BlogPost() {
@@ -22,7 +22,7 @@ export default function BlogPost() {
             <span>Sarah Park</span><span>•</span><span>November 30, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by <strong className="text-white">40% in 90 days</strong>—no backlinks needed.
+            Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by <strong className="text-white">40% in 90 days</strong>--no backlinks needed.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -141,7 +141,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: The Easiest SEO Win</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">Internal linking is the lowest-hanging fruit in SEO. It costs nothing, requires no outreach, and delivers fast results.</p>
-                <p className="text-lg text-slate-700 leading-relaxed mb-6">One client increased organic traffic 40% in 90 days just by fixing internal linking—no new content, no backlinks.</p>
+                <p className="text-lg text-slate-700 leading-relaxed mb-6">One client increased organic traffic 40% in 90 days just by fixing internal linking--no new content, no backlinks.</p>
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Internal Links Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">SEOLOGY analyzes your site structure and adds strategic internal links automatically.</p>

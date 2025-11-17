@@ -62,7 +62,7 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Product Page SEO Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Product pages are your money pages—they\'re where organic traffic converts to revenue. Yet <strong>68% of e-commerce stores</strong> use manufacturer-supplied content without optimization (SEMrush study, 2024). This creates massive opportunity: a well-optimized product page can rank for dozens of long-tail keywords, appear in rich results with ratings and price, and convert at 2-3x the rate of generic pages.
+                Product pages are your money pages--they\'re where organic traffic converts to revenue. Yet <strong>68% of e-commerce stores</strong> use manufacturer-supplied content without optimization (SEMrush study, 2024). This creates massive opportunity: a well-optimized product page can rank for dozens of long-tail keywords, appear in rich results with ratings and price, and convert at 2-3x the rate of generic pages.
               </p>
 
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
@@ -105,7 +105,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       H1 should match or closely align with title tag for keyword relevance. Place on-page H1 at top of product content, including brand + product name + key attribute.
                     </p>
-                    <p className="text-sm text-slate-600">Keep H1 concise (40-60 characters) and avoid keyword stuffing—focus on natural product identification.</p>
+                    <p className="text-sm text-slate-600">Keep H1 concise (40-60 characters) and avoid keyword stuffing--focus on natural product identification.</p>
                   </div>
 
                   <div className="mb-6">
@@ -126,7 +126,7 @@ export default function BlogPost() {
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">5. Write 300+ Words of Unique Content</h4>
                     <p className="text-slate-700 mb-3">
-                      Never use manufacturer descriptions verbatim—they\'re duplicated across thousands of sites. Write unique 300-1000 word descriptions covering features, benefits, use cases, and specs.
+                      Never use manufacturer descriptions verbatim--they\'re duplicated across thousands of sites. Write unique 300-1000 word descriptions covering features, benefits, use cases, and specs.
                     </p>
                     <p className="text-sm text-slate-600">Moz study: Unique product descriptions rank 76% higher than duplicate manufacturer content. Aim for 500+ words for competitive keywords.</p>
                   </div>
@@ -152,7 +152,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       Break product descriptions into scannable sections using H2/H3 tags with keyword variations: "Features," "Benefits," "Technical Specifications," "What Customers Say," "Shipping & Returns."
                     </p>
-                    <p className="text-sm text-slate-600">Proper heading hierarchy improves SEO and user experience—visitors scan headings before reading full content.</p>
+                    <p className="text-sm text-slate-600">Proper heading hierarchy improves SEO and user experience--visitors scan headings before reading full content.</p>
                   </div>
 
                   <div className="mb-6">
@@ -201,7 +201,7 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-3">
                       Products with 6+ images convert 58% better than those with 1-2 images (BigCommerce study, 2024). Show: main product shot, multiple angles, close-ups of features, lifestyle/in-use shots.
                     </p>
-                    <p className="text-sm text-slate-600">Add 360° spin or video when possible—video on product pages increases conversions 144% (Aberdeen Group study).</p>
+                    <p className="text-sm text-slate-600">Add 360° spin or video when possible--video on product pages increases conversions 144% (Aberdeen Group study).</p>
                   </div>
                 </div>
 
@@ -295,7 +295,7 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Using Manufacturer Descriptions:</strong>
-                    <p className="text-slate-700 mt-1">68% of e-commerce stores use duplicate manufacturer content—this guarantees you won\'t outrank competitors who write unique descriptions (SEMrush, 2024)</p>
+                    <p className="text-slate-700 mt-1">68% of e-commerce stores use duplicate manufacturer content--this guarantees you won\'t outrank competitors who write unique descriptions (SEMrush, 2024)</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -309,21 +309,21 @@ export default function BlogPost() {
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Missing or Generic Alt Text:</strong>
-                    <p className="text-slate-700 mt-1">Alt text like "product image" or leaving it blank wastes Google Image Search opportunity—image search drives 8-12% of e-commerce traffic</p>
+                    <p className="text-slate-700 mt-1">Alt text like "product image" or leaving it blank wastes Google Image Search opportunity--image search drives 8-12% of e-commerce traffic</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">No Schema Markup:</strong>
-                    <p className="text-slate-700 mt-1">Product pages without schema miss out on star ratings, price, and availability in search results—reducing CTR 35% vs competitors with rich results</p>
+                    <p className="text-slate-700 mt-1">Product pages without schema miss out on star ratings, price, and availability in search results--reducing CTR 35% vs competitors with rich results</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">✗</div>
                   <div>
                     <strong className="text-xl">Ignoring Mobile Optimization:</strong>
-                    <p className="text-slate-700 mt-1">60%+ of e-commerce traffic is mobile but many product pages are desktop-optimized with slow mobile load times—Google penalizes slow mobile pages</p>
+                    <p className="text-slate-700 mt-1">60%+ of e-commerce traffic is mobile but many product pages are desktop-optimized with slow mobile load times--Google penalizes slow mobile pages</p>
                   </div>
                 </li>
               </ul>
@@ -393,7 +393,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                    <span><strong>67% CTR increase from rich results</strong>—star ratings and price in SERPs drove more qualified clicks</span>
+                    <span><strong>67% CTR increase from rich results</strong>--star ratings and price in SERPs drove more qualified clicks</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
@@ -401,7 +401,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-sm text-slate-600 italic">
-                  "We knew our product pages were underperforming but didn\'t realize how much opportunity we were leaving on the table. Writing unique descriptions and adding schema seemed like busywork, but the ROI was incredible—nearly 4x organic revenue in four months. This paid for itself 50x over." - Marcus Chen, CEO, TrailBlaze Outdoor Equipment
+                  "We knew our product pages were underperforming but didn\'t realize how much opportunity we were leaving on the table. Writing unique descriptions and adding schema seemed like busywork, but the ROI was incredible--nearly 4x organic revenue in four months. This paid for itself 50x over." - Marcus Chen, CEO, TrailBlaze Outdoor Equipment
                 </p>
               </div>
             </section>
@@ -441,7 +441,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Product Page SEO at Scale</h3>
                 <p className="text-lg mb-6 opacity-90">
-                  SEOLOGY optimizes every product page automatically—unique descriptions, schema markup, image optimization, and more—delivering 347% revenue increase without months of manual work.
+                  SEOLOGY optimizes every product page automatically--unique descriptions, schema markup, image optimization, and more--delivering 347% revenue increase without months of manual work.
                 </p>
                 <Link
                   href="/sign-up"
@@ -456,10 +456,10 @@ export default function BlogPost() {
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Product page SEO is the highest-ROI optimization for e-commerce stores because it directly impacts revenue-generating pages. While category pages and blog content drive top-of-funnel traffic, product pages convert visitors into customers. The TrailBlaze case study proves that comprehensive product page optimization—unique content, schema markup, image optimization, reviews, and technical improvements—can deliver 347% revenue increase and 89% conversion rate improvement.
+                Product page SEO is the highest-ROI optimization for e-commerce stores because it directly impacts revenue-generating pages. While category pages and blog content drive top-of-funnel traffic, product pages convert visitors into customers. The TrailBlaze case study proves that comprehensive product page optimization--unique content, schema markup, image optimization, reviews, and technical improvements--can deliver 347% revenue increase and 89% conversion rate improvement.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
-                Start by identifying your top 20 revenue-generating products and implementing all 18 tactics on those pages first. Measure results after 60-90 days, then scale to remaining inventory. The challenge with product page SEO is scale—it\'s time-intensive to optimize hundreds or thousands of pages manually. SEOLOGY automates the entire workflow, from writing unique descriptions to implementing schema markup to optimizing images, so you get the 347% revenue increase without spending months on manual optimization.
+                Start by identifying your top 20 revenue-generating products and implementing all 18 tactics on those pages first. Measure results after 60-90 days, then scale to remaining inventory. The challenge with product page SEO is scale--it\'s time-intensive to optimize hundreds or thousands of pages manually. SEOLOGY automates the entire workflow, from writing unique descriptions to implementing schema markup to optimizing images, so you get the 347% revenue increase without spending months on manual optimization.
               </p>
             </section>
 

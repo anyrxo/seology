@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'Technical SEO Audit Checklist: 31 Critical Issues to Fix in 2025',
-  description: 'Most sites have 50+ technical SEO issues killing their rankings. This checklist catches them all—and SEOLOGY fixes them automatically.',
+  description: 'Most sites have 50+ technical SEO issues killing their rankings. This checklist catches them all--and SEOLOGY fixes them automatically.',
 }
 
 export default function BlogPost() {
@@ -34,7 +34,7 @@ export default function BlogPost() {
 
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Most sites have <strong className="text-white">50+ technical SEO issues</strong> killing their rankings. This checklist catches them all—and SEOLOGY fixes them automatically.
+            Most sites have <strong className="text-white">50+ technical SEO issues</strong> killing their rankings. This checklist catches them all--and SEOLOGY fixes them automatically.
           </p>
 
           {/* CTA */}
@@ -87,7 +87,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Technical issues don't just hurt rankings—they make your content invisible to Google.
+                  Technical issues don't just hurt rankings--they make your content invisible to Google.
                 </p>
               </section>
 

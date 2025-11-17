@@ -20,7 +20,7 @@ export default function BlogPost() {
             <span>Sarah Park</span><span>•</span><span>November 22, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-            Images drive 30% of total organic traffic but most sites leave 90% of their image SEO potential untapped. Google Images sends 1 billion visitors daily—here\'s how to capture your share.
+            Images drive 30% of total organic traffic but most sites leave 90% of their image SEO potential untapped. Google Images sends 1 billion visitors daily--here\'s how to capture your share.
           </p>
           <div className="mb-12">
             <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -37,7 +37,7 @@ export default function BlogPost() {
               <ul className="text-slate-700 mb-0 space-y-2">
                 <li><strong>Convert to WebP/AVIF</strong>: 25-35% smaller files = faster loads = higher rankings</li>
                 <li><strong>Implement lazy loading</strong>: Only load images when users scroll to them (saves 50-70% bandwidth)</li>
-                <li><strong>Write descriptive alt text</strong>: Google can\'t "see" images—alt text tells them what\'s there</li>
+                <li><strong>Write descriptive alt text</strong>: Google can\'t "see" images--alt text tells them what\'s there</li>
                 <li><strong>Use responsive images with srcset</strong>: Serve mobile users 300KB images, not 2MB desktop versions</li>
                 <li><strong>Create image sitemaps</strong>: Help Google discover and index all your images</li>
                 <li><strong>Compress without quality loss</strong>: 80% JPEG quality looks identical to 100% but saves 50% filesize</li>
@@ -58,7 +58,7 @@ export default function BlogPost() {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                    <span><strong>Page speed affects 100% of rankings</strong>—images average 50% of page weight (HTTP Archive)</span>
+                    <span><strong>Page speed affects 100% of rankings</strong>--images average 50% of page weight (HTTP Archive)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -219,7 +219,7 @@ export default function BlogPost() {
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <span>Don\'t start with "Image of..." or "Picture of..."—screen readers already announce it\'s an image</span>
+                        <span>Don\'t start with "Image of..." or "Picture of..."--screen readers already announce it\'s an image</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -308,7 +308,7 @@ export default function BlogPost() {
                       Add Width and Height Attributes
                     </h3>
                     <p className="text-slate-700 mb-4 pl-13">
-                      Prevents Cumulative Layout Shift (CLS)—a Core Web Vitals metric Google uses for rankings.
+                      Prevents Cumulative Layout Shift (CLS)--a Core Web Vitals metric Google uses for rankings.
                     </p>
                     <div className="bg-slate-100 p-4 rounded-lg mt-4 pl-13">
                       <p className="font-mono text-sm text-slate-800">
@@ -469,7 +469,7 @@ export default function BlogPost() {
                       Implement Picture Element for Art Direction
                     </h3>
                     <p className="text-slate-700 mb-4 pl-13">
-                      Serve different images (not just sizes) based on device—e.g., landscape for desktop, portrait for mobile.
+                      Serve different images (not just sizes) based on device--e.g., landscape for desktop, portrait for mobile.
                     </p>
                     <div className="bg-slate-100 p-4 rounded-lg mt-4 pl-13">
                       <p className="font-mono text-sm text-slate-800">
@@ -716,7 +716,7 @@ export default function BlogPost() {
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                        <span>Find zero-impression images (not indexed—check image sitemap)</span>
+                        <span>Find zero-impression images (not indexed--check image sitemap)</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />

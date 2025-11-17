@@ -69,7 +69,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
       <div className="prose prose-lg dark:prose-invert max-w-none">
 
         <p className="lead">
-          The jewelry ecommerce market is experiencing explosive growth, reaching <strong>$53.3 billion by 2026</strong>, with online jewelry sales in the U.S. reaching <strong>$16.8 billion in 2025</strong>—representing a <strong>185% increase from pre-pandemic levels</strong>. The global online jewelry market valued at <strong>$46.1 billion in 2024</strong> is projected to nearly triple to <strong>$129 billion by 2032</strong> with a CAGR of 13.8%. This comprehensive guide reveals how Shopify jewelry and luxury goods stores can leverage trust signals, gemstone certification SEO, virtual try-on technology, and luxury brand strategies to capture high-value customers in this rapidly expanding market.
+          The jewelry ecommerce market is experiencing explosive growth, reaching <strong>$53.3 billion by 2026</strong>, with online jewelry sales in the U.S. reaching <strong>$16.8 billion in 2025</strong>--representing a <strong>185% increase from pre-pandemic levels</strong>. The global online jewelry market valued at <strong>$46.1 billion in 2024</strong> is projected to nearly triple to <strong>$129 billion by 2032</strong> with a CAGR of 13.8%. This comprehensive guide reveals how Shopify jewelry and luxury goods stores can leverage trust signals, gemstone certification SEO, virtual try-on technology, and luxury brand strategies to capture high-value customers in this rapidly expanding market.
         </p>
 
         <h2>The Jewelry & Luxury Goods Ecommerce Landscape in 2025-2026</h2>
@@ -352,7 +352,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
         <h3>The AR Technology Standard</h3>
 
         <p>
-          By 2025, virtual try-on and augmented reality (AR) technology are standard offerings for most jewelry brands. This technology addresses one of the biggest barriers to online jewelry purchases—the inability to see how items look when worn.
+          By 2025, virtual try-on and augmented reality (AR) technology are standard offerings for most jewelry brands. This technology addresses one of the biggest barriers to online jewelry purchases--the inability to see how items look when worn.
         </p>
 
         <div className="not-prose bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20 p-6 rounded-lg my-8">
@@ -372,7 +372,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
             </div>
             <div>
               <p className="font-semibold">3. Mobile Optimization</p>
-              <p className="text-sm mt-1">AR works best on mobile—ensure seamless mobile experience<br/>
+              <p className="text-sm mt-1">AR works best on mobile--ensure seamless mobile experience<br/>
               Progressive web app integration for camera access</p>
             </div>
             <div>
@@ -642,7 +642,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
             <p><strong>✓ PCI DSS Compliance:</strong> Payment Card Industry Data Security Standard compliance for credit card processing</p>
             <p><strong>✓ Two-Factor Authentication:</strong> Require 2FA for high-value purchases over certain threshold</p>
             <p><strong>✓ Fraud Detection:</strong> Implement fraud scoring systems for suspicious orders</p>
-            <p><strong>✓ Image Optimization:</strong> High-quality jewelry photos are large—use WebP format, lazy loading, CDN delivery</p>
+            <p><strong>✓ Image Optimization:</strong> High-quality jewelry photos are large--use WebP format, lazy loading, CDN delivery</p>
             <p><strong>✓ Core Web Vitals:</strong> Target LCP < 2.5s despite large images, minimize CLS with proper image dimensions</p>
             <p><strong>✓ Mobile Performance:</strong> Optimize for mobile without sacrificing image quality (critical for jewelry visualization)</p>
           </div>
@@ -724,7 +724,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
         <h2>Conclusion: Trust-Driven SEO for Luxury Jewelry</h2>
 
         <p>
-          The jewelry ecommerce market's explosive growth—reaching <strong>$53.3 billion by 2026</strong> with <strong>185% growth since 2019</strong> and projections to <strong>$129 billion by 2032</strong>—represents unprecedented opportunity for Shopify jewelry and luxury goods stores willing to invest in trust-focused, sophisticated SEO strategies.
+          The jewelry ecommerce market's explosive growth--reaching <strong>$53.3 billion by 2026</strong> with <strong>185% growth since 2019</strong> and projections to <strong>$129 billion by 2032</strong>--represents unprecedented opportunity for Shopify jewelry and luxury goods stores willing to invest in trust-focused, sophisticated SEO strategies.
         </p>
 
         <p>
@@ -736,7 +736,7 @@ export default function JewelryLuxuryGoodsSEOGuide2026() {
         </p>
 
         <p>
-          The future of jewelry ecommerce belongs to stores that recognize purchasing fine jewelry online is ultimately about trust—trust in authenticity, trust in quality, trust in ethical sourcing, and trust that the piece will create cherished memories for generations to come.
+          The future of jewelry ecommerce belongs to stores that recognize purchasing fine jewelry online is ultimately about trust--trust in authenticity, trust in quality, trust in ethical sourcing, and trust that the piece will create cherished memories for generations to come.
         </p>
 
         {/* Author Bio */}

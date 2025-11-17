@@ -66,7 +66,7 @@ export default function BlogPost() {
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Broken Link Building Works So Well</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Unlike cold outreach, broken link building provides genuine value to webmasters—you\'re helping them fix a problem:
+                  Unlike cold outreach, broken link building provides genuine value to webmasters--you\'re helping them fix a problem:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
@@ -122,7 +122,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Target Resource Pages</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Why resource pages:</strong> They link to external sites frequently—more opportunities for broken links.
+                      <strong>Why resource pages:</strong> They link to external sites frequently--more opportunities for broken links.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Search operators:</strong> "keyword + resources", "keyword + useful links", "keyword + further reading"
@@ -170,7 +170,7 @@ export default function BlogPost() {
                       <strong>Analysis:</strong> Use Wayback Machine to see original content, understand why people linked to it, replicate that value.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Warning:</strong> Don\'t pitch unrelated content—it destroys credibility.
+                      <strong>Warning:</strong> Don\'t pitch unrelated content--it destroys credibility.
                     </p>
                   </div>
 
@@ -193,7 +193,7 @@ export default function BlogPost() {
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. The Perfect Outreach Email</h4>
                     <p className="text-slate-700 mb-3">
-                      <strong>Subject line:</strong> "Broken link on [Page Title]"—simple, helpful, not salesy.
+                      <strong>Subject line:</strong> "Broken link on [Page Title]"--simple, helpful, not salesy.
                     </p>
                     <p className="text-slate-700 mb-3">
                       <strong>Email structure:</strong><br />
@@ -203,7 +203,7 @@ export default function BlogPost() {
                       4. Would you consider updating the link?
                     </p>
                     <p className="text-slate-700">
-                      <strong>Word count:</strong> Under 100 words—busy webmasters don\'t read novels.
+                      <strong>Word count:</strong> Under 100 words--busy webmasters don\'t read novels.
                     </p>
                   </div>
 
@@ -226,10 +226,10 @@ export default function BlogPost() {
                       <strong>Reality:</strong> 73% of link placements come from follow-up emails, not initial outreach.
                     </p>
                     <p className="text-slate-700 mb-3">
-                      <strong>Follow-up schedule:</strong> Day 5, Day 10, Day 20—then stop.
+                      <strong>Follow-up schedule:</strong> Day 5, Day 10, Day 20--then stop.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Follow-up angle:</strong> "Just bumping this up in your inbox—did you get a chance to review?"
+                      <strong>Follow-up angle:</strong> "Just bumping this up in your inbox--did you get a chance to review?"
                     </p>
                   </div>
                 </div>
@@ -263,7 +263,7 @@ export default function BlogPost() {
                       <strong>Benchmarks:</strong> 60%+ open rate, 20%+ response rate, 40%+ link placement rate.
                     </p>
                     <p className="text-slate-700">
-                      <strong>Optimization:</strong> A/B test subject lines, email length, follow-up timing—improve monthly.
+                      <strong>Optimization:</strong> A/B test subject lines, email length, follow-up timing--improve monthly.
                     </p>
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Targeting Low-Authority Sites</h4>
                     <p className="text-slate-700">
-                      Focus on DR 40+ sites. Links from weak sites don\'t move the needle. Quality over quantity—10 DR 60+ links beat 100 DR 10 links.
+                      Focus on DR 40+ sites. Links from weak sites don\'t move the needle. Quality over quantity--10 DR 60+ links beat 100 DR 10 links.
                     </p>
                   </div>
 
@@ -351,7 +351,7 @@ export default function BlogPost() {
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Ignoring Context</h4>
                     <p className="text-slate-700">
-                      Read the page with the broken link. Understand why they linked there originally. Pitch replacement content that fits that exact context—not your homepage.
+                      Read the page with the broken link. Understand why they linked there originally. Pitch replacement content that fits that exact context--not your homepage.
                     </p>
                   </div>
                 </div>
