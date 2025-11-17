@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Content Optimization: Why AI Beats Manual Editing Every Time',
-  description: 'Manual content optimization takes hours per page. SEOLOGY\'s AI optimizes hundreds of pages in minutes.',
+  description: "Manual content optimization takes hours per page. SEOLOGY\'s AI optimizes hundreds of pages in minutes.",
 }
 
 export default function BlogPost() {

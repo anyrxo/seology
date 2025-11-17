@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Crawl Budget Optimization: Get More Pages Indexed Faster',
-  description: 'Large sites waste 70% of their crawl budget. Here\'s how to optimize crawl budget and get every important page indexed.',
+  description: "Large sites waste 70% of their crawl budget. Here\'s how to optimize crawl budget and get every important page indexed.",
 }
 
 export default function BlogPost() {

@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Core Web Vitals & Page Experience for Shopify: 2026 Complete Guide | SEOLOGY.AI',
-  description: 'Only 47% of sites meet Google\'s 2026 Core Web Vitals requirements. Master LCP, INP, and CLS optimization for Shopify with our comprehensive guide backed by December 2025 data.',
+  description: "Only 47% of sites meet Google\'s 2026 Core Web Vitals requirements. Master LCP, INP, and CLS optimization for Shopify with our comprehensive guide backed by December 2025 data.",
   keywords: 'Core Web Vitals, Shopify page experience, LCP optimization, INP metrics, CLS score, Google ranking factors, page speed Shopify, web performance 2026, Shopify SEO, mobile performance',
   openGraph: {
     title: 'Core Web Vitals & Page Experience for Shopify: 2026 Complete Guide',
-    description: 'Only 47% of sites meet Google\'s 2026 Core Web Vitals requirements. Master LCP, INP, and CLS optimization.',
+    description: "Only 47% of sites meet Google\'s 2026 Core Web Vitals requirements. Master LCP, INP, and CLS optimization.",
     type: 'article',
     publishedTime: '2025-12-20T08:00:00Z',
     authors: ['Dr. Elena Petrov, Web Performance Engineer'],

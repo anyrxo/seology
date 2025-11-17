@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026 | SEOLOGY.AI',
-  description: 'Discover the critical SEO mistakes destroying your Shopify rankings after Google\'s 2025 algorithm updates. Expert analysis from SEOLOGY.AI reveals why 87% of stores are losing traffic—and how to fix it automatically.',
+  description: "Discover the critical SEO mistakes destroying your Shopify rankings after Google\'s 2025 algorithm updates. Expert analysis from SEOLOGY.AI reveals why 87% of stores are losing traffic—and how to fix it automatically.",
   keywords: 'Shopify SEO mistakes, Shopify SEO 2026, Google algorithm updates, ecommerce SEO errors, Shopify ranking factors, AI SEO automation',
   openGraph: {
     title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026',

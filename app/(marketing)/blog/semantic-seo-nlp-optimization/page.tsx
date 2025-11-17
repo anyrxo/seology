@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Semantic SEO: 16 Tactics to Optimize for NLP & Related Entities (52% Traffic Increase)',
-  description: 'Semantic SEO optimization increased organic traffic 52% and rankings 2.8 positions by leveraging Google\'s NLP (BERT, MUM) to understand content context, related entities, and user intent beyond keywords.',
+  description: "Semantic SEO optimization increased organic traffic 52% and rankings 2.8 positions by leveraging Google\'s NLP (BERT, MUM) to understand content context, related entities, and user intent beyond keywords.",
 }
 
 export default function BlogPost() {

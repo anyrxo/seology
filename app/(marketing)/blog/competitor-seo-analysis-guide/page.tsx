@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
-  title: 'Competitor SEO Analysis: 18 Tactics to Steal Your Competitors\' Rankings',
+  title: "Competitor SEO Analysis: 18 Tactics to Steal Your Competitors\' Rankings",
   description: 'Reverse-engineer competitor strategies to find keyword gaps, backlink opportunities, and content weaknesses. This framework increased rankings by 340%.',
 }
 

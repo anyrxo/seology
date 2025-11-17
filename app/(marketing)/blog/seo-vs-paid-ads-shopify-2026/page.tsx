@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'SEO vs Paid Ads for Shopify in 2026: Why SEO Wins ($45 CPA vs $0) | SEOLOGY.AI',
-  description: 'Paid ads cost $45-65 per customer in 2025. SEO costs $0. Here\'s the data-driven breakdown showing why every Shopify store should prioritize SEO over Facebook and Google ads in 2026.',
+  description: "Paid ads cost $45-65 per customer in 2025. SEO costs $0. Here\'s the data-driven breakdown showing why every Shopify store should prioritize SEO over Facebook and Google ads in 2026.",
   keywords: 'SEO vs paid ads, Shopify SEO vs ads, Facebook ads cost 2026, Google ads cost ecommerce, customer acquisition cost, SEO ROI',
   openGraph: {
     title: 'SEO vs Paid Ads for Shopify 2026: The $0 CPA Strategy',
-    description: 'Ecommerce CPA averages $45-65 for paid ads. SEO? $0 per customer. Here\'s why SEO wins every time.',
+    description: "Ecommerce CPA averages $45-65 for paid ads. SEO? $0 per customer. Here\'s why SEO wins every time.",
     type: 'article',
     publishedTime: '2025-12-22T07:00:00Z',
     authors: ['David Park, Growth Strategist at SEOLOGY.AI'],

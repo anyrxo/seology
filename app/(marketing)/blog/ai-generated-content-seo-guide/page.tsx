@@ -4,8 +4,8 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
-  title: 'AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)',
-  description: 'AI content is everywhere. Here\'s how to use AI-generated content without getting penalized by Google.',
+  title: "AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)",
+  description: "AI content is everywhere. Here\'s how to use AI-generated content without getting penalized by Google.",
 }
 
 export default function BlogPost() {

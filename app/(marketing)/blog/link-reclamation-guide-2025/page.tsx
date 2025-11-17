@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Link Reclamation: Recover Lost Backlinks & Boost Authority',
-  description: 'You\'re losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.',
+  description: "You\'re losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.",
 }
 
 export default function BlogPost() {

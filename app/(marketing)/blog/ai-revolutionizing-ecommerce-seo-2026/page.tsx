@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: 'AI SEO, AI SEO tools 2026, ecommerce SEO automation, AI vs traditional SEO, SEO automation statistics, AI-powered SEO',
   openGraph: {
     title: 'AI Revolutionizing E-commerce SEO: The $4.5B Market Shift',
-    description: '65% of businesses now see better results with AI SEO. Here\'s why traditional agencies are becoming obsolete.',
+    description: "65% of businesses now see better results with AI SEO. Here\'s why traditional agencies are becoming obsolete.",
     type: 'article',
     publishedTime: '2025-12-18T09:00:00Z',
     authors: ['Marcus Rodriguez, Head of AI Strategy at SEOLOGY.AI'],

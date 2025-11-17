@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Automatic SEO Fixes vs Manual SEO: Why Automation Wins Every Time',
-  description: 'Manual SEO takes 20+ hours per week. SEOLOGY\'s automatic fixes handle everything in real-time while you sleep.',
+  description: "Manual SEO takes 20+ hours per week. SEOLOGY\'s automatic fixes handle everything in real-time while you sleep.",
 }
 
 export default function BlogPost() {

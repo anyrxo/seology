@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   keywords: 'technical SEO audit, Shopify technical SEO, crawlability, indexation, canonical URLs, duplicate content, robots.txt, XML sitemap, Google Search Console, Core Web Vitals, site architecture, crawl budget',
   openGraph: {
     title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',
-    description: 'Google\'s Nov 2025 audit methodology + complete Shopify technical SEO checklist. Fix crawl errors, canonicals, and indexation issues.',
+    description: "Google\'s Nov 2025 audit methodology + complete Shopify technical SEO checklist. Fix crawl errors, canonicals, and indexation issues.",
     type: 'article',
     publishedTime: '2025-12-20T08:00:00Z',
     authors: ['Sophie Martinez, Technical SEO Engineer & Shopify Specialist'],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',
-    description: 'Google\'s Nov 2025 methodology + complete audit checklist. Fix technical issues killing your Shopify rankings.',
+    description: "Google\'s Nov 2025 methodology + complete audit checklist. Fix technical issues killing your Shopify rankings.",
   },
 }
 

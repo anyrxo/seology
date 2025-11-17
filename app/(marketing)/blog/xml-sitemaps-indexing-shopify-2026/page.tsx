@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'XML Sitemaps & Indexing for Shopify: Complete 2026 Guide | SEOLOGY.AI',
-  description: '90% of web pages don\'t get indexed by Google. Learn how to optimize Shopify\'s automatic sitemap generation, manage crawl budget, submit to Search Console, and ensure all important pages get indexed with December 2025 best practices.',
+  description: "90% of web pages don\'t get indexed by Google. Learn how to optimize Shopify\'s automatic sitemap generation, manage crawl budget, submit to Search Console, and ensure all important pages get indexed with December 2025 best practices.",
   keywords: 'XML sitemap, Shopify sitemap, Google indexing, sitemap optimization, crawl budget, Search Console, sitemap submission, indexing best practices, Shopify SEO, sitemap structure',
   openGraph: {
     title: 'XML Sitemaps & Indexing for Shopify: Complete 2026 Guide',
-    description: '90% of web pages don\'t get indexed. Master Shopify sitemap optimization and crawl budget management.',
+    description: "90% of web pages don\'t get indexed. Master Shopify sitemap optimization and crawl budget management.",
     type: 'article',
     publishedTime: '2025-12-23T08:00:00Z',
     authors: ['Dr. James Chen, Technical SEO Specialist'],
