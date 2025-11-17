@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI SEO for Shopify Stores: Complete Guide 2026 | Boost Rankings & Sales',
   description: 'AI SEO delivers 38% lower acquisition costs, 34% higher conversions, 4-7x ROI for Shopify stores. Learn automation for 2,400+ products, meta tags, structured data, and GEO optimization for ChatGPT, Google Gemini. Complete 2026 Shopify AI SEO guide.',
-  keywords: 'ai seo shopify, shopify ai seo, ai seo for shopify, shopify seo automation, ai shopify seo app, shopify ai seo tools, shopify seo ai, ecommerce ai seo, shopify seo automation app, ai seo optimization shopify',
-  openGraph: {
-    title: 'AI SEO for Shopify: Complete 2026 Guide to Automation & Optimization',
-    description: '38% lower customer acquisition costs, 34% higher conversion rates, 4-7x ROI within 6 months. Master AI SEO automation for Shopify: bulk optimization for thousands of products, GEO for AI search, and automated technical SEO.',
-    type: 'article',
-    publishedTime: '2025-12-21T06:00:00Z',
-    authors: ['Sarah Mitchell, Shopify SEO Automation Expert'],
-  },
 }
 
 export default function AISEOShopifyStoresPage() {

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Best AI SEO Tools 2026: Complete Comparison Guide | Top 15 Platforms Tested',
   description: 'AI SEO tools market grows from $1.99B (2024) to $4.97B by 2033. We tested 15+ platforms: Search Atlas ($99-399), Semrush ($139-499), Surfer SEO ($79+), SE Ranking (4.8/5). Compare features, pricing, ROI for keyword research, content optimization, technical audits.',
-  keywords: 'ai seo tools, best ai seo tools, ai seo software, ai seo tool, ai tools for seo, ai powered seo tools, ai seo platforms, seo automation tools, best seo ai tools 2026, ai seo comparison',
-  openGraph: {
-    title: 'Best AI SEO Tools 2026: We Tested 15+ Platforms (Comparison & Pricing)',
-    description: '$1.99B AI SEO tools market growing to $4.97B by 2033. 56% marketer adoption. We tested Search Atlas, Semrush, Surfer SEO, SE Ranking, Rank Prompt, and 10+ platforms. Features, pricing, ROI data included.',
-    type: 'article',
-    publishedTime: '2025-12-21T04:00:00Z',
-    authors: ['Jessica Chen, AI SEO Software Analyst'],
-  },
 }
 
 export default function BestAISEOToolsPage() {

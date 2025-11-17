@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Jewelry & Luxury Goods SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Jewelry ecommerce reaches $53.3B by 2026 with 185% growth since 2019. Master trust signals, gemstone certification SEO, virtual try-on optimization, and luxury brand strategies for high-value conversions.',
-  keywords: 'jewelry SEO, luxury goods SEO, fine jewelry ecommerce, gemstone certification SEO, diamond SEO optimization, engagement ring SEO, luxury ecommerce marketing, trust signals jewelry, GIA certification SEO, lab-grown diamonds, virtual try-on jewelry, blockchain authentication, Shopify jewelry store, high-value product SEO',
-  openGraph: {
-    title: 'Jewelry & Luxury Goods SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Jewelry ecommerce reaches $53.3B by 2026 with 185% growth since 2019. Master trust signals, gemstone certification SEO, virtual try-on optimization, and luxury brand strategies for high-value conversions.',
-    type: 'article',
-    publishedTime: '2025-12-20T12:00:00Z',
-    authors: ['Sophia Chen, Luxury Ecommerce & Fine Jewelry SEO Specialist'],
-  },
 }
 
 export default function JewelryLuxuryGoodsSEOGuide2026() {

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI vs Manual SEO: Complete Comparison 2026 | Costs, Time, Results Data',
   description: 'AI SEO delivers 527% traffic growth, 50% time savings, 6-10% revenue increases vs manual SEO. Compare costs ($66k/year manual team vs $1,200-3,600 AI automation), performance data, and hybrid approach benefits. Complete 2026 comparison guide.',
-  keywords: 'ai vs manual seo, ai seo vs traditional seo, manual seo vs automated seo, ai seo comparison, traditional seo vs ai, manual vs automated seo, ai seo vs manual, seo automation vs manual, ai powered seo vs traditional',
-  openGraph: {
-    title: 'AI vs Manual SEO 2026: Data-Driven Comparison of Costs, Time & Results',
-    description: '527% AI traffic growth, 50% time savings, 65% better performance. Compare manual SEO ($66k+ team costs) vs AI automation ($1,200-3,600/year). Complete cost-benefit analysis with 2025-2026 performance data.',
-    type: 'article',
-    publishedTime: '2025-12-21T07:00:00Z',
-    authors: ['David Thompson, SEO Strategy Analyst'],
-  },
 }
 
 export default function AIvsManualSEOComparisonPage() {
