@@ -1,6 +1,6 @@
 export const metadata: Metadata = {
   title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026 | SEOLOGY.AI',
-  description: '75% of users prefer to buy in their native language, and 40% won't buy from non-localized sites. Master Shopify Markets, hreflang tags, and international SEO—achieve 70% traffic increase and 40-60% revenue growth with proper localization.',
+  description: '75% of users prefer to buy in their native language, and 40% won\'t buy from non-localized sites. Master Shopify Markets, hreflang tags, and international SEO—achieve 70% traffic increase and 40-60% revenue growth with proper localization.',
   keywords: 'international SEO Shopify, Shopify Markets, multilingual SEO, hreflang tags, multi-currency Shopify, localization, cross-border ecommerce, global SEO, international selling Shopify',
   openGraph: {
     title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026',
