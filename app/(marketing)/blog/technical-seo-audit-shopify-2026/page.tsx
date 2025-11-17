@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist | SEOLOGY.AI',
   description: 'Google released new technical audit methodology (Nov 2025). Master Shopify technical SEO with this comprehensive audit checklist--fix crawlability, indexation, and Core Web Vitals issues.',
-}
   twitter: {
     card: 'summary_large_image',
     title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',
@@ -293,7 +292,7 @@ export default function TechnicalSEOAuditShopifyPage() {
                 Google Search Console → Settings → Crawl Stats Report shows how Google crawls your website.
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 rounded p-3 text-sm">
-                <strong className="text-gray-900 dark:text-gray-100">Watch for:</strong> Sudden drops in crawl rate, high % of crawl requests with errors, slow average response times (>200ms)
+                <strong className="text-gray-900 dark:text-gray-100">Watch for:</strong> Sudden drops in crawl rate, high % of crawl requests with errors, slow average response times (&gt;200ms)
               </div>
             </div>
           </div>
