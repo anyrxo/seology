@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T09:00:00Z',
     authors: ['Michael Thompson, Enterprise Ecommerce SEO Consultant'],
-    tags: ['Shopify Plus SEO', 'Enterprise SEO', 'Large Catalog Optimization', 'B2B SEO', 'Wholesale SEO', 'Headless Commerce', 'Multi-Currency SEO', 'SEO Automation'],
-  },
+},
 }
 
 export default function ShopifyPlusSEOEnterprisePage() {

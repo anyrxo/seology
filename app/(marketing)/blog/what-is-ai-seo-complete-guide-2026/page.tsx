@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T03:00:00Z',
     authors: ['Dr. Nathan Brooks, AI & SEO Technology Specialist'],
-    tags: [
-      'AI SEO',
-      'Artificial Intelligence SEO',
-      'AI SEO Tools',
-      'AI SEO Software',
-      'SEO Automation',
-      'AI Optimization',
-      'Machine Learning SEO',
-      'AI SEO Guide',
-      'AI Search Optimization',
-      'AI SEO Strategy',
-      'AI SEO Benefits',
-      'AI SEO Statistics',
-    ],
-  },
+},
 }
 
 export default function WhatIsAISEOPage() {

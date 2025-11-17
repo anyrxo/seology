@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T09:00:00Z',
     authors: ['Nina Patel, Visual Search Specialist & Image Optimization Expert'],
-    tags: ['Image SEO', 'Visual Search', 'Google Lens', 'WebP', 'AVIF', 'Core Web Vitals', 'Product Photography', 'Shopify SEO'],
-  },
+},
 }
 
 export default function ImageSEOShopifyVisualSearchPage() {

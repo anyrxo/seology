@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T10:00:00Z',
     authors: ['Sofia Andersson, International SEO Specialist'],
-    tags: ['International SEO', 'Multi-Language SEO', 'Shopify Markets', 'Hreflang', 'Multi-Currency', 'Geotargeting', 'Global Expansion', 'Cross-Border Ecommerce'],
-  },
+},
 }
 
 export default function ShopifyMultiLanguageInternationalSEOPage() {

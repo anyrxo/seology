@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T16:00:00Z',
     authors: ['Lisa Morgan, Pet Ecommerce SEO Specialist'],
-    tags: ['Pet Products SEO', 'Pet Ecommerce', 'Dog Supplies', 'Cat Products', 'Pet Food', 'Pet Supplements', 'Autoship', 'Subscription Boxes'],
-  },
+},
 }
 
 export default function PetProductsSEOPage() {

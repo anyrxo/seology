@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-22T08:00:00Z',
     authors: ['Sarah Mitchell, Shopify Performance Consultant'],
-    tags: [
-      'Shopify Apps',
-      'App Performance',
-      'Page Speed',
-      'Core Web Vitals',
-      'SEO Impact',
-      'JavaScript Bloat',
-      'App Optimization',
-      'Store Speed',
-      'Performance Audit',
-      'Shopify SEO'
-    ],
-  },
+},
 }
 
 export default function ShopifyAppsSEOImpact2026() {

@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T14:00:00Z',
     authors: ['Emma Rodriguez, Beauty Ecommerce SEO Specialist'],
-    tags: ['Beauty SEO', 'Cosmetics SEO', 'Skincare Optimization', 'Makeup Ecommerce', 'Ingredient SEO', 'Clean Beauty', 'Influencer Marketing', 'Visual Search'],
-  },
+},
 }
 
 export default function BeautyCosmeticsSEOPage() {

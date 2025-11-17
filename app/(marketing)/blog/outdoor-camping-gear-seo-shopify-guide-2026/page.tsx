@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T19:00:00Z',
     authors: ['Marcus Anderson, Outdoor Recreation Ecommerce SEO Specialist'],
-    tags: [
-      'Outdoor Gear SEO',
-      'Camping Equipment',
-      'Hiking Marketing',
-      'Backpacking Gear',
-      'Sustainable Outdoor Products',
-      'Seasonal SEO',
-      'Activity-Based Targeting',
-      'Technical Specifications',
-      'Outdoor Recreation',
-      'Adventure Travel'
-    ],
-  },
+},
 }
 
 export default function OutdoorCampingGearSEOGuide() {

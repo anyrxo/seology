@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T08:00:00Z',
     authors: ['Marcus Chen, SEO Data Analyst & Keyword Research Expert'],
-    tags: ['Keyword Research', 'Shopify SEO', 'Long-Tail Keywords', 'Search Intent', 'Ecommerce SEO'],
-  },
+},
   twitter: {
     card: 'summary_large_image',
     title: 'Keyword Research for Shopify: 2026 Complete Guide',

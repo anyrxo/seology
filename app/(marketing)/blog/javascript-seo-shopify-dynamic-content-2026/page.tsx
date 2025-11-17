@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T08:00:00Z',
     authors: ['Marcus Reynolds, JavaScript SEO Architect'],
-    tags: [
-      'JavaScript SEO',
-      'Shopify JavaScript',
-      'Server-Side Rendering',
-      'Client-Side Rendering',
-      'Dynamic Content',
-      'SPA SEO',
-      'Google Rendering',
-      'Technical SEO',
-      'Crawlability',
-      'Indexing'
-    ],
-  },
+},
 }
 
 export default function JavaScriptSEOShopify2026() {

@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T02:00:00Z',
     authors: ['Rebecca Martinez, Arts & Crafts Ecommerce SEO Specialist'],
-    tags: [
-      'Arts & Crafts SEO',
-      'DIY Supplies',
-      'Craft Materials',
-      'Project-Based Content',
-      'Tutorial Marketing',
-      'Seasonal Crafts',
-      'Eco-Friendly Crafts',
-      'Hobby Supplies',
-      'Subscription Craft Boxes',
-      'Shopify Optimization',
-      'Handmade Materials',
-      'Creative Supplies',
-    ],
-  },
+},
 }
 
 export default function ArtsCraftsSuppliesSEOPage() {

@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T09:00:00Z',
     authors: ['Marcus Bergeron, Agency & SaaS Consultant'],
-    tags: ['AI SEO Agency', 'SEO Services', 'AI SEO Company', 'GEO Agency', 'SEO Pricing', 'Agency vs Software', 'AI SEO Consulting'],
-  },
+},
 }
 
 export default function AISEOAgencyGuidePage() {

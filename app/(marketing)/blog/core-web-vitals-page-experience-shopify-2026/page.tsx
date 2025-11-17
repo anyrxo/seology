@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T08:00:00Z',
     authors: ['Dr. Elena Petrov, Web Performance Engineer'],
-    tags: [
-      'Core Web Vitals',
-      'Page Experience',
-      'Shopify Performance',
-      'LCP Optimization',
-      'INP Metrics',
-      'CLS Score',
-      'Google Ranking',
-      'Web Performance',
-      'Mobile SEO',
-      'Site Speed'
-    ],
-  },
+},
 }
 
 export default function CoreWebVitalsPageExperienceShopify2026() {

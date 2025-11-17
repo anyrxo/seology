@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T08:00:00Z',
     authors: ['Jordan Lee, Information Architect & Technical SEO Consultant'],
-    tags: ['URL Structure', 'Site Architecture', 'Shopify SEO', 'Internal Linking', 'Technical SEO'],
-  },
+},
   twitter: {
     card: 'summary_large_image',
     title: 'URL Structure & Site Architecture for Shopify SEO: 2026',

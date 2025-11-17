@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T13:00:00Z',
     authors: ['Nathan Chen, Dropshipping SEO Strategist'],
-    tags: ['Dropshipping SEO', 'Shopify Dropshipping', 'Ecommerce Without Inventory', 'Duplicate Content', 'Supplier Management', 'Dropshipping Strategy'],
-  },
+},
 }
 
 export default function DropshippingSEOPage() {

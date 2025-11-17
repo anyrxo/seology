@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T13:00:00Z',
     authors: ['Kevin Park, Consumer Electronics & Tech Gadget SEO Specialist'],
-    tags: ['Electronics SEO', 'Tech Gadgets', 'Consumer Electronics', 'Product Specifications', 'AI Shopping', 'Review Optimization', 'Wearables', 'Smartphone Accessories', 'Technical SEO', 'Shopify Optimization'],
-  },
+},
 }
 
 export default function ElectronicsTechGadgetsSEOGuide2026() {

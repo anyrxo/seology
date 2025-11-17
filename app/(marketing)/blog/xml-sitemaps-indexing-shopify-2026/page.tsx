@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-23T08:00:00Z',
     authors: ['Dr. James Chen, Technical SEO Specialist'],
-    tags: [
-      'XML Sitemap',
-      'Shopify Sitemap',
-      'Google Indexing',
-      'Crawl Budget',
-      'Search Console',
-      'SEO Indexing',
-      'Sitemap Optimization',
-      'Technical SEO',
-      'Shopify SEO',
-      'Site Architecture'
-    ],
-  },
+},
 }
 
 export default function XMLSitemapsIndexingShopify2026() {

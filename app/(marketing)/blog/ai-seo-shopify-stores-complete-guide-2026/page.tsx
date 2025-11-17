@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T06:00:00Z',
     authors: ['Sarah Mitchell, Shopify SEO Automation Expert'],
-    tags: [
-      'AI SEO Shopify',
-      'Shopify AI SEO',
-      'Shopify SEO Automation',
-      'AI Shopify SEO App',
-      'Shopify AI SEO Tools',
-      'Ecommerce AI SEO',
-      'Shopify SEO Guide',
-      'AI SEO for Shopify',
-      'Shopify Optimization',
-      'Shopify SEO Software',
-      'AI Ecommerce SEO',
-      'Shopify SEO Apps',
-    ],
-  },
+},
 }
 
 export default function AISEOShopifyStoresPage() {

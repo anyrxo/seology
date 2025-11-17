@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T10:00:00Z',
     authors: ['Alexandra Winters, Content Strategy Expert'],
-    tags: ['AI SEO Writer', 'AI Content Writing', 'SEO Content Creation', 'AI Writing Tools', 'Content Optimization', 'E-E-A-T'],
-  },
+},
 }
 
 export default function AISEOWriterGuidePage() {

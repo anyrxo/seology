@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T00:00:00Z',
     authors: ['Sophia Laurent, Home Decor & Furniture Ecommerce SEO Specialist'],
-    tags: [
-      'Home Decor SEO',
-      'Furniture Marketing',
-      'Interior Design',
-      'Room Targeting',
-      'AR Visualization',
-      'Style Aesthetics',
-      'Furniture Shopping',
-      'Home Furnishing',
-      'High-Ticket SEO',
-      'Visual Commerce'
-    ],
-  },
+},
 }
 
 export default function HomeDecorFurnitureSEOGuide() {

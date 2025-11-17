@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-24T08:00:00Z',
     authors: ['Alexandra Martinez, Duplicate Content Specialist'],
-    tags: [
-      'Canonical Tags',
-      'Duplicate Content',
-      'Shopify SEO',
-      'URL Canonicalization',
-      'Technical SEO',
-      'Product URLs',
-      'Collections',
-      'SEO Best Practices',
-      'Content Management',
-      'Shopify Optimization'
-    ],
-  },
+},
 }
 
 export default function CanonicalTagsDuplicateContentShopify2026() {

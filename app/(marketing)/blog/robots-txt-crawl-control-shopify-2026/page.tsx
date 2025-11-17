@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-25T08:00:00Z',
     authors: ['David Foster, Technical SEO Engineer'],
-    tags: [
-      'Robots.txt',
-      'Crawl Control',
-      'Shopify SEO',
-      'Googlebot',
-      'AI Crawlers',
-      'Technical SEO',
-      'Crawl Budget',
-      'Search Engine Optimization',
-      'Shopify Configuration',
-      'SEO Best Practices'
-    ],
-  },
+},
 }
 
 export default function RobotsTxtCrawlControlShopify2026() {

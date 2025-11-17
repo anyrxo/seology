@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T10:00:00Z',
     authors: ['Marcus Rivera, Content Marketing Strategist & SEO Copywriting Expert'],
-    tags: ['Content Marketing', 'SEO Blogging', 'Shopify Marketing', 'Content ROI', 'Long-Form Content', 'AI Content', 'Conversion Optimization'],
-  },
+},
 }
 
 export default function ContentMarketingSEOBloggingShopifyPage() {

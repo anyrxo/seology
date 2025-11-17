@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T07:00:00Z',
     authors: ['David Thompson, SEO Strategy Analyst'],
-    tags: [
-      'AI vs Manual SEO',
-      'AI SEO Comparison',
-      'Traditional SEO vs AI',
-      'Manual vs Automated SEO',
-      'SEO Cost Comparison',
-      'AI SEO Performance',
-      'Manual SEO Costs',
-      'SEO Automation Benefits',
-      'Hybrid SEO Strategy',
-      'AI SEO Statistics',
-      'SEO Team vs AI',
-      'SEO Investment Analysis',
-    ],
-  },
+},
 }
 
 export default function AIvsManualSEOComparisonPage() {

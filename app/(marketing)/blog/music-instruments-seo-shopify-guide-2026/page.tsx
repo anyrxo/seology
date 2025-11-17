@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T01:00:00Z',
     authors: ['Marcus Chen, Music & Instruments Ecommerce SEO Specialist'],
-    tags: [
-      'Music Instruments SEO',
-      'Musical Equipment',
-      'Guitar Marketing',
-      'Piano Optimization',
-      'Beginner Instruments',
-      'Music Education',
-      'Music Gear',
-      'Instrument Targeting',
-      'Holiday Music Sales',
-      'Music Ecommerce'
-    ],
-  },
+},
 }
 
 export default function MusicInstrumentsSEOGuide() {

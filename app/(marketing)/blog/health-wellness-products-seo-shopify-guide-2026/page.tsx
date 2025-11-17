@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T14:00:00Z',
     authors: ['Dr. Sarah Mitchell, Health & Wellness Ecommerce SEO Specialist'],
-    tags: ['Health & Wellness SEO', 'Supplement Marketing', 'FDA Compliance', 'CBD SEO', 'Dietary Supplements', 'Functional Nutrition', 'Personalized Health', 'Third-Party Testing', 'Shopify Optimization', 'Wellness Ecommerce'],
-  },
+},
 }
 
 export default function HealthWellnessProductsSEOGuide2026() {

@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T21:00:00Z',
     authors: ['Sophie Martinez, Handmade & Artisan Ecommerce SEO Specialist'],
-    tags: [
-      'Handmade SEO',
-      'Artisan Marketing',
-      'Craft Ecommerce',
-      'Etsy Optimization',
-      'Maker Storytelling',
-      'Custom Products',
-      'Sustainable Crafts',
-      'Personalization',
-      'Craft Marketplace',
-      'Handmade Branding'
-    ],
-  },
+},
 }
 
 export default function HandmadeArtisanProductsSEOGuide() {

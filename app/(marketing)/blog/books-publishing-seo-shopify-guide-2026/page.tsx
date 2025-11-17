@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T15:00:00Z',
     authors: ['Rebecca Thompson, Book Publishing & Literary SEO Specialist'],
-    tags: ['Book SEO', 'Publishing Ecommerce', 'ISBN Optimization', 'Genre Targeting', 'Kindle SEO', 'Self-Publishing', 'Audiobooks', 'Independent Publishing', 'Author Marketing', 'Shopify Optimization'],
-  },
+},
 }
 
 export default function BooksPublishingSEOGuide2026() {

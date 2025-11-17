@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T22:00:00Z',
     authors: ['Rachel Kim, Subscription Commerce SEO Specialist'],
-    tags: [
-      'Subscription Box SEO',
-      'Recurring Revenue',
-      'Subscription Service',
-      'Monthly Box Marketing',
-      'Discovery Box',
-      'Curated Subscription',
-      'Retention Marketing',
-      'Unboxing Content',
-      'Churn Reduction',
-      'Subscription Commerce'
-    ],
-  },
+},
 }
 
 export default function SubscriptionBoxServicesSEOGuide() {

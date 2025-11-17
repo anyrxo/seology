@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T17:00:00Z',
     authors: ['David Richardson, Automotive Aftermarket SEO Specialist'],
-    tags: [
-      'Automotive SEO',
-      'Auto Parts Marketing',
-      'Fitment Data',
-      'ACES PIES',
-      'Vehicle Compatibility',
-      'Aftermarket Ecommerce',
-      'Automotive Shopify',
-      'Parts Optimization',
-      'Auto Accessories',
-      'Marketplace SEO'
-    ],
-  },
+},
 }
 
 export default function AutomotivePartsAccessoriesSEOGuide() {

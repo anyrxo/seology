@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T16:00:00Z',
     authors: ['Jennifer Martinez, Toys & Games Ecommerce SEO Specialist'],
-    tags: ['Toys SEO', 'Games Marketing', 'Age Targeting', 'COPPA Compliance', 'STEM Toys', 'Educational Games', 'Holiday Shopping', 'Safety Certifications', 'Kids Products', 'Shopify Optimization'],
-  },
+},
 }
 
 export default function ToysGamesSEOGuide2026() {

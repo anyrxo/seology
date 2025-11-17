@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T08:00:00Z',
     authors: ['Dr. Emily Hartwell, AI SEO Strategist'],
-    tags: ['AI SEO Optimization', 'SEO Strategies', 'AI Search Optimization', 'GEO', 'Generative Engine Optimization', 'AI SEO Techniques', 'SEO Performance', 'AI Optimization'],
-  },
+},
 }
 
 export default function AISEOOptimizationGuidePage() {

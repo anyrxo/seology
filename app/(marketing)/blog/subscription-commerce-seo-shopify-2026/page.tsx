@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T11:00:00Z',
     authors: ['Rachel Kim, Subscription Commerce SEO Strategist'],
-    tags: ['Subscription Commerce', 'Recurring Revenue', 'Subscription Box SEO', 'Membership SEO', 'Customer Lifetime Value', 'Retention SEO', 'Shopify Subscriptions'],
-  },
+},
 }
 
 export default function SubscriptionCommerceSEOPage() {

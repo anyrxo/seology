@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T23:00:00Z',
     authors: ['Dr. Amanda Foster, Pet Products Ecommerce SEO Specialist'],
-    tags: [
-      'Pet Products SEO',
-      'Pet Supplies Marketing',
-      'Dog Products',
-      'Cat Supplies',
-      'Pet Subscription',
-      'Premium Pet Food',
-      'Pet Parent Targeting',
-      'Pet Ecommerce',
-      'Pet Care Optimization',
-      'Species Targeting'
-    ],
-  },
+},
 }
 
 export default function PetProductsSuppliesSEOGuide() {

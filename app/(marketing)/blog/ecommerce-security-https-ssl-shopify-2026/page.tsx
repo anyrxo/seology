@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T15:00:00Z',
     authors: ['Dr. Michael Zhang, Cybersecurity Expert & Ecommerce Security Specialist'],
-    tags: ['Ecommerce Security', 'HTTPS', 'SSL Certificate', 'PCI Compliance', 'Trust Signals', 'Shopify Security', 'Cybersecurity', 'Data Protection'],
-  },
+},
 }
 
 export default function EcommerceSecurityHTTPSSSLShopifyPage() {

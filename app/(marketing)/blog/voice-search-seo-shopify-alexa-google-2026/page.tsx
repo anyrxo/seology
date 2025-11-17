@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T12:00:00Z',
     authors: ['Dr. Aisha Kumar, Voice Search Specialist & Conversational AI Expert'],
-    tags: ['Voice Search SEO', 'Voice Commerce', 'Alexa', 'Google Assistant', 'Featured Snippets', 'Conversational Keywords', 'Smart Speakers', 'Shopify'],
-  },
+},
 }
 
 export default function VoiceSearchSEOShopifyPage() {

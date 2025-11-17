@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T05:00:00Z',
     authors: ['Michael Anderson, SEO Automation Specialist'],
-    tags: [
-      '24/7 SEO Automation',
-      'AI SEO Automation',
-      'Continuous SEO',
-      'Automated SEO',
-      'Always-On SEO',
-      'SEO Automation Guide',
-      'AI SEO Monitoring',
-      'Automatic Optimization',
-      'SEO Automation Tools',
-      'Continuous Monitoring',
-      'AI SEO Benefits',
-      'SEO Automation ROI',
-    ],
-  },
+},
 }
 
 export default function TwentyFourSevenAISEOAutomationPage() {

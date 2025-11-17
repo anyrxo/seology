@@ -10,21 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T04:00:00Z',
     authors: ['Jessica Chen, AI SEO Software Analyst'],
-    tags: [
-      'AI SEO Tools',
-      'Best AI SEO Tools',
-      'AI SEO Software',
-      'AI SEO Platforms',
-      'SEO Automation',
-      'AI SEO Comparison',
-      'SEO Tool Review',
-      'AI SEO Guide',
-      'AI Tools for SEO',
-      'AI SEO Software Comparison',
-      'Best SEO AI Tools',
-      'AI SEO Platform Reviews',
-    ],
-  },
+},
 }
 
 export default function BestAISEOToolsPage() {

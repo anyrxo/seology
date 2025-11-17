@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T07:00:00Z',
     authors: ['Rachel Foster, SEO Software Analyst'],
-    tags: ['AI SEO Software', 'SEO Platforms', 'AI SEO Tools', 'Software Comparison', 'SEO Automation', 'Enterprise SEO', 'SaaS SEO', 'SEO ROI'],
-  },
+},
 }
 
 export default function BestAISEOSoftware2026Page() {

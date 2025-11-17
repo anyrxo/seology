@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T20:00:00Z',
     authors: ['Isabella Chen, Wedding & Bridal Ecommerce SEO Specialist'],
-    tags: [
-      'Wedding SEO',
-      'Bridal Marketing',
-      'Wedding Dress Optimization',
-      'Bridal Gown SEO',
-      'Wedding Planning',
-      'Pinterest Marketing',
-      'Engagement Season',
-      'Bridal Shopping',
-      'Wedding Vendors',
-      'Personalization'
-    ],
-  },
+},
 }
 
 export default function WeddingBridalProductsSEOGuide() {

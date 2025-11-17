@@ -10,19 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T18:00:00Z',
     authors: ['Emily Thompson, Baby & Maternity Ecommerce SEO Specialist'],
-    tags: [
-      'Baby Products SEO',
-      'Maternity Marketing',
-      'Parental Shopping',
-      'Safety Certifications',
-      'Eco-Friendly Baby Products',
-      'Smart Baby Tech',
-      'Age-Based Targeting',
-      'Organic Baby Items',
-      'Baby Store Optimization',
-      'CPSC Compliance'
-    ],
-  },
+},
 }
 
 export default function BabyMaternityProductsSEOGuide() {

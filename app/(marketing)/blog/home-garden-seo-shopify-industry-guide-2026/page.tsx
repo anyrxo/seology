@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T10:00:00Z',
     authors: ['David Patterson, Home & Garden Ecommerce SEO Specialist'],
-    tags: ['Home & Garden SEO', 'Gardening Ecommerce', 'Seasonal SEO', 'DIY Content Marketing', 'Smart Gardening', 'Shopify Optimization', 'Organic Products', 'Sustainable Gardening', 'Plant Nursery SEO', 'Home Improvement'],
-  },
+},
 }
 
 export default function HomeGardenSEOGuide2026() {

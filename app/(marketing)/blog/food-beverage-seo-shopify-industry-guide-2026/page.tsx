@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T15:00:00Z',
     authors: ['Daniel Foster, Food Ecommerce SEO Strategist'],
-    tags: ['Food SEO', 'Beverage SEO', 'Online Grocery', 'Specialty Food', 'Organic Food', 'Local SEO', 'Food Delivery', 'Subscription Boxes'],
-  },
+},
 }
 
 export default function FoodBeverageSEOPage() {

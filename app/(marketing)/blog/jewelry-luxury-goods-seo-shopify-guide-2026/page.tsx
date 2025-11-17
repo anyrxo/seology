@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T12:00:00Z',
     authors: ['Sophia Chen, Luxury Ecommerce & Fine Jewelry SEO Specialist'],
-    tags: ['Jewelry SEO', 'Luxury Goods Marketing', 'Fine Jewelry', 'Gemstone Certification', 'Diamond SEO', 'Trust Signals', 'Virtual Try-On', 'Luxury Ecommerce', 'Shopify Optimization', 'High-Value Products'],
-  },
+},
 }
 
 export default function JewelryLuxuryGoodsSEOGuide2026() {

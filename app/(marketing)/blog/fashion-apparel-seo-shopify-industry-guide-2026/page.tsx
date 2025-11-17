@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T12:00:00Z',
     authors: ['Jessica Martinez, Fashion Ecommerce SEO Consultant'],
-    tags: ['Fashion SEO', 'Apparel Ecommerce', 'Clothing SEO', 'Seasonal Optimization', 'Visual Search', 'Size Fit Optimization', 'Fashion Industry', 'Mobile Commerce'],
-  },
+},
 }
 
 export default function FashionApparelSEOPage() {
