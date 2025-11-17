@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T02:00:00Z',
     authors: ['Rebecca Martinez, Arts & Crafts Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function ArtsCraftsSuppliesSEOPage() {

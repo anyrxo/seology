@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-24T08:00:00Z',
     authors: ['Alexandra Martinez, Duplicate Content Specialist'],
-},
+  },
 }
 
 export default function CanonicalTagsDuplicateContentShopify2026() {

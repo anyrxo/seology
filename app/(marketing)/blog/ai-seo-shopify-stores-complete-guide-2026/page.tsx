@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T06:00:00Z',
     authors: ['Sarah Mitchell, Shopify SEO Automation Expert'],
-},
+  },
 }
 
 export default function AISEOShopifyStoresPage() {

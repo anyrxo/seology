@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-18T09:00:00Z',
     authors: ['Rachel Morrison, SEO Strategist & Link Building Specialist'],
-},
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Link Building for Shopify: 2026 Strategy Guide',

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T14:00:00Z',
     authors: ['Dr. Sarah Mitchell, Health & Wellness Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function HealthWellnessProductsSEOGuide2026() {

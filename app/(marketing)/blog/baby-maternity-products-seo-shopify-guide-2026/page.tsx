@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T18:00:00Z',
     authors: ['Emily Thompson, Baby & Maternity Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function BabyMaternityProductsSEOGuide() {

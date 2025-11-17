@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T16:00:00Z',
     authors: ['Lisa Morgan, Pet Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function PetProductsSEOPage() {

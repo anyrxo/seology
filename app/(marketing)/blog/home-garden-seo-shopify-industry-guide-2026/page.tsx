@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T10:00:00Z',
     authors: ['David Patterson, Home & Garden Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function HomeGardenSEOGuide2026() {

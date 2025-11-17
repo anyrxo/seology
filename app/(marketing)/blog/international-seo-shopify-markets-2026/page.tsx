@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T14:00:00Z',
     authors: ['Isabella Costa, International SEO Specialist & Global Expansion Expert'],
-},
+  },
 }
 
 export default function InternationalSEOShopifyMarketsPage() {

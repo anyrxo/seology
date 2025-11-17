@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T13:00:00Z',
     authors: ['Carlos Mendez, Structured Data Specialist & Schema Markup Expert'],
-},
+  },
 }
 
 export default function StructuredDataRichSnippetsShopifyPage() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T17:00:00Z',
     authors: ['David Richardson, Automotive Aftermarket SEO Specialist'],
-},
+  },
 }
 
 export default function AutomotivePartsAccessoriesSEOGuide() {

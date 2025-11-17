@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T15:00:00Z',
     authors: ['Dr. Michael Zhang, Cybersecurity Expert & Ecommerce Security Specialist'],
-},
+  },
 }
 
 export default function EcommerceSecurityHTTPSSSLShopifyPage() {

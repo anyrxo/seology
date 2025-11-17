@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T15:00:00Z',
     authors: ['Rebecca Thompson, Book Publishing & Literary SEO Specialist'],
-},
+  },
 }
 
 export default function BooksPublishingSEOGuide2026() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-25T08:00:00Z',
     authors: ['David Foster, Technical SEO Engineer'],
-},
+  },
 }
 
 export default function RobotsTxtCrawlControlShopify2026() {

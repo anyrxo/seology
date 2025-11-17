@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T08:00:00Z',
     authors: ['Dr. Emily Hartwell, AI SEO Strategist'],
-},
+  },
 }
 
 export default function AISEOOptimizationGuidePage() {

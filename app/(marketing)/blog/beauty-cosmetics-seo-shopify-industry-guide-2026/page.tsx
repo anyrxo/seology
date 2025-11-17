@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T14:00:00Z',
     authors: ['Emma Rodriguez, Beauty Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function BeautyCosmeticsSEOPage() {

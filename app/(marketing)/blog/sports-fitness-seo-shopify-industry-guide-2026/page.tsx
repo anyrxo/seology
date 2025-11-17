@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T11:00:00Z',
     authors: ['Marcus Rodriguez, Sports & Fitness Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function SportsFitnessSEOGuide2026() {

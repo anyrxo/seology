@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T03:00:00Z',
     authors: ['Dr. Nathan Brooks, AI & SEO Technology Specialist'],
-},
+  },
 }
 
 export default function WhatIsAISEOPage() {

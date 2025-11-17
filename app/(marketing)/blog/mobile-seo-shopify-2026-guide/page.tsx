@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-16T09:00:00Z',
     authors: ['Dr. Emily Rodriguez, Mobile UX Specialist & SEO Consultant'],
-},
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Mobile SEO for Shopify: Complete 2026 Guide',

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T04:00:00Z',
     authors: ['Jessica Chen, AI SEO Software Analyst'],
-},
+  },
 }
 
 export default function BestAISEOToolsPage() {

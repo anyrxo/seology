@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T11:00:00Z',
     authors: ['Daniela Santos, Local SEO Specialist & Multi-Location Strategy Expert'],
-},
+  },
 }
 
 export default function LocalSEOShopifyGoogleBusinessPage() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T21:00:00Z',
     authors: ['Sophie Martinez, Handmade & Artisan Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function HandmadeArtisanProductsSEOGuide() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T11:00:00Z',
     authors: ['Rachel Kim, Subscription Commerce SEO Strategist'],
-},
+  },
 }
 
 export default function SubscriptionCommerceSEOPage() {

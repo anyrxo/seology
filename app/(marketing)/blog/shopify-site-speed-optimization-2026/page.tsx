@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-17T08:00:00Z',
     authors: ['Alex Thompson, Performance Engineer & Shopify Optimization Specialist'],
-},
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Shopify Site Speed Optimization: 2026 Guide',

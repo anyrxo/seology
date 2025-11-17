@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T10:00:00Z',
     authors: ['Alexandra Winters, Content Strategy Expert'],
-},
+  },
 }
 
 export default function AISEOWriterGuidePage() {

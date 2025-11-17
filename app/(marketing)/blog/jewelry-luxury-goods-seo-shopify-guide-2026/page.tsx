@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T12:00:00Z',
     authors: ['Sophia Chen, Luxury Ecommerce & Fine Jewelry SEO Specialist'],
-},
+  },
 }
 
 export default function JewelryLuxuryGoodsSEOGuide2026() {

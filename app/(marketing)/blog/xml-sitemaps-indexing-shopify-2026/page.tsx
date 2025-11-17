@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-23T08:00:00Z',
     authors: ['Dr. James Chen, Technical SEO Specialist'],
-},
+  },
 }
 
 export default function XMLSitemapsIndexingShopify2026() {

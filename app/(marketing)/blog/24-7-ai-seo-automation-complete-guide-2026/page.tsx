@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T05:00:00Z',
     authors: ['Michael Anderson, SEO Automation Specialist'],
-},
+  },
 }
 
 export default function TwentyFourSevenAISEOAutomationPage() {

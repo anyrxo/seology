@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T19:00:00Z',
     authors: ['Marcus Anderson, Outdoor Recreation Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function OutdoorCampingGearSEOGuide() {

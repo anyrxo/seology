@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T08:00:00Z',
     authors: ['Marcus Reynolds, JavaScript SEO Architect'],
-},
+  },
 }
 
 export default function JavaScriptSEOShopify2026() {

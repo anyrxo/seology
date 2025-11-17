@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-19T12:00:00Z',
     authors: ['Dr. Aisha Kumar, Voice Search Specialist & Conversational AI Expert'],
-},
+  },
 }
 
 export default function VoiceSearchSEOShopifyPage() {

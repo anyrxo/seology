@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T08:00:00Z',
     authors: ['Sophie Martinez, Technical SEO Engineer & Shopify Specialist'],
-},
+  },
   twitter: {
     card: 'summary_large_image',
     title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T07:00:00Z',
     authors: ['Rachel Foster, SEO Software Analyst'],
-},
+  },
 }
 
 export default function BestAISEOSoftware2026Page() {

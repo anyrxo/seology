@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T00:00:00Z',
     authors: ['Sophia Laurent, Home Decor & Furniture Ecommerce SEO Specialist'],
-},
+  },
 }
 
 export default function HomeDecorFurnitureSEOGuide() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-21T09:00:00Z',
     authors: ['Marcus Bergeron, Agency & SaaS Consultant'],
-},
+  },
 }
 
 export default function AISEOAgencyGuidePage() {

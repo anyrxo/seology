@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T15:00:00Z',
     authors: ['Daniel Foster, Food Ecommerce SEO Strategist'],
-},
+  },
 }
 
 export default function FoodBeverageSEOPage() {
