@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'AI SEO Agency Guide 2026: Top Agencies, Pricing ($2k-$25k/mo), vs Software Comparison',
   description: '61% of agencies offer AI SEO services. Compare top agencies with 340% ChatGPT mention increases, 4,162% traffic growth. Agency ($3,200/mo) vs software ($39-499/mo) cost analysis.',

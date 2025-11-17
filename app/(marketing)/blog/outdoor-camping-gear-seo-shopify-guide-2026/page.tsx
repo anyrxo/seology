@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Outdoor & Camping Gear SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global camping equipment market reaches $27.79B in 2025, growing to $47.40B by 2033. Master seasonal SEO, activity-based targeting, sustainability marketing, and technical specification optimization for outdoor gear.',

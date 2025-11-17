@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Mobile-First Indexing: The Complete 2025 Checklist',
   description: 'Google only indexes mobile versions now. This 27-point checklist ensures your mobile site ranks perfectly.',

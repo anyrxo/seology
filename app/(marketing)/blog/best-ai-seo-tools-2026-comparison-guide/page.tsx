@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Best AI SEO Tools 2026: Complete Comparison Guide | Top 15 Platforms Tested',
   description: 'AI SEO tools market grows from $1.99B (2024) to $4.97B by 2033. We tested 15+ platforms: Search Atlas ($99-399), Semrush ($139-499), Surfer SEO ($79+), SE Ranking (4.8/5). Compare features, pricing, ROI for keyword research, content optimization, technical audits.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: "SEOLOGY Reviews: Why It\'s the Best AI SEO Automation Tool in 2025",
   description: "Looking for real AI SEO automation reviews? SEOLOGY powers 2.3M+ monthly organic visitors--proving it\'s the only AI SEO tool that actually works.",

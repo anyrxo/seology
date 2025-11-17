@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Ecommerce SEO Strategy: 25 Tactics That Drive Real Sales in 2025',
   description: 'Ecommerce SEO is different. These 25 proven tactics help online stores rank higher and sell more--automatically.',

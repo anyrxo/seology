@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'B2B SEO Tactics: Generate High-Value Leads on Autopilot',
   description: 'B2B SEO requires a different approach. These tactics generated $12M in pipeline for B2B companies.',

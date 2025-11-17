@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Shopify Multi-Language & International SEO: Global Expansion Guide for 2026 | SEOLOGY.AI',
   description: '75% of users prefer buying in their native language. Learn Shopify Markets SEO, hreflang implementation, multi-currency optimization, and strategies that increase international traffic by 70% within 12 months.',

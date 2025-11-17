@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'FAQ Schema: Complete Implementation Guide (With Code Examples)',
   description: 'FAQ schema can double your search visibility. This guide shows exact implementation with JSON-LD code examples.',

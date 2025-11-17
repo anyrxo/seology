@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Legal SEO: Dominate "Attorney Near Me" & High-Value Keywords',
   description: 'Legal SEO is ultra-competitive. These strategies helped 41 law firms rank #1 for high-value keywords.',

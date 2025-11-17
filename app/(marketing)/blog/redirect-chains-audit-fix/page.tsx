@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Redirect Chains: 17 Tactics to Find & Fix Loops Killing Your Speed (82% Faster Pages)',
   description: 'Redirect chains waste 47% more crawl budget and add 350ms delay per hop. Fixing redirect chains improved page speed 82% and crawl efficiency 63% by eliminating multi-hop redirects and consolidating redirect paths.',

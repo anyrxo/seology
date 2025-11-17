@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'International SEO & Hreflang: The Complete Implementation Guide',
   description: 'Expanding globally? This guide shows how to implement hreflang correctly and avoid the 7 fatal mistakes that kill international rankings.',

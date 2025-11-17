@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'SEO vs Paid Ads for Shopify in 2026: Why SEO Wins ($45 CPA vs $0) | SEOLOGY.AI',
   description: "Paid ads cost $45-65 per customer in 2025. SEO costs $0. Here\'s the data-driven breakdown showing why every Shopify store should prioritize SEO over Facebook and Google ads in 2026.",

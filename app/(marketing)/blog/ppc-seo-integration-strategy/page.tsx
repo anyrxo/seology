@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'PPC & SEO Integration Strategy: 15 Tactics to Combine Paid & Organic for 92% Higher ROI',
   description: 'Integrating PPC and SEO increases total search ROI by 92% vs. running channels separately. This PPC-SEO integration strategy increased combined channel revenue 214% by sharing data, dominating SERPs, and optimizing budget allocation.',

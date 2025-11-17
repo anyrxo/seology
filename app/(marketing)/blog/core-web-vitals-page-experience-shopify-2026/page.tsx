@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Core Web Vitals & Page Experience for Shopify: 2026 Complete Guide | SEOLOGY.AI',
   description: "Only 47% of sites meet Google\'s 2026 Core Web Vitals requirements. Master LCP, INP, and CLS optimization for Shopify with our comprehensive guide backed by December 2025 data.",

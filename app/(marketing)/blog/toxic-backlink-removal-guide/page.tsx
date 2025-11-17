@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Toxic Backlink Removal: Clean Your Link Profile & Recover Rankings',
   description: 'Toxic backlinks are killing your rankings. This guide identifies and removes toxic links before Google penalizes you.',

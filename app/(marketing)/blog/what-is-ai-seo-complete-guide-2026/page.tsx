@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'What is AI SEO? Complete Guide 2026 | AI Search Optimization Explained',
   description: 'AI SEO market reaches $67B in 2025, projected to hit $826B by 2030. Discover how 82% of businesses use AI for search optimization, achieving 49.2% ranking improvements, 50% time savings, and 6-10% revenue increases. Complete guide to AI-powered SEO automation.',

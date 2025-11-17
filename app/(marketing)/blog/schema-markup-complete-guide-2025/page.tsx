@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Schema Markup in 2025: The Complete Guide (With Real Examples)',
   description: "Schema markup can 3x your click-through rates. Here\'s how to implement it correctly--or let SEOLOGY do it automatically.",

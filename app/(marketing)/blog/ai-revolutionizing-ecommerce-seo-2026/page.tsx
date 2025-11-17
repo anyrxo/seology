@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'How AI is Revolutionizing E-commerce SEO in 2026: $4.5B Market Disruption | SEOLOGY.AI',
   description: 'The AI SEO revolution is here. Discover how artificial intelligence is disrupting the $4.5B SEO market, delivering 45% traffic increases and 98% cost savings over traditional agencies. Real data from 2.3M+ monthly visitors.',

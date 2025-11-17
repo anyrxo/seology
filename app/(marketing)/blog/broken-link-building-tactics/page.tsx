@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Broken Link Building: Find & Replace Dead Links for Easy Backlinks',
   description: 'Broken link building is the easiest white-hat link building tactic. This guide built 847 high-authority backlinks in 90 days.',

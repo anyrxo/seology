@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Magento SEO: Complete Optimization Guide for Adobe Commerce',
   description: 'Magento has unique SEO challenges. This guide covers 28 optimizations that increased organic revenue by 203%.',

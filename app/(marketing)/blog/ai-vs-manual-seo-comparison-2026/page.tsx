@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'AI vs Manual SEO: Complete Comparison 2026 | Costs, Time, Results Data',
   description: 'AI SEO delivers 527% traffic growth, 50% time savings, 6-10% revenue increases vs manual SEO. Compare costs ($66k/year manual team vs $1,200-3,600 AI automation), performance data, and hybrid approach benefits. Complete 2026 comparison guide.',

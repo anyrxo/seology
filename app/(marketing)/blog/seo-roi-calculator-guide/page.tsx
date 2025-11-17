@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'SEO ROI Calculator: Prove Your SEO Investment is Worth It',
   description: "Can\'t prove SEO ROI to your boss? This calculator shows exactly how much revenue your SEO generates--with real data.",

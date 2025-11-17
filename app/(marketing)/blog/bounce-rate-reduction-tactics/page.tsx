@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Bounce Rate Reduction: 27 Tactics to Keep Visitors Engaged',
   description: 'High bounce rates kill rankings. These 27 tactics reduced bounce rates by 43% and increased conversions by 67%.',

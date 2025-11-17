@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Keyword Research Strategy That Actually Works in 2025',
   description: 'Stop wasting time on low-value keywords. This strategy finds high-converting keywords that actually drive sales.',

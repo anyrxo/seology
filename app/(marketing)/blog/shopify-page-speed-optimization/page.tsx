@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Shopify Page Speed Optimization: 17 Proven Tactics for 2025',
   description: 'Slow Shopify stores lose 40% of visitors. These 17 tactics guarantee sub-2s load times and higher conversions.',

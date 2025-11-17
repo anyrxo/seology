@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Link Building Strategies: 19 White-Hat Tactics for 2025',
   description: 'Outdated link building gets you penalized. These 19 white-hat strategies build authority without risk.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Home Decor & Furniture SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global home decor market reaches $681.05B in 2025, with online segment growing to $255.27B by 2032. Master AR visualization SEO, room-based targeting, style aesthetic optimization, and high-ticket conversion strategies.',

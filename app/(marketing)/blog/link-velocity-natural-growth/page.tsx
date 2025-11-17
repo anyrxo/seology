@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Link Velocity: 15 Tactics to Build Backlinks at Natural Growth Rates -- Avoid 73% of Penalties',
   description: 'Link velocity optimization avoided penalties on 73% of aggressive link building campaigns, maintained natural growth patterns during 84% faster ranking improvements, and prevented algorithmic filters by matching industry benchmarks for gradual backlink acquisition.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Healthcare SEO: HIPAA-Compliant Strategies That Actually Rank',
   description: 'Healthcare SEO has strict compliance requirements. This guide balances patient privacy with ranking on Google.',

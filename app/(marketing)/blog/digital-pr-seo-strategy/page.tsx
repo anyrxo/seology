@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Digital PR for SEO: Build Authority Links Through Media Coverage',
   description: 'Digital PR builds the highest-authority links possible. This strategy earned 156 links from major publications.',

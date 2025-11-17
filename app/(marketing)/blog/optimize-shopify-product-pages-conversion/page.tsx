@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Shopify Product Page Optimization 2026: Convert 4.8% vs 1.4% Average | SEOLOGY.AI',
   description: 'Top Shopify stores convert at 4.8% while average stores get 1.4%. This complete guide reveals the 11 elements that triple your conversion rate, backed by December 2025 research.',

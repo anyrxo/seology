@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Internal Linking Strategy: Boost Rankings Without Building Links',
   description: 'Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by 40% in 90 days--no backlinks needed.',

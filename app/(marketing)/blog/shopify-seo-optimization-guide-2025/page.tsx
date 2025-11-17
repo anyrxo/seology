@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: '21 Shopify SEO Optimization Tips That Actually Work in 2025',
   description: 'Stop wasting time on outdated Shopify SEO tactics. These 21 proven strategies generate real traffic and sales.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Header Tags Optimization: H1-H6 Best Practices for SEO',
   description: 'Header tags structure your content for Google. This guide shows the exact header hierarchy that ranks pages #1.',

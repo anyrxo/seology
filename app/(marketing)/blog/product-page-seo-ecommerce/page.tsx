@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Product Page SEO: 18 Tactics to Optimize Every Element for Rankings & Sales (347% ROI)',
   description: 'Product page SEO optimization increased organic revenue 347% and conversion rate 89% by optimizing titles, descriptions, images, reviews, schema, and user experience for both search engines and buyers.',

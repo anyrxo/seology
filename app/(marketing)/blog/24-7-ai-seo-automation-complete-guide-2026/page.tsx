@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: '24/7 AI SEO Automation: Complete Guide 2026 | Continuous Optimization Explained',
   description: 'AI SEO automation delivers 300% faster optimization, 85% reduction in manual work, 40% ranking improvements. Discover how 24/7 continuous monitoring achieves 50% time savings, 2.3x faster results vs manual SEO, and operates while you sleep. Complete automation guide.',

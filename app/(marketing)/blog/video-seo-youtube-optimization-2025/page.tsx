@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Video SEO: YouTube Optimization Guide for Maximum Rankings',
   description: 'Video drives 82% of web traffic. This guide shows how to rank videos on YouTube and Google with proven optimization tactics.',

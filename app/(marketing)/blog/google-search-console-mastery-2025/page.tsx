@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Google Search Console Mastery: Extract Every SEO Insight',
   description: 'Most people waste 90% of Search Console data. This guide unlocks every insight to boost rankings and traffic.',

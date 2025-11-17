@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Meta Description Best Practices: Boost CTR by 214% in 2025',
   description: 'Most meta descriptions get ignored by Google. These proven formulas guarantee Google uses yours--and users click.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Ecommerce Security & HTTPS/SSL for Shopify: Trust Signals Guide 2026 | SEOLOGY.AI',
   description: '85% of shoppers avoid unsecured websites, and 82% stop engaging after a breach. Learn how HTTPS/SSL certificates boost rankings (5%), prevent the $3.54M average breach cost, and build trust with 256-bit encryption and PCI Level 1 compliance.',

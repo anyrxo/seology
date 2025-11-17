@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks | SEOLOGY.AI',
   description: 'Top Google pages have 3.8x more backlinks. Learn proven Shopify link building strategies with December 2025 data--quality backlinks that boost rankings and drive traffic.',

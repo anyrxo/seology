@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Local SEO Automation: How to Dominate Your Market in 2025',
   description: "Local SEO is time-consuming. Here\'s how SEOLOGY automates citations, reviews, and rankings for multi-location businesses.",

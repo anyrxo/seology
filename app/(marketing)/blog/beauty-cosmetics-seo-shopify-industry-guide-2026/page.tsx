@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Beauty & Cosmetics SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Beauty ecommerce reaches $358.4B by 2026. 87% of discovery happens on social. Learn ingredient-focused SEO, influencer UGC, visual search optimization, and strategies that overcome 72% cart abandonment.',

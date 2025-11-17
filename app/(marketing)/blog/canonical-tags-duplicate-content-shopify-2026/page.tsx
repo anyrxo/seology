@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Canonical Tags & Duplicate Content for Shopify: 2026 Guide | SEOLOGY.AI',
   description: '64% of marketers struggle with duplicate content. Websites with duplicate content experience 27% traffic reduction. Learn how Shopify creates duplicate URLs, implement canonical tags correctly, and avoid SEO dilution with December 2025 best practices.',

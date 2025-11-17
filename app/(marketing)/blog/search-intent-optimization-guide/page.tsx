@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Search Intent Optimization: 18 Tactics to Match Content to User Intent in 2025',
   description: 'Intent mismatch causes 76% of content to fail at ranking. This complete guide shows how to identify, match, and optimize for the 4 types of search intent Google rewards with page-one rankings.',

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'HTTPS Migration Guide: Move to SSL Without Losing Rankings',
   description: 'HTTPS migrations kill rankings when done wrong. This step-by-step guide ensures zero traffic loss during migration.',

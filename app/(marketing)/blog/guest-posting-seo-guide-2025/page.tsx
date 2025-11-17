@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Guest Posting for SEO: How to Build Authority Links That Rank',
   description: 'Most guest posts are worthless. This strategy builds high-authority backlinks that actually move the needle.',

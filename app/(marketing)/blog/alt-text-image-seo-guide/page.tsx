@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Alt Text Optimization: Write Perfect Image Descriptions for SEO',
   description: 'Bad alt text wastes image SEO potential. This guide shows how to write alt text that ranks and improves accessibility.',

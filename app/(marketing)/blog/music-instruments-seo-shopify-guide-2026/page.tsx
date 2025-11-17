@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Music & Instruments SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global musical instruments market reaches $50.44B in 2025, growing to $69.24B by 2030. Master seasonal holiday targeting, skill-level optimization, instrument-specific SEO, music education integration, and beginner conversion strategies.',

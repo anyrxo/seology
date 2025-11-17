@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'E-E-A-T Signals: 21 Proven Tactics to Build Expertise, Authority & Trust in 2025',
   description: 'E-E-A-T determines 40% of ranking factors for YMYL sites. This complete guide shows how to build Experience, Expertise, Authoritativeness, and Trustworthiness signals Google actually rewards with higher rankings.',

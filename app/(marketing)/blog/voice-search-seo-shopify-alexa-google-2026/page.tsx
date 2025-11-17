@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Voice Search SEO for Shopify: Alexa & Google Assistant Optimization 2026 | SEOLOGY.AI',
   description: '157.1 million Americans will use voice assistants by 2026, with $290B in voice commerce spending. Master voice search SEO for Shopify: featured snippets, conversational keywords, and schema markup that wins position zero and captures voice shopping queries.',

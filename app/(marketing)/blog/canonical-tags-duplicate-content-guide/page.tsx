@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Canonical Tags: The Definitive Guide to Fixing Duplicate Content',
   description: 'Canonical tags prevent duplicate content penalties. This guide shows when and how to use rel=canonical correctly.',

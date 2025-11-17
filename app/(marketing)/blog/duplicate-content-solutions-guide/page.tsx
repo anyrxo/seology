@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Duplicate Content Solutions: Fix the #1 Ranking Killer',
   description: "Duplicate content is silently destroying your rankings. Here\'s how to find and fix it before Google penalizes you.",

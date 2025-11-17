@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
   title: 'Sports & Fitness SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Online fitness market grows 33.1% annually to $35.6B in 2026. Master athletic wear SEO, smart equipment optimization, performance-focused content, and athleisure strategies for this $278B industry.',
