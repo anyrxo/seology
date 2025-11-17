@@ -250,7 +250,7 @@ export default function BlogPost() {
   "priceCurrency": "USD",
   "url": "https://example.com/register",
   "availability": "https://schema.org/InStock"
-},
+}
 "isAccessibleForFree": true`}
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "Free" badge in event listings.</p>
@@ -271,7 +271,7 @@ export default function BlogPost() {
     "priceCurrency": "USD",
     "url": "https://example.com/tickets/general",
     "availability": "https://schema.org/InStock"
-  },
+  }
   {
     "@type": "Offer",
     "name": "VIP Pass",
@@ -342,7 +342,7 @@ export default function BlogPost() {
   {
     "@type": "Person",
     "name": "Sarah Johnson"
-  },
+  }
   {
     "@type": "Person",
     "name": "Mike Chen"
@@ -488,13 +488,13 @@ export default function BlogPost() {
       "postalCode": "94103",
       "addressCountry": "US"
     }
-  },
+  }
   "image": "https://example.com/images/seo-summit-2025.jpg",
   "organizer": {
     "@type": "Organization",
     "name": "SEO Institute",
     "url": "https://example.com"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "299.00",

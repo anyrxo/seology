@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Shopify Multi-Language & International SEO: Global Expansion Guide for 2026 | SEOLOGY.AI',
   description: '75% of users prefer buying in their native language. Learn Shopify Markets SEO, hreflang implementation, multi-currency optimization, and strategies that increase international traffic by 70% within 12 months.',
-  keywords: 'Shopify international SEO, multi-language SEO, hreflang Shopify, Shopify Markets, multi-currency SEO, geotargeting, global expansion, cross-border ecommerce, international Shopify, multilingual store',
-  openGraph: {
-    title: 'Shopify Multi-Language & International SEO: Global Expansion Guide for 2026 | SEOLOGY.AI',
-    description: '75% of users prefer buying in their native language. Learn Shopify Markets SEO, hreflang implementation, and multi-currency optimization strategies.',
-    type: 'article',
-    publishedTime: '2025-12-20T10:00:00Z',
-    authors: ['Sofia Andersson, International SEO Specialist'],
-  },
 }
 
 export default function ShopifyMultiLanguageInternationalSEOPage() {

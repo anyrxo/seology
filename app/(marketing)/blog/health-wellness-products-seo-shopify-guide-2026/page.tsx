@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Health & Wellness Products SEO for Shopify: Compliance & Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Wellness supplements market reaches $291B in 2025, growing to $568.75B by 2034. Master FDA-compliant SEO, structure/function claims, third-party testing signals, and personalized nutrition strategies.',
-  keywords: 'health wellness SEO, supplement SEO, vitamins ecommerce SEO, CBD SEO, FDA compliant SEO, structure function claims, dietary supplement marketing, wellness ecommerce, third-party testing, personalized nutrition, immune health supplements, gut health SEO, functional nutrition',
-  openGraph: {
-    title: 'Health & Wellness Products SEO for Shopify: Compliance & Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Wellness supplements market reaches $291B in 2025, growing to $568.75B by 2034. Master FDA-compliant SEO, structure/function claims, third-party testing signals, and personalized nutrition strategies.',
-    type: 'article',
-    publishedTime: '2025-12-20T14:00:00Z',
-    authors: ['Dr. Sarah Mitchell, Health & Wellness Ecommerce SEO Specialist'],
-  },
 }
 
 export default function HealthWellnessProductsSEOGuide2026() {

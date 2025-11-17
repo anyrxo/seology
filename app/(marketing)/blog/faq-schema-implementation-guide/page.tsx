@@ -113,7 +113,7 @@ export default function BlogPost() {
         "@type": "Answer",
         "text": "FAQ schema is structured data that displays questions and answers in Google search results, increasing visibility and CTR."
       }
-    },
+    }
     {
       "@type": "Question",
       "name": "How do I implement FAQ schema?",

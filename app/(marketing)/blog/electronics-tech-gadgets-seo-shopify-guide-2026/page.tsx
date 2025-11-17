@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Electronics & Tech Gadgets SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Electronics ecommerce reaches $736.5B in 2025, growing to $1.2T by 2032. Master technical specifications SEO, AI shopping optimization, review strategies, and rapid product lifecycle management for tech gadgets.',
-  keywords: 'electronics SEO, tech gadgets SEO, consumer electronics ecommerce, smartphone accessories SEO, wearables optimization, technical specifications SEO, product reviews schema, AI shopping optimization, ChatGPT shopping, electronics product pages, gadget store SEO, Shopify tech store, specifications database',
-  openGraph: {
-    title: 'Electronics & Tech Gadgets SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Electronics ecommerce reaches $736.5B in 2025, growing to $1.2T by 2032. Master technical specifications SEO, AI shopping optimization, review strategies, and rapid product lifecycle management for tech gadgets.',
-    type: 'article',
-    publishedTime: '2025-12-20T13:00:00Z',
-    authors: ['Kevin Park, Consumer Electronics & Tech Gadget SEO Specialist'],
-  },
 }
 
 export default function ElectronicsTechGadgetsSEOGuide2026() {

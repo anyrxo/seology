@@ -3,19 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks | SEOLOGY.AI',
   description: 'Top Google pages have 3.8x more backlinks. Learn proven Shopify link building strategies with December 2025 data--quality backlinks that boost rankings and drive traffic.',
-  keywords: 'link building Shopify, Shopify backlinks, ecommerce link building, SEO backlinks, domain authority, guest blogging, broken link building, digital PR, HARO, link building strategy 2026',
-  openGraph: {
-    title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks',
-    description: 'Top pages have 3.8x more backlinks. Master Shopify link building with proven 2025 strategies that boost rankings and traffic.',
-    type: 'article',
-    publishedTime: '2025-12-18T09:00:00Z',
-    authors: ['Rachel Morrison, SEO Strategist & Link Building Specialist'],
-  },
+}
   twitter: {
     card: 'summary_large_image',
     title: 'Link Building for Shopify: 2026 Strategy Guide',
     description: 'Top pages have 3.8x more backlinks. Learn proven strategies for Shopify link building success.',
-  },
+  }
 }
 
 export default function LinkBuildingShopifyStrategyPage() {

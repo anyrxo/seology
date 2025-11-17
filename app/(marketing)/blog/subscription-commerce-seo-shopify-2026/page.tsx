@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Subscription Commerce SEO for Shopify: Recurring Revenue Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Subscription models grow 5-8x faster than traditional ecommerce. Subscription customers spend 3-5x more over 12 months. Learn SEO strategies for subscription boxes, memberships, and recurring products that maximize LTV.',
-  keywords: 'subscription commerce SEO, recurring revenue SEO, subscription box SEO, membership SEO, Shopify subscriptions, subscription model optimization, recurring products, subscription retention, lifetime value SEO',
-  openGraph: {
-    title: 'Subscription Commerce SEO for Shopify: Recurring Revenue Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Subscription models grow 5-8x faster. Subscription customers spend 3-5x more over 12 months. Learn SEO strategies for subscription boxes and recurring revenue.',
-    type: 'article',
-    publishedTime: '2025-12-20T11:00:00Z',
-    authors: ['Rachel Kim, Subscription Commerce SEO Strategist'],
-  },
 }
 
 export default function SubscriptionCommerceSEOPage() {
@@ -409,7 +401,7 @@ export default function SubscriptionCommerceSEOPage() {
       "price": "29.99",
       "priceCurrency": "USD",
       "billingDuration": "P1M"
-    },
+    }
     "availability": "https://schema.org/InStock"
   }
 }`}

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Sports & Fitness SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Online fitness market grows 33.1% annually to $35.6B in 2026. Master athletic wear SEO, smart equipment optimization, performance-focused content, and athleisure strategies for this $278B industry.',
-  keywords: 'sports fitness SEO, athletic wear SEO, activewear ecommerce SEO, fitness equipment optimization, athleisure SEO, home gym SEO, workout gear optimization, sports apparel SEO, fitness app integration, smart fitness devices, performance marketing, Shopify fitness store, gym equipment SEO, wellness ecommerce',
-  openGraph: {
-    title: 'Sports & Fitness SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Online fitness market grows 33.1% annually to $35.6B in 2026. Master athletic wear SEO, smart equipment optimization, performance-focused content, and athleisure strategies for this $278B industry.',
-    type: 'article',
-    publishedTime: '2025-12-20T11:00:00Z',
-    authors: ['Marcus Rodriguez, Sports & Fitness Ecommerce SEO Specialist'],
-  },
 }
 
 export default function SportsFitnessSEOGuide2026() {

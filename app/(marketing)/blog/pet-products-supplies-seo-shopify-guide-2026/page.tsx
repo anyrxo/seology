@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pet Products & Supplies SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global pet supplies market reaches $248.71B in 2025, growing to $369.85B by 2030. Master subscription optimization, premium product positioning, pet parent psychology, omnichannel strategies, and species-specific targeting.',
-  keywords: 'pet products SEO, pet supplies optimization, dog products marketing, cat supplies SEO, pet subscription optimization, premium pet food, pet parent targeting, pet ecommerce, Amazon pet products, pet care SEO, Shopify pet store',
-  openGraph: {
-    title: 'Pet Products & Supplies SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'Global pet supplies market reaches $248.71B in 2025, growing to $369.85B by 2030. Master subscription optimization and pet parent psychology.',
-    type: 'article',
-    publishedTime: '2025-12-20T23:00:00Z',
-    authors: ['Dr. Amanda Foster, Pet Products Ecommerce SEO Specialist'],
-  },
 }
 
 export default function PetProductsSuppliesSEOGuide() {

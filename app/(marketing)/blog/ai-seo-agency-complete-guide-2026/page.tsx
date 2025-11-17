@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI SEO Agency Guide 2026: Top Agencies, Pricing ($2k-$25k/mo), vs Software Comparison',
   description: '61% of agencies offer AI SEO services. Compare top agencies with 340% ChatGPT mention increases, 4,162% traffic growth. Agency ($3,200/mo) vs software ($39-499/mo) cost analysis.',
-  keywords: 'ai seo agency, best ai seo agency, ai seo services, ai seo company, seo agency ai, ai powered seo agency, generative engine optimization agency, geo agency, ai seo consulting, ai seo experts',
-  openGraph: {
-    title: 'AI SEO Agency Guide 2026: Top Agencies, Pricing, vs Software',
-    description: '61% of agencies offer AI SEO. Top agencies deliver 340% ChatGPT increases, 4,162% traffic growth. Compare agency ($2k-25k/mo) vs software ($39-499/mo) ROI.',
-    type: 'article',
-    publishedTime: '2025-12-21T09:00:00Z',
-    authors: ['Marcus Bergeron, Agency & SaaS Consultant'],
-  },
 }
 
 export default function AISEOAgencyGuidePage() {

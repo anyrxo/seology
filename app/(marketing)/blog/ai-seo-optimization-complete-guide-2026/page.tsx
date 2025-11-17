@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI SEO Optimization: Complete Guide 2026 | 49.2% Ranking Improvements + Step-by-Step',
   description: '65% of businesses see better results with AI SEO optimization. Learn strategies delivering 49.2% ranking improvements, 30-50% ROI jumps, and 45% traffic boosts. Step-by-step implementation guide.',
-  keywords: 'ai seo optimization, seo optimization with ai, ai powered seo optimization, ai seo strategies, optimize seo with ai, ai search optimization, generative engine optimization, geo optimization, ai seo techniques, ai seo best practices',
-  openGraph: {
-    title: 'AI SEO Optimization: Complete Guide 2026 | 49.2% Ranking Improvements',
-    description: '65% of businesses see better results with AI SEO. Step-by-step guide to 49.2% ranking improvements, 30-50% ROI increases, and 45% traffic growth.',
-    type: 'article',
-    publishedTime: '2025-12-21T08:00:00Z',
-    authors: ['Dr. Emily Hartwell, AI SEO Strategist'],
-  },
 }
 
 export default function AISEOOptimizationGuidePage() {

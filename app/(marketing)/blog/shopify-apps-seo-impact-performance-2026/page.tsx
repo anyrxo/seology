@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Shopify Apps SEO Impact: Performance & Ranking Effects 2026 | SEOLOGY.AI',
   description: 'Average Shopify app adds 1.2s to page load time and 400KB JavaScript. Stores lose 40% of customers to app-induced slowdowns. Learn which apps kill SEO and how to optimize with December 2025 data.',
-  keywords: 'Shopify apps SEO, app performance impact, Shopify page speed, app bloat, Core Web Vitals, Shopify optimization, app audit, JavaScript bloat, SEO apps Shopify, performance degradation',
-  openGraph: {
-    title: 'Shopify Apps SEO Impact: Performance & Ranking Effects 2026',
-    description: 'Average app adds 1.2s load time, 400KB JavaScript. 40% customer loss from app-induced slowdowns.',
-    type: 'article',
-    publishedTime: '2025-12-22T08:00:00Z',
-    authors: ['Sarah Mitchell, Shopify Performance Consultant'],
-  },
 }
 
 export default function ShopifyAppsSEOImpact2026() {

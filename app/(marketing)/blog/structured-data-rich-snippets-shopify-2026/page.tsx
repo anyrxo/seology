@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026 | SEOLOGY.AI',
   description: 'Rich snippets increase CTR by 20-35%, and pages with schema are 3x more likely to appear in rich results. Master Product, Review, FAQ, and Breadcrumb schema for Shopify--boost visibility, CTR, and rankings with structured data optimization.',
-  keywords: 'structured data Shopify, schema markup, rich snippets, Product schema, Review schema, FAQ schema, Breadcrumb schema, JSON-LD, rich results Google, CTR optimization, schema.org',
-  openGraph: {
-    title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026',
-    description: '20-35% CTR increase with rich snippets. Pages with schema are 3x more likely to appear in rich results. Complete guide to Product, Review, FAQ, and Organization schema for Shopify.',
-    type: 'article',
-    publishedTime: '2025-12-19T13:00:00Z',
-    authors: ['Carlos Mendez, Structured Data Specialist & Schema Markup Expert'],
-  },
 }
 
 export default function StructuredDataRichSnippetsShopifyPage() {
@@ -247,7 +239,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
   "brand": {
     "@type": "Brand",
     "name": "Your Coffee Brand"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "url": "https://example.com/products/colombian-coffee",
@@ -260,14 +252,14 @@ export default function StructuredDataRichSnippetsShopifyPage() {
       "@type": "Organization",
       "name": "Your Store Name"
     }
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "reviewCount": "127",
     "bestRating": "5",
     "worstRating": "1"
-  },
+  }
   "review": [
     {
       "@type": "Review",
@@ -275,11 +267,11 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         "@type": "Rating",
         "ratingValue": "5",
         "bestRating": "5"
-      },
+      }
       "author": {
         "@type": "Person",
         "name": "Sarah Johnson"
-      },
+      }
       "datePublished": "2025-12-10",
       "reviewBody": "Best coffee I've ever had! Smooth, rich flavor with no bitterness. Perfect for morning pour-over."
     }
@@ -399,7 +391,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         "@type": "Answer",
         "text": "Our organic coffee beans stay fresh for 2-3 weeks after opening when stored in an airtight container away from light, heat, and moisture. Whole beans last longer than pre-ground coffee."
       }
-    },
+    }
     {
       "@type": "Question",
       "name": "What brewing methods work best with medium roast?",
@@ -407,7 +399,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
         "@type": "Answer",
         "text": "Medium roast beans are versatile and work great with pour-over, drip coffee makers, French press, and Aeropress. They're not ideal for espresso (use dark roast instead)."
       }
-    },
+    }
     {
       "@type": "Question",
       "name": "Is this coffee organic certified?",
@@ -458,19 +450,19 @@ export default function StructuredDataRichSnippetsShopifyPage() {
       "position": 1,
       "name": "Home",
       "item": "https://example.com/"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Coffee",
       "item": "https://example.com/collections/coffee"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Medium Roast",
       "item": "https://example.com/collections/medium-roast"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 4,
@@ -509,7 +501,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
     "telephone": "+1-555-123-4567",
     "contactType": "Customer Service",
     "availableLanguage": ["en"]
-  },
+  }
   "sameAs": [
     "https://www.facebook.com/yourstore",
     "https://www.instagram.com/yourstore",

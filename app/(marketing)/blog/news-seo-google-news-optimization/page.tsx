@@ -188,7 +188,7 @@ export default function BlogPost() {
     "@type": "Person",
     "name": "Marcus Chen",
     "url": "https://example.com/author/marcus-chen"
-  },
+  }
   "publisher": {
     "@type": "Organization",
     "name": "Tech News Today",
@@ -196,13 +196,13 @@ export default function BlogPost() {
       "@type": "ImageObject",
       "url": "https://example.com/logo.png"
     }
-  },
+  }
   "image": {
     "@type": "ImageObject",
     "url": "https://example.com/article-image.jpg",
     "width": 1200,
     "height": 630
-  },
+  }
   "articleSection": "Technology",
   "description": "A major tech company announces..."
 }`}</pre>

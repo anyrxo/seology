@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Voice Search SEO for Shopify: Alexa & Google Assistant Optimization 2026 | SEOLOGY.AI',
   description: '157.1 million Americans will use voice assistants by 2026, with $290B in voice commerce spending. Master voice search SEO for Shopify: featured snippets, conversational keywords, and schema markup that wins position zero and captures voice shopping queries.',
-  keywords: 'voice search SEO, voice commerce Shopify, Alexa optimization, Google Assistant SEO, voice shopping, smart speaker SEO, featured snippets, conversational keywords, voice search optimization, FAQ schema',
-  openGraph: {
-    title: 'Voice Search SEO for Shopify: Alexa & Google Assistant Optimization 2026',
-    description: '$290B in voice commerce by 2025, and 75% of households own smart speakers. Optimize your Shopify store for voice search with featured snippets and conversational content.',
-    type: 'article',
-    publishedTime: '2025-12-19T12:00:00Z',
-    authors: ['Dr. Aisha Kumar, Voice Search Specialist & Conversational AI Expert'],
-  },
 }
 
 export default function VoiceSearchSEOShopifyPage() {
@@ -350,7 +342,7 @@ export default function VoiceSearchSEOShopifyPage() {
         "@type": "Answer",
         "text": "Our organic coffee beans stay fresh for 2-3 weeks after opening when stored in an airtight container away from light and moisture. Whole beans last longer than ground coffee."
       }
-    },
+    }
     {
       "@type": "Question",
       "name": "Do you offer free shipping?",
@@ -383,13 +375,13 @@ export default function VoiceSearchSEOShopifyPage() {
       "name": "Grind coffee beans",
       "text": "Coarsely grind 1 cup of coffee beans.",
       "image": "https://example.com/grind-beans.jpg"
-    },
+    }
     {
       "@type": "HowToStep",
       "name": "Mix with water",
       "text": "Combine ground coffee with 4 cups cold water in a jar.",
       "image": "https://example.com/mix-water.jpg"
-    },
+    }
     {
       "@type": "HowToStep",
       "name": "Refrigerate overnight",

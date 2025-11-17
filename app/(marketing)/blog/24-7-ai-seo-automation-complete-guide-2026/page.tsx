@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: '24/7 AI SEO Automation: Complete Guide 2026 | Continuous Optimization Explained',
   description: 'AI SEO automation delivers 300% faster optimization, 85% reduction in manual work, 40% ranking improvements. Discover how 24/7 continuous monitoring achieves 50% time savings, 2.3x faster results vs manual SEO, and operates while you sleep. Complete automation guide.',
-  keywords: '24/7 seo automation, ai seo automation, continuous seo optimization, automated seo, always-on seo, seo automation 2026, ai powered seo automation, automatic seo optimization, 24 7 seo monitoring, seo automation tools',
-  openGraph: {
-    title: '24/7 AI SEO Automation: How Continuous Optimization Delivers 300% Faster Results',
-    description: '300% faster optimization, 85% manual work reduction, 40% ranking improvements, 50% time savings. Learn how 24/7 AI SEO automation operates continuously, monitors in real-time, and implements fixes automatically while you sleep.',
-    type: 'article',
-    publishedTime: '2025-12-21T05:00:00Z',
-    authors: ['Michael Anderson, SEO Automation Specialist'],
-  },
 }
 
 export default function TwentyFourSevenAISEOAutomationPage() {

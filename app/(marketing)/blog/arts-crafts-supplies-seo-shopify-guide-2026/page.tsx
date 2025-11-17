@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Arts & Crafts Supplies SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global arts & crafts market reaches $47.97B in 2025, growing to $50.65B in 2026. Master project-based content optimization, skill-level targeting, seasonal demand strategies, tutorial integration, eco-friendly positioning, and DIY community building.',
-  keywords: 'arts crafts supplies SEO, DIY materials optimization, craft supplies ecommerce, project-based content SEO, tutorial marketing, hobby supplies optimization, seasonal craft demand, eco-friendly crafts SEO, subscription craft boxes, Shopify craft store',
-  openGraph: {
-    title: 'Arts & Crafts Supplies SEO for Shopify: Complete Optimization Guide 2026',
-    description: 'Global arts & crafts market $47.97B in 2025 growing to $50.65B in 2026. Online sales $22.2B+ with 50% ecommerce penetration. Master project-based content, seasonal peaks (June +92% interest, Q4 holiday), eco-conscious growth (20-30%), and tutorial integration strategies.',
-    type: 'article',
-    publishedTime: '2025-12-21T02:00:00Z',
-    authors: ['Rebecca Martinez, Arts & Crafts Ecommerce SEO Specialist'],
-  },
 }
 
 export default function ArtsCraftsSuppliesSEOPage() {
@@ -385,30 +377,30 @@ export default function ArtsCraftsSuppliesSEOPage() {
   "brand": {
     "@type": "Brand",
     "name": "ArtPro"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "49.99",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "itemCondition": "https://schema.org/NewCondition"
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
     "reviewCount": "342"
-  },
+  }
   "additionalProperty": [
     {
       "@type": "PropertyValue",
       "name": "Skill Level",
       "value": "All Levels"
-    },
+    }
     {
       "@type": "PropertyValue",
       "name": "Paint Type",
       "value": "Acrylic"
-    },
+    }
     {
       "@type": "PropertyValue",
       "name": "Number of Colors",

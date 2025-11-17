@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Best AI SEO Software 2026: Complete Platform Comparison Guide | ROI Analysis',
   description: '68% of enterprises use AI SEO software in 2025. Compare top platforms: Scalenut ($39/mo), SE Ranking, SEMrush. See 4,162% traffic growth case studies, pricing, and ROI data.',
-  keywords: 'ai seo software, best ai seo software, ai seo platforms, ai seo software comparison, seo software tools, enterprise seo software, ai seo tools 2026, seo automation software, ai powered seo software, seo platform comparison',
-  openGraph: {
-    title: 'Best AI SEO Software 2026: Complete Platform Comparison Guide',
-    description: '68% of enterprises use AI SEO software. Compare top platforms with real case studies showing 4,162% traffic growth and 74% revenue increases.',
-    type: 'article',
-    publishedTime: '2025-12-21T07:00:00Z',
-    authors: ['Rachel Foster, SEO Software Analyst'],
-  },
 }
 
 export default function BestAISEOSoftware2026Page() {

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Local SEO for Shopify: Google Business Profile Optimization 2026 | SEOLOGY.AI',
   description: '1.5 billion "near me" searches happen monthly, and 76% lead to store visits within 24 hours. Master local SEO for Shopify with Google Business Profile optimization, NAP consistency, and multi-location strategies that drive foot traffic and online sales.',
-  keywords: 'local SEO Shopify, Google Business Profile optimization, near me searches, NAP citations, local pack rankings, multi-location Shopify, local inventory, Google Maps SEO, local search ranking factors',
-  openGraph: {
-    title: 'Local SEO for Shopify: Google Business Profile Optimization 2026',
-    description: '76% of "near me" mobile searches lead to store visits within 24 hours. Dominate local search with Google Business Profile optimization and multi-location strategies.',
-    type: 'article',
-    publishedTime: '2025-12-19T11:00:00Z',
-    authors: ['Daniela Santos, Local SEO Specialist & Multi-Location Strategy Expert'],
-  },
 }
 
 export default function LocalSEOShopifyGoogleBusinessPage() {
@@ -497,7 +489,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
     "addressLocality": "New York",
     "addressRegion": "NY",
     "postalCode": "10001"
-  },
+  }
   "telephone": "(555) 123-4567",
   "openingHours": "Mo-Fr 09:00-18:00, Sa 10:00-16:00",
   "hasOfferCatalog": {
@@ -510,7 +502,7 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           "@type": "Product",
           "name": "Product Name",
           "sku": "SKU123"
-        },
+        }
         "availability": "https://schema.org/InStock",
         "availableAtOrFrom": {
           "@type": "Place",

@@ -255,13 +255,13 @@ export default function BlogPost() {
   "brand": {
     "@type": "Brand",
     "name": "Nike"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "159.99",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Pet Products SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Pet ecommerce reaches $147.6B by 2030. 80% of sales from autoship subscriptions. Learn pet-specific SEO, breed targeting, supplement keywords, and strategies optimized for 43.6% of owners who prioritize pet health over their own.',
-  keywords: 'pet products SEO, pet ecommerce SEO, dog supplies SEO, cat products SEO, pet food SEO, pet supplements SEO, autoship SEO, pet subscription box SEO, breed-specific SEO',
-  openGraph: {
-    title: 'Pet Products SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Pet ecommerce reaches $147.6B by 2030. 80% of sales from autoship. Learn pet-specific SEO and breed targeting strategies.',
-    type: 'article',
-    publishedTime: '2025-12-20T16:00:00Z',
-    authors: ['Lisa Morgan, Pet Ecommerce SEO Specialist'],
-  },
 }
 
 export default function PetProductsSEOPage() {

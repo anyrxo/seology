@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Handmade & Artisan Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global handmade crafts market reaches $906B, growing to $1.94T by 2033 (8.83% CAGR). Master maker storytelling, customization SEO, sustainability marketing, Etsy marketplace optimization, and artisan brand positioning strategies.',
-  keywords: 'handmade SEO, artisan products optimization, craft ecommerce marketing, Etsy SEO, maker storytelling, custom handcrafted goods, sustainable artisan products, personalization SEO, craft marketplace, handmade brand positioning, Shopify handmade store',
-  openGraph: {
-    title: 'Handmade & Artisan Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'Global handmade crafts market reaches $906B, growing to $1.94T by 2033. Master maker storytelling, customization SEO, and sustainability marketing.',
-    type: 'article',
-    publishedTime: '2025-12-20T21:00:00Z',
-    authors: ['Sophie Martinez, Handmade & Artisan Ecommerce SEO Specialist'],
-  },
 }
 
 export default function HandmadeArtisanProductsSEOGuide() {

@@ -392,14 +392,14 @@ export default function BlogPost() {
     "addressLocality": "Portland",
     "addressRegion": "OR",
     "postalCode": "97201"
-  },
+  }
   "telephone": "+1-503-555-1234",
   "url": "https://www.giovannis.com",
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 45.5202,
     "longitude": -122.6742
-  },
+  }
   "openingHours": "Mo-Su 11:00-22:00",
   "priceRange": "$$"
 }`}</pre>

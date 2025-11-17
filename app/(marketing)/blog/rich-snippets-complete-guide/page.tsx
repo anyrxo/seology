@@ -167,13 +167,13 @@ export default function BlogPost() {
   "brand": {
     "@type": "Brand",
     "name": "AudioTech"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "149.99",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",
@@ -200,7 +200,7 @@ export default function BlogPost() {
   "author": {
     "@type": "Person",
     "name": "Sarah Park"
-  },
+  }
   "totalTime": "PT35M",
   "recipeYield": "24 cookies",
   "recipeIngredient": [
@@ -218,7 +218,7 @@ export default function BlogPost() {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
     "reviewCount": "342"
-  },
+  }
   "nutrition": {
     "@type": "NutritionInformation",
     "calories": "180 calories"
@@ -247,7 +247,7 @@ export default function BlogPost() {
         "@type": "Answer",
         "text": "Rich snippets are enhanced search results that display structured data like star ratings, prices, and cooking times directly in Google search results."
       }
-    },
+    }
     {
       "@type": "Question",
       "name": "How do I implement rich snippets?",
@@ -280,14 +280,14 @@ export default function BlogPost() {
     "@type": "MonetaryAmount",
     "currency": "USD",
     "value": "0"
-  },
+  }
   "step": [
     {
       "@type": "HowToStep",
       "name": "Choose the right schema type",
       "text": "Identify which schema type matches your content: Product, Recipe, HowTo, etc.",
       "image": "https://example.com/step1.jpg"
-    },
+    }
     {
       "@type": "HowToStep",
       "name": "Add JSON-LD markup",
@@ -339,13 +339,13 @@ export default function BlogPost() {
       "position": 1,
       "name": "Home",
       "item": "https://example.com"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Electronics",
       "item": "https://example.com/electronics"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 3,
@@ -374,7 +374,7 @@ export default function BlogPost() {
   "author": {
     "@type": "Person",
     "name": "Sarah Park"
-  },
+  }
   "publisher": {
     "@type": "Organization",
     "name": "SEOLOGY",
@@ -382,7 +382,7 @@ export default function BlogPost() {
       "@type": "ImageObject",
       "url": "https://example.com/logo.png"
     }
-  },
+  }
   "datePublished": "2024-05-18",
   "dateModified": "2024-05-18"
 }
@@ -416,7 +416,7 @@ export default function BlogPost() {
       "postalCode": "94102",
       "addressCountry": "US"
     }
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "299",
@@ -451,12 +451,12 @@ export default function BlogPost() {
     "addressRegion": "CA",
     "postalCode": "94103",
     "addressCountry": "US"
-  },
+  }
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 37.7749,
     "longitude": -122.4194
-  },
+  }
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",

@@ -3,19 +3,12 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'URL Structure & Site Architecture for Shopify SEO: 2026 Best Practices | SEOLOGY.AI',
   description: 'Google confirms internal links are "supercritical" for SEO. Master Shopify URL structure and site architecture with the 3-click rule, flat hierarchy, and strategic internal linking.',
-  keywords: 'URL structure SEO, site architecture, Shopify URL optimization, internal linking, site hierarchy, crawl depth, click distance, flat architecture, URL best practices, SEO-friendly URLs',
-  openGraph: {
-    title: 'URL Structure & Site Architecture for Shopify SEO: 2026 Best Practices',
-    description: 'Internal links are "supercritical" (Google). Learn Shopify URL structure and site architecture optimization for maximum SEO impact.',
-    type: 'article',
-    publishedTime: '2025-12-21T08:00:00Z',
-    authors: ['Jordan Lee, Information Architect & Technical SEO Consultant'],
-  },
+}
   twitter: {
     card: 'summary_large_image',
     title: 'URL Structure & Site Architecture for Shopify SEO: 2026',
     description: 'Google: Internal links are "supercritical". Master Shopify URL structure and site architecture.',
-  },
+  }
 }
 
 export default function URLStructureSiteArchitectureShopifyPage() {

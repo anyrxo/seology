@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'JavaScript SEO for Shopify: Making Dynamic Content Crawlable 2026 | SEOLOGY.AI',
   description: 'Without proper JavaScript SEO, Shopify stores lose 60-80% of organic visibility. Learn SSR vs CSR, rendering optimization, and how to make dynamic content crawlable with December 2025 best practices.',
-  keywords: 'JavaScript SEO, Shopify JavaScript, SSR vs CSR, client-side rendering, server-side rendering, dynamic content SEO, SPA SEO, Google rendering, crawlable JavaScript, Shopify SEO 2026',
-  openGraph: {
-    title: 'JavaScript SEO for Shopify: Making Dynamic Content Crawlable 2026',
-    description: 'Without proper JavaScript SEO, stores lose 60-80% of organic visibility. Master SSR, CSR, and Google rendering.',
-    type: 'article',
-    publishedTime: '2025-12-21T08:00:00Z',
-    authors: ['Marcus Reynolds, JavaScript SEO Architect'],
-  },
 }
 
 export default function JavaScriptSEOShopify2026() {

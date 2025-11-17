@@ -247,14 +247,14 @@ export default function BlogPost() {
   "brand": {
     "@type": "Brand",
     "name": "Nike"
-  },
+  }
   "offers": {
     "@type": "Offer",
     "url": "https://example.com/air-max-2025",
     "priceCurrency": "USD",
     "price": "149.99",
     "availability": "https://schema.org/InStock"
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",

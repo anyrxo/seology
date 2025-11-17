@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Robots.txt & Crawl Control for Shopify: 2026 Complete Guide | SEOLOGY.AI',
   description: '30% of websites have robots.txt errors harming SEO. 70% of searches influenced by AI crawlers by 2026. Learn Shopify robots.txt customization, avoid blocking mistakes, control Googlebot and AI bots with December 2025 best practices.',
-  keywords: 'robots.txt, Shopify robots.txt, crawl control, Googlebot, AI crawlers, robots.txt.liquid, SEO blocking, crawl budget, disallow, user-agent, Shopify SEO',
-  openGraph: {
-    title: 'Robots.txt & Crawl Control for Shopify: 2026 Complete Guide',
-    description: '30% of websites have robots.txt errors. 70% of searches influenced by AI crawlers by 2026.',
-    type: 'article',
-    publishedTime: '2025-12-25T08:00:00Z',
-    authors: ['David Foster, Technical SEO Engineer'],
-  },
 }
 
 export default function RobotsTxtCrawlControlShopify2026() {

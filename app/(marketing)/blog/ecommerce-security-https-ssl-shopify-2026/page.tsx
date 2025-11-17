@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Ecommerce Security & HTTPS/SSL for Shopify: Trust Signals Guide 2026 | SEOLOGY.AI',
   description: '85% of shoppers avoid unsecured websites, and 82% stop engaging after a breach. Learn how HTTPS/SSL certificates boost rankings (5%), prevent the $3.54M average breach cost, and build trust with 256-bit encryption and PCI Level 1 compliance.',
-  keywords: 'ecommerce security, HTTPS SSL certificate, Shopify security, PCI compliance, trust signals, website security, SSL SEO, secure checkout, data breach prevention, cybersecurity ecommerce',
-  openGraph: {
-    title: 'Ecommerce Security & HTTPS/SSL for Shopify: Trust Signals Guide 2026',
-    description: '85% avoid unsecured sites. 82% leave after breaches. HTTPS gives 5% ranking boost. Master SSL, PCI compliance, and security trust signals.',
-    type: 'article',
-    publishedTime: '2025-12-19T15:00:00Z',
-    authors: ['Dr. Michael Zhang, Cybersecurity Expert & Ecommerce Security Specialist'],
-  },
 }
 
 export default function EcommerceSecurityHTTPSSSLShopifyPage() {

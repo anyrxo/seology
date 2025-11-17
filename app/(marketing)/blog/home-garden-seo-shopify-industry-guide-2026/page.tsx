@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Home & Garden SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Home & garden ecommerce grows 13.4% annually to $49.62B by 2029. Master seasonal SEO, DIY content strategies, smart gardening optimization, and omnichannel tactics to dominate this $21B U.S. market.',
-  keywords: 'home garden SEO, gardening ecommerce SEO, DIY store SEO, seasonal SEO strategy, plant nursery SEO, home improvement SEO, landscaping product optimization, smart gardening SEO, organic garden products, pollinator-friendly SEO, Shopify gardening store, home decor SEO, lawn care SEO, sustainable gardening marketing',
-  openGraph: {
-    title: 'Home & Garden SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Home & garden ecommerce grows 13.4% annually to $49.62B by 2029. Master seasonal SEO, DIY content strategies, smart gardening optimization, and omnichannel tactics to dominate this $21B U.S. market.',
-    type: 'article',
-    publishedTime: '2025-12-20T10:00:00Z',
-    authors: ['David Patterson, Home & Garden Ecommerce SEO Specialist'],
-  },
 }
 
 export default function HomeGardenSEOGuide2026() {

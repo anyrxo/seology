@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Fashion & Apparel SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Fashion ecommerce reaches $1.6 trillion by 2030. 79.6% of fashion traffic is mobile. 25% return rate. Learn seasonal SEO, size/fit optimization, visual search, and strategies that reduce returns and boost conversions.',
-  keywords: 'fashion SEO, apparel ecommerce SEO, clothing store SEO, seasonal fashion optimization, size fit SEO, visual search optimization, fashion product descriptions, mobile fashion SEO, apparel industry trends',
-  openGraph: {
-    title: 'Fashion & Apparel SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Fashion ecommerce reaches $1.6 trillion by 2030. Learn seasonal SEO, size/fit optimization, and visual search strategies for apparel brands.',
-    type: 'article',
-    publishedTime: '2025-12-20T12:00:00Z',
-    authors: ['Jessica Martinez, Fashion Ecommerce SEO Consultant'],
-  },
 }
 
 export default function FashionApparelSEOPage() {

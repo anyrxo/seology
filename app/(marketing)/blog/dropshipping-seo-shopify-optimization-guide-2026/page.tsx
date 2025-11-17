@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Dropshipping SEO for Shopify: Optimization Guide Without Inventory 2026 | SEOLOGY.AI',
   description: 'Dropshipping market reaches $590B by 2026. 78% of new Shopify stores are dropshipping. Learn how to overcome duplicate content, build trust, and optimize for SEO without holding inventory.',
-  keywords: 'dropshipping SEO, Shopify dropshipping, dropshipping optimization, duplicate content solutions, dropshipping without inventory, supplier SEO, dropshipping traffic, low inventory SEO',
-  openGraph: {
-    title: 'Dropshipping SEO for Shopify: Optimization Guide Without Inventory 2026 | SEOLOGY.AI',
-    description: 'Dropshipping market reaches $590B by 2026. 78% of new Shopify stores are dropshipping. Learn SEO strategies that work without holding inventory.',
-    type: 'article',
-    publishedTime: '2025-12-20T13:00:00Z',
-    authors: ['Nathan Chen, Dropshipping SEO Strategist'],
-  },
 }
 
 export default function DropshippingSEOPage() {

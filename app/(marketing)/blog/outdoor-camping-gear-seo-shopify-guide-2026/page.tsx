@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Outdoor & Camping Gear SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global camping equipment market reaches $27.79B in 2025, growing to $47.40B by 2033. Master seasonal SEO, activity-based targeting, sustainability marketing, and technical specification optimization for outdoor gear.',
-  keywords: 'outdoor gear SEO, camping equipment optimization, hiking gear marketing, backpacking SEO, sustainable outdoor products, technical specs SEO, seasonal camping trends, activity-based targeting, outdoor recreation ecommerce, Shopify outdoor store',
-  openGraph: {
-    title: 'Outdoor & Camping Gear SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'Global camping equipment market reaches $27.79B in 2025, growing to $47.40B by 2033. Master seasonal SEO, activity-based targeting, and sustainability marketing.',
-    type: 'article',
-    publishedTime: '2025-12-20T19:00:00Z',
-    authors: ['Marcus Anderson, Outdoor Recreation Ecommerce SEO Specialist'],
-  },
 }
 
 export default function OutdoorCampingGearSEOGuide() {

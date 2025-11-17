@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Subscription Box Services SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global subscription box market reaches $44.88B in 2025, growing to $186.76B by 2033 (19.51% CAGR). Master retention SEO, unboxing content, discovery-based targeting, churn reduction strategies, and recurring revenue optimization.',
-  keywords: 'subscription box SEO, recurring revenue ecommerce, subscription service optimization, monthly box marketing, discovery box SEO, curated subscription, retention marketing, unboxing content, subscription churn reduction, Shopify subscription store',
-  openGraph: {
-    title: 'Subscription Box Services SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'Global subscription box market reaches $44.88B in 2025, growing to $186.76B by 2033. Master retention SEO and discovery-based targeting.',
-    type: 'article',
-    publishedTime: '2025-12-20T22:00:00Z',
-    authors: ['Rachel Kim, Subscription Commerce SEO Specialist'],
-  },
 }
 
 export default function SubscriptionBoxServicesSEOGuide() {

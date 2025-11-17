@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-22T07:00:00Z',
     authors: ['David Park, Growth Strategist at SEOLOGY.AI'],
-  },
+  }
 }
 
 export default function BlogPost() {

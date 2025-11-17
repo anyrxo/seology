@@ -145,7 +145,7 @@ export default function BlogPost() {
     "addressRegion": "CA",
     "postalCode": "94105",
     "addressCountry": "US"
-  },
+  }
   "sameAs": [
     "https://twitter.com/seologyai",
     "https://linkedin.com/company/seologyai",
@@ -283,13 +283,13 @@ export default function BlogPost() {
       "position": 1,
       "name": "Home",
       "item": "https://seology.ai"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
       "item": "https://seology.ai/blog"
-    },
+    }
     {
       "@type": "ListItem",
       "position": 3,

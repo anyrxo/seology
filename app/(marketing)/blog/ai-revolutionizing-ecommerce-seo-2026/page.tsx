@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'How AI is Revolutionizing E-commerce SEO in 2026: $4.5B Market Disruption | SEOLOGY.AI',
   description: 'The AI SEO revolution is here. Discover how artificial intelligence is disrupting the $4.5B SEO market, delivering 45% traffic increases and 98% cost savings over traditional agencies. Real data from 2.3M+ monthly visitors.',
-  keywords: 'AI SEO, AI SEO tools 2026, ecommerce SEO automation, AI vs traditional SEO, SEO automation statistics, AI-powered SEO',
-  openGraph: {
-    title: 'AI Revolutionizing E-commerce SEO: The $4.5B Market Shift',
-    description: "65% of businesses now see better results with AI SEO. Here\'s why traditional agencies are becoming obsolete.",
-    type: 'article',
-    publishedTime: '2025-12-18T09:00:00Z',
-    authors: ['Marcus Rodriguez, Head of AI Strategy at SEOLOGY.AI'],
-  },
 }
 
 export default function BlogPost() {

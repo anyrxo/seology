@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'AI SEO Writer Guide 2026: Best Tools, Performance (4,162% Growth), Content Quality',
   description: '86% of SEO experts use AI writers. Best tools deliver 4,162% traffic growth, 80% increases in 4 months. Complete guide: quality optimization, E-E-A-T, ranking performance, human-AI collaboration.',
-  keywords: 'ai seo writer, ai seo content writer, best ai seo writer, ai content writing seo, seo ai writer, ai writer for seo, ai seo content creation, ai seo writing tools, seo content generator ai, ai powered seo writing',
-  openGraph: {
-    title: 'AI SEO Writer Guide 2026: Best Tools, 4,162% Traffic Growth Results',
-    description: '86% of SEO experts use AI writers. Tools deliver 4,162% traffic growth, 80% organic increases. E-E-A-T optimization, quality best practices, human-AI workflow.',
-    type: 'article',
-    publishedTime: '2025-12-21T10:00:00Z',
-    authors: ['Alexandra Winters, Content Strategy Expert'],
-  },
 }
 
 export default function AISEOWriterGuidePage() {

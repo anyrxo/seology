@@ -7,10 +7,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026',
     description: '87% of Shopify stores make these critical SEO mistakes. Learn from our analysis of 2.3M+ monthly visitors and fix them automatically.',
-    type: 'article',
-    publishedTime: '2025-12-15T10:00:00Z',
-    authors: ['Sarah Chen, Senior SEO Strategist at SEOLOGY.AI'],
-  },
 }
 
 export default function BlogPost() {

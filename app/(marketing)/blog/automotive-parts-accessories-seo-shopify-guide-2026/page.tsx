@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Automotive Parts & Accessories SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'E-commerce automotive aftermarket reaches $256.31B in 2025, growing to $289.3B by 2026. Master ACES/PIES fitment data, vehicle compatibility SEO, part number optimization, and marketplace strategies that convert 70% online shoppers.',
-  keywords: 'automotive parts SEO, auto accessories optimization, fitment data SEO, ACES PIES standards, vehicle compatibility, part number SEO, aftermarket ecommerce, make model year targeting, Amazon automotive, eBay Motors SEO, automotive marketplace, car parts Shopify',
-  openGraph: {
-    title: 'Automotive Parts & Accessories SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'E-commerce automotive aftermarket reaches $256.31B in 2025, growing to $289.3B by 2026. Master ACES/PIES fitment data, vehicle compatibility SEO, part number optimization, and marketplace strategies.',
-    type: 'article',
-    publishedTime: '2025-12-20T17:00:00Z',
-    authors: ['David Richardson, Automotive Aftermarket SEO Specialist'],
-  },
 }
 
 export default function AutomotivePartsAccessoriesSEOGuide() {
@@ -152,20 +144,20 @@ export default function AutomotivePartsAccessoriesSEOGuide() {
   "brand": {
     "@type": "Brand",
     "name": "WeatherTech"
-  },
+  }
   "vehicleCompatibility": {
     "@type": "VehicleCompatibility",
     "vehicleYear": "2022",
     "vehicleMake": "Tesla",
     "vehicleModel": "Model 3",
     "vehicleTrim": ["Standard Range Plus", "Long Range", "Performance"]
-  },
+  }
   "offers": {
     "@type": "Offer",
     "price": "249.95",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock"
-  },
+  }
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.8",

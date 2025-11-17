@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Books & Publishing SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Online books market reaches $26.04B in 2025, growing to $48.27B by 2034. Master ISBN optimization, genre targeting, Amazon Kindle SEO, audiobook strategies, and self-publishing discoverability.',
-  keywords: 'book SEO, publishing ecommerce SEO, ISBN optimization, genre categories SEO, Amazon Kindle SEO, self-publishing marketing, audiobook SEO, independent bookstore SEO, ebook optimization, author platform SEO, book discoverability, literary genre targeting, Shopify bookstore',
-  openGraph: {
-    title: 'Books & Publishing SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
-    description: 'Online books market reaches $26.04B in 2025, growing to $48.27B by 2034. Master ISBN optimization, genre targeting, Amazon Kindle SEO, audiobook strategies, and self-publishing discoverability.',
-    type: 'article',
-    publishedTime: '2025-12-20T15:00:00Z',
-    authors: ['Rebecca Thompson, Book Publishing & Literary SEO Specialist'],
-  },
 }
 
 export default function BooksPublishingSEOGuide2026() {

@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Shopify Schema Markup Guide 2026: Get Rich Results & 35% Higher CTR | SEOLOGY.AI',
   description: 'Schema markup gets you rich snippets in Google - star ratings, prices, availability. This complete guide shows how to implement structured data on Shopify for 35% higher click-through rates in 2026.',
-  keywords: 'Shopify schema markup, structured data Shopify, rich snippets, JSON-LD, product schema, review schema, ecommerce SEO',
-  openGraph: {
-    title: 'Shopify Schema Markup 2026: Get Rich Results (35% Higher CTR)',
-    description: 'Implement schema markup correctly and dominate Google search with rich snippets. Complete guide with code examples.',
-    type: 'article',
-    publishedTime: '2025-12-24T09:00:00Z',
-    authors: ['David Kim, Technical SEO Specialist at SEOLOGY.AI'],
-  },
 }
 
 export default function BlogPost() {

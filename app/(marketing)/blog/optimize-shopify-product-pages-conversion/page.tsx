@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Shopify Product Page Optimization 2026: Convert 4.8% vs 1.4% Average | SEOLOGY.AI',
   description: 'Top Shopify stores convert at 4.8% while average stores get 1.4%. This complete guide reveals the 11 elements that triple your conversion rate, backed by December 2025 research.',
-  keywords: 'Shopify product page optimization, product page conversion rate, Shopify conversion optimization, ecommerce product pages, conversion rate optimization',
-  openGraph: {
-    title: 'Shopify Product Page Optimization: 4.8% Conversion Guide',
-    description: 'The 11 proven elements that separate 1.4% converters from 4.8% top performers. Real data from 2025.',
-    type: 'article',
-    publishedTime: '2025-12-23T08:00:00Z',
-    authors: ['Lisa Thompson, Conversion Optimization Lead at SEOLOGY.AI'],
-  },
 }
 
 export default function BlogPost() {

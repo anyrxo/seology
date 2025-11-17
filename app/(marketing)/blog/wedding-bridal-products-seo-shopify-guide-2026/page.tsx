@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Wedding & Bridal Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global wedding wear market reaches $109.93B by 2030, with bridal gowns growing to $97.60B by 2033. Master seasonal engagement patterns, emotional search intent, Pinterest optimization, and personalization strategies that convert brides.',
-  keywords: 'wedding SEO, bridal products optimization, wedding dress SEO, bridal gown marketing, wedding planning ecommerce, Pinterest wedding marketing, engagement season SEO, bridal shopping behavior, wedding vendor SEO, Shopify wedding store',
-  openGraph: {
-    title: 'Wedding & Bridal Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
-    description: 'Global wedding wear market reaches $109.93B by 2030, with bridal gowns growing to $97.60B by 2033. Master seasonal engagement patterns and emotional search intent.',
-    type: 'article',
-    publishedTime: '2025-12-20T20:00:00Z',
-    authors: ['Isabella Chen, Wedding & Bridal Ecommerce SEO Specialist'],
-  },
 }
 
 export default function WeddingBridalProductsSEOGuide() {

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2025-12-20T08:00:00Z',
     authors: ['Dr. Elena Petrov, Web Performance Engineer'],
-  },
+  }
 }
 
 export default function CoreWebVitalsPageExperienceShopify2026() {

@@ -315,11 +315,11 @@ export default function BlogPost() {
     "@type": "ContactPoint",
     "telephone": "+1-555-123-4567",
     "contactType": "customer support"
-  },
+  }
   "founder": {
     "@type": "Person",
     "name": "John Smith"
-  },
+  }
   "foundingDate": "2024-01-01",
   "address": {
     "@type": "PostalAddress",

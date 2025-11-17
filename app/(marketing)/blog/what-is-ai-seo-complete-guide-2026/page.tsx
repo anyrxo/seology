@@ -3,14 +3,6 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'What is AI SEO? Complete Guide 2026 | AI Search Optimization Explained',
   description: 'AI SEO market reaches $67B in 2025, projected to hit $826B by 2030. Discover how 82% of businesses use AI for search optimization, achieving 49.2% ranking improvements, 50% time savings, and 6-10% revenue increases. Complete guide to AI-powered SEO automation.',
-  keywords: 'ai seo, ai and seo, ai for seo, what is ai seo, ai seo tools, ai seo software, ai seo optimization, artificial intelligence seo, ai powered seo, ai seo automation, ai seo agency, machine learning seo',
-  openGraph: {
-    title: 'What is AI SEO? Complete Guide to AI-Powered Search Optimization 2026',
-    description: '$67B AI SEO market in 2025 growing to $826B by 2030. 82% business adoption, 49.2% ranking improvements, 50% time savings, 68% higher ROI. Learn how AI transforms search optimization through automation, data analysis, and 24/7 optimization.',
-    type: 'article',
-    publishedTime: '2025-12-21T03:00:00Z',
-    authors: ['Dr. Nathan Brooks, AI & SEO Technology Specialist'],
-  },
 }
 
 export default function WhatIsAISEOPage() {
