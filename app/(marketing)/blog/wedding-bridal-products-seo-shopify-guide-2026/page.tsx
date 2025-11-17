@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Wedding & Bridal Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global wedding wear market reaches $109.93B by 2030, with bridal gowns growing to $97.60B by 2033. Master seasonal engagement patterns, emotional search intent, Pinterest optimization, and personalization strategies that convert brides.',

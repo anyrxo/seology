@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Event Schema Markup: 18 Tactics to Get Rich Results & Drive Ticket Sales',
   description: 'Event schema markup increased event page CTR 67% and ticket sales 43% by displaying dates, locations, and prices directly in Google search results. These 18 tactics show how to implement Event schema for maximum visibility and conversions.',

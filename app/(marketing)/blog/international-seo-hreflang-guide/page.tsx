@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'International SEO & Hreflang: The Complete Implementation Guide',
   description: 'Expanding globally? This guide shows how to implement hreflang correctly and avoid the 7 fatal mistakes that kill international rankings.',

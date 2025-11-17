@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: '301 Redirects: Complete Guide to Preserving SEO Value',
   description: 'Bad redirects destroy 15-30% of your rankings. This guide shows how to implement 301 redirects without losing SEO value.',

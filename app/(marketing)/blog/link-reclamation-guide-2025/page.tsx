@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Link2, Link2Off, Search, Mail, AlertTriangle, TrendingUp, RefreshCw, Eye, Target, Bell, BarChart } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Link Reclamation: Recover Lost Backlinks & Boost Authority',
   description: "You\'re losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.",

@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Pet Products & Supplies SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global pet supplies market reaches $248.71B in 2025, growing to $369.85B by 2030. Master subscription optimization, premium product positioning, pet parent psychology, omnichannel strategies, and species-specific targeting.',

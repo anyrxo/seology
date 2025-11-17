@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Canonical Tags: The Definitive Guide to Fixing Duplicate Content',
   description: 'Canonical tags prevent duplicate content penalties. This guide shows when and how to use rel=canonical correctly.',

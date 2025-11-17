@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Keyword Research Strategy That Actually Works in 2025',
   description: 'Stop wasting time on low-value keywords. This strategy finds high-converting keywords that actually drive sales.',

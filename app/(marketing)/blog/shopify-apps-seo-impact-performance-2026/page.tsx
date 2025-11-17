@@ -1,5 +1,3 @@
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: 'Shopify Apps SEO Impact: Performance & Ranking Effects 2026 | SEOLOGY.AI',
   description: 'Average Shopify app adds 1.2s to page load time and 400KB JavaScript. Stores lose 40% of customers to app-induced slowdowns. Learn which apps kill SEO and how to optimize with December 2025 data.',

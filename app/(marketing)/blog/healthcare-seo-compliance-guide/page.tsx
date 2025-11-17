@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Shield, AlertTriangle } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Healthcare SEO: HIPAA-Compliant Strategies That Actually Rank',
   description: 'Healthcare SEO has strict compliance requirements. This guide balances patient privacy with ranking on Google.',

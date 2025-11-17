@@ -1,5 +1,3 @@
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: 'Robots.txt & Crawl Control for Shopify: 2026 Complete Guide | SEOLOGY.AI',
   description: '30% of websites have robots.txt errors harming SEO. 70% of searches influenced by AI crawlers by 2026. Learn Shopify robots.txt customization, avoid blocking mistakes, control Googlebot and AI bots with December 2025 best practices.',

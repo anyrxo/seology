@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Technical SEO Audit Checklist: 31 Critical Issues to Fix in 2025',
   description: 'Most sites have 50+ technical SEO issues killing their rankings. This checklist catches them all—and SEOLOGY fixes them automatically.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Crawl Budget Optimization: Get More Pages Indexed Faster',
   description: "Large sites waste 70% of their crawl budget. Here\'s how to optimize crawl budget and get every important page indexed.",

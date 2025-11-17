@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Subscription Box Services SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global subscription box market reaches $44.88B in 2025, growing to $186.76B by 2033 (19.51% CAGR). Master retention SEO, unboxing content, discovery-based targeting, churn reduction strategies, and recurring revenue optimization.',

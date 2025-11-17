@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Content Optimization: Why AI Beats Manual Editing Every Time',
   description: "Manual content optimization takes hours per page. SEOLOGY\'s AI optimizes hundreds of pages in minutes.",

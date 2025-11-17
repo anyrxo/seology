@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Handmade & Artisan Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global handmade crafts market reaches $906B, growing to $1.94T by 2033 (8.83% CAGR). Master maker storytelling, customization SEO, sustainability marketing, Etsy marketplace optimization, and artisan brand positioning strategies.',

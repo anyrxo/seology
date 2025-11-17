@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Lazy Loading SEO: 15 Tactics to Speed Up Sites 67% Without Losing Rankings',
   description: 'Lazy loading optimization reduced page load times 67% and improved LCP 2.1s without hurting rankings by using native browser lazy loading, Intersection Observer, and SEO-safe implementation patterns.',

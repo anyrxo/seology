@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics) — 67% Traffic Boost',
   description: "Orphan pages with no internal links waste 34% of your site\'s ranking potential. Orphan page recovery strategy identified 284 hidden pages and recovered 67% more organic traffic by integrating them into site architecture.",

@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Dropshipping SEO for Shopify: Optimization Guide Without Inventory 2026 | SEOLOGY.AI',
   description: 'Dropshipping market reaches $590B by 2026. 78% of new Shopify stores are dropshipping. Learn how to overcome duplicate content, build trust, and optimize for SEO without holding inventory.',

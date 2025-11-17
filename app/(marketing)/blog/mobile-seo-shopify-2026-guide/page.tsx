@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Mobile SEO for Shopify: Complete 2026 Guide to Mobile-First Optimization | SEOLOGY.AI',
   description: 'Master mobile SEO for your Shopify store in 2026. 62.66% of traffic is mobile—learn Core Web Vitals, mobile-first indexing, and proven optimization strategies that increase conversions by 32%.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'WooCommerce SEO: 21 Optimizations That Boosted Sales 156% in 2025',
   description: 'WooCommerce needs specific SEO tweaks generic plugins miss. These 21 optimizations increased organic traffic 230% and sales 156% for 300+ stores.',

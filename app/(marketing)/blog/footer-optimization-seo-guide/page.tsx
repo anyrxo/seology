@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Footer Optimization: 17 Tactics to Turn Your Footer Into an SEO Asset (Not a Liability)',
   description: 'Footer optimization increased internal link equity distribution 41% and conversion rate 23% by transforming the forgotten footer into a strategic SEO asset. These 17 tactics show how to optimize footers for rankings and conversions while avoiding penalties.',

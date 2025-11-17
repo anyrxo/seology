@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026 | SEOLOGY.AI',
   description: "Discover the critical SEO mistakes destroying your Shopify rankings after Google\'s 2025 algorithm updates. Expert analysis from SEOLOGY.AI reveals why 87% of stores are losing traffic—and how to fix it automatically.",

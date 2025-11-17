@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Landing Page SEO: Rank High & Convert Better (16 Dual-Optimization Tactics) — 89% More Conversions',
   description: "Landing pages optimized for SEO alone rank but don\'t convert. Dual-optimization strategy balanced rankings with conversions—increasing organic traffic 54% AND conversion rate 89% simultaneously.",

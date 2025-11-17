@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Electronics & Tech Gadgets SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Electronics ecommerce reaches $736.5B in 2025, growing to $1.2T by 2032. Master technical specifications SEO, AI shopping optimization, review strategies, and rapid product lifecycle management for tech gadgets.',

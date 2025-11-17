@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Lock } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'HTTPS Migration Guide: Move to SSL Without Losing Rankings',
   description: 'HTTPS migrations kill rankings when done wrong. This step-by-step guide ensures zero traffic loss during migration.',

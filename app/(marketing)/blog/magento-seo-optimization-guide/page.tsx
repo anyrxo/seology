@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Package, Zap, Code, Settings, TrendingUp, ShoppingCart } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Magento SEO: Complete Optimization Guide for Adobe Commerce',
   description: 'Magento has unique SEO challenges. This guide covers 28 optimizations that increased organic revenue by 203%.',

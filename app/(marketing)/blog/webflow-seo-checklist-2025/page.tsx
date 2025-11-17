@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Webflow SEO Checklist: Optimize Your Designer Site for Rankings',
   description: 'Webflow is designer-friendly but has SEO quirks. This checklist ensures your Webflow site ranks perfectly.',

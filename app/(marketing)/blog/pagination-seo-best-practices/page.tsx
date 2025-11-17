@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Pagination SEO: Handle Multi-Page Content Without Killing Rankings',
   description: 'Pagination confuses Google and wastes crawl budget. This guide shows 5 proven methods to handle paginated content.',

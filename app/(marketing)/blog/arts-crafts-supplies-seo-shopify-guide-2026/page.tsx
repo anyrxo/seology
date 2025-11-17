@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Arts & Crafts Supplies SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global arts & crafts market reaches $47.97B in 2025, growing to $50.65B in 2026. Master project-based content optimization, skill-level targeting, seasonal demand strategies, tutorial integration, eco-friendly positioning, and DIY community building.',

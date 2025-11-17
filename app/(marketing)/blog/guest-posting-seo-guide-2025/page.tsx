@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Guest Posting for SEO: How to Build Authority Links That Rank',
   description: 'Most guest posts are worthless. This strategy builds high-authority backlinks that actually move the needle.',

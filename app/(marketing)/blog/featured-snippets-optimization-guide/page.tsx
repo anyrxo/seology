@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Featured Snippets: How to Rank in Position Zero (13 Proven Tactics)',
   description: 'Featured snippets get 35% of all clicks. These 13 tactics help you steal position zero from competitors.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'JavaScript SEO: The Complete Guide for React, Vue & Angular',
   description: 'JavaScript frameworks break SEO. This guide shows how to make React, Vue, and Angular sites rank perfectly on Google.',

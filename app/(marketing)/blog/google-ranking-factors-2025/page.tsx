@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Google Ranking Factors 2025: 19 Data-Backed Factors That Actually Move the Needle — 94% Correlation',
   description: 'Data analysis of 1M+ rankings revealed 19 ranking factors with 94% correlation to top positions, debunked 200+ myths, and identified Core Web Vitals (73% impact), E-E-A-T signals (87% correlation), and backlink quality (91% correlation) as the highest-ROI optimizations.',

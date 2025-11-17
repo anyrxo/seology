@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) — 84% Performance Boost',
   description: 'PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site. Site speed tool comparison increased Core Web Vitals scores 84% by understanding which metrics matter and why each tool reports different results.',

@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions | SEOLOGY.AI',
   description: 'Every 0.1s speed improvement increases conversions by 8.4%. Learn proven Shopify speed optimization strategies with December 2025 benchmarks—boost performance and rankings now.',

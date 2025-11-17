@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Rich Snippets: Complete Guide to 23 Enhanced SERP Features in 2025',
   description: 'Rich snippets boost CTR by 35% on average and dominate page one results. This complete guide shows how to implement every type of rich snippet Google rewards with detailed schema markup examples.',

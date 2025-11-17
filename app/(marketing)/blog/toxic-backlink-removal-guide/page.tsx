@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, AlertTriangle, Shield, Search, Trash2, FileText, TrendingDown } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Toxic Backlink Removal: Clean Your Link Profile & Recover Rankings',
   description: 'Toxic backlinks are killing your rankings. This guide identifies and removes toxic links before Google penalizes you.',

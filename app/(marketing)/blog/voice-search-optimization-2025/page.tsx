@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Voice Search Optimization: 15 Tactics to Dominate Alexa, Siri & Google in 2025',
   description: '58% of consumers use voice search to find local businesses. These 15 tactics increased voice search visibility 340% for 200+ sites.',

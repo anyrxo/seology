@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Anchor Text Optimization: Natural Link Building That Ranks',
   description: 'Over-optimized anchor text triggers penalties. This strategy builds natural anchor text diversity that ranks safely.',

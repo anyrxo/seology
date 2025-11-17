@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'SERP Click-Through Rate: 31 Tactics That Increased CTR by 214%',
   description: 'Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings—generating massive traffic growth from the same positions.',

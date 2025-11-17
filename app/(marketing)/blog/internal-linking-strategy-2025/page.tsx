@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Internal Linking Strategy: Boost Rankings Without Building Links',
   description: 'Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by 40% in 90 days—no backlinks needed.',

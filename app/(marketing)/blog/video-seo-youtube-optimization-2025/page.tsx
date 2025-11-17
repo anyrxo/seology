@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Video SEO: YouTube Optimization Guide for Maximum Rankings',
   description: 'Video drives 82% of web traffic. This guide shows how to rank videos on YouTube and Google with proven optimization tactics.',

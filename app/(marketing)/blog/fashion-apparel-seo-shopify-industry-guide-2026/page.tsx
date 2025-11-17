@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Fashion & Apparel SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Fashion ecommerce reaches $1.6 trillion by 2030. 79.6% of fashion traffic is mobile. 25% return rate. Learn seasonal SEO, size/fit optimization, visual search, and strategies that reduce returns and boost conversions.',

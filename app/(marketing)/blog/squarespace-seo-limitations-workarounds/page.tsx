@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, AlertTriangle, XCircle, TrendingUp, Code, Zap } from 'lucide-react'
-
 export const metadata: Metadata = {
   title: 'Squarespace SEO: Limitations, Workarounds & Best Practices',
   description: 'Squarespace has serious SEO limitations. This guide shows workarounds and when to migrate to a better platform.',

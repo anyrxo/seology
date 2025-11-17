@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, FileCode, Image, Video, FolderTree, Search, AlertTriangle, Target, Settings, Database } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'XML Sitemap Optimization: Get Every Page Indexed Fast',
   description: 'A poorly optimized sitemap wastes your crawl budget. This guide ensures Google finds and indexes every important page.',

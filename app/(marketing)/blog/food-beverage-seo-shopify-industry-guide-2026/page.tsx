@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Food & Beverage SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Food ecommerce reaches $1.03 trillion by 2032. 20% CAGR growth. Learn local SEO, organic certification optimization, subscription models, and strategies that achieve 4.95% conversion rates (industry-leading).',

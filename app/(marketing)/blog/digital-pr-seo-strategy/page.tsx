@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Digital PR for SEO: Build Authority Links Through Media Coverage',
   description: 'Digital PR builds the highest-authority links possible. This strategy earned 156 links from major publications.',

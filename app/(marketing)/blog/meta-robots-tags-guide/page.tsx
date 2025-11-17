@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Meta Robots Tags: 18 Directives to Control Indexing & Crawling — 94% Crawl Budget Saved',
   description: 'Meta robots tags optimization saved 94% crawl budget by blocking low-value pages, prevented 87% duplicate content indexation with noindex, and improved featured snippet control 73% using max-snippet and other advanced directives for surgical indexing control.',

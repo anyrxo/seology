@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Google Analytics 4 for SEO: Complete Tracking & Reporting Guide',
   description: 'GA4 changes everything for SEO tracking. This guide shows how to track rankings, traffic, and conversions in the new GA4.',

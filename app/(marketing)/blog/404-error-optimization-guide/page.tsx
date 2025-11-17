@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: '404 Error Optimization: Turn Dead Pages Into SEO Opportunities',
   description: '404 errors kill user experience and rankings. This guide turns broken pages into conversion opportunities.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Breadcrumb Navigation SEO: 14 Best Practices for Rankings & UX in 2025',
   description: 'Breadcrumbs boost rankings by 47% and reduce bounce rate by 32%. This guide shows exactly how to implement breadcrumbs with schema markup for maximum SEO impact.',

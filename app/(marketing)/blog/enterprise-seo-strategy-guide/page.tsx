@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Enterprise SEO Strategy: Scale SEO for 10,000+ Pages',
   description: 'Enterprise SEO requires different strategies. This guide shows how to manage SEO for massive websites at scale.',

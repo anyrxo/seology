@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Google Search Console Mastery: Extract Every SEO Insight',
   description: 'Most people waste 90% of Search Console data. This guide unlocks every insight to boost rankings and traffic.',

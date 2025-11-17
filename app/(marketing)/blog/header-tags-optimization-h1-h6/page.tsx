@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Header Tags Optimization: H1-H6 Best Practices for SEO',
   description: 'Header tags structure your content for Google. This guide shows the exact header hierarchy that ranks pages #1.',

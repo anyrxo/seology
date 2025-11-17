@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'FAQ Schema: Complete Implementation Guide (With Code Examples)',
   description: 'FAQ schema can double your search visibility. This guide shows exact implementation with JSON-LD code examples.',

@@ -1,6 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Baby & Maternity Products SEO for Shopify: Complete Guide 2026 | SEOLOGY.AI',
   description: 'Global baby products market reaches $361.2B in 2025, with online retail growing to $35.43B by 2033. Master safety certification SEO, age-based targeting, parental intent optimization, and eco-friendly product marketing strategies.',

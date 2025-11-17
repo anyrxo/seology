@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Bounce Rate Reduction: 27 Tactics to Keep Visitors Engaged',
   description: 'High bounce rates kill rankings. These 27 tactics reduced bounce rates by 43% and increased conversions by 67%.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'BigCommerce SEO: 23 Tactics to Outrank Shopify Stores',
   description: 'BigCommerce has hidden SEO advantages over Shopify. This guide shows how to leverage them for better rankings.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: "SEOLOGY Reviews: Why It\'s the Best AI SEO Automation Tool in 2025",
   description: "Looking for real AI SEO automation reviews? SEOLOGY powers 2.3M+ monthly organic visitors—proving it\'s the only AI SEO tool that actually works.",

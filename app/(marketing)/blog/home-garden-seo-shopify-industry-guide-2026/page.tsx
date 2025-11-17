@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Home & Garden SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Home & garden ecommerce grows 13.4% annually to $49.62B by 2029. Master seasonal SEO, DIY content strategies, smart gardening optimization, and omnichannel tactics to dominate this $21B U.S. market.',

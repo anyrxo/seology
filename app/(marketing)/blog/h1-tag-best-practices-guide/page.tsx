@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'H1 Tag Best Practices: 17 Rules for H1s That Rank & Convert — 36% Higher CTR',
   description: 'H1 tags with target keywords rank 47% higher than generic headlines. H1 tag best practices increased organic CTR 36% and rankings 12 positions by implementing descriptive, keyword-rich H1s on 1,847 pages.',

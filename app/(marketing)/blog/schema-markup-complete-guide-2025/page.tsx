@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Schema Markup in 2025: The Complete Guide (With Real Examples)',
   description: "Schema markup can 3x your click-through rates. Here\'s how to implement it correctly—or let SEOLOGY do it automatically.",

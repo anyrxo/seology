@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'FAQ Page Optimization: 19 Tactics to Rank for 100+ Questions in 2025',
   description: 'FAQ pages rank for an average of 127 long-tail keywords and drive 47% traffic increases when optimized correctly. This complete guide shows how to structure, write, and optimize FAQ content for maximum search visibility.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'SEO ROI Calculator: Prove Your SEO Investment is Worth It',
   description: "Can\'t prove SEO ROI to your boss? This calculator shows exactly how much revenue your SEO generates—with real data.",

@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'AI SEO for Shopify Stores: Complete Guide 2026 | Boost Rankings & Sales',
   description: 'AI SEO delivers 38% lower acquisition costs, 34% higher conversions, 4-7× ROI for Shopify stores. Learn automation for 2,400+ products, meta tags, structured data, and GEO optimization for ChatGPT, Google Gemini. Complete 2026 Shopify AI SEO guide.',

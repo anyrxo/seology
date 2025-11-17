@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Page Titles vs H1 Tags: 14 Rules for When to Match (and When to Differ) — 43% CTR Boost',
   description: 'Title tag and H1 optimization increased CTR 43% and conversions 31% by matching titles and H1s for informational content but using different copy for commercial pages to maximize both rankings and on-page conversion.',

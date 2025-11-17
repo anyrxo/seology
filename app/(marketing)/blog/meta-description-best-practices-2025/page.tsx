@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Meta Description Best Practices: Boost CTR by 214% in 2025',
   description: 'Most meta descriptions get ignored by Google. These proven formulas guarantee Google uses yours—and users click.',

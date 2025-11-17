@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Review Schema: Get Star Ratings in Search Results (15 Implementation Tactics) — 35% CTR Boost',
   description: 'Review star ratings in Google search results increase CTR 35% and conversions 28%. Review schema markup implementation with proper structured data earned 4.8-star displays for 847 product pages.',

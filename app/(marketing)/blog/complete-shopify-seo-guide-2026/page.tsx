@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'The Complete Shopify SEO Guide for 2026: Rank #1 on Google (43-Step Checklist) | SEOLOGY.AI',
   description: "Master Shopify SEO in 2026 with this complete beginner\'s guide. 43 proven steps to rank #1 on Google, get 27.6% of all clicks, and dominate organic search. Updated for Google\'s latest algorithm.",

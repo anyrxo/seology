@@ -1,5 +1,3 @@
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: 'Best AI SEO Software 2026: Complete Platform Comparison Guide | ROI Analysis',
   description: '68% of enterprises use AI SEO software in 2025. Compare top platforms: Scalenut ($39/mo), SE Ranking, SEMrush. See 4,162% traffic growth case studies, pricing, and ROI data.',

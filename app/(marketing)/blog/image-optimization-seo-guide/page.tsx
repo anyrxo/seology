@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Image Optimization for SEO: 23 Tactics That Actually Work',
   description: 'Images can drive 30% of your organic traffic. This guide shows how to optimize images for Google Image Search and faster load times.',

@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'CRO for SEO: 19 Tactics to Turn Rankings Into Revenue (156% Increase)',
   description: 'Rankings without conversions are worthless. These 19 CRO tactics increased revenue per visitor 156% by optimizing organic traffic for conversions with above-the-fold CTAs, trust signals, and friction reduction.',

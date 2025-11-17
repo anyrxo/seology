@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026 | SEOLOGY.AI',
   description: 'Rich snippets increase CTR by 20-35%, and pages with schema are 3x more likely to appear in rich results. Master Product, Review, FAQ, and Breadcrumb schema for Shopify—boost visibility, CTR, and rankings with structured data optimization.',

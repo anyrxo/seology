@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Shopify Page Speed Optimization: 17 Proven Tactics for 2025',
   description: 'Slow Shopify stores lose 40% of visitors. These 17 tactics guarantee sub-2s load times and higher conversions.',

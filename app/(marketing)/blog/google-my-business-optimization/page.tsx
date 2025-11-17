@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Google Business Profile Optimization: 17 Tactics That Increased Local Traffic 487% (Map Pack Dominance)',
   description: 'Google Business Profile optimization increased local search visibility 487% and map pack appearances 94% by implementing complete profile optimization, active posting, and strategic review management.',

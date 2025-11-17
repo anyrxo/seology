@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Long-Tail Keyword Strategy: 16 Tactics to Find Low-Competition Terms That Convert 2.5x Better',
   description: 'Long-tail keywords (3+ words) convert 2.5x better than head terms and face 47% less competition. This long-tail keyword strategy increased organic conversions 187% by targeting 342 specific, buyer-intent search queries.',

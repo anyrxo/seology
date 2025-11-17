@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Scale, Gavel, MapPin, Users, TrendingUp, Award, Star, Search, FileText, Target, DollarSign } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Legal SEO: Dominate "Attorney Near Me" & High-Value Keywords',
   description: 'Legal SEO is ultra-competitive. These strategies helped 41 law firms rank #1 for high-value keywords.',

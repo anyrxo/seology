@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Core Web Vitals Optimization: Complete Guide for 2025',
   description: 'Core Web Vitals are now a ranking factor. This guide shows you how to optimize LCP, FID, and CLS—and SEOLOGY automates it all.',

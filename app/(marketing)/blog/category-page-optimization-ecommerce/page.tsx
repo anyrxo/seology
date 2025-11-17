@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'E-commerce Category Page Optimization: 19 Tactics to Rank Higher Than Product Pages',
   description: 'Category pages drive 3.4x more traffic than product pages. This guide shows 19 proven tactics to optimize e-commerce category pages for maximum SEO impact.',

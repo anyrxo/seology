@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Site Architecture: SEO Best Practices for Maximum Crawlability in 2025',
   description: 'Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google—with 67% more pages indexed.',

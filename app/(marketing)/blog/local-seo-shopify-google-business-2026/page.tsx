@@ -1,6 +1,3 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'Local SEO for Shopify: Google Business Profile Optimization 2026 | SEOLOGY.AI',
   description: '1.5 billion "near me" searches happen monthly, and 76% lead to store visits within 24 hours. Master local SEO for Shopify with Google Business Profile optimization, NAP consistency, and multi-location strategies that drive foot traffic and online sales.',

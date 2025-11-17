@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export const metadata: Metadata = {
   title: 'URL Structure & Site Architecture for Shopify SEO: 2026 Best Practices | SEOLOGY.AI',
   description: 'Google confirms internal links are "supercritical" for SEO. Master Shopify URL structure and site architecture with the 3-click rule, flat hierarchy, and strategic internal linking.',

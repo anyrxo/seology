@@ -1,7 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Home, MapPin, Search, TrendingUp, Users, DollarSign } from 'lucide-react'
-
 export const metadata: Metadata = {
   title: 'Real Estate SEO: Dominate Local Search & Get More Listings',
   description: 'Real estate is hyper-competitive. This SEO strategy helped 73 agents dominate their local markets.',

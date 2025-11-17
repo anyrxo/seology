@@ -1,5 +1,3 @@
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: 'AI SEO Optimization: Complete Guide 2026 | 49.2% Ranking Improvements + Step-by-Step',
   description: '65% of businesses see better results with AI SEO optimization. Learn strategies delivering 49.2% ranking improvements, 30-50% ROI jumps, and 45% traffic boosts. Step-by-step implementation guide.',

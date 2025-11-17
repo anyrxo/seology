@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX — 58% More Indexation',
   description: 'Navigation menu optimization increased indexation 58%, boosted internal link equity distribution 42%, and improved Core Web Vitals 31% by structuring menus for both crawlability and user experience with proper hierarchy, descriptive anchor text, and mobile-first design.',

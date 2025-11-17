@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'Redirect Chains: 17 Tactics to Find & Fix Loops Killing Your Speed (82% Faster Pages)',
   description: 'Redirect chains waste 47% more crawl budget and add 350ms delay per hop. Fixing redirect chains improved page speed 82% and crawl efficiency 63% by eliminating multi-hop redirects and consolidating redirect paths.',

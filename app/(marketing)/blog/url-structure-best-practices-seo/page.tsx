@@ -1,8 +1,3 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-posts'
-
 export const metadata: Metadata = {
   title: 'URL Structure Best Practices: How Perfect URLs Boost Rankings 45%',
   description: 'URL structure affects rankings more than you think. These 18 best practices improved CTR by 28% and rankings by 45% for 500+ sites.',

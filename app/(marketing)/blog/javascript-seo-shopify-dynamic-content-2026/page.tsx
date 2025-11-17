@@ -1,5 +1,3 @@
-import { Metadata } from 'next'
-
 export const metadata: Metadata = {
   title: 'JavaScript SEO for Shopify: Making Dynamic Content Crawlable 2026 | SEOLOGY.AI',
   description: 'Without proper JavaScript SEO, Shopify stores lose 60-80% of organic visibility. Learn SSR vs CSR, rendering optimization, and how to make dynamic content crawlable with December 2025 best practices.',
