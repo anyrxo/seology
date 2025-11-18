@@ -285,6 +285,7 @@ export default function BlogPost() {
               </section>
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                  {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image className="w-8 h-8 text-blue-600" />
                   Image Sitemaps: Get Your Images Indexed
                 </h2>
