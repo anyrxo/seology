@@ -62,11 +62,9 @@ function StatItem({ icon, image, value, suffix = "", label, delay = 0 }: StatIte
               transition={{ delay: delay + i * 0.1, duration: 0.3 }}
               className="w-10 h-10 rounded-full bg-black/10 dark:bg-white/10 border-2 border-black/20 dark:border-white/20 shadow-lg overflow-hidden"
             >
-              <Image
+              <img
                 src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`}
                 alt="User"
-                width={40}
-                height={40}
                 className="w-full h-full object-cover"
               />
             </motion.div>

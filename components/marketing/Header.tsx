@@ -18,14 +18,14 @@ export default function Header() {
       <div className="w-full rounded-[18px] border border-black/10 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4">
-          {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+          {/* Logo - Hidden on mobile */}
+            <Link href="/" className="hidden md:flex items-center gap-2 group">
             <Image
               src="/images/logo.png"
               alt="Seology.ai"
               width={120}
               height={32}
-              className="h-5 sm:h-6 md:h-8 lg:h-10 w-auto dark:invert"
+              className="h-8 lg:h-10 w-auto dark:invert"
               priority
             />
           </Link>
