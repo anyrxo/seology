@@ -53,7 +53,7 @@ function StatItem({ icon, image, value, suffix = "", label, delay = 0 }: StatIte
     >
       {image ? (
         <div className="flex -space-x-2">
-          {['user1', 'user2', 'user3'].map((seed, i) => (
+          {['Sophia', 'Maria', 'Emily'].map((seed, i) => (
             <motion.div
               key={seed}
               initial={{ opacity: 0, scale: 0 }}
@@ -96,7 +96,7 @@ export default function StatsBar() {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <StatItem
-            image="https://api.dicebear.com/7.x/avataaars/svg?seed="
+            image="show"
             value={5000}
             suffix="+"
             label="Active Users"

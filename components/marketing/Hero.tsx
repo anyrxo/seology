@@ -184,7 +184,7 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-black dark:text-white font-bold text-lg">5,000+</div>
-                  <div className="text-xs text-black/40 dark:text-white/40">Active stores</div>
+                  <div className="text-xs text-black/40 dark:text-white/40">Active users</div>
                 </div>
               </div>
               <div className="flex items-center gap-3">
