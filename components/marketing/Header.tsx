@@ -78,36 +78,38 @@ export default function Header() {
             </Link>
           </nav>
 
-                 {/* Right Side - Desktop: Theme Switcher & CTA */}
-                 <div className="hidden md:flex items-center gap-4">
-                   <ThemeSwitcher />
-                   <Link href="/sign-up">
-                     <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
-                       Try SEOLOGY Free
-                     </Button>
-                   </Link>
-                 </div>
+          {/* Right Side - Single responsive section */}
+          <div className="flex items-center gap-3 md:gap-4">
+            {/* Theme Switcher - Show on all sizes */}
+            <ThemeSwitcher />
+            
+            {/* Desktop CTA Button */}
+            <Link href="/sign-up" className="hidden md:block">
+              <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
+                Try SEOLOGY Free
+              </Button>
+            </Link>
 
-                 {/* Right Side - Mobile: Theme Switcher, CTA & Hamburger Menu */}
-                 <div className="flex md:hidden items-center gap-3">
-                   <ThemeSwitcher />
-                   <Link href="/sign-up">
-                     <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-sm px-4 py-2 rounded-lg">
-                       Try Free
-                     </Button>
-                   </Link>
-                   <button
-                     className="p-2"
-                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                     aria-label="Toggle menu"
-                   >
-                     {mobileMenuOpen ? (
-                       <X className="h-6 w-6 text-black/60 dark:text-white/60" />
-                     ) : (
-                       <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
-                     )}
-                   </button>
-                 </div>
+            {/* Mobile CTA Button */}
+            <Link href="/sign-up" className="md:hidden">
+              <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-sm px-4 py-2 rounded-lg">
+                Try Free
+              </Button>
+            </Link>
+
+            {/* Hamburger Menu - Mobile only */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6 text-black/60 dark:text-white/60" />
+              ) : (
+                <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
