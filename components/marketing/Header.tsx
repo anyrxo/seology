@@ -18,20 +18,12 @@ export default function Header() {
       <div className="w-full rounded-[18px] border border-black/10 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4">
-          {/* Left Side - Mobile: Hamburger Menu, Desktop: Logo */}
+          {/* Left Side - Mobile: Theme Switcher, Desktop: Logo */}
           <div className="flex items-center gap-4">
-            {/* Hamburger Menu - Mobile only, LEFT side */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6 text-black/60 dark:text-white/60" />
-              ) : (
-                <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
-              )}
-            </button>
+            {/* Theme Switcher - Mobile only, LEFT side */}
+            <div className="md:hidden">
+              <ThemeSwitcher />
+            </div>
 
             {/* Logo - Desktop only */}
             <Link href="/" className="hidden md:flex items-center gap-2 group">
@@ -94,10 +86,12 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right Side - Theme Switcher & Desktop CTA */}
+          {/* Right Side - Mobile: Hamburger Menu, Desktop: Theme Switcher & CTA */}
           <div className="flex items-center gap-4">
-            {/* Theme Switcher - Show on all sizes */}
-            <ThemeSwitcher />
+            {/* Theme Switcher - Desktop only */}
+            <div className="hidden md:block">
+              <ThemeSwitcher />
+            </div>
             
             {/* Desktop CTA Button - Only one button */}
             <Link href="/sign-up" className="hidden md:block">
@@ -105,6 +99,19 @@ export default function Header() {
                 Try SEOLOGY Free
               </Button>
             </Link>
+
+            {/* Hamburger Menu - Mobile only, RIGHT side */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6 text-black/60 dark:text-white/60" />
+              ) : (
+                <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
+              )}
+            </button>
           </div>
         </div>
 
