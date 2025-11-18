@@ -64,11 +64,8 @@ export default function Blog() {
                       <p className="text-black/60 dark:text-white/60 mb-4 flex-1">
                         {post.description}
                       </p>
-                      {/* Author & CTA */}
-                      <div className="flex items-center justify-between pt-4 border-t border-black/10 dark:border-white/10">
-                        <span className="text-sm text-black/60 dark:text-white/60">
-                          By {post.author}
-                        </span>
+                      {/* CTA */}
+                      <div className="flex items-center justify-end pt-4 border-t border-black/10 dark:border-white/10">
                         <span className="flex items-center gap-1 text-black dark:text-white font-medium text-sm group-hover:gap-2 transition-all">
                           Read more
                           <ArrowRight className="h-4 w-4" />

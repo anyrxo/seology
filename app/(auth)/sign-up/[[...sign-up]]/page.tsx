@@ -1,46 +1,75 @@
+'use client'
+
 import { SignUp } from '@clerk/nextjs'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { Sparkles, Shield, Lock, Zap, CheckCircle2 } from 'lucide-react'
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-white dark:bg-black">
       {/* Left Side - Form */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-neutral--100">
-        <div className="w-full max-w-md">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        </div>
+
+        <div className="w-full max-w-md relative z-10">
           {/* Logo */}
-          <div className="text-center mg-bottom-40px">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-10"
+          >
             <Link href="/" className="inline-block">
-              <h2 className="text-600 bold color-neutral-900">
-                SEOLOGY<span className="color-accent--primary-1">.AI</span>
-              </h2>
+              <span className="text-3xl font-black text-black dark:text-white">
+                Seology.ai
+              </span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Header */}
-          <div className="text-center mg-bottom-32px">
-            <h1 className="text-500 bold color-neutral-900 mg-bottom-12px">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-center mb-6"
+          >
+            <h1 className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3">
               Start Fixing SEO Issues Automatically
             </h1>
-            <p className="text-200 color-neutral-600">
+            <p className="text-lg text-black/60 dark:text-white/60">
               Join thousands of businesses using AI-powered SEO automation
             </p>
-          </div>
+          </motion.div>
 
           {/* Value Proposition Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mg-bottom-24px">
-            <div className="badge green">
-              <span className="text-50 medium">Free 14-day trial</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex flex-wrap justify-center gap-2 mb-6"
+          >
+            <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
+              <span className="text-sm font-semibold text-black dark:text-white">Free 14-day trial</span>
             </div>
-            <div className="badge primary">
-              <span className="text-50 medium">No credit card required</span>
+            <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
+              <span className="text-sm font-semibold text-black dark:text-white">No credit card required</span>
             </div>
-            <div className="badge neutral">
-              <span className="text-50 medium">Cancel anytime</span>
+            <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
+              <span className="text-sm font-semibold text-black dark:text-white">Cancel anytime</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Sign Up Card */}
-          <div className="card pd-32px---24px bg-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-black/10 dark:border-white/10 mb-6"
+          >
             <SignUp
               forceRedirectUrl="/dashboard/onboarding"
               signInUrl="/sign-in"
@@ -50,75 +79,77 @@ export default function SignUpPage() {
                   card: 'shadow-none border-0 bg-transparent p-0',
                   headerTitle: 'hidden',
                   headerSubtitle: 'hidden',
-                  formButtonPrimary: 'btn-primary large w-full',
-                  formFieldLabel: 'text-100 medium color-neutral-800',
-                  formFieldInput: 'rt-footer-newsletter-input w-full',
-                  footerActionLink: 'color-accent--primary-1 text-100 medium hover:underline',
-                  socialButtonsBlockButton: 'btn-secondary large w-full mg-bottom-12px',
-                  dividerLine: 'bg-neutral--400',
-                  dividerText: 'text-100 color-neutral-600',
-                  formFieldLabelRow: 'mg-bottom-8px',
-                  footer: 'mg-top-24px text-center',
+                  formButtonPrimary: 'bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 rounded-lg font-semibold py-3 px-4 transition-all duration-300 shadow-lg hover:shadow-xl',
+                  formFieldLabel: 'text-sm font-medium text-black dark:text-white mb-2',
+                  formFieldInput: 'w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent transition-all',
+                  footerActionLink: 'text-black dark:text-white hover:text-black/60 dark:hover:text-white/60 text-sm font-medium transition-colors',
+                  socialButtonsBlockButton: 'bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white hover:bg-black/10 dark:hover:bg-white/10 rounded-lg font-medium py-3 px-4 transition-all duration-300 mb-3',
+                  dividerLine: 'bg-black/10 dark:bg-white/10',
+                  dividerText: 'text-sm text-black/60 dark:text-white/60',
+                  formFieldLabelRow: 'mb-2',
+                  footer: 'mt-6 text-center',
                 },
               }}
             />
-          </div>
+          </motion.div>
 
           {/* Trust Signals */}
-          <div className="mg-top-32px">
-            <div className="flex items-center justify-center gap-4 mg-bottom-24px">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 color-accent--success" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-100 color-neutral-700">SSL Encrypted</span>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center"
+          >
+            <div className="flex items-center justify-center gap-6 mb-6">
+              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+                <Shield className="h-4 w-4" />
+                <span className="text-sm font-medium">SSL Encrypted</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 color-accent--success" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-100 color-neutral-700">GDPR Compliant</span>
+              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+                <Lock className="h-4 w-4" />
+                <span className="text-sm font-medium">GDPR Compliant</span>
               </div>
             </div>
 
             {/* Legal */}
-            <p className="text-100 color-neutral-600 text-center">
+            <p className="text-xs text-black/60 dark:text-white/60">
               By signing up, you agree to our{' '}
-              <Link href="/terms" className="color-accent--primary-1 text-100 medium hover:underline">
+              <Link href="/terms" className="text-black dark:text-white hover:underline font-medium">
                 Terms of Service
               </Link>
               {' '}and{' '}
-              <Link href="/privacy" className="color-accent--primary-1 text-100 medium hover:underline">
+              <Link href="/privacy" className="text-black dark:text-white hover:underline font-medium">
                 Privacy Policy
               </Link>
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Right Side - Social Proof & Features */}
-      <div className="hidden lg:flex flex-1 items-center justify-center px-8 relative overflow-hidden"
-           style={{
-             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-           }}>
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-white blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full bg-white blur-3xl"></div>
+      {/* Right Side - Social Proof & Features (Desktop Only) */}
+      <div className="hidden lg:flex flex-1 items-center justify-center px-8 relative overflow-hidden bg-black dark:bg-white">
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 overflow-hidden opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         </div>
 
-        <div className="relative z-10 max-w-lg text-white">
-          <div className="mg-bottom-40px">
-            <h2 className="text-600 bold mg-bottom-16px">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 max-w-lg text-white dark:text-black"
+        >
+          <div className="mb-12">
+            <h2 className="text-5xl font-black mb-4">
               The Future of SEO is Automated
             </h2>
-            <p className="text-300 opacity-90">
+            <p className="text-xl text-white/90 dark:text-black/90">
               Stop spending hours on manual SEO fixes. Let AI do the heavy lifting while you focus on growing your business.
             </p>
           </div>
 
           {/* Key Features */}
-          <div className="space-y-6 mg-bottom-48px">
+          <div className="space-y-6 mb-12">
             {[
               {
                 number: '01',
@@ -141,59 +172,73 @@ export default function SignUpPage() {
                 description: 'Real-time metrics show your SEO improvements'
               }
             ].map((step, index) => (
-              <div key={index} className="flex items-start gap-4">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="flex items-start gap-4"
+              >
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-300 bold">{step.number}</span>
+                  <div className="w-12 h-12 rounded-xl bg-white/10 dark:bg-black/10 backdrop-blur-sm flex items-center justify-center border border-white/20 dark:border-black/20">
+                    <span className="text-lg font-black">{step.number}</span>
                   </div>
                 </div>
                 <div className="pt-1">
-                  <h3 className="text-200 bold mg-bottom-4px">{step.title}</h3>
-                  <p className="text-100 opacity-80">{step.description}</p>
+                  <h3 className="text-lg font-bold mb-1">{step.title}</h3>
+                  <p className="text-white/80 dark:text-black/80">{step.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           {/* Testimonial */}
-          <div className="pt-40px border-t border-white/20">
-            <div className="mg-bottom-16px">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            className="pt-8 border-t border-white/20 dark:border-black/20"
+          >
+            <div className="mb-4">
               <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <svg key={star} className="w-5 h-5 fill-current text-yellow-300" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+                  <CheckCircle2 key={star} className="w-5 h-5 fill-white dark:fill-black text-white dark:text-black" />
                 ))}
               </div>
             </div>
-            <p className="text-200 mg-bottom-16px">
+            <p className="text-lg mb-4 italic">
               "We saw a 60% increase in organic traffic within 3 months. SEOLOGY.AI handles everything automatically - it's incredible."
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-white/30 border-2 border-white"></div>
+              <div className="w-12 h-12 rounded-full bg-white/20 dark:bg-black/20 border-2 border-white/30 dark:border-black/30"></div>
               <div>
-                <p className="text-100 bold">Michael Chen</p>
-                <p className="text-100 opacity-80">CEO, TechStart Inc.</p>
+                <p className="text-sm font-bold">Michael Chen</p>
+                <p className="text-sm text-white/80 dark:text-black/80">CEO, TechStart Inc.</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mg-top-48px pt-40px border-t border-white/20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+            className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20 dark:border-black/20"
+          >
             <div>
-              <div className="text-500 bold mg-bottom-4px">10K+</div>
-              <div className="text-100 opacity-80">Active Users</div>
+              <div className="text-4xl font-black mb-1">10K+</div>
+              <div className="text-sm text-white/80 dark:text-black/80">Active Users</div>
             </div>
             <div>
-              <div className="text-500 bold mg-bottom-4px">2M+</div>
-              <div className="text-100 opacity-80">Fixes Applied</div>
+              <div className="text-4xl font-black mb-1">2M+</div>
+              <div className="text-sm text-white/80 dark:text-black/80">Fixes Applied</div>
             </div>
             <div>
-              <div className="text-500 bold mg-bottom-4px">40%</div>
-              <div className="text-100 opacity-80">Avg. Traffic Increase</div>
+              <div className="text-4xl font-black mb-1">40%</div>
+              <div className="text-sm text-white/80 dark:text-black/80">Avg. Traffic Increase</div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   )

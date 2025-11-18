@@ -2,8 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
@@ -18,9 +20,14 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-black text-black dark:text-white">
-              Seology.ai
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="Seology.ai"
+              width={120}
+              height={32}
+              className="h-8 w-auto dark:invert"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -88,109 +95,122 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6 text-slate-600 dark:text-slate-300" />
+              <X className="h-6 w-6 text-black/60 dark:text-white/60" />
             ) : (
-              <Menu className="h-6 w-6 text-slate-600 dark:text-slate-300" />
+              <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
+        <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-800">
-            <nav className="flex flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden py-4 border-t border-black/10 dark:border-white/10 overflow-hidden"
+          >
+            <nav className="flex flex-col gap-4 px-4">
               {/* Mobile Features Dropdown */}
               <div>
                 <button
-                  className="flex items-center justify-between w-full text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                  className="flex items-center justify-between w-full text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium py-2"
                   onClick={() => setMobileFeaturesOpen(!mobileFeaturesOpen)}
                 >
                   Features
                   <ChevronDown className={`h-4 w-4 transition-transform ${mobileFeaturesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {mobileFeaturesOpen && (
-                  <div className="mt-2 ml-4 flex flex-col gap-2">
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-2 ml-4 flex flex-col gap-2 overflow-hidden"
+                  >
                     <Link
                       href="/features/seo-analysis"
-                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       SEO Analysis
                     </Link>
                     <Link
                       href="/features/automatic-fixes"
-                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Automatic Fixes
                     </Link>
                     <Link
                       href="/features/platform-integrations"
-                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Platform Integrations
                     </Link>
                     <Link
                       href="/features/performance-monitoring"
-                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Performance Monitoring
                     </Link>
                     <Link
                       href="/features/content-optimization"
-                      className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors"
+                      className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Content Optimization
                     </Link>
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
               <a
                 href="/#faq"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 FAQs
               </a>
               <a
                 href="#testimonials"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Testimonials
               </a>
               <Link
                 href="/blog"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Blog
               </Link>
               <Link
-                href="/sign-up"
-                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors font-medium"
+                href="/pricing"
+                className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </Link>
-              <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="flex flex-col gap-3 pt-4 border-t border-black/10 dark:border-white/10">
                 <div className="flex items-center justify-between px-2 py-2">
-                  <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Theme</span>
+                  <span className="text-sm font-medium text-black/60 dark:text-white/60">Theme</span>
                   <ThemeSwitcher />
                 </div>
                 <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-black dark:bg-white text-white dark:text-black">
+                  <Button className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90">
                     Try SEOLOGY Free
                   </Button>
                 </Link>
               </div>
             </nav>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
         </div>
       </div>
     </header>

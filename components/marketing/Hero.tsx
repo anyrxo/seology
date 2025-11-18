@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white dark:bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32 bg-white dark:bg-black px-4">
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
@@ -45,8 +45,8 @@ export default function Hero() {
       {/* Gradient fade overlay */}
       <div className="absolute inset-0 z-10 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
 
-      <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -75,7 +75,7 @@ export default function Hero() {
               <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
                 THE SEO AUTOMATION CHALLENGE
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-white leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-white leading-[1.1] tracking-tight">
                 Stop Reporting SEO Issues.
                 <br />
                 <span className="text-black/60 dark:text-white/60 font-normal">
@@ -89,7 +89,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl md:text-2xl lg:text-3xl text-black/60 dark:text-white/60 mb-10 leading-relaxed font-normal max-w-2xl"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black/60 dark:text-white/60 mb-8 md:mb-10 leading-relaxed font-normal max-w-2xl"
             >
               The world's first AI-powered platform that doesn't just find SEO problems—it <span className="text-black dark:text-white font-semibold">logs into your CMS and fixes them</span>. Automatically.
             </motion.p>
@@ -99,17 +99,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-8"
             >
               <Link href="/sign-up">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    size="lg"
-                    className="group relative bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-lg px-10 py-7 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl font-bold overflow-hidden"
-                  >
+                         <Button
+                           size="lg"
+                           className="group relative bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-xl font-bold overflow-hidden w-full sm:w-auto"
+                         >
                     <span className="relative z-10 flex items-center gap-2">
                       Start Free Trial
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -128,11 +128,11 @@ export default function Hero() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-10 py-7 border-2 border-black/20 dark:border-white/20 hover:border-black/40 dark:hover:border-white/40 bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 backdrop-blur-sm text-black dark:text-white rounded-xl font-semibold transition-all duration-300"
-                  >
+                         <Button
+                           size="lg"
+                           variant="outline"
+                           className="text-base sm:text-lg px-6 sm:px-10 py-5 sm:py-7 border-2 border-black/20 dark:border-white/20 hover:border-black/40 dark:hover:border-white/40 bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 backdrop-blur-sm text-black dark:text-white rounded-xl font-semibold transition-all duration-300 w-full sm:w-auto"
+                         >
                     See How It Works
                   </Button>
                 </motion.div>

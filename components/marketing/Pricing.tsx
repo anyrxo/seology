@@ -63,7 +63,7 @@ export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      <section id="pricing" className="py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden px-4">
       {/* Gradient fade overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
       <div className="container relative z-10">
@@ -75,15 +75,15 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
-            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
-              PRICING
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
-              Simple, Transparent Pricing
-            </h2>
-          </header>
-          <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto mb-8">
+                 <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+                   <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+                     PRICING
+                   </div>
+                   <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight px-4">
+                     Simple, Transparent Pricing
+                   </h2>
+                 </header>
+                 <p className="text-lg sm:text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto mb-6 md:mb-8 px-4">
             Choose the plan that fits your store. All plans include 14-day free trial.
           </p>
 
@@ -116,7 +116,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}

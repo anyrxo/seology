@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Sophia Chen",
     role: "Founder",
     store: "Urban Threads Co.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
     quote: "Seology increased our organic traffic by 245% in just 3 months. It's like having an entire SEO team working 24/7.",
     metrics: {
       traffic: "+245%",
@@ -18,10 +18,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Marcus Rodriguez",
+    name: "Maria Rodriguez",
     role: "E-commerce Manager",
     store: "TechGear Plus",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
     quote: "We replaced our $5K/month SEO agency with Seology. Better results, fraction of the cost. Absolute game-changer.",
     metrics: {
       traffic: "+189%",
@@ -42,10 +42,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "David Park",
+    name: "Sarah Park",
     role: "Marketing Director",
     store: "Fitness Essentials",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     quote: "Best investment we've made. ROI was positive within the first month. Now we're ranking for keywords we never thought possible.",
     metrics: {
       traffic: "+312%",
@@ -54,10 +54,10 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Lisa Thompson",
+    name: "Lucas Thompson",
     role: "CEO",
     store: "Beauty Haven",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lucas",
     quote: "Seology found and fixed 200+ SEO issues we didn't even know existed. Our conversion rate improved by 40% as a result.",
     metrics: {
       traffic: "+198%",
