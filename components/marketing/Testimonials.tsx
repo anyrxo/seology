@@ -9,7 +9,6 @@ const testimonials = [
     name: "Sophia Chen",
     role: "Founder",
     store: "Urban Threads Co.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sophia",
     quote: "Seology increased our organic traffic by 245% in just 3 months. It's like having an entire SEO team working 24/7.",
     metrics: {
       traffic: "+245%",
@@ -21,7 +20,6 @@ const testimonials = [
     name: "Maria Rodriguez",
     role: "E-commerce Manager",
     store: "TechGear Plus",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
     quote: "We replaced our $5K/month SEO agency with Seology. Better results, fraction of the cost. Absolute game-changer.",
     metrics: {
       traffic: "+189%",
@@ -33,7 +31,6 @@ const testimonials = [
     name: "Emily Watson",
     role: "Store Owner",
     store: "Eco Living Shop",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Emily",
     quote: "The Auto Mode is incredible. I literally don't think about SEO anymore, and my rankings keep improving every week.",
     metrics: {
       traffic: "+167%",
@@ -45,7 +42,6 @@ const testimonials = [
     name: "Sarah Park",
     role: "Marketing Director",
     store: "Fitness Essentials",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
     quote: "Best investment we've made. ROI was positive within the first month. Now we're ranking for keywords we never thought possible.",
     metrics: {
       traffic: "+312%",
@@ -57,7 +53,6 @@ const testimonials = [
     name: "Lucas Thompson",
     role: "CEO",
     store: "Beauty Haven",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lucas",
     quote: "Seology found and fixed 200+ SEO issues we didn't even know existed. Our conversion rate improved by 40% as a result.",
     metrics: {
       traffic: "+198%",
@@ -69,7 +64,6 @@ const testimonials = [
     name: "James Miller",
     role: "Founder",
     store: "Outdoor Adventure Co.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=James",
     quote: "The competitor analysis feature alone is worth the price. We're always one step ahead now.",
     metrics: {
       traffic: "+223%",
@@ -171,19 +165,12 @@ export default function Testimonials() {
                 </div>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-black/10 dark:border-white/10">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full bg-black/10 dark:bg-white/10"
-                  />
-                  <div>
-                    <div className="font-semibold text-black dark:text-white">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-sm text-black/60 dark:text-white/60">
-                      {testimonial.role} at {testimonial.store}
-                    </div>
+                <div className="pt-4 border-t border-black/10 dark:border-white/10">
+                  <div className="font-semibold text-black dark:text-white mb-1">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-sm text-black/60 dark:text-white/60">
+                    {testimonial.role} at {testimonial.store}
                   </div>
                 </div>
               </motion.div>
