@@ -116,22 +116,24 @@ export default function Features() {
               className="group relative"
             >
               {/* Card */}
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-6 h-full border border-slate-200 dark:border-slate-800 hover:border-transparent hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 h-full border border-slate-200/50 dark:border-slate-800/50 hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-500 group-hover:-translate-y-2">
                 {/* Gradient border on hover */}
-                <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur`}></div>
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-20 dark:group-hover:opacity-10 transition-opacity duration-500 -z-10 blur-xl`}></div>
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`} style={{ padding: '1px' }}></div>
 
                 {/* Icon */}
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  {feature.icon}
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">{feature.icon}</div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                   {feature.description}
                 </p>
 

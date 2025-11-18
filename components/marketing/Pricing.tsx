@@ -132,14 +132,22 @@ export default function Pricing() {
 
               {/* Card with glassmorphism */}
               <div
-                className={`bg-white/80 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl p-8 shadow-xl border-2 ${
+                className={`relative bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl rounded-3xl p-8 shadow-xl border ${
                   plan.popular
-                    ? "border-purple-500 dark:border-purple-400"
-                    : "border-slate-200 dark:border-slate-700"
-                } hover:shadow-2xl hover:bg-white/90 dark:hover:bg-slate-800/80 transition-all duration-300 h-full flex flex-col`}
+                    ? "border-purple-500/50 dark:border-purple-400/50 shadow-purple-500/20"
+                    : "border-slate-200/50 dark:border-slate-700/50"
+                } hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 hover:bg-white/90 dark:hover:bg-slate-900/90 transition-all duration-500 h-full flex flex-col group`}
               >
+                {/* Gradient glow for popular plan */}
+                {plan.popular && (
+                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500 -z-10`}></div>
+                )}
                 {/* Plan Name */}
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                <h3 className={`text-3xl font-black mb-2 ${
+                  plan.popular 
+                    ? `bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`
+                    : "text-slate-900 dark:text-white"
+                }`}>
                   {plan.name}
                 </h3>
 
@@ -149,15 +157,19 @@ export default function Pricing() {
                 </p>
 
                 {/* Price */}
-                <div className="mb-6">
+                <div className="mb-8">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold text-slate-900 dark:text-white">
+                    <span className={`text-6xl font-black ${
+                      plan.popular 
+                        ? `bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`
+                        : "text-slate-900 dark:text-white"
+                    }`}>
                       ${isAnnual ? plan.price.annual : plan.price.monthly}
                     </span>
-                    <span className="text-slate-600 dark:text-slate-400">/month</span>
+                    <span className="text-lg text-slate-600 dark:text-slate-400">/month</span>
                   </div>
                   {isAnnual && (
-                    <div className="text-sm text-green-600 dark:text-green-400 mt-1">
+                    <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-semibold">
                       Billed annually (${plan.price.annual * 12}/year)
                     </div>
                   )}
@@ -166,13 +178,13 @@ export default function Pricing() {
                 {/* CTA Button */}
                 <Link href="/sign-up">
                   <button
-                    className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mb-6 ${
+                    className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 mb-8 ${
                       plan.popular
-                        ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg hover:scale-105`
-                        : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
+                        ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-xl hover:shadow-purple-500/50 hover:scale-[1.02]`
+                        : "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
                     }`}
                   >
-                    Try Seology for Free
+                    Start Free Trial
                   </button>
                 </Link>
 
