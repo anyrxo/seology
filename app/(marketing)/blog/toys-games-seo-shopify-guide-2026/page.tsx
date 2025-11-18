@@ -75,7 +75,7 @@ export default function ToysGamesSEOGuide2026() {
             <li><strong>• STEM Focus:</strong> 60% of parents seek toys that build STEAM skills, with coding kits and robotics in high demand</li>
             <li><strong>• Technology Integration:</strong> AI-powered toys, AR-enabled games, and screen-free tech gaining traction</li>
             <li><strong>• Nostalgia Factor:</strong> 49% of parents buying toys for nostalgia, driving retro toy resurgence</li>
-            <li><strong>• Polarized Pricing:</strong> 33% opt for <$15 toys, while 33% pay $20-$70 for premium products</li>
+            <li><strong>• Polarized Pricing:</strong> 33% opt for &lt;$15 toys, while 33% pay $20-$70 for premium products</li>
           </ul>
         </div>
         <h3>2026 Toy Industry Trends</h3>
@@ -505,7 +505,7 @@ export default function ToysGamesSEOGuide2026() {
         <h2>Pricing Strategy and Value Perception</h2>
         <h3>Understanding Toy Price Segments</h3>
         <p>
-          <strong>33% of consumers opt for <$15 toys, while 33% pay $20-$70 for premium products</strong>, showing polarized pricing preferences among consumers.
+          <strong>33% of consumers opt for &lt;$15 toys, while 33% pay $20-$70 for premium products</strong>, showing polarized pricing preferences among consumers.
         </p>
         <div className="not-prose bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-green-900 dark:text-green-100 mb-3">
@@ -513,7 +513,7 @@ export default function ToysGamesSEOGuide2026() {
           </p>
           <div className="space-y-3 text-green-800 dark:text-green-200">
             <div>
-              <p className="font-semibold">Budget Category (<$15)</p>
+              <p className="font-semibold">Budget Category (&lt;$15)</p>
               <p className="text-sm mt-1">Keywords: "cheap toys for kids", "toys under $10", "affordable birthday gifts", "stocking stuffers"<br/>
               Focus: Party favors, impulse purchases, small gifts, multiples</p>
             </div>
