@@ -91,10 +91,10 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-6">
             Solution
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto">
             Elevate Your SEO Strategy, From Start to Finish
           </p>
         </motion.div>
@@ -116,32 +116,28 @@ export default function Features() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-2xl p-8 h-full border border-slate-200/50 dark:border-slate-800/50 hover:border-transparent hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-500 group-hover:-translate-y-2">
-                {/* Gradient border on hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-20 dark:group-hover:opacity-10 transition-opacity duration-500 -z-10 blur-xl`}></div>
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`} style={{ padding: '1px' }}></div>
-
+              <div className="relative bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-2xl p-8 h-full border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="w-14 h-14 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative z-10">{feature.icon}</div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                <h3 className="text-xl font-bold text-black dark:text-white mb-3 transition-all duration-300">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                <p className="text-base text-black/60 dark:text-white/60 leading-relaxed mb-6">
                   {feature.description}
                 </p>
 
                 {/* Learn More Link */}
-                <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                <div className="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
                   <Link
                     href="/sign-up"
-                    className={`text-sm font-medium bg-gradient-to-r ${feature.color} bg-clip-text text-transparent hover:underline inline-flex items-center gap-1`}
+                    className="text-sm font-medium text-black dark:text-white hover:text-black/60 dark:hover:text-white/60 inline-flex items-center gap-1 transition-colors"
                   >
                     Learn more
                     <motion.span
@@ -166,7 +162,7 @@ export default function Features() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-black/60 dark:text-white/60">
             All features included in every plan. No hidden fees or limitations.
           </p>
         </motion.div>
