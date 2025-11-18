@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2, Database, Image, Search, Settings, Target, Video } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'XML Sitemap Optimization: Get Every Page Indexed Fast',

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertTriangle, CheckCircle2, Search, Shield, Trash2, TrendingDown } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Toxic Backlink Removal: Clean Your Link Profile & Recover Rankings',

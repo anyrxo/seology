@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2, Shield } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Healthcare SEO: HIPAA-Compliant Strategies That Actually Rank',

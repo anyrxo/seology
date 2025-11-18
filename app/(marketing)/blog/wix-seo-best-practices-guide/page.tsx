@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2, Code, Settings, TrendingUp, X, Zap } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Wix SEO: Can You Really Rank? (Best Practices & Limitations)',

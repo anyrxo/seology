@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BarChart, Bell, CheckCircle2, Eye, Mail, RefreshCw, Search } from 'lucide-react'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Link Reclamation: Recover Lost Backlinks & Boost Authority',
