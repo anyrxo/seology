@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, BarChart, Bell, CheckCircle2, Eye, Mail, RefreshCw, Search } from 'lucide-react'
+import { ArrowRight, BarChart, Bell, CheckCircle2, Eye, LinkOff, Mail, RefreshCw, Search } from 'lucide-react'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default function BlogPost() {
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                  <Link2Off className="w-8 h-8 text-blue-600" />
+                  <LinkOff className="w-8 h-8 text-blue-600" />
                   What Is Link Reclamation? (And Why It Matters)
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">

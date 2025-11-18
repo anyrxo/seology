@@ -443,7 +443,7 @@ export default function HomeGardenSEOGuide2026() {
             </div>
             <div>
               <p className="font-semibold">Breadcrumb Navigation with Schema</p>
-              <p className="text-sm mt-1">Implement BreadcrumbList schema for clear hierarchy: Home > Plants > Vegetables > Tomatoes > [Product]</p>
+              <p className="text-sm mt-1">Implement BreadcrumbList schema for clear hierarchy: Home &gt; Plants &gt; Vegetables &gt; Tomatoes &gt; [Product]</p>
             </div>
           </div>
         </div>

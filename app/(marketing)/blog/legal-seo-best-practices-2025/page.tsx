@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Award, CheckCircle2, FileText, MapPin, Star, Target, Users } from 'lucide-react'
+import { ArrowRight, Award, CheckCircle2, DollarSign, FileText, MapPin, Scale, Star, Target, Users } from 'lucide-react'
 import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {

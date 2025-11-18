@@ -356,7 +356,7 @@ export default function BlogPost() {
               <p className="mb-2 font-bold">✓ Product Description</p>
               <ul className="space-y-1 text-sm opacity-90">
                 <li>• Collapsible sections (don't overwhelm)</li>
-                <li>• Bullet points > paragraphs</li>
+                <li>• Bullet points &gt; paragraphs</li>
                 <li>• Large font (16px minimum)</li>
               </ul>
             </div>

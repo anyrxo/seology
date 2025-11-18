@@ -166,7 +166,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
           <div className="bg-white dark:bg-gray-800 border-l-4 border-yellow-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">6. BreadcrumbList Schema (Navigation)</h4>
             <p className="text-gray-700 dark:text-gray-300">
-              Shows breadcrumb trail in search results (Home > Category > Product). Improves UX.
+              Shows breadcrumb trail in search results (Home &gt; Category &gt; Product). Improves UX.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-800 border-l-4 border-yellow-500 p-6 rounded">

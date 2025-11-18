@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowRight, Calendar } from 'lucide-react'
 import { blogPosts } from "@/lib/blog-posts"
+import { motion } from 'framer-motion'
 export default function Blog() {
   return (
     <>

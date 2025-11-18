@@ -256,7 +256,7 @@ export default function TechnicalSEOAuditShopifyPage() {
                 Google Search Console → Settings → Crawl Stats Report shows how Google crawls your website.
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 rounded p-3 text-sm">
-                <strong className="text-gray-900 dark:text-gray-100">Watch for:</strong> Sudden drops in crawl rate, high % of crawl requests with errors, slow average response times (>200ms)
+                <strong className="text-gray-900 dark:text-gray-100">Watch for:</strong> Sudden drops in crawl rate, high % of crawl requests with errors, slow average response times (&gt;200ms)
               </div>
             </div>
           </div>
