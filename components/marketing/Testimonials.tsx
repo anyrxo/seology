@@ -101,7 +101,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      <section id="testimonials" className="py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden px-4">
       {/* Gradient fade overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
       <div className="container relative z-10">
@@ -117,11 +117,11 @@ export default function Testimonials() {
             <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
               TESTIMONIALS
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight px-4">
               Trusted by 5,000+ Stores
             </h2>
           </header>
-          <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto px-4">
             Real results from real Shopify merchants
           </p>
         </motion.div>
@@ -132,7 +132,7 @@ export default function Testimonials() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {visibleTestimonials.map((testimonial, index) => (
               <motion.div
                 key={`${currentIndex}-${index}`}

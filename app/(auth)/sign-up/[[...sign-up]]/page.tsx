@@ -37,10 +37,10 @@ export default function SignUpPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-3">
               Start Fixing SEO Issues Automatically
             </h1>
-            <p className="text-lg text-black/60 dark:text-white/60">
+            <p className="text-base sm:text-lg text-black/60 dark:text-white/60">
               Join thousands of businesses using AI-powered SEO automation
             </p>
           </motion.div>
@@ -50,16 +50,16 @@ export default function SignUpPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-wrap justify-center gap-2 mb-6"
+            className="flex flex-wrap justify-center gap-2 mb-6 px-2"
           >
             <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
-              <span className="text-sm font-semibold text-black dark:text-white">Free 14-day trial</span>
+              <span className="text-xs sm:text-sm font-semibold text-black dark:text-white">Free 14-day trial</span>
             </div>
-            <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
-              <span className="text-sm font-semibold text-black dark:text-white">No credit card required</span>
+            <div className="px-3 sm:px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
+              <span className="text-xs sm:text-sm font-semibold text-black dark:text-white">No credit card required</span>
             </div>
-            <div className="px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
-              <span className="text-sm font-semibold text-black dark:text-white">Cancel anytime</span>
+            <div className="px-3 sm:px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full">
+              <span className="text-xs sm:text-sm font-semibold text-black dark:text-white">Cancel anytime</span>
             </div>
           </motion.div>
 
@@ -68,7 +68,8 @@ export default function SignUpPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-black/10 dark:border-white/10 mb-6"
+            whileHover={{ scale: 1.01 }}
+            className="bg-white/95 dark:bg-black/95 backdrop-blur-xl rounded-[18px] p-6 sm:p-8 shadow-xl border border-black/10 dark:border-white/10 mb-6"
           >
             <SignUp
               forceRedirectUrl="/dashboard/onboarding"
@@ -100,15 +101,21 @@ export default function SignUpPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center"
           >
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-6">
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 text-black/60 dark:text-white/60"
+              >
                 <Shield className="h-4 w-4" />
-                <span className="text-sm font-medium">SSL Encrypted</span>
-              </div>
-              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+                <span className="text-xs sm:text-sm font-medium">SSL Encrypted</span>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 text-black/60 dark:text-white/60"
+              >
                 <Lock className="h-4 w-4" />
-                <span className="text-sm font-medium">GDPR Compliant</span>
-              </div>
+                <span className="text-xs sm:text-sm font-medium">GDPR Compliant</span>
+              </motion.div>
             </div>
 
             {/* Legal */}
@@ -212,7 +219,7 @@ export default function SignUpPage() {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-white/20 dark:bg-black/20 border-2 border-white/30 dark:border-black/30"></div>
               <div>
-                <p className="text-sm font-bold">Michael Chen</p>
+                <p className="text-sm font-bold">Alexandra Chen</p>
                 <p className="text-sm text-white/80 dark:text-black/80">CEO, TechStart Inc.</p>
               </div>
             </div>

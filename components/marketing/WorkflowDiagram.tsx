@@ -30,7 +30,7 @@ const steps = [
 
 export default function WorkflowDiagram() {
   return (
-    <section className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white dark:bg-black relative overflow-hidden px-4">
       {/* Gradient fade overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
       <div className="container relative z-10">
@@ -46,11 +46,11 @@ export default function WorkflowDiagram() {
             <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
               HOW IT WORKS
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight px-4">
               Just 3 steps to get started
             </h2>
           </header>
-          <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto px-4">
             Simple, fast, and effective SEO automation
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export default function WorkflowDiagram() {
           </div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 relative z-10">
             {steps.map((step, index) => (
               <motion.div
                 key={index}

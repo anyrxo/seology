@@ -37,10 +37,10 @@ export default function SignInPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center mb-8"
           >
-            <h1 className="text-4xl md:text-5xl font-black text-black dark:text-white mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black dark:text-white mb-3">
               Welcome Back
             </h1>
-            <p className="text-lg text-black/60 dark:text-white/60">
+            <p className="text-base sm:text-lg text-black/60 dark:text-white/60">
               Sign in to continue optimizing your SEO automatically
             </p>
           </motion.div>
@@ -50,7 +50,8 @@ export default function SignInPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-black/10 dark:border-white/10 mb-6"
+            whileHover={{ scale: 1.01 }}
+            className="bg-white/95 dark:bg-black/95 backdrop-blur-xl rounded-[18px] p-6 sm:p-8 shadow-xl border border-black/10 dark:border-white/10 mb-6"
           >
             <SignIn
               forceRedirectUrl="/dashboard"
@@ -82,15 +83,21 @@ export default function SignInPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center"
           >
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-6">
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 text-black/60 dark:text-white/60"
+              >
                 <Shield className="h-4 w-4" />
-                <span className="text-sm font-medium">SSL Encrypted</span>
-              </div>
-              <div className="flex items-center gap-2 text-black/60 dark:text-white/60">
+                <span className="text-xs sm:text-sm font-medium">SSL Encrypted</span>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 text-black/60 dark:text-white/60"
+              >
                 <Lock className="h-4 w-4" />
-                <span className="text-sm font-medium">Privacy Protected</span>
-              </div>
+                <span className="text-xs sm:text-sm font-medium">Privacy Protected</span>
+              </motion.div>
             </div>
 
             {/* Legal */}
@@ -189,7 +196,7 @@ export default function SignInPage() {
               "SEOLOGY.AI increased our organic traffic by 60% in just 3 months"
             </p>
             <p className="text-sm font-semibold">
-              - Sarah Johnson, Marketing Director
+              - Emma Rodriguez, Marketing Director
             </p>
           </motion.div>
         </motion.div>

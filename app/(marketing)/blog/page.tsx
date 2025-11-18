@@ -18,19 +18,19 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6 px-4">
               Seology Blog
             </h1>
-            <p className="text-xl md:text-2xl text-black/60 dark:text-white/60 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-black/60 dark:text-white/60 leading-relaxed px-4">
               SEO tips, strategies, and insights to help your Shopify store rank higher and grow faster
             </p>
           </motion.div>
         </div>
       </section>
         {/* Blog Posts Grid */}
-        <section className="py-24 bg-white dark:bg-black">
+        <section className="py-16 md:py-24 bg-white dark:bg-black px-4">
           <div className="container max-w-7xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {blogPosts.map((post, index) => (
                 <motion.article
                   key={post.slug}
