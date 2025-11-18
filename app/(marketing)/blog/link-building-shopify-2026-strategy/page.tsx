@@ -5,12 +5,6 @@ export const metadata: Metadata = {
   title: 'Link Building for Shopify: 2026 Strategy Guide to High-Quality Backlinks | SEOLOGY.AI',
   description: 'Top Google pages have 3.8x more backlinks. Learn proven Shopify link building strategies with December 2025 data--quality backlinks that boost rankings and drive traffic.',
 }
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Link Building for Shopify: 2026 Strategy Guide',
-    description: 'Top pages have 3.8x more backlinks. Learn proven strategies for Shopify link building success.',
-  }
-}
 export default function LinkBuildingShopifyStrategyPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">

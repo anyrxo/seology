@@ -1,8 +1,8 @@
+'use client';
+
 import Link from "next/link"
 import { ArrowRight, Calendar } from 'lucide-react'
 import { blogPosts } from "@/lib/blog-posts"
-
-'use client';
 export default function Blog() {
   return (
     <>

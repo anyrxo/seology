@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026',
     description: '75% of users prefer native language shopping. Achieve 70% traffic increase and 40-60% revenue growth with Shopify Markets and international SEO.',
+  },
 }
 export default function InternationalSEOShopifyMarketsPage() {
   return (

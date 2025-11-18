@@ -5,12 +5,6 @@ export const metadata: Metadata = {
   title: 'Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions | SEOLOGY.AI',
   description: 'Every 0.1s speed improvement increases conversions by 8.4%. Learn proven Shopify speed optimization strategies with December 2025 benchmarks--boost performance and rankings now.',
 }
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Shopify Site Speed Optimization: 2026 Guide',
-    description: '0.1s improvement = 8.4% more conversions. Learn proven Shopify speed optimization strategies.',
-  }
-}
 export default function ShopifySpeedOptimizationPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">

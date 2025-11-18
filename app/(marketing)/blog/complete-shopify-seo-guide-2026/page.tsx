@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Complete Shopify SEO Guide 2026: 43 Steps to Rank #1',
     description: 'From zero to hero: Master Shopify SEO with this comprehensive 2026 guide. Rank higher, get more traffic, increase sales.',
+  },
 }
 export default function BlogPost() {
   return (
