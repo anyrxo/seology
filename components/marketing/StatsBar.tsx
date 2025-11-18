@@ -92,34 +92,27 @@ export default function StatsBar() {
   return (
     <section className="py-16 bg-white dark:bg-black border-y border-black/10 dark:border-white/10">
       <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          <StatItem
-            image="show"
-            value={5000}
-            suffix="+"
-            label="Active Users"
-            delay={0}
-          />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
           <StatItem
             icon={<Target className="h-8 w-8" />}
             value={2.5}
             suffix="M+"
             label="Keywords Optimized"
-            delay={0.1}
+            delay={0}
           />
           <StatItem
             icon={<TrendingUp className="h-8 w-8" />}
             value={156}
             suffix="%"
             label="Avg Traffic Increase"
-            delay={0.2}
+            delay={0.1}
           />
           <StatItem
             icon={<Zap className="h-8 w-8" />}
             value={24}
             suffix="/7"
             label="Automated Optimization"
-            delay={0.3}
+            delay={0.2}
           />
         </div>
       </div>
