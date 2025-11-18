@@ -191,13 +191,25 @@ export default function Dashboard() {
                         tick={{ fill: 'rgba(0,0,0,0.6)' }}
                       />
                       <Tooltip
-                        contentStyle={{
-                          backgroundColor: "rgba(255,255,255,0.95)",
-                          border: "1px solid rgba(0,0,0,0.1)",
-                          borderRadius: "8px",
-                          color: "#000",
+                        content={({ active, payload }) => {
+                          if (active && payload && payload.length) {
+                            const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+                            return (
+                              <div
+                                style={{
+                                  backgroundColor: isDark ? "rgba(0,0,0,0.95)" : "rgba(255,255,255,0.95)",
+                                  border: isDark ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(0,0,0,0.1)",
+                                  borderRadius: "8px",
+                                  color: isDark ? "#fff" : "#000",
+                                  padding: "8px 12px",
+                                }}
+                              >
+                                <p>{`${payload[0].value} visitors`}</p>
+                              </div>
+                            );
+                          }
+                          return null;
                         }}
-                        className="dark:[&_*]:!bg-black/95 dark:[&_*]:!border-white/10 dark:[&_*]:!text-white"
                       />
                       <Line
                         type="monotone"
