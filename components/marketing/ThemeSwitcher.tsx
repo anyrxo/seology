@@ -33,7 +33,8 @@ export default function ThemeSwitcher() {
       <motion.div
         className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white dark:bg-black shadow-md flex items-center justify-center"
         animate={{
-          x: theme === 'dark' ? 'calc(100% - 1.25rem)' : '0.25rem',
+          left: theme === 'dark' ? 'auto' : '0.25rem',
+          right: theme === 'dark' ? '0.25rem' : 'auto',
         }}
         transition={{
           type: "spring",
