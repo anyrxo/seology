@@ -91,18 +91,22 @@ export function Footer() {
   ]
 
   return (
-    <footer className="border-t border-gray-800 bg-gray-950">
+    <footer className="border-t border-black/10 dark:border-white/10 bg-white dark:bg-black">
       <div className="container mx-auto px-6 py-12">
         {/* Top Section - 5 Column Layout */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Brand Column - Takes 3 columns */}
           <div className="lg:col-span-3">
             <Link href="/" className="inline-block mb-4">
-              <div className="text-2xl font-bold text-white">
-                SEOLOGY<span className="text-blue-500">.AI</span>
-              </div>
+              <Image
+                src="/images/logo.png"
+                alt="Seology.ai"
+                width={120}
+                height={32}
+                className="h-8 w-auto dark:invert"
+              />
             </Link>
-            <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+            <p className="text-black/60 dark:text-white/60 mb-6 text-sm leading-relaxed">
               AI-Powered SEO Automation That Actually Fixes Issues
             </p>
 
@@ -114,7 +118,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 transition-all ${social.hoverColor} hover:border-gray-700 hover:scale-110`}
+                  className="w-10 h-10 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-black/60 dark:text-white/60 transition-all hover:text-black dark:hover:text-white hover:border-black/20 dark:hover:border-white/20 hover:scale-110"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -125,7 +129,7 @@ export function Footer() {
 
           {/* Product Links - Takes 2 columns */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-black dark:text-white mb-4 uppercase tracking-wider">
               Product
             </h4>
             <ul className="space-y-3">
@@ -133,7 +137,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors inline-flex items-center group"
+                    className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
@@ -146,7 +150,7 @@ export function Footer() {
 
           {/* Company Links - Takes 2 columns */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-black dark:text-white mb-4 uppercase tracking-wider">
               Company
             </h4>
             <ul className="space-y-3">
@@ -154,7 +158,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors inline-flex items-center group"
+                    className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
@@ -167,7 +171,7 @@ export function Footer() {
 
           {/* Resources Links - Takes 2 columns */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-black dark:text-white mb-4 uppercase tracking-wider">
               Resources
             </h4>
             <ul className="space-y-3">
@@ -175,7 +179,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors inline-flex items-center group"
+                    className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
@@ -188,7 +192,7 @@ export function Footer() {
 
           {/* Legal Links - Takes 3 columns */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-sm font-semibold text-black dark:text-white mb-4 uppercase tracking-wider">
               Legal
             </h4>
             <ul className="space-y-3 mb-6">
@@ -196,7 +200,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors inline-flex items-center group"
+                    className="text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform">
                       {link.label}
@@ -209,10 +213,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-12 pt-8 border-t border-black/10 dark:border-white/10">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Copyright */}
-            <p className="text-sm text-gray-500 text-center lg:text-left">
+            <p className="text-sm text-black/60 dark:text-white/60 text-center lg:text-left">
               &copy; {new Date().getFullYear()} SEOLOGY.AI. All rights reserved.
             </p>
 
@@ -221,7 +225,7 @@ export function Footer() {
               {trustBadges.map((badge, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 text-gray-500 hover:text-gray-400 transition-colors"
+                  className="flex items-center gap-2 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
                 >
                   <badge.icon className="w-4 h-4" />
                   <span className="text-xs font-medium">{badge.text}</span>
