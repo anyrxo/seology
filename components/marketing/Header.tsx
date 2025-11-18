@@ -18,6 +18,19 @@ export default function Header() {
       <div className="w-full rounded-[18px] border border-black/10 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4">
+          {/* Mobile Menu Button - Left Side */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 text-black/60 dark:text-white/60" />
+            ) : (
+              <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
+            )}
+          </button>
+
           {/* Logo - Hidden on mobile */}
             <Link href="/" className="hidden md:flex items-center gap-2 group">
             <Image
@@ -78,28 +91,25 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right Side - Theme Switcher & CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <ThemeSwitcher />
-            <Link href="/sign-up">
-              <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
-                Try SEOLOGY Free
-              </Button>
-            </Link>
-          </div>
+                 {/* Right Side - Theme Switcher & CTA */}
+                 <div className="hidden md:flex items-center gap-4">
+                   <ThemeSwitcher />
+                   <Link href="/sign-up">
+                     <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
+                       Try SEOLOGY Free
+                     </Button>
+                   </Link>
+                 </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6 text-black/60 dark:text-white/60" />
-            ) : (
-              <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
-            )}
-          </button>
+                 {/* Mobile Right Side - Theme Switcher & CTA */}
+                 <div className="md:hidden flex items-center gap-3">
+                   <ThemeSwitcher />
+                   <Link href="/sign-up">
+                     <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-sm px-4 py-2 rounded-lg">
+                       Try Free
+                     </Button>
+                   </Link>
+                 </div>
         </div>
 
         {/* Mobile Menu */}
