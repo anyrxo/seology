@@ -145,6 +145,30 @@ export default function Pricing() {
                     : "border-black/10 dark:border-white/10"
                 } hover:shadow-2xl hover:bg-white/90 dark:hover:bg-black/90 transition-all duration-500 h-full flex flex-col group`}
               >
+                {/* Animated colored border ring for popular plan */}
+                {plan.popular && (
+                  <div className="absolute -inset-1 rounded-2xl opacity-100 overflow-hidden">
+                    <div className="absolute inset-0 rounded-2xl" style={{ padding: '2px' }}>
+                      <div className="w-full h-full rounded-2xl bg-white dark:bg-black relative">
+                        <motion.div
+                          className="absolute inset-0 rounded-2xl"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
+                            backgroundSize: '200% 100%',
+                          }}
+                          animate={{
+                            backgroundPosition: ['200% 0', '-200% 0'],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: 'linear',
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {/* Plan Name */}
                 <h3 className="text-3xl font-black mb-2 text-black dark:text-white">
                   {plan.name}

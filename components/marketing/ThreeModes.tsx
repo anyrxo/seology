@@ -95,20 +95,28 @@ export default function ThreeModes() {
               transition={{ duration: 0.3 }}
               className="group relative"
             >
-              {/* Animated colored border ring */}
-              <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <motion.div
-                  className="absolute inset-0 rounded-2xl"
-                  style={{
-                    background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4, #3b82f6)',
-                    padding: '2px',
-                  }}
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                >
-                  <div className="w-full h-full rounded-2xl bg-white dark:bg-black"></div>
-                </motion.div>
-              </div>
+                    {/* Animated colored border ring - shimmer effect */}
+                    <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
+                      <div className="absolute inset-0 rounded-2xl" style={{ padding: '2px' }}>
+                        <div className="w-full h-full rounded-2xl bg-white dark:bg-black relative">
+                          <motion.div
+                            className="absolute inset-0 rounded-2xl"
+                            style={{
+                              background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
+                              backgroundSize: '200% 100%',
+                            }}
+                            animate={{
+                              backgroundPosition: ['200% 0', '-200% 0'],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: 'linear',
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
 
               {/* Card content with glassmorphism */}
               <div className="relative bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-2xl p-8 h-full border border-black/10 dark:border-white/10 shadow-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-black/90 group">

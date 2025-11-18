@@ -37,20 +37,20 @@ export default function Header() {
               </button>
 
               {featuresOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2">
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-black rounded-lg shadow-lg border border-black/10 dark:border-white/10 py-2">
                   <Link href="/features/seo-analysis" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     SEO Analysis
                   </Link>
-                  <Link href="/features/automatic-fixes" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link href="/features/automatic-fixes" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     Automatic Fixes
                   </Link>
-                  <Link href="/features/platform-integrations" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link href="/features/platform-integrations" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     Platform Integrations
                   </Link>
-                  <Link href="/features/performance-monitoring" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link href="/features/performance-monitoring" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     Performance Monitoring
                   </Link>
-                  <Link href="/features/content-optimization" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link href="/features/content-optimization" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     Content Optimization
                   </Link>
                 </div>
@@ -60,13 +60,13 @@ export default function Header() {
             <a href="/#faq" className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
               FAQs
             </a>
-            <a href="#testimonials" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <a href="#testimonials" className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
               Testimonials
             </a>
-            <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <Link href="/blog" className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
               Blog
             </Link>
-            <Link href="/pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <Link href="/pricing" className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
               Pricing
             </Link>
           </nav>

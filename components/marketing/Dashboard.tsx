@@ -105,20 +105,28 @@ export default function Dashboard() {
           transition={{ duration: 0.8 }}
           className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-2xl border border-black/10 dark:border-white/10 relative group"
         >
-          {/* Animated colored border ring */}
-          <div className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <motion.div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #06b6d4, #3b82f6)',
-                padding: '2px',
-              }}
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-            >
-              <div className="w-full h-full rounded-3xl bg-white dark:bg-black"></div>
-            </motion.div>
-          </div>
+                {/* Animated colored border ring - shimmer effect */}
+                <div className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
+                  <div className="absolute inset-0 rounded-3xl" style={{ padding: '2px' }}>
+                    <div className="w-full h-full rounded-3xl bg-white dark:bg-black relative">
+                      <motion.div
+                        className="absolute inset-0 rounded-3xl"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
+                          backgroundSize: '200% 100%',
+                        }}
+                        animate={{
+                          backgroundPosition: ['200% 0', '-200% 0'],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
 
           {/* Tabs */}
           <div className="flex flex-wrap gap-2 mb-8 border-b border-black/10 dark:border-white/10 pb-4 relative z-10">
