@@ -211,9 +211,6 @@ export default function Hero() {
             className="relative"
           >
             <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-2xl opacity-20"></div>
-
               {/* Main dashboard card */}
               <div className="relative bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-3xl p-8 border border-black/10 dark:border-white/10 shadow-2xl">
                 <div className="flex items-center justify-between mb-4">
