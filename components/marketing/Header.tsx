@@ -204,17 +204,6 @@ export default function Header() {
               >
                 Pricing
               </Link>
-              <div className="flex flex-col gap-3 pt-4 border-t border-black/10 dark:border-white/10">
-                <div className="flex items-center justify-between px-2 py-2">
-                  <span className="text-sm font-medium text-black/60 dark:text-white/60">Theme</span>
-                  <ThemeSwitcher />
-                </div>
-                <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90">
-                    Try SEOLOGY Free
-                  </Button>
-                </Link>
-              </div>
             </nav>
           </motion.div>
         )}
