@@ -18,19 +18,6 @@ export default function Header() {
       <div className="w-full rounded-[18px] border border-black/10 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4">
-          {/* Mobile Menu Button - Left Side */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6 text-black/60 dark:text-white/60" />
-            ) : (
-              <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
-            )}
-          </button>
-
           {/* Logo - Hidden on mobile */}
             <Link href="/" className="hidden md:flex items-center gap-2 group">
             <Image
@@ -101,7 +88,7 @@ export default function Header() {
                    </Link>
                  </div>
 
-                 {/* Mobile Right Side - Theme Switcher & CTA */}
+                 {/* Mobile Right Side - Theme Switcher, CTA & Hamburger Menu */}
                  <div className="md:hidden flex items-center gap-3">
                    <ThemeSwitcher />
                    <Link href="/sign-up">
@@ -109,6 +96,17 @@ export default function Header() {
                        Try Free
                      </Button>
                    </Link>
+                   <button
+                     className="p-2"
+                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                     aria-label="Toggle menu"
+                   >
+                     {mobileMenuOpen ? (
+                       <X className="h-6 w-6 text-black/60 dark:text-white/60" />
+                     ) : (
+                       <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
+                     )}
+                   </button>
                  </div>
         </div>
 
