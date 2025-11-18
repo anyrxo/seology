@@ -18,17 +18,33 @@ export default function Header() {
       <div className="w-full rounded-[18px] border border-black/10 dark:border-white/10 bg-white/95 dark:bg-black/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70 shadow-lg">
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14 sm:h-16 px-3 sm:px-4">
-          {/* Logo - Hidden on mobile */}
+          {/* Left Side - Mobile: Hamburger Menu, Desktop: Logo */}
+          <div className="flex items-center gap-4">
+            {/* Hamburger Menu - Mobile only, LEFT side */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6 text-black/60 dark:text-white/60" />
+              ) : (
+                <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
+              )}
+            </button>
+
+            {/* Logo - Desktop only */}
             <Link href="/" className="hidden md:flex items-center gap-2 group">
-            <Image
-              src="/images/logo.png"
-              alt="Seology.ai"
-              width={120}
-              height={32}
-              className="h-8 lg:h-10 w-auto dark:invert"
-              priority
-            />
-          </Link>
+              <Image
+                src="/images/logo.png"
+                alt="Seology.ai"
+                width={120}
+                height={32}
+                className="h-8 lg:h-10 w-auto dark:invert"
+                priority
+              />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
@@ -78,30 +94,17 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Right Side - Single responsive section */}
+          {/* Right Side - Theme Switcher & Desktop CTA */}
           <div className="flex items-center gap-4">
             {/* Theme Switcher - Show on all sizes */}
             <ThemeSwitcher />
             
-            {/* Desktop CTA Button */}
+            {/* Desktop CTA Button - Only one button */}
             <Link href="/sign-up" className="hidden md:block">
               <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
                 Try SEOLOGY Free
               </Button>
             </Link>
-
-            {/* Hamburger Menu - Mobile only */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6 text-black/60 dark:text-white/60" />
-              ) : (
-                <Menu className="h-6 w-6 text-black/60 dark:text-white/60" />
-              )}
-            </button>
           </div>
         </div>
 
