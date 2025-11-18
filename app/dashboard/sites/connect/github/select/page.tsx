@@ -90,6 +90,7 @@ export default function GitHubRepositorySelector() {
       setError('Invalid session data')
       setIsLoading(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, filterPagesOnly])
 
   const fetchRepositories = async (accessToken: string) => {
@@ -226,6 +227,7 @@ export default function GitHubRepositorySelector() {
               transition={{ delay: 0.2 }}
               className="flex items-center gap-3 px-4 py-3 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/50"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={sessionData.githubUser.avatar_url}
                 alt={sessionData.githubUser.login}
@@ -355,6 +357,7 @@ export default function GitHubRepositorySelector() {
                   className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 rounded-xl p-6 transition-all group"
                 >
                   <div className="flex items-start gap-3 mb-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={repo.owner.avatar_url}
                       alt={repo.owner.login}

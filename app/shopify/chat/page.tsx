@@ -66,6 +66,7 @@ export default function ShopifyChatPage() {
     if (shop && !storeContext) {
       fetchStoreContext()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shop])
 
   const fetchStoreContext = async () => {

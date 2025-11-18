@@ -107,6 +107,7 @@ export function ModalExamples() {
           <a href="#" className="btn-primary w-inline-block">
             <div className="flex-horizontal gap-column-4px">
               <div>Accept</div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/primary-button-icon-right-dashflow-webflow-template.svg"
                 alt=""
@@ -152,6 +153,7 @@ export function ModalExamples() {
           <a href="#" className="btn-primary w-inline-block">
             <div className="flex-horizontal gap-column-4px">
               <div>Accept</div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/primary-button-icon-right-dashflow-webflow-template.svg"
                 alt=""

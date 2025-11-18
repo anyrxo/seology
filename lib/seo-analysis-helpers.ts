@@ -601,7 +601,7 @@ function getExpectedSchemaType(pageType: string): SchemaType {
 
 // ==================== EXPORTS ====================
 
-export default {
+const seoAnalysisHelpers = {
   // Canonical
   analyzeCanonicalUrl,
 
@@ -620,3 +620,5 @@ export default {
   isIndexable,
   isFollowable
 }
+
+export default seoAnalysisHelpers

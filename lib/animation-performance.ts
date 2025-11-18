@@ -60,6 +60,7 @@ export function useAnimationFrame(callback: (deltaTime: number) => void, deps: R
     }
     previousTimeRef.current = time
     requestRef.current = requestAnimationFrame(animate)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps)
 
   useEffect(() => {

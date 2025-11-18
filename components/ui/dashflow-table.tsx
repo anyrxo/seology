@@ -114,6 +114,7 @@ export function DashflowUserTable({
             <div key={i} className="user-table-row">
               {/* Name with Avatar */}
               <div className="flex align-center gap-column-16px">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={user.avatar}
                   loading="eager"

@@ -39,6 +39,7 @@ export default function ShopifyFixesPage() {
     }
 
     fetchFixes()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shop])
 
   const fetchFixes = async () => {

@@ -122,6 +122,7 @@ export function DashflowModalIcon({
 }) {
   return (
     <div className={cn("mg-bottom-24px", className)}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         loading="eager"

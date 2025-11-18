@@ -51,6 +51,7 @@ export default function ShopifyDashboardPage() {
     if (shop) {
       fetchDashboardData()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shop])
 
   const fetchDashboardData = async () => {

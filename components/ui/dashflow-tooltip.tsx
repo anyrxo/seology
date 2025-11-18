@@ -68,6 +68,7 @@ export function DashflowTooltip({
             <div className={position === "top" || position === "bottom" ? "width-100" : ""}>
               {content}
             </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={triangleImages[position]}
               loading="eager"

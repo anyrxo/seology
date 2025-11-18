@@ -58,14 +58,21 @@ export default function RootLayout({
           />
 
           {/* Load Dashflow X CSS files - ORDER MATTERS */}
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/dashflow/normalize.css" rel="stylesheet" type="text/css" />
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/dashflow/webflow.css" rel="stylesheet" type="text/css" />
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/dashflow/dashflow.css" rel="stylesheet" type="text/css" />
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/dashflow/dashflow-utilities.css" rel="stylesheet" type="text/css" />
 
           {/* Load Radiant UI CSS - CRITICAL ORDER: normalize -> webflow -> custom */}
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/radiant/normalize.css" rel="stylesheet" type="text/css" />
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/radiant/webflow.css" rel="stylesheet" type="text/css" />
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
           <link href="/radiant/radiant-ui.css" rel="stylesheet" type="text/css" />
 
           {/* Webflow modernizr script - critical for layout */}

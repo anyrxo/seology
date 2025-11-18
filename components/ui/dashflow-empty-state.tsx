@@ -38,6 +38,7 @@ export function DashflowEmptyState({
     return (
       <div className={cn("card pd-32px---18px text-center", className)}>
         <div className="mg-bottom-16px">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={icon}
             loading="eager"
@@ -69,6 +70,7 @@ export function DashflowEmptyState({
   return (
     <div className={cn("card pd-32px---18px", className)}>
       <div className="flex align-start gap-column-16px">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={icon}
           loading="eager"

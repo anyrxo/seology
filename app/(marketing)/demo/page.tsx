@@ -200,6 +200,7 @@ export default function Demo() {
         }, 18500);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, selectedMode]);
 
   useEffect(() => {
