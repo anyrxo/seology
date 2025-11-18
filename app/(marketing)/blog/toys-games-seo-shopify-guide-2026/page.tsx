@@ -15,7 +15,7 @@ export default function ToysGamesSEOGuide2026() {
             href="/blog"
             className="text-sm font-medium text-brand-primary-500 hover:text-brand-primary-600 dark:text-brand-primary-400 dark:hover:text-brand-primary-300"
           >
-            ← Back to Blog
+            Back to Blog
           </Link>
         </div>
         <h1 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">

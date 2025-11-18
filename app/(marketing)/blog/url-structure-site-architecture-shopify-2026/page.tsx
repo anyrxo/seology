@@ -5,12 +5,6 @@ export const metadata: Metadata = {
   title: 'URL Structure & Site Architecture for Shopify SEO: 2026 Best Practices | SEOLOGY.AI',
   description: 'Google confirms internal links are "supercritical" for SEO. Master Shopify URL structure and site architecture with the 3-click rule, flat hierarchy, and strategic internal linking.',
 }
-  twitter: {
-    card: 'summary_large_image',
-    title: 'URL Structure & Site Architecture for Shopify SEO: 2026',
-    description: 'Google: Internal links are "supercritical". Master Shopify URL structure and site architecture.',
-  }
-}
 export default function URLStructureSiteArchitectureShopifyPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">

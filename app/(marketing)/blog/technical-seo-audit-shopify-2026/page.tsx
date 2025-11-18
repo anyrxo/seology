@@ -5,12 +5,6 @@ export const metadata: Metadata = {
   title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist | SEOLOGY.AI',
   description: 'Google released new technical audit methodology (Nov 2025). Master Shopify technical SEO with this comprehensive audit checklist--fix crawlability, indexation, and Core Web Vitals issues.',
 }
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Technical SEO Audit for Shopify: 2026 Complete Checklist',
-    description: "Google\'s Nov 2025 methodology + complete audit checklist. Fix technical issues killing your Shopify rankings.",
-  }
-}
 export default function TechnicalSEOAuditShopifyPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
