@@ -98,26 +98,25 @@ export default function WorkflowDiagram() {
                 {/* Step Card */}
                 <div className="bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 hover:shadow-2xl transition-all duration-300 group relative">
                   {/* Animated colored border ring - shimmer effect */}
-                  <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
-                    <div className="absolute inset-0 rounded-2xl" style={{ padding: '2px' }}>
-                      <div className="w-full h-full rounded-2xl bg-white dark:bg-black relative">
-                        <motion.div
-                          className="absolute inset-0 rounded-2xl"
-                          style={{
-                            background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
-                            backgroundSize: '200% 100%',
-                          }}
-                          animate={{
-                            backgroundPosition: ['200% 0', '-200% 0'],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: 'linear',
-                          }}
-                        />
-                      </div>
-                    </div>
+                  <div className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
+                        backgroundSize: '200% 100%',
+                        padding: '2px',
+                      }}
+                      animate={{
+                        backgroundPosition: ['200% 0', '-200% 0'],
+                      }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      <div className="w-full h-full rounded-2xl bg-white dark:bg-black"></div>
+                    </motion.div>
                   </div>
 
                   {/* Step Number Badge */}

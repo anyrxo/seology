@@ -147,26 +147,25 @@ export default function Pricing() {
               >
                 {/* Animated colored border ring for popular plan */}
                 {plan.popular && (
-                  <div className="absolute -inset-1 rounded-2xl opacity-100 overflow-hidden">
-                    <div className="absolute inset-0 rounded-2xl" style={{ padding: '2px' }}>
-                      <div className="w-full h-full rounded-2xl bg-white dark:bg-black relative">
-                        <motion.div
-                          className="absolute inset-0 rounded-2xl"
-                          style={{
-                            background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
-                            backgroundSize: '200% 100%',
-                          }}
-                          animate={{
-                            backgroundPosition: ['200% 0', '-200% 0'],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: 'linear',
-                          }}
-                        />
-                      </div>
-                    </div>
+                  <div className="absolute -inset-[2px] rounded-2xl opacity-100 overflow-hidden">
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
+                        backgroundSize: '200% 100%',
+                        padding: '2px',
+                      }}
+                      animate={{
+                        backgroundPosition: ['200% 0', '-200% 0'],
+                      }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      <div className="w-full h-full rounded-2xl bg-white dark:bg-black"></div>
+                    </motion.div>
                   </div>
                 )}
                 {/* Plan Name */}

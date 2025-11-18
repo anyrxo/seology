@@ -106,26 +106,25 @@ export default function Dashboard() {
           className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-2xl border border-black/10 dark:border-white/10 relative group"
         >
                 {/* Animated colored border ring - shimmer effect */}
-                <div className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
-                  <div className="absolute inset-0 rounded-3xl" style={{ padding: '2px' }}>
-                    <div className="w-full h-full rounded-3xl bg-white dark:bg-black relative">
-                      <motion.div
-                        className="absolute inset-0 rounded-3xl"
-                        style={{
-                          background: 'linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, #ec4899, #06b6d4, transparent)',
-                          backgroundSize: '200% 100%',
-                        }}
-                        animate={{
-                          backgroundPosition: ['200% 0', '-200% 0'],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: 'linear',
-                        }}
-                      />
-                    </div>
-                  </div>
+                <div className="absolute -inset-[2px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
+                  <motion.div
+                    className="absolute inset-0 rounded-3xl"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
+                      backgroundSize: '200% 100%',
+                      padding: '2px',
+                    }}
+                    animate={{
+                      backgroundPosition: ['200% 0', '-200% 0'],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: 'linear',
+                    }}
+                  >
+                    <div className="w-full h-full rounded-3xl bg-white dark:bg-black"></div>
+                  </motion.div>
                 </div>
 
           {/* Tabs */}
@@ -180,24 +179,36 @@ export default function Dashboard() {
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={trafficData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.1)" className="dark:stroke-white/10" />
-                      <XAxis dataKey="month" stroke="rgba(0,0,0,0.4)" className="dark:stroke-white/40" />
-                      <YAxis stroke="rgba(0,0,0,0.4)" className="dark:stroke-white/40" />
+                      <XAxis 
+                        dataKey="month" 
+                        stroke="rgba(0,0,0,0.4)" 
+                        className="dark:stroke-white/40"
+                        tick={{ fill: 'rgba(0,0,0,0.6)' }}
+                        className="dark:[&_text]:fill-white/60"
+                      />
+                      <YAxis 
+                        stroke="rgba(0,0,0,0.4)" 
+                        className="dark:stroke-white/40"
+                        tick={{ fill: 'rgba(0,0,0,0.6)' }}
+                        className="dark:[&_text]:fill-white/60"
+                      />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: "rgba(0,0,0,0.9)",
-                          border: "1px solid rgba(255,255,255,0.1)",
+                          backgroundColor: "rgba(255,255,255,0.95)",
+                          border: "1px solid rgba(0,0,0,0.1)",
                           borderRadius: "8px",
-                          color: "#fff",
+                          color: "#000",
                         }}
+                        className="dark:[&_*]:!bg-black/95 dark:[&_*]:!border-white/10 dark:[&_*]:!text-white"
                       />
                       <Line
                         type="monotone"
                         dataKey="traffic"
                         stroke="#000"
-                        className="dark:stroke-white dark:fill-white"
                         strokeWidth={3}
                         dot={{ fill: "#000", r: 6 }}
                         activeDot={{ r: 8 }}
+                        className="dark:[&_path]:stroke-white dark:[&_circle]:fill-white"
                       />
                     </LineChart>
                   </ResponsiveContainer>
@@ -240,17 +251,37 @@ export default function Dashboard() {
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={rankingData} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.1)" className="dark:stroke-white/10" />
-                      <XAxis type="number" stroke="rgba(0,0,0,0.4)" className="dark:stroke-white/40" />
-                      <YAxis dataKey="keyword" type="category" width={150} stroke="rgba(0,0,0,0.4)" className="dark:stroke-white/40" />
+                      <XAxis 
+                        type="number" 
+                        stroke="rgba(0,0,0,0.4)" 
+                        className="dark:stroke-white/40"
+                        tick={{ fill: 'rgba(0,0,0,0.6)' }}
+                        className="dark:[&_text]:fill-white/60"
+                      />
+                      <YAxis 
+                        dataKey="keyword" 
+                        type="category" 
+                        width={150} 
+                        stroke="rgba(0,0,0,0.4)" 
+                        className="dark:stroke-white/40"
+                        tick={{ fill: 'rgba(0,0,0,0.6)' }}
+                        className="dark:[&_text]:fill-white/60"
+                      />
                       <Tooltip
                         contentStyle={{
-                          backgroundColor: "rgba(0,0,0,0.9)",
-                          border: "1px solid rgba(255,255,255,0.1)",
+                          backgroundColor: "rgba(255,255,255,0.95)",
+                          border: "1px solid rgba(0,0,0,0.1)",
                           borderRadius: "8px",
-                          color: "#fff",
+                          color: "#000",
                         }}
+                        className="dark:[&_*]:!bg-black/95 dark:[&_*]:!border-white/10 dark:[&_*]:!text-white"
                       />
-                      <Bar dataKey="position" fill="#000" className="dark:fill-white" radius={[0, 8, 8, 0]} />
+                      <Bar 
+                        dataKey="position" 
+                        fill="#000" 
+                        className="dark:[&_rect]:fill-white" 
+                        radius={[0, 8, 8, 0]} 
+                      />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
