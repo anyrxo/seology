@@ -101,8 +101,10 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="py-24 bg-slate-50 dark:bg-slate-900">
-      <div className="container">
+    <section id="testimonials" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      {/* Gradient fade overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
+      <div className="container relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -111,10 +113,15 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Trusted by 5,000+ Stores
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+              TESTIMONIALS
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+              Trusted by 5,000+ Stores
+            </h2>
+          </header>
+          <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto">
             Real results from real Shopify merchants
           </p>
         </motion.div>
@@ -132,49 +139,49 @@ export default function Testimonials() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300"
+                className="bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-black/10 dark:border-white/10 hover:shadow-2xl hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
               >
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="h-5 w-5 fill-black dark:fill-white text-black dark:text-white" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                <p className="text-black/80 dark:text-white/80 mb-6 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Metrics */}
-                <div className="flex gap-4 mb-6 p-4 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                <div className="flex gap-4 mb-6 p-4 bg-black/5 dark:bg-white/5 rounded-lg">
                   <div className="flex-1">
-                    <div className="flex items-center gap-1 text-green-600 dark:text-green-400 font-bold text-lg mb-1">
+                    <div className="flex items-center gap-1 text-black dark:text-white font-bold text-lg mb-1">
                       <TrendingUp className="h-4 w-4" />
                       {testimonial.metrics.traffic}
                     </div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">Traffic Growth</div>
+                    <div className="text-xs text-black/60 dark:text-white/60">Traffic Growth</div>
                   </div>
                   <div className="flex-1">
-                    <div className="text-blue-600 dark:text-blue-400 font-bold text-lg mb-1">
+                    <div className="text-black dark:text-white font-bold text-lg mb-1">
                       {testimonial.metrics.revenue}
                     </div>
-                    <div className="text-xs text-slate-600 dark:text-slate-400">Monthly Revenue</div>
+                    <div className="text-xs text-black/60 dark:text-white/60">Monthly Revenue</div>
                   </div>
                 </div>
 
                 {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
+                <div className="flex items-center gap-3 pt-4 border-t border-black/10 dark:border-white/10">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700"
+                    className="w-12 h-12 rounded-full bg-black/10 dark:bg-white/10"
                   />
                   <div>
-                    <div className="font-semibold text-slate-900 dark:text-white">
+                    <div className="font-semibold text-black dark:text-white">
                       {testimonial.name}
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-400">
+                    <div className="text-sm text-black/60 dark:text-white/60">
                       {testimonial.role} at {testimonial.store}
                     </div>
                   </div>
@@ -191,8 +198,8 @@ export default function Testimonials() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-8 bg-gradient-to-r from-blue-600 to-purple-600"
-                    : "bg-slate-300 dark:bg-slate-600"
+                    ? "w-8 bg-black dark:bg-white"
+                    : "bg-black/20 dark:bg-white/20"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

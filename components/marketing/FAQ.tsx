@@ -52,7 +52,10 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-slate-50 dark:bg-slate-900">
+    <section id="faq" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      {/* Gradient fade overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
+      <div className="container relative z-10">
       <div className="container max-w-4xl">
         {/* Section Header */}
         <motion.div
@@ -82,14 +85,14 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full bg-white dark:bg-slate-800 rounded-xl p-6 text-left shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-slate-700"
+                className="w-full bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl p-6 text-left shadow-md hover:shadow-lg transition-all duration-300 border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white pr-8">
+                  <h3 className="text-lg font-semibold text-black dark:text-white pr-8">
                     {faq.question}
                   </h3>
                   <div
-                    className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white transition-transform duration-300 ${
+                    className={`flex-shrink-0 w-8 h-8 rounded-full bg-black dark:bg-white flex items-center justify-center text-white dark:text-black transition-transform duration-300 ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                   >
@@ -110,7 +113,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+                      <p className="text-black/60 dark:text-white/60 mt-4 leading-relaxed">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -129,12 +132,12 @@ export default function FAQ() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <p className="text-slate-600 dark:text-slate-400 mb-4">
+          <p className="text-black/60 dark:text-white/60 mb-4">
             Still have questions?
           </p>
           <Link
             href="/sign-up"
-            className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+            className="text-black dark:text-white font-semibold hover:underline"
           >
             Contact our support team →
           </Link>

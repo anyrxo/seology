@@ -18,7 +18,7 @@ const plans = [
       "Email support",
       "14-day free trial",
     ],
-    color: "from-blue-500 to-cyan-500",
+    color: "",
     popular: false,
   },
   {
@@ -35,7 +35,7 @@ const plans = [
       "Custom optimizations",
       "14-day free trial",
     ],
-    color: "from-purple-500 to-pink-500",
+    color: "",
     popular: true,
   },
   {
@@ -73,9 +73,14 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-6">
-            Simple, Transparent Pricing
-          </h2>
+          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+              PRICING
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+              Simple, Transparent Pricing
+            </h2>
+          </header>
           <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto mb-8">
             Choose the plan that fits your store. All plans include 14-day free trial.
           </p>

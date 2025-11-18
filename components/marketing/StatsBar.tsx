@@ -49,15 +49,15 @@ function StatItem({ icon, value, suffix = "", label, delay = 0 }: StatItemProps)
       transition={{ duration: 0.6, delay }}
       className="flex flex-col items-center gap-3"
     >
-      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white pulse-scale">
+      <div className="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white pulse-scale">
         {icon}
       </div>
       <div className="text-center">
-        <div className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+        <div className="text-3xl md:text-4xl font-black text-black dark:text-white">
           <motion.span>{rounded}</motion.span>
           {suffix}
         </div>
-        <div className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+        <div className="text-sm text-black/60 dark:text-white/60 mt-1">
           {label}
         </div>
       </div>
@@ -67,7 +67,7 @@ function StatItem({ icon, value, suffix = "", label, delay = 0 }: StatItemProps)
 
 export default function StatsBar() {
   return (
-    <section className="py-16 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
+    <section className="py-16 bg-white dark:bg-black border-y border-black/10 dark:border-white/10">
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <StatItem

@@ -32,8 +32,10 @@ const challenges = [
 
 export default function TheChallenge() {
   return (
-    <section id="challenge" className="py-24 bg-slate-50 dark:bg-slate-900">
-      <div className="container">
+    <section id="challenge" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      {/* Gradient fade overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
+      <div className="container relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,11 +44,16 @@ export default function TheChallenge() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            The SEO Challenge
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-            Why website owners struggle with effective SEO strategies
+          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+              THE SEO CHALLENGE
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+              Why website owners struggle with effective SEO strategies
+            </h2>
+          </header>
+          <p className="text-xl text-black/60 dark:text-white/60 max-w-3xl mx-auto">
+            Website owners face significant challenges in implementing effective SEO strategies, often due to fragmented tools and manual processes.
           </p>
         </motion.div>
 
@@ -59,15 +66,15 @@ export default function TheChallenge() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300"
+              className="bg-white/80 dark:bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-black/10 dark:border-white/10 hover:shadow-lg hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
             >
-              <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${challenge.color} flex items-center justify-center text-white mb-4`}>
+              <div className="w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white mb-4">
                 {challenge.icon}
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              <h3 className="text-lg font-bold text-black dark:text-white mb-2">
                 {challenge.title}
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-black/60 dark:text-white/60 leading-relaxed">
                 {challenge.description}
               </p>
             </motion.div>

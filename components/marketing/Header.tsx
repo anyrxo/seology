@@ -31,14 +31,14 @@ export default function Header() {
               onMouseEnter={() => setFeaturesOpen(true)}
               onMouseLeave={() => setFeaturesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+              <button className="flex items-center gap-1 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
                 Features
                 <ChevronDown className={`h-4 w-4 transition-transform ${featuresOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {featuresOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2">
-                  <Link href="/features/seo-analysis" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <Link href="/features/seo-analysis" className="block px-4 py-2 text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors">
                     SEO Analysis
                   </Link>
                   <Link href="/features/automatic-fixes" className="block px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -57,7 +57,7 @@ export default function Header() {
               )}
             </div>
 
-            <a href="/#faq" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <a href="/#faq" className="text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors font-medium">
               FAQs
             </a>
             <a href="#testimonials" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
@@ -183,7 +183,7 @@ export default function Header() {
                   <ThemeSwitcher />
                 </div>
                 <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                  <Button className="w-full bg-black dark:bg-white text-white dark:text-black">
                     Try SEOLOGY Free
                   </Button>
                 </Link>

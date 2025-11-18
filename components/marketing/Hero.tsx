@@ -59,25 +59,30 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full text-black dark:text-white mb-6 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full text-black dark:text-white mb-8 backdrop-blur-sm"
             >
               <Sparkles className="h-4 w-4" />
-              <span className="text-sm font-semibold">AI-Powered SEO Automation</span>
+              <span className="text-xs font-bold uppercase tracking-[0.15em]">AI-Powered SEO Automation</span>
             </motion.div>
 
-            {/* Headline */}
-            <motion.h1
+            {/* Headline with BacklinkGPT-style typography */}
+            <motion.header
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-white mb-6 leading-[1.1] tracking-tight"
+              className="mx-auto flex flex-col gap-y-3 text-left mb-8"
             >
-              Stop Reporting SEO Issues.
-              <br />
-              <span className="text-black/60 dark:text-white/60">
-                Start Fixing Them Automatically.
-              </span>
-            </motion.h1>
+              <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+                THE SEO AUTOMATION CHALLENGE
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-white leading-[1.1] tracking-tight">
+                Stop Reporting SEO Issues.
+                <br />
+                <span className="text-black/60 dark:text-white/60 font-normal">
+                  Start Fixing Them Automatically.
+                </span>
+              </h1>
+            </motion.header>
 
             {/* Subheadline */}
             <motion.p

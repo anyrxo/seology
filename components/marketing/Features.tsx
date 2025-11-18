@@ -18,49 +18,49 @@ const features = [
     icon: <Search className="h-6 w-6" />,
     title: "Auto Keyword Optimization",
     description: "AI discovers and optimizes for high-value keywords automatically, no research needed.",
-    color: "from-blue-500 to-cyan-500",
+    color: "",
   },
   {
     icon: <Wrench className="h-6 w-6" />,
     title: "Technical SEO Fixes",
     description: "Automatically fix broken links, 404 errors, duplicate content, and technical issues.",
-    color: "from-purple-500 to-pink-500",
+    color: "",
   },
   {
     icon: <FileText className="h-6 w-6" />,
     title: "Content Enhancement",
     description: "Optimize meta tags, descriptions, headings, and content structure for maximum impact.",
-    color: "from-green-500 to-emerald-500",
+    color: "",
   },
   {
     icon: <Users className="h-6 w-6" />,
     title: "Competitor Analysis",
     description: "Track competitors' strategies and automatically adapt to stay ahead in rankings.",
-    color: "from-orange-500 to-red-500",
+    color: "",
   },
   {
     icon: <LinkIcon className="h-6 w-6" />,
     title: "Backlink Monitoring",
     description: "Monitor your backlink profile and get alerts for new links or lost opportunities.",
-    color: "from-indigo-500 to-blue-500",
+    color: "",
   },
   {
     icon: <Gauge className="h-6 w-6" />,
     title: "Performance Tracking",
     description: "Real-time dashboards show rankings, traffic, and ROI with actionable insights.",
-    color: "from-pink-500 to-rose-500",
+    color: "",
   },
   {
     icon: <Code className="h-6 w-6" />,
     title: "Schema Markup",
     description: "Automatically implement structured data to enhance search result appearance.",
-    color: "from-teal-500 to-cyan-500",
+    color: "",
   },
   {
     icon: <Zap className="h-6 w-6" />,
     title: "Site Speed Optimization",
     description: "Identify and fix performance bottlenecks that hurt rankings and conversions.",
-    color: "from-yellow-500 to-orange-500",
+    color: "",
   },
 ];
 
@@ -81,8 +81,10 @@ const item = {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container">
+    <section id="features" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      {/* Gradient fade overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
+      <div className="container relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -91,11 +93,16 @@ export default function Features() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-6">
-            Solution
-          </h2>
+          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+              SOLUTION
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+              Elevate Your SEO Strategy, From Start to Finish
+            </h2>
+          </header>
           <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto">
-            Elevate Your SEO Strategy, From Start to Finish
+            Powerful features that automate your entire SEO workflow
           </p>
         </motion.div>
 
