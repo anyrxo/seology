@@ -55,8 +55,7 @@ export default function FAQ() {
     <section id="faq" className="py-24 bg-white dark:bg-black relative overflow-hidden">
       {/* Gradient fade overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
-      <div className="container relative z-10">
-      <div className="container max-w-4xl">
+      <div className="container relative z-10 max-w-4xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -65,10 +64,15 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300">
+          <header className="mx-auto flex flex-col gap-y-3 text-center mb-6">
+            <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+              FAQ
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-black dark:text-white leading-tight">
+              Frequently Asked Questions
+            </h2>
+          </header>
+          <p className="text-xl text-black/60 dark:text-white/60">
             Everything you need to know about Seology
           </p>
         </motion.div>

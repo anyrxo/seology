@@ -63,8 +63,10 @@ export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 bg-white dark:bg-slate-950">
-      <div className="container">
+    <section id="pricing" className="py-24 bg-white dark:bg-black relative overflow-hidden">
+      {/* Gradient fade overlay */}
+      <div className="absolute inset-0 z-0 pointer-events-none after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#000000_30%,transparent)]"></div>
+      <div className="container relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
