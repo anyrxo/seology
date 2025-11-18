@@ -53,9 +53,9 @@ function StatItem({ icon, image, value, suffix = "", label, delay = 0 }: StatIte
     >
       {image ? (
         <div className="flex -space-x-2">
-          {[1, 2, 3].map((i) => (
+          {['user1', 'user2', 'user3'].map((seed, i) => (
             <motion.div
-              key={i}
+              key={seed}
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -63,7 +63,7 @@ function StatItem({ icon, image, value, suffix = "", label, delay = 0 }: StatIte
               className="w-10 h-10 rounded-full bg-black/10 dark:bg-white/10 border-2 border-black/20 dark:border-white/20 shadow-lg overflow-hidden"
             >
               <Image
-                src={`${image}${i}`}
+                src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`}
                 alt="User"
                 width={40}
                 height={40}
@@ -96,7 +96,7 @@ export default function StatsBar() {
       <div className="container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <StatItem
-            image="https://api.dicebear.com/7.x/avataaars/svg?seed=user"
+            image="https://api.dicebear.com/7.x/avataaars/svg?seed="
             value={5000}
             suffix="+"
             label="Active Users"
