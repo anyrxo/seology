@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Code, Package, Settings, Zap } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Magento SEO: Complete Optimization Guide for Adobe Commerce',
   description: 'Magento has unique SEO challenges. This guide covers 28 optimizations that increased organic revenue by 203%.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['ecommerce-seo-strategy-2025', 'shopify-seo-optimization-guide-2025', 'woocommerce-seo-complete-guide', 'product-page-seo-ecommerce'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,11 +22,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Magento SEO Optimization Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Magento SEO: Complete Optimization Guide for Adobe Commerce
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
@@ -33,11 +32,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>15 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Magento has unique SEO challenges. This comprehensive guide covers <strong className="text-white">28 optimizations</strong> that increased organic revenue by 203% for ecommerce stores.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -49,7 +46,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -62,7 +58,6 @@ export default function BlogPost() {
                 <strong>Real result:</strong> A Magento store with 12,000 products went from 3,400 to 11,200 monthly organic visitors in 6 months using these optimizations.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
@@ -98,7 +93,6 @@ export default function BlogPost() {
                   The good news? Once optimized, Magento's technical power makes it <strong>one of the best platforms for SEO</strong>. Here's how to fix everything.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Settings className="w-8 h-8 text-blue-600" />
@@ -107,7 +101,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   This is the #1 SEO killer for Magento stores. Layered navigation and product filters create <strong>thousands of duplicate URLs</strong>.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Problem: Layered Navigation Creates Duplicates</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Example of duplicate URLs created by filters:
@@ -122,7 +115,6 @@ export default function BlogPost() {
                     <div>...thousands more combinations</div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Solution: Canonical URLs + Robots Meta Tag</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Step 1:</strong> Enable canonical tags for filtered pages:
@@ -134,7 +126,6 @@ export default function BlogPost() {
                     <li>Set "Use Canonical Link Meta Tag For Products" to <strong>Yes</strong></li>
                   </ol>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Step 2:</strong> Block indexing of filtered pages in robots.txt:
                 </p>
@@ -149,19 +140,16 @@ export default function BlogPost() {
                     Disallow: /*&*
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Advanced: Use NOINDEX, FOLLOW on Filter Pages</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Install the <strong>Amasty Improved Layered Navigation</strong> extension to add NOINDEX meta tags to filtered pages automatically.
                 </p>
-
                 <div className="bg-green-50 border-l-4 border-green-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>Pro tip:</strong> Use <strong>rel=nofollow</strong> on filter links in your template. This prevents Google from crawling filter combinations while still allowing users to use them.
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Zap className="w-8 h-8 text-blue-600" />
@@ -170,7 +158,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Magento is notoriously slow. Page speed is a <strong>direct ranking factor</strong>, and slow sites lose 53% of mobile visitors.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Enable All Magento Cache Types</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ol className="space-y-3 text-slate-700">
@@ -180,7 +167,6 @@ export default function BlogPost() {
                     <li>Click <strong>Flush Magento Cache</strong></li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Enable Full Page Cache (FPC)</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Magento's FPC caches entire HTML pages:
@@ -192,7 +178,6 @@ export default function BlogPost() {
                     <li>Set TTL to <strong>86400</strong> (24 hours)</li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Optimize Images</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -212,7 +197,6 @@ export default function BlogPost() {
                     <span><strong>Set proper dimensions:</strong> Don't rely on CSS to resize large images</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Enable JavaScript/CSS Minification & Bundling</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ol className="space-y-3 text-slate-700">
@@ -223,13 +207,11 @@ export default function BlogPost() {
                     <li>Enable <strong>Minify CSS Files</strong></li>
                   </ol>
                 </div>
-
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>⚠️ Warning:</strong> Test thoroughly after enabling JS/CSS merge. Some extensions break with aggressive bundling.
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Use a CDN (Content Delivery Network)</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Recommended CDNs for Magento:
@@ -248,7 +230,6 @@ export default function BlogPost() {
                     <span><strong>KeyCDN:</strong> Budget-friendly with Magento integration</span>
                   </li>
                 </ul>
-
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-3xl font-bold text-blue-600 mb-2">Before</div>
@@ -268,7 +249,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Code className="w-8 h-8 text-blue-600" />
@@ -277,7 +257,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Magento generates ugly URLs by default. Clean URLs are <strong>critical for rankings and click-through rate</strong>.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Enable SEO-Friendly URLs</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ol className="space-y-3 text-slate-700">
@@ -287,7 +266,6 @@ export default function BlogPost() {
                     <li>Save config and flush cache</li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Remove Category Path from Product URLs</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   By default, Magento includes category in product URLs, creating duplicates:
@@ -299,7 +277,6 @@ export default function BlogPost() {
                     <div className="text-green-600">✓ Good: /blue-oxford-shirt.html</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>To fix:</strong>
                 </p>
@@ -310,7 +287,6 @@ export default function BlogPost() {
                     <li>Set "Use Categories Path for Product URLs" to <strong>No</strong></li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Optimize URL Keys for Products & Categories</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   URL key best practices:
@@ -337,7 +313,6 @@ export default function BlogPost() {
                     <span><strong>Never change after launch:</strong> Breaks backlinks and rankings</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">301 Redirects for URL Changes</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   If you must change URLs, use 301 redirects:
@@ -351,7 +326,6 @@ export default function BlogPost() {
                   </ol>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Ecommerce SEO Guides:</h2>
                 <ul className="space-y-2">
@@ -361,7 +335,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/product-page-seo-ecommerce" className="text-blue-600 hover:text-blue-800">Product Page SEO: Optimize Every Element</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #MagentoSEO #AdobeCommerce #EcommerceSEO #Magento2 #PlatformSEO #OnlineStore
@@ -371,7 +344,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Ecommerce SEO Guides</h2>

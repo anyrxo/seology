@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Google Analytics 4 for SEO: Complete Tracking & Reporting Guide',
   description: 'GA4 changes everything for SEO tracking. This guide shows how to track rankings, traffic, and conversions in the new GA4.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['google-search-console-mastery-2025', 'seo-roi-calculator-guide', 'conversion-rate-optimization-seo'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Google Analytics 4 for SEO</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Google Analytics 4 for SEO: Complete Tracking & Reporting Guide
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>September 5, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             GA4 changes everything for SEO tracking. This guide shows how to track <strong className="text-white">rankings, traffic, and conversions</strong> in the new GA4.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Universal Analytics is dead. GA4 is mandatory but completely different. This guide shows exactly how to set up <strong>GA4 for SEO tracking</strong>--custom events, conversion tracking, organic performance reports, and attribution models that prove SEO ROI. Stop flying blind in GA4.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why GA4 Changes Everything for SEO</h2>
@@ -98,7 +93,6 @@ export default function BlogPost() {
                   The bad news? Your old GA setup doesn\'t transfer. The good news? GA4 is more powerful for proving SEO ROI.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Essential GA4 Setup for SEO Tracking</h2>
                 <ul className="space-y-4 my-6">
@@ -139,7 +133,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Critical SEO Reports to Build in GA4</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -185,7 +178,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Custom Events for SEO Tracking</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -214,7 +206,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">GA4 Explorations for Deep SEO Analysis</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -239,7 +230,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common GA4 SEO Tracking Mistakes</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -263,7 +253,6 @@ export default function BlogPost() {
                     <span><strong>Forgetting bot filtering:</strong> Enable bot filtering to remove crawler traffic from reports.</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Track SEO Performance Automatically with SEOLOGY</h3>
@@ -279,7 +268,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -292,7 +280,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #GA4 #GoogleAnalytics #SEOTracking
@@ -302,7 +289,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

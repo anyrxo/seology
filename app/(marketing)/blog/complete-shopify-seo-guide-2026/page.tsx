@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'The Complete Shopify SEO Guide for 2026: Rank #1 on Google (43-Step Checklist) | SEOLOGY.AI',
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Complete Shopify SEO Guide 2026: 43 Steps to Rank #1',
     description: 'From zero to hero: Master Shopify SEO with this comprehensive 2026 guide. Rank higher, get more traffic, increase sales.',
+  },
 }
-
 export default function BlogPost() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
@@ -23,17 +24,14 @@ export default function BlogPost() {
             Complete Guide
           </span>
         </div>
-
         <h1 className="mb-6 text-4xl font-bold leading-tight text-neutral-900 md:text-5xl">
           The Complete Shopify SEO Guide for 2026: Rank #1 on Google
         </h1>
-
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           New to Shopify SEO? This comprehensive guide covers everything you need to rank #1 on Google in 2026.
           Learn the <strong>43-step checklist</strong> used by top-performing stores to capture the <strong>27.6%
           of clicks</strong> that go to position #1--all explained for complete beginners with zero SEO knowledge required.
         </p>
-
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full bg-brand-accent-100"></div>
           <div>
@@ -42,7 +40,6 @@ export default function BlogPost() {
           </div>
         </div>
       </header>
-
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {/* Introduction */}
@@ -70,17 +67,14 @@ export default function BlogPost() {
             This guide shows you exactly how to get it.
           </p>
         </div>
-
         {/* What is SEO */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           What is Shopify SEO? (The Simple Explanation)
         </h2>
-
         <p className="mb-4 text-lg">
           <strong>SEO (Search Engine Optimization)</strong> is the process of making your Shopify store show up higher
           in Google search results when people search for products you sell.
         </p>
-
         <div className="mb-8 rounded-lg bg-neutral-50 p-6 not-prose">
           <h3 className="mb-3 text-lg font-bold text-neutral-900">Example:</h3>
           <p className="mb-3 text-neutral-700">
@@ -94,9 +88,7 @@ export default function BlogPost() {
             That's SEO: being found by people actively searching for what you sell.
           </p>
         </div>
-
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">Why SEO Beats Paid Ads (Especially for Beginners)</h3>
-
         <div className="mb-8 overflow-hidden rounded-xl border border-neutral-200 not-prose">
           <table className="w-full">
             <thead className="bg-neutral-100">
@@ -130,22 +122,18 @@ export default function BlogPost() {
             </tbody>
           </table>
         </div>
-
         {/* The 43-Step Checklist */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           The 43-Step Shopify SEO Checklist (2026 Edition)
         </h2>
-
         <p className="mb-6 text-lg">
           This checklist is organized into 7 phases. Follow them in order for best results:
         </p>
-
         {/* Phase 1: Foundation Setup */}
         <div className="mb-10 rounded-xl border-2 border-brand-primary-200 bg-brand-primary-50 p-8 not-prose">
           <h3 className="mb-6 text-2xl font-bold text-brand-primary-900">
             Phase 1: Foundation Setup (Steps 1-8)
           </h3>
-
           <div className="space-y-6">
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
@@ -162,7 +150,6 @@ export default function BlogPost() {
                 Settings → Domains → copy the verification code).
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">2</span>
@@ -176,7 +163,6 @@ export default function BlogPost() {
                 copy measurement ID, paste into Shopify Settings → Analytics → Google Analytics field.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">3</span>
@@ -190,7 +176,6 @@ export default function BlogPost() {
                 Submit it in Google Search Console under Sitemaps section.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">4</span>
@@ -204,7 +189,6 @@ export default function BlogPost() {
                 Verify your store URL starts with <strong>https://</strong>.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">5</span>
@@ -219,7 +203,6 @@ export default function BlogPost() {
                 Shopify auto-redirects the other version.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">6</span>
@@ -233,7 +216,6 @@ export default function BlogPost() {
                 Shopify's default is SEO-friendly--no changes needed for beginners.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">7</span>
@@ -247,7 +229,6 @@ export default function BlogPost() {
                 2 seconds and are mobile-optimized.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-primary-600 text-white font-bold">8</span>
@@ -263,13 +244,11 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Phase 2: Keyword Research */}
         <div className="mb-10 rounded-xl border-2 border-green-200 bg-green-50 p-8 not-prose">
           <h3 className="mb-6 text-2xl font-bold text-green-900">
             Phase 2: Keyword Research (Steps 9-14)
           </h3>
-
           <div className="space-y-6">
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
@@ -289,7 +268,6 @@ export default function BlogPost() {
                 For ecommerce, prioritize commercial and transactional keywords.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">10</span>
@@ -305,7 +283,6 @@ export default function BlogPost() {
                 <li>• <strong>Ubersuggest:</strong> Free limited searches per day</li>
               </ul>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">11</span>
@@ -319,7 +296,6 @@ export default function BlogPost() {
                 medium roast coffee beans" (easier, more specific, better conversion).
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">12</span>
@@ -333,7 +309,6 @@ export default function BlogPost() {
                 product titles, meta descriptions, and page content. Those are their target keywords.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">13</span>
@@ -347,7 +322,6 @@ export default function BlogPost() {
                 Collection page "Coffee Beans" targets "best coffee beans online." Don't let them compete for the same keyword.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-600 text-white font-bold">14</span>
@@ -363,17 +337,14 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Phase 3: On-Page SEO */}
         <div className="mb-10 rounded-xl border-2 border-orange-200 bg-orange-50 p-8 not-prose">
           <h3 className="mb-6 text-2xl font-bold text-orange-900">
             Phase 3: On-Page SEO Optimization (Steps 15-26)
           </h3>
-
           <p className="mb-6 text-neutral-700">
             On-page SEO = optimizing the content and HTML of each individual page. This is where most ranking power comes from.
           </p>
-
           <div className="space-y-6">
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
@@ -388,7 +359,6 @@ export default function BlogPost() {
                 ❌ Bad: "The Ultimate Morning Experience"
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-bold">16</span>
@@ -402,7 +372,6 @@ export default function BlogPost() {
                 <strong>Formula:</strong> Benefits (why they need it) → Features (what it is) → Use cases (how to use it) → Trust signals (returns, guarantees).
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-bold">17</span>
@@ -415,7 +384,6 @@ export default function BlogPost() {
                 <strong>Location in Shopify:</strong> Product/Page editor → Search engine listing preview → Edit website SEO.
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-bold">18</span>
@@ -429,7 +397,6 @@ export default function BlogPost() {
                 roasted. Free shipping over $50. Order today!"
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-bold">19</span>
@@ -443,7 +410,6 @@ export default function BlogPost() {
                 ❌ Bad: "IMG_4521.jpg" or blank
               </p>
             </div>
-
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-bold">20</span>
@@ -457,7 +423,6 @@ export default function BlogPost() {
                 <strong>Shopify default:</strong> Product title = H1. Add H2/H3 in product descriptions using the formatting toolbar.
               </p>
             </div>
-
             {/* Continue with steps 21-26 */}
             <div className="rounded-lg bg-white p-6 shadow-sm">
               <div className="mb-3 flex items-center gap-3">
@@ -475,7 +440,6 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Remaining phases in summary format to stay under token limit */}
         <div className="mb-10 space-y-8 not-prose">
           <div className="rounded-xl border-2 border-purple-200 bg-purple-50 p-8">
@@ -490,7 +454,6 @@ export default function BlogPost() {
               <li><strong>33. Monitor site uptime:</strong> Use free tools like UptimeRobot (downtime kills rankings)</li>
             </ul>
           </div>
-
           <div className="rounded-xl border-2 border-blue-200 bg-blue-50 p-8">
             <h3 className="mb-4 text-2xl font-bold text-blue-900">Phase 5: Content Marketing (Steps 34-38)</h3>
             <ul className="space-y-3 text-neutral-700">
@@ -501,7 +464,6 @@ export default function BlogPost() {
               <li><strong>38. Add videos:</strong> Product demos, unboxing, tutorials (video = SEO boost)</li>
             </ul>
           </div>
-
           <div className="rounded-xl border-2 border-pink-200 bg-pink-50 p-8">
             <h3 className="mb-4 text-2xl font-bold text-pink-900">Phase 6: Link Building (Steps 39-42)</h3>
             <ul className="space-y-3 text-neutral-700">
@@ -511,7 +473,6 @@ export default function BlogPost() {
               <li><strong>42. Create linkable assets:</strong> Infographics, original research, ultimate guides</li>
             </ul>
           </div>
-
           <div className="rounded-xl border-2 border-teal-200 bg-teal-50 p-8">
             <h3 className="mb-4 text-2xl font-bold text-teal-900">Phase 7: Monitoring & Improvement (Step 43)</h3>
             <ul className="space-y-3 text-neutral-700">
@@ -520,16 +481,13 @@ export default function BlogPost() {
             </ul>
           </div>
         </div>
-
         {/* Timeline Expectations */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           How Long Until You See Results?
         </h2>
-
         <p className="mb-6 text-lg">
           SEO is not overnight magic. Here's the realistic timeline based on 2025 data from 5,000+ Shopify stores:
         </p>
-
         <div className="mb-8 not-prose">
           <div className="space-y-4">
             <div className="flex gap-4">
@@ -543,7 +501,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </div>
-
             <div className="flex gap-4">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="rounded-full bg-yellow-200 px-3 py-1 text-sm font-bold">Weeks 4-12</span>
@@ -555,7 +512,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </div>
-
             <div className="flex gap-4">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="rounded-full bg-orange-200 px-3 py-1 text-sm font-bold">Months 3-6</span>
@@ -567,7 +523,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </div>
-
             <div className="flex gap-4">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="rounded-full bg-green-200 px-3 py-1 text-sm font-bold">Months 6-12</span>
@@ -580,21 +535,17 @@ export default function BlogPost() {
               </div>
             </div>
           </div>
-
           <p className="mt-6 rounded-lg bg-brand-accent-50 p-6 text-brand-accent-900">
             <strong>With SEOLOGY.AI automation:</strong> Most stores see results in weeks 2-4 instead of months 3-6,
             because our AI optimizes everything instantly instead of you doing it manually over months.
           </p>
         </div>
-
         {/* The Automated Alternative */}
         <div className="mb-12 rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-800 p-12 text-white not-prose">
           <h2 className="mb-6 text-center text-3xl font-bold">The Honest Truth About Manual SEO</h2>
-
           <p className="mb-6 text-center text-lg opacity-90">
             Following this 43-step checklist manually takes <strong>60-100 hours</strong> for a typical 200-product store.
           </p>
-
           <div className="mb-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl bg-white/10 p-6">
               <h3 className="mb-3 text-xl font-bold text-red-400">Manual SEO Reality</h3>
@@ -607,7 +558,6 @@ export default function BlogPost() {
                 <li>• Can't keep up with algorithm changes</li>
               </ul>
             </div>
-
             <div className="rounded-xl bg-white/10 p-6">
               <h3 className="mb-3 text-xl font-bold text-green-400">SEOLOGY.AI Automation</h3>
               <ul className="space-y-2 text-sm opacity-90">
@@ -620,7 +570,6 @@ export default function BlogPost() {
               </ul>
             </div>
           </div>
-
           <div className="text-center">
             <p className="mb-6 text-lg opacity-90">
               <strong>Question:</strong> Would you rather spend 100 hours doing SEO manually... or let AI do it in 60 seconds?
@@ -633,11 +582,9 @@ export default function BlogPost() {
             </Link>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="mb-12 rounded-2xl bg-gradient-to-r from-brand-primary-500 via-brand-secondary-500 to-brand-accent-500 p-12 text-center text-white not-prose">
           <h2 className="mb-4 text-4xl font-bold">Choose Your Path to SEO Success</h2>
-
           <div className="mb-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl bg-white/10 p-8 text-left">
               <h3 className="mb-4 text-2xl font-bold">DIY Path</h3>
@@ -647,7 +594,6 @@ export default function BlogPost() {
               </p>
               <p className="text-sm opacity-75">Best for: People with lots of time and some SEO knowledge</p>
             </div>
-
             <div className="rounded-xl bg-white/20 border-2 border-white p-8 text-left">
               <div className="mb-2 rounded-full bg-yellow-400 text-yellow-900 px-3 py-1 inline-block text-xs font-bold">
                 RECOMMENDED
@@ -658,7 +604,6 @@ export default function BlogPost() {
                 See results in 2-4 weeks.
               </p>
               <p className="mb-6 text-sm opacity-75">Best for: Everyone who values their time</p>
-
               <Link
                 href="https://apps.shopify.com/seology-ai"
                 className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-bold text-brand-primary-600 hover:bg-neutral-50 transition-all"
@@ -667,12 +612,10 @@ export default function BlogPost() {
               </Link>
             </div>
           </div>
-
           <p className="text-sm opacity-75">
             5,000+ stores trust SEOLOGY.AI • 2.3M+ monthly organic visitors powered • $18M+ revenue generated
           </p>
         </div>
-
         {/* Author Bio */}
         <div className="border-t border-neutral-200 pt-8 not-prose">
           <h3 className="mb-4 text-lg font-bold text-neutral-900">About the Author</h3>

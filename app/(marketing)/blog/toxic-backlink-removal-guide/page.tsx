@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { AlertTriangle, CheckCircle2, Search, Shield, Trash2, TrendingDown } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Toxic Backlink Removal: Clean Your Link Profile & Recover Rankings',
   description: 'Toxic backlinks are killing your rankings. This guide identifies and removes toxic links before Google penalizes you.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.category === 'Link Building' || post.tags.includes('#LinkBuilding')
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -38,11 +39,9 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
-
             {/* TL;DR */}
             <div className="bg-red-50 border-l-4 border-red-600 p-6 mb-12 rounded-r-lg">
               <h2 className="text-2xl font-bold text-red-900 mb-4 mt-0">TL;DR</h2>
@@ -55,9 +54,7 @@ export default function BlogPost() {
                 <li className="flex items-start gap-2"><CheckCircle2 className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" /><span>How SEOLOGY automates toxic link monitoring and removal</span></li>
               </ul>
             </div>
-
             <div className="prose prose-lg max-w-none">
-
               {/* Introduction */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">What Are Toxic Backlinks?</h2>
@@ -101,14 +98,12 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0"><strong className="text-yellow-900">Real Impact:</strong> A client came to us with 2,400+ toxic backlinks from a negative SEO attack. Their rankings dropped 67% in 3 weeks. After a comprehensive cleanup and disavow, they recovered 93% of lost traffic within 60 days.</p>
                 </div>
               </section>
-
               {/* Step 1: Audit */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Step 1: Conduct a Complete Backlink Audit</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Before you can clean up toxic links, you need to find them. Use multiple tools because no single tool has complete data.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">Best Tools for Finding Toxic Links</h3>
                 <div className="space-y-6 mb-8">
                   <div className="border-l-4 border-blue-600 pl-6">
@@ -121,7 +116,6 @@ export default function BlogPost() {
                       <li>• Check anchor text distribution</li>
                     </ul>
                   </div>
-
                   <div className="border-l-4 border-purple-600 pl-6">
                     <h4 className="text-xl font-bold text-slate-900 mb-2">2. Ahrefs (Paid)</h4>
                     <p className="text-slate-700 mb-2">Largest backlink index. Best for comprehensive analysis.</p>
@@ -133,7 +127,6 @@ export default function BlogPost() {
                       <li>• Export toxic link candidates</li>
                     </ul>
                   </div>
-
                   <div className="border-l-4 border-green-600 pl-6">
                     <h4 className="text-xl font-bold text-slate-900 mb-2">3. SEMrush Backlink Audit (Paid)</h4>
                     <p className="text-slate-700 mb-2">Has built-in toxicity scoring.</p>
@@ -144,7 +137,6 @@ export default function BlogPost() {
                       <li>• Export list of toxic domains</li>
                     </ul>
                   </div>
-
                   <div className="border-l-4 border-orange-600 pl-6">
                     <h4 className="text-xl font-bold text-slate-900 mb-2">4. Moz Link Explorer (Paid)</h4>
                     <p className="text-slate-700 mb-2">Good for Spam Score analysis.</p>
@@ -156,7 +148,6 @@ export default function BlogPost() {
                     </ul>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">Manual Review Checklist</h3>
                 <p className="text-lg text-slate-700 mb-4">Don't rely solely on automated scores. Manually review suspicious links:</p>
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
@@ -199,7 +190,6 @@ export default function BlogPost() {
                   </ul>
                 </div>
               </section>
-
               {/* Step 2: Categorize */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Step 2: Categorize Links by Toxicity Level</h2>
@@ -221,7 +211,6 @@ export default function BlogPost() {
                       <li>• Automated comment/forum spam</li>
                     </ul>
                   </div>
-
                   <div className="bg-yellow-50 border-2 border-yellow-600 p-6 rounded-lg">
                     <h3 className="text-xl font-bold text-yellow-900 mb-3">Medium-Risk (Review & Decide)</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -232,7 +221,6 @@ export default function BlogPost() {
                       <li>• Sudden link velocity spikes</li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-2 border-green-600 p-6 rounded-lg">
                     <h3 className="text-xl font-bold text-green-900 mb-3">Low-Risk (Keep)</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -248,11 +236,9 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0"><strong className="text-blue-900">Pro Tip:</strong> When in doubt, keep it. Removing good links hurts more than keeping a few mediocre ones. Only remove clear toxic links.</p>
                 </div>
               </section>
-
               {/* Step 3: Remove */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Step 3: Remove Toxic Links (Two-Step Process)</h2>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">Method 1: Outreach & Removal Requests</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Before using Google's Disavow Tool, try to get toxic links removed at the source. This is the "clean" approach Google prefers.
@@ -297,7 +283,6 @@ export default function BlogPost() {
                     </li>
                   </ol>
                 </div>
-
                 <div className="bg-slate-100 p-6 rounded-lg mb-8">
                   <h4 className="text-lg font-bold text-slate-900 mb-3">Email Template for Link Removal:</h4>
                   <div className="bg-white p-4 rounded border border-slate-300 font-mono text-sm">
@@ -311,7 +296,6 @@ export default function BlogPost() {
                     <p>Best regards,<br />[Your Name]</p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">Method 2: Google Disavow Tool</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   For links you can't remove manually, use Google's Disavow Links tool. This tells Google to ignore specific backlinks when assessing your site.
@@ -319,7 +303,6 @@ export default function BlogPost() {
                 <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 mb-6">
                   <p className="text-slate-700 mb-0"><strong className="text-yellow-900">Warning:</strong> The disavow tool is powerful and can hurt your rankings if misused. Only disavow clearly toxic links. When in doubt, don't disavow.</p>
                 </div>
-
                 <h4 className="text-xl font-bold text-slate-900 mb-4">How to Create a Disavow File:</h4>
                 <div className="space-y-4 mb-6">
                   <div className="border-l-4 border-blue-600 pl-6">
@@ -347,12 +330,10 @@ export default function BlogPost() {
                     <p className="text-slate-700">Google processes disavow files within a few weeks. Monitor rankings closely.</p>
                   </div>
                 </div>
-
                 <div className="bg-red-50 border-l-4 border-red-600 p-6 my-6">
                   <p className="text-slate-700 mb-0"><strong className="text-red-900">Critical:</strong> Disavowing good links can destroy your rankings. Triple-check your disavow file. Consider hiring an SEO expert if you're unsure.</p>
                 </div>
               </section>
-
               {/* Negative SEO Protection */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Protecting Against Negative SEO Attacks</h2>
@@ -413,7 +394,6 @@ export default function BlogPost() {
                     </ul>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
                   <h4 className="text-xl font-bold text-slate-900 mb-4">If You're Under Attack:</h4>
                   <ol className="space-y-3 text-slate-700">
@@ -425,7 +405,6 @@ export default function BlogPost() {
                   </ol>
                 </div>
               </section>
-
               {/* Recovery Process */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Recovery Timeline After Toxic Link Removal</h2>
@@ -454,7 +433,6 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0"><strong className="text-green-900">Success Story:</strong> E-commerce client had 1,847 toxic links from a negative SEO attack. After a comprehensive 30-day cleanup and disavow process, they recovered 91% of lost traffic within 45 days and hit record sales 60 days post-recovery.</p>
                 </div>
               </section>
-
               {/* Common Mistakes */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Common Mistakes to Avoid</h2>
@@ -496,7 +474,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               {/* SEOLOGY Automation */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">How SEOLOGY Automates Toxic Link Monitoring</h2>
@@ -553,7 +530,6 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0"><strong className="text-green-900">Real Results:</strong> SEOLOGY clients see 94% reduction in toxic links within 60 days, with zero manual work required. The AI catches negative SEO attacks within 24 hours and initiates cleanup automatically.</p>
                 </div>
               </section>
-
               {/* Final Verdict */}
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Final Verdict</h2>
@@ -572,7 +548,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               {/* Related Posts */}
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 text-slate-900">Related Posts:</h2>

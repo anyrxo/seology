@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Technical SEO Audit Checklist: 31 Critical Issues to Fix in 2025',
   description: 'Most sites have 50+ technical SEO issues killing their rankings. This checklist catches them all--and SEOLOGY fixes them automatically.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'technical-seo-audit-checklist-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Technical SEO Audit Checklist</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Technical SEO Audit Checklist: 31 Critical Issues to Fix in 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>January 3, 2025</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Most sites have <strong className="text-white">50+ technical SEO issues</strong> killing their rankings. This checklist catches them all--and SEOLOGY fixes them automatically.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Technical SEO makes or breaks your rankings. This comprehensive <strong>31-point checklist</strong> covers crawlability, indexability, site speed, mobile optimization, structured data, and security. Manual audits take 8+ hours per site. SEOLOGY scans all 31 issues in under 60 seconds and fixes them automatically.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Technical SEO Matters More Than Ever</h2>
@@ -92,10 +87,8 @@ export default function BlogPost() {
                   Technical issues don't just hurt rankings--they make your content invisible to Google.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Complete Technical SEO Audit Checklist</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Crawlability & Indexability (9 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -107,7 +100,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -117,7 +109,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -127,7 +118,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -137,7 +127,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -147,7 +136,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -157,7 +145,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -167,7 +154,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -177,7 +163,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -188,7 +173,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Site Speed & Performance (7 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -200,7 +184,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -210,7 +193,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -220,7 +202,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -230,7 +211,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -240,7 +220,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -250,7 +229,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -261,7 +239,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Mobile Optimization (5 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -273,7 +250,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -283,7 +259,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -293,7 +268,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -303,7 +277,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -314,7 +287,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">On-Page Technical SEO (6 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -326,7 +298,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -336,7 +307,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -346,7 +316,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -356,7 +325,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -366,7 +334,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -377,7 +344,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Structured Data & Schema (2 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -389,7 +355,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -400,7 +365,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Security & HTTPS (2 Issues)</h3>
                 <div className="space-y-4 mb-8">
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
@@ -412,7 +376,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -424,7 +387,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Manual Audits vs SEOLOGY Automatic Audits</h2>
                 <div className="overflow-x-auto my-8">
@@ -466,7 +428,6 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Run Your Technical SEO Audit with SEOLOGY</h2>
                 <ul className="space-y-4 my-6">
@@ -500,13 +461,11 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Download This Checklist (Free)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Want this 31-point technical SEO audit checklist as a PDF? Get it free when you sign up for SEOLOGY.
                 </p>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Run Your Free Technical SEO Audit</h3>
@@ -522,7 +481,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -531,7 +489,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/shopify-page-speed-optimization" className="text-blue-600 hover:text-blue-800">Shopify Page Speed Optimization</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #TechnicalSEO #SEOAudit #SEOChecklist #SEOLOGY #SEO2025
@@ -541,7 +498,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

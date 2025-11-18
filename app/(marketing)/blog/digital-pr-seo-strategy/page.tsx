@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Digital PR for SEO: Build Authority Links Through Media Coverage',
   description: 'Digital PR builds the highest-authority links possible. This strategy earned 156 links from major publications.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'digital-pr-seo-strategy').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Digital PR for SEO</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Digital PR for SEO: Build Authority Links Through Media Coverage
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>October 15, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Digital PR builds the <strong className="text-white">highest-authority links possible</strong>. This strategy earned 156 links from major publications.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Digital PR earns editorial links from high-authority publications--the most powerful backlinks you can get. Unlike link building, Digital PR focuses on newsworthiness and media coverage. This strategy earned <strong>156 links from DR 70+ publications</strong> including Forbes, TechCrunch, and Business Insider. This guide covers 14 proven tactics: data journalism, expert commentary, original research, trend-jacking, and media relationship building. SEOLOGY automates digital PR outreach and link tracking.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Digital PR Beats Traditional Link Building</h2>
@@ -89,10 +84,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 14 Digital PR Tactics That Earn Links</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Data Journalism (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -107,7 +100,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> "Study finds..." coverage from major publications linking to your research.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Create Industry Reports</h4>
                     <p className="text-slate-700 mb-3">
@@ -120,7 +112,6 @@ export default function BlogPost() {
                       <strong>Distribution:</strong> Email to journalists with "exclusive early access" 1 week before public release.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Build Data-Driven Tools</h4>
                     <p className="text-slate-700 mb-3">
@@ -133,7 +124,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Tools get linked repeatedly over months/years as evergreen resources.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Analyze Public Datasets</h4>
                     <p className="text-slate-700 mb-3">
@@ -147,7 +137,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Media Relations (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -162,7 +151,6 @@ export default function BlogPost() {
                       <strong>Payoff:</strong> They remember you when they need sources--ongoing coverage.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Use HARO (Help A Reporter Out)</h4>
                     <p className="text-slate-700 mb-3">
@@ -175,7 +163,6 @@ export default function BlogPost() {
                       <strong>Success rate:</strong> 15-20% of quality responses result in mentions with backlinks.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Create a Press Page</h4>
                     <p className="text-slate-700 mb-3">
@@ -188,7 +175,6 @@ export default function BlogPost() {
                       <strong>Purpose:</strong> Makes journalists\' jobs easier--increases coverage likelihood.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Pitch Exclusive Stories</h4>
                     <p className="text-slate-700 mb-3">
@@ -202,7 +188,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Newsjacking & Trends (3 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -217,7 +202,6 @@ export default function BlogPost() {
                       <strong>Distribution:</strong> Email journalists covering the story with "expert analysis available."
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Create Seasonal Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -230,7 +214,6 @@ export default function BlogPost() {
                       <strong>Advantage:</strong> Journalists actively seek seasonal angles--high acceptance rate.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Monitor Competitor Coverage</h4>
                     <p className="text-slate-700 mb-3">
@@ -244,7 +227,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content Formats (3 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -259,7 +241,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> "Interactive map of [industry data] across all 50 states."
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Create Infographics</h4>
                     <p className="text-slate-700 mb-3">
@@ -272,7 +253,6 @@ export default function BlogPost() {
                       <strong>Distribution:</strong> Offer journalists "embed code" to make it easy to include in articles.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Expert Roundups</h4>
                     <p className="text-slate-700 mb-3">
@@ -287,7 +267,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Digital PR Pitch Template That Works</h2>
                 <div className="bg-slate-100 p-6 rounded-xl my-8 font-mono text-sm">
@@ -304,7 +283,6 @@ export default function BlogPost() {
                   <strong>Key elements:</strong> Brief (under 100 words), specific reference to their work, newsworthy data, easy access to full info, no hard sell.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Digital PR Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -314,28 +292,24 @@ export default function BlogPost() {
                       Journalists don\'t care about your product launch. They care about newsworthy information. Lead with data, trends, or expert analysis--not your company.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Generic Mass Pitches</h4>
                     <p className="text-slate-700">
                       "Dear Editor" emails get deleted instantly. Personalize every pitch with specific references to the journalist\'s recent work. Quality over quantity.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Weak or Boring Data</h4>
                     <p className="text-slate-700">
                       "73% of people use our product category" isn\'t newsworthy. Find surprising, counterintuitive, or trend-revealing insights. Boring data = no coverage.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: No Follow-Up Strategy</h4>
                     <p className="text-slate-700">
                       One pitch isn\'t enough. Follow up politely 3-5 days later. Most coverage comes from follow-ups, not initial pitches.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Ignoring Relationship Building</h4>
                     <p className="text-slate-700">
@@ -344,7 +318,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Digital PR</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -380,7 +353,6 @@ export default function BlogPost() {
                     <span>Manages journalist relationship CRM with pitch history and follow-ups</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Digital PR Today</h3>
@@ -396,7 +368,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -405,7 +376,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/guest-posting-seo-guide-2025" className="text-blue-600 hover:text-blue-800">Guest Posting for SEO: How to Build Authority Links That Rank</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #DigitalPR #LinkBuilding #BrandBuilding
@@ -415,7 +385,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

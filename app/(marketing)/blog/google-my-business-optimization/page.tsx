@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Google Business Profile Optimization: 17 Tactics That Increased Local Traffic 487% (Map Pack Dominance)',
   description: 'Google Business Profile optimization increased local search visibility 487% and map pack appearances 94% by implementing complete profile optimization, active posting, and strategic review management.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'google-my-business-optimization').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Google Business Profile Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Google Business Profile Optimization: 17 Tactics That Increased Local Traffic 487% (Map Pack Dominance)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>July 10, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Google Business Profile (formerly Google My Business) is the single most powerful local SEO tool--76% of people who search for something nearby visit a business within 24 hours. Complete optimization increases map pack appearances 94% and local traffic 487%. Yet 63% of businesses have incomplete profiles, leaving massive opportunities on the table.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -78,7 +74,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Google Business Profile Destroys Local Competition</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -95,13 +90,10 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-0">One multi-location restaurant chain implemented complete GBP optimization across 47 locations. Result: <strong>487% increase in "direction requests," 312% increase in phone calls, and 94% more map pack appearances</strong> within 90 days. No paid ads. Just optimized profiles.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">17 Tactics for Google Business Profile Domination</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4 text-blue-900">Category 1: Profile Setup & Completeness (Tactics 1-5)</h3>
               <p className="text-slate-700 mb-6">A complete profile is the foundation. Google\'s algorithm explicitly rewards profile completeness--missing fields = lower rankings.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Claim and Verify Your Profile with Exact NAP</h4>
                 <p className="text-slate-700 mb-4">
@@ -117,7 +109,6 @@ export default function BlogPost() {
                   <strong>Example:</strong> A law firm changed their name slightly on GBP ("Smith & Associates Law Firm") vs. website ("Smith and Associates"). Rankings dropped 67% until they fixed the inconsistency.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #2: Choose Primary & Secondary Categories Strategically</h4>
                 <p className="text-slate-700 mb-4">
@@ -133,7 +124,6 @@ export default function BlogPost() {
                   <strong>Example:</strong> A restaurant switched primary category from "Restaurant" (generic) to "Italian Restaurant" (specific). Map pack appearances increased 127% for "italian food near me" searches.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Write a Keyword-Rich Business Description (750 Characters)</h4>
                 <p className="text-slate-700 mb-4">
@@ -149,7 +139,6 @@ export default function BlogPost() {
                   <strong>Example:</strong> "Family-owned Italian restaurant in downtown Portland serving authentic wood-fired pizza, fresh pasta, and craft cocktails since 1987. Dine-in, takeout, and catering available. Gluten-free and vegan options."
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #4: Complete All Attributes (Hours, Payment, Accessibility)</h4>
                 <p className="text-slate-700 mb-4">
@@ -165,7 +154,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Check your competitors\' attributes. If they\'re highlighting "Free Wi-Fi" or "Vegan options" and you have those too, add them--it\'s a competitive signal.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #5: Add High-Quality Photos & Videos (Minimum 10 Photos)</h4>
                 <p className="text-slate-700 mb-4">
@@ -181,10 +169,8 @@ export default function BlogPost() {
                   <strong>Update frequency:</strong> Add 2-4 new photos per month. Google rewards fresh visual content with higher visibility. Seasonal photos (holiday decorations, summer patio) keep your profile current.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-purple-900">Category 2: Content & Engagement (Tactics 6-10)</h3>
               <p className="text-slate-700 mb-6">Active profiles rank higher. Google tracks engagement signals--posts, Q&A, bookings--and rewards businesses that actively use the platform.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #6: Publish Google Posts Weekly (Updates, Offers, Events)</h4>
                 <p className="text-slate-700 mb-4">
@@ -200,7 +186,6 @@ export default function BlogPost() {
                   <strong>Example post:</strong> "New Summer Menu 🌞 Try our fresh watermelon salad and grilled salmon special, available through August. Reserve your table today! [Photo of dish] [Book Now button]"
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #7: Monitor & Answer Questions in Q&A Section</h4>
                 <p className="text-slate-700 mb-4">
@@ -216,7 +201,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Flag and report inappropriate answers from competitors. Google will remove false information if you report it.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Enable Messaging & Respond Within 1 Hour</h4>
                 <p className="text-slate-700 mb-4">
@@ -232,7 +216,6 @@ export default function BlogPost() {
                   <strong>Automation tip:</strong> Set up auto-replies for common questions (hours, location, services) to maintain fast response times even during busy periods.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #9: Add Booking & Ordering Buttons (Direct CTAs)</h4>
                 <p className="text-slate-700 mb-4">
@@ -248,7 +231,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Track button clicks in GBP Insights. If "Order Online" gets more clicks than phone calls, prioritize optimizing your ordering experience.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #10: Create a Products/Services Section with Photos & Prices</h4>
                 <p className="text-slate-700 mb-4">
@@ -264,10 +246,8 @@ export default function BlogPost() {
                   <strong>Update frequency:</strong> Refresh products seasonally and highlight best-sellers. Add "New" badge to recent additions to draw attention.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-pink-900">Category 3: Reviews & Reputation (Tactics 11-13)</h3>
               <p className="text-slate-700 mb-6">Reviews are a top 3 local ranking factor and directly influence conversions. 91% of consumers read reviews before choosing a business (BrightLocal, 2024).</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #11: Generate 2-4 New Reviews per Month Consistently</h4>
                 <p className="text-slate-700 mb-4">
@@ -286,7 +266,6 @@ export default function BlogPost() {
                   <strong>Compliance:</strong> Don\'t offer incentives for reviews (violates Google\'s policy). Do ask all customers equally--don\'t cherry-pick happy ones.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #12: Respond to 100% of Reviews (Positive & Negative)</h4>
                 <p className="text-slate-700 mb-4">
@@ -305,7 +284,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Review responses are public and influence future customers. Professional, empathetic responses build trust even when the review is negative.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #13: Monitor & Report Fake Reviews from Competitors</h4>
                 <p className="text-slate-700 mb-4">
@@ -321,10 +299,8 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> If Google doesn\'t remove it, respond publicly and professionally: "We have no record of serving you and would love to resolve this. Please contact us with your order details."
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-green-900">Category 4: Advanced Optimization (Tactics 14-17)</h3>
               <p className="text-slate-700 mb-6">Go beyond basics with advanced tactics that give you an edge over 95% of competitors.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #14: Build NAP Citations on High-Authority Directories</h4>
                 <p className="text-slate-700 mb-4">
@@ -340,7 +316,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Citations create a "trust network" around your business. Google cross-references these to verify your business is legitimate and accurately represented.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #15: Add Service Areas (If You Serve Multiple Locations)</h4>
                 <p className="text-slate-700 mb-4">
@@ -356,7 +331,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Don\'t add service areas beyond where you actually serve--Google can penalize overly broad areas. Be specific and realistic.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #16: Track GBP Insights Weekly (Queries, Views, Actions)</h4>
                 <p className="text-slate-700 mb-4">
@@ -372,7 +346,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Compare Insights month-over-month. Growth in views/actions indicates your optimization is working. Declines signal competitor gains or profile issues.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #17: Use Schema Markup on Website to Reinforce NAP</h4>
                 <p className="text-slate-700 mb-4">
@@ -412,7 +385,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Common Google Business Profile Mistakes to Avoid</h2>
               <ul className="space-y-4">
@@ -453,7 +425,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Essential GBP Tools</h2>
               <ul className="space-y-3">
@@ -467,7 +438,6 @@ export default function BlogPost() {
                 <li><strong>Google\'s Rich Results Test:</strong> Validate your schema markup</li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Real Example: 487% Local Traffic Increase</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -504,7 +474,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> The biggest lift came from NAP consistency fixes and weekly Google Posts. Many locations had been invisible for "[cuisine] near me" searches due to generic categories--switching to specific categories immediately improved map pack rankings.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates GBP Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -536,7 +505,6 @@ export default function BlogPost() {
                   <span><strong>Insights Tracking:</strong> Monitors GBP performance weekly and alerts you to ranking changes or optimization opportunities</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Local SEO Domination</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -551,7 +519,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -567,7 +534,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> If you serve local customers, GBP optimization should be your #1 SEO priority. The competition is weak, the tools are free, and the ROI is immediate.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -580,7 +546,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #LocalSEO #GoogleBusinessProfile #MapPackSEO #LocalSearchOptimization #SEOAutomation
@@ -589,7 +554,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Meta Description Best Practices: Boost CTR by 214% in 2025',
   description: 'Most meta descriptions get ignored by Google. These proven formulas guarantee Google uses yours--and users click.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'meta-description-best-practices-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,12 @@ export default function BlogPost() {
                 <li><strong>Add emotional triggers + numbers</strong>: "Save $2,400 annually" beats "save money"</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Meta Descriptions Matter (The Data)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Meta descriptions are your Google ad copy--except they\'re free. A great description can double your traffic without changing rankings.
                 </p>
-
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">5.8%</div>
@@ -71,7 +70,6 @@ export default function BlogPost() {
                     <div className="text-slate-700">CTR improvement using proven formulas vs. generic descriptions</div>
                   </div>
                 </div>
-
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-6 my-6">
                   <p className="text-amber-900 font-semibold mb-2">⚡ Real Example:</p>
                   <p className="text-slate-700 mb-0">
@@ -79,10 +77,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Anatomy of Perfect Meta Descriptions</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">1. Optimal Length</h3>
@@ -106,7 +102,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2 text-sm">(Gets truncated, loses CTA, wastes space)</p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">2. Include Target Keyword</h3>
                     <p className="text-slate-700 mb-3">
@@ -123,7 +118,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">3. Add Specific Numbers</h3>
                     <p className="text-slate-700 mb-3">
@@ -147,7 +141,6 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">4. Include a Clear CTA</h3>
                     <p className="text-slate-700 mb-3">
@@ -179,7 +172,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 text-sm">"Click here" | "Read more" | "Learn more" (too vague)</p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">5. Add Emotional Triggers</h3>
                     <p className="text-slate-700 mb-3">
@@ -206,10 +198,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 7 High-Converting Meta Description Formulas</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 1: Problem → Solution → Proof → CTA</h3>
@@ -222,7 +212,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 2: Benefit → Number → Timeframe → CTA</h3>
                     <p className="text-slate-700 mb-3">
@@ -234,7 +223,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 3: Question → Answer → Value Prop</h3>
                     <p className="text-slate-700 mb-3">
@@ -246,7 +234,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 4: Social Proof → Benefit → CTA</h3>
                     <p className="text-slate-700 mb-3">
@@ -258,7 +245,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 5: "How to" + Benefit + Proof</h3>
                     <p className="text-slate-700 mb-3">
@@ -270,7 +256,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 6: Comparison → Winner → Why</h3>
                     <p className="text-slate-700 mb-3">
@@ -282,7 +267,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Formula 7: Listicle + Benefit + Credibility</h3>
                     <p className="text-slate-700 mb-3">
@@ -296,15 +280,12 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Google Rewrites Your Meta Descriptions (And How to Stop It)</h2>
-
                 <div className="space-y-6">
                   <p className="text-lg text-slate-700 leading-relaxed">
                     Google rewrites 70% of meta descriptions. Here\'s why--and how to make yours stick:
                   </p>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h4 className="text-xl font-bold mb-3 text-red-900">Reason 1: Description Doesn\'t Match Search Query</h4>
                     <p className="text-slate-700 mb-3">
@@ -314,7 +295,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Include exact search terms in your description, especially for informational queries. Google pulls text from your page that better matches the query.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h4 className="text-xl font-bold mb-3 text-red-900">Reason 2: Description Too Short or Missing</h4>
                     <p className="text-slate-700 mb-3">
@@ -324,7 +304,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Always write 150-160 character descriptions. Google will use it more often.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h4 className="text-xl font-bold mb-3 text-red-900">Reason 3: Description Is Generic or Keyword-Stuffed</h4>
                     <p className="text-slate-700 mb-3">
@@ -334,7 +313,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Write natural, compelling copy that humans want to read. Include keyword once naturally.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h4 className="text-xl font-bold mb-3 text-red-900">Reason 4: Description Doesn\'t Match Page Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -344,7 +322,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Ensure meta description accurately represents page content. Don\'t oversell or mislead.
                     </p>
                   </div>
-
                   <div className="bg-green-50 border-l-4 border-green-500 p-6">
                     <h4 className="text-xl font-bold mb-3 text-green-900">What Google Keeps:</h4>
                     <ul className="space-y-2">
@@ -368,10 +345,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Meta Description Mistakes That Kill CTR</h2>
-
                 <div className="space-y-4">
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Using Same Description Across Multiple Pages</h4>
@@ -382,7 +357,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Google ignores duplicates and generates its own. You lose CTR optimization opportunity.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ No Value Proposition</h4>
                     <p className="text-slate-700 mb-2">
@@ -392,7 +366,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> "Increase revenue 34% with automated email campaigns. 5,000+ customers. Start free."
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Keyword Stuffing</h4>
                     <p className="text-slate-700 mb-2">
@@ -402,7 +375,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Include keyword once naturally in compelling sentence.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Vague or Generic Language</h4>
                     <p className="text-slate-700 mb-2">
@@ -412,7 +384,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> "Automate 17 SEO tasks. Save $2,400/year. 5,000+ agencies trust us."
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Missing CTA</h4>
                     <p className="text-slate-700 mb-2">
@@ -422,7 +393,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> "Grow online presence 67% in 90 days. Start free trial--no credit card."
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Special Characters That Break Display</h4>
                     <p className="text-slate-700 mb-2">
@@ -434,10 +404,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Meta Description Optimization</h2>
-
                 <div className="space-y-4">
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">Character Count Tools</h4>
@@ -447,7 +415,6 @@ export default function BlogPost() {
                       <li>• Character Counter Chrome extension: Check length instantly</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">CTR Analysis</h4>
                     <ul className="space-y-1 text-slate-700">
@@ -456,7 +423,6 @@ export default function BlogPost() {
                       <li>• SEMrush Position Tracking: Monitor CTR changes over time</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">Bulk Auditing</h4>
                     <ul className="space-y-1 text-slate-700">
@@ -467,13 +433,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Meta Description Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Writing unique, compelling meta descriptions for 1,000+ pages manually takes weeks. SEOLOGY automates the entire process:
                 </p>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -504,7 +468,6 @@ export default function BlogPost() {
                     <span><strong>Tracks which formulas work best</strong> for your industry and adjusts</span>
                   </li>
                 </ul>
-
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
                   <p className="text-blue-900 font-semibold mb-2">💡 SEOLOGY Result:</p>
                   <p className="text-slate-700 mb-0">
@@ -512,7 +475,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -524,7 +486,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   You can spend weeks writing descriptions manually, or let SEOLOGY generate, test, and optimize them automatically in 5 minutes.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Meta Description Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -535,7 +496,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -548,7 +508,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #MetaDescriptions #OnPageSEO #CTR #SERP #ClickThroughRate
@@ -558,7 +517,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, X } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'AI SEO Tools Comparison: SEOLOGY vs Manual SEO (Real Results)',
   description: "Most AI SEO tools are gimmicks. Here\'s why SEOLOGY is the only AI SEO automation platform with proven $18M in revenue generated.",
 }
-
 export default function BlogPost() {
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -17,21 +18,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>AI SEO Tools Comparison</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             AI SEO Tools Comparison: SEOLOGY vs Manual SEO (Real Results)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>January 12, 2025</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Most AI SEO tools are gimmicks. Here's why SEOLOGY is the only AI SEO automation platform with proven <strong className="text-white">$18M in revenue generated</strong> for our customers.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -43,7 +40,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -53,7 +49,6 @@ export default function BlogPost() {
                 Manual SEO takes 20+ hours per week and costs $5,000+/month for agencies. "Free" AI SEO tools don't actually fix anything. SEOLOGY automates everything for <strong>$299/month</strong> and generates real traffic--2.3M+ monthly visitors across our customer base. That's why smart businesses choose SEOLOGY.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Problem with Manual SEO</h2>
@@ -82,7 +77,6 @@ export default function BlogPost() {
                   Meanwhile, your competitors who use automation are pulling ahead--while you're stuck in spreadsheets.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why "Free" AI SEO Tools Are Scams</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -110,13 +104,11 @@ export default function BlogPost() {
                   They're not "free"--they're lead generation funnels disguised as SEO tools.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Makes SEOLOGY Different</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   SEOLOGY is the only AI SEO platform that actually <strong>fixes your SEO issues automatically</strong>--no manual work required.
                 </p>
-
                 {/* Comparison Table */}
                 <div className="overflow-x-auto my-8">
                   <table className="w-full border-collapse">
@@ -169,7 +161,6 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">SEOLOGY's Proven Results</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -190,7 +181,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Stop Wasting Time & Money</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -199,7 +189,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
                   SEOLOGY automates everything for <strong>$299/month</strong>--less than a single day of agency work--and delivers real results in weeks, not months.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Ready to Automate Your SEO?</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -214,7 +203,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -223,7 +211,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/shopify-seo-optimization-guide-2025" className="text-blue-600 hover:text-blue-800">21 Shopify SEO Tips That Work</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #AISEOTools #SEOAutomation #SEOComparison #SEOLOGY #ManualSEO

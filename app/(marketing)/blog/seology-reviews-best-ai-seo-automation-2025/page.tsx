@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: "SEOLOGY Reviews: Why It\'s the Best AI SEO Automation Tool in 2025",
   description: "Looking for real AI SEO automation reviews? SEOLOGY powers 2.3M+ monthly organic visitors--proving it\'s the only AI SEO tool that actually works.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.slice(1, 5)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>SEOLOGY Reviews</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             SEOLOGY Reviews: Why It's the Best AI SEO Automation Tool in 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>January 15, 2025</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Looking for real AI SEO automation reviews? SEOLOGY powers <strong className="text-white">2.3M+ monthly organic visitors</strong>--proving it's the only AI SEO tool that actually works.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Most so-called "AI SEO tools" are gimmicks. SEOLOGY is the only AI SEO automation platform proven to generate real results--over <strong>2,300,000 organic visitors</strong> every month across our customer base. That's why every top SEO expert is talking about SEOLOGY right now.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why AI SEO Automation Reviews Matter</h2>
@@ -88,7 +83,6 @@ export default function BlogPost() {
                   SEOLOGY is different. It's built by 8-figure ecommerce operators who know what it takes to rank #1 on Google.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is SEOLOGY? The AI SEO Tool That Actually Works</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -120,7 +114,6 @@ export default function BlogPost() {
                   In under 5 minutes, you'll have a fully optimized site that ranks higher on Google--without hiring an SEO agency.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">SEOLOGY Reviews: Real Results</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -144,7 +137,6 @@ export default function BlogPost() {
                   That's why SEOLOGY dominates real AI SEO automation reviews in 2025.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Experts Choose SEOLOGY Over "Free" AI SEO Tools</h2>
                 <ul className="space-y-4 my-6">
@@ -174,7 +166,6 @@ export default function BlogPost() {
                   Free AI SEO tools can't compete--they're gimmicks, not solutions.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: The Only AI SEO Tool That Matters</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -197,7 +188,6 @@ export default function BlogPost() {
                     <span>Features that replace 5+ SEO tools and agencies</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Ready to 10X Your Organic Traffic?</h3>
@@ -213,7 +203,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -222,7 +211,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/automatic-seo-fixes-vs-manual-seo" className="text-blue-600 hover:text-blue-800">Automatic SEO Fixes vs Manual SEO</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEOLOGY #AISEOAutomation #SEOReviews #SEO2025 #AutomaticSEO #ShopifySEO
@@ -232,7 +220,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Image Optimization for SEO: 23 Tactics That Actually Work',
   description: 'Images can drive 30% of your organic traffic. This guide shows how to optimize images for Google Image Search and faster load times.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'image-optimization-seo-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,12 @@ export default function BlogPost() {
                 <li><strong>Compress without quality loss</strong>: 80% JPEG quality looks identical to 100% but saves 50% filesize</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Image SEO Matters (The Data)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Most SEO guides treat images as an afterthought. That\'s a $50,000/year mistake for the average site.
                 </p>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -75,7 +74,6 @@ export default function BlogPost() {
                     <span><strong>Every 1-second delay in page load reduces conversions by 7%</strong> (Akamai)</span>
                   </li>
                 </ul>
-
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-6 my-6">
                   <p className="text-amber-900 font-semibold mb-2">⚡ Real Example:</p>
                   <p className="text-slate-700 mb-0">
@@ -83,10 +81,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 23 Image Optimization Tactics</h2>
-
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -127,7 +123,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</span>
@@ -155,7 +150,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</span>
@@ -183,7 +177,6 @@ export default function BlogPost() {
                       <strong>Exception</strong>: Don\'t lazy load above-the-fold images (hero images, logos). Google penalizes delayed LCP (Largest Contentful Paint).
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">4</span>
@@ -229,7 +222,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">5</span>
@@ -259,7 +251,6 @@ export default function BlogPost() {
                       Browser automatically picks the right image size based on screen width and pixel density. Mobile users get small files, desktop users get high-res.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">6</span>
@@ -303,7 +294,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">7</span>
@@ -322,7 +312,6 @@ export default function BlogPost() {
                       Browser reserves the correct space before image loads, preventing content from jumping around (which Google penalizes).
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">8</span>
@@ -353,7 +342,6 @@ export default function BlogPost() {
                       Result: 30-50% faster image loads globally, better Core Web Vitals, higher rankings.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">9</span>
@@ -382,7 +370,6 @@ export default function BlogPost() {
                       Submit to Google Search Console under Sitemaps section.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">10</span>
@@ -408,7 +395,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">11</span>
@@ -436,7 +422,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">12</span>
@@ -464,7 +449,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">13</span>
@@ -483,7 +467,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">14</span>
@@ -501,7 +484,6 @@ export default function BlogPost() {
                       Only preload 1-2 critical above-the-fold images. Preloading too many hurts performance.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">15</span>
@@ -529,7 +511,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">16</span>
@@ -551,7 +532,6 @@ export default function BlogPost() {
                       <strong>Optimal size</strong>: 1200x630px (Facebook/Twitter standard)
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">17</span>
@@ -569,7 +549,6 @@ export default function BlogPost() {
                       Mobile browsers ignore title attributes, so don\'t rely on them for critical info.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">18</span>
@@ -594,7 +573,6 @@ export default function BlogPost() {
                       CSS backgrounds are fine for decorative elements (patterns, gradients) but not content.
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">19</span>
@@ -622,7 +600,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">20</span>
@@ -650,7 +627,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">21</span>
@@ -678,7 +654,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">22</span>
@@ -698,7 +673,6 @@ export default function BlogPost() {
                       For extra protection, add watermarks to high-value images (product photos, infographics).
                     </p>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                       <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">23</span>
@@ -728,7 +702,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Image SEO Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -790,7 +763,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools You Need</h2>
                 <div className="space-y-4">
@@ -831,7 +803,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Image Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -878,7 +849,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -900,7 +870,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -913,7 +882,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #ImageSEO #ImageOptimization #PageSpeed #CoreWebVitals #WebP #GoogleImages
@@ -923,7 +891,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

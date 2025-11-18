@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Core Web Vitals Optimization: Complete Guide for 2025',
   description: 'Core Web Vitals are now a ranking factor. This guide shows you how to optimize LCP, FID, and CLS--and SEOLOGY automates it all.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['mobile-first-indexing-checklist-2025', 'shopify-page-speed-optimization', 'image-optimization-seo-guide', 'technical-seo-audit-checklist-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Core Web Vitals Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Core Web Vitals Optimization: Complete Guide for 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>December 15, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Core Web Vitals are now a <strong className="text-white">confirmed Google ranking factor</strong>. This guide shows you how to optimize LCP, FID, and CLS--and SEOLOGY automates it all.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -69,7 +65,6 @@ export default function BlogPost() {
                 <li>SEOLOGY automatically optimizes all three metrics without code changes</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Are Core Web Vitals?</h2>
@@ -103,7 +98,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Core Web Vitals Benchmarks (2025)</h2>
                 <div className="overflow-x-auto">
@@ -142,7 +136,6 @@ export default function BlogPost() {
                   Google considers pages "good" when <strong>75% of page loads</strong> meet the good thresholds for all three metrics.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Optimize LCP (Largest Contentful Paint)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -180,7 +173,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Optimize FID (First Input Delay)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -212,7 +204,6 @@ export default function BlogPost() {
                   Note: Google is replacing FID with <strong>INP (Interaction to Next Paint)</strong> in March 2024. INP measures all interactions, not just the first one.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Optimize CLS (Cumulative Layout Shift)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -241,7 +232,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Measure Core Web Vitals</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -278,7 +268,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Core Web Vitals Impact on Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -298,7 +287,6 @@ export default function BlogPost() {
                   While Core Web Vitals aren't the strongest ranking signal, they're a tiebreaker between similar pages. More importantly, they directly impact user experience and conversions.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Core Web Vitals Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -330,7 +318,6 @@ export default function BlogPost() {
                   No code changes required. SEOLOGY handles everything automatically.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Optimize Core Web Vitals or Fall Behind</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -349,7 +336,6 @@ export default function BlogPost() {
                     <span>Let SEOLOGY optimize everything automatically in under 5 minutes</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Fix Core Web Vitals in 5 Minutes</h3>
@@ -365,7 +351,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -376,7 +361,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #CoreWebVitals #PageSpeed #GoogleRankingFactors #TechnicalSEO #WebPerformance
@@ -386,7 +370,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

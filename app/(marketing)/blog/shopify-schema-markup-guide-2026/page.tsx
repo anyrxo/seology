@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shopify Schema Markup Guide 2026: Get Rich Results & 35% Higher CTR | SEOLOGY.AI',
   description: 'Schema markup gets you rich snippets in Google - star ratings, prices, availability. This complete guide shows how to implement structured data on Shopify for 35% higher click-through rates in 2026.',
 }
-
 export default function BlogPost() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
@@ -19,17 +19,14 @@ export default function BlogPost() {
             Technical SEO
           </span>
         </div>
-
         <h1 className="mb-6 text-4xl font-bold leading-tight text-neutral-900 md:text-5xl">
           Shopify Schema Markup: The Complete Guide to Rich Results in 2026
         </h1>
-
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           Schema markup gets your products <strong>star ratings, prices, and availability displayed directly in Google
           search results</strong>--increasing click-through rates by <strong>35% on average</strong>. This comprehensive
           guide shows exactly how to implement structured data on Shopify, with code examples and December 2025 best practices.
         </p>
-
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full bg-indigo-100"></div>
           <div>
@@ -38,18 +35,15 @@ export default function BlogPost() {
           </div>
         </div>
       </header>
-
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {/* What is Schema Markup */}
         <div className="mb-12 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 p-8 not-prose">
           <h2 className="mb-6 text-3xl font-bold text-neutral-900">What is Schema Markup? (The Simple Explanation)</h2>
-
           <p className="mb-6 text-lg text-neutral-700">
             <strong>Schema markup</strong> (also called <strong>structured data</strong>) is code you add to your Shopify
             store that tells Google exactly what your content is about--in a language Google understands perfectly.
           </p>
-
           <div className="mb-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl bg-white border-2 border-red-200 p-6">
               <h3 className="mb-3 text-lg font-bold text-red-900">❌ Without Schema Markup</h3>
@@ -63,7 +57,6 @@ export default function BlogPost() {
                 <strong>Result:</strong> Basic blue link in search results. No rich snippets. Lower CTR.
               </p>
             </div>
-
             <div className="rounded-xl bg-white border-2 border-green-200 p-6">
               <h3 className="mb-3 text-lg font-bold text-green-900">✓ With Schema Markup</h3>
               <p className="mb-4 text-sm text-neutral-700">
@@ -80,7 +73,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="rounded-xl bg-indigo-900 p-8 text-white text-center">
             <p className="mb-2 text-sm font-semibold opacity-75">The Bottom Line</p>
             <p className="text-2xl font-bold">
@@ -88,16 +80,13 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Why Schema Matters */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           Why Schema Markup Matters More in 2026
         </h2>
-
         <p className="mb-6 text-lg">
           According to December 2025 research analyzing 47,000 Google search results:
         </p>
-
         <div className="mb-8 space-y-4 not-prose">
           <div className="rounded-lg border-l-4 border-green-500 bg-green-50 p-6">
             <h3 className="mb-2 font-bold text-green-900">📊 Rich Snippets Increase CTR by 35%</h3>
@@ -106,7 +95,6 @@ export default function BlogPost() {
               plain blue links--even when ranking in the same position.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-blue-500 bg-blue-50 p-6">
             <h3 className="mb-2 font-bold text-blue-900">🏆 Rich Results Dominate Mobile Search</h3>
             <p className="text-sm text-neutral-700">
@@ -114,7 +102,6 @@ export default function BlogPost() {
               results, pushing competitors below the fold.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-purple-500 bg-purple-50 p-6">
             <h3 className="mb-2 font-bold text-purple-900">🎯 Google Prioritizes Structured Data</h3>
             <p className="text-sm text-neutral-700">
@@ -122,7 +109,6 @@ export default function BlogPost() {
               schema markup. It's becoming a competitive advantage, not optional.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-orange-500 bg-orange-50 p-6">
             <h3 className="mb-2 font-bold text-orange-900">🤖 AI Overviews Use Schema Data</h3>
             <p className="text-sm text-neutral-700">
@@ -131,27 +117,22 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Types of Schema for Shopify */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           The 6 Essential Schema Types for Shopify Stores
         </h2>
-
         <p className="mb-6 text-lg">
           Not all schema types matter for ecommerce. Focus on these 6 types that actually drive results in 2026:
         </p>
-
         {/* Schema Type 1: Product */}
         <div className="mb-8 rounded-xl border-2 border-indigo-200 bg-indigo-50 p-8 not-prose">
           <div className="mb-4 flex items-center gap-4">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-xl font-bold text-white">1</span>
             <h3 className="text-2xl font-bold text-indigo-900">Product Schema (Most Important)</h3>
           </div>
-
           <p className="mb-4 text-neutral-700">
             Tells Google: "This is a product you can buy." Shows price, availability, ratings, brand, and more in search results.
           </p>
-
           <div className="mb-6 rounded-lg bg-white p-6">
             <h4 className="mb-3 font-bold text-neutral-900">What Product Schema Includes:</h4>
             <ul className="space-y-2 text-sm text-neutral-700">
@@ -165,7 +146,6 @@ export default function BlogPost() {
               <li>• <strong>Description:</strong> Brief product description</li>
             </ul>
           </div>
-
           <div className="rounded-lg bg-neutral-900 p-6 text-white">
             <h4 className="mb-3 font-bold">Example: What Google Shows with Product Schema</h4>
             <div className="rounded-lg bg-white/10 p-4 text-sm">
@@ -183,7 +163,6 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Schema Types 2-6 Summary */}
         <div className="mb-10 space-y-6 not-prose">
           <div className="rounded-lg border-2 border-green-200 bg-green-50 p-6">
@@ -199,7 +178,6 @@ export default function BlogPost() {
               <strong>Required data:</strong> Average rating (1-5 stars), number of reviews, best/worst rating
             </p>
           </div>
-
           <div className="rounded-lg border-2 border-blue-200 bg-blue-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-lg font-bold text-white">3</span>
@@ -214,7 +192,6 @@ export default function BlogPost() {
               international SEO
             </p>
           </div>
-
           <div className="rounded-lg border-2 border-purple-200 bg-purple-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 text-lg font-bold text-white">4</span>
@@ -228,7 +205,6 @@ export default function BlogPost() {
               <strong>Add once:</strong> Include in your site footer or homepage--applies to entire store
             </p>
           </div>
-
           <div className="rounded-lg border-2 border-orange-200 bg-orange-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-lg font-bold text-white">5</span>
@@ -242,7 +218,6 @@ export default function BlogPost() {
               <strong>Example:</strong> yourstore.com › Collections › Coffee Beans › Ethiopian Medium Roast
             </p>
           </div>
-
           <div className="rounded-lg border-2 border-pink-200 bg-pink-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-600 text-lg font-bold text-white">6</span>
@@ -257,28 +232,23 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* How to Implement */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           How to Implement Schema Markup on Shopify (3 Methods)
         </h2>
-
         <p className="mb-6 text-lg">
           Shopify makes schema implementation easier than other platforms. Here are the 3 ways to add structured data
           to your store in December 2025:
         </p>
-
         {/* Method 1: Built-in Shopify */}
         <div className="mb-8 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 p-8 not-prose">
           <h3 className="mb-4 text-2xl font-bold text-green-900">
             Method 1: Shopify's Built-In Schema (Easiest)
           </h3>
-
           <p className="mb-4 text-neutral-700">
             <strong>Good news:</strong> Shopify automatically includes basic Product and Organization schema on all stores.
             You don't need to do anything--it's already there.
           </p>
-
           <div className="mb-6 rounded-lg bg-white p-6">
             <h4 className="mb-3 font-bold text-neutral-900">What Shopify Includes Automatically:</h4>
             <ul className="space-y-2 text-sm text-neutral-700">
@@ -288,7 +258,6 @@ export default function BlogPost() {
               <li>✓ Review schema (if you use Shopify's review system)</li>
             </ul>
           </div>
-
           <div className="rounded-lg border-2 border-yellow-300 bg-yellow-50 p-6">
             <h4 className="mb-3 font-bold text-yellow-900">⚠️ Limitations of Built-In Schema:</h4>
             <ul className="space-y-2 text-sm text-yellow-800">
@@ -298,23 +267,19 @@ export default function BlogPost() {
               <li>• Doesn't include HowTo schema or Video schema</li>
             </ul>
           </div>
-
           <p className="mt-6 text-sm text-green-800">
             <strong>Recommendation:</strong> Built-in schema is sufficient for basic SEO, but top-performing stores
             add additional schema types for competitive advantage.
           </p>
         </div>
-
         {/* Method 2: Shopify Apps */}
         <div className="mb-8 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 not-prose">
           <h3 className="mb-4 text-2xl font-bold text-blue-900">
             Method 2: Shopify Apps (Recommended for Most Stores)
           </h3>
-
           <p className="mb-6 text-neutral-700">
             Apps handle all the technical complexity and add advanced schema types automatically.
           </p>
-
           <div className="mb-6 space-y-4">
             <div className="rounded-lg bg-white border border-neutral-200 p-6">
               <h4 className="mb-2 font-bold text-neutral-900">Top Schema Apps (December 2025):</h4>
@@ -334,7 +299,6 @@ export default function BlogPost() {
               </ul>
             </div>
           </div>
-
           <div className="rounded-lg bg-blue-900 p-6 text-white">
             <h4 className="mb-3 font-bold">✓ Pros of Using Apps:</h4>
             <ul className="mb-4 space-y-2 text-sm opacity-90">
@@ -351,18 +315,15 @@ export default function BlogPost() {
             </ul>
           </div>
         </div>
-
         {/* Method 3: SEOLOGY.AI */}
         <div className="mb-12 rounded-xl bg-gradient-to-r from-purple-50 to-pink-50 p-8 not-prose">
           <h3 className="mb-4 text-2xl font-bold text-purple-900">
             Method 3: SEOLOGY.AI Automation (Best for Growing Stores)
           </h3>
-
           <p className="mb-6 text-neutral-700">
             SEOLOGY.AI automatically implements <strong>all 6 essential schema types</strong> plus advanced markup
             for maximum rich result eligibility.
           </p>
-
           <div className="mb-6 rounded-lg bg-white p-6">
             <h4 className="mb-3 font-bold text-neutral-900">What SEOLOGY.AI Adds Automatically:</h4>
             <div className="grid gap-3 md:grid-cols-2 text-sm text-neutral-700">
@@ -392,7 +353,6 @@ export default function BlogPost() {
               </div>
             </div>
           </div>
-
           <div className="rounded-lg bg-purple-900 p-8 text-white text-center">
             <p className="mb-2 text-sm font-semibold opacity-75">The SEOLOGY.AI Advantage</p>
             <p className="mb-6 text-xl font-bold">
@@ -403,17 +363,14 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Validation & Testing */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           How to Validate Your Schema Markup (December 2025 Tools)
         </h2>
-
         <p className="mb-6 text-lg">
           After implementing schema, you <strong>must</strong> validate it. Broken schema is worse than no schema--
           Google may penalize you for errors.
         </p>
-
         <div className="mb-8 space-y-6 not-prose">
           <div className="rounded-lg bg-neutral-50 border-2 border-neutral-200 p-6">
             <h3 className="mb-3 text-lg font-bold text-neutral-900">
@@ -429,7 +386,6 @@ export default function BlogPost() {
               <strong>✓ Best for:</strong> Quick validation before publishing products
             </p>
           </div>
-
           <div className="rounded-lg bg-neutral-50 border-2 border-neutral-200 p-6">
             <h3 className="mb-3 text-lg font-bold text-neutral-900">
               Tool 2: Schema Markup Validator
@@ -444,7 +400,6 @@ export default function BlogPost() {
               <strong>✓ Best for:</strong> Deep technical validation and debugging
             </p>
           </div>
-
           <div className="rounded-lg bg-neutral-50 border-2 border-neutral-200 p-6">
             <h3 className="mb-3 text-lg font-bold text-neutral-900">
               Tool 3: Google Search Console
@@ -460,12 +415,10 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Common Mistakes */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           7 Common Schema Markup Mistakes (And How to Avoid Them)
         </h2>
-
         <div className="mb-10 space-y-4 not-prose">
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #1: Marking Up Content That Doesn't Exist</h4>
@@ -475,7 +428,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Only add review schema once you have at least 5 genuine reviews.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #2: Using Incorrect Price Format</h4>
             <p className="text-sm text-neutral-700">
@@ -484,7 +436,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Use <code className="text-xs bg-neutral-100 px-1">price: "24.99", priceCurrency: "USD"</code>
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #3: Duplicate Schema Markup</h4>
             <p className="text-sm text-neutral-700">
@@ -493,7 +444,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Disable built-in schema if using an app, or use only one method
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #4: Missing Required Fields</h4>
             <p className="text-sm text-neutral-700">
@@ -502,7 +452,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Validate every page with Rich Results Test
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #5: Outdated Schema Vocabulary</h4>
             <p className="text-sm text-neutral-700">
@@ -511,7 +460,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Check schema.org for latest Product schema requirements
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #6: Hiding Marked-Up Content From Users</h4>
             <p className="text-sm text-neutral-700">
@@ -520,7 +468,6 @@ export default function BlogPost() {
               <strong>Fix:</strong> Only mark up content users can actually see on the page
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">❌ Mistake #7: Forgetting to Update Schema</h4>
             <p className="text-sm text-neutral-700">
@@ -530,15 +477,12 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Results to Expect */}
         <div className="mb-12 rounded-2xl bg-neutral-900 p-12 text-white not-prose">
           <h2 className="mb-8 text-center text-3xl font-bold">What Results to Expect After Implementing Schema</h2>
-
           <p className="mb-8 text-center text-lg opacity-90">
             Based on analyzing 3,400 Shopify stores that added schema markup in 2025:
           </p>
-
           <div className="mb-10 grid gap-6 md:grid-cols-3">
             <div className="rounded-xl bg-white/10 p-6 text-center">
               <p className="mb-2 text-4xl font-bold text-green-400">+35%</p>
@@ -547,7 +491,6 @@ export default function BlogPost() {
                 Rich snippets attract more clicks than plain blue links
               </p>
             </div>
-
             <div className="rounded-xl bg-white/10 p-6 text-center">
               <p className="mb-2 text-4xl font-bold text-blue-400">2-4 weeks</p>
               <p className="text-sm opacity-75">Time to See Rich Results</p>
@@ -555,7 +498,6 @@ export default function BlogPost() {
                 Google needs to recrawl and validate your schema
               </p>
             </div>
-
             <div className="rounded-xl bg-white/10 p-6 text-center">
               <p className="mb-2 text-4xl font-bold text-purple-400">+18%</p>
               <p className="text-sm opacity-75">Organic Traffic Increase</p>
@@ -564,7 +506,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="rounded-xl bg-white/5 p-8">
             <h3 className="mb-4 text-xl font-bold">Real Store Example: Home Decor Store</h3>
             <p className="mb-4 opacity-90">
@@ -581,7 +522,6 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="mb-12 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-12 text-center text-white not-prose">
           <h2 className="mb-4 text-4xl font-bold">Get Perfect Schema Markup in 60 Seconds</h2>
@@ -589,13 +529,11 @@ export default function BlogPost() {
             Stop wrestling with JSON-LD code. SEOLOGY.AI implements all 6 essential schema types automatically--
             Product, Review, Offer, Organization, Breadcrumb, and Article--across your entire store in one click.
           </p>
-
           <div className="mb-8 inline-block rounded-xl bg-white/20 px-8 py-4">
             <p className="mb-2 text-sm font-semibold opacity-75">December 2025 Special</p>
             <p className="text-3xl font-bold">14-Day Free Trial + Schema Validation Included</p>
             <p className="text-sm opacity-90">See rich results in 2-4 weeks • No coding required</p>
           </div>
-
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="https://apps.shopify.com/seology-ai"
@@ -610,12 +548,10 @@ export default function BlogPost() {
               Watch Schema Demo
             </Link>
           </div>
-
           <p className="mt-8 text-sm opacity-75">
             Join 5,000+ stores dominating Google with perfect schema markup
           </p>
         </div>
-
         {/* Author Bio */}
         <div className="border-t border-neutral-200 pt-8 not-prose">
           <h3 className="mb-4 text-lg font-bold text-neutral-900">About the Author</h3>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Meta Robots Tags: 18 Directives to Control Indexing & Crawling -- 94% Crawl Budget Saved',
   description: 'Meta robots tags optimization saved 94% crawl budget by blocking low-value pages, prevented 87% duplicate content indexation with noindex, and improved featured snippet control 73% using max-snippet and other advanced directives for surgical indexing control.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'meta-robots-tags-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Meta Robots Tags</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Meta Robots Tags: 18 Directives to Control Indexing & Crawling
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>June 18, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Meta robots tags give surgical control over how Google indexes and displays your pages--far more precise than robots.txt. This guide covers all 18 robots directives, when to use each one, and how to optimize crawl budget using 18 proven tactics.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates</strong> meta robots tag implementation, crawl budget optimization, and directive recommendations for you</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Meta Robots Tags Matter</h2>
@@ -74,14 +69,11 @@ export default function BlogPost() {
                   Meta robots tags also control how pages appear in search results. Using <code>max-snippet</code>, <code>max-image-preview</code>, and <code>max-video-preview</code> gives <strong>73% better featured snippet control</strong>--you decide what Google shows. Sites using <code>noarchive</code> prevent competitors from accessing cached copies, reducing content theft by 61% (Search Engine Journal, 2024).
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 18 Meta Robots Tag Directives</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Category 1: Core Indexing Directives</h3>
                   <p className="text-slate-700 mb-6">Foundation directives for controlling whether Google indexes and follows your pages</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">1. noindex -- Prevent Page from Appearing in Search Results</h4>
@@ -92,7 +84,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Block page from search results -->
 <meta name="robots" content="noindex" />
-
 <!-- Common use cases -->
 <meta name="robots" content="noindex, follow" />  <!-- Block indexing but follow links -->
 <meta name="robots" content="noindex, nofollow" />  <!-- Block indexing AND following links -->`}
@@ -102,7 +93,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Noindex reduces low-value page indexation by 87% and saves 94% crawl budget (Google focuses on important content).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">2. nofollow -- Don\'t Pass Link Equity Through Links on This Page</h4>
                       <p className="text-slate-700 mb-4">
@@ -112,7 +102,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Don't follow links on this page -->
 <meta name="robots" content="nofollow" />
-
 <!-- Combine with noindex for complete blocking -->
 <meta name="robots" content="noindex, nofollow" />`}
                         </pre>
@@ -121,7 +110,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Strategic nofollow preserves 42% more link equity by preventing PageRank dilution through low-value links (Ahrefs, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">3. index, follow -- Explicit Permission (Default Behavior)</h4>
                       <p className="text-slate-700 mb-4">
@@ -131,7 +119,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Explicit permission (usually unnecessary) -->
 <meta name="robots" content="index, follow" />
-
 <!-- Omitting the tag has same effect (default behavior) -->`}
                         </pre>
                       </div>
@@ -139,7 +126,6 @@ export default function BlogPost() {
                         <strong>Note:</strong> Only use when robots.txt or server headers block crawling but you want to override for specific pages.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">4. all -- Allow Everything (Equivalent to index, follow)</h4>
                       <p className="text-slate-700 mb-4">
@@ -152,7 +138,6 @@ export default function BlogPost() {
                         </pre>
                       </div>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">5. none -- Block Everything (Equivalent to noindex, nofollow)</h4>
                       <p className="text-slate-700 mb-4">
@@ -170,11 +155,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Category 2: Search Result Display Directives</h3>
                   <p className="text-slate-700 mb-6">Directives controlling how pages appear in search results (snippets, previews, caching)</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">6. noarchive (nocache) -- Prevent Google from Caching Page</h4>
@@ -185,7 +168,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Prevent caching (Google syntax) -->
 <meta name="robots" content="noarchive" />
-
 <!-- Prevent caching (older syntax, some crawlers) -->
 <meta name="robots" content="nocache" />`}
                         </pre>
@@ -194,7 +176,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Noarchive reduces content scraping by 61%--competitors can\'t access cached copies of your pages (Search Engine Journal, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">7. nosnippet -- Prevent Any Text Snippet in Search Results</h4>
                       <p className="text-slate-700 mb-4">
@@ -210,7 +191,6 @@ export default function BlogPost() {
                         <strong>Note:</strong> Nosnippet also implies <code>noarchive</code>--if no snippet, no cached version shown.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">8. max-snippet:[number] -- Limit Snippet Length</h4>
                       <p className="text-slate-700 mb-4">
@@ -220,10 +200,8 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Limit snippet to 160 characters -->
 <meta name="robots" content="max-snippet:160" />
-
 <!-- No snippet -->
 <meta name="robots" content="max-snippet:0" />
-
 <!-- Unlimited snippet (default) -->
 <meta name="robots" content="max-snippet:-1" />`}
                         </pre>
@@ -232,7 +210,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Controlling snippet length improves featured snippet eligibility by 73%--optimize for specific snippet formats (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">9. max-image-preview:[setting] -- Control Image Preview Size</h4>
                       <p className="text-slate-700 mb-4">
@@ -242,10 +219,8 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- No image preview -->
 <meta name="robots" content="max-image-preview:none" />
-
 <!-- Standard thumbnail (default) -->
 <meta name="robots" content="max-image-preview:standard" />
-
 <!-- Large preview (recommended for visual content) -->
 <meta name="robots" content="max-image-preview:large" />`}
                         </pre>
@@ -254,7 +229,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Large image previews increase CTR by 34% for visual content (recipes, products, infographics)--more engaging in SERPs.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">10. max-video-preview:[seconds] -- Limit Video Preview Length</h4>
                       <p className="text-slate-700 mb-4">
@@ -264,10 +238,8 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Static thumbnail only -->
 <meta name="robots" content="max-video-preview:0" />
-
 <!-- 30-second preview -->
 <meta name="robots" content="max-video-preview:30" />
-
 <!-- Unlimited preview (default) -->
 <meta name="robots" content="max-video-preview:-1" />`}
                         </pre>
@@ -278,11 +250,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border-2 border-green-200 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Category 3: Link & Content Directives</h3>
                   <p className="text-slate-700 mb-6">Directives controlling how Google handles links and page elements</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">11. noimageindex -- Prevent Images from Being Indexed</h4>
@@ -299,7 +269,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Noimageindex reduces image theft by 48%--images won\'t appear in Google Images search (Search Engine Journal, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">12. notranslate -- Prevent Google from Offering Translation</h4>
                       <p className="text-slate-700 mb-4">
@@ -309,7 +278,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Prevent translation prompt -->
 <meta name="robots" content="notranslate" />
-
 <!-- Alternative: use lang attribute -->
 <meta name="google" content="notranslate" />`}
                         </pre>
@@ -318,7 +286,6 @@ export default function BlogPost() {
                         <strong>Use case:</strong> Developer documentation, legal content, code examples where machine translation creates errors.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">13. nositelinkssearchbox -- Remove Sitelinks Search Box</h4>
                       <p className="text-slate-700 mb-4">
@@ -334,7 +301,6 @@ export default function BlogPost() {
                         <strong>Note:</strong> Only affects homepage--Google shows sitelinks search box for established brands with good internal search.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">14. unavailable_after:[date] -- Remove Page After Specific Date</h4>
                       <p className="text-slate-700 mb-4">
@@ -344,7 +310,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Remove from search results after Dec 31, 2024 -->
 <meta name="robots" content="unavailable_after: 2024-12-31" />
-
 <!-- ISO 8601 format required -->
 <meta name="robots" content="unavailable_after: 2024-06-30T23:59:59+00:00" />`}
                         </pre>
@@ -355,11 +320,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-200 mb-8">
                   <h3 className="text-2xl font-bold text-yellow-900 mb-4">Category 4: Advanced Implementation Tactics</h3>
                   <p className="text-slate-700 mb-6">Pro-level tactics for robots tag implementation and troubleshooting</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">15. Use X-Robots-Tag HTTP Header for Non-HTML Files</h4>
@@ -372,7 +335,6 @@ export default function BlogPost() {
 <FilesMatch "\\.pdf$">
   Header set X-Robots-Tag "noindex, nofollow"
 </FilesMatch>
-
 # Nginx
 location ~* \\.pdf$ {
   add_header X-Robots-Tag "noindex, nofollow";
@@ -383,7 +345,6 @@ location ~* \\.pdf$ {
                         <strong>Result:</strong> X-Robots-Tag controls indexing for non-HTML files--block old PDFs, private documents, or duplicate images.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">16. Combine Multiple Directives with Commas</h4>
                       <p className="text-slate-700 mb-4">
@@ -393,7 +354,6 @@ location ~* \\.pdf$ {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- Multiple directives in one tag -->
 <meta name="robots" content="noindex, nofollow, noarchive" />
-
 <!-- Advanced combination -->
 <meta name="robots" content="noindex, max-snippet:160, max-image-preview:large" />`}
                         </pre>
@@ -402,7 +362,6 @@ location ~* \\.pdf$ {
                         <strong>Note:</strong> All directives apply simultaneously--Google respects all instructions in the tag.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">17. Target Specific Bots with Named Tags</h4>
                       <p className="text-slate-700 mb-4">
@@ -412,13 +371,10 @@ location ~* \\.pdf$ {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- All bots -->
 <meta name="robots" content="noindex" />
-
 <!-- Google only -->
 <meta name="googlebot" content="noindex" />
-
 <!-- Bing only -->
 <meta name="bingbot" content="noindex" />
-
 <!-- Override: allow Google, block others -->
 <meta name="robots" content="noindex" />
 <meta name="googlebot" content="index, follow" />`}
@@ -428,7 +384,6 @@ location ~* \\.pdf$ {
                         <strong>Use case:</strong> Allow Google but block other bots, or give Google more lenient rules than competitors.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">18. Validate with Google Search Console</h4>
                       <p className="text-slate-700 mb-4">
@@ -441,7 +396,6 @@ location ~* \\.pdf$ {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Meta Robots Tag Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -489,7 +443,6 @@ location ~* \\.pdf$ {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Meta Robots Tags</h2>
                 <ul className="space-y-3 my-6">
@@ -525,7 +478,6 @@ location ~* \\.pdf$ {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: How Meta Robots Tags Saved 94% Crawl Budget</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -601,7 +553,6 @@ location ~* \\.pdf$ {
                   <strong>Key Takeaway:</strong> Meta robots tags save massive crawl budget by blocking low-value pages--Google focuses on products/content that drives revenue, improving rankings across the board.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Meta Robots Tags</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -633,7 +584,6 @@ location ~* \\.pdf$ {
                     <span><strong>Zero Manual Work:</strong> Connect your CMS and SEOLOGY audits robots tags, implements directives, and monitors indexation automatically</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Meta Robots Tag Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -648,7 +598,6 @@ location ~* \\.pdf$ {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Meta Robots Tags Are Your Crawl Budget Shield</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -661,7 +610,6 @@ location ~* \\.pdf$ {
                   <strong>Ready to optimize meta robots tags automatically?</strong> SEOLOGY audits indexation issues, implements surgical robots directives, and monitors crawl budget--saving 94% crawl waste and improving rankings without manual tag management. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Start your free trial today →</Link>
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -674,7 +622,6 @@ location ~* \\.pdf$ {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #MetaRobotsTags #Noindex #Nofollow #CrawlBudget #TechnicalSEO #Indexation #SEOLOGY #SEOAutomation
@@ -684,7 +631,6 @@ location ~* \\.pdf$ {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

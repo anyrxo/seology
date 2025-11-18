@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'SaaS SEO Strategy: How to Dominate Competitive Markets in 2025',
   description: 'SaaS SEO is different from ecommerce. This strategy helped 47 SaaS companies rank #1 for their target keywords.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['b2b-seo-tactics-2025', 'keyword-research-strategy-2025', 'enterprise-seo-strategy-guide', 'content-optimization-ai-vs-manual'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">

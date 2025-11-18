@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'B2B SEO Tactics: Generate High-Value Leads on Autopilot',
   description: 'B2B SEO requires a different approach. These tactics generated $12M in pipeline for B2B companies.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'b2b-seo-tactics-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,11 @@ export default function BlogPost() {
                 <li><strong>SEOLOGY automates B2B-specific optimizations:</strong> From lead scoring to intent-based content recommendations</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why B2B SEO is Different (And Why Generic SEO Fails)</h2>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 B2B SEO isn\'t just B2C SEO with different keywords. The buying journey, search behavior, and conversion metrics are fundamentally different:
               </p>
-
               <div className="bg-slate-50 p-6 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold mb-4">B2B vs B2C Search Behavior</h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -78,15 +76,12 @@ export default function BlogPost() {
                   </div>
                 </div>
               </div>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 <strong>Real stat:</strong> 71% of B2B buyers start their journey with a generic search (Gartner), but only 14% convert from the first website they visit. B2B SEO must target every stage of a 6-18 month sales cycle.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">23 B2B SEO Tactics That Generate $100K+ Deals</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -103,7 +98,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Integration pages:</strong> "[Your product] + Salesforce integration"</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</span>
@@ -119,7 +113,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Geographic pages:</strong> "[Your product] for UK enterprises" (for international expansion)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</span>
@@ -135,7 +128,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Salary surveys:</strong> "Average B2B Marketing Manager Salary 2025" (high search volume)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">4</span>
@@ -151,7 +143,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Result:</strong> Pillar pages rank for head terms, cluster content captures long-tail</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">5</span>
@@ -167,7 +158,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Use modifiers: "for [industry]", "with [integration]", "under [employee count]"</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">6</span>
@@ -183,7 +173,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Promote for backlinks:</strong> Share with customer\'s network for natural links</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">7</span>
@@ -199,7 +188,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Be objective:</strong> Don\'t trash competitors--let features speak for themselves</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">8</span>
@@ -215,7 +203,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> HubSpot ranks for "inbound marketing guide" with ungated preview</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">9</span>
@@ -231,7 +218,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>CEO/founder content:</strong> Personal LinkedIn posts drive referral traffic to blog</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">10</span>
@@ -247,7 +233,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Page speed:</strong> B2B buyers tolerate 3-4s load times, but Google doesn\'t--optimize Core Web Vitals</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">11</span>
@@ -263,7 +248,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Example: HubSpot\'s marketing glossary ranks for 12,000+ keywords</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">12</span>
@@ -279,7 +263,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Target topics:</strong> "How to [solve problem]" webinars rank for educational queries</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">13</span>
@@ -295,7 +278,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Trust signals:</strong> Display G2 ratings, customer logos, security badges</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">14</span>
@@ -311,7 +293,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Include screenshots, demo videos, and customer testimonials</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">15</span>
@@ -327,7 +308,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Monitor brand mentions:</strong> Respond to reviews and engage with users</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">16</span>
@@ -343,7 +323,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Co-market with partners for mutual backlinks</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">17</span>
@@ -359,7 +338,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Promote to earn backlinks from industry publications</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">18</span>
@@ -375,7 +353,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Show how your product solves each job without being overly promotional</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">19</span>
@@ -391,7 +368,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> Stripe\'s API docs rank #1 for thousands of developer searches</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">20</span>
@@ -407,7 +383,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Include video testimonials with transcripts for additional indexable content</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">21</span>
@@ -423,7 +398,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>20-person team sending 50 emails/day = 1,000 daily link opportunities</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">22</span>
@@ -439,7 +413,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>For procurement:</strong> "Total cost of ownership: [Your product] vs [alternatives]"</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">23</span>
@@ -457,53 +430,44 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">8 Fatal B2B SEO Mistakes That Kill Conversions</h2>
-
               <div className="space-y-6">
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #1: Using B2C Keyword Strategies</h3>
                   <p className="text-slate-700 mb-2">Targeting high-volume, low-intent keywords wastes budget. "CRM software" gets 40K searches/month but converts at 0.5%. "CRM for real estate teams 20-50 employees" gets 200 searches/month but converts at 8%.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Prioritize qualified traffic over volume. Target long-tail, high-intent keywords with buyer modifiers.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #2: Gating All Content</h3>
                   <p className="text-slate-700 mb-2">Hiding valuable content behind forms kills SEO. If Google can\'t index it, you won\'t rank for it.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Use the ungated preview strategy--first 30% public, full version gated.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #3: Ignoring Technical SEO</h3>
                   <p className="text-slate-700 mb-2">B2B sites with poor technical foundations lose 40% of potential traffic to crawl issues, slow load times, and mobile problems.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Regular technical audits, Core Web Vitals optimization, mobile-first design.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #4: No Content-to-Revenue Attribution</h3>
                   <p className="text-slate-700 mb-2">Can\'t prove ROI = SEO budget gets cut. Track which blog posts generate MQLs and closed deals.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Use UTM parameters, closed-loop reporting in CRM, and multi-touch attribution models.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #5: Thin Content on High-Value Pages</h3>
                   <p className="text-slate-700 mb-2">Product pages with 200 words don\'t rank. Google needs comprehensive content to understand context and relevance.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Aim for 1,000+ words on product/service pages with FAQs, use cases, and customer proof.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #6: No Link Building Strategy</h3>
                   <p className="text-slate-700 mb-2">B2B sites that don\'t actively build links plateau after 6 months. You need authority to rank for competitive terms.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Digital PR, original research, guest posting on industry publications, podcast sponsorships.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #7: Treating All Traffic Equally</h3>
                   <p className="text-slate-700 mb-2">A visitor from "best CRM software" is worth 10x a visitor from "what is CRM". Focus on bottom-funnel traffic first.</p>
                   <p className="text-slate-700"><strong>Fix:</strong> Prioritize BOFU content, comparison pages, and pricing pages before top-funnel awareness content.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ Mistake #8: No E-A-T Signals</h3>
                   <p className="text-slate-700 mb-2">Anonymous blog posts don\'t rank for B2B queries. Google wants to see expertise and authority.</p>
@@ -511,7 +475,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates B2B SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -526,7 +489,6 @@ export default function BlogPost() {
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Competitor monitoring:</strong><p className="text-slate-700 mt-1">Get alerts when competitors rank for your target keywords or publish new content</p></div></li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict: B2B SEO in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -544,12 +506,10 @@ export default function BlogPost() {
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Start Free Trial (No Credit Card)<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">{relatedPosts.map(post => (<li key={post.slug}><Link href={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-800">{post.title}</Link></li>))}</ul>
             </section>
-
             <section><p className="text-sm text-slate-500"><strong>Tags:</strong> #B2BSEO #LeadGeneration #SEOStrategy</p></section>
           </div>
         </div>

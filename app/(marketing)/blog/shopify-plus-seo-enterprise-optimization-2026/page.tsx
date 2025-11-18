@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shopify Plus SEO: Enterprise-Level Optimization Guide for 2026 | SEOLOGY.AI',
   description: 'Shopify Plus stores grow 126% YoY. Learn enterprise SEO strategies for large catalogs (3000+ SKUs), B2B wholesale optimization, and automation that reduces costs by 60-70%. Complete 2026 guide.',
 }
-
 export default function ShopifyPlusSEOEnterprisePage() {
   return (
     <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto px-4 py-12">
@@ -26,7 +26,6 @@ export default function ShopifyPlusSEOEnterprisePage() {
           <span>18 min read</span>
         </div>
       </div>
-
       <div className="not-prose bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-l-4 border-red-500 p-6 rounded-lg mb-8">
         <p className="font-bold text-red-900 dark:text-red-100 mb-3 text-lg">
           🚨 The Enterprise SEO Gap Is Costing You Millions
@@ -38,13 +37,10 @@ export default function ShopifyPlusSEOEnterprisePage() {
           <p className="font-semibold mt-4">Without enterprise-level SEO automation and strategy, your Shopify Plus investment is generating <strong>60-70% less organic revenue</strong> than it should.</p>
         </div>
       </div>
-
       <h2>Why Shopify Plus SEO Is Different from Standard Shopify</h2>
-
       <p>
         Shopify Plus isn't just Shopify with higher limits--it's a fundamentally different platform requiring enterprise-scale SEO strategies. Here's what changes at the Plus level:
       </p>
-
       <div className="not-prose bg-white dark:bg-gray-800 rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
         <h3 className="text-xl font-bold mb-4">Shopify Plus Growth Statistics (2025-2026)</h3>
         <div className="grid md:grid-cols-2 gap-6">
@@ -78,47 +74,36 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <h3>Enterprise-Specific SEO Challenges</h3>
-
       <p>
         <strong>Large Product Catalogs:</strong> With 3,000+ SKUs, manual optimization becomes impossible. You need automated systems to:
       </p>
-
       <ul>
         <li>Generate unique, SEO-optimized product descriptions at scale</li>
         <li>Maintain consistent metadata across thousands of pages</li>
         <li>Identify and fix duplicate content issues automatically</li>
         <li>Monitor crawl budget and indexing status for massive catalogs</li>
       </ul>
-
       <p>
         <strong>Complex Site Architecture:</strong> Enterprise stores have multi-layered category structures, filtered navigation, faceted search, and dynamic content that create technical SEO challenges:
       </p>
-
       <ul>
         <li>Category page optimization across 5-7 levels of hierarchy</li>
         <li>Canonical tag management for filtered URLs</li>
         <li>Internal linking strategy for deep product pages</li>
         <li>Crawl budget optimization to ensure important pages get indexed</li>
       </ul>
-
       <p>
         <strong>B2B Wholesale Storefronts:</strong> Shopify Plus B2B features create unique SEO considerations that standard stores don't face.
       </p>
-
       <h2>Large Catalog Optimization: Managing 3,000+ Products</h2>
-
       <p>
         When you're managing thousands of product pages, traditional SEO approaches break down. Here's how enterprise brands handle large-scale optimization:
       </p>
-
       <h3>1. Automated Content Generation (Without Sounding Robotic)</h3>
-
       <p>
         The challenge: You can't manually write unique descriptions for 5,000 products. The solution: AI-powered content generation that maintains quality while achieving scale.
       </p>
-
       <div className="not-prose bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg mb-6">
         <p className="font-semibold text-purple-900 dark:text-purple-100 mb-3">
           ✅ Enterprise Content Automation Best Practices
@@ -142,17 +127,13 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <p>
         <strong>Real impact:</strong> Automation can reduce content production costs by 60-70% while maintaining quality standards that support both SEO and conversion goals.
       </p>
-
       <h3>2. Dynamic Category Page Optimization</h3>
-
       <p>
         Category pages are your highest-value SEO assets for enterprise stores--they target high-volume commercial keywords and drive qualified traffic. But with hundreds of categories, optimization is complex.
       </p>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
         <h4 className="font-bold text-lg mb-4">Enterprise Category SEO Framework</h4>
         <div className="space-y-4">
@@ -174,38 +155,28 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <h3>3. Crawl Budget Optimization for Large Catalogs</h3>
-
       <p>
         Google allocates a crawl budget to your site based on size, authority, and server performance. With 3,000+ products, inefficient crawling wastes resources and delays indexing of important pages.
       </p>
-
       <p><strong>Priority-based crawl optimization:</strong></p>
-
       <ul>
         <li><strong>Tier 1 (crawl daily):</strong> Homepage, top 50 category pages, new products, bestsellers</li>
         <li><strong>Tier 2 (crawl weekly):</strong> All category pages, high-traffic product pages, blog content</li>
         <li><strong>Tier 3 (crawl monthly):</strong> Deep category pages, long-tail products, archived content</li>
         <li><strong>Block from crawling:</strong> Internal search results, filtered URLs without canonicals, checkout pages, customer account pages</li>
       </ul>
-
       <p>
         Use robots.txt, meta robots tags, and XML sitemap prioritization to guide crawlers toward your most valuable content.
       </p>
-
       <h2>B2B Wholesale SEO: Optimizing Dual Storefronts</h2>
-
       <p>
         Shopify Plus B2B features let you run separate wholesale and retail storefronts on the same domain--but this creates SEO complexity you need to manage carefully.
       </p>
-
       <h3>Understanding Shopify Plus B2B Features</h3>
-
       <p>
         Shopify Plus includes native B2B capabilities that don't require third-party apps:
       </p>
-
       <ul>
         <li><strong>Password-Protected Wholesale Channel:</strong> Separate storefront for B2B customers with custom pricing</li>
         <li><strong>Company Profiles:</strong> Business customer accounts with multiple users and permission levels</li>
@@ -213,9 +184,7 @@ export default function ShopifyPlusSEOEnterprisePage() {
         <li><strong>Net Payment Terms:</strong> Net 30, Net 60 payment options for business customers</li>
         <li><strong>Bulk Ordering:</strong> Quick order forms and CSV upload for wholesale purchases</li>
       </ul>
-
       <h3>B2B SEO Strategy: What to Index, What to Block</h3>
-
       <div className="not-prose bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-l-4 border-blue-500 p-6 rounded-lg mb-6">
         <p className="font-bold text-blue-900 dark:text-blue-100 mb-3">
           🎯 B2B Indexing Decision Framework
@@ -237,17 +206,13 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <p>
         <strong>Why this matters:</strong> If Google indexes your discounted B2B pricing pages, retail customers will discover lower wholesale prices and demand the same rates--cannibalizing your retail margin.
       </p>
-
       <h3>B2B Keyword Strategy</h3>
-
       <p>
         B2B search behavior differs significantly from B2C. Business buyers use long-tail, specification-heavy queries:
       </p>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -270,19 +235,14 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <p>
         Create dedicated landing pages targeting B2B keywords, emphasizing bulk pricing, minimum order quantities (MOQs), and business-specific benefits (invoice billing, volume discounts, white-label options).
       </p>
-
       <h2>Headless Shopify Plus SEO Considerations</h2>
-
       <p>
         Many enterprise brands use headless architecture (Shopify Plus backend + custom frontend with Hydrogen, Next.js, or other frameworks) for design flexibility--but this creates JavaScript rendering challenges for SEO.
       </p>
-
       <h3>The JavaScript SEO Problem</h3>
-
       <div className="not-prose bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-6 rounded-lg mb-6">
         <p className="font-semibold text-red-900 dark:text-red-100 mb-2">
           ⚠️ Headless Commerce SEO Risk
@@ -291,13 +251,10 @@ export default function ShopifyPlusSEOEnterprisePage() {
           <strong>Headless setups sometimes hide product information behind JavaScript, which Google may not fully process.</strong> If your product titles, descriptions, prices, and structured data aren't visible in the initial HTML, Google may not index them properly--resulting in <strong>60-80% visibility loss</strong> (same issue as CSR-based sites).
         </p>
       </div>
-
       <h3>Solution: Server-Side Rendering (SSR) or Static Generation</h3>
-
       <p>
         <strong>Server-side rendering (SSR)</strong> solves this by sending fully-formed HTML to crawlers--products are rendered on the server before being sent to the browser.
       </p>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
         <h4 className="font-bold text-lg mb-4">Headless SEO Architecture Options</h4>
         <div className="space-y-4">
@@ -319,23 +276,17 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <p>
         <strong>Critical:</strong> Test your headless implementation by viewing the HTML source (right-click → View Page Source). Product titles, descriptions, and prices should be visible in the raw HTML, not loaded via JavaScript after page load.
       </p>
-
       <h2>Multi-Currency and International SEO for Global Expansion</h2>
-
       <p>
         Shopify Plus includes Shopify Markets for managing multiple countries, currencies, and languages--but international SEO requires careful implementation to avoid duplicate content and currency confusion.
       </p>
-
       <h3>Hreflang Implementation for Multi-Market Stores</h3>
-
       <p>
         If you sell the same products in multiple countries with different currencies or slight content variations, use hreflang tags to tell Google which version to show in each country's search results.
       </p>
-
       <div className="not-prose bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mb-6 overflow-x-auto">
         <code className="text-sm whitespace-pre">
 {`<!-- Hreflang Example: Product Available in US, UK, Canada -->
@@ -345,13 +296,10 @@ export default function ShopifyPlusSEOEnterprisePage() {
 <link rel="alternate" hreflang="x-default" href="https://example.com/products/coffee-beans" />`}
         </code>
       </div>
-
       <p>
         <strong>Shopify Markets Geolocation:</strong> Shopify can auto-redirect visitors to their local market based on IP address, but ensure you don't redirect Googlebot--Google needs to crawl all versions.
       </p>
-
       <h3>Currency Display and Pricing SEO</h3>
-
       <div className="not-prose bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-6 rounded-lg mb-6">
         <p className="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">
           💡 Currency Best Practice
@@ -360,15 +308,11 @@ export default function ShopifyPlusSEOEnterprisePage() {
           Use structured data (<code>priceCurrency</code> in Product schema) to specify the currency for each market. Don't just display "$49.99" without clarifying USD, CAD, AUD--Google may misinterpret pricing and show incorrect information in rich snippets.
         </p>
       </div>
-
       <h2>Enterprise SEO Automation: Scaling Beyond Manual Work</h2>
-
       <p>
         At the enterprise level, manual SEO is impossible. You need automated systems to monitor, optimize, and maintain thousands of pages continuously.
       </p>
-
       <h3>What to Automate</h3>
-
       <ul>
         <li><strong>Product Description Generation:</strong> AI-powered content creation for new SKUs based on product attributes and category templates</li>
         <li><strong>Metadata Optimization:</strong> Automated title tag and meta description generation following SEO best practices (character limits, keyword placement, CTR optimization)</li>
@@ -378,7 +322,6 @@ export default function ShopifyPlusSEOEnterprisePage() {
         <li><strong>Image SEO:</strong> Automatic alt text generation, filename optimization, and lazy loading implementation</li>
         <li><strong>Performance Monitoring:</strong> Track Core Web Vitals (LCP, INP, CLS) across product and category templates, alerting when thresholds are exceeded</li>
       </ul>
-
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Scale Your Shopify Plus SEO?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
@@ -402,15 +345,11 @@ export default function ShopifyPlusSEOEnterprisePage() {
           ✓ No credit card required • ✓ 14-day free trial • ✓ Used by 500+ Shopify Plus stores
         </p>
       </div>
-
       <h2>Technical Architecture for Enterprise Performance</h2>
-
       <p>
         <strong>Research shows that improving Core Web Vitals from poor to good can boost conversions by 30% or more</strong>--critical for high-traffic enterprise stores where every percentage point equals thousands in revenue.
       </p>
-
       <h3>Performance Optimization Checklist</h3>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
         <div className="space-y-4">
           <div className="flex items-start gap-3">
@@ -457,9 +396,7 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <h2>Common Enterprise SEO Mistakes to Avoid</h2>
-
       <div className="not-prose bg-red-50 dark:bg-red-900/20 p-6 rounded-lg mb-6">
         <h3 className="font-bold text-red-900 dark:text-red-100 mb-4">❌ Enterprise SEO Pitfalls</h3>
         <div className="space-y-4 text-red-800 dark:text-red-200">
@@ -490,9 +427,7 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <h2>Enterprise SEO Implementation Checklist</h2>
-
       <div className="not-prose bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg mb-8">
         <h3 className="font-bold text-purple-900 dark:text-purple-100 mb-4">✅ Shopify Plus SEO Action Plan</h3>
         <div className="space-y-3 text-purple-800 dark:text-purple-200">
@@ -534,17 +469,13 @@ export default function ShopifyPlusSEOEnterprisePage() {
           </div>
         </div>
       </div>
-
       <h2>The Future of Enterprise Ecommerce SEO (2026 and Beyond)</h2>
-
       <p>
         With Google's Search Generative Experience (SGE) surfacing AI-generated answers directly in search results, <strong>your Shopify Plus store has less time and space to make an impression</strong>--making technical excellence and structured data even more critical.
       </p>
-
       <p>
         <strong>One study found a significant overlap between traditional search results and Google's AI Overviews</strong>--meaning SEO best practices still determine how--and whether--your business appears in these new AI experiences.
       </p>
-
       <div className="not-prose bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-l-4 border-cyan-500 p-6 rounded-lg mb-6">
         <p className="font-bold text-cyan-900 dark:text-cyan-100 mb-3">
           🚀 2026 Enterprise SEO Priorities
@@ -557,11 +488,9 @@ export default function ShopifyPlusSEOEnterprisePage() {
           <li><strong>• Automation at Scale:</strong> Manual SEO impossible for 3,000+ SKU catalogs--AI-powered optimization becomes mandatory, not optional</li>
         </ul>
       </div>
-
       <p>
         <strong>The brands that win in 2026 will be the ones that treat search as a sales channel, not a marketing experiment.</strong> Enterprise SEO requires systematic, automated, data-driven optimization--exactly what SEOLOGY.AI delivers for Shopify Plus stores.
       </p>
-
       <div className="not-prose bg-gradient-to-r from-purple-600 to-blue-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Your Shopify Plus SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
@@ -596,7 +525,6 @@ export default function ShopifyPlusSEOEnterprisePage() {
           No credit card required • 14-day free trial • Used by Fortune 500 brands
         </p>
       </div>
-
       <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-12">
         <div className="flex items-start gap-4">
           <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">

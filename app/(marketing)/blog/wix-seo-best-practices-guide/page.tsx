@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { AlertTriangle, ArrowRight, CheckCircle2, Code, Settings, TrendingUp, X, Zap } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Wix SEO: Can You Really Rank? (Best Practices & Limitations)',
   description: 'Wix claims to be SEO-friendly. This honest review shows what works, what does not, and when to switch platforms.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.category === 'Platform SEO' || post.tags.includes('#PlatformSEO')
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -38,7 +39,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -53,7 +53,6 @@ export default function BlogPost() {
                 <li className="flex items-start gap-2"><X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" /><span><strong>Not ideal for:</strong> E-commerce at scale, content-heavy sites, enterprise SEO</span></li>
               </ul>
             </div>
-
             <div className="prose prose-lg max-w-none">
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">The Truth About Wix & SEO</h2>
@@ -72,7 +71,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">What Wix Does Well for SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -94,7 +92,6 @@ export default function BlogPost() {
                       <li>• Robots.txt and meta robots tags</li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-green-900 mb-3 flex items-center gap-2">
                       <CheckCircle2 className="w-6 h-6" />
@@ -110,7 +107,6 @@ export default function BlogPost() {
                       <li>• Search Console integration</li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-green-900 mb-3 flex items-center gap-2">
                       <CheckCircle2 className="w-6 h-6" />
@@ -126,7 +122,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Wix's Major SEO Limitations</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -146,7 +141,6 @@ export default function BlogPost() {
                       <li><strong>Workaround:</strong> Optimize images aggressively, minimize apps/widgets, use lazy loading (limited control)</li>
                     </ul>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-6 h-6" />
@@ -160,7 +154,6 @@ export default function BlogPost() {
                       <li><strong>Workaround:</strong> Use custom code embeds for critical SEO elements (limited)</li>
                     </ul>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-6 h-6" />
@@ -174,7 +167,6 @@ export default function BlogPost() {
                       <li><strong>Workaround:</strong> Minimize apps to essentials only. Remove unused apps immediately.</li>
                     </ul>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-6 h-6" />
@@ -188,7 +180,6 @@ export default function BlogPost() {
                       <li><strong>Workaround:</strong> Manually set custom slugs for every page. Plan URL structure before building.</li>
                     </ul>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3 flex items-center gap-2">
                       <AlertTriangle className="w-6 h-6" />
@@ -204,13 +195,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Wix SEO Best Practices (Maximize Your Rankings)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   If you are committed to Wix, here is how to get the best possible SEO results:
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">1. Speed Optimization (Critical)</h3>
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
                   <ul className="space-y-3">
@@ -258,7 +247,6 @@ export default function BlogPost() {
                     </li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">2. On-Page SEO Setup</h3>
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
                   <ul className="space-y-3">
@@ -306,7 +294,6 @@ export default function BlogPost() {
                     </li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">3. Technical SEO Configuration</h3>
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
                   <ul className="space-y-3">
@@ -354,7 +341,6 @@ export default function BlogPost() {
                     </li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-slate-800">4. Wix Blog SEO</h3>
                 <p className="text-slate-700 mb-4">If you use Wix blog feature:</p>
                 <div className="bg-slate-50 p-6 rounded-lg mb-6">
@@ -369,7 +355,6 @@ export default function BlogPost() {
                   </ul>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">When You Should Switch Platforms</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -437,12 +422,10 @@ export default function BlogPost() {
                     </ul>
                   </div>
                 </div>
-
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6">
                   <p className="text-slate-700 mb-0"><strong className="text-blue-900">Alternative Platforms for Serious SEO:</strong> WordPress (most flexible), Webflow (designer-friendly + SEO-optimized), Shopify (e-commerce), Ghost (blogs), or custom-coded sites. All offer better performance and SEO control than Wix.</p>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Common Wix SEO Mistakes to Avoid</h2>
                 <div className="space-y-4">
@@ -483,7 +466,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">How SEOLOGY Supercharges Wix SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -515,7 +497,6 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0"><strong className="text-blue-900">Result:</strong> SEOLOGY helps Wix sites overcome platform limitations. Our Wix clients see 40-60% traffic increases on average by fixing issues Wix native tools do not catch.</p>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Final Verdict: Is Wix Good for SEO?</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -536,7 +517,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 text-slate-900">Related Posts:</h2>
                 <ul className="space-y-2">

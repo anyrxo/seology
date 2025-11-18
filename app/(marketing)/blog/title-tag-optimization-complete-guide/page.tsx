@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Title Tag Optimization: The Complete Guide (With 47 Examples)',
   description: 'Title tags are your #1 on-page ranking factor. This guide shows 47 proven title tag formulas that boost CTR by 328%.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['meta-description-best-practices-2025', 'header-tags-optimization-h1-h6', 'keyword-research-strategy-2025', 'featured-snippets-optimization-guide'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Title Tag Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Title Tag Optimization: The Complete Guide (With 47 Examples)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>December 5, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Title tags are your <strong className="text-white">#1 on-page ranking factor</strong>. This guide shows 47 proven title tag formulas that boost CTR by 328%.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -61,7 +57,6 @@ export default function BlogPost() {
                 <li>These 47 formulas have generated 2.3M+ clicks</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Title Tags Matter More Than Ever</h2>
@@ -97,10 +92,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">47 Title Tag Formulas That Work</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Product/Service Pages</h3>
                 <ul className="space-y-2 my-4">
                   <li>1. [Product] - [Benefit] | [Brand]</li>
@@ -111,7 +104,6 @@ export default function BlogPost() {
                   <li>6. Buy [Product] - [Benefit] - [Location]</li>
                   <li>7. [Product] Sale: [Discount]% Off - [Brand]</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">How-To Guides</h3>
                 <ul className="space-y-2 my-4">
                   <li>8. How to [Achieve Result] in [Timeframe] ([Step Count] Steps)</li>
@@ -122,7 +114,6 @@ export default function BlogPost() {
                   <li>13. How I [Achieved Result] in [Timeframe] ([Proof])</li>
                   <li>14. [Number] Proven Ways to [Result] (Works in [Year])</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">List Posts</h3>
                 <ul className="space-y-2 my-4">
                   <li>15. [Number] Best [Category] for [Use Case] ([Year])</li>
@@ -132,7 +123,6 @@ export default function BlogPost() {
                   <li>19. [Number] [Items] Every [Audience] Should Know</li>
                   <li>20. [Year]'s [Number] Best [Category] (Ranked & Reviewed)</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Comparison Pages</h3>
                 <ul className="space-y-2 my-4">
                   <li>21. [Product A] vs [Product B]: Which Is Better? ([Year])</li>
@@ -141,7 +131,6 @@ export default function BlogPost() {
                   <li>24. [Product] Review: Pros, Cons & Alternatives</li>
                   <li>25. Is [Product] Worth It? [Honest Review]</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Problem-Solution</h3>
                 <ul className="space-y-2 my-4">
                   <li>26. [Problem]? Here's How to Fix It ([Number] Solutions)</li>
@@ -150,7 +139,6 @@ export default function BlogPost() {
                   <li>29. How to Fix [Error/Problem] in [Timeframe]</li>
                   <li>30. [Problem]: [Number] Proven Solutions</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Industry/Niche Specific</h3>
                 <ul className="space-y-2 my-4">
                   <li>31. [Industry] SEO: The Complete [Year] Guide</li>
@@ -159,7 +147,6 @@ export default function BlogPost() {
                   <li>34. [Industry] [Topic]: What You Need to Know</li>
                   <li>35. [Niche] Tips from [Expert/Authority]</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Local SEO</h3>
                 <ul className="space-y-2 my-4">
                   <li>36. [Service] in [City] - [Benefit] - [Brand]</li>
@@ -168,7 +155,6 @@ export default function BlogPost() {
                   <li>39. [Service] [City, State] | [Rating] Stars | [Brand]</li>
                   <li>40. Top-Rated [Service] in [Location] - [Benefit]</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Urgency/FOMO</h3>
                 <ul className="space-y-2 my-4">
                   <li>41. [Product] Sale: [Discount]% Off (Ends [Date])</li>
@@ -177,14 +163,12 @@ export default function BlogPost() {
                   <li>44. [Product] - Only [Number] Left in Stock</li>
                   <li>45. Don't Miss: [Offer] (Ending Soon)</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Authority/Trust</h3>
                 <ul className="space-y-2 my-4">
                   <li>46. [Topic]: Backed by [Number] Studies/Experts</li>
                   <li>47. [Service] - [Certification/Award] - [Social Proof]</li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Title Tag Best Practices</h2>
                 <ul className="space-y-3 my-6">
@@ -222,7 +206,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Title Tag Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -263,7 +246,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to A/B Test Title Tags</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -300,7 +282,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Title Tags</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -329,13 +310,11 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Master Title Tags, Master SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Title tags are your most important on-page SEO element. Get them right, and you'll see massive improvements in both rankings and traffic.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Every Title Tag Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -350,7 +329,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -361,7 +339,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #TitleTags #OnPageSEO #CTROptimization #SEOCopywriting #SERP
@@ -371,7 +348,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

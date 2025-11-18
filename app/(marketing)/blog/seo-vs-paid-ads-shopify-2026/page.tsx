@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'SEO vs Paid Ads for Shopify in 2026: Why SEO Wins ($45 CPA vs $0) | SEOLOGY.AI',
@@ -12,7 +13,6 @@ export const metadata: Metadata = {
     authors: ['David Park, Growth Strategist at SEOLOGY.AI'],
   }
 }
-
 export default function BlogPost() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
@@ -27,18 +27,15 @@ export default function BlogPost() {
             Strategy & ROI
           </span>
         </div>
-
         <h1 className="mb-6 text-4xl font-bold leading-tight text-neutral-900 md:text-5xl">
           Why Your Shopify Store Needs SEO More Than Paid Ads in 2026
         </h1>
-
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           The brutal math of December 2025: <strong>Facebook ads cost $18-30 per customer</strong>. <strong>Google
           ads cost $30-50 per customer</strong>. <strong>Ecommerce average: $45.27 CPA</strong>. Meanwhile, SEO
           costs <strong>$0 per customer</strong> and converts 67% better. Here's the data that proves SEO destroys
           paid ads for long-term Shopify growth.
         </p>
-
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full bg-green-100"></div>
           <div>
@@ -47,18 +44,15 @@ export default function BlogPost() {
           </div>
         </div>
       </header>
-
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {/* The Numbers Don't Lie */}
         <div className="mb-12 rounded-xl bg-gradient-to-br from-red-50 to-orange-50 p-8 not-prose">
           <h2 className="mb-6 text-3xl font-bold text-neutral-900">The 2025 Paid Ads Reality Check</h2>
-
           <p className="mb-6 text-lg text-neutral-700">
             Most new Shopify store owners make the same mistake: dump their entire budget into Facebook and Google ads.
             Here's what that actually costs in December 2025:
           </p>
-
           <div className="mb-8 grid gap-6 md:grid-cols-3">
             <div className="rounded-xl bg-white p-6 text-center shadow-lg">
               <p className="mb-2 text-sm font-semibold text-neutral-600">Facebook Ads CPA</p>
@@ -76,43 +70,35 @@ export default function BlogPost() {
               <p className="text-xs text-neutral-500">per customer acquired</p>
             </div>
           </div>
-
           <p className="text-sm text-neutral-600">
             <strong>Sources:</strong> Shopify ecommerce benchmarks 2025, Business of Apps CPA rates, AMRA & ELMA cost-per-acquisition
             statistics, internal SEOLOGY.AI data from 5,000+ client stores.
           </p>
         </div>
-
         {/* The Paid Ads Trap */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           The Paid Ads Trap (Why Most Stores Go Broke)
         </h2>
-
         <p className="mb-4 text-lg">
           Paid advertising <em>seems</em> like the obvious choice for new Shopify stores:
         </p>
-
         <ul className="mb-6 space-y-2">
           <li>✓ Turn on ads → get traffic immediately</li>
           <li>✓ Seems simple and predictable</li>
           <li>✓ Everyone else is doing it</li>
           <li>✓ "Just scale what works!" (they say)</li>
         </ul>
-
         <p className="mb-6">
           But here's what they <strong>don't</strong> tell you about paid ads in 2025-2026:
         </p>
-
         {/* Problem 1 */}
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">
           Problem 1: Costs Are Rising Faster Than Inflation
         </h3>
-
         <p className="mb-4">
           Facebook ad costs have increased <strong>89% since 2022</strong>. Google Shopping ads are up <strong>62%</strong>.
           Why? Three brutal reasons:
         </p>
-
         <div className="mb-6 space-y-4 not-prose">
           <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-6">
             <h4 className="mb-2 font-bold text-red-900">1. More Competition = Higher CPCs</h4>
@@ -121,7 +107,6 @@ export default function BlogPost() {
               customer. Cost-per-click has skyrocketed while conversion rates stayed flat.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-orange-500 bg-orange-50 p-6">
             <h4 className="mb-2 font-bold text-orange-900">2. iOS Privacy Changes Killed Targeting</h4>
             <p className="text-sm text-orange-800">
@@ -129,7 +114,6 @@ export default function BlogPost() {
               spray-and-pray traffic instead of laser-targeted customers. Same cost, worse results.
             </p>
           </div>
-
           <div className="rounded-lg border-l-4 border-yellow-500 bg-yellow-50 p-6">
             <h4 className="mb-2 font-bold text-yellow-900">3. Ad Fatigue is Accelerating</h4>
             <p className="text-sm text-yellow-800">
@@ -138,7 +122,6 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         <div className="mb-8 rounded-lg bg-neutral-900 p-8 text-white not-prose">
           <h4 className="mb-4 text-xl font-bold">Real Store Example: The Ad Cost Death Spiral</h4>
           <p className="mb-4 opacity-90">
@@ -162,17 +145,14 @@ export default function BlogPost() {
             Same budget, 56% fewer customers in 12 months. That's the ad cost death spiral.
           </p>
         </div>
-
         {/* Problem 2 */}
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">
           Problem 2: It Stops the Moment You Stop Paying
         </h3>
-
         <p className="mb-4">
           This is the fundamental flaw of paid ads: you're <strong>renting</strong> traffic, not <strong>building</strong>
           an asset.
         </p>
-
         <div className="mb-8 overflow-hidden rounded-xl border border-neutral-200 not-prose">
           <table className="w-full">
             <thead className="bg-neutral-100">
@@ -206,16 +186,13 @@ export default function BlogPost() {
             </tbody>
           </table>
         </div>
-
         {/* Problem 3 */}
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">
           Problem 3: Lower Quality Traffic (Price Shoppers vs. Buyers)
         </h3>
-
         <p className="mb-4">
           Not all traffic is equal. Paid ad traffic and organic SEO traffic behave completely differently:
         </p>
-
         <div className="mb-8 grid gap-6 md:grid-cols-2 not-prose">
           <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6">
             <h4 className="mb-4 text-lg font-bold text-red-900">Paid Ads Traffic</h4>
@@ -228,7 +205,6 @@ export default function BlogPost() {
               <li>• <strong>Avg order value:</strong> $47</li>
             </ul>
           </div>
-
           <div className="rounded-xl border-2 border-green-200 bg-green-50 p-6">
             <h4 className="mb-4 text-lg font-bold text-green-900">SEO Traffic</h4>
             <ul className="space-y-3 text-sm text-green-800">
@@ -241,17 +217,14 @@ export default function BlogPost() {
             </ul>
           </div>
         </div>
-
         <p className="mb-6 rounded-lg bg-green-50 border-l-4 border-green-500 p-6 text-green-900 not-prose">
           <strong>Bottom line:</strong> SEO traffic converts 67% better than paid ads AND has 55% higher average order value.
           That's a double win.
         </p>
-
         {/* Why SEO Wins */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           Why SEO Crushes Paid Ads (The 7 Advantages)
         </h2>
-
         {/* Advantage 1 */}
         <div className="mb-8 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 p-8 not-prose">
           <div className="mb-4 flex items-center gap-4">
@@ -279,7 +252,6 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Advantage 2 */}
         <div className="mb-8 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 not-prose">
           <div className="mb-4 flex items-center gap-4">
@@ -299,7 +271,6 @@ export default function BlogPost() {
             Paid ads work the opposite way: costs increase, effectiveness decreases, gets harder over time.
           </p>
         </div>
-
         {/* Advantages 3-7 Summary */}
         <div className="mb-8 space-y-6 not-prose">
           <div className="rounded-lg border border-purple-200 bg-purple-50 p-6">
@@ -312,7 +283,6 @@ export default function BlogPost() {
               Paid ads? You pay for every hour of coverage.
             </p>
           </div>
-
           <div className="rounded-lg border border-orange-200 bg-orange-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-lg font-bold text-white">4</span>
@@ -323,7 +293,6 @@ export default function BlogPost() {
               Our data shows SEO customers have 2.3x higher LTV than paid ad customers.
             </p>
           </div>
-
           <div className="rounded-lg border border-teal-200 bg-teal-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-600 text-lg font-bold text-white">5</span>
@@ -334,7 +303,6 @@ export default function BlogPost() {
               This halo effect increases conversion rates across all channels--even your paid ads perform better.
             </p>
           </div>
-
           <div className="rounded-lg border border-pink-200 bg-pink-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-600 text-lg font-bold text-white">6</span>
@@ -345,7 +313,6 @@ export default function BlogPost() {
               survived 2020 and 2023 recessions while ad-dependent stores went bankrupt.
             </p>
           </div>
-
           <div className="rounded-lg border border-indigo-200 bg-indigo-50 p-6">
             <div className="mb-3 flex items-center gap-3">
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 text-lg font-bold text-white">7</span>
@@ -357,16 +324,13 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* The Smart Strategy */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           The Smart Strategy: SEO First, Ads Second
         </h2>
-
         <p className="mb-6 text-lg">
           Here's what top-performing Shopify stores do (based on analyzing 2,400 stores in Q4 2025):
         </p>
-
         <div className="mb-8 space-y-6 not-prose">
           <div className="rounded-xl bg-gradient-to-r from-neutral-50 to-neutral-100 p-8">
             <h3 className="mb-4 text-xl font-bold text-neutral-900">Phase 1: Build SEO Foundation (Months 1-3)</h3>
@@ -383,7 +347,6 @@ export default function BlogPost() {
               ✓ With SEOLOGY.AI: All of this happens automatically in 60 seconds
             </p>
           </div>
-
           <div className="rounded-xl bg-gradient-to-r from-blue-50 to-blue-100 p-8">
             <h3 className="mb-4 text-xl font-bold text-neutral-900">Phase 2: Strategic Paid Ads (Months 4-6)</h3>
             <p className="mb-4 text-neutral-700">
@@ -399,7 +362,6 @@ export default function BlogPost() {
               ✓ Lower CPA because SEO already warmed up the audience
             </p>
           </div>
-
           <div className="rounded-xl bg-gradient-to-r from-green-50 to-emerald-100 p-8">
             <h3 className="mb-4 text-xl font-bold text-neutral-900">Phase 3: Dominate Market (Months 6-12+)</h3>
             <p className="mb-4 text-neutral-700">
@@ -416,11 +378,9 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Real Numbers */}
         <div className="mb-12 rounded-2xl bg-neutral-900 p-12 text-white not-prose">
           <h2 className="mb-8 text-center text-3xl font-bold">Real Store Comparison: 12-Month Results</h2>
-
           <div className="mb-12 grid gap-8 md:grid-cols-2">
             <div className="rounded-xl bg-white/10 p-8">
               <h3 className="mb-6 text-center text-xl font-bold text-red-400">Store A: Ads Only Strategy</h3>
@@ -458,7 +418,6 @@ export default function BlogPost() {
                 * If they stop ads, revenue drops to near zero
               </p>
             </div>
-
             <div className="rounded-xl bg-white/10 p-8 border-2 border-green-400">
               <h3 className="mb-6 text-center text-xl font-bold text-green-400">Store B: SEO First Strategy</h3>
               <div className="mb-6 space-y-4 text-sm">
@@ -496,7 +455,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="rounded-xl bg-green-500/20 border-2 border-green-400 p-8 text-center">
             <p className="mb-2 text-sm font-semibold opacity-75">Store B Wins By:</p>
             <div className="grid gap-6 md:grid-cols-3">
@@ -515,20 +473,17 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="mb-12 rounded-2xl bg-gradient-to-r from-brand-primary-500 via-green-500 to-emerald-500 p-12 text-center text-white not-prose">
           <h2 className="mb-4 text-4xl font-bold">Stop Burning Money on Ads. Start Building Assets.</h2>
           <p className="mb-8 text-xl opacity-90">
             Every day you spend $50-200 on ads is a day you could be building $0-CPA SEO traffic that compounds forever.
           </p>
-
           <div className="mb-8 inline-block rounded-xl bg-white/20 px-8 py-4">
             <p className="mb-2 text-sm font-semibold opacity-75">Limited Time: December 2025 Special</p>
             <p className="text-3xl font-bold">14-Day Free Trial + First 3 Months 50% Off</p>
             <p className="text-sm opacity-90">See results in weeks, not months • Cancel anytime</p>
           </div>
-
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="https://apps.shopify.com/seology-ai"
@@ -543,12 +498,10 @@ export default function BlogPost() {
               Calculate Your Savings
             </Link>
           </div>
-
           <p className="mt-8 text-sm opacity-75">
             Join 5,000+ stores saving $100k+ per year by choosing SEO over paid ads
           </p>
         </div>
-
         {/* Author Bio */}
         <div className="border-t border-neutral-200 pt-8 not-prose">
           <h3 className="mb-4 text-lg font-bold text-neutral-900">About the Author</h3>

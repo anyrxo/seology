@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'FAQ Schema: Complete Implementation Guide (With Code Examples)',
   description: 'FAQ schema can double your search visibility. This guide shows exact implementation with JSON-LD code examples.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['schema-markup-complete-guide-2025', 'review-schema-markup-guide', 'rich-snippets-complete-guide'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>FAQ Schema Implementation</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             FAQ Schema: Complete Implementation Guide (With Code Examples)
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>September 8, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             FAQ schema can <strong className="text-white">double your search visibility</strong>. This guide shows exact implementation with JSON-LD code examples.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 FAQ schema markup is one of the easiest ways to <strong>double your SERP real estate</strong> and increase click-through rates by 35%+. This guide provides copy-paste JSON-LD code, implementation instructions, and Google\'s exact requirements for FAQ rich results. SEOLOGY implements FAQ schema automatically.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is FAQ Schema (And Why It Dominates SERPs)</h2>
@@ -94,7 +89,6 @@ export default function BlogPost() {
                   Sites using FAQ schema consistently outperform competitors in CTR and rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">FAQ Schema JSON-LD Code Template</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -130,7 +124,6 @@ export default function BlogPost() {
                   <strong>Critical:</strong> Each question must be wrapped in a Question object, and each answer in an Answer object. Google rejects improperly formatted schema.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step-by-Step Implementation Guide</h2>
                 <ul className="space-y-4 my-6">
@@ -178,7 +171,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Google\'s FAQ Schema Requirements</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -207,7 +199,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Advanced FAQ Schema Tactics</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -241,7 +232,6 @@ export default function BlogPost() {
                     <span><strong>A/B test question wording:</strong> Small changes to questions can significantly impact CTR</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">SEOLOGY Implements FAQ Schema Automatically</h3>
@@ -257,7 +247,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -270,7 +259,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #FAQSchema #StructuredData #RichResults
@@ -280,7 +268,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

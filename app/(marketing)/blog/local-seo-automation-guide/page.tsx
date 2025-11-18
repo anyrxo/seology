@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Local SEO Automation: How to Dominate Your Market in 2025',
   description: "Local SEO is time-consuming. Here\'s how SEOLOGY automates citations, reviews, and rankings for multi-location businesses.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'local-seo-automation-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Local SEO Automation Guide</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Local SEO Automation: How to Dominate Your Market in 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>December 22, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Local SEO is time-consuming. Here's how SEOLOGY automates <strong className="text-white">citations, reviews, and rankings</strong> for multi-location businesses.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Local SEO requires managing <strong>Google Business Profile, citations, reviews, NAP consistency, local content, and 50+ ranking factors</strong>. Manual management takes 15-20 hours weekly for single-location businesses, 100+ hours for multi-location. SEOLOGY automates citation building, review monitoring, GMB optimization, local schema, and rank tracking--freeing you to focus on customers instead of SEO busywork.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Local SEO Automation Matters</h2>
@@ -92,10 +87,8 @@ export default function BlogPost() {
                   Without automation, local SEO becomes a full-time job--taking time away from actually running your business.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 12 Local SEO Tasks You Should Automate</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">1. Google Business Profile Optimization</h3>
@@ -106,7 +99,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically optimizes business name, categories, description, hours, attributes, and posts--keeping profile fresh with minimal effort.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">2. NAP Consistency Management</h3>
                     <p className="text-slate-700 mb-3">
@@ -116,7 +108,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Updates NAP across all major directories simultaneously, monitors for inconsistencies, flags duplicates.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">3. Citation Building</h3>
                     <p className="text-slate-700 mb-3">
@@ -126,7 +117,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically submits to 100+ high-quality directories, prioritizes industry-specific sites, tracks citation status.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">4. Review Monitoring & Response</h3>
                     <p className="text-slate-700 mb-3">
@@ -136,7 +126,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Aggregates reviews from all platforms, sends instant alerts, suggests AI-generated responses (you approve before posting).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">5. Local Schema Markup</h3>
                     <p className="text-slate-700 mb-3">
@@ -146,7 +135,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically generates and implements LocalBusiness, Service, GeoCoordinates, and OpeningHours schema.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">6. Local Content Creation</h3>
                     <p className="text-slate-700 mb-3">
@@ -156,7 +144,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> AI generates localized content templates optimized for "[service] in [city]" keywords while maintaining quality.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">7. Google Posts Scheduling</h3>
                     <p className="text-slate-700 mb-3">
@@ -166,7 +153,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Schedules and auto-publishes Google Posts highlighting offers, events, updates--keeping profile active.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">8. Local Rank Tracking</h3>
                     <p className="text-slate-700 mb-3">
@@ -176,7 +162,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Tracks local pack rankings, organic positions, and map visibility daily--generates trend reports automatically.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">9. Competitor Monitoring</h3>
                     <p className="text-slate-700 mb-3">
@@ -186,7 +171,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Monitors up to 10 competitors automatically, alerts you when they get new reviews or ranking changes.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">10. Q&A Management</h3>
                     <p className="text-slate-700 mb-3">
@@ -196,7 +180,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Alerts to new questions, suggests answers based on your business info and FAQs.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">11. Photo & Video Uploads</h3>
                     <p className="text-slate-700 mb-3">
@@ -206,7 +189,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Schedules batch photo uploads, optimizes images for GMB, adds geo-tags automatically.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">12. Multi-Location Management</h3>
                     <p className="text-slate-700 mb-3">
@@ -218,7 +200,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Local SEO Ranking Factors (2025)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -232,7 +213,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">100% complete profiles rank 2.7x higher</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-purple-600 w-12">2</div>
                     <div>
@@ -240,7 +220,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Average 4+ stars with 50+ reviews significantly boosts rankings</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-pink-600 w-12">3</div>
                     <div>
@@ -248,7 +227,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Identical business info across 100+ directories</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-cyan-600 w-12">4</div>
                     <div>
@@ -256,7 +234,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Closer businesses rank higher (can't control, but optimize for "near me" terms)</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-indigo-600 w-12">5</div>
                     <div>
@@ -264,7 +241,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">City/region keywords in titles, headings, content</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-blue-600 w-12">6</div>
                     <div>
@@ -272,7 +248,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">100+ accurate citations on authoritative directories</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-purple-600 w-12">7</div>
                     <div>
@@ -280,7 +255,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Local backlinks from chamber of commerce, news sites, local blogs</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-pink-600 w-12">8</div>
                     <div>
@@ -288,7 +262,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Regular posts, photos, Q&A responses signal active business</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-cyan-600 w-12">9</div>
                     <div>
@@ -296,7 +269,6 @@ export default function BlogPost() {
                       <p className="text-slate-600 text-sm">Active Facebook, Instagram, Twitter presence</p>
                     </div>
                   </div>
-
                   <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="text-3xl font-bold text-indigo-600 w-12">10</div>
                     <div>
@@ -306,7 +278,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Local SEO Results with Automation</h2>
                 <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -324,7 +295,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Multi-Location Business Strategy</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -361,7 +331,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Automating Local SEO Today</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -392,7 +361,6 @@ export default function BlogPost() {
                     <span>Multi-location management from one dashboard</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Dominate Local Search with Automation</h3>
@@ -408,7 +376,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -417,7 +384,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/seo-roi-calculator-guide" className="text-blue-600 hover:text-blue-800">SEO ROI Calculator Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #LocalSEO #SEOAutomation #LocalBusiness #GoogleBusinessProfile #SEOLOGY
@@ -427,7 +393,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

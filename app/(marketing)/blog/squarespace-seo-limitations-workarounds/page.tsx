@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Squarespace SEO: Limitations, Workarounds & Best Practices',
   description: 'Squarespace has serious SEO limitations. This guide shows workarounds and when to migrate to a better platform.',
 }
-
 export default function BlogPost() {
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -17,21 +18,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Squarespace SEO Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Squarespace SEO: Limitations, Workarounds & Best Practices
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>September 20, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Squarespace claims to be "SEO-friendly." The reality? <strong className="text-white">It has serious SEO limitations</strong> that can cripple your rankings. This honest guide shows what works, what doesn&apos;t, and when to migrate to a better platform.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -43,7 +40,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -53,7 +49,6 @@ export default function BlogPost() {
                 Squarespace is beautiful and easy to use, but it has critical SEO limitations: no custom schema markup, limited technical control, slow page speed, restricted URL structures, and poor blog SEO. This guide shows workarounds for these issues and when migration makes sense. For serious SEO, consider WordPress, Webflow, or a headless CMS.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Squarespace SEO Promise vs. Reality</h2>
@@ -63,7 +58,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   That&apos;s technically true--but misleading. Yes, Squarespace has <em>basic</em> SEO features. But it lacks <strong>advanced</strong> SEO capabilities that competitive sites need to rank on page one.
                 </p>
-
                 <div className="bg-slate-50 p-6 rounded-lg my-8">
                   <h3 className="text-xl font-bold mb-4 mt-0">What Squarespace Does Well</h3>
                   <ul className="space-y-2 text-slate-700 mb-0">
@@ -75,7 +69,6 @@ export default function BlogPost() {
                     <li>✅ Image alt text fields</li>
                   </ul>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-lg my-8">
                   <h3 className="text-xl font-bold mb-4 mt-0">What Squarespace Lacks</h3>
                   <ul className="space-y-2 text-slate-700 mb-0">
@@ -91,15 +84,12 @@ export default function BlogPost() {
                     <li>❌ No lazy loading control for images</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> Squarespace is fine for basic sites with low SEO competition. For competitive industries (ecommerce, SaaS, professional services), these limitations will hurt your rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Critical Squarespace SEO Limitations (And Workarounds)</h2>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">1. No Custom Schema Markup</h3>
@@ -136,7 +126,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">2. Slow Page Speed</h3>
                     <p className="text-lg text-slate-700 mb-4">
@@ -174,7 +163,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">3. Limited URL Structure Control</h3>
                     <p className="text-lg text-slate-700 mb-4">
@@ -205,7 +193,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">4. Poor Blog SEO Architecture</h3>
                     <p className="text-lg text-slate-700 mb-4">
@@ -235,7 +222,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">5. No Canonical URL Customization</h3>
                     <p className="text-lg text-slate-700 mb-4">
@@ -256,7 +242,6 @@ export default function BlogPost() {
                       </ol>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-4">6. Limited Redirect Management</h3>
                     <p className="text-lg text-slate-700 mb-4">
@@ -283,13 +268,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Squarespace SEO Best Practices</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Okay, so Squarespace has limitations. But if you&apos;re committed to staying on the platform, here&apos;s how to optimize within its constraints:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">1. Optimize Every Page Title & Meta Description</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Squarespace makes this easy. For every page:
@@ -300,7 +283,6 @@ export default function BlogPost() {
                   <li>Write a compelling meta description (150-160 characters, include keyword + CTA)</li>
                   <li>Add a descriptive page URL slug</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">2. Image Optimization</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Images are often the biggest performance killer on Squarespace sites.
@@ -316,7 +298,6 @@ export default function BlogPost() {
                     <li>✅ Enable lazy loading (Settings → Advanced → Performance)</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">3. Content Structure</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Squarespace limits header tag control, but you can still structure content properly:
@@ -330,7 +311,6 @@ export default function BlogPost() {
                   <li>Use short paragraphs (2-3 sentences max)</li>
                   <li>Add internal links to related pages</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">4. Internal Linking Strategy</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Since Squarespace doesn&apos;t auto-generate related content, you must manually create internal links:
@@ -342,7 +322,6 @@ export default function BlogPost() {
                   <li>Create a "Resources" page that links to your best content</li>
                   <li>Add footer links to important pages</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">5. Mobile Optimization</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Squarespace templates are mobile-responsive by default, but verify:
@@ -354,7 +333,6 @@ export default function BlogPost() {
                   <li>Test forms on mobile (many Squarespace forms are clunky on phones)</li>
                   <li>Check font sizes (minimum 16px on mobile)</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">6. Submit XML Sitemap to Google</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Squarespace auto-generates an XML sitemap at <code>yoursite.com/sitemap.xml</code>. Submit it to Google Search Console:
@@ -364,7 +342,6 @@ export default function BlogPost() {
                   <li>Click "Sitemaps" in left menu</li>
                   <li>Enter "sitemap.xml" and click Submit</li>
                 </ol>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">7. Enable SSL (HTTPS)</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Squarespace includes free SSL. Make sure it&apos;s enabled:
@@ -373,7 +350,6 @@ export default function BlogPost() {
                   <li>Settings → Advanced → SSL → Enable</li>
                   <li>Enable "HSTS Security" and "HSTS Strict Mode"</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">8. Connect Google Analytics & Search Console</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   Track your SEO performance:
@@ -382,7 +358,6 @@ export default function BlogPost() {
                   <li><strong>Google Analytics:</strong> Settings → Advanced → External API Keys → Google Analytics</li>
                   <li><strong>Search Console:</strong> Verify ownership via domain verification or HTML tag</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">9. Leverage Code Injection for Advanced SEO</h3>
                 <p className="text-lg text-slate-700 mb-4">
                   If you&apos;re comfortable with code, use Code Injection (Settings → Advanced → Code Injection) to add:
@@ -397,13 +372,11 @@ export default function BlogPost() {
                   Warning: Bad code can break your site. Test thoroughly.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">When to Migrate Away from Squarespace</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Squarespace is great for certain use cases: portfolios, small business sites, personal blogs. But if you&apos;re serious about SEO, here&apos;s when migration makes sense:
                 </p>
-
                 <div className="space-y-4 my-8">
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold text-red-900 mb-2 mt-0">Migrate If:</h4>
@@ -417,7 +390,6 @@ export default function BlogPost() {
                       <li>✅ Your business depends on organic traffic (not just design)</li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold text-green-900 mb-2 mt-0">Stay on Squarespace If:</h4>
                     <ul className="space-y-2 text-slate-700 mb-0">
@@ -430,7 +402,6 @@ export default function BlogPost() {
                     </ul>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Best Migration Targets</h3>
                 <div className="space-y-6 my-8">
                   <div className="bg-slate-50 p-6 rounded-lg">
@@ -450,7 +421,6 @@ export default function BlogPost() {
                       <li>Need hosting (Kinsta, WP Engine recommended)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">Webflow (Design + SEO)</h4>
                     <p className="text-slate-700 mb-2"><strong>Pros:</strong></p>
@@ -467,7 +437,6 @@ export default function BlogPost() {
                       <li>Learning curve for CMS</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">Shopify (Ecommerce Only)</h4>
                     <p className="text-slate-700 mb-2"><strong>Pros:</strong></p>
@@ -483,7 +452,6 @@ export default function BlogPost() {
                       <li>Transaction fees (unless on Shopify Payments)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">Next.js / Headless CMS (Advanced)</h4>
                     <p className="text-slate-700 mb-2"><strong>Pros:</strong></p>
@@ -502,13 +470,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Migrate from Squarespace Without Losing SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   If you decide to migrate, follow this process to preserve your rankings:
                 </p>
-
                 <ol className="space-y-6 my-8">
                   <li>
                     <strong className="text-xl text-slate-900">1. Audit Your Current Site</strong>
@@ -550,7 +516,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mt-2">Reach out to sites linking to you and ask them to update links to new URLs. This preserves full link equity.</p>
                   </li>
                 </ol>
-
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
                   <p className="text-blue-900 font-bold mb-2">💡 Pro Tip:</p>
                   <p className="text-slate-700 mb-0">
@@ -558,13 +523,11 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools to Supercharge Squarespace SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Since Squarespace lacks native SEO features, use these tools to fill the gaps:
                 </p>
-
                 <div className="space-y-4 my-8">
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-2 mt-0">SEOLOGY (AI SEO Automation)</h4>
@@ -592,7 +555,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="my-16">
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-2xl p-12 text-center">
                   <h2 className="text-4xl font-bold mb-6">Automate Your Squarespace SEO</h2>
@@ -619,13 +581,11 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Should You Use Squarespace for SEO?</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>The honest answer:</strong> It depends on your goals.
                 </p>
-
                 <div className="bg-green-50 p-6 rounded-lg my-8">
                   <h3 className="text-xl font-bold text-green-900 mb-4 mt-0">✅ Use Squarespace If:</h3>
                   <ul className="space-y-2 text-slate-700 mb-0">
@@ -636,7 +596,6 @@ export default function BlogPost() {
                     <li>Most of your traffic comes from social media, ads, or word of mouth</li>
                   </ul>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-lg my-8">
                   <h3 className="text-xl font-bold text-red-900 mb-4 mt-0">❌ Don&apos;t Use Squarespace If:</h3>
                   <ul className="space-y-2 text-slate-700 mb-0">
@@ -648,7 +607,6 @@ export default function BlogPost() {
                     <li>You want full technical control</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>The Bottom Line:</strong> Squarespace is a great platform for design, but it&apos;s not built for serious SEO. If organic traffic is critical to your business, invest in a more SEO-friendly platform like WordPress, Webflow, or Shopify.
                 </p>
@@ -656,7 +614,6 @@ export default function BlogPost() {
                   And if you want to automate 90% of your SEO work--regardless of platform--SEOLOGY handles technical optimizations, schema markup, and continuous monitoring so you can focus on growing your business.
                 </p>
               </section>
-
               <div className="mt-16 pt-8 border-t border-slate-200">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div>

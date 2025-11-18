@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Shopify Page Speed Optimization: 17 Proven Tactics for 2025',
   description: 'Slow Shopify stores lose 40% of visitors. These 17 tactics guarantee sub-2s load times and higher conversions.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'shopify-page-speed-optimization').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Shopify Page Speed Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Shopify Page Speed Optimization: 17 Proven Tactics for 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>December 25, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Slow Shopify stores lose <strong className="text-white">40% of visitors</strong>. These 17 tactics guarantee sub-2s load times and higher conversions.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Shopify stores average 3.5-4.5 second load times--way too slow. Every <strong>100ms delay</strong> costs you 7% in conversions. This guide covers 17 proven tactics to get your Shopify store under 2 seconds: image optimization, code minification, app auditing, lazy loading, CDN setup, and more. SEOLOGY automates most of these optimizations for you.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Shopify Speed Matters</h2>
@@ -89,10 +84,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 17 Shopify Speed Optimization Tactics</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Image Optimization (5 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -107,7 +100,6 @@ export default function BlogPost() {
                       <strong>Target:</strong> Product images under 100KB, hero images under 200KB.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Use WebP Format</h4>
                     <p className="text-slate-700 mb-3">
@@ -120,7 +112,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> 30% faster image loading with identical visual quality.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Implement Lazy Loading</h4>
                     <p className="text-slate-700 mb-3">
@@ -133,7 +124,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Images load only when user scrolls to them--40% faster initial load.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Use Responsive Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -146,7 +136,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Mobile users download 70% smaller images.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Optimize Image Dimensions</h4>
                     <p className="text-slate-700 mb-3">
@@ -160,7 +149,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Code & Scripts (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -175,7 +163,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> 20-30% smaller file sizes = faster downloads.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Defer Non-Critical JavaScript</h4>
                     <p className="text-slate-700 mb-3">
@@ -188,7 +175,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Page becomes interactive 1-2 seconds faster.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Remove Unused CSS</h4>
                     <p className="text-slate-700 mb-3">
@@ -201,7 +187,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Reduce CSS file size by 40-60%.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Reduce Third-Party Scripts</h4>
                     <p className="text-slate-700 mb-3">
@@ -215,7 +200,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Theme & Architecture (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -230,7 +214,6 @@ export default function BlogPost() {
                       <strong>Benchmark:</strong> Test theme demo speed with Google PageSpeed Insights before purchasing.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Limit Product Variants</h4>
                     <p className="text-slate-700 mb-3">
@@ -243,7 +226,6 @@ export default function BlogPost() {
                       <strong>Target:</strong> Under 50 variants per product page.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Optimize Shopify Liquid Code</h4>
                     <p className="text-slate-700 mb-3">
@@ -256,7 +238,6 @@ export default function BlogPost() {
                       <strong>Tip:</strong> Hire a Shopify expert if you're not comfortable editing Liquid.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Enable Preloading for Key Resources</h4>
                     <p className="text-slate-700 mb-3">
@@ -270,7 +251,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Hosting & Network (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -285,7 +265,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> 40-60% faster load times for international visitors.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Enable HTTP/2</h4>
                     <p className="text-slate-700 mb-3">
@@ -298,7 +277,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Parallel resource loading = 30% faster page loads.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Implement Browser Caching</h4>
                     <p className="text-slate-700 mb-3">
@@ -311,7 +289,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Repeat visitors experience 2-3x faster loads.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Reduce DNS Lookups</h4>
                     <p className="text-slate-700 mb-3">
@@ -326,7 +303,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Shopify Speed Benchmarks</h2>
                 <div className="overflow-x-auto my-8">
@@ -373,7 +349,6 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools to Measure Shopify Speed</h2>
                 <ul className="space-y-3 my-6">
@@ -395,7 +370,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Shopify Speed Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -423,7 +397,6 @@ export default function BlogPost() {
                     <span>Monitors Core Web Vitals 24/7 and alerts to issues</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Speed Up Your Shopify Store Automatically</h3>
@@ -439,7 +412,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -448,7 +420,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/ecommerce-seo-strategy-2025" className="text-blue-600 hover:text-blue-800">Ecommerce SEO Strategy 2025</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #PageSpeed #ShopifyOptimization #WebPerformance #Shopify #CoreWebVitals
@@ -458,7 +429,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

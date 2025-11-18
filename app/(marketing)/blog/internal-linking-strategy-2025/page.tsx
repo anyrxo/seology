@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Internal Linking Strategy: Boost Rankings Without Building Links',
   description: 'Internal linking is the most underrated SEO tactic. This strategy increased organic traffic by 40% in 90 days--no backlinks needed.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['site-architecture-seo-best-practices', 'crawl-budget-optimization-guide', 'technical-seo-audit-checklist-2025', 'keyword-research-strategy-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">

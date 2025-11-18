@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Guest Posting for SEO: How to Build Authority Links That Rank',
   description: 'Most guest posts are worthless. This strategy builds high-authority backlinks that actually move the needle.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'guest-posting-seo-guide-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,11 @@ export default function BlogPost() {
                 <li><strong>Anchor text matters (but not how you think):</strong> Brand anchors + URL mentions drive more value than exact-match keywords in 2025</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Most Guest Posting Fails (And What Actually Works)</h2>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Guest posting has a bad reputation because <strong>90% of people do it wrong.</strong> They spam irrelevant sites with thin content, hoping for quick backlinks.
               </p>
-
               <div className="bg-red-50 p-6 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold text-red-900 mb-4">The Guest Posting Graveyard</h3>
                 <p className="text-slate-700 mb-4">These tactics stopped working 5+ years ago:</p>
@@ -66,7 +64,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-4"><strong>Result:</strong> Zero rankings improvement, possible manual penalty, wasted time.</p>
               </div>
-
               <div className="bg-green-50 p-6 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold text-green-900 mb-4">What Actually Moves Rankings in 2025</h3>
                 <ul className="space-y-3 text-slate-700">
@@ -79,10 +76,8 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-4"><strong>Ahrefs study (2024):</strong> Guest posts from DR50+ sites increase rankings by 23.4% on average. Guest posts from DR{'<'}20 sites have zero measurable impact.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">17 Guest Posting Strategies That Actually Work</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -99,7 +94,6 @@ export default function BlogPost() {
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Why this works:</strong> Industry publications have engaged audiences, high authority, and Google trusts them</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</span>
@@ -120,7 +114,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mt-3"><strong>Example:</strong> HubSpot\'s "State of Marketing Report" gets published on 50+ authority sites every year, earning hundreds of backlinks.</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</span>
@@ -137,11 +130,9 @@ export default function BlogPost() {
 2. Go to "Backlinks" report
 3. Filter by "dofollow" + "content page" (not homepage)
 4. Look for author bylines matching competitor CEO/team
-
 # Method 2: Google Search
 site:authoritative-site.com "competitor name" author
 site:techcrunch.com "competitor name" contributor
-
 # Method 3: Author Page Search
 "written by [competitor CEO name]"
 "guest post by [competitor CEO name]"
@@ -150,7 +141,6 @@ site:techcrunch.com "competitor name" contributor
                     <p className="text-slate-700"><strong>Once you have the list:</strong> Pitch those same publications with a better angle, more data, or a contrarian perspective.</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">4</span>
@@ -166,7 +156,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Include 1-2 sentence bio with link to your site</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">5</span>
@@ -187,7 +176,6 @@ site:techcrunch.com "competitor name" contributor
                     <p className="text-slate-700 mt-3"><strong>Result:</strong> Editors remember you, trust you, and are more likely to say yes.</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">6</span>
@@ -203,7 +191,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> "Google just announced X--here\'s what it means for SEO professionals" (pitched within hours of announcement)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">7</span>
@@ -219,7 +206,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> "Why Backlinks Matter Less Than You Think in 2025" (contrarian SEO post that gets clicks)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">8</span>
@@ -235,7 +221,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Benefit:</strong> Exposure to competitor\'s audience + high-authority backlink</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">9</span>
@@ -255,7 +240,6 @@ site:techcrunch.com "competitor name" contributor
                     <p className="text-slate-700 mt-3"><strong>Example:</strong> Backlinko created "Google Ranking Factors" study, then published 20+ guest posts referencing it--earned 1,200+ backlinks.</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">10</span>
@@ -271,7 +255,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Bonus:</strong> Podcast pages often rank well in Google (evergreen backlinks)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">11</span>
@@ -287,7 +270,6 @@ site:techcrunch.com "competitor name" contributor
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>Both authors get bio links (you leverage their authority)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">12</span>
@@ -300,28 +282,21 @@ site:techcrunch.com "competitor name" contributor
                     <p className="font-bold mb-3">Outreach Template:</p>
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`Subject: Update your [Topic] guide with 2025 data?
-
 Hi [Editor Name],
-
 I noticed your "Ultimate Guide to [Topic]" from 2019
 is still ranking well--but the data is outdated.
-
 I\'d love to refresh it with:
 • 2025 statistics
 • New case studies
 • Current best practices
 • Updated screenshots
-
 I\'ll do all the work. You keep the traffic.
-
 Would you be open to this?
-
 [Your Name]`}
                     </pre>
                     <p className="text-slate-700 mt-3"><strong>Result:</strong> Updated article ranks better (you get co-author credit + backlink).</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">13</span>
@@ -337,7 +312,6 @@ Would you be open to this?
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Benefit:</strong> .edu authority + exposure to future industry professionals</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">14</span>
@@ -353,7 +327,6 @@ Would you be open to this?
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span>One webinar = 3-5 guest post opportunities (different angles)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">15</span>
@@ -369,7 +342,6 @@ Would you be open to this?
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Example:</strong> Ahrefs writes "We launched Webmaster Tools (free)" → gets published on 10+ authority sites</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">16</span>
@@ -385,7 +357,6 @@ Would you be open to this?
                     <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><span><strong>Bonus:</strong> Top posts get shared widely (amplification effect)</span></li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">17</span>
@@ -408,82 +379,56 @@ Would you be open to this?
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Guest Post Outreach: Email Templates That Work</h2>
-
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold mb-3">Template 1: The Data Study Pitch</h3>
                   <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`Subject: Exclusive data: [Surprising Finding]
-
 Hi [Editor Name],
-
 Quick question: Would [Publication] be interested in exclusive
 data from our study of 1,000+ [target audience]?
-
 Key finding: [Most surprising statistic]
-
 We also found:
 • [Insight #2]
 • [Insight #3]
-
 I can write this up as a 1,200-word guest post with charts/graphs.
-
 No one else has this data. Interested?
-
 [Your Name]`}
                   </pre>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3">Template 2: The Competitor Reference</h3>
                   <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`Subject: Guest post idea for [Publication]
-
 Hi [Editor Name],
-
 I noticed you published [Competitor Name]\'s article about [topic].
-
 I have a different take: [Your contrarian angle]
-
 Would you be interested in a guest post covering:
 • [Unique point #1]
 • [Unique point #2]
 • [Unique point #3]
-
 Here\'s a similar article I wrote for [credible publication]: [link]
-
 Let me know if this fits!
-
 [Your Name]`}
                   </pre>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3">Template 3: The Value-First Approach</h3>
                   <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`Subject: Loved your article on [topic]
-
 Hi [Editor Name],
-
 Your recent article on [specific topic] was spot-on about [specific point].
-
 One thing I\'d add: [helpful insight they missed]
-
 I actually wrote a deep dive on this for [publication]: [link]
-
 If you\'re ever looking for contributors on [related topic],
 I\'d love to write something for [their publication].
-
 Either way, keep up the great work!
-
 [Your Name]`}
                   </pre>
                 </div>
               </div>
-
               <div className="bg-amber-50 p-6 rounded-xl mt-6">
                 <h3 className="text-xl font-bold text-amber-900 mb-3">Outreach Best Practices</h3>
                 <ul className="space-y-2 text-slate-700">
@@ -496,14 +441,11 @@ Either way, keep up the great work!
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Anchor Text Strategy for Guest Posts in 2025</h2>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Exact-match anchor text in guest posts looks spammy in 2025. Use natural anchor text variation.
               </p>
-
               <div className="bg-slate-50 p-6 rounded-xl">
                 <h3 className="text-xl font-bold mb-4">Recommended Anchor Text Distribution</h3>
                 <ul className="space-y-3 text-slate-700">
@@ -515,48 +457,39 @@ Either way, keep up the great work!
                 <p className="text-slate-700 mt-4"><strong>Why this works:</strong> Natural anchor text distribution avoids Penguin penalties and looks more organic to Google.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">7 Red Flags: Bad Guest Posting Opportunities</h2>
-
               <div className="space-y-4">
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #1: "Write for Us" Page Lists 50+ Guest Bloggers</h3>
                   <p className="text-slate-700">If they accept everyone, the links are worthless. Target exclusive opportunities.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #2: Site Has DR{'<'}20 or No Organic Traffic</h3>
                   <p className="text-slate-700">Check Ahrefs/SEMrush before pitching. If site gets no organic traffic, the link won\'t help.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #3: They Charge for Guest Posts</h3>
                   <p className="text-slate-700">Paid guest posts violate Google\'s guidelines. Editorial links only.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #4: Site is Irrelevant to Your Niche</h3>
                   <p className="text-slate-700">A link from a gardening blog won\'t help your SaaS rankings. Stay niche-relevant.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #5: All Links are Nofollow</h3>
                   <p className="text-slate-700">Some traffic/exposure is fine, but nofollow links don\'t pass PageRank. Aim for dofollow.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #6: Site Has Spammy Backlink Profile</h3>
                   <p className="text-slate-700">Check their backlinks in Ahrefs. If they have 10,000 spammy links, avoid.</p>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">🚩 Red Flag #7: "Guaranteed Placement" Services</h3>
                   <p className="text-slate-700">If they guarantee placement without reviewing content quality, it\'s a link scheme.</p>
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Identifies Guest Posting Opportunities</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -570,7 +503,6 @@ Either way, keep up the great work!
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Anchor text optimization:</strong><p className="text-slate-700 mt-1">AI suggests natural anchor text variations that avoid over-optimization penalties</p></div></li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict: Guest Posting in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -588,12 +520,10 @@ Either way, keep up the great work!
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Find Guest Post Opportunities<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">{relatedPosts.map(post => (<li key={post.slug}><Link href={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-800">{post.title}</Link></li>))}</ul>
             </section>
-
             <section><p className="text-sm text-slate-500"><strong>Tags:</strong> #GuestPosting #LinkBuilding #ContentMarketing</p></section>
           </div>
         </div>

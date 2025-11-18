@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Lazy Loading SEO: 15 Tactics to Speed Up Sites 67% Without Losing Rankings',
   description: 'Lazy loading optimization reduced page load times 67% and improved LCP 2.1s without hurting rankings by using native browser lazy loading, Intersection Observer, and SEO-safe implementation patterns.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'lazy-loading-seo-implementation').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Lazy Loading SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Lazy Loading SEO: 15 Tactics to Speed Up Sites 67% Without Losing Rankings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>June 28, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Bad lazy loading kills SEO--Google can\'t crawl hidden content, LCP suffers, and rankings tank. Yet proper lazy loading reduces page load times 67% and improves Core Web Vitals without hurting rankings. This guide reveals SEO-safe lazy loading techniques that preserve crawlability while dramatically improving page speed.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -78,7 +74,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Bad Lazy Loading Destroys SEO (And How to Fix It)</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -95,13 +90,10 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-0">One e-commerce site with 2500+ product images implemented SEO-safe lazy loading across their catalog. Result: <strong>67% reduction in initial page load time, 2.1-second LCP improvement, 43% lower bounce rate, zero ranking loss</strong>--even saw a 12% organic traffic increase from improved Core Web Vitals.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">15 Tactics for SEO-Safe Lazy Loading</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4 text-blue-900">Category 1: Image Lazy Loading (Tactics 1-4)</h3>
               <p className="text-slate-700 mb-6">Images account for 50-70% of page weight. Proper image lazy loading provides the biggest speed wins.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Use Native Browser Lazy Loading (loading="lazy")</h4>
                 <p className="text-slate-700 mb-4">
@@ -127,7 +119,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Native lazy loading reduces initial page load by <strong>67%</strong> for image-heavy pages (Google, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #2: NEVER Lazy Load Above-the-Fold Images (LCP Protection)</h4>
                 <p className="text-slate-700 mb-4">
@@ -146,7 +137,6 @@ export default function BlogPost() {
   loading="eager"
   fetchpriority="high"
 />
-
 <!-- Below-the-fold: Safe to lazy load -->
 <img
   src="product-thumbnail.jpg"
@@ -163,7 +153,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> LCP measures when the largest visible element finishes loading. Lazy loading your LCP image delays this metric by 2-5 seconds, failing Core Web Vitals thresholds (target: {'<'}2.5s).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Add Width & Height Attributes to Prevent Layout Shift</h4>
                 <p className="text-slate-700 mb-4">
@@ -181,7 +170,6 @@ export default function BlogPost() {
   loading="lazy"
   alt="Description"
 />
-
 <!-- Bad: No dimensions, causes CLS -->
 <img
   src="image.jpg"
@@ -203,7 +191,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Images with dimensions reduce CLS by <strong>94%</strong> (Web.dev, 2024). Target CLS: {'<'}0.1 for good Core Web Vitals.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #4: Implement Lazy Loading for Offscreen Iframes (Embeds, Videos)</h4>
                 <p className="text-slate-700 mb-4">
@@ -223,7 +210,6 @@ export default function BlogPost() {
   allow="accelerometer; autoplay; encrypted-media; gyroscope"
   allowfullscreen
 ></iframe>
-
 <!-- Lazy-loaded Google Maps -->
 <iframe
   src="https://www.google.com/maps/embed?..."
@@ -240,10 +226,8 @@ export default function BlogPost() {
                   <strong>Data:</strong> Lazy loading iframes reduces initial page weight by <strong>1.2MB average</strong> for pages with 3+ embeds (HTTPArchive, 2024).
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-purple-900">Category 2: Content Lazy Loading (Tactics 5-8)</h3>
               <p className="text-slate-700 mb-6">Lazy loading text content and dynamic modules requires JavaScript but must remain SEO-safe.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #5: Use Intersection Observer API for Dynamic Content Loading</h4>
                 <p className="text-slate-700 mb-4">
@@ -265,7 +249,6 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   rootMargin: '200px' // Load 200px before entering viewport
 });
-
 // Observe all lazy sections
 document.querySelectorAll('.lazy-section').forEach(section => {
   observer.observe(section);
@@ -280,7 +263,6 @@ document.querySelectorAll('.lazy-section').forEach(section => {
   <h2>Section Title</h2>
   <p>This content is in the HTML and crawlable...</p>
 </div>
-
 <style>
 .lazy-section.loaded {
   opacity: 1;
@@ -292,7 +274,6 @@ document.querySelectorAll('.lazy-section').forEach(section => {
                   <strong>Why it works:</strong> Content is server-rendered in HTML, so crawlers see everything. Intersection Observer only controls visibility, not content loading--no cloaking risk.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #6: Avoid "Infinite Scroll" Without Pagination Fallback</h4>
                 <p className="text-slate-700 mb-4">
@@ -306,14 +287,12 @@ document.querySelectorAll('.lazy-section').forEach(section => {
 <div id="product-grid">
   <!-- Products 1-20 -->
 </div>
-
 <!-- Pagination links (crawlable) -->
 <div class="pagination">
   <a href="/products?page=2" class="load-more">Load More</a>
   <a href="/products?page=2">2</a>
   <a href="/products?page=3">3</a>
 </div>
-
 <script>
 // Enhance with AJAX for infinite scroll
 document.querySelector('.load-more').addEventListener('click', (e) => {
@@ -335,7 +314,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
                   <strong>Pro tip:</strong> Test infinite scroll with "Fetch as Google" in Search Console. If content beyond page 1 isn\'t visible, add pagination fallback.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #7: Pre-render Critical Text Content (No JavaScript Loading)</h4>
                 <p className="text-slate-700 mb-4">
@@ -354,7 +332,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
                   <strong>Why it works:</strong> Google can render JavaScript but it\'s resource-intensive and not guaranteed. Server-rendered content is always indexed--zero risk.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Provide <code>&lt;noscript&gt;</code> Fallbacks for Essential Content</h4>
                 <p className="text-slate-700 mb-4">
@@ -368,7 +345,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
 <div id="dynamic-content" class="lazy-load">
   <!-- Content loads via JS -->
 </div>
-
 <noscript>
   <!-- Fallback for crawlers and no-JS users -->
   <div class="static-content">
@@ -381,10 +357,8 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
                   <strong>Pro tip:</strong> Test your lazy loading implementation with JavaScript disabled in Chrome DevTools (Settings → Debugger → Disable JavaScript). Can you still see all content?
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-pink-900">Category 3: Performance & SEO Best Practices (Tactics 9-12)</h3>
               <p className="text-slate-700 mb-6">Optimize lazy loading for Core Web Vitals and user experience.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #9: Preload LCP Images for Faster Initial Render</h4>
                 <p className="text-slate-700 mb-4">
@@ -403,7 +377,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
     fetchpriority="high"
   />
 </head>
-
 <body>
   <!-- Hero image loads instantly -->
   <img
@@ -423,7 +396,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
                   <strong>Data:</strong> Preloading LCP images improves LCP by <strong>0.8 seconds average</strong> (Web.dev, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #10: Set Lazy Loading Threshold (rootMargin) to 200-400px</h4>
                 <p className="text-slate-700 mb-4">
@@ -445,7 +417,6 @@ document.querySelector('.load-more').addEventListener('click', (e) => {
 }, {
   rootMargin: '300px' // Load 300px before visible
 });
-
 document.querySelectorAll('img[data-src]').forEach(img => {
   observer.observe(img);
 });`}</pre>
@@ -457,7 +428,6 @@ document.querySelectorAll('img[data-src]').forEach(img => {
                   <strong>Sweet spot:</strong> 200-400px provides smooth UX without over-loading resources.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #11: Use Low-Quality Image Placeholders (LQIP) for Better UX</h4>
                 <p className="text-slate-700 mb-4">
@@ -476,7 +446,6 @@ document.querySelectorAll('img[data-src]').forEach(img => {
   loading="lazy"
   class="blur-load"
 />
-
 <style>
 .blur-load {
   filter: blur(10px);
@@ -486,7 +455,6 @@ document.querySelectorAll('img[data-src]').forEach(img => {
   filter: none;
 }
 </style>
-
 <script>
 // Swap to full-res when loaded
 img.addEventListener('load', () => {
@@ -501,7 +469,6 @@ img.addEventListener('load', () => {
                   <strong>Why it works:</strong> LQIP eliminates the "white box" effect, making the page feel faster even though actual load time is the same. Perceived performance = better UX = lower bounce rate.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #12: Defer Non-Critical Third-Party Scripts</h4>
                 <p className="text-slate-700 mb-4">
@@ -514,7 +481,6 @@ img.addEventListener('load', () => {
                   <pre>{`<!-- Defer non-critical scripts -->
 <script defer src="analytics.js"></script>
 <script async src="ads.js"></script>
-
 <!-- Or load after page fully loads -->
 <script>
 window.addEventListener('load', () => {
@@ -532,10 +498,8 @@ window.addEventListener('load', () => {
                   <strong>Data:</strong> Deferring third-party scripts improves LCP by <strong>1.3 seconds average</strong> (Web.dev, 2024).
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-green-900">Category 4: Advanced Implementation (Tactics 13-15)</h3>
               <p className="text-slate-700 mb-6">Take lazy loading to the next level with advanced techniques.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #13: Implement Adaptive Loading Based on Network Speed</h4>
                 <p className="text-slate-700 mb-4">
@@ -548,7 +512,6 @@ window.addEventListener('load', () => {
                   <pre>{`// Adaptive lazy loading
 const connection = navigator.connection || navigator.mozConnection;
 let rootMargin = '300px'; // Default
-
 if (connection) {
   if (connection.effectiveType === '4g') {
     rootMargin = '600px'; // Load earlier on fast connections
@@ -556,14 +519,12 @@ if (connection) {
     rootMargin = '100px'; // Load just-in-time on slow connections
   }
 }
-
 const observer = new IntersectionObserver(callback, { rootMargin });`}</pre>
                 </div>
                 <p className="text-slate-700 mb-0">
                   <strong>Why it works:</strong> Fast connections can handle more pre-loading without performance impact. Slow connections benefit from stricter lazy loading to save bandwidth.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #14: Lazy Load Background Images with CSS</h4>
                 <p className="text-slate-700 mb-4">
@@ -577,7 +538,6 @@ const observer = new IntersectionObserver(callback, { rootMargin });`}</pre>
 <div class="hero-section lazy-bg" data-bg="hero-image.jpg">
   <h1>Hero Content</h1>
 </div>
-
 <style>
 .hero-section {
   width: 100%;
@@ -588,7 +548,6 @@ const observer = new IntersectionObserver(callback, { rootMargin });`}</pre>
   background-size: cover;
 }
 </style>
-
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -600,7 +559,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 });
-
 document.querySelectorAll('.lazy-bg').forEach(el => {
   observer.observe(el);
 });
@@ -610,7 +568,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                   <strong>SEO consideration:</strong> Background images aren\'t crawled as content. If the image contains important info, use <code>&lt;img&gt;</code> with <code>loading="lazy"</code> instead.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #15: Monitor Lazy Loading Impact with Core Web Vitals</h4>
                 <p className="text-slate-700 mb-4">
@@ -633,7 +590,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 </p>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Common Lazy Loading Mistakes to Avoid</h2>
               <ul className="space-y-4">
@@ -674,7 +630,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 </li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Essential Lazy Loading Tools</h2>
               <ul className="space-y-3">
@@ -688,7 +643,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 <li><strong>WebPageTest:</strong> Advanced testing with waterfall charts</li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Real Example: 67% Faster Load Without Ranking Loss</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -725,7 +679,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 <strong>Key Insight:</strong> The combination of native lazy loading (for simplicity and SEO safety) with Intersection Observer (for dynamic modules) provided massive speed wins without any crawlability risk. Preloading the LCP image was critical--without it, LCP actually got worse.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Lazy Loading SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -757,7 +710,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                   <span><strong>SEO Safety Checks:</strong> Validates all content remains crawlable after lazy loading implementation</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Lazy Loading Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -772,7 +724,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 </Link>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -788,7 +739,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 <strong>Bottom line:</strong> SEO-safe lazy loading is the highest-ROI page speed optimization. It\'s simple to implement, dramatically improves Core Web Vitals, and maintains full crawlability--if you follow the rules.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -801,7 +751,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #LazyLoading #PageSpeed #CoreWebVitals #LCP #ImageOptimization #SEOAutomation
@@ -810,7 +759,6 @@ document.querySelectorAll('.lazy-bg').forEach(el => {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

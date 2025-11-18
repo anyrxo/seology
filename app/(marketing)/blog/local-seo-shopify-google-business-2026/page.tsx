@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Local SEO for Shopify: Google Business Profile Optimization 2026 | SEOLOGY.AI',
   description: '1.5 billion "near me" searches happen monthly, and 76% lead to store visits within 24 hours. Master local SEO for Shopify with Google Business Profile optimization, NAP consistency, and multi-location strategies that drive foot traffic and online sales.',
 }
-
 export default function LocalSEOShopifyGoogleBusinessPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
@@ -13,7 +13,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           Local SEO for Shopify: Google Business Profile Optimization 2026
         </h1>
-
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
           <time dateTime="2025-12-19">December 19, 2025</time>
           <span>•</span>
@@ -21,14 +20,12 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <span>•</span>
           <span>Updated for Q1 2026</span>
         </div>
-
         <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border border-orange-200 dark:border-orange-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <strong className="text-orange-600 dark:text-orange-400">Local search is exploding:</strong> <strong>1.5 billion "near me" searches</strong> happen every month--that's <strong>50 million per day</strong>. Here's the kicker: <strong>76% of those mobile searches lead to a store visit within 24 hours</strong>, and <strong>88% of consumers visit or call the business within a day</strong>. If your Shopify store has physical locations or local pickup, local SEO isn't optional--it's your highest-ROI growth channel.
           </p>
         </div>
       </header>
-
       {/* Author Bio */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-12">
         <div className="flex items-start gap-4">
@@ -44,7 +41,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           </div>
         </div>
       </div>
-
       {/* Table of Contents */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Table of Contents</h2>
@@ -63,19 +59,15 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><a href="#implementation" className="hover:underline">60-Day Local SEO Implementation Plan</a></li>
         </ul>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         {/* Section 1 */}
         <h2 id="local-seo-statistics" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Local SEO Statistics: The 2026 Opportunity You Can't Ignore
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Local search isn't a niche tactic--it's mainstream consumer behavior. The data tells a compelling story:
         </p>
-
         <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">📊 December 2025 Local SEO Data</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -89,61 +81,47 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             <li><strong>400%</strong> surge in local service "near me" searches over 2 years</li>
           </ul>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The conversion rate tells the real story: <strong>18% of local mobile searches result in a purchase within 24 hours</strong>--2.5x higher than non-local searches (7%). For Shopify stores with physical locations, local pickup, or regional inventory, local SEO drives <strong>immediate, high-intent traffic</strong>.
         </p>
-
         {/* Section 2 */}
         <h2 id="why-shopify-local" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Why Shopify Stores Need Local SEO (Even Ecommerce-First Brands)
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify is known for ecommerce, but local SEO unlocks revenue streams many stores overlook:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           1. Shopify Stores with Physical Locations
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           If you have a brick-and-mortar store, showroom, or pop-up shop, local SEO drives foot traffic. <strong>76% of "near me" searches result in a store visit within 24 hours</strong>--that's same-day customers.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           2. Local Pickup & BOPIS (Buy Online, Pick Up In Store)
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify's local pickup feature lets customers buy online and collect in-store. Optimizing for local search captures <strong>"available near me"</strong> queries--users who want products today, not in 2-3 days.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           3. Multi-Location Inventory Management
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify supports multiple inventory locations (warehouses, retail stores, fulfillment centers). A Canadian fashion brand that set up multi-location inventory saw <strong>average order fulfillment time drop by 35%</strong> and improved local pickup conversion.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           4. Service-Based Shopify Stores
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Hair salons, tattoo shops, repair services, consultants--if you sell services through Shopify, local SEO is your #1 customer acquisition channel. <strong>80% of consumers search for local services weekly</strong>.
         </p>
-
         {/* Section 3 */}
         <h2 id="google-business-profile" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Google Business Profile Optimization: The Foundation
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Google Business Profile (formerly Google My Business) is the single most important local SEO asset. Here's the impact:
         </p>
-
         <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🚀 Google Business Profile Impact</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -154,11 +132,9 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             <li><strong>Category selection</strong> may be the #1 ranking factor for local pack</li>
           </ul>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Complete Profile Optimization Checklist
         </h3>
-
         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">✅ Essential GBP Fields (Must Complete 100%)</h4>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -174,15 +150,12 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             <li><strong>Description:</strong> 750 characters max--include keywords naturally</li>
           </ul>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Photos: 42% More Directions, 35% More Clicks
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Photos are proven conversion drivers. Upload high-quality images following these guidelines:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Minimum 10 photos</strong> (exterior, interior, products, team, at work)</li>
           <li><strong>Exterior:</strong> Storefront, signage, parking, entrance</li>
@@ -193,15 +166,12 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Upload weekly:</strong> Fresh photos signal active business (ranking boost)</li>
           <li><strong>Geotagged photos:</strong> Location data helps verify legitimacy</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Google Posts: Engagement Signal for Rankings
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Google Posts (mini-updates in your profile) now factor into rankings. <strong>Active messaging and updated offers indicate a lively, engaged business</strong> and improve local pack visibility.
         </p>
-
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 my-6">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Post Types & Frequency</h4>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -214,20 +184,16 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             Posts expire after 7 days (offers/events expire on end date). Maintain 2-4 active posts at all times.
           </p>
         </div>
-
         {/* Section 4 */}
         <h2 id="local-pack-rankings" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Local Pack Ranking Factors 2026
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The Google Local Pack (the "3-pack" of businesses shown in local searches) is prime real estate. Here are the confirmed ranking factors for 2026:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Top 5 Local Pack Ranking Factors
         </h3>
-
         <div className="space-y-4 mb-8">
           <div className="bg-white dark:bg-gray-800 border-l-4 border-orange-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">1. Google Business Profile Signals</h4>
@@ -235,28 +201,24 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
               <strong>Category selection is #1.</strong> Complete profile, accurate info, active posts, fresh photos, and consistent NAP are critical.
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-orange-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">2. On-Page SEO Signals</h4>
             <p className="text-gray-700 dark:text-gray-300">
               NAP on website, location-specific pages, structured data (LocalBusiness schema), city/region keywords in titles and headings.
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-orange-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">3. Review Signals</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Review quantity, quality, velocity (new reviews), diversity (multiple platforms), and response rate (owner engagement).
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-orange-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">4. Link Signals</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Backlinks from local websites, news, directories, and industry-specific platforms verify business legitimacy and boost rankings.
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-orange-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">5. NAP Citations</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -264,27 +226,22 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </p>
           </div>
         </div>
-
         {/* Section 5 */}
         <h2 id="nap-consistency" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           NAP Consistency: The Non-Negotiable Foundation
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           NAP stands for <strong>Name, Address, Phone number</strong>. Google uses NAP consistency to verify your business is legitimate. Inconsistent NAP = lower rankings.
         </p>
-
         <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🚨 Critical NAP Rule</h3>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
             Your NAP must be <strong>100% identical everywhere it appears</strong>. Even small differences confuse Google and hurt local pack rankings.
           </p>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Common NAP Mistakes That Kill Rankings
         </h3>
-
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border border-gray-300 dark:border-gray-700">
             <thead className="bg-gray-100 dark:bg-gray-800">
@@ -318,11 +275,9 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </tbody>
           </table>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           NAP Audit Process
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Set your canonical NAP format</strong> (the "master" version you'll use everywhere)</li>
           <li><strong>Update your website:</strong> Footer, contact page, location pages--all must match exactly</li>
@@ -331,20 +286,16 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Fix discrepancies:</strong> Update every listing to match canonical NAP</li>
           <li><strong>Monitor quarterly:</strong> Use tools like Moz Local or BrightLocal to track consistency</li>
         </ol>
-
         {/* Section 6 */}
         <h2 id="local-citations" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Building High-Quality Local Citations
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Citations are mentions of your NAP on external websites. They verify your business legitimacy to Google and improve local pack rankings.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Priority Citation Sources
         </h3>
-
         <div className="space-y-4 mb-8">
           <div>
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Tier 1: Essential (Must Have)</h4>
@@ -357,7 +308,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
               <li>• LinkedIn Company Page</li>
             </ul>
           </div>
-
           <div>
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Tier 2: Industry-Specific</h4>
             <ul className="space-y-1 text-gray-700 dark:text-gray-300">
@@ -368,7 +318,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
               <li>• <strong>Professional:</strong> Avvo (legal), Clutch (agencies)</li>
             </ul>
           </div>
-
           <div>
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Tier 3: Local/Regional</h4>
             <ul className="space-y-1 text-gray-700 dark:text-gray-300">
@@ -380,24 +329,19 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </ul>
           </div>
         </div>
-
         {/* Section 7 */}
         <h2 id="multi-location-strategy" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Multi-Location Shopify Store Strategy
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           If you have multiple store locations, warehouses, or service areas, follow this strategy:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           1. Separate Google Business Profiles for Each Location
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Each physical location needs its own GBP with unique:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Address:</strong> Distinct physical address (no duplicates)</li>
           <li><strong>Phone number:</strong> Preferably unique local number per location</li>
@@ -405,15 +349,12 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Photos:</strong> Images of that specific location</li>
           <li><strong>Posts:</strong> Location-specific updates and offers</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           2. Location-Specific Landing Pages
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Create dedicated pages on your Shopify site for each location:
         </p>
-
         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg my-6">
           <p className="font-mono text-sm text-gray-700 dark:text-gray-300">
             yourstore.com/locations/new-york<br/>
@@ -421,11 +362,9 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             yourstore.com/locations/chicago
           </p>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           <strong>Each page must include:</strong>
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li>✅ NAP (matching GBP exactly)</li>
           <li>✅ Embedded Google Map</li>
@@ -437,35 +376,28 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li>✅ Local team member bios</li>
           <li>✅ LocalBusiness schema markup</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           3. Multi-Location Inventory Management
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify's multi-location inventory feature lets you track stock across locations. Benefits:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Real-time inventory sync:</strong> Prevents overselling across locations</li>
           <li><strong>Local pickup options:</strong> Show availability at nearby stores</li>
           <li><strong>Faster fulfillment:</strong> Ship from nearest location (35% faster on average)</li>
           <li><strong>Accurate delivery estimates:</strong> Based on actual stock location</li>
         </ul>
-
         {/* Section 8 */}
         <h2 id="local-inventory" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Local Inventory & Pickup SEO
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify's local pickup feature + Google's local inventory ads = powerful combination for <strong>"available near me"</strong> searches.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Enable Local Pickup in Shopify
         </h3>
-
         <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li>Go to Shopify Admin → Settings → Shipping and delivery</li>
           <li>Under "Local pickup," click "Add pickup location"</li>
@@ -473,11 +405,9 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li>Set pickup availability hours</li>
           <li>Customers see "Pick up in store" option at checkout</li>
         </ol>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Schema Markup for Local Inventory
         </h3>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`{
   "@context": "https://schema.org",
@@ -516,20 +446,16 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
   }
 }`}</code></pre>
         </div>
-
         {/* Section 9 */}
         <h2 id="reviews-strategy" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Review Generation & Management Strategy
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Reviews are a top 3 local pack ranking factor. More importantly, <strong>businesses with complete profiles (including reviews) are 2.7x more likely to be trusted</strong>.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Automated Review Request System
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Timing:</strong> Request review 3-7 days after purchase/service (optimal response window)</li>
           <li><strong>Channel:</strong> Email or SMS (SMS has 5x higher open rate)</li>
@@ -537,35 +463,28 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Incentive:</strong> Optional: "Share your experience and get 10% off next order" (don't pay for reviews)</li>
           <li><strong>Multi-platform:</strong> Also request Yelp, Facebook reviews (diversify review signals)</li>
         </ol>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Responding to Reviews (Critical for Rankings)
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Response rate is a ranking factor. <strong>Respond to every review within 48 hours</strong>:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Positive reviews:</strong> Thank customer, mention specific detail, invite back</li>
           <li><strong>Negative reviews:</strong> Apologize, take offline ("call us at..."), offer resolution</li>
           <li><strong>Neutral reviews:</strong> Thank feedback, mention improvements, invite return visit</li>
           <li><strong>Include keywords:</strong> Naturally mention location/services in responses</li>
         </ul>
-
         {/* Section 10 */}
         <h2 id="local-content" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Location-Specific Content Strategy
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Create content targeting local keywords to dominate <strong>"[service] in [city]"</strong> searches:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Local Content Ideas
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>City guides:</strong> "Best Coffee Shops in Downtown Austin" (if you're a coffee shop)</li>
           <li><strong>Local events:</strong> "Visit Our Brooklyn Store During Restaurant Week"</li>
@@ -574,20 +493,16 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Community involvement:</strong> "Supporting [Local Charity/Event]"</li>
           <li><strong>Location histories:</strong> "Our Story: From Garage to 5 Locations"</li>
         </ul>
-
         {/* Section 11 */}
         <h2 id="tracking-performance" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Measuring Local SEO Performance
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Track these KPIs to prove local SEO ROI:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Key Metrics
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Google Business Profile insights:</strong> Views, searches (discovery vs. direct), actions (website clicks, calls, directions)</li>
           <li><strong>Local pack rankings:</strong> Position tracking for "[keyword] near me" and "[keyword] in [city]"</li>
@@ -597,15 +512,12 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <li><strong>Review metrics:</strong> Total reviews, average rating, review velocity (new reviews per month)</li>
           <li><strong>Conversion rate:</strong> Local traffic → sales/leads (track in GA4)</li>
         </ul>
-
         {/* Section 12 */}
         <h2 id="implementation" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           60-Day Local SEO Implementation Plan
         </h2>
-
         <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border border-orange-200 dark:border-orange-800 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">✅ Your Complete 60-Day Action Plan</h3>
-
           <div className="space-y-6">
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 1-2: Foundation</h4>
@@ -618,7 +530,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
                 <li>☐ Create location-specific landing pages (one per location)</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 3-4: Citations & Reviews</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -630,7 +541,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
                 <li>☐ Create review response templates</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 5-6: Content & Optimization</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -642,7 +552,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
                 <li>☐ Build 5-10 local backlinks (local news, blogs, partnerships)</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 7-8: Monitoring & Refinement</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -656,7 +565,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-12 my-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -665,7 +573,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
           <p className="text-xl mb-8 text-orange-100">
             SEOLOGY.AI automatically optimizes your Shopify store for local search--NAP consistency checks, schema markup generation, location page creation, and Google Business Profile monitoring. Our AI ensures your store dominates local pack rankings while you focus on serving customers.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link
               href="/dashboard/onboarding"
@@ -680,7 +587,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
               Watch Demo
             </Link>
           </div>
-
           <div className="flex items-center justify-center gap-8 text-sm text-orange-100">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -702,7 +608,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </div>
           </div>
         </div>
-
         {/* Author Bio Footer */}
         <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-16">
           <div className="flex items-start gap-4">
@@ -718,7 +623,6 @@ export default function LocalSEOShopifyGoogleBusinessPage() {
             </div>
           </div>
         </div>
-
       </div>
     </article>
   )

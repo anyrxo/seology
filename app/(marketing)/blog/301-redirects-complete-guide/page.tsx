@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: '301 Redirects: Complete Guide to Preserving SEO Value',
   description: 'Bad redirects destroy 15-30% of your rankings. This guide shows how to implement 301 redirects without losing SEO value.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['redirect-chains-audit-fix', 'https-migration-seo-guide', 'canonical-tags-duplicate-content-guide'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>301 Redirects Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             301 Redirects: Complete Guide to Preserving SEO Value
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>August 25, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Bad redirects destroy <strong className="text-white">15-30% of your rankings</strong>. This guide shows how to implement 301 redirects without losing SEO value.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -57,7 +53,6 @@ export default function BlogPost() {
                 <strong>301 redirects permanently move one URL to another</strong> while preserving 90-99% of SEO value. But most people screw them up--causing massive traffic losses during site migrations, redesigns, and URL changes. This guide covers proper implementation, redirect chains, testing, and the 7 fatal redirect mistakes that tank rankings.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is a 301 Redirect (And Why It Matters)</h2>
@@ -86,7 +81,6 @@ export default function BlogPost() {
                   Without 301s, changing URLs means starting from scratch in rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">301 vs 302 vs 307: Which Redirect to Use</h2>
                 <ul className="space-y-4 my-6">
@@ -116,13 +110,11 @@ export default function BlogPost() {
                   <strong>Rule of thumb:</strong> If the change is permanent, use 301. If temporary, use 302. Never use 302 when you mean 301--you\'ll lose rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Implement 301 Redirects</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Implementation depends on your server and platform:
                 </p>
-
                 <div className="grid md:grid-cols-3 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">90-99%</div>
@@ -137,23 +129,19 @@ export default function BlogPost() {
                     <div className="text-slate-700">Ideal redirect ratio (one old URL to one new URL)</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Apache (.htaccess):</strong>
                 </p>
                 <div className="bg-slate-900 text-green-400 p-6 rounded-lg overflow-x-auto my-6">
                   <pre className="text-sm"><code>{`# Single page redirect
 Redirect 301 /old-page.html https://example.com/new-page/
-
 # Entire directory redirect
 RedirectMatch 301 ^/old-directory/(.*) https://example.com/new-directory/$1
-
 # Domain redirect
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^old-domain\\.com [NC]
 RewriteRule ^(.*)$ https://new-domain.com/$1 [L,R=301]`}</code></pre>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Nginx:</strong>
                 </p>
@@ -162,13 +150,11 @@ RewriteRule ^(.*)$ https://new-domain.com/$1 [L,R=301]`}</code></pre>
 location = /old-page.html {
     return 301 https://example.com/new-page/;
 }
-
 # Pattern-based redirect
 location ~ ^/blog/(.*)$ {
     return 301 https://example.com/articles/$1;
 }`}</code></pre>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>WordPress (Plugin or code):</strong>
                 </p>
@@ -182,7 +168,6 @@ location ~ ^/blog/(.*)$ {
                     <span>Or add to functions.php for programmatic redirects</span>
                   </li>
                 </ul>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Shopify:</strong>
                 </p>
@@ -197,7 +182,6 @@ location ~ ^/blog/(.*)$ {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">7 Fatal 301 Redirect Mistakes</h2>
                 <ul className="space-y-3 my-6">
@@ -231,7 +215,6 @@ location ~ ^/blog/(.*)$ {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Test 301 Redirects</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -255,7 +238,6 @@ location ~ ^/blog/(.*)$ {
                     <span><strong>Google Search Console:</strong> Submit new URLs and monitor indexing status</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">SEOLOGY Manages Redirects Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -270,7 +252,6 @@ location ~ ^/blog/(.*)$ {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -283,7 +264,6 @@ location ~ ^/blog/(.*)$ {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #301Redirects #Redirects #SiteMigration
@@ -293,7 +273,6 @@ location ~ ^/blog/(.*)$ {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

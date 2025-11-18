@@ -744,7 +744,7 @@ export default function ShopifyAppsSEOImpact2026() {
               </li>
               <li className="flex items-start">
                 <input type="checkbox" className="mt-1 mr-3" />
-                <span>Document apps with >1 second load time impact</span>
+                <span>Document apps with &gt;1 second load time impact</span>
               </li>
               <li className="flex items-start">
                 <input type="checkbox" className="mt-1 mr-3" />

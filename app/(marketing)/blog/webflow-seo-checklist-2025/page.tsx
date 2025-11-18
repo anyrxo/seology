@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Webflow SEO Checklist: Optimize Your Designer Site for Rankings',
   description: 'Webflow is designer-friendly but has SEO quirks. This checklist ensures your Webflow site ranks perfectly.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'webflow-seo-checklist-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Webflow SEO Checklist</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Webflow SEO Checklist: Optimize Your Designer Site for Rankings
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>September 12, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Webflow is designer-friendly but has SEO quirks. This checklist ensures your Webflow site ranks perfectly.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Webflow offers excellent design flexibility but has 7 critical SEO limitations you must address. This comprehensive checklist covers 31 optimization points across technical setup, on-page SEO, performance, and platform-specific quirks. Key issues: CMS collection page indexing problems, automatic 301 redirect limits, JS-heavy rendering, and Webflow hosting constraints. <strong>87% of Webflow sites miss critical SEO configurations</strong>. SEOLOGY automatically fixes Webflow SEO issues while preserving your custom design.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Webflow SEO Requires Special Attention</h2>
@@ -92,10 +87,8 @@ export default function BlogPost() {
                   <strong>The Webflow advantage:</strong> Clean HTML structure, automatic responsive design, built-in CDN, and visual CMS. <strong>The Webflow challenge:</strong> Heavy JavaScript, limited server-side control, automatic redirects that can break, and CMS collection indexing quirks.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Technical SEO Setup (10 Critical Items)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 1. Enable Webflow Hosting SEO Features</h4>
@@ -115,7 +108,6 @@ export default function BlogPost() {
                       <strong>Warning:</strong> Webflow limits you to 10,000 static redirects. If migrating a large site, you will hit this limit--plan accordingly.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 2. Configure Custom Domain Correctly</h4>
                     <p className="text-slate-700 mb-3">
@@ -128,7 +120,6 @@ export default function BlogPost() {
                       <strong>Test:</strong> Visit both yoursite.com and www.yoursite.com--both should redirect to your chosen version.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 3. Set Up Google Search Console</h4>
                     <p className="text-slate-700 mb-3">
@@ -145,7 +136,6 @@ export default function BlogPost() {
                       <strong>Then:</strong> Set your preferred domain and submit your sitemap (yoursite.com/sitemap.xml).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 4. Optimize Webflow CMS Collection Settings</h4>
                     <p className="text-slate-700 mb-3">
@@ -164,7 +154,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> Create SEO-specific fields in your CMS (meta_title, meta_description, og_image) for full control.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 5. Fix Webflow Default Robots.txt</h4>
                     <p className="text-slate-700 mb-3">
@@ -180,7 +169,6 @@ export default function BlogPost() {
                       <strong>Limitation:</strong> Webflow does not allow custom robots.txt files directly--you must use meta robots tags or request Webflow support for specific disallows.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 6. Configure Structured Data (Schema Markup)</h4>
                     <p className="text-slate-700 mb-3">
@@ -202,7 +190,6 @@ export default function BlogPost() {
                       <strong>Test:</strong> Use Google Rich Results Test to validate schema before publishing.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 7. Enable Webflow Built-in XML Sitemap</h4>
                     <p className="text-slate-700 mb-3">
@@ -224,7 +211,6 @@ export default function BlogPost() {
                       <strong>Limitation:</strong> Webflow sitemaps do not include priority or changefreq--Google ignores these anyway, so not critical.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 8. Set Up 301 Redirects for URL Changes</h4>
                     <p className="text-slate-700 mb-3">
@@ -243,7 +229,6 @@ export default function BlogPost() {
                       <strong>Critical limit:</strong> 10,000 redirect maximum. For large migrations, prioritize high-traffic pages or consider server-side redirects if self-hosting.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 9. Configure Open Graph & Twitter Cards</h4>
                     <p className="text-slate-700 mb-3">
@@ -262,7 +247,6 @@ export default function BlogPost() {
                       <strong>For CMS collections:</strong> Use dynamic fields to populate OG tags automatically--do not set them manually for every post.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 10. Enable Webflow Asset Optimization</h4>
                     <p className="text-slate-700 mb-3">
@@ -283,10 +267,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">On-Page SEO (10 Essential Items)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 11. Optimize Page Titles (Every Page)</h4>
@@ -306,7 +288,6 @@ export default function BlogPost() {
                       <strong>For CMS collections:</strong> Create a title_tag field and use format: Post Title | Category | Site Name
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 12. Write Compelling Meta Descriptions</h4>
                     <p className="text-slate-700 mb-3">
@@ -322,7 +303,6 @@ export default function BlogPost() {
                       <strong>Do not:</strong> Leave blank (Google writes bad ones), stuff keywords, use duplicate descriptions across pages.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 13. Use H1 Tags Correctly</h4>
                     <p className="text-slate-700 mb-3">
@@ -338,7 +318,6 @@ export default function BlogPost() {
                       <strong>Audit:</strong> View page source (Ctrl+U) and search for "&lt;h1&gt;"--should find exactly one instance.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 14. Structure Content with H2-H6 Hierarchy</h4>
                     <p className="text-slate-700 mb-3">
@@ -357,7 +336,6 @@ export default function BlogPost() {
                       <strong>Never skip levels:</strong> Do not go H1 → H3 without H2 in between.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 15. Optimize Image Alt Text</h4>
                     <p className="text-slate-700 mb-3">
@@ -377,7 +355,6 @@ export default function BlogPost() {
                       <strong>For CMS images:</strong> Create alt_text field and populate dynamically.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 16. Create SEO-Friendly URL Slugs</h4>
                     <p className="text-slate-700 mb-3">
@@ -397,7 +374,6 @@ export default function BlogPost() {
                       <strong>Change slugs before publishing:</strong> Page Settings → Slug field. Changing after publishing requires 301 redirects.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 17. Implement Internal Linking Strategy</h4>
                     <p className="text-slate-700 mb-3">
@@ -416,7 +392,6 @@ export default function BlogPost() {
                       <strong>For CMS blogs:</strong> Use related posts component with dynamic links to same category.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 18. Add Breadcrumb Navigation</h4>
                     <p className="text-slate-700 mb-3">
@@ -432,7 +407,6 @@ export default function BlogPost() {
                       <strong>Format:</strong> Home › Category › Current Page
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 19. Optimize Content Length & Quality</h4>
                     <p className="text-slate-700 mb-3">
@@ -451,7 +425,6 @@ export default function BlogPost() {
                       <strong>Use Webflow Rich Text Editor:</strong> Supports formatting, lists, quotes, and embedded media.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 20. Add Author & Date Information</h4>
                     <p className="text-slate-700 mb-3">
@@ -469,10 +442,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Performance & Speed (6 Optimization Items)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 21. Compress & Optimize All Images</h4>
@@ -492,7 +463,6 @@ export default function BlogPost() {
                       <strong>Webflow auto-optimization:</strong> Webflow compresses images via CDN, but starting with optimized images yields better results.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 22. Enable Lazy Loading for Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -508,7 +478,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Can improve Largest Contentful Paint (LCP) by 30%+.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 23. Minimize Custom Code & Scripts</h4>
                     <p className="text-slate-700 mb-3">
@@ -527,7 +496,6 @@ export default function BlogPost() {
                       <strong>Test impact:</strong> PageSpeed Insights flags render-blocking resources--eliminate them.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 24. Reduce Webflow Interactions & Animations</h4>
                     <p className="text-slate-700 mb-3">
@@ -546,7 +514,6 @@ export default function BlogPost() {
                       <strong>Priority:</strong> Speed over flashy effects--47% of users expect 2s load times or less.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 25. Use System Fonts or Limit Web Fonts</h4>
                     <p className="text-slate-700 mb-3">
@@ -565,7 +532,6 @@ export default function BlogPost() {
                       <strong>Webflow font settings:</strong> Project Settings → Fonts → Select only needed weights.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">✓ 26. Test Core Web Vitals Regularly</h4>
                     <p className="text-slate-700 mb-3">
@@ -588,10 +554,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Webflow-Specific Limitations & Workarounds (5 Items)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 1: No Server-Side Rendering (SSR)</h4>
@@ -605,7 +569,6 @@ export default function BlogPost() {
                       <strong>Test:</strong> View page with JavaScript disabled--important content should still appear.
                     </p>
                   </div>
-
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 2: CMS Collection Filtering Creates Duplicate Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -618,7 +581,6 @@ export default function BlogPost() {
                       <strong>Implementation:</strong> Custom Code → Add canonical tag to collection template pages.
                     </p>
                   </div>
-
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 3: Limited Redirect Capabilities</h4>
                     <p className="text-slate-700 mb-3">
@@ -631,7 +593,6 @@ export default function BlogPost() {
                       <strong>Alternative:</strong> Use Cloudflare Workers for redirect logic (works with Webflow hosting).
                     </p>
                   </div>
-
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 4: No Access to Server Logs</h4>
                     <p className="text-slate-700 mb-3">
@@ -644,7 +605,6 @@ export default function BlogPost() {
                       <strong>Monitor:</strong> Pages crawled per day, crawl errors, render issues in Search Console.
                     </p>
                   </div>
-
                   <div className="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3">⚠️ Limitation 5: Heavy JavaScript Framework</h4>
                     <p className="text-slate-700 mb-3">
@@ -659,7 +619,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Webflow SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -691,7 +650,6 @@ export default function BlogPost() {
                     <span>Creates internal linking recommendations based on content relevance</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Webflow SEO Completely</h3>
@@ -707,7 +665,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -716,7 +673,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/xml-sitemap-optimization-guide" className="text-blue-600 hover:text-blue-800">XML Sitemap Optimization: Get Every Page Indexed Fast</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #WebflowSEO #NoCodeSEO #DesignerSEO
@@ -726,7 +682,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

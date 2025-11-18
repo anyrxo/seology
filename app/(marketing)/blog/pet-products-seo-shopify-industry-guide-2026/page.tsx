@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Pet Products SEO for Shopify: Industry-Specific Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Pet ecommerce reaches $147.6B by 2030. 80% of sales from autoship subscriptions. Learn pet-specific SEO, breed targeting, supplement keywords, and strategies optimized for 43.6% of owners who prioritize pet health over their own.',
 }
-
 export default function PetProductsSEOPage() {
   return (
     <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto px-4 py-12">
@@ -26,7 +26,6 @@ export default function PetProductsSEOPage() {
           <span>17 min read</span>
         </div>
       </div>
-
       <div className="not-prose bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-l-4 border-red-500 p-6 rounded-lg mb-8">
         <p className="font-bold text-red-900 dark:text-red-100 mb-3 text-lg">
           🐾 The Pet Ecommerce SEO Opportunity
@@ -38,13 +37,10 @@ export default function PetProductsSEOPage() {
           <p className="font-semibold mt-4">Without pet-specific SEO addressing <strong>breed targeting, supplement searches, and voice queries</strong>, you're missing the pet owners who spend $350 billion annually by 2027.</p>
         </div>
       </div>
-
       <h2>Why Pet Products SEO Is Different from General Ecommerce</h2>
-
       <p>
         Pet owners search differently than other ecommerce shoppers--they use breed-specific queries, health condition searches, age-based filters, and increasingly voice search with natural language like "What's the best dog food for a senior Labrador?"
       </p>
-
       <div className="not-prose bg-white dark:bg-gray-800 rounded-lg p-6 mb-6 border border-gray-200 dark:border-gray-700">
         <h3 className="text-xl font-bold mb-4">Pet Ecommerce Statistics (2025-2026)</h3>
         <div className="grid md:grid-cols-2 gap-6">
@@ -78,13 +74,10 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h3>Pet-Specific Search Behavior</h3>
-
       <p>
         <strong>Pet owners are increasingly mindful about pet nutrition</strong>, driving them to search for specific terms like "grain-free dog food" or "raw diet for cats" rather than generic terms like "pet food."
       </p>
-
       <ul>
         <li><strong>Breed-Specific Searches:</strong> "best dog food for Golden Retrievers", "cat litter for Maine Coons", "harness for French Bulldogs"</li>
         <li><strong>Age-Based Searches:</strong> "senior dog food", "kitten formula", "puppy training treats"</li>
@@ -92,15 +85,11 @@ export default function PetProductsSEOPage() {
         <li><strong>Voice Search Queries:</strong> "What's the best dog food for a senior Labrador?", "Where can I buy grain-free cat food?"</li>
         <li><strong>Supplement Searches:</strong> "joint supplements for dogs", "probiotics for cats", "omega-3 for dogs"</li>
       </ul>
-
       <h2>Breed-Specific SEO Strategy</h2>
-
       <p>
         Breed targeting is one of the most powerful pet SEO strategies--breed searches have high purchase intent because owners are looking for products specifically compatible with their pet's size, coat type, activity level, or breed-specific health concerns.
       </p>
-
       <h3>Breed-Targeted Product Pages</h3>
-
       <div className="not-prose bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-lg mb-6">
         <p className="font-semibold text-amber-900 dark:text-amber-100 mb-3">
           🐕 Breed-Specific Keyword Examples
@@ -113,24 +102,18 @@ export default function PetProductsSEOPage() {
           <p><strong>• Long-Haired Breeds:</strong> "de-shedding tool for Golden Retrievers", "grooming supplies for Shih Tzus"</p>
         </div>
       </div>
-
       <h3>Creating Breed-Specific Landing Pages</h3>
-
       <ul>
         <li><strong>URL Structure:</strong> yourstore.com/dog-food/for-[breed] (e.g., /dog-food/for-golden-retrievers)</li>
         <li><strong>Unique Content:</strong> Explain breed-specific needs ("Golden Retrievers are prone to hip dysplasia--look for glucosamine-enriched food")</li>
         <li><strong>Product Filtering:</strong> Allow users to filter by breed, automatically showing appropriate sizes/formulations</li>
         <li><strong>Breed Guides:</strong> "Complete Care Guide for [Breed]" with product recommendations integrated naturally</li>
       </ul>
-
       <h2>Pet Health & Supplement SEO</h2>
-
       <p>
         <strong>Vitamin and supplement use experienced 6% growth in 2024, with 56% growth among dog owners and 70% among cat owners since 2018.</strong> Pet owners are shifting from reactive to preventative care, viewing their pets as integral family members deserving the same health optimization.
       </p>
-
       <h3>Top Pet Supplement Keywords (2026)</h3>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
         <h4 className="font-bold text-lg mb-4">High-Growth Pet Health Keywords</h4>
         <div className="space-y-3">
@@ -156,13 +139,10 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h3>Health Condition Landing Pages</h3>
-
       <p>
         Create dedicated pages targeting specific health conditions--these have extremely high purchase intent:
       </p>
-
       <ul>
         <li><strong>Allergies:</strong> "Dog food for allergies", "hypoallergenic cat food", "limited ingredient diet"</li>
         <li><strong>Digestive Issues:</strong> "Dog food for sensitive stomach", "cat food for IBD", "bland diet for dogs"</li>
@@ -170,15 +150,11 @@ export default function PetProductsSEOPage() {
         <li><strong>Weight Management:</strong> "Weight control dog food", "diet food for overweight cats"</li>
         <li><strong>Dental Health:</strong> "Dental chews for dogs", "tartar control cat treats"</li>
       </ul>
-
       <h2>Autoship & Subscription SEO</h2>
-
       <p>
         <strong>Autoship customers account for up to 80% of sales at leading pet ecommerce platforms</strong>, improving retention and lowering acquisition costs. Subscription SEO is critical for pet businesses.
       </p>
-
       <h3>Autoship-Focused Keywords</h3>
-
       <div className="not-prose bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 border-l-4 border-green-500 p-6 rounded-lg mb-6">
         <p className="font-bold text-green-900 dark:text-green-100 mb-3">
           📦 Pet Subscription SEO Strategy
@@ -191,9 +167,7 @@ export default function PetProductsSEOPage() {
           <p><strong>• "Never run out of [product]"</strong> -- Convenience messaging that resonates with pet owners</p>
         </div>
       </div>
-
       <h3>Subscription Benefits to Highlight</h3>
-
       <ul>
         <li><strong>Discount Savings:</strong> "Save 15% on every autoship order"--clear ROI for recurring customers</li>
         <li><strong>Flexible Scheduling:</strong> "Delivery every 2, 4, or 6 weeks--you choose"--addresses commitment anxiety</li>
@@ -201,15 +175,11 @@ export default function PetProductsSEOPage() {
         <li><strong>Free Shipping Threshold:</strong> "Free shipping on autoship orders over $49"--incentivizes higher cart values</li>
         <li><strong>First Order Bonus:</strong> "Get 35% off your first autoship order"--common Chewy-style promotion</li>
       </ul>
-
       <h2>Voice Search Optimization for Pet Products</h2>
-
       <p>
         <strong>Voice search optimization is becoming more common, with pet owners using natural language phrases like "What's the best dog food for a senior Labrador?"</strong>--a completely different search pattern than typed queries.
       </p>
-
       <h3>Voice vs Text Search Patterns</h3>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6">
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -232,24 +202,18 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h3>Voice Search Content Strategy</h3>
-
       <ul>
         <li><strong>FAQ Schema Markup:</strong> Mark up Q&A content to appear in voice search results and featured snippets</li>
         <li><strong>Natural Language Headings:</strong> Use question format ("What's the Best Food for Senior Dogs?" vs "Senior Dog Food Guide")</li>
         <li><strong>Conversational Tone:</strong> Write content that answers questions directly in first 100 words</li>
         <li><strong>Local Voice Queries:</strong> Optimize for "near me" searches ("Where can I buy dog food near me?")</li>
       </ul>
-
       <h2>Product Page Optimization for Pet Products</h2>
-
       <p>
         Pet product pages require specific information that other categories don't--ingredient analysis, AAFCO statements, feeding guidelines, and breed/age suitability.
       </p>
-
       <h3>Pet Product Page Formula</h3>
-
       <div className="not-prose bg-white dark:bg-gray-800 p-6 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
         <h4 className="font-bold text-lg mb-4">SEO-Optimized Pet Product Page Structure</h4>
         <div className="space-y-4">
@@ -284,15 +248,11 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h2>Content Marketing for Pet Brands</h2>
-
       <p>
         <strong>Build dedicated pillar pages with 3,000+ words of actual substance</strong> and transparent, educational, outcome-driven content, then create cluster content around that hub addressing specific long-tail questions.
       </p>
-
       <h3>High-Performing Pet Content Types</h3>
-
       <ul>
         <li><strong>Breed Care Guides:</strong> "Complete Care Guide for Golden Retrievers: Food, Exercise, Health"--comprehensive, evergreen content</li>
         <li><strong>Health Condition Guides:</strong> "Dog Allergies: Symptoms, Causes, Treatment Options"--establishes medical authority</li>
@@ -301,18 +261,14 @@ export default function PetProductsSEOPage() {
         <li><strong>Product Recommendation Roundups:</strong> "10 Best Joint Supplements for Large Dogs (2026 Reviews)"--product discovery content</li>
         <li><strong>Training & Behavior:</strong> "How to Stop Dog Barking: 7 Proven Techniques"--drives engagement, builds brand authority</li>
       </ul>
-
       <h3>Pillar-and-Cluster Framework for Pet Topics</h3>
-
       <p><strong>Example: Joint Health for Dogs</strong></p>
-
       <ul>
         <li><strong>Pillar Page:</strong> "Complete Guide to Dog Joint Health: Supplements, Diet, Exercise" (3,000+ words)</li>
         <li><strong>Cluster 1:</strong> "Best Joint Supplements for Dogs", "Glucosamine vs Chondroitin for Dogs", "How Much Glucosamine for Dogs?"</li>
         <li><strong>Cluster 2:</strong> "Signs of Joint Problems in Dogs", "When to Start Joint Supplements"</li>
         <li><strong>Cluster 3:</strong> "Joint-Friendly Exercises for Senior Dogs", "Best Dog Food for Joint Health"</li>
       </ul>
-
       <div className="not-prose bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-lg my-8 text-center">
         <p className="text-2xl font-bold mb-4">Ready to Dominate Pet Ecommerce in 2026?</p>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
@@ -336,15 +292,11 @@ export default function PetProductsSEOPage() {
           ✓ No credit card required • ✓ 14-day free trial • ✓ Optimized for pet products
         </p>
       </div>
-
       <h2>Long-Tail Keyword Strategy for Pet Products</h2>
-
       <p>
         <strong>A niche strategy centered around long-tail keywords drives significant results</strong>, as these specific, multi-word search queries address precise customer needs and have lower competition.
       </p>
-
       <h3>Pet Long-Tail Keyword Examples</h3>
-
       <div className="not-prose bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-lg mb-6">
         <p className="font-semibold text-blue-900 dark:text-blue-100 mb-3">
           🎯 High-Intent Long-Tail Pet Keywords
@@ -358,9 +310,7 @@ export default function PetProductsSEOPage() {
           <p><strong>• Material + Safety:</strong> "non-toxic cat toys made in USA"</p>
         </div>
       </div>
-
       <h2>Common Pet Products SEO Mistakes</h2>
-
       <div className="not-prose bg-red-50 dark:bg-red-900/20 p-6 rounded-lg mb-6">
         <h3 className="font-bold text-red-900 dark:text-red-100 mb-4">❌ Pet SEO Pitfalls</h3>
         <div className="space-y-4 text-red-800 dark:text-red-200">
@@ -391,9 +341,7 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h2>Pet Products SEO Implementation Checklist</h2>
-
       <div className="not-prose bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-lg mb-8">
         <h3 className="font-bold text-amber-900 dark:text-amber-100 mb-4">✅ Pet Products SEO Action Plan</h3>
         <div className="space-y-3 text-amber-800 dark:text-amber-200">
@@ -435,13 +383,10 @@ export default function PetProductsSEOPage() {
           </div>
         </div>
       </div>
-
       <h2>The Future of Pet Ecommerce SEO (2026 and Beyond)</h2>
-
       <p>
         With pet ecommerce reaching 33% of all pet sales by 2026 and autoship accounting for 80% of online revenue, the pet brands that win will be those that master breed-specific targeting, health-conscious content, and subscription optimization--meeting pet owners where they search with the exact specificity they demand.
       </p>
-
       <div className="not-prose bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-l-4 border-orange-500 p-6 rounded-lg mb-6">
         <p className="font-bold text-orange-900 dark:text-orange-100 mb-3">
           🚀 2026 Pet SEO Priorities
@@ -454,11 +399,9 @@ export default function PetProductsSEOPage() {
           <li><strong>• Prescription Diet Ecommerce:</strong> Veterinary authorization required products expanding online--new SEO category</li>
         </ul>
       </div>
-
       <p>
         <strong>The pet brands that thrive in 2026 will be those that understand pet parents search with more specificity than any other ecommerce category</strong>--because 43.6% of them care more about their pet's health than their own, making them the most educated, research-driven, and loyal customers in ecommerce.
       </p>
-
       <div className="not-prose bg-gradient-to-r from-amber-600 to-orange-600 text-white p-8 rounded-lg my-8">
         <h3 className="text-2xl font-bold mb-4">Automate Pet Products SEO with SEOLOGY.AI</h3>
         <p className="mb-6">
@@ -493,7 +436,6 @@ export default function PetProductsSEOPage() {
           No credit card required • 14-day free trial • Built for pet product brands
         </p>
       </div>
-
       <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-12">
         <div className="flex items-start gap-4">
           <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">

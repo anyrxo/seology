@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026 | SEOLOGY.AI',
@@ -7,8 +8,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: '10 SEO Mistakes Killing Your Shopify Store Traffic in 2026',
     description: '87% of Shopify stores make these critical SEO mistakes. Learn from our analysis of 2.3M+ monthly visitors and fix them automatically.',
+  },
 }
-
 export default function BlogPost() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
@@ -23,18 +24,15 @@ export default function BlogPost() {
             SEO Strategy
           </span>
         </div>
-
         <h1 className="mb-6 text-4xl font-bold leading-tight text-neutral-900 md:text-5xl">
           10 SEO Mistakes Killing Your Shopify Store's Traffic in 2026
         </h1>
-
         <p className="mb-6 text-xl leading-relaxed text-neutral-700">
           After analyzing over 14,500 Shopify stores and Google's December 2025 algorithm updates,
           we discovered that <strong>87% of stores are making at least 5 of these critical SEO mistakes</strong>--
           costing them an average of 42% in organic traffic. Here's what's destroying your rankings and
           how SEOLOGY.AI fixes them automatically.
         </p>
-
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full bg-brand-primary-100"></div>
           <div>
@@ -43,7 +41,6 @@ export default function BlogPost() {
           </div>
         </div>
       </header>
-
       {/* Content */}
       <div className="prose prose-lg max-w-none">
         {/* Introduction */}
@@ -63,17 +60,14 @@ export default function BlogPost() {
             generated over $18M in revenue. This analysis comes from real data, not theory.
           </p>
         </div>
-
         {/* Mistake #1 */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           1. Duplicate Content Everywhere (The #1 Ranking Killer)
         </h2>
-
         <p className="mb-4 text-lg text-neutral-700">
           Shopify's default URL structure creates <strong>duplicate content nightmares</strong> that confuse Google's crawler
           and split your ranking power across multiple URLs. Here's what's happening to your store right now:
         </p>
-
         <div className="mb-6 rounded-lg bg-red-50 border-l-4 border-red-500 p-6 not-prose">
           <h3 className="mb-3 text-lg font-bold text-red-900">The Problem:</h3>
           <p className="mb-3 text-red-800">
@@ -89,7 +83,6 @@ export default function BlogPost() {
             Result: Google sees 4 duplicate pages competing for the same keyword. Your ranking potential is split into quarters.
           </p>
         </div>
-
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">Why This Destroys Your Rankings</h3>
         <p className="mb-4">
           According to Google's <strong>John Mueller</strong> (December 2024 update), duplicate content doesn't just
@@ -101,7 +94,6 @@ export default function BlogPost() {
           <li>• Google has to guess which version to rank (and often picks the wrong one)</li>
           <li>• Your crawl budget gets wasted on duplicate pages</li>
         </ul>
-
         <div className="mb-8 rounded-lg bg-green-50 border-l-4 border-green-500 p-6 not-prose">
           <h3 className="mb-3 text-lg font-bold text-green-900">The SEOLOGY.AI Fix:</h3>
           <p className="mb-3 text-green-800">
@@ -117,21 +109,17 @@ export default function BlogPost() {
             Result: 156% average traffic increase within 90 days as Google consolidates your authority.
           </p>
         </div>
-
         {/* Mistake #2 */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           2. Ignoring Core Web Vitals (Google's Silent Ranking Assassin)
         </h2>
-
         <p className="mb-4 text-lg">
           Google's <strong>Core Web Vitals</strong> are no longer optional. After the <strong>March 2024 Page Experience Update</strong>,
           sites with poor vitals lost an average of 23% traffic--even with perfect content.
         </p>
-
         <p className="mb-4">
           The three metrics Google measures (and your store is probably failing):
         </p>
-
         <div className="mb-6 not-prose grid gap-4 md:grid-cols-3">
           <div className="rounded-lg bg-neutral-50 p-6">
             <h4 className="mb-2 text-lg font-bold text-neutral-900">LCP</h4>
@@ -152,12 +140,10 @@ export default function BlogPost() {
             <p className="mt-2 text-sm text-neutral-700">Target: &lt;0.1</p>
           </div>
         </div>
-
         <p className="mb-4">
           <strong>Real-world impact:</strong> We analyzed 2,400 Shopify stores in Q4 2025. Stores with "Poor" Core Web Vitals
           saw 31% lower conversion rates and 27% higher bounce rates than stores with "Good" ratings.
         </p>
-
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">Common Shopify Speed Killers</h3>
         <ol className="mb-6 space-y-3">
           <li>
@@ -173,7 +159,6 @@ export default function BlogPost() {
             block rendering and destroy FID scores.
           </li>
         </ol>
-
         <div className="mb-8 rounded-lg bg-brand-primary-50 p-8 not-prose">
           <h3 className="mb-4 text-xl font-bold text-brand-primary-900">SEOLOGY.AI Automation</h3>
           <p className="mb-4 text-brand-primary-800">
@@ -215,21 +200,17 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Mistake #3 */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           3. Generic Product Descriptions (Google's AI Can Detect Copy-Paste)
         </h2>
-
         <p className="mb-4 text-lg">
           Here's a truth bomb: <strong>Google's AI can detect when you've copied manufacturer descriptions.</strong>
           The December 2024 Spam Update specifically targets thin, unoriginal content--and product pages are prime targets.
         </p>
-
         <p className="mb-4">
           Our analysis of 8,200 Shopify product pages in December 2025 found:
         </p>
-
         <div className="mb-6 not-prose">
           <ul className="space-y-2 text-neutral-700">
             <li>• <strong>73% use manufacturer descriptions</strong> (duplicate content across 500+ stores)</li>
@@ -238,19 +219,16 @@ export default function BlogPost() {
             <li>• <strong>67% have zero internal links</strong> (wasting internal link equity)</li>
           </ul>
         </div>
-
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">What Google's Algorithm Wants in 2026</h3>
         <p className="mb-4">
           According to Google's <strong>Search Quality Rater Guidelines</strong> (updated November 2025), product pages must demonstrate:
         </p>
-
         <ol className="mb-6 space-y-3">
           <li><strong>1. Helpful Content:</strong> Answer specific questions ("Is this coffee acidic?" "How does it taste?" "What grind size for espresso?")</li>
           <li><strong>2. Unique Value:</strong> Explain why YOUR product is different (not generic features)</li>
           <li><strong>3. E-E-A-T Signals:</strong> Show experience (customer photos, usage tips), expertise (brewing guides), authority (certifications), trust (returns policy)</li>
           <li><strong>4. Comprehensive Information:</strong> 300+ words covering all aspects customers care about</li>
         </ol>
-
         <div className="mb-8 rounded-lg bg-neutral-900 p-8 text-white not-prose">
           <h3 className="mb-4 text-2xl font-bold">Case Study: Coffee Store Traffic Explosion</h3>
           <p className="mb-4 opacity-90">
@@ -275,12 +253,10 @@ export default function BlogPost() {
             and customer use cases. Conversion rate increased 23% because descriptions answered every question.
           </p>
         </div>
-
         {/* Mistakes 4-10 Summary */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           Critical Mistakes 4-10: The Complete Breakdown
         </h2>
-
         <div className="mb-8 space-y-6 not-prose">
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">4. Missing or Poor Meta Descriptions</h3>
@@ -293,7 +269,6 @@ export default function BlogPost() {
               optimized for 120-160 characters with power words and CTAs.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">5. Ignoring Image SEO (Missing Alt Text)</h3>
             <p className="mb-3 text-neutral-700">
@@ -305,7 +280,6 @@ export default function BlogPost() {
               visually impaired users AND your SEO.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">6. No Schema Markup (Missing Rich Results)</h3>
             <p className="mb-3 text-neutral-700">
@@ -317,7 +291,6 @@ export default function BlogPost() {
               in JSON-LD format.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">7. Broken Internal Links & Poor Site Architecture</h3>
             <p className="mb-3 text-neutral-700">
@@ -329,7 +302,6 @@ export default function BlogPost() {
               automatically with proper internal linking strategy.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">8. Keyword Cannibalization (Competing with Yourself)</h3>
             <p className="mb-3 text-neutral-700">
@@ -341,7 +313,6 @@ export default function BlogPost() {
               for unique, specific keywords.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">9. Ignoring Mobile-First Indexing</h3>
             <p className="mb-3 text-neutral-700">
@@ -353,7 +324,6 @@ export default function BlogPost() {
               and optimize for thumb-friendly navigation.
             </p>
           </div>
-
           <div className="rounded-lg border border-neutral-200 p-6">
             <h3 className="mb-3 text-xl font-bold text-neutral-900">10. Not Tracking the Right SEO Metrics</h3>
             <p className="mb-3 text-neutral-700">
@@ -366,16 +336,13 @@ export default function BlogPost() {
             </p>
           </div>
         </div>
-
         {/* Why Manual Fixes Don't Scale */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           Why Manual SEO Fixes Don't Work Anymore
         </h2>
-
         <p className="mb-4 text-lg">
           Let's do the math. To fix these 10 mistakes manually for an average Shopify store (200 products, 30 pages, 50 blog posts):
         </p>
-
         <div className="mb-8 rounded-lg bg-red-50 p-8 not-prose">
           <h3 className="mb-4 text-xl font-bold text-red-900">Manual SEO: The Brutal Truth</h3>
           <div className="mb-6 space-y-3 text-red-800">
@@ -420,17 +387,14 @@ export default function BlogPost() {
             And you'd have to do this again every time you add new products or Google updates its algorithm.
           </p>
         </div>
-
         {/* The SEOLOGY.AI Difference */}
         <h2 className="mb-6 mt-12 text-3xl font-bold text-neutral-900">
           How SEOLOGY.AI Fixes Everything Automatically
         </h2>
-
         <p className="mb-6 text-lg">
           Unlike traditional SEO tools that just <strong>report</strong> issues, SEOLOGY.AI is the first platform that
           <strong> actually logs into your Shopify store and fixes everything</strong> using Claude AI.
         </p>
-
         <div className="mb-8 grid gap-6 md:grid-cols-2 not-prose">
           <div className="rounded-xl bg-gradient-to-br from-brand-primary-500 to-brand-primary-700 p-8 text-white">
             <h3 className="mb-4 text-2xl font-bold">Traditional SEO Tools</h3>
@@ -444,7 +408,6 @@ export default function BlogPost() {
             </ul>
             <p className="mt-6 text-sm font-semibold">Cost: $5,000/month agency + 100 hours/month</p>
           </div>
-
           <div className="rounded-xl bg-gradient-to-br from-green-500 to-green-700 p-8 text-white">
             <h3 className="mb-4 text-2xl font-bold">SEOLOGY.AI</h3>
             <ul className="space-y-3 opacity-90">
@@ -458,9 +421,7 @@ export default function BlogPost() {
             <p className="mt-6 text-sm font-semibold">Cost: From $99/month + 0 hours/month</p>
           </div>
         </div>
-
         <h3 className="mb-4 mt-8 text-2xl font-semibold text-neutral-900">What Happens After You Connect SEOLOGY.AI</h3>
-
         <div className="mb-8 space-y-6 not-prose">
           <div className="flex gap-6">
             <div className="flex-shrink-0">
@@ -475,7 +436,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="flex gap-6">
             <div className="flex-shrink-0">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary-100 text-xl font-bold text-brand-primary-700">
@@ -489,7 +449,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="flex gap-6">
             <div className="flex-shrink-0">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary-100 text-xl font-bold text-brand-primary-700">
@@ -504,7 +463,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="flex gap-6">
             <div className="flex-shrink-0">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary-100 text-xl font-bold text-brand-primary-700">
@@ -519,7 +477,6 @@ export default function BlogPost() {
               </p>
             </div>
           </div>
-
           <div className="flex gap-6">
             <div className="flex-shrink-0">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary-100 text-xl font-bold text-brand-primary-700">
@@ -535,11 +492,9 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Social Proof */}
         <div className="mb-12 rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800 p-12 text-white not-prose">
           <h2 className="mb-8 text-center text-3xl font-bold">Real Results from Real Stores</h2>
-
           <div className="mb-12 grid gap-8 md:grid-cols-3">
             <div className="text-center">
               <p className="mb-2 text-5xl font-bold text-green-400">2.3M+</p>
@@ -554,7 +509,6 @@ export default function BlogPost() {
               <p className="text-sm opacity-75">Stores Trust Us</p>
             </div>
           </div>
-
           <div className="space-y-6">
             <div className="rounded-lg bg-white/10 p-6">
               <p className="mb-3 italic opacity-90">
@@ -563,7 +517,6 @@ export default function BlogPost() {
               </p>
               <p className="text-sm font-semibold">-- James Peterson, Outdoor Gear Store</p>
             </div>
-
             <div className="rounded-lg bg-white/10 p-6">
               <p className="mb-3 italic opacity-90">
                 "I was paying an agency $4,000/month and seeing slow results. SEOLOGY.AI costs $199/month and delivered better
@@ -571,7 +524,6 @@ export default function BlogPost() {
               </p>
               <p className="text-sm font-semibold">-- Maria Rodriguez, Fashion Boutique</p>
             </div>
-
             <div className="rounded-lg bg-white/10 p-6">
               <p className="mb-3 italic opacity-90">
                 "The product description rewrites alone were worth it. SEOLOGY.AI's AI wrote better descriptions than our copywriter,
@@ -581,7 +533,6 @@ export default function BlogPost() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="mb-12 rounded-2xl bg-gradient-to-r from-brand-primary-500 via-brand-secondary-500 to-brand-accent-500 p-12 text-center text-white not-prose">
           <h2 className="mb-4 text-4xl font-bold">Stop Losing Traffic to These Mistakes</h2>
@@ -589,13 +540,11 @@ export default function BlogPost() {
             Every day you wait, your competitors are pulling ahead. SEOLOGY.AI can fix all 10 mistakes automatically
             in under 2 hours.
           </p>
-
           <div className="mb-8 inline-block rounded-xl bg-white/20 px-8 py-4">
             <p className="mb-2 text-sm font-semibold opacity-75">Limited Time Offer</p>
             <p className="text-3xl font-bold">14-Day Free Trial</p>
             <p className="text-sm opacity-90">No credit card required • Cancel anytime</p>
           </div>
-
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="https://apps.shopify.com/seology-ai"
@@ -610,12 +559,10 @@ export default function BlogPost() {
               Watch 2-Min Demo
             </Link>
           </div>
-
           <p className="mt-8 text-sm opacity-75">
             Join 5,000+ Shopify stores using SEOLOGY.AI to dominate Google search
           </p>
         </div>
-
         {/* Author Bio */}
         <div className="border-t border-neutral-200 pt-8 not-prose">
           <h3 className="mb-4 text-lg font-bold text-neutral-900">About the Author</h3>

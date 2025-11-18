@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Robots.txt Configuration: Control What Google Crawls',
   description: 'One robots.txt mistake can deindex your entire site. This guide shows the exact configuration used by Fortune 500 sites.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'robots-txt-configuration-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Robots.txt Configuration Guide</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Robots.txt Configuration: Control What Google Crawls
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>October 12, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             One robots.txt mistake can <strong className="text-white">deindex your entire site</strong>. This guide shows the exact configuration used by Fortune 500 sites.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Robots.txt controls which pages search engines crawl. Mistakes in this file can deindex your entire site (happened to 1 in 5 sites). This guide covers 17 critical robots.txt rules: User-agent directives, Disallow/Allow syntax, Crawl-delay, Sitemap declarations, wildcard patterns, and testing. 42% of sites have robots.txt errors blocking important pages. SEOLOGY automatically manages and monitors your robots.txt to prevent catastrophic errors.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What is Robots.txt and Why It Matters</h2>
@@ -94,10 +89,8 @@ export default function BlogPost() {
                   <strong>Purpose:</strong> Control crawl budget, protect sensitive pages, prevent duplicate content indexing
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">17 Critical Robots.txt Rules</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Basic Syntax (5 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -111,7 +104,6 @@ export default function BlogPost() {
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: Googlebot
 Disallow: /admin/
-
 User-agent: *
 Disallow: /private/`}
                     </pre>
@@ -126,7 +118,6 @@ Disallow: /private/`}
                       <strong>Case sensitivity:</strong> User-agent names are case-insensitive.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Disallow Directive</h4>
                     <p className="text-slate-700 mb-3">
@@ -138,13 +129,10 @@ Disallow: /private/`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`# Block entire directory
 Disallow: /admin/
-
 # Block specific file
 Disallow: /secret-page.html
-
 # Block all pages (DANGEROUS!)
 Disallow: /
-
 # Block nothing (allow all)
 Disallow:`}
                     </pre>
@@ -152,7 +140,6 @@ Disallow:`}
                       <strong>Warning:</strong> <code>Disallow: /</code> blocks your entire site. Most common catastrophic error.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Allow Directive</h4>
                     <p className="text-slate-700 mb-3">
@@ -165,14 +152,12 @@ Disallow:`}
 {`User-agent: Googlebot
 Disallow: /admin/
 Allow: /admin/public/
-
 # Result: /admin/ blocked except /admin/public/`}
                     </pre>
                     <p className="text-slate-700">
                       <strong>Note:</strong> More specific rules override general rules. Allow is more specific than Disallow.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Sitemap Declaration</h4>
                     <p className="text-slate-700 mb-3">
@@ -193,7 +178,6 @@ Sitemap: https://example.com/sitemap-blog.xml`}
                       <strong>Benefit:</strong> Helps search engines discover your sitemap without manual submission.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Crawl-delay Directive</h4>
                     <p className="text-slate-700 mb-3">
@@ -205,7 +189,6 @@ Sitemap: https://example.com/sitemap-blog.xml`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: *
 Crawl-delay: 10
-
 # Crawler waits 10 seconds between requests`}
                     </pre>
                     <p className="text-slate-700 mb-3">
@@ -216,7 +199,6 @@ Crawl-delay: 10
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Advanced Patterns (6 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -230,10 +212,8 @@ Crawl-delay: 10
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`# Block all URLs with query parameters
 Disallow: /*?
-
 # Block all PDF files
 Disallow: /*.pdf$
-
 # Block all URLs containing "sort="
 Disallow: /*sort=*`}
                     </pre>
@@ -241,7 +221,6 @@ Disallow: /*sort=*`}
                       <strong>Support:</strong> Google and most modern crawlers support wildcards.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Dollar Sign End Anchor ($)</h4>
                     <p className="text-slate-700 mb-3">
@@ -253,10 +232,8 @@ Disallow: /*sort=*`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`# Block URLs ending in .pdf
 Disallow: /*.pdf$
-
 # Allow .pdf (matches middle of URL too)
 Disallow: /*.pdf
-
 # Block URLs ending with /private
 Disallow: /*/private$`}
                     </pre>
@@ -264,7 +241,6 @@ Disallow: /*/private$`}
                       <strong>Use case:</strong> Block specific file types or URL patterns.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Blocking URL Parameters</h4>
                     <p className="text-slate-700 mb-3">
@@ -276,7 +252,6 @@ Disallow: /*/private$`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`# Block all URLs with query strings
 Disallow: /*?
-
 # Block specific parameters
 Disallow: /*?ref=*
 Disallow: /*?utm_*
@@ -286,7 +261,6 @@ Disallow: /*?sessionid=*`}
                       <strong>Alternative:</strong> Use canonical tags + Google Search Console URL Parameters tool for better control.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Blocking Specific Bots</h4>
                     <p className="text-slate-700 mb-3">
@@ -299,17 +273,13 @@ Disallow: /*?sessionid=*`}
 {`# Block specific scraper bots
 User-agent: AhrefsBot
 Disallow: /
-
 User-agent: SemrushBot
 Disallow: /
-
 User-agent: MJ12bot
 Disallow: /
-
 # Allow Google, block everyone else
 User-agent: Googlebot
 Disallow:
-
 User-agent: *
 Disallow: /`}
                     </pre>
@@ -317,7 +287,6 @@ Disallow: /`}
                       <strong>Reality:</strong> Malicious bots ignore robots.txt. Use server-level blocking for real security.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Comments</h4>
                     <p className="text-slate-700 mb-3">
@@ -333,7 +302,6 @@ Disallow: /admin/ # Inline comments NOT supported`}
                       <strong>Best practice:</strong> Document why you\'re blocking specific paths.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Case Sensitivity</h4>
                     <p className="text-slate-700 mb-3">
@@ -343,7 +311,6 @@ Disallow: /admin/ # Inline comments NOT supported`}
 {`# These are DIFFERENT
 Disallow: /Admin/
 Disallow: /admin/
-
 # These are the SAME
 User-agent: Googlebot
 User-agent: googlebot`}
@@ -353,7 +320,6 @@ User-agent: googlebot`}
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Common Use Cases (6 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -363,26 +329,21 @@ User-agent: googlebot`}
                     </p>
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: *
-
 # Block admin and checkout
 Disallow: /admin/
 Disallow: /checkout/
 Disallow: /cart/
 Disallow: /account/
-
 # Block URL parameters (filters, sessions)
 Disallow: /*?*sort=*
 Disallow: /*?*filter=*
 Disallow: /*sessionid=*
-
 # Allow product images
 Allow: /images/
-
 # Sitemap
 Sitemap: https://example.com/sitemap.xml`}
                     </pre>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. WordPress Site Configuration</h4>
                     <p className="text-slate-700 mb-3">
@@ -390,28 +351,22 @@ Sitemap: https://example.com/sitemap.xml`}
                     </p>
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: *
-
 # Block WordPress admin
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
-
 # Block WordPress system directories
 Disallow: /wp-includes/
 Disallow: /wp-content/plugins/
 Disallow: /wp-content/cache/
 Disallow: /wp-content/themes/
-
 # Allow uploads (images, media)
 Allow: /wp-content/uploads/
-
 # Block search results
 Disallow: /?s=
 Disallow: /search/
-
 Sitemap: https://example.com/sitemap_index.xml`}
                     </pre>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Development/Staging Environment</h4>
                     <p className="text-slate-700 mb-3">
@@ -426,7 +381,6 @@ Disallow: /`}
                       <strong>Better approach:</strong> Use meta robots noindex + HTTP authentication for double protection.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Allow Everything (Default)</h4>
                     <p className="text-slate-700 mb-3">
@@ -435,14 +389,12 @@ Disallow: /`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: *
 Disallow:
-
 Sitemap: https://example.com/sitemap.xml`}
                     </pre>
                     <p className="text-slate-700">
                       <strong>Note:</strong> Empty Disallow allows everything. This is the safest starting point.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Blocking Duplicate Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -450,14 +402,11 @@ Sitemap: https://example.com/sitemap.xml`}
                     </p>
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto mb-3">
 {`User-agent: *
-
 # Block print versions
 Disallow: /print/
 Disallow: /*?print=*
-
 # Block mobile site (if you have responsive design)
 Disallow: /m/
-
 # Block paginated pages (use canonical instead)
 Disallow: /*?page=*`}
                     </pre>
@@ -465,7 +414,6 @@ Disallow: /*?page=*`}
                       <strong>Better alternative:</strong> Use canonical tags instead of robots.txt for duplicate content.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Enterprise Multi-Domain Setup</h4>
                     <p className="text-slate-700 mb-3">
@@ -476,10 +424,8 @@ Disallow: /*?page=*`}
 User-agent: *
 Disallow: /admin/
 Sitemap: https://example.com/sitemap-us.xml
-
 # UK Site (example.com/uk/robots.txt) - WRONG!
 # Robots.txt MUST be in root directory
-
 # Correct: Use single robots.txt
 User-agent: *
 Disallow: /admin/
@@ -489,7 +435,6 @@ Sitemap: https://example.com/sitemap-uk.xml`}
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Robots.txt Mistakes That Destroy Rankings</h2>
                 <div className="space-y-6 my-8">
@@ -505,7 +450,6 @@ Sitemap: https://example.com/sitemap-uk.xml`}
                       <strong>Impact:</strong> 68% average traffic loss. 3-7 days to recover after fix.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Blocking CSS and JavaScript</h4>
                     <p className="text-slate-700 mb-3">
@@ -518,7 +462,6 @@ Sitemap: https://example.com/sitemap-uk.xml`}
                       <strong>Fix:</strong> NEVER block CSS/JS files. Google needs them to render pages.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Blocking Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -531,7 +474,6 @@ Sitemap: https://example.com/sitemap-uk.xml`}
                       <strong>Note:</strong> Only block images if you truly don\'t want them indexed (copyright concerns).
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Wrong Robots.txt Location</h4>
                     <p className="text-slate-700 mb-3">
@@ -544,7 +486,6 @@ Sitemap: https://example.com/sitemap-uk.xml`}
                       <strong>Fix:</strong> Must be https://example.com/robots.txt (root only).
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Conflicting Rules</h4>
                     <p className="text-slate-700 mb-3">
@@ -554,17 +495,14 @@ Sitemap: https://example.com/sitemap-uk.xml`}
 {`# WRONG - Conflicting rules
 User-agent: *
 Disallow: /
-
 User-agent: Googlebot
 Disallow:
-
 # Which wins? Googlebot\'s more specific rule wins.`}
                     </pre>
                     <p className="text-slate-700">
                       <strong>Rule:</strong> Most specific user-agent takes precedence.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Using Robots.txt for Security</h4>
                     <p className="text-slate-700 mb-3">
@@ -579,7 +517,6 @@ Disallow:
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Testing Your Robots.txt</h2>
                 <div className="space-y-6 mb-8">
@@ -595,7 +532,6 @@ Disallow:
                       <strong>Best practice:</strong> Test BEFORE deploying robots.txt changes. One typo can deindex your site.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Syntax Validators</h4>
                     <p className="text-slate-700 mb-3">
@@ -605,7 +541,6 @@ Disallow:
                       <strong>Check for:</strong> Syntax errors. Blocking critical pages. Blocking CSS/JS. Missing sitemap declaration.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Manual Testing</h4>
                     <p className="text-slate-700 mb-3">
@@ -617,7 +552,6 @@ Disallow:
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Advanced Robots.txt Strategies</h2>
                 <div className="space-y-6 mb-8">
@@ -644,7 +578,6 @@ Disallow: /\`);
 });`}
                     </pre>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Monitoring Robots.txt Changes</h4>
                     <p className="text-slate-700 mb-3">
@@ -660,7 +593,6 @@ Disallow: /\`);
                       <strong>Alert triggers:</strong> Robots.txt returns 404. Content changes. <code>Disallow: /</code> detected.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Robots Meta Tag vs Robots.txt</h4>
                     <p className="text-slate-700 mb-3">
@@ -678,7 +610,6 @@ Disallow: /\`);
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Manages Robots.txt</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -710,7 +641,6 @@ Disallow: /\`);
                     <span>Tests robots.txt changes before they go live</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Never Deindex Your Site Again</h3>
@@ -726,7 +656,6 @@ Disallow: /\`);
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -735,7 +664,6 @@ Disallow: /\`);
                   <li><Link href="/blog/meta-robots-tags-guide" className="text-blue-600 hover:text-blue-800">Meta Robots Tags: Control Indexing & Crawling Precisely</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #RobotsTxt #TechnicalSEO #Crawling
@@ -745,7 +673,6 @@ Disallow: /\`);
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

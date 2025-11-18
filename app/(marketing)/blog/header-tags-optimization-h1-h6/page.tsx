@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Header Tags Optimization: H1-H6 Best Practices for SEO',
   description: 'Header tags structure your content for Google. This guide shows the exact header hierarchy that ranks pages #1.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'header-tags-optimization-h1-h6').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Header Tags Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Header Tags Optimization: H1-H6 Best Practices for SEO
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>October 20, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Header tags structure your content for Google. This guide shows the exact header hierarchy that ranks pages #1.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Header tags (H1-H6) are critical HTML elements that structure your content for both users and search engines. <strong>Pages with proper header hierarchy rank 36% higher</strong> than those without (SEMrush 2024). This guide covers 19 header tag best practices: single H1 rules, keyword placement strategies, header hierarchy structure, accessibility requirements, and common mistakes that kill rankings. SEOLOGY automatically audits and fixes header tag issues across your entire site.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Header Tags Matter for SEO</h2>
@@ -98,13 +93,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Header Tag Hierarchy: H1-H6 Explained</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Header tags follow a strict hierarchy that mirrors an outline structure:
                 </p>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">H1: Page Title (Most Important)</h4>
@@ -121,7 +114,6 @@ export default function BlogPost() {
                       <strong>Common mistake:</strong> Multiple H1s confuse Google about page topic--never use more than one.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">H2: Major Section Headers</h4>
                     <p className="text-slate-700 mb-3">
@@ -137,7 +129,6 @@ export default function BlogPost() {
                       <strong>Keyword strategy:</strong> Use long-tail variations of primary keyword in H2 tags for broader topic coverage.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">H3: Subsection Headers</h4>
                     <p className="text-slate-700 mb-3">
@@ -153,7 +144,6 @@ export default function BlogPost() {
                       <strong>Hierarchy rule:</strong> Never jump from H1 to H3--always use H2 in between.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">H4-H6: Detailed Subsection Headers</h4>
                     <p className="text-slate-700 mb-3">
@@ -171,10 +161,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">19 Header Tag Best Practices for Maximum Rankings</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">H1 Tag Optimization (5 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -189,7 +177,6 @@ export default function BlogPost() {
                       <strong>How to check:</strong> View source code and search for &lt;h1&gt; tags--should appear exactly once.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Place Primary Keyword in H1</h4>
                     <p className="text-slate-700 mb-3">
@@ -202,7 +189,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> "Shopify SEO Guide" (good) vs. "The Ultimate Guide to SEO for Shopify Stores" (better--keyword front-loaded)
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Keep H1 Length Between 20-70 Characters</h4>
                     <p className="text-slate-700 mb-3">
@@ -215,7 +201,6 @@ export default function BlogPost() {
                       <strong>Too long:</strong> Over 70 characters dilutes keyword density and loses user attention.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Make H1 Different from Title Tag</h4>
                     <p className="text-slate-700 mb-3">
@@ -228,7 +213,6 @@ export default function BlogPost() {
                       <strong>H1:</strong> "Shopify SEO Optimization: Complete Guide for 2025"--optimized for on-page clarity
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Position H1 at Top of Main Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -242,7 +226,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">H2-H3 Optimization (7 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -257,7 +240,6 @@ export default function BlogPost() {
                       <strong>Too many:</strong> Over 8 H2s fragments content focus--better to use H3s for subdivisions.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Include Semantic Keywords in H2 Tags</h4>
                     <p className="text-slate-700 mb-3">
@@ -270,7 +252,6 @@ export default function BlogPost() {
                       <strong>H2 variations:</strong> "WordPress SEO Plugins," "On-Page SEO for WordPress," "WordPress Performance Optimization," "Schema Markup in WordPress"
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Maintain Strict Hierarchical Order</h4>
                     <p className="text-slate-700 mb-3">
@@ -286,7 +267,6 @@ export default function BlogPost() {
                       <strong>Why:</strong> Skipping levels breaks semantic structure for screen readers and confuses Google\'s content parser.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Make Headers Descriptive and Specific</h4>
                     <p className="text-slate-700 mb-3">
@@ -299,7 +279,6 @@ export default function BlogPost() {
                       <strong>Rule:</strong> Every header should be clear enough to understand context without reading body text.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Use Question Format for H2s When Appropriate</h4>
                     <p className="text-slate-700 mb-3">
@@ -312,7 +291,6 @@ export default function BlogPost() {
                       <strong>Bonus:</strong> Pair question headers with FAQ schema markup for maximum SERP visibility.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Keep H2-H3 Length Between 40-70 Characters</h4>
                     <p className="text-slate-700 mb-3">
@@ -325,7 +303,6 @@ export default function BlogPost() {
                       <strong>Too long:</strong> Over 70 characters becomes difficult to scan and loses visual impact.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Space Headers Evenly Throughout Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -339,7 +316,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical Implementation (7 Rules)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -354,7 +330,6 @@ export default function BlogPost() {
                       <strong>Why:</strong> Google only recognizes actual &lt;h1&gt;-&lt;h6&gt; tags--styled divs are ignored.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Never Hide Headers with CSS</h4>
                     <p className="text-slate-700 mb-3">
@@ -367,7 +342,6 @@ export default function BlogPost() {
                       <strong>Rule:</strong> All headers must be visible to users--what users see is what Google should see.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Don\'t Put Images or Links as Only H1 Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -380,7 +354,6 @@ export default function BlogPost() {
                       <strong>Exception:</strong> If H1 contains an image, alt text must include primary keyword--but text-only is better.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Add ID Attributes for Jump Links</h4>
                     <p className="text-slate-700 mb-3">
@@ -393,7 +366,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Enables deep linking, improves navigation, and signals well-structured content to Google.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Ensure Headers Work on Mobile</h4>
                     <p className="text-slate-700 mb-3">
@@ -406,7 +378,6 @@ export default function BlogPost() {
                       <strong>Test:</strong> Use Google Mobile-Friendly Test to verify all headers render properly on mobile.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">18. Don\'t Keyword Stuff Headers</h4>
                     <p className="text-slate-700 mb-3">
@@ -419,7 +390,6 @@ export default function BlogPost() {
                       <strong>Rule:</strong> Headers must read naturally--write for humans first, optimize for SEO second.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">19. Test Header Structure with SEO Tools</h4>
                     <p className="text-slate-700 mb-3">
@@ -434,7 +404,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Header Tag Mistakes That Kill Rankings</h2>
                 <div className="space-y-6 my-8">
@@ -447,7 +416,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Use browser inspector to find all H1s, keep only one that includes primary keyword, convert others to H2 or styled divs.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: No H1 Tag at All</h4>
                     <p className="text-slate-700 mb-3">
@@ -457,7 +425,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Every page must have exactly one H1 tag containing primary target keyword.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Skipping Header Levels</h4>
                     <p className="text-slate-700 mb-3">
@@ -467,7 +434,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Always follow sequential order (H1 → H2 → H3)--never jump from H1 directly to H3.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Identical H1 and Title Tag</h4>
                     <p className="text-slate-700 mb-3">
@@ -477,7 +443,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Use title tag for SERP CTR (with numbers, power words), use H1 for on-page clarity (straightforward, descriptive).
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Generic Header Text</h4>
                     <p className="text-slate-700 mb-3">
@@ -489,7 +454,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Header Tags Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -521,7 +485,6 @@ export default function BlogPost() {
                     <span>Validates header structure for accessibility compliance</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Fix Header Tag Issues Automatically</h3>
@@ -537,7 +500,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -546,7 +508,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/site-architecture-seo-best-practices" className="text-blue-600 hover:text-blue-800">Site Architecture: SEO Best Practices for Maximum Crawlability</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #HeaderTags #OnPageSEO #ContentStructure
@@ -556,7 +517,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

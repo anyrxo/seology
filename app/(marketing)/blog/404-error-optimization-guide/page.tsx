@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: '404 Error Optimization: Turn Dead Pages Into SEO Opportunities',
   description: '404 errors kill user experience and rankings. This guide turns broken pages into conversion opportunities.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['redirect-chains-audit-fix', '301-redirects-complete-guide', 'broken-link-building-tactics'].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>404 Error Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             404 Error Optimization: Turn Dead Pages Into SEO Opportunities
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>August 22, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             404 errors kill user experience and rankings. This guide turns broken pages into conversion opportunities.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Every 404 error is a lost opportunity. Most sites treat broken pages as throwaway experiences, but smart brands turn 404 pages into <strong>conversion assets</strong>. This guide shows you how to audit, optimize, and monetize every 404 error on your site--automatically with SEOLOGY.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why 404 Errors Destroy Your SEO</h2>
@@ -94,7 +89,6 @@ export default function BlogPost() {
                   SEOLOGY automatically detects every 404 error across your site and implements intelligent redirect strategies--no manual work required.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Find All Your 404 Errors</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -136,7 +130,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 404 Error Optimization Strategy</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -165,7 +158,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Build a High-Converting 404 Page</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -202,7 +194,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">404 Monitoring & Prevention</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -227,7 +218,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common 404 Optimization Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -261,7 +251,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates 404 Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -285,7 +274,6 @@ export default function BlogPost() {
                     <span><strong>Custom 404 Pages:</strong> Generates optimized 404 templates with smart product/content recommendations</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Stop Losing Traffic to 404 Errors</h3>
@@ -301,7 +289,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -310,7 +297,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/broken-link-building-tactics" className="text-blue-600 hover:text-blue-800">Broken Link Building Tactics</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #404Errors #ErrorPages #UXOptimization #TechnicalSEO #SEOLOGY
@@ -320,7 +306,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

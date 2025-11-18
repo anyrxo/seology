@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Schema Markup in 2025: The Complete Guide (With Real Examples)',
   description: "Schema markup can 3x your click-through rates. Here\'s how to implement it correctly--or let SEOLOGY do it automatically.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'schema-markup-complete-guide-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Schema Markup Complete Guide</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Schema Markup in 2025: The Complete Guide (With Real Examples)
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>December 28, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Schema markup can <strong className="text-white">3x your click-through rates</strong>. Here's how to implement it correctly--or let SEOLOGY do it automatically.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Schema markup (structured data) helps Google understand your content and display rich results--star ratings, prices, FAQs, recipes, events, and more. Sites with schema get <strong>30% higher CTR</strong> and better rankings. Manual implementation requires JSON-LD coding knowledge. SEOLOGY adds schema automatically to all your pages in minutes.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What is Schema Markup?</h2>
@@ -97,7 +92,6 @@ export default function BlogPost() {
                   This structured data enables rich results: review stars, prices, business hours, recipe ratings, and 40+ other enhanced search features.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Schema Markup Matters in 2025</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -119,10 +113,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 15 Most Important Schema Types</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">1. Organization Schema</h3>
@@ -130,98 +122,84 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Knowledge panel, brand recognition</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Logo, social profiles, contact info, location</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">2. Product Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Ecommerce product pages</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Price, availability, reviews in search results</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Name, image, price, currency, stock status, ratings</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">3. Article Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Blog posts, news articles</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Top Stories, Google News eligibility, featured snippets</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Headline, author, publish date, image</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">4. FAQ Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> FAQ pages, help centers</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Expandable Q&A in search results</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Question and answer pairs</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">5. HowTo Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Tutorial content, step-by-step guides</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Step-by-step rich results with images</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Steps, tools, materials, estimated time</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">6. Review Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Product reviews, service reviews</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Star ratings in search results</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Rating value, reviewer, date</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">7. LocalBusiness Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Brick-and-mortar businesses</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Google Maps integration, local pack results</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Address, hours, phone, geo coordinates</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">8. Breadcrumb Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> All pages with navigation paths</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Breadcrumb trail in search results</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Page hierarchy (Home &gt; Category &gt; Page)</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">9. Event Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Concerts, webinars, conferences</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Event rich results, Google Calendar integration</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Name, date, location, price, performer</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">10. Recipe Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Food blogs, recipe sites</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Recipe cards with images, ratings, cook time</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Ingredients, instructions, nutrition, ratings</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">11. Video Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Pages with video content</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Video thumbnails, playback in search</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Title, description, thumbnail, duration, upload date</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">12. JobPosting Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Job listings, career pages</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Google for Jobs integration</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Title, description, salary, location, posting date</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">13. Course Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Online courses, training programs</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> Course rich results with provider info</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Name, provider, description, price</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">14. SoftwareApplication Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Apps, software products, SaaS</p>
                     <p className="text-slate-700 mb-2"><strong>Enables:</strong> App install buttons, ratings, pricing</p>
                     <p className="text-slate-700"><strong>Includes:</strong> Name, OS, price, ratings, download URL</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">15. WebSite Schema</h3>
                     <p className="text-slate-700 mb-2"><strong>Use for:</strong> Homepage</p>
@@ -230,7 +208,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Schema Markup Example: Product Schema</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -267,7 +244,6 @@ export default function BlogPost() {
                   This enables rich results showing price ($149.99), star rating (4.8), and availability (In Stock) directly in Google search.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Manual vs Automatic Schema Implementation</h2>
                 <div className="overflow-x-auto my-8">
@@ -314,7 +290,6 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Schema Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -355,7 +330,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Adds Schema Automatically</h2>
                 <ul className="space-y-4 my-6">
@@ -396,7 +370,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Using Schema Markup Today</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -423,7 +396,6 @@ export default function BlogPost() {
                     <span>Automatic updates when content changes</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Add Schema to Your Site Automatically</h3>
@@ -439,7 +411,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -448,7 +419,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/shopify-seo-optimization-guide-2025" className="text-blue-600 hover:text-blue-800">Shopify SEO Optimization Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SchemaMarkup #StructuredData #TechnicalSEO #SEOLOGY #RichResults
@@ -458,7 +428,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

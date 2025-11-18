@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) -- 84% Performance Boost',
   description: 'PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site. Site speed tool comparison increased Core Web Vitals scores 84% by understanding which metrics matter and why each tool reports different results.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'site-speed-tools-comparison' &&
     ["core-web-vitals-optimization-guide-2025","shopify-page-speed-optimization","lazy-loading-seo-implementation"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -22,21 +23,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Site Speed Tools Compared</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>May 10, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             PageSpeed Insights shows 45/100 while GTmetrix shows A grade for the same site--why? Understanding which metrics matter increased Core Web Vitals scores 84% and rankings for 2,847 pages.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -48,7 +45,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 <li><strong>84% average improvement:</strong> Sites that focused on Core Web Vitals instead of arbitrary tool scores improved real performance 84% faster and saw sustained ranking increases</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Speed Tools Show Different Results (and What Actually Matters)</h2>
@@ -80,15 +75,12 @@ export default function BlogPost() {
                   The confusion comes from older SEO advice (pre-2020) that treated all speed metrics equally. Modern SEO requires understanding <em>which</em> metrics Google actually uses: LCP under 2.5s, FID under 100ms (or INP under 200ms), CLS under 0.1. Everything else--total page size, number of requests, fully loaded time--is secondary diagnostic data.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">16 Speed Testing Tactics That Actually Move Rankings</h2>
-
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 1: Understanding Tool Methodologies</h3>
                   <p className="text-slate-700 mb-0">Know what each tool actually measures and why they differ</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">1. PageSpeed Insights (Google\'s Official Tool)</h4>
@@ -109,7 +101,6 @@ export default function BlogPost() {
                       <p className="text-sm font-mono text-slate-600 mt-2 mb-0">These 3 metrics = Google\'s ranking algorithm</p>
                     </div>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">2. GTmetrix (Real Browser Testing)</h4>
                     <p className="text-slate-700 mb-3">
@@ -125,7 +116,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> GTmetrix Premium lets you test from multiple locations (London, Sydney, Hong Kong, etc.) and connection speeds--useful for international sites to see real performance in target markets.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">3. WebPageTest (Deep Diagnostic Analysis)</h4>
                     <p className="text-slate-700 mb-3">
@@ -141,7 +131,6 @@ export default function BlogPost() {
                       <strong>Best feature:</strong> "Compare" tool lets you test before/after optimization side-by-side with synchronized filmstrips--perfect for proving ROI of performance work.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">4. Chrome DevTools Lighthouse (Local Testing)</h4>
                     <p className="text-slate-700 mb-3">
@@ -158,12 +147,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 2: Core Web Vitals Deep Dive</h3>
                   <p className="text-slate-700 mb-0">The only 3 metrics Google uses for rankings</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">5. LCP (Largest Contentful Paint) -- Loading Performance</h4>
@@ -183,7 +170,6 @@ export default function BlogPost() {
                       <p className="text-sm font-mono text-slate-800 mb-0">&lt;Image src="/hero.webp" alt="..." priority /&gt;</p>
                     </div>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">6. FID/INP (First Input Delay / Interaction to Next Paint) -- Interactivity</h4>
                     <p className="text-slate-700 mb-3">
@@ -199,7 +185,6 @@ export default function BlogPost() {
                       <strong>Common culprits:</strong> Analytics tags (Google Analytics, Facebook Pixel), chat widgets (Intercom, Drift), ad scripts, large React/Vue bundles. Move these to load after user interaction or after page load complete.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">7. CLS (Cumulative Layout Shift) -- Visual Stability</h4>
                     <p className="text-slate-700 mb-3">
@@ -218,7 +203,6 @@ export default function BlogPost() {
                       <p className="text-sm font-mono text-slate-800 mb-0">&lt;div style="aspect-ratio: 300/250;"&gt;&lt;!-- Ad loads here --&gt;&lt;/div&gt;</p>
                     </div>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">8. Google Search Console Core Web Vitals Report (Real Field Data)</h4>
                     <p className="text-slate-700 mb-3">
@@ -235,12 +219,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-pink-50 to-blue-50 p-6 rounded-xl border-l-4 border-pink-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 3: Interpreting Results Correctly</h3>
                   <p className="text-slate-700 mb-0">Why scores differ and what to actually optimize</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">9. Lab Data vs Field Data (The Critical Difference)</h4>
@@ -257,7 +239,6 @@ export default function BlogPost() {
                       <strong>What to prioritize:</strong> Field data always wins. If Search Console shows "Good" Core Web Vitals but PageSpeed shows 45/100 lab score--ignore the lab score. Google\'s algorithm uses field data. Lab tests are only useful when you don\'t have enough traffic for field data (under 1,000 visits/month).
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Mobile vs Desktop Performance (Test Mobile First)</h4>
                     <p className="text-slate-700 mb-3">
@@ -273,7 +254,6 @@ export default function BlogPost() {
                       <strong>Mobile-specific optimizations:</strong> Reduce JavaScript bundles (mobile CPUs struggle with JS parsing). Use responsive images with <code>srcset</code> (serve smaller images to mobile). Implement lazy loading for below-the-fold content. Minimize third-party scripts on mobile.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">11. Score Fluctuations Are Normal (Don\'t Chase Perfection)</h4>
                     <p className="text-slate-700 mb-3">
@@ -289,7 +269,6 @@ export default function BlogPost() {
                       <strong>Don\'t chase 100/100:</strong> Diminishing returns after 90/100. Going from 85 to 95 requires 10x more work than going from 45 to 85. Focus on passing Core Web Vitals thresholds (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1)--not perfect scores.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">12. Prioritize by Impact and Effort (The 80/20 Rule)</h4>
                     <p className="text-slate-700 mb-3">
@@ -306,12 +285,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 4: Advanced Testing and Monitoring</h3>
                   <p className="text-slate-700 mb-0">Continuous monitoring and optimization strategies</p>
                 </div>
-
                 <div className="space-y-8">
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">13. Real User Monitoring (RUM) Tools for Continuous Data</h4>
@@ -328,7 +305,6 @@ export default function BlogPost() {
                       <strong>Why it matters:</strong> Catch performance regressions immediately after deployments. Identify slow pages that don\'t appear in Search Console (not enough traffic). Segment performance by user demographics (mobile vs desktop, geographic region, etc.).
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">14. Automated Testing in CI/CD Pipeline</h4>
                     <p className="text-slate-700 mb-3">
@@ -353,7 +329,6 @@ export default function BlogPost() {
                       <strong>Benefits:</strong> Developers see performance impact of code changes immediately in pull requests. Prevents "death by a thousand cuts" where small regressions accumulate over time. Enforces performance culture across the team.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">15. Geographic Testing for International Sites</h4>
                     <p className="text-slate-700 mb-3">
@@ -369,7 +344,6 @@ export default function BlogPost() {
                       <strong>Solutions:</strong> Implement multi-region CDN (Cloudflare, Fastly, AWS CloudFront), use edge functions for dynamic content (Cloudflare Workers, Vercel Edge Functions), replicate databases across regions, remove or replace region-locked third-party scripts.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">16. Historical Performance Tracking and Trend Analysis</h4>
                     <p className="text-slate-700 mb-3">
@@ -387,7 +361,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Speed Testing Mistakes</h2>
                 <div className="space-y-6">
@@ -400,7 +373,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Focus exclusively on passing Core Web Vitals thresholds (LCP &lt; 2.5s, FID &lt; 100ms, CLS &lt; 0.1) in field data. A score of 70/100 with good Core Web Vitals ranks better than 100/100 with poor Core Web Vitals. Prioritize real user experience over synthetic test scores.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Testing Only Desktop Performance</h3>
                     <p className="text-slate-700 mb-3">
@@ -410,7 +382,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Test mobile performance first and prioritize mobile optimizations. Use PageSpeed Insights mobile tab, test on real devices, enable mobile throttling in Chrome DevTools. Mobile scores should be within 10-15 points of desktop scores.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Ignoring Field Data in Favor of Lab Scores</h3>
                     <p className="text-slate-700 mb-3">
@@ -420,7 +391,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Check Google Search Console Core Web Vitals report first (shows real user experiences). If field data is good, your rankings are fine--lab optimizations are optional. Only prioritize lab scores for low-traffic pages without field data.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Testing From Only One Location</h3>
                     <p className="text-slate-700 mb-3">
@@ -430,7 +400,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Test from all target markets using GTmetrix/WebPageTest multi-location testing. Slowest region should still meet Core Web Vitals thresholds. Implement global CDN and edge computing for international sites.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Running Tests With Browser Extensions Enabled</h3>
                     <p className="text-slate-700 mb-3">
@@ -442,7 +411,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Essential Speed Testing Tools and Resources</h2>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -455,7 +423,6 @@ export default function BlogPost() {
                       <li><strong>GTmetrix:</strong> Real browser testing with waterfall charts (<a href="https://gtmetrix.com" className="text-blue-600 hover:underline">gtmetrix.com</a>)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Monitoring Tools</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -465,7 +432,6 @@ export default function BlogPost() {
                       <li><strong>Speedcurve:</strong> Continuous monitoring + RUM (paid, $20/month starter)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Learning Resources</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -474,7 +440,6 @@ export default function BlogPost() {
                       <li><strong>HTTP Archive:</strong> Performance trends across 10M+ sites (<a href="https://httparchive.org" className="text-blue-600 hover:underline">httparchive.org</a>)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Optimization Tools</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -485,7 +450,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: How Understanding Speed Tools Improved Performance 84%</h2>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border border-blue-200">
@@ -493,23 +457,19 @@ export default function BlogPost() {
                     <div className="text-sm font-semibold text-blue-600 mb-2">CASE STUDY</div>
                     <h3 className="text-2xl font-bold text-slate-900">E-commerce Site Fixes Core Web Vitals by Focusing on the Right Metrics</h3>
                   </div>
-
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
                       <p className="mt-1">Online fashion retailer had PageSpeed Insights lab scores of 35/100 (mobile) and 68/100 (desktop). They spent 6 months trying to improve lab scores--removed analytics, eliminated marketing pixels, compressed images to degraded quality--but lab scores only increased to 42/100 mobile and still saw declining organic traffic.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Discovery:</strong>
                       <p className="mt-1">Checked Google Search Console Core Web Vitals report--found that actual users (field data) experienced "Poor" Core Web Vitals: LCP 4.2s (need &lt;2.5s), FID 180ms (need &lt;100ms), CLS 0.34 (need &lt;0.1). The lab score optimizations hadn\'t addressed the real user experience issues.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Strategy:</strong>
                       <p className="mt-1">Abandoned tool score optimization. Used PageSpeed Insights field data and Search Console to identify Core Web Vitals failures. Focused on 3 high-impact fixes: (1) Optimized LCP element (hero product image) by implementing preload and WebP format, (2) Reduced JavaScript execution time by deferring non-critical third-party scripts to after page load, (3) Fixed CLS by adding explicit dimensions to product images and lazy-loaded content.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">Implementation:</strong>
                       <ul className="mt-2 space-y-1 ml-4">
@@ -519,7 +479,6 @@ export default function BlogPost() {
                         <li>• Week 4: Monitored Search Console Core Web Vitals report for improvements</li>
                       </ul>
                     </div>
-
                     <div className="bg-white p-6 rounded-xl border-2 border-blue-600 mt-6">
                       <strong className="text-slate-900">The Results (After 6 Weeks):</strong>
                       <ul className="mt-3 space-y-2">
@@ -545,7 +504,6 @@ export default function BlogPost() {
                         </li>
                       </ul>
                     </div>
-
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
                       <p className="mt-1 text-lg">"We wasted 6 months optimizing for lab scores that didn\'t matter. Once we focused exclusively on Core Web Vitals field data from real users, we saw results in weeks. Google\'s algorithm uses field data--that\'s the only metric that matters for SEO." -- Technical SEO Manager</p>
@@ -553,7 +511,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Speed Testing and Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -565,26 +522,22 @@ export default function BlogPost() {
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Continuous Core Web Vitals Monitoring</h3>
                     <p className="text-slate-700">SEOLOGY tracks real user performance data (field data) for every page on your site. Automatically detects when pages fail Core Web Vitals thresholds and alerts you to performance degradation before it impacts rankings.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200">
                     <div className="text-3xl mb-3">🤖</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">AI-Powered Root Cause Analysis</h3>
                     <p className="text-slate-700">Claude AI analyzes performance data from multiple tools (PageSpeed Insights, Search Console, RUM), identifies the specific issues causing slow Core Web Vitals (LCP, FID/INP, CLS), and prioritizes fixes by impact.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Implementation</h3>
                     <p className="text-slate-700">SEOLOGY doesn\'t just report issues--it fixes them automatically. Implements image optimization (WebP, preloading), defers non-critical JavaScript, adds width/height to images to prevent CLS, optimizes LCP elements--all without manual coding.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
                     <div className="text-3xl mb-3">📊</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Field Data Validation</h3>
                     <p className="text-slate-700">After applying fixes, SEOLOGY monitors Google Search Console to verify real user performance improvements (field data). Tracks Core Web Vitals trends over time and adjusts optimizations based on actual ranking impact.</p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Stop Wasting Time on Speed Testing--Automate Core Web Vitals Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -607,7 +560,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Speed Testing Tools</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -629,7 +581,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
                 <div className="grid gap-4">
@@ -645,7 +596,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SpeedTesting #CoreWebVitals #PageSpeedInsights #Lighthouse #GTmetrix #WebPageTest #SEO #PerformanceOptimization #SEOLOGY
@@ -655,7 +605,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

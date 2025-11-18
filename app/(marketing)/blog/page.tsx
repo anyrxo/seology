@@ -1,10 +1,9 @@
 'use client';
 
-import { motion } from "framer-motion";
-import { blogPosts } from "@/lib/blog-posts";
-import { Calendar, ArrowRight } from "lucide-react";
-import Link from "next/link";
-
+import Link from "next/link"
+import { ArrowRight, Calendar } from 'lucide-react'
+import { blogPosts } from "@/lib/blog-posts"
+import { motion } from 'framer-motion'
 export default function Blog() {
   return (
     <>
@@ -26,7 +25,6 @@ export default function Blog() {
           </motion.div>
         </div>
       </section>
-
         {/* Blog Posts Grid */}
         <section className="py-24 bg-white dark:bg-slate-950">
           <div className="container max-w-7xl">
@@ -49,7 +47,6 @@ export default function Blog() {
                           {post.category}
                         </span>
                       </div>
-
                       {/* Meta */}
                       <div className="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 mb-3">
                         <div className="flex items-center gap-1">
@@ -57,17 +54,14 @@ export default function Blog() {
                           {post.date}
                         </div>
                       </div>
-
                       {/* Title */}
                       <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {post.title}
                       </h2>
-
                       {/* Description */}
                       <p className="text-slate-600 dark:text-slate-300 mb-4 flex-1">
                         {post.description}
                       </p>
-
                       {/* Author & CTA */}
                       <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800">
                         <span className="text-sm text-slate-600 dark:text-slate-400">
@@ -85,7 +79,6 @@ export default function Blog() {
             </div>
           </div>
         </section>
-
         {/* Newsletter CTA */}
         <section className="py-24 bg-slate-50 dark:bg-slate-900">
           <div className="container max-w-4xl">

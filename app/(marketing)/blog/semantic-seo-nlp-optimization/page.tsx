@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Semantic SEO: 16 Tactics to Optimize for NLP & Related Entities (52% Traffic Increase)',
   description: "Semantic SEO optimization increased organic traffic 52% and rankings 2.8 positions by leveraging Google\'s NLP (BERT, MUM) to understand content context, related entities, and user intent beyond keywords.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'semantic-seo-nlp-optimization').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Semantic SEO & NLP</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Semantic SEO: 16 Tactics to Optimize for NLP & Related Entities (52% Traffic Increase)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>November 8, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Google doesn\'t read content like humans anymore--it uses Natural Language Processing (NLP) to understand meaning, context, and relationships between entities. Semantic SEO is how you optimize for BERT, MUM, and entity-based search. These 16 tactics increased organic traffic 52% and average ranking position 2.8 spots by matching how Google actually understands content.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates semantic SEO</strong>--analyzing entity relationships, adding related concepts, and optimizing content structure for NLP comprehension</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">What Is Semantic SEO?</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -91,15 +86,12 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 16 Semantic SEO Tactics</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">Category 1: Entity Optimization</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Entities are the foundation of semantic search--people, places, things, concepts that Google recognizes.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #1: Map Your Topic\'s Entity Graph</h4>
                 <p className="text-slate-700 mb-2">
@@ -118,7 +110,6 @@ export default function BlogPost() {
                 </p>
                 <p className="text-slate-700"><strong>Result:</strong> Content covering 80%+ of related entities ranks 2.1x higher (Surfer SEO study, 2024).</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #2: Use Entity-First Content Structure</h4>
                 <p className="text-slate-700 mb-2">
@@ -138,7 +129,6 @@ export default function BlogPost() {
                 </p>
                 <p className="text-slate-700 mt-2"><strong>Why:</strong> Each section focuses on a distinct entity with its own semantic context.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #3: Include Entity Attributes & Properties</h4>
                 <p className="text-slate-700 mb-2">
@@ -159,7 +149,6 @@ export default function BlogPost() {
                   Use cases: Making espresso drinks (latte, cappuccino, americano)
                 </p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #4: Link Entities to Wikipedia & Wikidata</h4>
                 <p className="text-slate-700 mb-2">
@@ -174,12 +163,10 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Why this works:</strong> Google uses Wikipedia for entity disambiguation--linking signals "this is the entity I\'m discussing."</p>
                 <p className="text-slate-700"><strong>Result:</strong> Content with Wikipedia entity links had 18% higher semantic relevance scores (Clearscope study, 2024).</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 2: Topic Modeling & LSI</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Latent Semantic Indexing (LSI) analyzes co-occurrence patterns--related terms that appear together.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #5: Use LSI Keywords (Semantically Related Terms)</h4>
                 <p className="text-slate-700 mb-2">
@@ -198,7 +185,6 @@ export default function BlogPost() {
                 </p>
                 <p className="text-slate-700"><strong>Critical:</strong> Don\'t stuff LSI keywords--use naturally where contextually relevant.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #6: Cover Subtopics Comprehensively</h4>
                 <p className="text-slate-700 mb-2">
@@ -213,7 +199,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Content covering 90%+ of top-ranking subtopics ranks 3.1 positions higher on average (Ahrefs, 2024).</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #7: Use Topic Clusters (Pillar + Cluster Model)</h4>
                 <p className="text-slate-700 mb-2">
@@ -228,7 +213,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Why this works:</strong> Google recognizes interconnected content as comprehensive topic coverage = higher topical authority.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Topic clusters increased organic traffic 74% on average (HubSpot study, 2024).</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #8: Answer Related Questions (People Also Ask)</h4>
                 <p className="text-slate-700 mb-2">
@@ -243,12 +227,10 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Content answering 10+ PAA questions ranks in PAA boxes 3.4x more often (Moz, 2024).</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 3: Content Structure for NLP</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 How you structure content affects NLP comprehension--clear hierarchy helps Google parse meaning.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #9: Use Schema Markup for Entity Disambiguation</h4>
                 <p className="text-slate-700 mb-2">
@@ -277,7 +259,6 @@ export default function BlogPost() {
 }`}
                 </pre>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #10: Write Natural, Conversational Content</h4>
                 <p className="text-slate-700 mb-2">
@@ -293,7 +274,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Avoid:</strong> Keyword stuffing, robotic repetition, unnatural phrasing for exact-match keywords.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Natural language content has 23% better NLP sentiment scores (Google NLU API study, 2024).</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #11: Use Semantic HTML (Not Just Divs)</h4>
                 <p className="text-slate-700 mb-2">
@@ -309,7 +289,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Why:</strong> Semantic HTML helps NLP models understand content hierarchy and importance.</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #12: Use Clear Heading Hierarchy (H1 → H2 → H3)</h4>
                 <p className="text-slate-700 mb-2">
@@ -333,12 +312,10 @@ export default function BlogPost() {
                   &nbsp;&nbsp;&nbsp;&nbsp;H3: Manual vs Automatic Espresso
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 4: Intent Matching & Context</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 NLP analyzes user intent--your content must match the semantic intent behind queries.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #13: Match Search Intent (Informational, Commercial, Transactional)</h4>
                 <p className="text-slate-700 mb-2">
@@ -353,7 +330,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>How to check intent:</strong> Google your keyword and analyze top 10 result formats--the dominant format is the intent.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #14: Optimize for Featured Snippets (Position Zero)</h4>
                 <p className="text-slate-700 mb-2">
@@ -368,7 +344,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Featured snippets get 8% CTR even when ranking #1 organically (Ahrefs, 2024).</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #15: Use Co-Occurring Entity Mentions</h4>
                 <p className="text-slate-700 mb-2">
@@ -380,7 +355,6 @@ export default function BlogPost() {
                 </p>
                 <p className="text-slate-700 mt-2"><strong>How to find co-occurring entities:</strong> Analyze top 3 ranking pages and note entities mentioned 2+ times.</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #16: Update Content Regularly for Semantic Freshness</h4>
                 <p className="text-slate-700 mb-2">
@@ -396,7 +370,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Updated content ranks 1.4 positions higher on average than stale content (Ahrefs, 2024).</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Semantic SEO Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -437,7 +410,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: B2B SaaS Semantic SEO Success</h2>
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border border-green-200 my-8">
@@ -445,7 +417,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-4">
                   A B2B SaaS company targeting "project management software" had high keyword density but low semantic relevance--they weren\'t covering the entity graph Google expected.
                 </p>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Solution</h3>
                 <p className="text-slate-700 mb-2"><strong>Phase 1 (Weeks 1-2): Entity Mapping</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
@@ -453,21 +424,18 @@ export default function BlogPost() {
                   <li>Added sections for all major entities (previously covered only 12 of 47)</li>
                   <li>Linked first mentions to Wikipedia pages</li>
                 </ul>
-
                 <p className="text-slate-700 mb-2"><strong>Phase 2 (Weeks 3-4): Topic Clustering</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
                   <li>Created topic cluster: 1 pillar page + 8 cluster pages for subtopics</li>
                   <li>Answered 24 PAA questions in FAQ section</li>
                   <li>Added schema markup (Article, FAQ, Organization)</li>
                 </ul>
-
                 <p className="text-slate-700 mb-2"><strong>Phase 3 (Weeks 5-6): Natural Language Rewrite</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
                   <li>Rewrote keyword-stuffed sections in conversational tone</li>
                   <li>Added contextual pronouns and natural phrasing</li>
                   <li>Included LSI terms naturally (project timeline, resource allocation, milestone tracking)</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Results (90 Days)</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg border border-green-300">
@@ -487,13 +455,11 @@ export default function BlogPost() {
                     <div className="text-slate-700">Semantic relevance score (Clearscope)</div>
                   </div>
                 </div>
-
                 <p className="text-slate-700 mt-4">
                   <strong>Key insight:</strong> Comprehensive entity coverage mattered more than keyword density--content with 47 entities outranked content optimized for exact-match keywords.
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Semantic SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -521,7 +487,6 @@ export default function BlogPost() {
                   <span><strong>Natural Language Rewriting:</strong> Converts keyword-stuffed content to BERT-friendly natural language</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Semantic SEO</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -536,7 +501,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -558,7 +522,6 @@ export default function BlogPost() {
                 Or let SEOLOGY automate everything and see semantic optimization results in 30-60 days.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
               <ul className="space-y-2">
@@ -571,7 +534,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #SemanticSEO #NLP #BERT #EntitySEO #TopicClusters #SEOLOGY
@@ -580,7 +542,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

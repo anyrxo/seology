@@ -1,16 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions | SEOLOGY.AI',
   description: 'Every 0.1s speed improvement increases conversions by 8.4%. Learn proven Shopify speed optimization strategies with December 2025 benchmarks--boost performance and rankings now.',
 }
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Shopify Site Speed Optimization: 2026 Guide',
-    description: '0.1s improvement = 8.4% more conversions. Learn proven Shopify speed optimization strategies.',
-  }
-}
-
 export default function ShopifySpeedOptimizationPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
@@ -21,15 +15,12 @@ export default function ShopifySpeedOptimizationPage() {
           <span>/</span>
           <span>Shopify Speed Optimization</span>
         </div>
-
         <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent leading-tight">
           Shopify Site Speed Optimization: 2026 Guide to Faster Load Times & Higher Conversions
         </h1>
-
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
           December 2025 research proves that every 0.1-second speed improvement increases ecommerce conversions by 8.4%. With US retail sites averaging 6.3 seconds to load (more than double Google's benchmark), speed optimization is the fastest path to more revenue.
         </p>
-
         <div className="flex items-center gap-6 text-sm text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 pb-6">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-semibold">
@@ -44,7 +35,6 @@ export default function ShopifySpeedOptimizationPage() {
           <span>16 min read</span>
         </div>
       </header>
-
       {/* Shocking Stats Box */}
       <div className="not-prose bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 border-l-4 border-red-500 rounded-lg p-8 mb-12">
         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">⚡ The Speed Crisis Costing You Money</h2>
@@ -67,7 +57,6 @@ export default function ShopifySpeedOptimizationPage() {
           </div>
         </div>
       </div>
-
       {/* Table of Contents */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
         <h2 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Table of Contents</h2>
@@ -84,25 +73,19 @@ export default function ShopifySpeedOptimizationPage() {
           <a href="#automation" className="block text-blue-600 dark:text-blue-400 hover:underline">10. How SEOLOGY.AI Automates Speed Optimization</a>
         </nav>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         {/* Section 1 */}
         <section id="why-speed-matters" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">Why Site Speed Matters More Than Ever in 2026</h2>
-
           <p className="text-lg leading-relaxed mb-6">
             In December 2025, site speed has become <strong>the most cost-effective lever for increasing ecommerce revenue</strong>. While most Shopify store owners obsess over traffic and ad spend, the silent killer of conversions is hiding in plain sight: slow page load times.
           </p>
-
           <p className="mb-6">
             Here's why speed optimization deserves your immediate attention:
           </p>
-
           <div className="not-prose bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-8 mb-8">
             <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">The Speed-Revenue Connection (2025 Research)</h3>
-
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center">
@@ -115,7 +98,6 @@ export default function ShopifySpeedOptimizationPage() {
                   </p>
                 </div>
               </div>
-
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                   <span className="text-2xl">📈</span>
@@ -127,7 +109,6 @@ export default function ShopifySpeedOptimizationPage() {
                   </p>
                 </div>
               </div>
-
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
                   <span className="text-2xl">⏱️</span>
@@ -139,7 +120,6 @@ export default function ShopifySpeedOptimizationPage() {
                   </p>
                 </div>
               </div>
-
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900 flex items-center justify-center">
                   <span className="text-2xl">🔍</span>
@@ -153,7 +133,6 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
           </div>
-
           <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 p-6 mb-8">
             <p className="text-sm font-semibold text-yellow-900 dark:text-yellow-200 mb-2">📊 Real-World Example (December 2025)</p>
             <p className="text-sm text-yellow-800 dark:text-yellow-300">
@@ -161,21 +140,17 @@ export default function ShopifySpeedOptimizationPage() {
             </p>
           </div>
         </section>
-
         {/* Section 2 */}
         <section id="conversion-impact" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">The Shocking Conversion Impact of Page Speed (December 2025 Data)</h2>
-
           <p className="text-lg leading-relaxed mb-6">
             Let's look at the precise numbers that should make speed optimization your #1 priority:
           </p>
-
           <div className="not-prose bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800 rounded-xl overflow-hidden mb-8">
             <div className="p-6 bg-gradient-to-r from-blue-600 to-purple-600">
               <h3 className="text-xl font-bold text-white mb-2">Page Load Time vs Conversion Rate (2025 Ecommerce Data)</h3>
               <p className="text-sm text-blue-100">Based on analysis of 93,000+ ecommerce transactions</p>
             </div>
-
             <div className="p-6">
               <table className="w-full text-sm">
                 <thead className="bg-gray-100 dark:bg-gray-800">
@@ -210,13 +185,10 @@ export default function ShopifySpeedOptimizationPage() {
               </table>
             </div>
           </div>
-
           <h3 className="text-2xl font-bold mb-4 mt-8">Micro-Delays Have Macro Impact</h3>
-
           <p className="mb-6">
             Even tiny delays compound into massive revenue loss:
           </p>
-
           <div className="not-prose grid md:grid-cols-2 gap-6 mb-8">
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
@@ -233,7 +205,6 @@ export default function ShopifySpeedOptimizationPage() {
                 For a $50k/month store: <strong>-$3,500/month</strong>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-3xl">🐌</div>
@@ -249,7 +220,6 @@ export default function ShopifySpeedOptimizationPage() {
                 For a $50k/month store: <strong>-$10,000/month</strong>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-3xl">📊</div>
@@ -265,7 +235,6 @@ export default function ShopifySpeedOptimizationPage() {
                 For a $50k/month store: <strong>+$1,750/month</strong>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="text-3xl">🚀</div>
@@ -282,7 +251,6 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
           </div>
-
           <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-6 mb-8">
             <p className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Key Takeaway</p>
             <p className="text-sm text-blue-800 dark:text-blue-300">
@@ -290,17 +258,13 @@ export default function ShopifySpeedOptimizationPage() {
             </p>
           </div>
         </section>
-
         {/* Section 3 */}
         <section id="google-ranking" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">Page Speed as a Google Ranking Factor in 2026</h2>
-
           <p className="text-lg leading-relaxed mb-6">
             Since Google's 2018 Speed Update, page speed has been a <strong>confirmed ranking factor</strong> for both desktop and mobile searches. In 2026, with mobile-first indexing standard across all sites, speed matters more than ever for SEO.
           </p>
-
           <h3 className="text-2xl font-bold mb-4 mt-8">How Google Measures and Uses Speed</h3>
-
           <div className="not-prose bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 mb-8">
             <ol className="space-y-4">
               <li className="flex gap-4">
@@ -341,9 +305,7 @@ export default function ShopifySpeedOptimizationPage() {
               </li>
             </ol>
           </div>
-
           <h3 className="text-2xl font-bold mb-4 mt-8">The Speed-SEO Connection in 2026</h3>
-
           <ul className="space-y-4 mb-6">
             <li className="flex items-start gap-3">
               <span className="text-green-500 font-bold mt-1">✓</span>
@@ -370,7 +332,6 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </li>
           </ul>
-
           <div className="bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-500 p-6 mb-8">
             <p className="text-sm font-semibold text-purple-900 dark:text-purple-200 mb-2">🎯 Strategic Insight</p>
             <p className="text-sm text-purple-800 dark:text-purple-300">
@@ -378,18 +339,14 @@ export default function ShopifySpeedOptimizationPage() {
             </p>
           </div>
         </section>
-
         {/* Section 4 */}
         <section id="benchmarks" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">Shopify Speed Benchmarks: Where Does Your Store Stand?</h2>
-
           <p className="text-lg leading-relaxed mb-6">
             Understanding industry benchmarks helps you set realistic speed targets. Here's where Shopify stores stand in December 2025:
           </p>
-
           <div className="not-prose bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950/30 dark:to-blue-950/30 border border-green-200 dark:border-green-800 rounded-xl p-8 mb-8">
             <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">Shopify Performance Tiers (2025 Data)</h3>
-
             <div className="space-y-6">
               <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border-2 border-green-500">
                 <div className="flex items-center gap-3 mb-4">
@@ -414,7 +371,6 @@ export default function ShopifySpeedOptimizationPage() {
                   </div>
                 </div>
               </div>
-
               <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-300 dark:border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="text-3xl">📊</div>
@@ -438,7 +394,6 @@ export default function ShopifySpeedOptimizationPage() {
                   </div>
                 </div>
               </div>
-
               <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border-2 border-red-500">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="text-3xl">⚠️</div>
@@ -464,9 +419,7 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
           </div>
-
           <h3 className="text-2xl font-bold mb-4 mt-8">Industry-Wide Benchmarks (December 2025)</h3>
-
           <div className="not-prose grid md:grid-cols-2 gap-6 mb-8">
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <h4 className="font-bold mb-3 text-gray-900 dark:text-gray-100">Global Average</h4>
@@ -481,7 +434,6 @@ export default function ShopifySpeedOptimizationPage() {
                 </div>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <h4 className="font-bold mb-3 text-gray-900 dark:text-gray-100">US Retail (Ecommerce)</h4>
               <div className="space-y-2 text-sm">
@@ -494,7 +446,6 @@ export default function ShopifySpeedOptimizationPage() {
                 </div>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <h4 className="font-bold mb-3 text-gray-900 dark:text-gray-100">Google's Recommendation</h4>
               <div className="space-y-2 text-sm">
@@ -507,7 +458,6 @@ export default function ShopifySpeedOptimizationPage() {
                 </div>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <h4 className="font-bold mb-3 text-gray-900 dark:text-gray-100">User Expectation</h4>
               <div className="space-y-2 text-sm">
@@ -521,7 +471,6 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
           </div>
-
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 mb-8">
             <p className="text-sm font-semibold text-red-900 dark:text-red-200 mb-2">⚠️ The US Retail Problem</p>
             <p className="text-sm text-red-800 dark:text-red-300">
@@ -529,15 +478,12 @@ export default function ShopifySpeedOptimizationPage() {
             </p>
           </div>
         </section>
-
         {/* Section 5 - Testing Tools */}
         <section id="testing" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">How to Test Your Current Shopify Speed (3 Essential Tools)</h2>
-
           <p className="text-lg leading-relaxed mb-6">
             Before optimizing, you need to know where you stand. Use these three tools to get a complete picture of your store's performance:
           </p>
-
           <div className="space-y-6 mb-8">
             <div className="bg-white dark:bg-gray-900 border-2 border-blue-500 rounded-lg p-6">
               <div className="flex items-center gap-4 mb-4">
@@ -563,7 +509,6 @@ export default function ShopifySpeedOptimizationPage() {
                 </ol>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border-2 border-purple-500 rounded-lg p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-purple-600 flex items-center justify-center text-white font-bold text-xl">2</div>
@@ -587,7 +532,6 @@ export default function ShopifySpeedOptimizationPage() {
                 </ol>
               </div>
             </div>
-
             <div className="bg-white dark:bg-gray-900 border-2 border-cyan-500 rounded-lg p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-lg bg-cyan-600 flex items-center justify-center text-white font-bold text-xl">3</div>
@@ -611,7 +555,6 @@ export default function ShopifySpeedOptimizationPage() {
               </div>
             </div>
           </div>
-
           <div className="bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 p-6 mb-8">
             <p className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-2">💡 Pro Tip: Test Multiple Pages</p>
             <p className="text-sm text-blue-800 dark:text-blue-300">
@@ -619,15 +562,12 @@ export default function ShopifySpeedOptimizationPage() {
             </p>
           </div>
         </section>
-
         {/* Section 6 - Optimization Techniques (truncated for length - would continue with all 15 techniques) */}
         <section id="optimization" className="mb-16">
           <h2 className="text-3xl font-bold mb-6">15 Proven Shopify Speed Optimization Techniques</h2>
-
           <p className="text-lg leading-relaxed mb-8">
             Here are the most impactful optimization techniques, ranked by ease of implementation and performance impact:
           </p>
-
           <div className="space-y-6 mb-8">
             {/* Technique 1 */}
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
@@ -641,11 +581,9 @@ export default function ShopifySpeedOptimizationPage() {
                   </div>
                 </div>
               </div>
-
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
                 Images account for 60-70% of total page weight. Optimizing them is the single fastest way to improve load times.
               </p>
-
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-4">
                 <strong className="text-sm text-gray-900 dark:text-gray-100 block mb-2">Implementation Steps:</strong>
                 <ul className="text-sm space-y-2 text-gray-700 dark:text-gray-300">
@@ -657,12 +595,10 @@ export default function ShopifySpeedOptimizationPage() {
                   <li>• Use responsive images (srcset) to serve different sizes per device</li>
                 </ul>
               </div>
-
               <div className="bg-green-50 dark:bg-green-950/30 rounded p-3 text-sm">
                 <strong className="text-green-900 dark:text-green-200">Expected Impact:</strong> 1-2 second LCP improvement, 15-30% faster page load
               </div>
             </div>
-
             {/* Technique 2 */}
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-start gap-4 mb-4">
@@ -675,11 +611,9 @@ export default function ShopifySpeedOptimizationPage() {
                   </div>
                 </div>
               </div>
-
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
                 Every Shopify app adds JavaScript and CSS to your store--even inactive apps often leave code behind that slows down your site.
               </p>
-
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-4">
                 <strong className="text-sm text-gray-900 dark:text-gray-100 block mb-2">Implementation Steps:</strong>
                 <ul className="text-sm space-y-2 text-gray-700 dark:text-gray-300">
@@ -690,12 +624,10 @@ export default function ShopifySpeedOptimizationPage() {
                   <li>• Choose lightweight alternatives for essential apps</li>
                 </ul>
               </div>
-
               <div className="bg-green-50 dark:bg-green-950/30 rounded p-3 text-sm">
                 <strong className="text-green-900 dark:text-green-200">Expected Impact:</strong> 0.5-1.5 second improvement per removed app
               </div>
             </div>
-
             {/* Technique 3 */}
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
               <div className="flex items-start gap-4 mb-4">
@@ -708,20 +640,16 @@ export default function ShopifySpeedOptimizationPage() {
                   </div>
                 </div>
               </div>
-
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
                 Shopify automatically provides a world-class CDN (Fastly) at no additional charge, ensuring fast global performance. Browser caching stores static files locally for faster repeat visits.
               </p>
-
               <div className="bg-blue-50 dark:bg-blue-950/30 rounded p-3 text-sm mb-4">
                 <strong className="text-blue-900 dark:text-blue-200">Good News:</strong> Shopify handles CDN and basic caching automatically. For enhanced caching, use apps like "Rocket Page Speed Optimizer."
               </div>
-
               <div className="bg-green-50 dark:bg-green-950/30 rounded p-3 text-sm">
                 <strong className="text-green-900 dark:text-green-200">Expected Impact:</strong> 40-60% faster load times for returning visitors
               </div>
             </div>
-
             {/* Condensed list of remaining techniques */}
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
               <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-100">Additional High-Impact Techniques:</h3>
@@ -766,7 +694,6 @@ export default function ShopifySpeedOptimizationPage() {
             </div>
           </div>
         </section>
-
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-center text-white mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -775,7 +702,6 @@ export default function ShopifySpeedOptimizationPage() {
           <p className="text-xl mb-8 text-blue-100">
             SEOLOGY.AI automatically optimizes your Shopify store's speed 24/7--no manual work required
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <Link
               href="/signup"
@@ -790,7 +716,6 @@ export default function ShopifySpeedOptimizationPage() {
               See Speed Improvements Live
             </Link>
           </div>
-
           <div className="flex items-center justify-center gap-8 text-sm text-blue-100">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path></svg>
@@ -805,12 +730,10 @@ export default function ShopifySpeedOptimizationPage() {
               <span>Setup in 2 minutes</span>
             </div>
           </div>
-
           <p className="text-sm text-blue-200 mt-6">
             ⚡ <strong>December 2025 Special:</strong> First 100 signups get free Core Web Vitals audit ($499 value) + 50% off for 3 months
           </p>
         </div>
-
         {/* Author Bio */}
         <div className="border-t border-gray-200 dark:border-gray-700 pt-8 mt-16">
           <div className="flex gap-6">

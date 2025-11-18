@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: "Competitor SEO Analysis: 18 Tactics to Steal Your Competitors\' Rankings",
   description: 'Reverse-engineer competitor strategies to find keyword gaps, backlink opportunities, and content weaknesses. This framework increased rankings by 340%.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'competitor-seo-analysis-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,11 +20,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Competitor SEO Analysis</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Competitor SEO Analysis: 18 Tactics to Steal Your Competitors\' Rankings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
@@ -31,11 +30,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>15 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Reverse-engineer competitor strategies to find keyword gaps, backlink opportunities, and content weaknesses. This framework increased rankings by 340%.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -80,19 +76,15 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Competitor Analysis Beats Guessing</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Most SEO strategies fail because they\'re built on assumptions.</strong> You guess which keywords to target. You guess what content to create. You guess which backlinks to pursue.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Competitor analysis eliminates guessing.</strong> Instead of wondering what works, you analyze what\'s already working for sites ranking above you. You find proven keywords. Proven content formats. Proven link sources.
                 </p>
-
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                   <h3 className="text-xl font-bold mb-4">The Competitive SEO Advantage</h3>
                   <div className="grid md:grid-cols-2 gap-6">
@@ -116,19 +108,15 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>The data backs this up:</strong> Sites that conduct systematic competitor analysis see 3.4x faster ranking improvements than sites that don\'t (Ahrefs study of 15,000 domains).
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> Your competitors have already done the hard work of testing what works. Reverse-engineer their strategies, identify their weaknesses, and outrank them systematically.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">18 Competitor SEO Analysis Tactics</h2>
-
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl mb-8">
                   <h3 className="text-xl font-bold mb-3">These tactics are organized by category:</h3>
                   <ul className="space-y-2 text-slate-700">
@@ -138,9 +126,7 @@ export default function BlogPost() {
                     <li>• <strong>Tactics 14-18:</strong> Content & Technical Analysis</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-8">Identifying & Understanding Competitors (Tactics 1-4)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-blue-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">1. Identify Your True SEO Competitors</h4>
@@ -160,7 +146,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> A SaaS company selling project management software might compete SEO-wise with blog sites, freelance marketplaces, and niche tools--not just other SaaS companies.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-purple-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">2. Analyze Competitor Domain Authority</h4>
                     <p className="text-slate-700 mb-4">
@@ -179,7 +164,6 @@ export default function BlogPost() {
                       <strong>Strategy tip:</strong> If competitors are DR 70+ and you\'re DR 30, don\'t target their top keywords. Find keyword gaps where they don\'t rank.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-green-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">3. Calculate Competitor Organic Traffic</h4>
                     <p className="text-slate-700 mb-4">
@@ -193,7 +177,6 @@ export default function BlogPost() {
                       <strong>What to look for:</strong> Competitors with high traffic (100K+ monthly visits) but low DR (under 40) likely have excellent content strategies to replicate.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-orange-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">4. Study Competitor Traffic Trends</h4>
                     <p className="text-slate-700 mb-4">
@@ -210,9 +193,7 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Keyword Gap Analysis (Tactics 5-9)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-red-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">5. Run Keyword Gap Analysis in Ahrefs</h4>
@@ -232,7 +213,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Typically 200-500 keyword opportunities competitors rank for but you don\'t. Prioritize by search volume and difficulty.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-indigo-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">6. Find Low-Difficulty Keyword Gaps</h4>
                     <p className="text-slate-700 mb-4">
@@ -251,7 +231,6 @@ export default function BlogPost() {
                       <strong>Strategy:</strong> Create content targeting 10-20 low-difficulty gaps first for quick traffic wins. Build momentum before tackling harder keywords.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-pink-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">7. Analyze Competitor Keyword Clusters</h4>
                     <p className="text-slate-700 mb-4">
@@ -269,7 +248,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-3"><strong>Action:</strong> Create a content hub covering ALL "email marketing" cluster keywords to build topical authority.</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-teal-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">8. Study Competitor Featured Snippet Keywords</h4>
                     <p className="text-slate-700 mb-4">
@@ -283,7 +261,6 @@ export default function BlogPost() {
                       <strong>Steal strategy:</strong> Analyze their snippet format (paragraph, list, table). Create content that answers the same query more concisely in the same format.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-yellow-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">9. Identify Competitor Keyword Decline</h4>
                     <p className="text-slate-700 mb-4">
@@ -298,9 +275,7 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Backlink Gap Analysis (Tactics 10-13)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-cyan-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">10. Find Sites Linking to Multiple Competitors</h4>
@@ -320,7 +295,6 @@ export default function BlogPost() {
                       <strong>Success rate:</strong> 58% of link intersect targets will link to you with proper outreach (Backlinko study).
                     </p>
                   </div>
-
                   <div className="border-l-4 border-lime-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">11. Analyze Competitor\'s Best Backlinks</h4>
                     <p className="text-slate-700 mb-4">
@@ -339,7 +313,6 @@ export default function BlogPost() {
                       <strong>Outreach strategy:</strong> Analyze why the site linked to your competitor. Offer something better (more data, newer info, different angle).
                     </p>
                   </div>
-
                   <div className="border-l-4 border-emerald-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">12. Study Competitor Link Building Tactics</h4>
                     <p className="text-slate-700 mb-4">
@@ -359,7 +332,6 @@ export default function BlogPost() {
                       <strong>Replicate:</strong> Identify which tactic works best for them (most links) and use the same approach.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-violet-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">13. Find Competitor\'s New Backlinks</h4>
                     <p className="text-slate-700 mb-4">
@@ -374,9 +346,7 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Content & Technical Analysis (Tactics 14-18)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-fuchsia-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">14. Analyze Top-Performing Competitor Pages</h4>
@@ -397,7 +367,6 @@ export default function BlogPost() {
                       <strong>Create better:</strong> Match their successful format but add unique data, deeper research, or better visuals.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-rose-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">15. Conduct Content Gap Analysis</h4>
                     <p className="text-slate-700 mb-4">
@@ -416,7 +385,6 @@ export default function BlogPost() {
                       <strong>Priority:</strong> Topics where 2+ competitors have high-traffic pages but you have nothing.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-amber-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">16. Compare Technical SEO Foundations</h4>
                     <p className="text-slate-700 mb-4">
@@ -436,7 +404,6 @@ export default function BlogPost() {
                       <strong>Opportunity:</strong> If competitors are slow ({'>'}4s load time) or missing schema, you can outrank them with technical optimization alone.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-sky-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">17. Analyze Competitor Site Architecture</h4>
                     <p className="text-slate-700 mb-4">
@@ -455,7 +422,6 @@ export default function BlogPost() {
                       <strong>Copy best practices:</strong> If a competitor with DR 10 points higher uses hub-and-spoke, implement the same structure.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-stone-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">18. Monitor Competitor Content Updates</h4>
                     <p className="text-slate-700 mb-4">
@@ -475,7 +441,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Competitor Analysis Mistakes</h2>
                 <div className="space-y-6">
@@ -485,28 +450,24 @@ export default function BlogPost() {
                       Don\'t create identical content. Analyze their approach, then create something 10x better with more depth, unique data, or a different angle.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Analyzing Only Business Competitors</h3>
                     <p className="text-slate-700">
                       Your direct business competitors may not be your SEO competitors. Analyze whoever ranks for your keywords, even if they\'re in different industries.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Targeting Unrealistic Keywords</h3>
                     <p className="text-slate-700">
                       If you\'re DR 20 and competitors are DR 70+, don\'t target their exact keywords. Find keyword gaps and long-tail variations you can actually rank for.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ One-Time Analysis</h3>
                     <p className="text-slate-700">
                       Competitor analysis isn\'t a one-and-done task. Run monthly keyword gap and backlink gap analyses to catch new opportunities as competitors evolve.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Ignoring Smaller Competitors</h3>
                     <p className="text-slate-700">
@@ -515,13 +476,10 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company Competitive Analysis</h2>
-
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border-2 border-blue-200 my-8">
                   <h3 className="text-2xl font-bold mb-4">Case Study: Email Marketing Software Startup</h3>
-
                   <div className="space-y-4 mb-6">
                     <p className="text-slate-700">
                       <strong>Company:</strong> New email marketing SaaS competing against Mailchimp, ConvertKit, ActiveCampaign
@@ -533,7 +491,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Systematic competitive analysis to find winnable opportunities
                     </p>
                   </div>
-
                   <div className="bg-white p-6 rounded-lg mb-6">
                     <h4 className="font-bold text-lg mb-3">Analysis & Execution:</h4>
                     <ul className="space-y-2 text-slate-700">
@@ -559,7 +516,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-2 border-green-500 p-6 rounded-lg">
                     <h4 className="font-bold text-xl text-green-900 mb-4">Results After 8 Months:</h4>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -581,20 +537,16 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <p className="text-slate-700 mt-6 italic">
                     "We couldn\'t compete head-to-head with Mailchimp. But competitive analysis revealed 380 keywords they ignored--mostly long-tail "how to" searches. We dominated those gaps and now own an entire category of search traffic they overlooked." -- James L., Head of Growth
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Competitor Analysis</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Manual competitor analysis requires multiple expensive tools (Ahrefs, SEMrush) and hours of research. SEOLOGY automates the entire process.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-2 border-blue-300 mb-8">
                   <h3 className="text-2xl font-bold mb-6">What SEOLOGY Does Automatically:</h3>
                   <div className="space-y-4">
@@ -635,7 +587,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Competitive SEO Analysis</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -650,10 +601,8 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Should You Do Competitor Analysis?</h2>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-6">
                   <p className="text-lg text-slate-700 leading-relaxed mb-4">
                     <strong>Essential for every SEO strategy.</strong> Competitor analysis eliminates guesswork and reveals proven opportunities:
@@ -665,20 +614,16 @@ export default function BlogPost() {
                     <li>• Sites using competitive analysis see 3.4x faster ranking improvements</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Start simple:</strong> Pick 2-3 competitors who rank for your most important keywords. Run keyword gap and backlink gap analysis in Ahrefs. Target the low-hanging fruit first (KD {'<'}30 keywords, high-DR link prospects).
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Make it ongoing:</strong> Competitive analysis isn\'t one-time. Run monthly keyword gap analyses to catch new opportunities. Monitor competitor backlinks weekly to find fresh link prospects.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> Your competitors have already done the hard work of testing what works in your niche. Competitive analysis lets you learn from their successes (and failures) without spending years testing yourself. It\'s the fastest path to SEO growth.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Competitive SEO Guides:</h2>
                 <div className="grid md:grid-cols-2 gap-4">

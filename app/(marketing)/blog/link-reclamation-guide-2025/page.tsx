@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, BarChart, Bell, CheckCircle2, Eye, Mail, RefreshCw, Search, Unlink } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Link Reclamation: Recover Lost Backlinks & Boost Authority',
   description: "You\'re losing valuable backlinks every month. This guide shows how to reclaim broken, lost, and stolen links.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['broken-link-building-tactics', 'link-building-strategies-2025', 'toxic-backlink-removal-guide', 'anchor-text-optimization-strategy'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,11 +22,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Link Reclamation Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Link Reclamation: Recover Lost Backlinks & Boost Authority
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
@@ -33,11 +32,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>16 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             You're losing valuable backlinks every month. This proven guide shows how to <strong className="text-white">reclaim broken, lost, and stolen links</strong>--and recover the authority you've already earned.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -49,7 +46,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -62,17 +58,15 @@ export default function BlogPost() {
                 <strong>Why it works:</strong> You've already earned these links once. Getting them back is 10x easier than building new links from scratch.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                  <Link2Off className="w-8 h-8 text-blue-600" />
+                  <Unlink className="w-8 h-8 text-blue-600" />
                   What Is Link Reclamation? (And Why It Matters)
                 </h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Link reclamation is the process of <strong>finding and recovering backlinks you've lost</strong>. Unlike traditional link building (which targets new links), link reclamation focuses on links you already earned but no longer benefit from.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Why You\'re Losing Backlinks</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -100,14 +94,12 @@ export default function BlogPost() {
                     <span><strong>Image theft:</strong> Sites use your images without attribution</span>
                   </li>
                 </ul>
-
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>The shocking truth:</strong> A study of 10,000 websites found that sites lose an average of <strong>9.1% of their backlinks every 6 months</strong>. That\'s nearly 20% per year--and most site owners never notice.
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Search className="w-8 h-8 text-blue-600" />
@@ -116,7 +108,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   You can\'t reclaim what you can\'t find. Here\'s how to uncover every lost backlink opportunity:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 1: Google Search Console</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Google Search Console shows links pointing to broken pages on your site:
@@ -132,7 +123,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Pro tip:</strong> Sort by "Linking sites" to prioritize high-authority domains.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 2: Ahrefs Lost Backlinks Report</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Ahrefs tracks every backlink change and shows exactly which links you\'ve lost:
@@ -149,7 +139,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>What to look for:</strong> Links that disappeared in the last 90 days from DR 40+ domains--these are high-priority recovery targets.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 3: SEMrush Backlink Audit</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   SEMrush\'s Backlink Analytics shows lost links and provides reclamation insights:
@@ -172,7 +161,6 @@ export default function BlogPost() {
                     <span><strong>Compare with competitors:</strong> See if competitors lost the same links</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 4: Crawl Your Own Site for Broken Pages</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Use Screaming Frog or Sitebulb to find pages returning 404/410 errors that have backlinks:
@@ -185,7 +173,6 @@ export default function BlogPost() {
                     <li><strong>4.</strong> Cross-reference with GSC or Ahrefs to see which have inbound links</li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Method 5: Monitor Competitor Lost Links</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Your competitors are losing links too. Steal them:
@@ -205,7 +192,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Eye className="w-8 h-8 text-blue-600" />
@@ -214,7 +200,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Unlinked brand mentions are mentions of your brand, product, or content without a hyperlink--easy link reclamation wins.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Finding Unlinked Mentions</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -229,7 +214,6 @@ export default function BlogPost() {
                       <strong>Export:</strong> Download list with referring domain, URL, and author info
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Tool 2: Google Alerts</h4>
                     <p className="text-slate-700 mb-3">
@@ -242,7 +226,6 @@ export default function BlogPost() {
                       <strong>Action:</strong> Check each mention to see if it includes a link--if not, reach out immediately
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Tool 3: Brand24 or Mention.com</h4>
                     <p className="text-slate-700 mb-3">
@@ -255,7 +238,6 @@ export default function BlogPost() {
                       <strong>Filter:</strong> Sort by "sentiment" and "reach" to prioritize high-authority mentions
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Tool 4: BuzzSumo Monitoring</h4>
                     <p className="text-slate-700 mb-3">
@@ -269,7 +251,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Automated Brand Mention Tracking</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Set up a monitoring workflow to catch mentions automatically:
@@ -293,7 +274,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <RefreshCw className="w-8 h-8 text-blue-600" />
@@ -302,7 +282,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   If your pages return 404 errors but still have backlinks, those links are wasted. Fix them:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Strategy 1: 301 Redirects</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
@@ -318,7 +297,6 @@ export default function BlogPost() {
                     <strong>Implementation:</strong> Add redirects to .htaccess (Apache), nginx.conf (Nginx), or via plugin (WordPress)
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Strategy 2: Restore the Content</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   If the broken page had unique, valuable content that doesn\'t exist elsewhere:
@@ -341,7 +319,6 @@ export default function BlogPost() {
                     <span><strong>Notify linkers:</strong> Email sites linking to the page that it\'s been restored and improved</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Strategy 3: Create New Content for the URL</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   If the old content is no longer relevant, create fresh content at the same URL:
@@ -361,7 +338,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Mail className="w-8 h-8 text-blue-600" />
@@ -370,7 +346,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Once you\'ve found lost links and unlinked mentions, you need to reach out. Here are proven email templates:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Template 1: Unlinked Brand Mention</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200 font-mono text-sm">
                   <p className="text-slate-700 mb-4">
@@ -392,7 +367,6 @@ export default function BlogPost() {
                     Best,<br />[Your Name]
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Template 2: Broken Link on Their Site</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200 font-mono text-sm">
                   <p className="text-slate-700 mb-4">
@@ -417,7 +391,6 @@ export default function BlogPost() {
                     Thanks!<br />[Your Name]
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Template 3: Lost Backlink (Site Removed Your Link)</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200 font-mono text-sm">
                   <p className="text-slate-700 mb-4">
@@ -439,7 +412,6 @@ export default function BlogPost() {
                     Let me know!<br />[Your Name]
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Template 4: Image Used Without Attribution</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200 font-mono text-sm">
                   <p className="text-slate-700 mb-4">
@@ -461,7 +433,6 @@ export default function BlogPost() {
                     Thanks so much!<br />[Your Name]
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Outreach Best Practices</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -486,7 +457,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <BarChart className="w-8 h-8 text-blue-600" />
@@ -495,7 +465,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   You need to track which link reclamation efforts work and measure the SEO impact:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tracking Spreadsheet Setup</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
@@ -513,7 +482,6 @@ export default function BlogPost() {
                     <li>• <strong>Notes:</strong> Any special context or next steps</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Success Metrics to Track</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -537,7 +505,6 @@ export default function BlogPost() {
                     <span><strong>Ranking improvements:</strong> Track keyword rankings for pages with reclaimed links</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Monthly Link Reclamation Review</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Set up a monthly process to stay on top of link losses:
@@ -553,13 +520,11 @@ export default function BlogPost() {
                   </ol>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Bell className="w-8 h-8 text-blue-600" />
                   Advanced Link Reclamation Tactics
                 </h2>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 1: Reclaim Competitor Mentions</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-3">
@@ -575,7 +540,6 @@ export default function BlogPost() {
                     <strong>Success rate:</strong> Lower than pure reclamation (5-10%) but still valuable
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 2: Resource Page Link Reclamation</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Resource pages often link to outdated or broken resources--replace them with yours:
@@ -594,7 +558,6 @@ export default function BlogPost() {
                     <span><strong>Outreach:</strong> Point out broken link + suggest your resource as replacement</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 3: Reclaim Links from Domain Changes</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-3">
@@ -610,7 +573,6 @@ export default function BlogPost() {
                     <strong>Priority:</strong> High-authority links first (DR 50+)--these are worth the manual effort
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 4: Reclaim Links from Content Refreshes</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   When you significantly update content, email sites that linked to the old version:
@@ -629,7 +591,6 @@ export default function BlogPost() {
                     <span><strong>Benefit:</strong> Often prompts sites to update their article and re-share your content</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tactic 5: Automated Link Monitoring</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-3">
@@ -646,7 +607,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Link Reclamation Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -656,28 +616,24 @@ export default function BlogPost() {
                       <strong>Problem:</strong> Sending template emails without personalization gets ignored. <strong>Solution:</strong> Reference specific content from their article, compliment something specific, and show you actually read it.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Chasing Low-Value Links</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Spending hours reclaiming DR 10 links with no traffic. <strong>Solution:</strong> Focus on DR 40+ sites with actual organic traffic--these move the needle.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: No Follow-up</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Sending one email and giving up--people are busy and emails get buried. <strong>Solution:</strong> Always send one polite follow-up 5-7 days after initial email. Increases success rate by 40%.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Ignoring 301 Redirects</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Leaving broken pages as 404s when you could redirect them. <strong>Solution:</strong> Always set up 301 redirects for broken pages with backlinks--captures 90-95% of link equity automatically.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Not Tracking Results</h4>
                     <p className="text-slate-700">
@@ -686,7 +642,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Link Reclamation</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -718,7 +673,6 @@ export default function BlogPost() {
                     <span>Prioritizes high-authority link recovery opportunities (DR 40+)</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Recover Your Lost Backlinks Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -733,7 +687,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Link Building Guides:</h2>
                 <ul className="space-y-2">
@@ -743,7 +696,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/anchor-text-optimization-strategy" className="text-blue-600 hover:text-blue-800">Anchor Text Optimization Strategy</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #LinkReclamation #LinkBuilding #Backlinks #SEO #BrokenLinks #UnlinkedMentions #LinkMonitoring
@@ -753,7 +705,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Link Building Guides</h2>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Content Pruning Strategy: 17 Tactics to Delete Old Content & Boost Rankings',
   description: 'Content pruning increased organic traffic 73% in 60 days by deleting 35% of pages. This complete guide shows when to delete, update, or consolidate outdated content with proven criteria and case studies.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'content-pruning-strategy-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Content Pruning Strategy</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Content Pruning Strategy: 17 Tactics to Delete Old Content & Boost Rankings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>August 3, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Content pruning increased organic traffic 73% in 60 days by deleting 35% of pages. This complete guide shows when to delete, update, or consolidate outdated content with proven criteria and case studies.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700">SEOLOGY automates content pruning: identifies low-quality pages, recommends delete/update/consolidate actions, and executes changes automatically</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Content Pruning Dramatically Boosts Rankings</h2>
@@ -97,13 +92,10 @@ export default function BlogPost() {
                   <p className="text-slate-700">HubSpot pruned 3,000+ blog posts (35% of their content) and saw organic traffic increase <strong>73% over 60 days</strong>. Their remaining content ranked 3.8 positions higher on average.</p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">17 Content Pruning Tactics (Organized by Category)</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Identifying Content to Prune (Tactics 1-6)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">1. Use the "No Value" Criteria (Traffic + Backlinks + Age)</h4>
@@ -117,7 +109,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">SEMrush recommendation based on analysis of 50,000+ successful pruning projects</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">2. Identify Keyword Cannibalization Clusters</h4>
                       <p className="text-slate-700 mb-2">
@@ -130,7 +121,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">Result: Consolidated pages rank 2.8 positions higher on average (Ahrefs)</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">3. Flag "Thin Content" Pages (&lt;300 Words)</h4>
                       <p className="text-slate-700 mb-2">
@@ -138,7 +128,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-600 mt-2 italic">Google\'s John Mueller: "Thin content can affect your entire site\'s rankings, not just individual pages"</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">4. Audit Pages with High Bounce Rate + Short Dwell Time</h4>
                       <p className="text-slate-700 mb-2">
@@ -151,7 +140,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">These behavioral signals tell Google the content isn\'t satisfying user intent.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">5. Find Outdated Content with Date-Specific Keywords</h4>
                       <p className="text-slate-700 mb-2">
@@ -164,7 +152,6 @@ export default function BlogPost() {
                       </div>
                       <p className="text-slate-700">These pages signal to Google that your content is outdated. Either update them with current year + fresh content, or delete them.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">6. Identify Duplicate or Near-Duplicate Content</h4>
                       <p className="text-slate-700 mb-2">
@@ -174,10 +161,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Making the Delete vs Update vs Consolidate Decision (Tactics 7-11)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">7. Delete: Pages with Zero Strategic Value</h4>
@@ -193,7 +178,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">Use 410 status code (Gone) instead of 404--signals intentional removal to Google</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">8. Update: Pages with Existing Authority But Outdated Content</h4>
                       <p className="text-slate-700 mb-2">
@@ -207,7 +191,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2"><strong>Update process:</strong> Rewrite with current year in title, add 500+ words of fresh content, update statistics, add new images, improve formatting.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">9. Consolidate: Multiple Weak Pages into One Strong Page</h4>
                       <p className="text-slate-700 mb-2">
@@ -221,7 +204,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Process:</strong> Create new comprehensive page combining best content from all pages, 301 redirect old pages to new consolidated URL.</p>
                       <p className="text-slate-600 mt-2 italic">Backlinko increased organic traffic 35% by consolidating 17 short posts into 4 comprehensive guides</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">10. Preserve: Pages with Strong Backlink Profiles (Even if Low Traffic)</h4>
                       <p className="text-slate-700 mb-2">
@@ -234,7 +216,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Refresh the content to improve relevance, but preserve the URL to maintain backlink value.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">11. Redirect: Pages with Traffic from Non-Organic Sources</h4>
                       <p className="text-slate-700 mb-2">
@@ -244,10 +225,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Executing the Pruning Process Safely (Tactics 12-17)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">12. Export Complete Data Before Deleting Anything</h4>
@@ -262,7 +241,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">This data lets you roll back decisions if traffic unexpectedly drops.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">13. Start with a Small Test Batch (10-20 Pages)</h4>
                       <p className="text-slate-700 mb-2">
@@ -276,7 +254,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">If results are positive (or neutral), proceed with larger batches. If traffic drops, analyze what went wrong.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">14. Use 301 Redirects for Pages with Backlinks or Traffic</h4>
                       <p className="text-slate-700 mb-2">
@@ -290,7 +267,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2">Set up 301 redirects to the most relevant existing page. This preserves link equity and user experience.</p>
                       <p className="text-slate-600 mt-2 italic"><strong>Never redirect to homepage</strong>--redirect to the closest topically-relevant page</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">15. Update Your XML Sitemap and Internal Links</h4>
                       <p className="text-slate-700 mb-2">
@@ -304,7 +280,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Broken internal links hurt user experience and waste crawl budget.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">16. Monitor Google Search Console for Unexpected 404s</h4>
                       <p className="text-slate-700 mb-2">
@@ -317,7 +292,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Fix any unintended 404s immediately to prevent negative SEO impact.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">17. Track Rankings and Traffic for 90 Days Post-Pruning</h4>
                       <p className="text-slate-700 mb-2">
@@ -335,7 +309,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Content Pruning Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -383,7 +356,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Content Pruning</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-6">
@@ -419,7 +391,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: E-commerce Site Recovers from Google Update with Content Pruning</h2>
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border border-slate-200 my-6">
@@ -466,7 +437,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Content Pruning</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -498,7 +468,6 @@ export default function BlogPost() {
                     <span><strong>90-Day Impact Tracking:</strong> SEOLOGY monitors rankings, traffic, and crawl stats post-pruning, alerting you to any unexpected negative impacts and suggesting rollback if needed</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Content Pruning Strategy</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -513,7 +482,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Content Pruning is Essential for Modern SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -529,7 +497,6 @@ export default function BlogPost() {
                   <strong>Bottom line:</strong> If your site has been publishing content for 3+ years and you\'ve never pruned, you likely have hundreds of pages dragging down your overall site quality. Fix this and watch your best content rise in rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -544,7 +511,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEO #ContentPruning #SEOLOGY #SEOAutomation #ContentStrategy
@@ -554,7 +520,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

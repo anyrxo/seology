@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Entity SEO: 15 Tactics to Dominate Knowledge Graphs & Entity-Based Search',
   description: 'Google shifted from keywords to entities with MUM and BERT. These 15 entity SEO tactics increased knowledge panel impressions 347% and organic traffic 89% in 90 days by helping Google understand your brand as a recognized entity.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'entity-seo-knowledge-graph').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Entity SEO & Knowledge Graphs</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Entity SEO: 15 Tactics to Dominate Knowledge Graphs & Entity-Based Search
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>October 18, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Google shifted from "strings to things" with MUM, BERT, and the Knowledge Graph. Entity SEO is how you tell Google exactly what your brand is--not just what keywords you rank for. These 15 tactics increased knowledge panel impressions 347% and organic traffic 89% in 90 days.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates entity SEO</strong>--adding schema markup, claiming knowledge panels, building entity relationships, and maintaining NAP consistency across the web</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Entity SEO Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -91,15 +86,12 @@ export default function BlogPost() {
                 <strong>The shift:</strong> Google moved from "10 blue links" to entity-rich SERPs. Featured snippets, knowledge panels, People Also Ask, and AI Overviews all rely on entity recognition. If Google doesn\'t understand your brand as an entity, you\'re invisible in these SERP features.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 15 Entity SEO Tactics</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">Category 1: Establishing Your Brand as an Entity</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 These tactics tell Google "we are a legitimate, recognized entity"--the foundation of entity SEO.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #1: Create a Wikipedia Page</h4>
                 <p className="text-slate-700 mb-2">
@@ -115,7 +107,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google often pulls knowledge panel data directly from Wikipedia. A Wikipedia page = instant entity credibility.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #2: Implement Organization Schema Markup</h4>
                 <p className="text-slate-700 mb-2">
@@ -156,7 +147,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google uses this structured data to populate your knowledge panel with accurate information.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #3: Build Consistent NAP Citations</h4>
                 <p className="text-slate-700 mb-2">
@@ -173,7 +163,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Critical:</strong> Use the <strong>exact same</strong> business name, address format, and phone number on every platform. Inconsistencies confuse Google\'s entity recognition.</p>
                 <p className="text-slate-700"><strong>Result:</strong> NAP consistency increased local pack rankings 2.4 positions on average (Whitespark, 2024).</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #4: Claim Your Google Business Profile</h4>
                 <p className="text-slate-700 mb-2">
@@ -189,7 +178,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Complete GBP profiles appear in 3x more local searches (BrightLocal, 2024).</p>
               </div>
-
               <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-indigo-900 mb-2">Tactic #5: Create a Wikidata Entry</h4>
                 <p className="text-slate-700 mb-2">
@@ -205,12 +193,10 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Wikidata entries appear in Google\'s Knowledge Graph API and can trigger knowledge panels even without Wikipedia pages.</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 2: Building Entity Relationships</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Google understands entities by their relationships. These tactics connect your entity to related topics, people, and industries.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #6: Create Dedicated Entity Pages</h4>
                 <p className="text-slate-700 mb-2">
@@ -226,7 +212,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Critical:</strong> Use schema markup on every entity page. This tells Google "this page represents a distinct entity."</p>
                 <p className="text-slate-700"><strong>Result:</strong> Entity pages with schema rank 2.1x higher than pages without schema (Merkle, 2024).</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #7: Use Entity-Rich Anchor Text</h4>
                 <p className="text-slate-700 mb-2">
@@ -237,7 +222,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-2"><strong>Why:</strong> Entity-rich anchor text includes the entity name + descriptive attributes. This reinforces what the entity is.</p>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Entity-rich internal linking increased topical authority scores 31% (Ahrefs, 2024).</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #8: Get Mentioned on Authoritative Sites</h4>
                 <p className="text-slate-700 mb-2">
@@ -254,7 +238,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>How to get mentions:</strong> HARO (Help A Reporter Out), press releases, guest posts on authoritative sites, original research that gets cited.</p>
                 <p className="text-slate-700"><strong>Result:</strong> Brands mentioned on 10+ authoritative sites rank 3.1 positions higher for branded queries (Moz, 2024).</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #9: Structure Content as "Things Not Strings"</h4>
                 <p className="text-slate-700 mb-2">
@@ -265,7 +248,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-2"><strong>Structure:</strong> Entity name + entity type + key attributes + relationships.</p>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Entity-focused content ranks 2.3x higher for semantic queries where Google infers intent (Ahrefs, 2024).</p>
               </div>
-
               <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-indigo-900 mb-2">Tactic #10: Add Breadcrumb Schema</h4>
                 <p className="text-slate-700 mb-2">
@@ -302,12 +284,10 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Breadcrumbs appear in SERPs and help Google understand site structure + entity relationships.</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 3: Demonstrating Topical Authority</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Google identifies entity expertise by analyzing content depth and topical coverage. These tactics establish your entity as an authority.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #11: Build Topic Clusters Around Your Entity</h4>
                 <p className="text-slate-700 mb-2">
@@ -322,7 +302,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Topic clusters increase topical authority scores 56% and organic traffic 74% on average (HubSpot, 2024).</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #12: Get Cited as a Source</h4>
                 <p className="text-slate-700 mb-2">
@@ -337,7 +316,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Brands cited 50+ times rank 4.2 positions higher for industry queries (Moz, 2024).</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #13: Build Author Entities</h4>
                 <p className="text-slate-700 mb-2">
@@ -353,12 +331,10 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Content with recognized author entities ranks 1.6 positions higher (Google E-E-A-T study, 2024).</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 4: Monitoring & Maintenance</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Entity SEO requires ongoing monitoring to ensure Google maintains accurate entity data.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #14: Monitor Your Knowledge Graph Status</h4>
                 <p className="text-slate-700 mb-2">
@@ -373,7 +349,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Regular monitoring lets you spot and fix entity data errors quickly.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #15: Maintain Brand Consistency Across Platforms</h4>
                 <p className="text-slate-700 mb-2">
@@ -390,7 +365,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Consistent branding increased entity recognition confidence scores 43% (Kalicube, 2024).</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Entity SEO Mistakes to Avoid</h2>
               <ul className="space-y-4 my-6">
@@ -431,7 +405,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Entity SEO</h2>
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -461,7 +434,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: B2B SaaS Entity SEO Success</h2>
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border border-green-200 my-8">
@@ -469,7 +441,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-4">
                   A B2B SaaS company (similar to SEOLOGY) had strong keyword rankings but no knowledge panel and low branded CTR. They were invisible in entity-based search results.
                 </p>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Solution</h3>
                 <p className="text-slate-700 mb-2"><strong>Phase 1 (Days 1-14): Entity Foundation</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
@@ -478,7 +449,6 @@ export default function BlogPost() {
                   <li>Claimed and optimized Google Business Profile</li>
                   <li>Built NAP citations on 25 industry directories</li>
                 </ul>
-
                 <p className="text-slate-700 mb-2"><strong>Phase 2 (Days 15-45): Entity Relationships</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
                   <li>Created dedicated entity pages for team members (Person schema)</li>
@@ -486,14 +456,12 @@ export default function BlogPost() {
                   <li>Secured press mentions on TechCrunch and Forbes</li>
                   <li>Updated all internal links to use entity-rich anchor text</li>
                 </ul>
-
                 <p className="text-slate-700 mb-2"><strong>Phase 3 (Days 46-90): Authority Building</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
                   <li>Published original research report (cited 37 times in 60 days)</li>
                   <li>Added author entities for all blog contributors</li>
                   <li>Monitored knowledge graph status weekly</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Results (90 Days)</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg border border-green-300">
@@ -513,13 +481,11 @@ export default function BlogPost() {
                     <div className="text-slate-700">Branded query CTR</div>
                   </div>
                 </div>
-
                 <p className="text-slate-700 mt-4">
                   <strong>Key insight:</strong> The knowledge panel appeared on Day 47--once Google had enough entity signals to confidently recognize the brand as a legitimate entity.
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Entity SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -547,7 +513,6 @@ export default function BlogPost() {
                   <span><strong>Citation Building:</strong> Identifies citation opportunities and submits your business to relevant directories</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Entity SEO</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -562,7 +527,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -581,7 +545,6 @@ export default function BlogPost() {
                 Or let SEOLOGY automate everything and start seeing results in 30-90 days.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
               <ul className="space-y-2">
@@ -594,7 +557,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #EntitySEO #KnowledgeGraph #SchemaMarkup #SemanticSEO #SEOLOGY
@@ -603,7 +565,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

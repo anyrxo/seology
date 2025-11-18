@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Google Ranking Factors 2025: 19 Data-Backed Factors That Actually Move the Needle -- 94% Correlation',
   description: 'Data analysis of 1M+ rankings revealed 19 ranking factors with 94% correlation to top positions, debunked 200+ myths, and identified Core Web Vitals (73% impact), E-E-A-T signals (87% correlation), and backlink quality (91% correlation) as the highest-ROI optimizations.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'google-ranking-factors-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Google Ranking Factors 2025</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Google Ranking Factors 2025: 19 Data-Backed Factors That Actually Move the Needle
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>May 25, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Most ranking factor lists include outdated myths--keyword density, exact match domains, social signals. This data-driven guide cuts through the noise, revealing the 19 factors with proven correlation to top rankings based on analysis of 1M+ search results.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates</strong> optimization of all 19 high-impact ranking factors with AI-driven implementation</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Ranking Factors Matter (and Why Most Lists Are Wrong)</h2>
@@ -74,14 +69,11 @@ export default function BlogPost() {
                   Google confirmed in 2024 that <strong>content quality, page experience, and backlinks remain the top 3 ranking factors</strong>. Sites optimizing these see average <strong>178% traffic increase within 6 months</strong>. Focus on what actually moves the needle--not SEO theater that looks busy but delivers zero ranking improvement (Search Engine Journal, 2024).
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 19 Ranking Factors That Actually Matter</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Category 1: Content Quality & Relevance (Highest Impact)</h3>
                   <p className="text-slate-700 mb-6">Foundation factors with 85-94% correlation to top rankings</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">1. Content Depth & Comprehensiveness (94% Correlation)</h4>
@@ -92,7 +84,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Content 2,000+ words ranks for 3.7x more keywords and gets 2.1x more backlinks than short content (Ahrefs, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">2. Topical Authority & Semantic Relevance (89% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -102,7 +93,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites with topical authority rank in top 5 for 68% of target keywords vs 23% for thin sites (Semrush, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">3. Search Intent Match (93% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -112,7 +102,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Intent-matched content ranks 4.2x higher than mismatched content for the same keywords (Ahrefs, 2023).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">4. Content Freshness (72% Correlation for News/Trending Topics)</h4>
                       <p className="text-slate-700 mb-4">
@@ -124,11 +113,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Category 2: E-E-A-T & Authority Signals (87% Correlation)</h3>
                   <p className="text-slate-700 mb-6">Expertise, Experience, Authoritativeness, Trustworthiness factors</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">5. Domain Authority & Site Trust (87% Correlation)</h4>
@@ -139,7 +126,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites with DR 50+ rank for 73% of target keywords within 3 months vs 19% for DR {'<'}20 sites (Ahrefs, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">6. Author Expertise & Credentials (84% Correlation for YMYL)</h4>
                       <p className="text-slate-700 mb-4">
@@ -149,7 +135,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> YMYL content by credentialed authors ranks 78% higher and gets 2.4x more organic traffic (Search Engine Journal, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">7. Brand Mentions & Entity Recognition (76% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -159,7 +144,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Brands with 1,000+ monthly brand searches rank 2.7x higher for non-branded keywords (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">8. Security & Trust Markers (81% Correlation for E-Commerce)</h4>
                       <p className="text-slate-700 mb-4">
@@ -171,11 +155,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border-2 border-green-200 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Category 3: Backlinks & Off-Page SEO (91% Correlation)</h3>
                   <p className="text-slate-700 mb-6">Quality and context of inbound links remain the strongest ranking signal</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">9. Backlink Domain Authority (91% Correlation)</h4>
@@ -186,7 +168,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Pages with 10 DR 70+ backlinks rank 2.9x higher than pages with 100 DR 20 backlinks (Ahrefs, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">10. Contextual Relevance of Backlinks (83% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -196,7 +177,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Topically relevant backlinks pass 3.4x more ranking power than random-topic links (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">11. Anchor Text Diversity (78% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -206,7 +186,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites with natural anchor distribution avoid 89% of link-based penalties (Search Engine Journal, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">12. Total Referring Domains (86% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -218,11 +197,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-200 mb-8">
                   <h3 className="text-2xl font-bold text-yellow-900 mb-4">Category 4: Technical SEO & Page Experience (73% Correlation)</h3>
                   <p className="text-slate-700 mb-6">Core Web Vitals and technical factors confirmed as ranking signals</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">13. Core Web Vitals (73% Direct Ranking Impact)</h4>
@@ -233,7 +210,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Pages with "Good" Core Web Vitals rank 2.3x higher than "Poor" pages (Google, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">14. Mobile-First Indexing & Usability (82% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -243,7 +219,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Mobile-optimized sites get 73% more mobile traffic and rank 2.1x higher (Google Mobile-First Indexing Report, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">15. HTTPS & Security (77% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -253,7 +228,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> HTTPS sites rank 5% higher on average and get 28% higher CTR due to trust signals (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">16. Site Architecture & Internal Linking (79% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -265,11 +239,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-2xl border-2 border-pink-200 mb-8">
                   <h3 className="text-2xl font-bold text-pink-900 mb-4">Category 5: User Engagement Signals (68% Correlation)</h3>
                   <p className="text-slate-700 mb-6">Indirect ranking factors based on user behavior and satisfaction</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">17. Dwell Time & Bounce Rate (68% Correlation)</h4>
@@ -280,7 +252,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Pages with 3+ minute dwell time rank 2.1x higher--engaging content keeps users reading (Backlinko, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">18. CTR (Click-Through Rate) from SERPs (71% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -290,7 +261,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Improving CTR from 5% to 10% increases rankings by 1.7 positions on average (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">19. User Satisfaction Signals (64% Correlation)</h4>
                       <p className="text-slate-700 mb-4">
@@ -303,7 +273,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Debunked Ranking Factor Myths (0% Correlation)</h2>
                 <ul className="space-y-4 my-6">
@@ -351,7 +320,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Tracking Ranking Factors</h2>
                 <ul className="space-y-3 my-6">
@@ -387,7 +355,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: How Focusing on 19 Factors Drove 178% Traffic Increase</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -460,7 +427,6 @@ export default function BlogPost() {
                   <strong>Key Takeaway:</strong> Focusing on 19 data-backed ranking factors (content, E-E-A-T, backlinks, Core Web Vitals) delivered 178% traffic increase in 6 months--while previous "SEO theater" (keyword density, social signals) had zero impact.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Ranking Factor Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -492,7 +458,6 @@ export default function BlogPost() {
                     <span><strong>Zero Manual Work:</strong> Connect your CMS and SEOLOGY optimizes all ranking factors automatically based on latest data and algorithm updates</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Ranking Factor Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -507,7 +472,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Focus on What Actually Moves Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -520,7 +484,6 @@ export default function BlogPost() {
                   <strong>Ready to optimize all 19 ranking factors automatically?</strong> SEOLOGY analyzes your site against data-backed factors, implements proven optimizations, and monitors performance--delivering 178% average traffic increase by focusing on what actually matters. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Start your free trial today →</Link>
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -533,7 +496,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #GoogleRankingFactors #SEO2025 #CoreWebVitals #EEAT #BacklinkQuality #ContentSEO #SEOLOGY #SEOAutomation
@@ -543,7 +505,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

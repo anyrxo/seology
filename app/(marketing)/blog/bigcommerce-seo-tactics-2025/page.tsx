@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'BigCommerce SEO: 23 Tactics to Outrank Shopify Stores',
   description: 'BigCommerce has hidden SEO advantages over Shopify. This guide shows how to leverage them for better rankings.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'bigcommerce-seo-tactics-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>BigCommerce SEO Tactics 2025</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             BigCommerce SEO: 23 Tactics to Outrank Shopify Stores
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>September 30, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             BigCommerce has hidden SEO advantages over Shopify. This guide shows how to leverage them for better rankings.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 BigCommerce has <strong>native SEO advantages</strong> over Shopify: better URL structure, automatic schema markup, faster page speed, unlimited categories, and full control over redirects. This guide covers 23 tactics to exploit these advantages: optimizing category hierarchies, leveraging built-in schema, maximizing URL flexibility, implementing AMP pages, and using BigCommerce\'s superior technical foundation. BigCommerce stores can outrank Shopify competitors with proper optimization.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why BigCommerce Beats Shopify for SEO</h2>
@@ -89,7 +84,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">BigCommerce vs Shopify: The SEO Comparison</h2>
                 <div className="overflow-x-auto my-8">
@@ -141,10 +135,8 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">23 BigCommerce SEO Tactics</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">URL & Site Structure (6 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -159,7 +151,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Shorter, cleaner URLs rank better and get more clicks. Example: /red-running-shoes instead of /products/red-running-shoes
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Build Deep Category Hierarchies</h4>
                     <p className="text-slate-700 mb-3">
@@ -172,7 +163,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Each category page ranks for specific keyword variations, multiplying organic traffic.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Optimize URL Slugs for Keywords</h4>
                     <p className="text-slate-700 mb-3">
@@ -185,7 +175,6 @@ export default function BlogPost() {
                       <strong>Tool:</strong> Use BigCommerce\'s bulk edit to update URLs at scale.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Implement Breadcrumb Navigation</h4>
                     <p className="text-slate-700 mb-3">
@@ -198,7 +187,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Google shows breadcrumbs in search results, improving CTR and showing site structure.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Create SEO-Friendly Pagination</h4>
                     <p className="text-slate-700 mb-3">
@@ -211,7 +199,6 @@ export default function BlogPost() {
                       <strong>Advanced:</strong> Use canonical tags pointing to page 1 for consistency.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Manage 301 Redirects Properly</h4>
                     <p className="text-slate-700 mb-3">
@@ -225,7 +212,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">On-Page Optimization (8 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -240,7 +226,6 @@ export default function BlogPost() {
                       <strong>Length:</strong> 50-60 characters ideal (displays fully in search results).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Write Unique Product Descriptions (300+ Words)</h4>
                     <p className="text-slate-700 mb-3">
@@ -253,7 +238,6 @@ export default function BlogPost() {
                       <strong>Minimum:</strong> 300 words per product, 500+ for high-value items.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Optimize Category Page Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -266,7 +250,6 @@ export default function BlogPost() {
                       <strong>Placement:</strong> Place content below products to avoid pushing products down.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Implement Review Schema</h4>
                     <p className="text-slate-700 mb-3">
@@ -279,7 +262,6 @@ export default function BlogPost() {
                       <strong>Verify:</strong> Test with Google\'s Rich Results Test tool.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Add FAQ Schema to Product Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -292,7 +274,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Ranks for question-based keywords and displays in Google\'s "People Also Ask" section.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Optimize All Image Alt Text</h4>
                     <p className="text-slate-700 mb-3">
@@ -305,7 +286,6 @@ export default function BlogPost() {
                       <strong>Bulk edit:</strong> Use BigCommerce CSV export/import for at-scale optimization.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Use BigCommerce\'s Advanced SEO Fields</h4>
                     <p className="text-slate-700 mb-3">
@@ -318,7 +298,6 @@ export default function BlogPost() {
                       <strong>Tip:</strong> Customize page titles to be more compelling than product names for better CTR.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Leverage BigCommerce\'s Built-in Blog</h4>
                     <p className="text-slate-700 mb-3">
@@ -332,7 +311,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical SEO (5 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -347,7 +325,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> AMP pages load in under 1 second on mobile, improving rankings and conversions.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Optimize Core Web Vitals</h4>
                     <p className="text-slate-700 mb-3">
@@ -360,7 +337,6 @@ export default function BlogPost() {
                       <strong>Target:</strong> LCP under 2.5s, FID under 100ms, CLS under 0.1
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Generate and Submit XML Sitemaps</h4>
                     <p className="text-slate-700 mb-3">
@@ -373,7 +349,6 @@ export default function BlogPost() {
                       <strong>Frequency:</strong> Updates automatically--no maintenance needed.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">18. Optimize Robots.txt</h4>
                     <p className="text-slate-700 mb-3">
@@ -386,7 +361,6 @@ export default function BlogPost() {
                       <strong>Allow:</strong> All product, category, and content pages
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">19. Fix Duplicate Content Issues</h4>
                     <p className="text-slate-700 mb-3">
@@ -400,7 +374,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Advanced Tactics (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -415,7 +388,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Each region gets appropriate content in search results.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">21. Create Comparison Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -428,7 +400,6 @@ export default function BlogPost() {
                       <strong>Conversion benefit:</strong> Captures high-intent buyers actively comparing options.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">22. Build Resource Hub Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -441,7 +412,6 @@ export default function BlogPost() {
                       <strong>Internal linking:</strong> Link from resource pages to relevant products for conversion.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">23. Leverage BigCommerce Apps Strategically</h4>
                     <p className="text-slate-700 mb-3">
@@ -456,7 +426,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common BigCommerce SEO Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -469,7 +438,6 @@ export default function BlogPost() {
                       <strong>Fix immediately:</strong> This is the single most important BigCommerce SEO setting. Enable "Remove category path" in SEO settings.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Using Default Theme Without Optimization</h4>
                     <p className="text-slate-700 mb-3">
@@ -479,7 +447,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Customize headers, improve internal linking, add content sections, and optimize category templates.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Ignoring Category Page Optimization</h4>
                     <p className="text-slate-700 mb-3">
@@ -489,7 +456,6 @@ export default function BlogPost() {
                       <strong>Reality:</strong> Category pages rank for high-volume keywords and drive most organic traffic. Optimize them first.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Not Using Built-in Schema</h4>
                     <p className="text-slate-700 mb-3">
@@ -501,7 +467,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes BigCommerce Stores</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -533,7 +498,6 @@ export default function BlogPost() {
                     <span>Identifies and eliminates duplicate content problems</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate BigCommerce SEO</h3>
@@ -549,7 +513,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -558,7 +521,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/magento-seo-optimization-guide" className="text-blue-600 hover:text-blue-800">Magento SEO: Complete Optimization Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #BigCommerceSEO #EcommerceSEO #PlatformSEO
@@ -568,7 +530,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

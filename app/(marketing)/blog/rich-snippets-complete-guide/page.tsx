@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Rich Snippets: Complete Guide to 23 Enhanced SERP Features in 2025',
   description: 'Rich snippets boost CTR by 35% on average and dominate page one results. This complete guide shows how to implement every type of rich snippet Google rewards with detailed schema markup examples.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'rich-snippets-complete-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Rich Snippets Complete Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Rich Snippets: Complete Guide to 23 Enhanced SERP Features in 2025
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>May 18, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Rich snippets boost CTR by 35% on average and dominate page one results. This complete guide shows how to implement every type of rich snippet Google rewards with detailed schema markup examples.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates rich snippet implementation</strong> across all 23 types--analyzing content, generating correct schema, and deploying automatically to your CMS</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Rich Snippets Dominate Modern SERPs</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -95,7 +90,6 @@ export default function BlogPost() {
                 <strong>The competitive advantage is massive:</strong> Only 29% of websites use any schema markup at all (Bing Webmaster data). That means 71% of your competitors are leaving CTR gains on the table. Early adopters dominate SERPs--Google rewards properly implemented schema with better visibility.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Understanding Rich Snippets vs Rich Results vs Featured Snippets</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -120,13 +114,11 @@ export default function BlogPost() {
                 <strong>This guide focuses on rich snippets</strong>--the enhanced listings you control directly through schema markup implementation.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 23 Rich Snippet Types Google Rewards</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Here\'s every major rich snippet type available in 2025, organized by use case with implementation priority and expected CTR impact:
               </p>
-
               <div className="space-y-8">
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold text-blue-900 mb-3">1. Review/Rating Snippets (Star Ratings)</h3>
@@ -150,7 +142,6 @@ export default function BlogPost() {
                   </div>
                   <p className="text-sm text-slate-600 mt-2 italic">Works with: Product, Recipe, LocalBusiness, SoftwareApplication, Movie, Book, Organization</p>
                 </div>
-
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold text-purple-900 mb-3">2. Product Snippets (E-commerce)</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +25-30% (Google) | <strong>Priority:</strong> HIGHEST (for e-commerce)</p>
@@ -183,7 +174,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold text-pink-900 mb-3">3. Recipe Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +150% (Mediavine) | <strong>Priority:</strong> HIGHEST (for food blogs)</p>
@@ -227,7 +217,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-green-600 pl-6">
                   <h3 className="text-2xl font-bold text-green-900 mb-3">4. FAQ Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +20-28% (SEMrush) | <strong>Priority:</strong> HIGH</p>
@@ -262,7 +251,6 @@ export default function BlogPost() {
                   </div>
                   <p className="text-sm text-slate-600 mt-2"><strong>Note:</strong> Google removed FAQ rich results for commercial pages in August 2023. FAQs now only appear for government and health sites. Use HowTo schema instead for commercial content.</p>
                 </div>
-
                 <div className="border-l-4 border-yellow-600 pl-6">
                   <h3 className="text-2xl font-bold text-yellow-900 mb-3">5. HowTo Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +18-25% (SEMrush) | <strong>Priority:</strong> HIGH</p>
@@ -298,7 +286,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-indigo-600 pl-6">
                   <h3 className="text-2xl font-bold text-indigo-900 mb-3">6. Video Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +41% (Wistia) | <strong>Priority:</strong> HIGH (if you have video)</p>
@@ -321,7 +308,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-red-600 pl-6">
                   <h3 className="text-2xl font-bold text-red-900 mb-3">7. Breadcrumb Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +18% (Moz) | <strong>Priority:</strong> MEDIUM-HIGH</p>
@@ -357,7 +343,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-cyan-600 pl-6">
                   <h3 className="text-2xl font-bold text-cyan-900 mb-3">8. Article Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +8-12% (Google) | <strong>Priority:</strong> MEDIUM</p>
@@ -389,7 +374,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-orange-600 pl-6">
                   <h3 className="text-2xl font-bold text-orange-900 mb-3">9. Event Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +22% (Google) | <strong>Priority:</strong> HIGH (for events)</p>
@@ -428,7 +412,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-teal-600 pl-6">
                   <h3 className="text-2xl font-bold text-teal-900 mb-3">10. Local Business Snippets</h3>
                   <p className="text-slate-700 mb-3"><strong>CTR Impact:</strong> +25% (BrightLocal) | <strong>Priority:</strong> HIGHEST (for local businesses)</p>
@@ -474,7 +457,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-slate-100 to-blue-50 p-6 rounded-lg">
                   <h3 className="text-xl font-bold text-slate-900 mb-3">Additional Rich Snippet Types (11-23)</h3>
                   <p className="text-slate-700 mb-4">Google supports 13 more specialized rich snippet types for specific use cases:</p>
@@ -497,56 +479,47 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Implementation Best Practices</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Follow these rules to maximize your rich snippet success rate and avoid Google penalties:
               </p>
-
               <div className="space-y-4">
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Use JSON-LD Format (Recommended)</h3>
                   <p className="text-slate-700 mb-2">Google prefers JSON-LD over Microdata or RDFa. Place it in a {`<script type="application/ld+json">`} tag anywhere in your HTML (head or body).</p>
                   <p className="text-sm text-slate-600">Why: JSON-LD is easier to maintain, doesn\'t clutter your HTML, and is Google\'s officially recommended format.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Match Visible Content</h3>
                   <p className="text-slate-700 mb-2">Every piece of data in your schema must be visible on the page to users. Hidden content triggers manual penalties.</p>
                   <p className="text-sm text-slate-600">Example: If your schema says "4.8-star rating," those stars must appear visibly on the page.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Use Specific Types Over Generic</h3>
                   <p className="text-slate-700 mb-2">Choose the most specific schema type available. Use "Restaurant" instead of "LocalBusiness," "Recipe" instead of "Article."</p>
                   <p className="text-sm text-slate-600">Why: Specific types unlock more rich snippet features and improve eligibility.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Include All Required Properties</h3>
                   <p className="text-slate-700 mb-2">Each schema type has required properties. Missing required fields = no rich snippet. Check schema.org documentation for your type.</p>
                   <p className="text-sm text-slate-600">Example: Recipe requires name, image, and author at minimum. Product requires name, image, and offers.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Add Recommended Properties for Better Results</h3>
                   <p className="text-slate-700 mb-2">Go beyond required fields. Add aggregateRating, priceRange, openingHours, etc. More data = richer snippets.</p>
                   <p className="text-sm text-slate-600">Google rewards completeness. Sites with 10+ properties per schema get rich results 3x more often.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Test Before Deploying</h3>
                   <p className="text-slate-700 mb-2">Always validate with Google\'s Rich Results Test (search.google.com/test/rich-results) before going live.</p>
                   <p className="text-sm text-slate-600">Fix all errors and warnings. Green checkmark = eligible for rich snippets.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Use One Primary Schema Per Page</h3>
                   <p className="text-slate-700 mb-2">Focus on one main schema type per page. You can nest related types (Product with AggregateRating) but avoid multiple competing primary types.</p>
                   <p className="text-sm text-slate-600">Example: Don\'t add both Recipe AND Product schema to the same page. Choose one.</p>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
                   <h3 className="text-lg font-bold text-green-900 mb-2">✓ Update Schema When Content Changes</h3>
                   <p className="text-slate-700 mb-2">If your price, rating, or availability changes, update your schema immediately. Stale data triggers trust issues.</p>
@@ -554,7 +527,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Mistakes That Kill Rich Snippets</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -619,7 +591,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Testing and Validating Rich Snippets</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -648,7 +619,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: E-commerce Store Triples CTR with Rich Snippets</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -678,7 +648,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> The site owner said: <em>"We spent 6 months fighting for better rankings when we should have spent 1 week adding rich snippets. Same rankings, triple the traffic. Rich snippets are the lowest-hanging fruit in SEO."</em>
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Rich Snippet Implementation</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -702,7 +671,6 @@ export default function BlogPost() {
                   <p className="text-slate-700">Tracks rich snippet performance in Search Console. Updates schema automatically when prices, ratings, or content changes. Fixes errors before they impact visibility.</p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Rich Snippets in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -725,7 +693,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The Verdict: Rich Snippets Are Non-Negotiable in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -746,7 +713,6 @@ export default function BlogPost() {
                 Or let SEOLOGY handle all 23 rich snippet types automatically--analyzing your content, generating perfect schema, deploying to your CMS, and monitoring performance continuously. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -762,7 +728,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #RichSnippets #SchemaMarkup #StructuredData #SERP #CTROptimization #SEOAutomation
@@ -771,7 +736,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

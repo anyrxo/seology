@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Pagination SEO: Handle Multi-Page Content Without Killing Rankings',
   description: 'Pagination confuses Google and wastes crawl budget. This guide shows 5 proven methods to handle paginated content.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['faceted-navigation-seo-guide', 'crawl-budget-optimization-guide', 'site-architecture-seo-best-practices'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Pagination SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Pagination SEO: Handle Multi-Page Content Without Killing Rankings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>August 28, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Pagination confuses Google and <strong className="text-white">wastes crawl budget</strong>. This guide shows 5 proven methods to handle paginated content.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -57,7 +53,6 @@ export default function BlogPost() {
                 Pagination is an SEO nightmare. Blog archives, product categories, and search results spread across pages 2, 3, 4+ create <strong>duplicate content, waste crawl budget, and dilute authority</strong>. This guide covers 5 proven pagination strategies--from "View All" to rel=next/prev--and when to use each. SEOLOGY implements optimal pagination automatically.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Pagination Destroys SEO (And You Don\'t Realize It)</h2>
@@ -90,10 +85,8 @@ export default function BlogPost() {
                   Sites with poor pagination strategies lose 30-50% of their potential rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">5 Proven Pagination Strategies (And When to Use Each)</h2>
-
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
@@ -132,7 +125,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pagination Best Practices by Content Type</h2>
                 <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -149,7 +141,6 @@ export default function BlogPost() {
                     <div className="text-slate-700">Infinite scroll with crawlable pagination URLs</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Additional Tactics:</strong>
                 </p>
@@ -172,7 +163,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pagination URL Structure Best Practices</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -197,7 +187,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Testing Your Pagination Strategy</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -221,7 +210,6 @@ export default function BlogPost() {
                     <span><strong>Monitor crawl stats:</strong> High page counts with low crawling efficiency indicate pagination problems</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">SEOLOGY Handles Pagination Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -236,7 +224,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -249,7 +236,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #PaginationSEO #TechnicalSEO #CrawlBudget
@@ -259,7 +245,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

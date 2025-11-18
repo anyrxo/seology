@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'PPC & SEO Integration Strategy: 15 Tactics to Combine Paid & Organic for 92% Higher ROI',
   description: 'Integrating PPC and SEO increases total search ROI by 92% vs. running channels separately. This PPC-SEO integration strategy increased combined channel revenue 214% by sharing data, dominating SERPs, and optimizing budget allocation.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'ppc-seo-integration-strategy' &&
     ["keyword-research-strategy-2025","click-through-rate-optimization-serp","conversion-rate-optimization-seo","long-tail-keyword-strategy"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -22,21 +23,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>PPC & SEO Integration</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             PPC & SEO Integration Strategy: 15 Tactics to Combine Paid & Organic for 92% Higher ROI
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>May 30, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Integrating PPC and SEO increases total search ROI by 92% vs. running channels separately (Google study). Most marketers treat paid and organic as separate silos, missing massive synergies in data sharing, SERP domination, and budget optimization.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -48,7 +45,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 <li><strong>Integrated strategy increased combined revenue 214%</strong> for a B2B SaaS company vs. previous siloed approach (case study below)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why PPC-SEO Integration Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -97,10 +92,8 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 1: Using PPC Data to Inform SEO Strategy</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Mine PPC Conversion Data to Identify High-Value SEO Keywords</h3>
                 <p className="text-slate-700 mb-4">
@@ -122,7 +115,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">2. Test Keyword Variations with PPC Before Organic Investment</h3>
                 <p className="text-slate-700 mb-4">
@@ -144,7 +136,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Analyze Quality Score Data to Predict Organic Ranking Potential</h3>
                 <p className="text-slate-700 mb-4">
@@ -167,7 +158,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">4. Use PPC Impression Share Data to Estimate Organic Opportunity</h3>
                 <p className="text-slate-700 mb-4">
@@ -189,10 +179,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 2: Dominating SERPs with Combined Presence</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">5. Bid on Branded Keywords to Own Both Paid and Organic Results</h3>
                 <p className="text-slate-700 mb-4">
@@ -214,7 +202,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">6. Use PPC for Competitive Keywords Where Organic Rankings Are Weak</h3>
                 <p className="text-slate-700 mb-4">
@@ -236,7 +223,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">7. Retarget Organic Visitors with PPC Display & RLSA</h3>
                 <p className="text-slate-700 mb-4">
@@ -257,7 +243,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">8. Use PPC for Seasonal/Trending Keywords While Building Organic</h3>
                 <p className="text-slate-700 mb-4">
@@ -280,10 +265,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 3: Sharing Insights Between Channels</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">9. Use PPC Ad Copy Testing to Optimize SEO Meta Descriptions</h3>
                 <p className="text-slate-700 mb-4">
@@ -305,7 +288,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">10. Share Negative Keyword Lists Between PPC and SEO Content Strategy</h3>
                 <p className="text-slate-700 mb-4">
@@ -326,7 +308,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">11. Analyze PPC Landing Page Performance to Improve Organic Pages</h3>
                 <p className="text-slate-700 mb-4">
@@ -348,7 +329,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">12. Use PPC Search Query Reports to Find Long-Tail SEO Opportunities</h3>
                 <p className="text-slate-700 mb-4">
@@ -371,10 +351,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 4: Budget Allocation & ROI Optimization</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">13. Calculate True ROI by Tracking Assisted Conversions Across Channels</h3>
                 <p className="text-slate-700 mb-4">
@@ -396,7 +374,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">14. Reduce PPC Spend on Keywords Where Organic Ranking Improves</h3>
                 <p className="text-slate-700 mb-4">
@@ -418,7 +395,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">15. Track Combined Channel Impact, Not Siloed Metrics</h3>
                 <p className="text-slate-700 mb-4">
@@ -442,7 +418,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Mistakes to Avoid</h2>
               <ul className="space-y-4 my-6">
@@ -483,7 +458,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools & Resources</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -507,7 +481,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: B2B SaaS PPC-SEO Integration</h2>
               <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border border-slate-200">
@@ -541,7 +514,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates PPC-SEO Integration</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -569,7 +541,6 @@ export default function BlogPost() {
                   <span><strong>Unified Performance Dashboard:</strong> See total search performance (PPC + organic) in a single view with blended ROI, cost trends, and conversion attribution</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your PPC-SEO Integration</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -584,7 +555,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -604,7 +574,6 @@ export default function BlogPost() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
               <ul className="space-y-2">
@@ -617,7 +586,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #PPCIntegration #SEOStrategy #SearchMarketing #ROIOptimization
@@ -626,7 +594,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

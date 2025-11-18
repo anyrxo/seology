@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Open Graph Tags: 16 Tactics to Optimize Social Sharing for 312% More Traffic',
   description: 'Open Graph tag optimization increased social referral traffic 312% and engagement 89% by controlling how content appears when shared on Facebook, Twitter, LinkedIn, and other platforms with proper OG tags.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'open-graph-tags-social-seo').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Open Graph Tags</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Open Graph Tags: 16 Tactics to Optimize Social Sharing for Maximum Traffic
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>June 8, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Open Graph tags control how your content appears on social media. This guide shows 16 tactics to optimize OG tags for maximum social sharing, traffic, and indirect SEO benefits.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,17 +56,14 @@ export default function BlogPost() {
                 <li className="text-slate-700">Tools: Facebook Sharing Debugger, Twitter Card Validator, LinkedIn Post Inspector, OpenGraph.xyz</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">What Are Open Graph Tags?</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Open Graph (OG) tags are meta tags developed by Facebook that control how your content appears when shared on social media platforms. When someone shares your URL on Facebook, Twitter, LinkedIn, or other platforms, these tags determine the title, description, image, and other preview elements displayed in the social card.
               </p>
-
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
                 Without Open Graph tags, social platforms guess what to display--often showing wrong images, truncated text, or missing information. This results in <strong>2.3x lower click-through rates</strong> and dramatically reduced social engagement (Buffer study, 2024). Proper OG implementation ensures every social share looks professional and compelling.
               </p>
-
               <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                 <h3 className="text-xl font-bold mb-3">Example Open Graph Tags:</h3>
                 <div className="font-mono text-xs space-y-1">
@@ -82,7 +75,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Open Graph Tags Matter for SEO & Traffic</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -111,14 +103,11 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">16 Tactics for Open Graph Optimization</h2>
-
               <div className="space-y-8">
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 1: Required Open Graph Tags</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">1. og:title - Craft Compelling Social Titles</h4>
                     <p className="text-slate-700 mb-3">
@@ -130,7 +119,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Social-optimized titles get 2.1x more clicks than SEO-optimized titles on social platforms (CoSchedule study, 2024)</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">2. og:description - Write Click-Worthy Descriptions</h4>
                     <p className="text-slate-700 mb-3">
@@ -141,7 +129,6 @@ export default function BlogPost() {
                       <p className="text-sm mt-2"><strong>Example:</strong> "89% of marathon runners make this shoe mistake. Here\'s how I chose the perfect running shoes and cut 15 minutes off my time. Plus: insider tips from Olympic trainers."</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">3. og:image - Use High-Impact Visuals</h4>
                     <p className="text-slate-700 mb-3">
@@ -158,7 +145,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">4. og:url - Set Canonical Social URL</h4>
                     <p className="text-slate-700 mb-3">
@@ -169,7 +155,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">This prevents duplicate content issues when same page accessed via different URL parameters</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">5. og:type - Specify Content Type</h4>
                     <p className="text-slate-700 mb-3">
@@ -181,10 +166,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 2: Optional but High-Impact Tags</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">6. og:site_name - Build Brand Recognition</h4>
                     <p className="text-slate-700 mb-3">
@@ -194,7 +177,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;meta property="og:site_name" content="SEOLOGY" /&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">7. og:locale - Set Language and Region</h4>
                     <p className="text-slate-700 mb-3">
@@ -205,7 +187,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;meta property="og:locale:alternate" content="es_ES" /&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">8. og:image:alt - Add Image Descriptions for Accessibility</h4>
                     <p className="text-slate-700 mb-3">
@@ -215,7 +196,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;meta property="og:image:alt" content="Infographic showing 16 Open Graph optimization tactics with social media icons" /&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">9. og:image:width and og:image:height - Specify Image Dimensions</h4>
                     <p className="text-slate-700 mb-3">
@@ -227,10 +207,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 3: Platform-Specific Optimization</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">10. Twitter Card Tags</h4>
                     <p className="text-slate-700 mb-3">
@@ -246,7 +224,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Twitter image optimal size: 1200x675px (16:9 ratio) for summary_large_image cards</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. LinkedIn-Specific Considerations</h4>
                     <p className="text-slate-700 mb-3">
@@ -254,7 +231,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">LinkedIn caches OG tags aggressively--use LinkedIn Post Inspector to force refresh after changes</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">12. Multiple OG Images for Different Platforms</h4>
                     <p className="text-slate-700 mb-3">
@@ -267,10 +243,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-green-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 4: Testing & Validation</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">13. Test with Facebook Sharing Debugger</h4>
                     <p className="text-slate-700 mb-3">
@@ -278,7 +252,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Enter your URL to see: OG tag values, preview card, warnings/errors, cache status. Click "Scrape Again" to refresh cached data after changes.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">14. Validate Twitter Cards</h4>
                     <p className="text-slate-700 mb-3">
@@ -286,7 +259,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Note: Twitter falls back to Open Graph tags if twitter:* tags are missing, but specific Twitter tags provide better control</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">15. Test LinkedIn Post Inspector</h4>
                     <p className="text-slate-700 mb-3">
@@ -294,7 +266,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">LinkedIn caches OG tags for 7 days--use Post Inspector to force immediate refresh</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">16. Use OpenGraph.xyz for Multi-Platform Preview</h4>
                     <p className="text-slate-700 mb-3">
@@ -305,7 +276,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Open Graph Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -346,7 +316,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Essential Tools for Open Graph Optimization</h2>
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -382,7 +351,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company Social Traffic Boost</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-l-4 border-blue-600 p-6 rounded-r-lg my-8">
@@ -423,7 +391,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Open Graph Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -455,7 +422,6 @@ export default function BlogPost() {
                   <span><strong>Cache Refresh:</strong> Automatically refreshes social platform caches when OG tags are updated</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Open Graph Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -470,7 +436,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -480,7 +445,6 @@ export default function BlogPost() {
                 Start by implementing OG tags on your top 20 highest-traffic pages, using custom images with text overlays, and writing social-optimized titles that differ from your SEO titles. Test every page with Facebook Sharing Debugger and Twitter Card Validator before sharing. The challenge is scale--creating custom OG images and optimizing hundreds of pages manually takes weeks. SEOLOGY automates the entire Open Graph workflow, from generating custom images to writing social titles to refreshing platform caches, so you get the 312% traffic increase without spending weeks on manual optimization.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -496,7 +460,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #OpenGraph #SocialSEO #OGTags #SocialMediaOptimization #TwitterCards #SEOAutomation #SEOLOGY
@@ -505,7 +468,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

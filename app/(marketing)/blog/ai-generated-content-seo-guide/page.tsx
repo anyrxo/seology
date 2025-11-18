@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: "AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)",
   description: "AI content is everywhere. Here\'s how to use AI-generated content without getting penalized by Google.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'ai-generated-content-seo-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>AI-Generated Content & SEO</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>October 10, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             AI content is everywhere. Here\'s how to use AI-generated content without getting penalized by Google.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Google doesn\'t penalize AI-generated content--<strong>but it does penalize low-quality content</strong>. 68% of marketers now use AI for content creation, but only 12% do it right. This guide covers 15 proven strategies for using AI content safely: human editing requirements, E-E-A-T signals, fact-checking protocols, avoiding AI detection patterns, and quality thresholds. SEOLOGY helps you optimize AI content to meet Google\'s quality standards automatically.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">The State of AI Content in 2025</h2>
@@ -92,7 +87,6 @@ export default function BlogPost() {
                   <strong>Google\'s official position (March 2024 update):</strong> "We don\'t penalize content based on how it was created. We penalize content that doesn\'t meet our quality standards." The key is understanding what those quality standards actually mean.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Google\'s E-E-A-T Framework for AI Content</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -111,7 +105,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> Instead of "This tool helps with SEO," write "I used this tool on 47 client sites and increased organic traffic by an average of 34% in 90 days--here\'s the exact workflow."
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Expertise</h4>
                     <p className="text-slate-700 mb-3">
@@ -124,7 +117,6 @@ export default function BlogPost() {
                       <strong>Signal:</strong> Author bios with credentials, links to author\'s other work, and cited expert sources.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Authoritativeness</h4>
                     <p className="text-slate-700 mb-3">
@@ -137,7 +129,6 @@ export default function BlogPost() {
                       <strong>Minimum standard:</strong> 5+ authoritative citations per 1,500-word article.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Trustworthiness</h4>
                     <p className="text-slate-700 mb-3">
@@ -152,10 +143,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">15 Strategies for AI Content That Ranks</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content Creation (5 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -170,7 +159,6 @@ export default function BlogPost() {
                       <strong>Time allocation:</strong> 30% AI generation, 70% human editing and enhancement.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Add Unique Data and Original Research</h4>
                     <p className="text-slate-700 mb-3">
@@ -183,7 +171,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Articles with original research get 3.4x more backlinks (Backlinko study).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Implement the "5-Edit Rule"</h4>
                     <p className="text-slate-700 mb-3">
@@ -200,7 +187,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Content that passes Google\'s quality thresholds and human reader expectations.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Use AI for Content Expansion, Not Creation</h4>
                     <p className="text-slate-700 mb-3">
@@ -213,7 +199,6 @@ export default function BlogPost() {
                       <strong>Tool tip:</strong> Use Claude or GPT-4 with custom prompts that inject your unique voice and expertise.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Blend Multiple AI Models</h4>
                     <p className="text-slate-700 mb-3">
@@ -227,7 +212,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Quality Assurance (5 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -242,7 +226,6 @@ export default function BlogPost() {
                       <strong>If you fail:</strong> Rewrite flagged sections with more personality, varied sentence structure, and specific examples.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Implement Readability Standards</h4>
                     <p className="text-slate-700 mb-3">
@@ -255,7 +238,6 @@ export default function BlogPost() {
                       <strong>Test:</strong> Read content aloud--if it sounds robotic, rewrite it.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Verify Every Statistic and Claim</h4>
                     <p className="text-slate-700 mb-3">
@@ -268,7 +250,6 @@ export default function BlogPost() {
                       <strong>If unverifiable:</strong> Delete it. One fake stat can destroy your site\'s trustworthiness.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Add Visual Content AI Can\'t Create</h4>
                     <p className="text-slate-700 mb-3">
@@ -281,7 +262,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Content with 7+ images ranks 43% higher than text-only content.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Establish Editorial Guidelines</h4>
                     <p className="text-slate-700 mb-3">
@@ -295,7 +275,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Optimization (5 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -310,7 +289,6 @@ export default function BlogPost() {
                       <strong>Intent types:</strong> Informational, navigational, commercial, transactional--AI often mixes these incorrectly.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Add Schema Markup Manually</h4>
                     <p className="text-slate-700 mb-3">
@@ -323,7 +301,6 @@ export default function BlogPost() {
                       <strong>Advantage:</strong> Schema helps Google understand your content is human-reviewed and structured.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Build Topical Authority Clusters</h4>
                     <p className="text-slate-700 mb-3">
@@ -336,7 +313,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Demonstrates topical authority while scaling content production efficiently.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Monitor Performance Closely</h4>
                     <p className="text-slate-700 mb-3">
@@ -349,7 +325,6 @@ export default function BlogPost() {
                       <strong>Action threshold:</strong> If AI content underperforms by 30%+, increase human involvement or remove it.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Update Content Regularly</h4>
                     <p className="text-slate-700 mb-3">
@@ -364,7 +339,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common AI Content Mistakes (And How to Avoid Them)</h2>
                 <div className="space-y-6 my-8">
@@ -377,7 +351,6 @@ export default function BlogPost() {
                       <strong>Reality:</strong> Google detects content patterns and deindexes entire sites using this approach. Always require human review before publishing.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Using AI for YMYL Topics</h4>
                     <p className="text-slate-700 mb-3">
@@ -387,7 +360,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> YMYL content must be primarily human-written by credentialed experts. AI can only assist with basic research and formatting.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Generic, Undifferentiated Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -397,7 +369,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Add contrarian viewpoints, specific examples, proprietary data, and unique frameworks that differentiate your content from AI competitors.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Ignoring AI Detection Patterns</h4>
                     <p className="text-slate-700 mb-3">
@@ -407,7 +378,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Edit aggressively to remove AI clichés and inject human personality.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: No Clear Author Attribution</h4>
                     <p className="text-slate-700 mb-3">
@@ -419,7 +389,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Handles AI Content Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -451,7 +420,6 @@ export default function BlogPost() {
                     <span>Monitors AI content performance vs. human content and alerts to issues</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize AI Content Automatically</h3>
@@ -467,7 +435,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -476,7 +443,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/semantic-seo-nlp-optimization" className="text-blue-600 hover:text-blue-800">Semantic SEO: Optimize for NLP & Related Entities</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #AIContent #ContentSEO #AISEO
@@ -486,7 +452,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

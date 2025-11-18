@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Dwell Time Optimization: 16 Tactics to Keep Visitors Engaged (347% Increase)',
   description: 'Dwell time is a critical ranking signal. These 16 tactics increased average dwell time 347% (1:43 to 7:42) with content hooks, visual engagement, and UX improvements that signal content quality to Google.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'dwell-time-optimization-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Dwell Time Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Dwell Time Optimization: 16 Tactics to Keep Visitors Engaged (347% Increase)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>July 28, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Dwell time is a critical ranking signal. These 16 tactics increased average dwell time 347% (1:43 to 7:42) with content hooks, visual engagement, and UX improvements that signal content quality to Google.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700">SEOLOGY automates dwell time optimization: adds content hooks, embeds relevant media, optimizes readability, and A/B tests engagement tactics automatically</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Dwell Time is a Critical Ranking Signal</h2>
@@ -93,13 +88,10 @@ export default function BlogPost() {
                   <p className="text-slate-700">Content site improved dwell time from 1:43 (103 seconds) to 7:42 (462 seconds)--a <strong>347% increase</strong>. Within 45 days, average ranking position improved from 8.4 to 4.2 for 200+ keywords. Organic traffic increased 156% from improved rankings.</p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">16 Dwell Time Optimization Tactics (Organized by Category)</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Content Structure & Hooks (Tactics 1-5)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">1. Add a Table of Contents with Jump Links</h4>
@@ -109,7 +101,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Add a clickable TOC after your intro, before main content. Use anchor links (id attributes) for each H2/H3 heading. Display TOC as a bordered box or sidebar for visibility.</p>
                       <p className="text-slate-600 mt-2 italic">Bonus: TOC often triggers "Jump to" links in Google search results, increasing CTR</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">2. Use Bucket Brigade Transitions to Create Curiosity Gaps</h4>
                       <p className="text-slate-700 mb-2">
@@ -125,7 +116,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Use these before key points to maintain momentum and prevent drop-off.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">3. Front-Load Your Most Valuable Content (Inverted Pyramid)</h4>
                       <p className="text-slate-700 mb-2">
@@ -134,7 +124,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Bad Structure:</strong> Introduction → Background → Context → Main Point (users bounce before reaching value)</p>
                       <p className="text-slate-700"><strong>Good Structure:</strong> Main Point + Key Takeaway → Supporting Evidence → Additional Context</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">4. Add a "Key Takeaways" or TL;DR Section at the Top</h4>
                       <p className="text-slate-700 mb-2">
@@ -142,7 +131,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Best Practice:</strong> Place TL;DR in a visually distinct box (blue background, border) immediately after your intro. Include specific statistics or numbers--they\'re 3x more likely to be read than general statements.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">5. Use Internal "Cliffhangers" to Tease Content Below the Fold</h4>
                       <p className="text-slate-700 mb-2">
@@ -158,10 +146,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Visual Engagement (Tactics 6-9)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">6. Embed Relevant Videos (Especially Explainer Videos)</h4>
@@ -177,7 +163,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">Result: B2B SaaS added explainer video to product page--dwell time increased from 2:14 to 6:38</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">7. Use Custom Images, Screenshots, and Diagrams (Not Stock Photos)</h4>
                       <p className="text-slate-700 mb-2">
@@ -185,7 +170,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Add 1 relevant image per 150-200 words. Use tools like Snagit for annotated screenshots, Canva for simple diagrams. Avoid generic stock photos of people in business attire--they harm credibility.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">8. Add Interactive Elements (Calculators, Quizzes, Tools)</h4>
                       <p className="text-slate-700 mb-2">
@@ -199,7 +183,6 @@ export default function BlogPost() {
                         <li>Embedded tools (mortgage calculators, unit converters, etc.)</li>
                       </ul>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">9. Use Data Visualizations (Charts, Graphs, Infographics)</h4>
                       <p className="text-slate-700 mb-2">
@@ -209,10 +192,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border-l-4 border-pink-600 mb-8">
                   <h3 className="text-2xl font-bold text-pink-900 mb-4">Readability & Formatting (Tactics 10-13)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">10. Use Short Paragraphs (2-3 Sentences Maximum)</h4>
@@ -222,7 +203,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Rule:</strong> If a paragraph exceeds 4 lines on desktop or 6 lines on mobile, split it. Use single-sentence paragraphs for emphasis.</p>
                       <p className="text-slate-700 mt-2">White space improves comprehension and reduces cognitive load.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">11. Add Subheadings Every 200-300 Words</h4>
                       <p className="text-slate-700 mb-2">
@@ -230,7 +210,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Best Practice:</strong> Make subheadings descriptive and benefit-focused. "How to Reduce Bounce Rate 67%" beats "Bounce Rate Optimization" because it promises specific value.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">12. Use Bullet Points and Numbered Lists</h4>
                       <p className="text-slate-700 mb-2">
@@ -243,7 +222,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Convert long sentences listing multiple items into bulleted lists for instant readability improvement.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">13. Increase Font Size and Line Height for Readability</h4>
                       <p className="text-slate-700 mb-2">
@@ -259,10 +237,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Technical & UX Optimization (Tactics 14-16)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">14. Optimize Page Load Speed (Target Under 2.5 Seconds)</h4>
@@ -279,7 +255,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">Test at: PageSpeed Insights, GTmetrix</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">15. Add Related Content Links Within Body (Not Just Sidebar)</h4>
                       <p className="text-slate-700 mb-2">
@@ -287,7 +262,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Link to 3-5 related articles within your content body using descriptive anchor text. Place links after you\'ve provided value--not in your intro. Example: "For more on this topic, see our complete guide to [topic]."</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">16. Remove Distracting Popups and Aggressive Ads</h4>
                       <p className="text-slate-700 mb-2">
@@ -299,7 +273,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Dwell Time Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -340,7 +313,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Measuring and Improving Dwell Time</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-6">
@@ -376,7 +348,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: Content Site Increases Dwell Time 347%</h2>
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border border-slate-200 my-6">
@@ -417,7 +388,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Dwell Time Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -453,7 +423,6 @@ export default function BlogPost() {
                     <span><strong>Continuous Monitoring:</strong> Tracks dwell time changes over time and correlates with ranking improvements. Alerts when dwell time drops below targets</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Dwell Time Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -468,7 +437,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Dwell Time is the Most Actionable Ranking Signal</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -484,7 +452,6 @@ export default function BlogPost() {
                   <strong>Bottom line:</strong> Stop obsessing over keyword density and meta tags. Focus on creating content so engaging that users can\'t help but spend 5-10 minutes consuming it. Google will reward you with better rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -499,7 +466,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEO #DwellTime #UserEngagement #SEOLOGY #SEOAutomation #ContentOptimization
@@ -509,7 +475,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

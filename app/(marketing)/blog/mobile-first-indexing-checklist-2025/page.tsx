@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Mobile-First Indexing: The Complete 2025 Checklist',
   description: 'Google only indexes mobile versions now. This 27-point checklist ensures your mobile site ranks perfectly.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['core-web-vitals-optimization-guide-2025', 'shopify-page-speed-optimization', 'technical-seo-audit-checklist-2025', 'site-architecture-seo-best-practices'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Mobile-First Indexing Checklist</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Mobile-First Indexing: The Complete 2025 Checklist
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>December 12, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Google only indexes mobile versions now. This <strong className="text-white">27-point checklist</strong> ensures your mobile site ranks perfectly.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -69,7 +65,6 @@ export default function BlogPost() {
                 <li>This 27-point checklist ensures perfect mobile optimization</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is Mobile-First Indexing?</h2>
@@ -85,10 +80,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 27-Point Mobile-First Indexing Checklist</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content Parity (6 Points)</h3>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -116,7 +109,6 @@ export default function BlogPost() {
                     <span>Images have alt text on mobile</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical Setup (7 Points)</h3>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -148,7 +140,6 @@ export default function BlogPost() {
                     <span>Hreflang tags are present on mobile version (if multilingual)</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">User Experience (8 Points)</h3>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -184,7 +175,6 @@ export default function BlogPost() {
                     <span>Page loads in under 3 seconds on mobile</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Performance (6 Points)</h3>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
@@ -213,7 +203,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Mobile-First Indexing Mistakes</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -257,7 +246,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Test Mobile-First Readiness</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -294,7 +282,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Mobile SEO Statistics You Can't Ignore</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -316,7 +303,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Mobile-First Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -345,7 +331,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Mobile-First Is Non-Negotiable</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -354,7 +339,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   If your mobile site is broken, slow, or missing content, you'll lose rankings--even if your desktop site is perfect.
                 </p>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Fix Mobile SEO in 5 Minutes</h3>
@@ -370,7 +354,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -381,7 +364,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #MobileSEO #MobileFirst #GoogleIndexing #ResponsiveDesign #MobileOptimization
@@ -391,7 +373,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

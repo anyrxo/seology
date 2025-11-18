@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { AlertTriangle, ArrowRight, CheckCircle2, Database, FileCode, FolderTree, Image, Search, Settings, Target, Video } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'XML Sitemap Optimization: Get Every Page Indexed Fast',
   description: 'A poorly optimized sitemap wastes your crawl budget. This guide ensures Google finds and indexes every important page.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['crawl-budget-optimization-guide', 'robots-txt-configuration-guide', 'technical-seo-audit-checklist-2025', 'site-architecture-seo-best-practices'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,11 +22,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>XML Sitemap Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             XML Sitemap Optimization: Get Every Page Indexed Fast
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
@@ -33,11 +32,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>15 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             A poorly optimized sitemap wastes your crawl budget and leaves pages unindexed. This guide shows how to <strong className="text-white">build perfect XML sitemaps</strong> that get every important page crawled and indexed fast.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -49,7 +46,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -62,7 +58,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> Sites with optimized sitemaps get crawled 3x more efficiently than sites with default sitemaps--more pages indexed, faster ranking improvements.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
@@ -72,7 +67,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   An XML sitemap is a file that lists all the URLs on your site that you want search engines to crawl and index. Think of it as a roadmap for Google\'s crawlers.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Why XML Sitemaps Matter for SEO</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -96,14 +90,12 @@ export default function BlogPost() {
                     <span><strong>International targeting:</strong> Use hreflang attributes for multi-language sites</span>
                   </li>
                 </ul>
-
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>Critical stat:</strong> Google says XML sitemaps are especially important for sites with <strong>new content, large sites (1000+ pages), orphaned pages, or rich media content</strong>. Without a sitemap, these pages may never get indexed.
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Database className="w-8 h-8 text-blue-600" />
@@ -112,7 +104,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   A proper XML sitemap follows a specific structure with required and optional elements:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Basic XML Sitemap Structure</h3>
                 <div className="bg-slate-900 text-slate-100 p-6 rounded-xl my-6 overflow-x-auto">
                   <pre className="text-sm">
@@ -139,7 +130,6 @@ export default function BlogPost() {
 </urlset>`}
                   </pre>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Required Elements</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -151,7 +141,6 @@ export default function BlogPost() {
                       <strong>Required attribute:</strong> xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;url&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -161,7 +150,6 @@ export default function BlogPost() {
                       <strong>Note:</strong> You can have up to 50,000 URLs per sitemap file
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;loc&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -175,7 +163,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Optional (But Recommended) Elements</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -190,7 +177,6 @@ export default function BlogPost() {
                       <strong>Best practice:</strong> Only include if you accurately track last modified dates--false dates hurt more than help
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;changefreq&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -203,7 +189,6 @@ export default function BlogPost() {
                       <strong>Reality check:</strong> Google mostly ignores this now--focus on lastmod instead
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;priority&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -218,7 +203,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Target className="w-8 h-8 text-blue-600" />
@@ -227,7 +211,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   While Google says they mostly ignore priority and changefreq, strategic use still helps with crawl efficiency:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Priority Value Strategy</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ul className="space-y-3 text-slate-700">
@@ -241,13 +224,11 @@ export default function BlogPost() {
                     <li><strong>0.1-0.2:</strong> Legal pages (privacy policy, terms), low-value pages</li>
                   </ul>
                 </div>
-
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>⚠️ Common mistake:</strong> Setting everything to 1.0 defeats the purpose. Use priority to create a hierarchy--it\'s about RELATIVE importance within your site.
                   </p>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Changefreq Best Practices</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -279,7 +260,6 @@ export default function BlogPost() {
                     <span><strong>Never:</strong> Truly static content (rarely crawled)</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Lastmod: The Most Important Signal</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   While priority and changefreq are hints, lastmod is an actual signal Google uses:
@@ -303,7 +283,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Image className="w-8 h-8 text-blue-600" />
@@ -312,7 +291,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Image sitemaps help Google discover and index images--critical for image search rankings and visual content:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Image Sitemap Structure</h3>
                 <div className="bg-slate-900 text-slate-100 p-6 rounded-xl my-6 overflow-x-auto">
                   <pre className="text-sm">
@@ -337,7 +315,6 @@ export default function BlogPost() {
 </urlset>`}
                   </pre>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Image Sitemap Elements</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -349,7 +326,6 @@ export default function BlogPost() {
                       <strong>Limit:</strong> Up to 1,000 images per page URL
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;image:caption&gt; (Optional)</h4>
                     <p className="text-slate-700 mb-3">
@@ -359,7 +335,6 @@ export default function BlogPost() {
                       <strong>SEO impact:</strong> Used for image search relevance--include target keywords naturally
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;image:title&gt; (Optional)</h4>
                     <p className="text-slate-700 mb-3">
@@ -369,7 +344,6 @@ export default function BlogPost() {
                       <strong>Best practice:</strong> Descriptive, keyword-rich titles (not just "IMG_1234.jpg")
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;image:geo_location&gt; (Optional)</h4>
                     <p className="text-slate-700 mb-3">
@@ -379,7 +353,6 @@ export default function BlogPost() {
                       <strong>Use case:</strong> Local businesses, travel sites, real estate
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;image:license&gt; (Optional)</h4>
                     <p className="text-slate-700 mb-3">
@@ -390,7 +363,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Image Sitemap Best Practices</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -411,7 +383,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Video className="w-8 h-8 text-blue-600" />
@@ -420,7 +391,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   If you host video content on your site (not just YouTube embeds), video sitemaps help Google understand and index them:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Video Sitemap Structure</h3>
                 <div className="bg-slate-900 text-slate-100 p-6 rounded-xl my-6 overflow-x-auto">
                   <pre className="text-sm">
@@ -446,7 +416,6 @@ export default function BlogPost() {
 </urlset>`}
                   </pre>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Required Video Elements</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -458,7 +427,6 @@ export default function BlogPost() {
                       <strong>Requirements:</strong> Min 160x90px, max 1920x1080px, JPG/PNG/GIF format
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;video:title&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -468,7 +436,6 @@ export default function BlogPost() {
                       <strong>Limit:</strong> Max 100 characters, include target keywords
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;video:description&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -478,7 +445,6 @@ export default function BlogPost() {
                       <strong>Limit:</strong> Max 2,048 characters, must match on-page description
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">&lt;video:content_loc&gt; OR &lt;video:player_loc&gt;</h4>
                     <p className="text-slate-700 mb-3">
@@ -489,7 +455,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Recommended Video Elements</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -510,7 +475,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <FolderTree className="w-8 h-8 text-blue-600" />
@@ -519,7 +483,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Sites with 50,000+ URLs need multiple sitemap files. Sitemap index files organize them:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">When to Use Sitemap Index Files</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -539,7 +502,6 @@ export default function BlogPost() {
                     <span><strong>Update frequency:</strong> Different sections update at different rates</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Sitemap Index Structure</h3>
                 <div className="bg-slate-900 text-slate-100 p-6 rounded-xl my-6 overflow-x-auto">
                   <pre className="text-sm">
@@ -568,7 +530,6 @@ export default function BlogPost() {
 </sitemapindex>`}
                   </pre>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Sitemap Organization Best Practices</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
@@ -585,7 +546,6 @@ export default function BlogPost() {
                     <li>• <strong>sitemap-news.xml</strong> - Google News sitemap (if applicable)</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Benefits of Organized Sitemaps</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -606,7 +566,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Search className="w-8 h-8 text-blue-600" />
@@ -615,7 +574,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Creating a sitemap is only half the battle--you need to submit it properly:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Step-by-Step Submission Process</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ol className="space-y-3 text-slate-700">
@@ -628,7 +586,6 @@ export default function BlogPost() {
                     <li><strong>7. Check status:</strong> "Success" status means sitemap was read successfully</li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Add Sitemap to robots.txt</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Reference your sitemap in robots.txt so all search engines can find it:
@@ -637,13 +594,11 @@ export default function BlogPost() {
                   <pre className="text-sm">
 {`User-agent: *
 Allow: /
-
 Sitemap: https://example.com/sitemap.xml
 Sitemap: https://example.com/sitemap-images.xml
 Sitemap: https://example.com/sitemap-videos.xml`}
                   </pre>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Monitoring Sitemap Health</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -664,7 +619,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Settings className="w-8 h-8 text-blue-600" />
@@ -673,7 +627,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Manual sitemap management doesn\'t scale. Generate sitemaps dynamically:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">WordPress Sitemap Plugins</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -693,7 +646,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                     <span><strong>WP Core (5.5+):</strong> Basic sitemap built-in (limited features)</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Shopify Sitemap Handling</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Shopify auto-generates sitemaps at /sitemap.xml:
@@ -716,7 +668,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                     <span><strong>Includes:</strong> Products, collections, blog posts, pages</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Custom Development Best Practices</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -737,13 +688,11 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <AlertTriangle className="w-8 h-8 text-blue-600" />
                   Common XML Sitemap Mistakes (And How to Fix Them)
                 </h2>
-
                 <div className="space-y-6 my-8">
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 1: Including Blocked or Noindex Pages</h4>
@@ -754,7 +703,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Only include indexable URLs. Exclude admin pages, search results, duplicate pages, and any URL with noindex meta tag.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: 404 Errors in Sitemap</h4>
                     <p className="text-slate-700 mb-3">
@@ -764,7 +712,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Regularly audit sitemap URLs. Remove deleted pages or set up 301 redirects.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Redirect Chains in Sitemap</h4>
                     <p className="text-slate-700 mb-3">
@@ -774,7 +721,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Include only final destination URLs. If page redirects, list the target URL in sitemap.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Not Updating Lastmod Dates</h4>
                     <p className="text-slate-700 mb-3">
@@ -784,7 +730,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Either update lastmod accurately or omit it entirely. Fake timestamps hurt more than help.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Exceeding 50,000 URL Limit</h4>
                     <p className="text-slate-700 mb-3">
@@ -794,7 +739,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Split into multiple sitemaps and use a sitemap index file.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 6: Missing XML Declaration</h4>
                     <p className="text-slate-700 mb-3">
@@ -804,7 +748,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                       <strong>Fix:</strong> Always include XML declaration as first line. Critical for proper parsing.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 7: Including Session IDs or Parameters</h4>
                     <p className="text-slate-700 mb-3">
@@ -816,13 +759,11 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Testing Your XML Sitemap</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Before submitting to GSC, validate your sitemap:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Validation Tools</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -842,7 +783,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                     <span><strong>Online XML Validators:</strong> Check for syntax errors</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Manual Testing Checklist</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <ul className="space-y-2 text-slate-700">
@@ -859,7 +799,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   </ul>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Sitemap Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -891,7 +830,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                     <span>Monitors GSC for sitemap errors and alerts you immediately</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Get Perfect XML Sitemaps Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -906,7 +844,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Technical SEO Guides:</h2>
                 <ul className="space-y-2">
@@ -916,7 +853,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
                   <li><Link href="/blog/site-architecture-seo-best-practices" className="text-blue-600 hover:text-blue-800">Site Architecture SEO Best Practices</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #XMLSitemap #TechnicalSEO #Indexing #CrawlBudget #GoogleSearchConsole #SitemapOptimization
@@ -926,7 +862,6 @@ Sitemap: https://example.com/sitemap-videos.xml`}
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Technical SEO Guides</h2>

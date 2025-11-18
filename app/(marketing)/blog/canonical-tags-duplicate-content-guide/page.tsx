@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Canonical Tags: The Definitive Guide to Fixing Duplicate Content',
   description: 'Canonical tags prevent duplicate content penalties. This guide shows when and how to use rel=canonical correctly.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['duplicate-content-solutions-guide', 'technical-seo-audit-checklist-2025', '301-redirects-complete-guide'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Canonical Tags Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Canonical Tags: The Definitive Guide to Fixing Duplicate Content
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>August 30, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Canonical tags prevent <strong className="text-white">duplicate content penalties</strong>. This guide shows when and how to use rel=canonical correctly.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -57,7 +53,6 @@ export default function BlogPost() {
                 Duplicate content dilutes your rankings. <strong>Canonical tags tell Google which version to index</strong>, consolidating ranking signals into one URL. This guide covers every canonical tag scenario--from basic implementation to complex ecommerce situations. SEOLOGY implements canonical tags automatically.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Are Canonical Tags (And Why They Matter)</h2>
@@ -89,13 +84,11 @@ export default function BlogPost() {
                   Without canonical tags, duplicate content can reduce your rankings by 40-60%.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Duplicate Content Scenarios</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Most sites have duplicate content without realizing it. Here are the most common cases:
                 </p>
-
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
@@ -141,7 +134,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Implement Canonical Tags Correctly</h2>
                 <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -158,7 +150,6 @@ export default function BlogPost() {
                     <div className="text-slate-700">Signal strength (not a directive)</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Implementation Steps:</strong>
                 </p>
@@ -185,7 +176,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Canonical Tag Mistakes That Kill Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -214,7 +204,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Canonical vs 301 Redirect: When to Use Which</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -254,7 +243,6 @@ export default function BlogPost() {
                     <span>Syndicating content across multiple sites</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">SEOLOGY Fixes Canonical Tag Issues Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -269,7 +257,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -282,7 +269,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #CanonicalTags #DuplicateContent #TechnicalSEO
@@ -292,7 +278,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

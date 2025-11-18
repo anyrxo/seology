@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-posts'
 
 export const metadata: Metadata = {
   title: 'Event Schema Markup: 18 Tactics to Get Rich Results & Drive Ticket Sales',
   description: 'Event schema markup increased event page CTR 67% and ticket sales 43% by displaying dates, locations, and prices directly in Google search results. These 18 tactics show how to implement Event schema for maximum visibility and conversions.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'event-schema-markup-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Event Schema Markup</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Event Schema Markup: 18 Tactics to Get Rich Results & Drive Ticket Sales
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>September 25, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Event schema markup is the fastest way to increase event visibility and ticket sales. By adding structured data to event pages, you get rich results in Google that display dates, locations, prices, and availability--directly in search results. These 18 tactics increased event page CTR 67% and ticket sales 43%.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates Event schema implementation</strong>--analyzing your event pages and adding complete, valid structured data for all event types (in-person, virtual, hybrid)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Event Schema Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -92,15 +87,12 @@ export default function BlogPost() {
                 <strong>The result:</strong> Event listings stand out in search results, driving more clicks and ticket sales. Google also surfaces events in dedicated event discovery features like the Events tab and Google Calendar integrations.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 18 Event Schema Tactics</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">Category 1: Required Event Properties</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 These properties are <strong>mandatory</strong> for Google to display event rich results. Missing any of these = no rich results.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #1: Add Event Name</h4>
                 <p className="text-slate-700 mb-2">
@@ -118,7 +110,6 @@ export default function BlogPost() {
 {`"name": "Marketing Tech Summit 2025"`}
                 </pre>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #2: Define Start Date (and End Date)</h4>
                 <p className="text-slate-700 mb-2">
@@ -138,7 +129,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Critical:</strong> Incorrect date formats will cause validation errors and prevent rich results.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #3: Specify Event Location (Place or VirtualLocation)</h4>
                 <p className="text-slate-700 mb-2">
@@ -168,7 +158,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "Moscone Center, San Francisco" or "Online event" badge in rich results.</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #4: Set Event Attendance Mode</h4>
                 <p className="text-slate-700 mb-2">
@@ -186,7 +175,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Critical:</strong> Without this property, Google won\'t display "Online event" badges for virtual events.</p>
               </div>
-
               <div className="bg-indigo-50 border-l-4 border-indigo-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-indigo-900 mb-2">Tactic #5: Define Event Status</h4>
                 <p className="text-slate-700 mb-2">
@@ -205,12 +193,10 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Update eventStatus immediately if plans change--Google will update rich results automatically.</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 2: Ticket & Pricing Information</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Adding ticket pricing dramatically increases CTR. Events with <code className="bg-slate-200 px-2 py-1 rounded">offers</code> get 2.1x more clicks.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #6: Add Ticket Offers with Pricing</h4>
                 <p className="text-slate-700 mb-2">
@@ -236,7 +222,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "From $49 · Tickets available" in event rich results.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #7: Handle Free Events Correctly</h4>
                 <p className="text-slate-700 mb-2">
@@ -255,7 +240,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "Free" badge in event listings.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #8: Add Multiple Ticket Tiers</h4>
                 <p className="text-slate-700 mb-2">
@@ -284,7 +268,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "From $99" (lowest price) with multiple ticket options available.</p>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #9: Mark Sold Out Events</h4>
                 <p className="text-slate-700 mb-2">
@@ -302,12 +285,10 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google displays "Sold out" in event listings, which builds urgency for future events.</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 3: Organizer & Performer Details</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Adding organizer and performer data builds trust and helps Google understand event context.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #10: Add Event Organizer Information</h4>
                 <p className="text-slate-700 mb-2">
@@ -323,7 +304,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Use your brand\'s official name consistently across all events for entity recognition.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #11: Include Performer Data for Concerts/Talks</h4>
                 <p className="text-slate-700 mb-2">
@@ -351,12 +331,10 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google may display performer names in event rich results for high-profile speakers.</p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 4: Enhanced Event Properties</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 These optional properties improve rich result appearance and help Google understand event context better.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #12: Add Event Description</h4>
                 <p className="text-slate-700 mb-2">
@@ -374,7 +352,6 @@ export default function BlogPost() {
 {`"description": "Join 2,000+ marketers to learn the latest SEO strategies, network with industry leaders, and discover cutting-edge tools that drive organic growth."`}
                 </pre>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #13: Include Event Image</h4>
                 <p className="text-slate-700 mb-2">
@@ -393,7 +370,6 @@ export default function BlogPost() {
                 </pre>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Google may display your event image in rich results for larger events.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #14: Specify Event Duration</h4>
                 <p className="text-slate-700 mb-2">
@@ -410,7 +386,6 @@ export default function BlogPost() {
 {`"duration": "PT2H"`}
                 </pre>
               </div>
-
               <div className="bg-pink-50 border-l-4 border-pink-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-pink-900 mb-2">Tactic #15: Add Previous Start Date for Rescheduled Events</h4>
                 <p className="text-slate-700 mb-2">
@@ -423,12 +398,10 @@ export default function BlogPost() {
 "previousStartDate": "2025-06-15T09:00:00-07:00"`}
                 </pre>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4">Category 5: Testing & Validation</h3>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
                 Schema validation is critical--one error can prevent all rich results from appearing.
               </p>
-
               <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Tactic #16: Test with Rich Results Test Tool</h4>
                 <p className="text-slate-700 mb-2">
@@ -444,7 +417,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Common validation errors:</strong> Missing required properties, incorrect date format, invalid currency codes, broken URLs.</p>
               </div>
-
               <div className="bg-purple-50 border-l-4 border-purple-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-purple-900 mb-2">Tactic #17: Monitor in Google Search Console</h4>
                 <p className="text-slate-700 mb-2">
@@ -459,7 +431,6 @@ export default function BlogPost() {
                 </ul>
                 <p className="text-slate-700 mt-2"><strong>Result:</strong> Catch schema errors quickly and track rich result performance over time.</p>
               </div>
-
               <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6 rounded-r-lg">
                 <h4 className="text-xl font-bold text-green-900 mb-2">Tactic #18: Use JSON-LD Format (Not Microdata)</h4>
                 <p className="text-slate-700 mb-2">
@@ -509,7 +480,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mt-2"><strong>Best practice:</strong> Place JSON-LD in the <code className="bg-slate-200 px-2 py-1 rounded">&lt;head&gt;</code> section of your HTML.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Event Schema Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -550,7 +520,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Conference Event Schema Success</h2>
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border border-green-200 my-8">
@@ -558,7 +527,6 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-4">
                   A marketing conference with 50+ event pages had no Event schema. Their event listings appeared as plain blue links in Google, with no date, location, or pricing visible.
                 </p>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Solution</h3>
                 <p className="text-slate-700 mb-2"><strong>Implementation (Week 1):</strong></p>
                 <ul className="list-disc list-inside space-y-1 ml-4 text-slate-700 mb-4">
@@ -568,7 +536,6 @@ export default function BlogPost() {
                   <li>Set eventAttendanceMode for 10 virtual events</li>
                   <li>Validated all pages with Rich Results Test tool</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold text-green-900 mb-4">The Results (90 Days)</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-white p-4 rounded-lg border border-green-300">
@@ -588,13 +555,11 @@ export default function BlogPost() {
                     <div className="text-slate-700">Event pages with valid rich results</div>
                   </div>
                 </div>
-
                 <p className="text-slate-700 mt-4">
                   <strong>Key insight:</strong> Early Bird ticket offers drove the most conversions--showing pricing created urgency that increased early ticket purchases 78%.
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Event Schema</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -622,7 +587,6 @@ export default function BlogPost() {
                   <span><strong>Multi-Event Support:</strong> Handles in-person, virtual, and hybrid events with proper attendance modes</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Event Schema</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -637,7 +601,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -656,7 +619,6 @@ export default function BlogPost() {
                 Or let SEOLOGY automate everything and start seeing results immediately.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
               <ul className="space-y-2">
@@ -669,7 +631,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #EventSchema #StructuredData #SchemaMarkup #EventSEO #SEOLOGY
@@ -678,7 +639,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>
