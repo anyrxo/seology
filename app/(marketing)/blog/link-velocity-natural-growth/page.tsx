@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Link Velocity: 15 Tactics to Build Backlinks at Natural Growth Rates -- Avoid 73% of Penalties',

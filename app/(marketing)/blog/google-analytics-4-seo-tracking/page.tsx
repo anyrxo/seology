@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Google Analytics 4 for SEO: Complete Tracking & Reporting Guide',

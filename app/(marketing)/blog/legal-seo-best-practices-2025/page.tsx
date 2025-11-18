@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Legal SEO: Dominate "Attorney Near Me" & High-Value Keywords',

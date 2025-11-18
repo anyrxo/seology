@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'H1 Tag Best Practices: 17 Rules for H1s That Rank & Convert -- 36% Higher CTR',

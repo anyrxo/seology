@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Entity SEO: 15 Tactics to Dominate Knowledge Graphs & Entity-Based Search',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Page Titles vs H1 Tags: 14 Rules for When to Match (and When to Differ) -- 43% CTR Boost',

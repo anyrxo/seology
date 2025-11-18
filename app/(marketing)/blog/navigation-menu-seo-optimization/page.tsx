@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX -- 58% More Indexation',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Dwell Time Optimization: 16 Tactics to Keep Visitors Engaged (347% Increase)',

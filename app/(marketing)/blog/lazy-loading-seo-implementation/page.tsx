@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Lazy Loading SEO: 15 Tactics to Speed Up Sites 67% Without Losing Rankings',

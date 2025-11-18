@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Structured Data & Rich Snippets for Shopify: Schema Markup Guide 2026 | SEOLOGY.AI',

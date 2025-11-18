@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Content Pruning Strategy: 17 Tactics to Delete Old Content & Boost Rankings',

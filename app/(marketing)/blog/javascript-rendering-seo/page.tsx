@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed -- 73% More Pages',

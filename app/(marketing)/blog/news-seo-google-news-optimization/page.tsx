@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'News SEO: 16 Tactics to Get Featured in Google News & Top Stories (847% Traffic Spike)',

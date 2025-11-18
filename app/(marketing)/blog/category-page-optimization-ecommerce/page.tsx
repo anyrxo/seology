@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'E-commerce Category Page Optimization: 19 Tactics to Rank Higher Than Product Pages',

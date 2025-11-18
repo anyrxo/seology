@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Canonical Tags: The Definitive Guide to Fixing Duplicate Content',

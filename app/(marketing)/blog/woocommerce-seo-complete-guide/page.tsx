@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'WooCommerce SEO: 21 Optimizations That Boosted Sales 156% in 2025',

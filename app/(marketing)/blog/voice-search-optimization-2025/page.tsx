@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Voice Search Optimization: 15 Tactics to Dominate Alexa, Siri & Google in 2025',

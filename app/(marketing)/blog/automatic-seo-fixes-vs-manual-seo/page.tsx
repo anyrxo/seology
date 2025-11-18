@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Automatic SEO Fixes vs Manual SEO: Why Automation Wins Every Time',

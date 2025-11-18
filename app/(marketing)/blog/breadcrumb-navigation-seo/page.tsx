@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Breadcrumb Navigation SEO: 14 Best Practices for Rankings & UX in 2025',

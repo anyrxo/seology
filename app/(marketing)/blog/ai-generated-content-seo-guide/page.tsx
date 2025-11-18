@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "AI-Generated Content & SEO: What Works in 2025 (And What Doesn\'t)",

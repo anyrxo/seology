@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Dropshipping SEO for Shopify: Optimization Guide Without Inventory 2026 | SEOLOGY.AI',

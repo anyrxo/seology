@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'SERP Click-Through Rate: 31 Tactics That Increased CTR by 214%',

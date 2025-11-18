@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Faceted Navigation SEO: 17 Tactics to Handle Filters Without Duplicate Content (94% Crawl Savings)',

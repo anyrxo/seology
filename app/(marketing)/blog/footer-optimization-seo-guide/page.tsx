@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Footer Optimization: 17 Tactics to Turn Your Footer Into an SEO Asset (Not a Liability)',

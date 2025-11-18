@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Semantic SEO: 16 Tactics to Optimize for NLP & Related Entities (52% Traffic Increase)',

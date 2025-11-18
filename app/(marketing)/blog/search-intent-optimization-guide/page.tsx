@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Search Intent Optimization: 18 Tactics to Match Content to User Intent in 2025',

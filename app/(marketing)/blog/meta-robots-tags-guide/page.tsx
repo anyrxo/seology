@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Meta Robots Tags: 18 Directives to Control Indexing & Crawling -- 94% Crawl Budget Saved',

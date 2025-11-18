@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Long-Tail Keyword Strategy: 16 Tactics to Find Low-Competition Terms That Convert 2.5x Better',

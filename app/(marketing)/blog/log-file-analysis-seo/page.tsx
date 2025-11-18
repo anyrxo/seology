@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Log File Analysis for SEO: 14 Tactics to See Exactly How Google Crawls Your Site & Fix Crawl Budget Waste',

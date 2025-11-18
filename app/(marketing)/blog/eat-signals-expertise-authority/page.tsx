@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'E-E-A-T Signals: 21 Proven Tactics to Build Expertise, Authority & Trust in 2025',

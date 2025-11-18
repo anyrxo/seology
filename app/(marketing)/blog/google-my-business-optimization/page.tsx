@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Google Business Profile Optimization: 17 Tactics That Increased Local Traffic 487% (Map Pack Dominance)',

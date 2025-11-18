@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Landing Page SEO: Rank High & Convert Better (16 Dual-Optimization Tactics) -- 89% More Conversions',

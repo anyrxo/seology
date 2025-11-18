@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Bounce Rate Reduction: 27 Tactics to Keep Visitors Engaged',

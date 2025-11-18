@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'CRO for SEO: 19 Tactics to Turn Rankings Into Revenue (156% Increase)',

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Competitor SEO Analysis: 18 Tactics to Steal Your Competitors\' Rankings",

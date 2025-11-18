@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics) -- 67% Traffic Boost',

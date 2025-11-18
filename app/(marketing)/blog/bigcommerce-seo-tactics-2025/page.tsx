@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'BigCommerce SEO: 23 Tactics to Outrank Shopify Stores',

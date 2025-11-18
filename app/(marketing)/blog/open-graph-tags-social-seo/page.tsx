@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Open Graph Tags: 16 Tactics to Optimize Social Sharing for 312% More Traffic',

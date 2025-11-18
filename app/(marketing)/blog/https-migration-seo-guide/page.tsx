@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'HTTPS Migration Guide: Move to SSL Without Losing Rankings',

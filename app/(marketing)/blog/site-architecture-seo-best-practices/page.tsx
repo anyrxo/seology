@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Site Architecture: SEO Best Practices for Maximum Crawlability in 2025',

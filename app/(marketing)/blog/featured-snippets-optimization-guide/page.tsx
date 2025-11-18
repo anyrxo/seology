@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Featured Snippets: How to Rank in Position Zero (13 Proven Tactics)',

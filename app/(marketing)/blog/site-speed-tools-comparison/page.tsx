@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Site Speed Tools Compared: PageSpeed vs Lighthouse vs GTmetrix (16 Testing Tactics) -- 84% Performance Boost',

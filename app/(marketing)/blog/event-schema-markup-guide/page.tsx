@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Event Schema Markup: 18 Tactics to Get Rich Results & Drive Ticket Sales',

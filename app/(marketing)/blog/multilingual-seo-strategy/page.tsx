@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Multilingual SEO: 17 Tactics to Rank in Every Language & Country -- 312% International Traffic',

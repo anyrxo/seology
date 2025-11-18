@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Ecommerce SEO Strategy: 25 Tactics That Drive Real Sales in 2025',

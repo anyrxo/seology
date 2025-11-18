@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Technical SEO Audit Checklist: 31 Critical Issues to Fix in 2025',

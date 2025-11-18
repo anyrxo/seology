@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Review Schema: Get Star Ratings in Search Results (15 Implementation Tactics) -- 35% CTR Boost',

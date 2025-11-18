@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'PPC & SEO Integration Strategy: 15 Tactics to Combine Paid & Organic for 92% Higher ROI',
