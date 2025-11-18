@@ -3,9 +3,25 @@
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // During SSR, render a placeholder
+  if (!mounted) {
+    return (
+      <div className="relative w-12 h-6 rounded-full bg-slate-200 dark:bg-slate-700 p-1">
+        <div className="absolute top-1/2 left-1 w-4 h-4 rounded-full bg-white dark:bg-slate-900 shadow-md" />
+      </div>
+    );
+  }
 
   return (
     <motion.button
