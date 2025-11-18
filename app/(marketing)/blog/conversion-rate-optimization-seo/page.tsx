@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'CRO for SEO: 19 Tactics to Turn Rankings Into Revenue (156% Increase)',
   description: 'Rankings without conversions are worthless. These 19 CRO tactics increased revenue per visitor 156% by optimizing organic traffic for conversions with above-the-fold CTAs, trust signals, and friction reduction.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'conversion-rate-optimization-seo').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>CRO for SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             CRO for SEO: 19 Tactics to Turn Rankings Into Revenue (156% Increase)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>July 30, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Rankings without conversions are worthless. These 19 CRO tactics increased revenue per visitor 156% by optimizing organic traffic for conversions with above-the-fold CTAs, trust signals, and friction reduction.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700">SEOLOGY automates CRO for SEO: A/B tests landing pages, optimizes CTAs based on behavioral data, adds trust signals, and reduces friction automatically</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why CRO for SEO Matters More Than Rankings</h2>
@@ -93,13 +88,10 @@ export default function BlogPost() {
                   <p className="text-slate-700">Unbounce tested CRO optimizations on 15 landing pages receiving organic traffic. <strong>Revenue per visitor increased 156%</strong> while organic traffic remained flat. This generated $847,000 in additional revenue without ranking higher or getting more traffic.</p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">19 CRO Tactics for SEO Traffic (Organized by Category)</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Above-the-Fold Optimization (Tactics 1-4)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">1. Place Primary CTA Above the Fold (First Screen)</h4>
@@ -109,7 +101,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Place your primary conversion action (sign-up button, contact form, "Buy Now," etc.) in the top 600-800 pixels of your page so it\'s visible on desktop and mobile without scrolling.</p>
                       <p className="text-slate-600 mt-2 italic">Result: B2B SaaS company increased trial sign-ups 94% by moving CTA from below content to hero section</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">2. Use Benefit-Focused Headlines (Not Feature-Focused)</h4>
                       <p className="text-slate-700 mb-2">
@@ -119,7 +110,6 @@ export default function BlogPost() {
                       <p className="text-slate-700"><strong>Good (Benefit-Focused):</strong> "Ship Projects 40% Faster Without the Chaos"</p>
                       <p className="text-slate-700 mt-2">The good headline addresses the visitor\'s problem (chaotic projects) and quantifies the benefit (40% faster).</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">3. Add a Value Proposition Subheadline</h4>
                       <p className="text-slate-700 mb-2">
@@ -128,7 +118,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2"><strong>Formula:</strong> [Specific Benefit] for [Target Audience] without [Main Objection]</p>
                       <p className="text-slate-700 mt-2"><strong>Example:</strong> "Ship Projects 40% Faster" (headline) + "Automated workflows for product teams without the learning curve" (subheadline)</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">4. Use Contrasting CTA Button Colors</h4>
                       <p className="text-slate-700 mb-2">
@@ -139,10 +128,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Trust Signals & Social Proof (Tactics 5-9)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">5. Display Customer Reviews and Ratings Above the Fold</h4>
@@ -157,7 +144,6 @@ export default function BlogPost() {
                         <li>Use schema markup (AggregateRating) to show stars in search results</li>
                       </ul>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">6. Add Trust Badges (Security, Payment, Guarantees)</h4>
                       <p className="text-slate-700 mb-2">
@@ -165,7 +151,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Where to Place:</strong> Near payment forms, checkout buttons, or sign-up forms. Badges should be small and unobtrusive--trust signals, not visual clutter.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">7. Show Specific Customer Counts or Usage Stats</h4>
                       <p className="text-slate-700 mb-2">
@@ -179,7 +164,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Specificity (exact numbers) signals authenticity.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">8. Feature Recognizable Brand Logos ("As Seen In" / "Used By")</h4>
                       <p className="text-slate-700 mb-2">
@@ -187,7 +171,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Display 6-8 logos of recognizable brands or publications in a horizontal row below your hero section. Use grayscale logos for visual consistency. Add text: "Trusted by" or "As featured in"</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">9. Add a Money-Back Guarantee or Free Trial</h4>
                       <p className="text-slate-700 mb-2">
@@ -202,10 +185,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border-l-4 border-pink-600 mb-8">
                   <h3 className="text-2xl font-bold text-pink-900 mb-4">Form & Friction Reduction (Tactics 10-14)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">10. Reduce Form Fields to Absolute Minimum</h4>
@@ -214,7 +195,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Best Practice:</strong> Only ask for information you absolutely need for the first conversion. Get name + email for lead magnets. Add phone number only if required for immediate follow-up. Save detailed questions for after conversion.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">11. Use Single-Column Forms (Not Multi-Column)</h4>
                       <p className="text-slate-700 mb-2">
@@ -222,7 +202,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Layout:</strong> Stack form fields vertically with labels above inputs (not beside). One field per row. Minimum 12px spacing between fields.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">12. Eliminate Navigation on Landing Pages</h4>
                       <p className="text-slate-700 mb-2">
@@ -230,7 +209,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>When to Remove Nav:</strong> Dedicated landing pages for specific keywords/campaigns. Pages with single conversion goals. Do NOT remove nav from informational blog posts (users expect to explore).</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">13. Add Inline Form Validation (Real-Time Error Messages)</h4>
                       <p className="text-slate-700 mb-2">
@@ -238,7 +216,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mt-2"><strong>Implementation:</strong> Show green checkmarks for correctly filled fields. Show red error messages immediately when users enter invalid data (wrong email format, password too short, etc.). Don\'t wait until form submission to show errors.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">14. Use Action-Oriented CTA Copy</h4>
                       <p className="text-slate-700 mb-2">
@@ -253,10 +230,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Speed & Technical Optimization (Tactics 15-17)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">15. Optimize for Sub-3-Second Page Load Times</h4>
@@ -272,7 +247,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-600 mt-2 italic">Test at: PageSpeed Insights, GTmetrix</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">16. Make Forms Mobile-Friendly (Large Touch Targets)</h4>
                       <p className="text-slate-700 mb-2">
@@ -286,7 +260,6 @@ export default function BlogPost() {
                         <li>Use large, full-width form fields (not narrow desktop-sized inputs)</li>
                       </ul>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">17. Implement Exit-Intent Popups for Organic Traffic</h4>
                       <p className="text-slate-700 mb-2">
@@ -297,10 +270,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border-l-4 border-indigo-600 mb-8">
                   <h3 className="text-2xl font-bold text-indigo-900 mb-4">A/B Testing & Data-Driven Optimization (Tactics 18-19)</h3>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">18. Run A/B Tests on High-Traffic Pages First</h4>
@@ -316,7 +287,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-slate-700 mt-2">Run tests for minimum 2 weeks or until 95% statistical confidence reached.</p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-2">19. Track Micro-Conversions (Not Just Final Conversions)</h4>
                       <p className="text-slate-700 mb-2">
@@ -333,7 +303,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common CRO for SEO Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -374,7 +343,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for CRO on SEO Traffic</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-6">
@@ -410,7 +378,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company Increases Revenue Per Visitor 156%</h2>
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border border-slate-200 my-6">
@@ -460,7 +427,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates CRO for SEO Traffic</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -496,7 +462,6 @@ export default function BlogPost() {
                     <span><strong>Exit-Intent Recovery:</strong> Automatically implements exit-intent popups for organic traffic with lead magnets tailored to the page\'s keyword focus</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate CRO for Your Organic Traffic</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -511,7 +476,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: CRO is the Fastest Way to Increase SEO ROI</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -527,7 +491,6 @@ export default function BlogPost() {
                   <strong>Bottom line:</strong> Rankings without conversions are vanity metrics. Revenue is the only metric that matters. Optimize your organic landing pages for conversions and watch SEO ROI multiply without changing your rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -542,7 +505,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEO #CRO #ConversionOptimization #SEOLOGY #SEOAutomation #LandingPageOptimization
@@ -552,7 +514,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { AlertTriangle, ArrowRight, CheckCircle2, Shield } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Healthcare SEO: HIPAA-Compliant Strategies That Actually Rank',
   description: 'Healthcare SEO has strict compliance requirements. This guide balances patient privacy with ranking on Google.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'healthcare-seo-compliance-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Healthcare SEO Compliance</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Healthcare SEO: HIPAA-Compliant Strategies That Actually Rank
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>September 22, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Healthcare SEO has strict compliance requirements. This guide shows how to balance patient privacy with ranking on Google.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -55,14 +51,12 @@ export default function BlogPost() {
                 Healthcare SEO must balance patient privacy regulations (HIPAA) with ranking visibility. <strong>Healthcare organizations face $50,000+ fines per HIPAA violation</strong> from SEO mistakes. This guide covers 17 compliance-safe strategies: patient testimonial protocols, secure forms, HIPAA-compliant analytics, geotargeting for medical practices, content marketing without PHI exposure, and E-A-T building for YMYL medical content. SEOLOGY ensures healthcare sites rank while maintaining full HIPAA compliance.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Healthcare SEO is Different</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Healthcare websites face unique challenges that other industries don\'t encounter:
                 </p>
-
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-red-50 p-6 rounded-xl border border-red-200">
                     <div className="flex items-center gap-3 mb-3">
@@ -87,15 +81,12 @@ export default function BlogPost() {
                     <div className="text-slate-700">Of healthcare searches are local--"doctor near me" queries dominate medical search</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mt-6">
                   Healthcare providers must navigate HIPAA regulations, maintain patient trust, establish medical expertise, and compete for visibility--all simultaneously.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">HIPAA Compliance for Healthcare SEO</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">What is Protected Health Information (PHI)?</h4>
@@ -109,7 +100,6 @@ export default function BlogPost() {
                       <strong>SEO Impact:</strong> Cannot use patient testimonials, before/after photos, or case studies without explicit written authorization and de-identification.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">HIPAA-Compliant Website Analytics</h4>
                     <p className="text-slate-700 mb-3">
@@ -125,7 +115,6 @@ export default function BlogPost() {
                       <strong>Critical:</strong> Never track appointment scheduling, prescription requests, or patient portal activity without BAA and proper safeguards.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">HIPAA-Compliant Forms and Chatbots</h4>
                     <p className="text-slate-700 mb-3">
@@ -141,7 +130,6 @@ export default function BlogPost() {
                       <strong>Warning:</strong> Standard contact forms (Contact Form 7, Gravity Forms without BAA) violate HIPAA for patient communications.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">HIPAA-Compliant Testimonials Strategy</h4>
                     <p className="text-slate-700 mb-3">
@@ -159,10 +147,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">17 Healthcare SEO Strategies (HIPAA-Compliant)</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Local SEO for Healthcare (6 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -180,7 +166,6 @@ export default function BlogPost() {
                       <strong>Reviews:</strong> Respond to all reviews professionally, never reveal PHI in responses, thank patients generally without specifics.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Service Area Pages for Each Location</h4>
                     <p className="text-slate-700 mb-3">
@@ -196,7 +181,6 @@ export default function BlogPost() {
                       <strong>Schema markup:</strong> MedicalOrganization, LocalBusiness, Physician schema with specific location data.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. NAP Consistency Across Directories</h4>
                     <p className="text-slate-700 mb-3">
@@ -212,7 +196,6 @@ export default function BlogPost() {
                       <strong>Consistency check:</strong> Same phone format, suite numbers, abbreviations across all citations.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Healthcare-Specific Schema Markup</h4>
                     <p className="text-slate-700 mb-3">
@@ -228,7 +211,6 @@ export default function BlogPost() {
                       <strong>Validator:</strong> Use Google\'s Rich Results Test to verify medical schema implementation.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Online Reviews Management Strategy</h4>
                     <p className="text-slate-700 mb-3">
@@ -244,7 +226,6 @@ export default function BlogPost() {
                       <strong>Negative reviews:</strong> Respond professionally, offer to discuss offline, never reveal PHI even if patient did.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Emergency and Urgent Care Optimization</h4>
                     <p className="text-slate-700 mb-3">
@@ -261,7 +242,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content Marketing (6 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -279,7 +259,6 @@ export default function BlogPost() {
                       <strong>HIPAA-safe:</strong> General medical information only, no patient case examples, cite peer-reviewed research.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Doctor Biography Pages with E-A-T Signals</h4>
                     <p className="text-slate-700 mb-3">
@@ -295,7 +274,6 @@ export default function BlogPost() {
                       <strong>Schema:</strong> Physician schema with medicalSpecialty, alumniOf, award, and affiliation properties.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. FAQ Pages for Common Patient Questions</h4>
                     <p className="text-slate-700 mb-3">
@@ -311,7 +289,6 @@ export default function BlogPost() {
                       <strong>Format:</strong> Clear H2 questions, concise 2-3 sentence answers, link to detailed pages for complex topics.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Medical Procedure Explanation Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -327,7 +304,6 @@ export default function BlogPost() {
                       <strong>CTA:</strong> Schedule consultation, download preparation guide, insurance verification form.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Health Blog with Medical Professional Authors</h4>
                     <p className="text-slate-700 mb-3">
@@ -343,7 +319,6 @@ export default function BlogPost() {
                       <strong>Frequency:</strong> Minimum 2 posts per month to maintain content freshness signals.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Video Content Strategy</h4>
                     <p className="text-slate-700 mb-3">
@@ -360,7 +335,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical SEO (5 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -378,7 +352,6 @@ export default function BlogPost() {
                       <strong>Validation:</strong> Green padlock in browser, SSL Labs test grade A or A+, no security warnings in Google Search Console.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Mobile-First Healthcare Website Design</h4>
                     <p className="text-slate-700 mb-3">
@@ -394,7 +367,6 @@ export default function BlogPost() {
                       <strong>Testing:</strong> Google Mobile-Friendly Test, PageSpeed Insights mobile score 90+, test on real devices.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Structured Data for Healthcare</h4>
                     <p className="text-slate-700 mb-3">
@@ -410,7 +382,6 @@ export default function BlogPost() {
                       <strong>Validation:</strong> Rich Results Test, Schema.org validator, monitor Search Console enhancements report.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Site Speed Optimization</h4>
                     <p className="text-slate-700 mb-3">
@@ -426,7 +397,6 @@ export default function BlogPost() {
                       <strong>Monitoring:</strong> Track site speed monthly, fix regressions immediately, prioritize mobile performance.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Accessibility Compliance (ADA)</h4>
                     <p className="text-slate-700 mb-3">
@@ -444,7 +414,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Healthcare SEO Mistakes to Avoid</h2>
                 <div className="space-y-6 my-8">
@@ -457,7 +426,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Sign BAA with Google, anonymize IPs, exclude PHI from tracking, or use HIPAA-compliant alternative.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Testimonials Without Authorization</h4>
                     <p className="text-slate-700 mb-3">
@@ -467,7 +435,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Obtain signed authorization forms, document consent, allow revocation, or use aggregated reviews instead.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Missing Author Credentials</h4>
                     <p className="text-slate-700 mb-3">
@@ -477,7 +444,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Add physician bylines with full credentials, link to detailed bio pages, display board certifications.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Outdated Medical Information</h4>
                     <p className="text-slate-700 mb-3">
@@ -487,7 +453,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Add "Last Reviewed" dates, update content annually, cite current medical guidelines and research.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Ignoring Local SEO</h4>
                     <p className="text-slate-700 mb-3">
@@ -499,7 +464,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Ensures HIPAA-Compliant Healthcare SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -535,7 +499,6 @@ export default function BlogPost() {
                     <span>Monitors compliance continuously and alerts to potential HIPAA violations</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Rank Higher While Staying HIPAA-Compliant</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -550,7 +513,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -559,7 +521,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/eat-signals-expertise-authority" className="text-blue-600 hover:text-blue-800">E-A-T Signals: Build Expertise, Authority & Trust for Rankings</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #HealthcareSEO #HIPAACompliance #MedicalSEO
@@ -569,7 +530,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

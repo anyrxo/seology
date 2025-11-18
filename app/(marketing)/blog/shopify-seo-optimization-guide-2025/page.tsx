@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: '21 Shopify SEO Optimization Tips That Actually Work in 2025',
   description: 'Stop wasting time on outdated Shopify SEO tactics. These 21 proven strategies generate real traffic and sales.',
 }
-
 export default function BlogPost() {
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -17,21 +18,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Shopify SEO Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             21 Shopify SEO Optimization Tips That Actually Work in 2025
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>January 10, 2025</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Stop wasting time on outdated Shopify SEO tactics. These 21 proven strategies generate <strong className="text-white">real traffic and sales</strong>--and SEOLOGY automates most of them for you.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -43,7 +40,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -53,7 +49,6 @@ export default function BlogPost() {
                 Most Shopify stores lose 60% of potential traffic due to basic SEO mistakes. These 21 tactics fix the issues that kill your rankings--and SEOLOGY automates 18 of them. Read on to learn what actually works in 2025.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Most Shopify SEO Advice Is Garbage</h2>
@@ -69,10 +64,8 @@ export default function BlogPost() {
                   That's not strategy--that's common sense. Here's what <strong>actually</strong> moves the needle in 2025.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 21 Shopify SEO Tactics That Work</h2>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Technical SEO (Foundation)</h3>
                 <ol className="space-y-4">
                   <li className="flex items-start gap-3">
@@ -111,7 +104,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ol>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">On-Page SEO (Content)</h3>
                 <ol className="space-y-4" start={6}>
                   <li className="flex items-start gap-3">
@@ -150,7 +142,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ol>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Meta Tags & URLs</h3>
                 <ol className="space-y-4" start={11}>
                   <li className="flex items-start gap-3">
@@ -182,7 +173,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ol>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Content Marketing</h3>
                 <ol className="space-y-4" start={15}>
                   <li className="flex items-start gap-3">
@@ -207,7 +197,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ol>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Advanced Tactics</h3>
                 <ol className="space-y-4" start={18}>
                   <li className="flex items-start gap-3">
@@ -240,7 +229,6 @@ export default function BlogPost() {
                   </li>
                 </ol>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why SEOLOGY Beats Manual Shopify SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -271,7 +259,6 @@ export default function BlogPost() {
                     <span>Monitors performance 24/7 and fixes new issues instantly</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mt-8">
                   <h3 className="text-2xl font-bold mb-4">Ready to Automate Your Shopify SEO?</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -286,7 +273,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -295,7 +281,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/automatic-seo-fixes-vs-manual-seo" className="text-blue-600 hover:text-blue-800">Automatic SEO vs Manual SEO</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #ShopifySEO #EcommerceSEO #SEOTips #SEOLOGY #ShopifyOptimization

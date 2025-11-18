@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Redirect Chains: 17 Tactics to Find & Fix Loops Killing Your Speed (82% Faster Pages)',
   description: 'Redirect chains waste 47% more crawl budget and add 350ms delay per hop. Fixing redirect chains improved page speed 82% and crawl efficiency 63% by eliminating multi-hop redirects and consolidating redirect paths.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'redirect-chains-audit-fix').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Redirect Chains</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Redirect Chains: 17 Tactics to Find & Fix Loops Killing Your Speed
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>May 22, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Redirect chains waste 47% more crawl budget and add 350ms delay per hop. This guide shows 17 tactics to eliminate every redirect chain on your site.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,13 +56,11 @@ export default function BlogPost() {
                 <li className="text-slate-700">Tools: Screaming Frog (chain detection), Google Search Console (crawl impact), Chrome DevTools (Network tab)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">What Are Redirect Chains?</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 A redirect chain occurs when a URL redirects to another URL that redirects to yet another URL before finally reaching the destination. Instead of going directly from A→C, users and search engines experience A→B→C (or worse, A→B→C→D→E).
               </p>
-
               <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                 <h3 className="text-xl font-bold mb-3">Example Redirect Chain:</h3>
                 <div className="font-mono text-sm space-y-2">
@@ -92,12 +86,10 @@ export default function BlogPost() {
                 </div>
                 <p className="text-sm text-slate-600 mt-4"><strong>Problem:</strong> 4 HTTP requests, 1050ms delay, wasted crawl budget, diluted PageRank</p>
               </div>
-
               <p className="text-lg text-slate-700 leading-relaxed">
                 Redirect chains commonly form during site migrations, URL structure changes, or when updating redirects without checking existing redirect rules. A study by Moz found that <strong>63% of enterprise websites</strong> have at least one redirect chain longer than 3 hops.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Redirect Chains Kill Your SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -126,14 +118,11 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">17 Tactics to Find & Fix Redirect Chains</h2>
-
               <div className="space-y-8">
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 1: Finding Redirect Chains</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">1. Crawl Site with Screaming Frog</h4>
                     <p className="text-slate-700 mb-3">
@@ -145,7 +134,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Export redirect chains report and sort by chain length (longest first = highest priority)</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">2. Check Google Search Console Coverage Report</h4>
                     <p className="text-slate-700 mb-3">
@@ -153,7 +141,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Filter by "Page with redirect" and cross-reference with Screaming Frog to identify chains vs simple redirects.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">3. Use Chrome DevTools Network Tab</h4>
                     <p className="text-slate-700 mb-3">
@@ -164,7 +151,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm mt-2"><strong>Warning sign:</strong> 3+ redirect responses before final 200 OK</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">4. Audit Historical Site Migrations</h4>
                     <p className="text-slate-700 mb-3">
@@ -172,7 +158,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Check .htaccess, nginx.conf, or CDN redirect rules for overlapping redirect patterns from multiple migration dates.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">5. Monitor External Backlinks with Ahrefs</h4>
                     <p className="text-slate-700 mb-3">
@@ -181,10 +166,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">High-authority backlinks caught in redirect chains waste valuable link equity--prioritize these for outreach or redirect fixes.</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 2: Analyzing Redirect Impact</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">6. Calculate Crawl Budget Waste</h4>
                     <p className="text-slate-700 mb-3">
@@ -195,7 +178,6 @@ export default function BlogPost() {
                       <p className="text-sm text-slate-600 mt-2">Sites with 20%+ redirect crawls are wasting significant crawl budget on chains and broken redirects</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">7. Measure Page Speed Impact with WebPageTest</h4>
                     <p className="text-slate-700 mb-3">
@@ -203,7 +185,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Each redirect hop adds 300-400ms. A 5-hop chain adds 1.5-2 seconds before content even starts loading.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">8. Track PageRank Flow with Internal Link Analysis</h4>
                     <p className="text-slate-700 mb-3">
@@ -211,7 +192,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Pages at end of 3+ hop chains typically receive 30-50% less internal PageRank than they should.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">9. Identify High-Priority Chains</h4>
                     <p className="text-slate-700 mb-3">
@@ -220,10 +200,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">Fix chains affecting revenue-generating pages before low-traffic blog posts.</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 3: Fixing Redirect Chains</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">10. Update Redirects to Point Directly to Final Destination</h4>
                     <p className="text-slate-700 mb-3">
@@ -238,7 +216,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">Redirect 301 /new-page /final-page</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. Update Internal Links to Skip Redirects</h4>
                     <p className="text-slate-700 mb-3">
@@ -246,7 +223,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Use Screaming Frog "Links &gt; All Inlinks" report to find internal links to redirected URLs, then update in CMS.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">12. Consolidate Multiple Redirect Rules Files</h4>
                     <p className="text-slate-700 mb-3">
@@ -254,7 +230,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Best practice: Use CDN-level redirects (Cloudflare, Fastly) for fastest response times and easiest management.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">13. Replace 302 Temporary Redirects with 301 Permanent</h4>
                     <p className="text-slate-700 mb-3">
@@ -264,7 +239,6 @@ export default function BlogPost() {
                       <p className="text-sm"><strong>Rule:</strong> If the redirect is permanent (99% of cases), use 301. Reserve 302 only for truly temporary redirects (A/B tests, seasonal campaigns).</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">14. Fix Redirect Loops</h4>
                     <p className="text-slate-700 mb-3">
@@ -273,10 +247,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">Loops usually occur from incorrect regex rules or conflicting redirect rules in different config files. Test thoroughly after fixing.</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-green-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 4: Preventing Future Chains</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">15. Implement Redirect Monitoring</h4>
                     <p className="text-slate-700 mb-3">
@@ -284,7 +256,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Alert threshold: Flag any redirect chains 3+ hops long for immediate investigation.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">16. Audit Redirects Before Each Migration</h4>
                     <p className="text-slate-700 mb-3">
@@ -301,7 +272,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">17. Document Redirect Mapping</h4>
                     <p className="text-slate-700 mb-3">
@@ -312,7 +282,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Redirect Chain Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -353,7 +322,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Finding & Fixing Redirect Chains</h2>
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -389,7 +357,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: E-Commerce Redirect Chain Fix</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-l-4 border-blue-600 p-6 rounded-r-lg my-8">
@@ -430,7 +397,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Redirect Chain Detection & Fixes</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -462,7 +428,6 @@ export default function BlogPost() {
                   <span><strong>Pre-Migration Audits:</strong> Checks new redirect rules before implementation to prevent chain creation</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Eliminate Redirect Chains Automatically</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -477,7 +442,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -487,7 +451,6 @@ export default function BlogPost() {
                 Start with Screaming Frog to identify all chains 3+ hops long, prioritize by traffic and backlink authority, update redirects to skip intermediate URLs, and implement monitoring to catch future chains. Tools exist to make this process efficient, but SEOLOGY automates the entire workflow--from detection through fixes to ongoing monitoring--so you get the 82% page speed improvement without spending hours in redirect rules configuration files.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -503,7 +466,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #RedirectChains #TechnicalSEO #PageSpeed #CrawlBudget #SEOAutomation #SEOLOGY
@@ -512,7 +474,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

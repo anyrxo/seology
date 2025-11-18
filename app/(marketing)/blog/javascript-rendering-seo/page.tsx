@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed -- 73% More Pages',
   description: 'JavaScript-heavy sites lose 42% of indexable content to rendering failures. JavaScript rendering SEO tactics recovered 73% more indexed pages and improved rankings 23 positions by ensuring Google properly renders and crawls JS content.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'javascript-rendering-seo' && ["javascript-seo-complete-guide","crawl-budget-optimization-guide","technical-seo-audit-checklist-2025","single-page-application-seo"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>JavaScript Rendering SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             JavaScript Rendering SEO: 15 Tactics to Get Your JS Content Indexed
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>July 5, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             JavaScript-heavy sites lose 42% of indexable content to rendering failures. This comprehensive guide shows exactly how to ensure Google properly crawls, renders, and indexes your JavaScript content--with 15 proven tactics that recovered 73% more indexed pages and improved rankings by 23 positions on average.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -62,7 +58,6 @@ export default function BlogPost() {
                 <li><strong>SEOLOGY detects and fixes JavaScript rendering issues</strong> automatically across your entire site</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why JavaScript Rendering Matters for SEO</h2>
@@ -101,19 +96,16 @@ export default function BlogPost() {
                   Google\'s crawler isn\'t a modern Chrome browser--it\'s a headless renderer with strict timeouts, no infinite scroll support, and limited resources. If your content requires JavaScript to appear, you\'re gambling that Google will successfully render it. Often, it doesn\'t.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">15 JavaScript Rendering SEO Tactics That Actually Work</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
                   Here are the exact tactics that recovered 73% more indexed pages and improved rankings by 23 positions across 2,400+ JavaScript-heavy websites. These aren\'t theoretical--they\'re battle-tested solutions.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 text-blue-900">Category 1: Rendering Architecture Strategy</h3>
                 <div className="bg-slate-50 p-6 rounded-lg mb-8 border-l-4 border-blue-600">
                   <p className="text-slate-700 mb-6">
                     Choose the right rendering approach for your site architecture and SEO requirements.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">1. Implement Server-Side Rendering (SSR) or Static Site Generation (SSG)</h4>
@@ -141,12 +133,10 @@ export default function BlogPost() {
 export async function getServerSideProps(context) {
   const { id } = context.params
   const product = await fetchProduct(id)
-
   return {
     props: { product } // Passed to component, rendered on server
   }
 }
-
 export default function ProductPage({ product }) {
   return (
     <div>
@@ -161,7 +151,6 @@ export default function ProductPage({ product }) {
                         <strong>How to Implement:</strong> If building new, choose a framework with SSR/SSG support. If migrating existing SPA, use Next.js (React), Nuxt.js (Vue), or Angular Universal. Start with SSG for static pages (blog, product pages), use SSR for dynamic pages (search results, user dashboards).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">2. Use Dynamic Rendering as a Fallback</h4>
                       <p className="text-slate-700 mb-3">
@@ -190,13 +179,11 @@ const BOT_UAS = [
   'twitterbot',
   // ... more bots
 ]
-
 function isBot(userAgent) {
   return BOT_UAS.some(bot =>
     userAgent.toLowerCase().includes(bot)
   )
 }
-
 // Middleware example
 if (isBot(req.headers['user-agent'])) {
   // Serve pre-rendered HTML
@@ -210,7 +197,6 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>Important:</strong> Dynamic rendering is NOT cloaking (which is penalized). Google explicitly allows serving different HTML to bots if the content is equivalent. Don\'t abuse this by showing bots different content than users see after JavaScript loads.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">3. Implement Progressive Enhancement</h4>
                       <p className="text-slate-700 mb-3">
@@ -232,7 +218,6 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>How to Implement:</strong> Build HTML templates first with all content present. Use JavaScript to enhance interactions (accordions, tabs, filters) rather than generate content. For React apps, use Next.js SSG/SSR to ensure HTML baseline.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">4. Avoid Client-Side Routing for Important Pages</h4>
                       <p className="text-slate-700 mb-3">
@@ -250,13 +235,11 @@ if (isBot(req.headers['user-agent'])) {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-purple-900">Category 2: Testing & Debugging JavaScript Rendering</h3>
                 <div className="bg-purple-50 p-6 rounded-lg mb-8 border-l-4 border-purple-600">
                   <p className="text-slate-700 mb-6">
                     Verify that Google can actually see your JavaScript-rendered content.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">5. Test with Google\'s Mobile-Friendly Test Tool</h4>
@@ -280,7 +263,6 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>How to Implement:</strong> Test 10-20 important URLs from different page types (homepage, category, product, blog post). If content is missing in the screenshot but visible to users, you have a JavaScript rendering problem.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">6. Use URL Inspection Tool in Search Console</h4>
                       <p className="text-slate-700 mb-3">
@@ -303,7 +285,6 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>Red Flags:</strong> If "Crawled page" HTML is nearly empty but "Live test" shows content, Google is relying on JavaScript rendering--which is risky. If "More Info" shows JavaScript errors, those are blocking indexing.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">7. View Page Source with JavaScript Disabled</h4>
                       <p className="text-slate-700 mb-3">
@@ -325,7 +306,6 @@ if (isBot(req.headers['user-agent'])) {
                         <strong>Critical Content Test:</strong> H1, body content, product prices, navigation, footer links should ALL be present without JavaScript. If any disappear, they\'re at risk of not being indexed.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">8. Monitor JavaScript Errors in Search Console</h4>
                       <p className="text-slate-700 mb-3">
@@ -349,13 +329,11 @@ if (isBot(req.headers['user-agent'])) {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-pink-900">Category 3: Performance & Rendering Speed</h3>
                 <div className="bg-pink-50 p-6 rounded-lg mb-8 border-l-4 border-pink-600">
                   <p className="text-slate-700 mb-6">
                     Optimize JavaScript loading and execution speed to improve rendering reliability.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">9. Optimize JavaScript Bundle Size</h4>
@@ -380,13 +358,11 @@ if (isBot(req.headers['user-agent'])) {
                       </p>
                       <div className="bg-slate-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">
                         <pre>{`import dynamic from 'next/dynamic'
-
 // Split non-critical component into separate bundle
 const HeavyChart = dynamic(() => import('./HeavyChart'), {
   loading: () => <p>Loading chart...</p>,
   ssr: false // Don't render on server
 })
-
 // Main bundle is much smaller
 export default function Dashboard() {
   return (
@@ -401,7 +377,6 @@ export default function Dashboard() {
                         <strong>How to Measure:</strong> Use Webpack Bundle Analyzer or Next.js Bundle Analyzer to visualize bundle size. Target: Main bundle under 200KB gzipped. Split anything over 50KB into separate chunks.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">10. Use Lazy Loading for Below-Fold Content</h4>
                       <p className="text-slate-700 mb-3">
@@ -415,19 +390,15 @@ export default function Dashboard() {
                       </p>
                       <div className="bg-slate-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">
                         <pre>{`import { useEffect, useState } from 'react'
-
 function ProductReviews() {
   const [reviews, setReviews] = useState(null)
-
   useEffect(() => {
     // Fetch reviews after initial render
     fetchReviews().then(setReviews)
   }, [])
-
   if (!reviews) return <div>Loading reviews...</div>
   return <ReviewsList reviews={reviews} />
 }
-
 // Main product page renders immediately
 // Reviews load afterward
 export default function ProductPage() {
@@ -444,7 +415,6 @@ export default function ProductPage() {
                         <strong>SEO Consideration:</strong> Only lazy load non-critical content (reviews, related products, comments). Never lazy load primary product info, descriptions, or prices that Google needs for indexing.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">11. Minimize Third-Party Scripts</h4>
                       <p className="text-slate-700 mb-3">
@@ -469,13 +439,11 @@ export default function ProductPage() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-green-900">Category 4: Structured Data & Metadata</h3>
                 <div className="bg-green-50 p-6 rounded-lg mb-8 border-l-4 border-green-600">
                   <p className="text-slate-700 mb-6">
                     Ensure structured data and metadata are present in initial HTML, not injected by JavaScript.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">12. Include Structured Data in Server-Rendered HTML</h4>
@@ -501,7 +469,6 @@ export default function ProductPage({ product }) {
       "priceCurrency": "USD"
     }
   }
-
   return (
     <>
       <Head>
@@ -514,14 +481,12 @@ export default function ProductPage({ product }) {
     </>
   )
 }
-
 // Schema is in server-rendered HTML ✅`}</pre>
                       </div>
                       <p className="text-slate-700">
                         <strong>How to Verify:</strong> View page source (Ctrl+U) and search for <code>application/ld+json</code>. The schema should be visible in raw HTML before JavaScript runs. Test with Google\'s Rich Results Test.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">13. Set Meta Tags on the Server, Not Client-Side</h4>
                       <p className="text-slate-700 mb-3">
@@ -542,7 +507,6 @@ export default function ProductPage({ product }) {
                         <strong>How to Verify:</strong> View page source and check that title, meta description, and OG tags are present in raw HTML. If they\'re added by JavaScript, they won\'t be in the source--only in the rendered DOM.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">14. Use Semantic HTML Elements</h4>
                       <p className="text-slate-700 mb-3">
@@ -565,7 +529,6 @@ export default function ProductPage({ product }) {
     <p>Product description...</p>
   </main>
 </article>
-
 <!-- ❌ Generic divs -->
 <div class="article">
   <div class="title">Product Name</div>
@@ -579,7 +542,6 @@ export default function ProductPage({ product }) {
                         <strong>How to Implement:</strong> Review your component templates. Replace divs with semantic equivalents: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>. Use actual <code>&lt;a&gt;</code> tags for links, not div click handlers.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">15. Implement Proper Internal Linking in HTML</h4>
                       <p className="text-slate-700 mb-3">
@@ -596,15 +558,12 @@ export default function ProductPage({ product }) {
 <Link href="/products/123">
   <a>View Product</a>
 </Link>
-
 // ✅ Standard HTML link
 <a href="/products/123">View Product</a>
-
 // ❌ NOT crawlable
 <button onClick={() => navigate('/products/123')}>
   View Product
 </button>
-
 // ❌ NOT crawlable
 <div onClick={handleClick}>View Product</div>`}</pre>
                       </div>
@@ -615,7 +574,6 @@ export default function ProductPage({ product }) {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common JavaScript Rendering Mistakes to Avoid</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -666,7 +624,6 @@ export default function ProductPage({ product }) {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for JavaScript Rendering SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -705,7 +662,6 @@ export default function ProductPage({ product }) {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: 73% More Indexed Pages from SSR Migration</h2>
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
@@ -741,7 +697,6 @@ export default function ProductPage({ product }) {
                   JavaScript rendering is one of the most common--and most damaging--technical SEO issues. Switching from client-side rendering to server-side rendering is often the single highest-ROI technical SEO change you can make.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates JavaScript Rendering SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -769,7 +724,6 @@ export default function ProductPage({ product }) {
                     <span><strong>Continuous Monitoring:</strong> Tracks JavaScript rendering success rates over time and alerts when new rendering errors appear.</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mb-6">
                   <h3 className="text-2xl font-bold mb-4">Automate Your JavaScript Rendering SEO</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -784,7 +738,6 @@ export default function ProductPage({ product }) {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Fix JavaScript Rendering or Lose Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -818,7 +771,6 @@ export default function ProductPage({ product }) {
                   <strong>SEOLOGY automates JavaScript rendering SEO</strong>--detecting rendering failures, implementing dynamic rendering, validating structured data placement, and monitoring rendering success rates continuously. Stop losing rankings to invisible JavaScript content.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -831,7 +783,6 @@ export default function ProductPage({ product }) {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEO #JavaScript #JavaScriptSEO #ServerSideRendering #SEOLOGY #TechnicalSEO
@@ -841,7 +792,6 @@ export default function ProductPage({ product }) {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

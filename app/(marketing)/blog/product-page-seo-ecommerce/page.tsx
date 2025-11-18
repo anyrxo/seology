@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Product Page SEO: 18 Tactics to Optimize Every Element for Rankings & Sales (347% ROI)',
   description: 'Product page SEO optimization increased organic revenue 347% and conversion rate 89% by optimizing titles, descriptions, images, reviews, schema, and user experience for both search engines and buyers.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'product-page-seo-ecommerce').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Product Page SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Product Page SEO: 18 Tactics to Optimize Every Element for Rankings & Sales
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>May 28, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Product pages must rank and convert. This guide covers 18 tactics to optimize titles, descriptions, images, reviews, and schema for maximum rankings and sales.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,25 +56,20 @@ export default function BlogPost() {
                 <li className="text-slate-700">Tools: Google Merchant Center (product data testing), Schema.org validator, Ahrefs (keyword research for titles)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Product Page SEO Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Product pages are your money pages--they\'re where organic traffic converts to revenue. Yet <strong>68% of e-commerce stores</strong> use manufacturer-supplied content without optimization (SEMrush study, 2024). This creates massive opportunity: a well-optimized product page can rank for dozens of long-tail keywords, appear in rich results with ratings and price, and convert at 2-3x the rate of generic pages.
               </p>
-
               <p className="text-lg text-slate-700 leading-relaxed mt-4">
                 Product page SEO requires balancing two goals: <strong>(1) ranking high in search results</strong> for relevant keywords, and <strong>(2) converting visitors into buyers</strong> with compelling content and trust signals. The tactics below address both objectives.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">18 Tactics for Product Page SEO Excellence</h2>
-
               <div className="space-y-8">
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 1: Title & Meta Optimization</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">1. Keyword-Rich Product Titles with Modifiers</h4>
                     <p className="text-slate-700 mb-3">
@@ -90,7 +81,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Backlinko study: Titles with exact-match keywords rank 1.5x higher and get 22% more clicks</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">2. Write Unique Meta Descriptions for Every Product</h4>
                     <p className="text-slate-700 mb-3">
@@ -101,7 +91,6 @@ export default function BlogPost() {
                       <p className="text-sm mt-2"><strong>Example:</strong> "Nike Air Max 270 Men\'s Running Shoes - Premium cushioning for marathon training. Breathable mesh upper. $159.99, save 20% today. Shop now with free returns."</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">3. Optimize H1 Tags with Primary Keyword</h4>
                     <p className="text-slate-700 mb-3">
@@ -109,7 +98,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Keep H1 concise (40-60 characters) and avoid keyword stuffing--focus on natural product identification.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">4. SEO-Friendly URL Structure</h4>
                     <p className="text-slate-700 mb-3">
@@ -121,10 +109,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 2: Product Description SEO</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">5. Write 300+ Words of Unique Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -132,7 +118,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Moz study: Unique product descriptions rank 76% higher than duplicate manufacturer content. Aim for 500+ words for competitive keywords.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">6. Include Long-Tail Keywords Naturally</h4>
                     <p className="text-slate-700 mb-3">
@@ -148,7 +133,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">7. Structure Content with Keyword-Rich Subheadings (H2, H3)</h4>
                     <p className="text-slate-700 mb-3">
@@ -156,7 +140,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Proper heading hierarchy improves SEO and user experience--visitors scan headings before reading full content.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">8. Add Product Comparison Tables</h4>
                     <p className="text-slate-700 mb-3">
@@ -165,10 +148,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">Use HTML tables (not images) so search engines can parse comparison data for featured snippets.</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 3: Image & Visual Optimization</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">9. Optimize Image File Names with Keywords</h4>
                     <p className="text-slate-700 mb-3">
@@ -179,7 +160,6 @@ export default function BlogPost() {
                       <p className="text-sm text-green-600"><strong>✓ Good:</strong> nike-air-max-270-mens-running-shoes-black.jpg</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">10. Write Descriptive Alt Text for All Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -189,7 +169,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;img src="nike-air-max-270.jpg" alt="Nike Air Max 270 men\'s running shoes in black and white colorway, side view showing mesh upper and visible air cushioning"&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. Compress Images Without Losing Quality</h4>
                     <p className="text-slate-700 mb-3">
@@ -197,7 +176,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Target: Main product images under 200KB, thumbnail images under 50KB. Use WebP format for 25-35% better compression vs JPEG.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">12. Include Multiple High-Quality Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -206,10 +184,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">Add 360° spin or video when possible--video on product pages increases conversions 144% (Aberdeen Group study).</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-green-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 4: Reviews & Trust Signals</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">13. Display Customer Reviews with Schema Markup</h4>
                     <p className="text-slate-700 mb-3">
@@ -220,7 +196,6 @@ export default function BlogPost() {
                       <p className="text-sm mt-2">Spiegel Research: Products with 40+ reviews convert 89% better than products without reviews</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">14. Add FAQ Section with Common Questions</h4>
                     <p className="text-slate-700 mb-3">
@@ -228,7 +203,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Use FAQPage schema markup to increase chances of appearing in featured snippets and voice search results.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">15. Highlight Trust Badges and Guarantees</h4>
                     <p className="text-slate-700 mb-3">
@@ -236,10 +210,8 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-orange-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 5: Technical & Schema Markup</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">16. Implement Product Schema Markup</h4>
                     <p className="text-slate-700 mb-3">
@@ -270,7 +242,6 @@ export default function BlogPost() {
 }`}</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">17. Optimize Page Speed for Mobile</h4>
                     <p className="text-slate-700 mb-3">
@@ -278,7 +249,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Google study: 1-second delay in mobile load time decreases conversions 20%. Mobile accounts for 60%+ of e-commerce traffic.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">18. Add Internal Links to Related Products & Categories</h4>
                     <p className="text-slate-700 mb-3">
@@ -289,7 +259,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Product Page SEO Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -330,7 +299,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Essential Tools for Product Page SEO</h2>
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -366,7 +334,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Outdoor Gear E-Commerce Store</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-l-4 border-blue-600 p-6 rounded-r-lg my-8">
@@ -407,7 +374,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Product Page SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -439,7 +405,6 @@ export default function BlogPost() {
                   <span><strong>Internal Link Building:</strong> Automatically adds internal links to related products, categories, and content based on semantic relevance</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Product Page SEO at Scale</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -454,7 +419,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -464,7 +428,6 @@ export default function BlogPost() {
                 Start by identifying your top 20 revenue-generating products and implementing all 18 tactics on those pages first. Measure results after 60-90 days, then scale to remaining inventory. The challenge with product page SEO is scale--it\'s time-intensive to optimize hundreds or thousands of pages manually. SEOLOGY automates the entire workflow, from writing unique descriptions to implementing schema markup to optimizing images, so you get the 347% revenue increase without spending months on manual optimization.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -480,7 +443,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #ProductPageSEO #EcommerceSEO #ProductSchema #ConversionOptimization #SEOAutomation #SEOLOGY
@@ -489,7 +451,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

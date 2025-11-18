@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Voice Search Optimization: 15 Tactics to Dominate Alexa, Siri & Google in 2025',
   description: '58% of consumers use voice search to find local businesses. These 15 tactics increased voice search visibility 340% for 200+ sites.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'voice-search-optimization-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,7 +46,6 @@ export default function BlogPost() {
                 <li><strong>Page speed matters more</strong>--voice search results load in 4.6 seconds (52% faster than average)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Voice Search Optimization Matters in 2025</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -80,7 +80,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> Voice search favors conversational content, featured snippets, local businesses, and fast-loading pages. Optimize for these, and you dominate voice results.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How Voice Search Differs from Text Search</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -112,10 +111,8 @@ export default function BlogPost() {
                 <strong>Key insight:</strong> Voice search pulls from position zero (featured snippets). If you\'re not ranking in featured snippets, you don\'t exist in voice results.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">15 Voice Search Optimization Tactics That Actually Work</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
@@ -128,7 +125,6 @@ export default function BlogPost() {
                     <strong>Example:</strong> "How do I fix a leaky faucet?" → Answer in 50 words, step-by-step below.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
@@ -140,7 +136,6 @@ export default function BlogPost() {
                     <strong>Format:</strong> Question as H2 → Direct answer → Supporting details below.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
@@ -152,7 +147,6 @@ export default function BlogPost() {
                     <strong>Test:</strong> Read your content aloud. If it sounds stiff or formal, rewrite it.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
@@ -164,7 +158,6 @@ export default function BlogPost() {
                     <strong>Questions to answer:</strong> What is [product]? How much does [service] cost? How long does [process] take?
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
@@ -176,7 +169,6 @@ export default function BlogPost() {
                     <strong>Schema:</strong> Use LocalBusiness schema with address, phone, hours.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
@@ -188,7 +180,6 @@ export default function BlogPost() {
                     <strong>Test:</strong> Google PageSpeed Insights. Aim for 90+ score on mobile.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">7</div>
@@ -200,7 +191,6 @@ export default function BlogPost() {
                     <strong>Tools:</strong> AnswerThePublic, AlsoAsked, People Also Ask boxes in Google SERPs.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">8</div>
@@ -214,7 +204,6 @@ export default function BlogPost() {
                     • <strong>LocalBusiness schema:</strong> NAP + hours for "near me" queries
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">9</div>
@@ -226,7 +215,6 @@ export default function BlogPost() {
                     <strong>Example:</strong> "How to reset iPhone?" → "To reset your iPhone, go to Settings → General → Transfer or Reset iPhone → Erase All Content and Settings. Confirm with your passcode." (29 words) ✅
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">10</div>
@@ -238,7 +226,6 @@ export default function BlogPost() {
                     <strong>Test:</strong> Google Mobile-Friendly Test + real device testing.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">11</div>
@@ -250,7 +237,6 @@ export default function BlogPost() {
                     <strong>Categories matter:</strong> Choose primary + secondary categories that match voice queries.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">12</div>
@@ -262,7 +248,6 @@ export default function BlogPost() {
                     <strong>Average DR of voice result pages:</strong> 76.8 (very high).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">13</div>
@@ -274,7 +259,6 @@ export default function BlogPost() {
                     <strong>Voice assistants prioritize secure sites</strong> for user safety.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">14</div>
@@ -286,7 +270,6 @@ export default function BlogPost() {
                     <strong>Voice assistants love:</strong> Clear, actionable steps that can be spoken aloud easily.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">15</div>
@@ -300,7 +283,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Voice Search SEO Checklist</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -341,7 +323,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Voice Search Optimization</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -371,7 +352,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Voice Search Optimization That Increased Traffic 340%</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200">
@@ -433,7 +413,6 @@ export default function BlogPost() {
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Voice Search Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -469,7 +448,6 @@ export default function BlogPost() {
                 <strong>Average result:</strong> SEOLOGY clients see <strong>240% more voice search visibility</strong> and <strong>87% more "near me" traffic</strong> within 90 days.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -491,7 +469,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -504,7 +481,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #VoiceSearch #VoiceSEO #FeaturedSnippets #LocalSEO #FutureOfSEO

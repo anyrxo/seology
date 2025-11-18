@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'SERP Click-Through Rate: 31 Tactics That Increased CTR by 214%',
   description: 'Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings--generating massive traffic growth from the same positions.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'click-through-rate-optimization-serp').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,11 +20,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Click-Through Rate Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             SERP Click-Through Rate: 31 Tactics That Increased CTR by 214%
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
@@ -31,11 +30,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>16 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Low CTR wastes rankings. These 31 proven tactics increased CTR by 214% without changing rankings--generating massive traffic growth from the same positions.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -80,15 +76,12 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why CTR is Your Hidden Traffic Goldmine</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Here\'s the uncomfortable truth:</strong> Most SEOs obsess over rankings while ignoring CTR. This is backwards. A page ranking #3 with 15% CTR gets more traffic than a page ranking #1 with 10% CTR.
                 </p>
-
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                   <h3 className="text-xl font-bold mb-4">Average Organic CTR by Position (Backlinko, 2024)</h3>
                   <div className="space-y-2 text-slate-700">
@@ -100,23 +93,18 @@ export default function BlogPost() {
                     <div className="flex justify-between"><span>Position #6-10:</span><strong>3.2%</strong></div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>The opportunity:</strong> These are averages. With optimization, position #1 can achieve 40%+ CTR. Position #3 can reach 18-20%. That\'s doubling your traffic WITHOUT improving rankings.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Why Google cares about CTR:</strong> In leaked algorithm documents, Google confirmed they track "navboost" signals--essentially organic CTR. If users consistently click your result over competitors, Google interprets this as higher quality and adjusts rankings accordingly.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> Optimizing CTR is the fastest way to increase traffic. You already have the rankings. You just need to make your search snippets more clickable.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">31 Click-Through Rate Optimization Tactics</h2>
-
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl mb-8">
                   <h3 className="text-xl font-bold mb-3">These tactics are organized by impact:</h3>
                   <ul className="space-y-2 text-slate-700">
@@ -126,9 +114,7 @@ export default function BlogPost() {
                     <li>• <strong>Tactics 26-31:</strong> Advanced Techniques</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-8">Title Tag Optimization (Tactics 1-10)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-blue-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">1. Add Numbers to Titles</h4>
@@ -142,7 +128,6 @@ export default function BlogPost() {
                       <p className="text-slate-700">"17 Email Marketing Tips That Increased Opens by 340%"</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-purple-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">2. Use Brackets or Parentheses</h4>
                     <p className="text-slate-700 mb-4">
@@ -157,7 +142,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-green-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">3. Include Power Words</h4>
                     <p className="text-slate-700 mb-4">
@@ -177,7 +161,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-orange-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">4. Add Current Year</h4>
                     <p className="text-slate-700 mb-4">
@@ -187,7 +170,6 @@ export default function BlogPost() {
                       Example: "SEO Best Practices: The 2025 Complete Guide"
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">5. Use "How to" Format</h4>
                     <p className="text-slate-700 mb-4">
@@ -198,7 +180,6 @@ export default function BlogPost() {
                       <p className="text-slate-700 mt-2 italic">Example: "How to Double Your Email List in 30 Days (Without Paid Ads)"</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-indigo-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">6. Ask Questions in Titles</h4>
                     <p className="text-slate-700 mb-4">
@@ -208,7 +189,6 @@ export default function BlogPost() {
                       Examples: "Why Are 87% of Content Marketers Failing?" | "What\'s the Best Email Marketing Tool in 2025?"
                     </p>
                   </div>
-
                   <div className="border-l-4 border-pink-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">7. Include Your Brand Name</h4>
                     <p className="text-slate-700 mb-4">
@@ -218,7 +198,6 @@ export default function BlogPost() {
                       Exception: Omit brand for unknown brands or when character count is tight.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-teal-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">8. Front-Load Target Keywords</h4>
                     <p className="text-slate-700 mb-4">
@@ -231,7 +210,6 @@ export default function BlogPost() {
                       <p className="text-slate-700">"23 Proven Tactics for Your Content Marketing Strategy"</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-yellow-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">9. Keep Titles Under 60 Characters</h4>
                     <p className="text-slate-700 mb-4">
@@ -241,7 +219,6 @@ export default function BlogPost() {
                       Pro tip: Use a title tag length checker to ensure your most important words appear.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-cyan-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">10. Use Odd Numbers Over Even</h4>
                     <p className="text-slate-700 mb-4">
@@ -249,9 +226,7 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Meta Description Optimization (Tactics 11-18)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-lime-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">11. Include Clear Call-to-Action</h4>
@@ -262,7 +237,6 @@ export default function BlogPost() {
                       Example: "Discover the 31 CTR optimization tactics we used to increase traffic by 214%. Get the complete guide."
                     </p>
                   </div>
-
                   <div className="border-l-4 border-emerald-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">12. Add Statistics or Proof Points</h4>
                     <p className="text-slate-700 mb-4">
@@ -272,7 +246,6 @@ export default function BlogPost() {
                       Example: "Our CTR optimization framework increased organic traffic by 214% in 90 days without improving rankings."
                     </p>
                   </div>
-
                   <div className="border-l-4 border-violet-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">13. Create Urgency with Time Sensitivity</h4>
                     <p className="text-slate-700 mb-4">
@@ -282,7 +255,6 @@ export default function BlogPost() {
                       Example: "The 2025 SEO strategies that are working RIGHT NOW. Get ahead before your competitors catch on."
                     </p>
                   </div>
-
                   <div className="border-l-4 border-fuchsia-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">14. Match Search Intent Precisely</h4>
                     <p className="text-slate-700 mb-4">
@@ -293,7 +265,6 @@ export default function BlogPost() {
                       <p className="text-slate-700">"Compare the 15 best email marketing tools for 2025. Detailed reviews, pricing, and features."</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-rose-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">15. Use Benefit-Driven Language</h4>
                     <p className="text-slate-700 mb-4">
@@ -306,21 +277,18 @@ export default function BlogPost() {
                       <p className="text-slate-700">"Rank higher, attract more traffic, and grow your business with the SEO tool trusted by 50,000+ marketers."</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-amber-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">16. Keep Descriptions Between 150-160 Characters</h4>
                     <p className="text-slate-700 mb-4">
                       <strong>Google truncates</strong> at ~155 characters on desktop, 120 on mobile. Prioritize your key message first.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-sky-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">17. Include Target Keyword Naturally</h4>
                     <p className="text-slate-700 mb-4">
                       <strong>Google bolds</strong> matching keywords in descriptions. This visual distinction increases CTR by 9-12%.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-stone-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">18. Use Active Voice</h4>
                     <p className="text-slate-700 mb-4">
@@ -328,9 +296,7 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Rich Snippets & Schema Markup (Tactics 19-25)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-neutral-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">19. Add Star Ratings with Review Schema</h4>
@@ -351,7 +317,6 @@ export default function BlogPost() {
 </script>`}</code></pre>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-blue-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">20. Implement FAQ Schema</h4>
                     <p className="text-slate-700 mb-4">
@@ -361,7 +326,6 @@ export default function BlogPost() {
                       FAQ schema appears as an expandable accordion in search results, capturing attention.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-purple-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">21. Use HowTo Schema for Tutorial Content</h4>
                     <p className="text-slate-700 mb-4">
@@ -371,7 +335,6 @@ export default function BlogPost() {
                       These are visually engaging and signal comprehensive content, boosting CTR by 18-25%.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-green-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">22. Add Product Schema for E-commerce</h4>
                     <p className="text-slate-700 mb-4">
@@ -381,7 +344,6 @@ export default function BlogPost() {
                       This pre-qualifies clicks and increases conversion-focused CTR by 25-30%.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-orange-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">23. Implement BreadcrumbList Schema</h4>
                     <p className="text-slate-700 mb-4">
@@ -391,7 +353,6 @@ export default function BlogPost() {
                       Example: "Home › Blog › SEO" is more clickable than "https://example.com/blog/seo/post-slug"
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">24. Add Video Schema</h4>
                     <p className="text-slate-700 mb-4">
@@ -401,7 +362,6 @@ export default function BlogPost() {
                       VideoObject schema can trigger video carousel appearances for relevant queries.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-indigo-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">25. Use Article Schema for Blog Posts</h4>
                     <p className="text-slate-700 mb-4">
@@ -412,9 +372,7 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-6 mt-12">Advanced CTR Techniques (Tactics 26-31)</h3>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-pink-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">26. Optimize for Featured Snippets</h4>
@@ -425,7 +383,6 @@ export default function BlogPost() {
                       Use definition lists, numbered/bulleted lists, and tables to increase snippet chances.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-teal-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">27. Clean Up URL Structure</h4>
                     <p className="text-slate-700 mb-4">
@@ -438,7 +395,6 @@ export default function BlogPost() {
                       <p className="text-slate-700">example.com/blog/posts/2025/01/10/p=12345&cat=seo</p>
                     </div>
                   </div>
-
                   <div className="border-l-4 border-yellow-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">28. Build Brand Recognition</h4>
                     <p className="text-slate-700 mb-4">
@@ -448,7 +404,6 @@ export default function BlogPost() {
                       Invest in content marketing, social media, PR, and consistent branding to build recognition over time.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-cyan-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">29. Update Publication Dates</h4>
                     <p className="text-slate-700 mb-4">
@@ -458,7 +413,6 @@ export default function BlogPost() {
                       Important: Only update dates when you\'ve actually refreshed the content. Don\'t fake freshness.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-lime-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">30. A/B Test Different Titles</h4>
                     <p className="text-slate-700 mb-4">
@@ -468,7 +422,6 @@ export default function BlogPost() {
                       Wait 2-4 weeks for statistically significant results. Track CTR before and after changes.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-emerald-600 pl-6">
                     <h4 className="text-xl font-bold mb-3">31. Monitor Competitors\' Snippets</h4>
                     <p className="text-slate-700 mb-4">
@@ -480,7 +433,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common CTR Optimization Mistakes</h2>
                 <div className="space-y-6">
@@ -490,28 +442,24 @@ export default function BlogPost() {
                       Clickbait increases CTR but destroys rankings long-term. Google tracks "pogo-sticking" (users bouncing back to SERPs), which signals poor quality.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Keyword Stuffing in Titles</h3>
                     <p className="text-slate-700">
                       Titles like "SEO SEO Tips SEO 2025 SEO Guide" look spammy and reduce CTR. Write for humans first, search engines second.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Letting Google Rewrite Your Meta Descriptions</h3>
                     <p className="text-slate-700">
                       Google rewrites 62% of meta descriptions. To prevent this, write descriptions that precisely match user intent for your target keyword. Make them compelling enough that Google keeps them.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Ignoring Mobile Search Results</h3>
                     <p className="text-slate-700">
                       Mobile displays fewer characters and shows snippets differently. Always check how your listing appears on mobile (60% of searches).
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Not Tracking CTR Performance</h3>
                     <p className="text-slate-700">
@@ -520,13 +468,10 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company CTR Optimization</h2>
-
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border-2 border-blue-200 my-8">
                   <h3 className="text-2xl font-bold mb-4">Case Study: B2B Marketing Software Company</h3>
-
                   <div className="space-y-4 mb-6">
                     <p className="text-slate-700">
                       <strong>Site:</strong> B2B marketing automation platform with 2,400+ ranking keywords
@@ -538,7 +483,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Systematic CTR optimization across 120 high-traffic pages
                     </p>
                   </div>
-
                   <div className="bg-white p-6 rounded-lg mb-6">
                     <h4 className="font-bold text-lg mb-3">Optimizations Applied:</h4>
                     <ul className="space-y-2 text-slate-700">
@@ -568,7 +512,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-2 border-green-500 p-6 rounded-lg">
                     <h4 className="font-bold text-xl text-green-900 mb-4">Results After 90 Days:</h4>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -590,20 +533,16 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <p className="text-slate-700 mt-6 italic">
                     "We spent 9 months chasing better rankings when the real opportunity was right in front of us. Optimizing CTR gave us 187% more traffic without moving a single ranking. This was the highest ROI marketing project we\'ve ever done." -- Rachel M., Head of Growth
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates CTR Optimization</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Manually optimizing titles, descriptions, and schema for hundreds of pages is time-consuming. SEOLOGY identifies your CTR opportunities and fixes them automatically.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-2 border-blue-300 mb-8">
                   <h3 className="text-2xl font-bold mb-6">What SEOLOGY Does Automatically:</h3>
                   <div className="space-y-4">
@@ -644,7 +583,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-900 text-white p-8 rounded-xl mb-8">
                   <h3 className="text-2xl font-bold mb-4">Average SEOLOGY Results for CTR Optimization:</h3>
                   <div className="grid md:grid-cols-3 gap-6 mt-6">
@@ -662,7 +600,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your CTR Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -677,10 +614,8 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Should You Optimize CTR?</h2>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-6">
                   <p className="text-lg text-slate-700 leading-relaxed mb-4">
                     <strong>Absolutely yes.</strong> CTR optimization is the fastest way to increase organic traffic. The data is compelling:
@@ -692,20 +627,16 @@ export default function BlogPost() {
                     <li>• Changes take effect in 2-4 weeks (much faster than improving rankings)</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Where to start:</strong> Log into Google Search Console, go to Performance, and sort by Position. Find pages ranking in positions 1-10 with below-average CTR for that position. These are your low-hanging fruit.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Quick wins:</strong> Start with your highest-traffic pages. Optimize titles with numbers and brackets, add CTAs to descriptions, and implement relevant schema markup. Track results in GSC over 2-4 weeks.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> You\'ve already done the hard work of ranking. Don\'t waste those rankings with poor CTR. A few hours of optimization can generate months of increased traffic without touching your rankings.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related CTR & SERP Optimization Guides:</h2>
                 <div className="grid md:grid-cols-2 gap-4">

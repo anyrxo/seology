@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Video SEO: YouTube Optimization Guide for Maximum Rankings',
   description: 'Video drives 82% of web traffic. This guide shows how to rank videos on YouTube and Google with proven optimization tactics.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['faq-schema-implementation-guide', 'google-analytics-4-seo-tracking', 'content-optimization-ai-vs-manual'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Video SEO</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Video SEO: YouTube Optimization Guide for Maximum Rankings
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>September 10, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Video drives <strong className="text-white">82% of web traffic</strong>. This guide shows how to rank videos on YouTube and Google with proven optimization tactics.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Video content is dominating search results. By 2025, video will account for <strong>82% of all web traffic</strong>. This comprehensive guide shows you how to optimize videos for both YouTube and Google search, rank in video carousels, and drive massive traffic through video SEO. Plus, SEOLOGY automates video optimization for your site.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Video SEO Is No Longer Optional</h2>
@@ -94,13 +89,11 @@ export default function BlogPost() {
                   The brands winning in search are winning with video. Here\'s how to join them.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">YouTube Optimization: The Complete Checklist</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   YouTube SEO follows different rules than traditional SEO. Here\'s the proven optimization framework:
                 </p>
-
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
@@ -146,13 +139,11 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Google Video SEO: Rank in Video Carousels</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Getting your videos to show up in Google search (not just YouTube) requires additional optimization:
                 </p>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -172,13 +163,11 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Video Content Strategy That Ranks</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Creating videos that rank requires strategic content planning:
                 </p>
-
                 <div className="grid md:grid-cols-3 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">8-15</div>
@@ -193,12 +182,10 @@ export default function BlogPost() {
                     <div className="text-slate-700">Critical ranking window after upload</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Video Types That Rank:</strong> Tutorials and how-tos (highest search volume), product reviews, comparison videos, list-style content ("Top 10..."), expert interviews, and case studies with data.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Technical Video SEO Checklist</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -227,7 +214,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Video Promotion for SEO Boost</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -256,7 +242,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Measuring Video SEO Success</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -284,7 +269,6 @@ export default function BlogPost() {
                     <span><strong>Traffic from Video:</strong> Website traffic driven by video embeds and descriptions</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Video SEO with SEOLOGY</h3>
@@ -300,7 +284,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -313,7 +296,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #VideoSEO #YouTubeSEO #ContentMarketing
@@ -323,7 +305,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

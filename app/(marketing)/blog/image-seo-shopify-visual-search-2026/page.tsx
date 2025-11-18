@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Image SEO for Shopify: Visual Search Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Google Lens processes 20 billion visual searches monthly. Learn how to optimize your Shopify store images for visual search, improve Core Web Vitals with WebP/AVIF, and capture the 35% of ecommerce searches going visual by 2026.',
 }
-
 export default function ImageSEOShopifyVisualSearchPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
@@ -13,7 +13,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           Image SEO for Shopify: Visual Search Optimization Guide 2026
         </h1>
-
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
           <time dateTime="2025-12-19">December 19, 2025</time>
           <span>•</span>
@@ -21,14 +20,12 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <span>•</span>
           <span>Updated for Q1 2026</span>
         </div>
-
         <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/30 dark:to-blue-950/30 border border-purple-200 dark:border-purple-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <strong className="text-purple-600 dark:text-purple-400">Visual search is exploding:</strong> Google Lens now processes <strong>20 billion visual searches per month</strong>--with <strong>4 billion related to shopping</strong>. By 2026, visual search will dominate <strong>35% of all ecommerce search functions</strong>. If your Shopify store isn't optimized for visual discovery, you're invisible to 40% of Gen Z shoppers who prefer searching with images over text.
           </p>
         </div>
       </header>
-
       {/* Author Bio */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-12">
         <div className="flex items-start gap-4">
@@ -44,7 +41,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
           </div>
         </div>
       </div>
-
       {/* Table of Contents */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Table of Contents</h2>
@@ -63,19 +59,15 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><a href="#implementation" className="hover:underline">Complete Implementation Checklist</a></li>
         </ul>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         {/* Section 1 */}
         <h2 id="visual-search-revolution" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           The Visual Search Revolution: 2026 Statistics You Can't Ignore
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Visual search has crossed the tipping point. No longer an emerging trend, it's now a dominant force reshaping how consumers discover and purchase products online.
         </p>
-
         <div className="bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">📊 December 2025 Visual Search Data</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -89,32 +81,25 @@ export default function ImageSEOShopifyVisualSearchPage() {
             <li><strong>$40B → $150B</strong> visual search market growth (2024 to 2032)</li>
           </ul>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The shift is generational: <strong>1 in 3 online searches will be visual or voice-based by 2025</strong>. For Shopify merchants selling visually-driven products (fashion, home decor, furniture, beauty, accessories), optimizing for visual search is no longer optional--it's survival.
         </p>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           E-commerce platforms with visual search see a <strong>19% uplift in sales</strong>, while brands like Zalando reported an <strong>18% rise in customer engagement</strong> after adding visual search capabilities.
         </p>
-
         {/* Section 2 */}
         <h2 id="google-lens-optimization" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Google Lens Optimization: Capturing 4 Billion Shopping Searches
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Google Lens is the gateway to visual discovery. With <strong>35% YoY growth in daily usage</strong> for product discovery and <strong>30% of visual search-related product discoveries</strong> coming from Lens, optimization is critical.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           How Google Lens Identifies Products
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Google Lens uses AI-powered image recognition (<strong>82% of visual search platforms use AI, achieving 93% accuracy</strong>) combined with traditional SEO signals:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Visual elements:</strong> Color, shape, texture, patterns, brand logos</li>
           <li><strong>Alt text:</strong> Descriptive alternative text for context</li>
@@ -123,7 +108,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>Page authority:</strong> Domain trust, backlinks, engagement signals</li>
           <li><strong>User behavior:</strong> Click-through rates, bounce rates on image results</li>
         </ul>
-
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">✅ Google Lens Best Practices for Shopify</h4>
           <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300">
@@ -137,20 +121,16 @@ export default function ImageSEOShopifyVisualSearchPage() {
             <li><strong>Mobile-optimized:</strong> Images must load fast and display perfectly on mobile</li>
           </ol>
         </div>
-
         {/* Section 3 */}
         <h2 id="image-formats" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Next-Gen Image Formats: WebP vs AVIF in 2026
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Modern image formats are critical for both visual search and Core Web Vitals. In 2025, browser support for WebP and AVIF is <strong>nearly universal across all major browsers</strong> (Chrome, Edge, Firefox, Safari).
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           WebP: The Universal Standard
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Compression:</strong> 25-35% better than JPEG/PNG</li>
           <li><strong>File size:</strong> Lossy images are 25-34% smaller than JPEG at equivalent quality</li>
@@ -159,11 +139,9 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>Browser support:</strong> 100% of modern browsers (deeply entrenched)</li>
           <li><strong>Use case:</strong> Hero images, above-fold content, mobile optimization</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           AVIF: Maximum Compression
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Compression:</strong> Up to 50% smaller files than JPEG/PNG</li>
           <li><strong>File size:</strong> 20-25% smaller than WebP at similar quality</li>
@@ -172,7 +150,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>Browser support:</strong> All modern browsers (2025)</li>
           <li><strong>Use case:</strong> Below-fold images, desktop users, maximum bandwidth savings</li>
         </ul>
-
         <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">⚠️ Critical Performance Trade-off</h4>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -182,15 +159,12 @@ export default function ImageSEOShopifyVisualSearchPage() {
             <strong>Best practice for LCP:</strong> Prioritize WebP for hero/above-fold images where instant rendering matters. Use AVIF for below-fold content where total bandwidth reduction is more important than decode speed.
           </p>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           2026 Implementation Strategy
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Use the HTML <code>&lt;picture&gt;</code> element to serve format fallbacks automatically:
         </p>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`<picture>
   <source srcset="product.avif" type="image/avif">
@@ -198,20 +172,16 @@ export default function ImageSEOShopifyVisualSearchPage() {
   <img src="product.jpg" alt="Descriptive alt text" loading="lazy">
 </picture>`}</code></pre>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Browsers automatically select AVIF → WebP → JPEG based on support, giving you maximum compression with universal compatibility.
         </p>
-
         {/* Section 4 */}
         <h2 id="core-web-vitals" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Images and Core Web Vitals: The LCP Connection
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Images directly impact your Core Web Vitals score--a confirmed Google ranking factor. Here's the critical statistic:
         </p>
-
         <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🚨 Critical LCP Fact</h3>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
@@ -221,11 +191,9 @@ export default function ImageSEOShopifyVisualSearchPage() {
             Converting JPEG → WebP or AVIF can reduce LCP times by <strong>30-60%</strong> depending on original size and format.
           </p>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           LCP Optimization Checklist
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Use next-gen formats:</strong> WebP for hero images (fast decode), AVIF for below-fold</li>
           <li><strong>Preload critical images:</strong> <code>&lt;link rel="preload" as="image" href="hero.webp"&gt;</code></li>
@@ -236,50 +204,40 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>Avoid layout shift:</strong> Always specify width/height attributes (prevents CLS)</li>
           <li><strong>Optimize above-fold first:</strong> Hero images have the biggest LCP impact</li>
         </ol>
-
         {/* Section 5 */}
         <h2 id="alt-text-strategy" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Alt Text Strategy That Actually Ranks
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Alt text serves two masters: <strong>accessibility (screen readers)</strong> and <strong>SEO (Google image search + Lens)</strong>. Get it right, and you rank in both traditional and visual search.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           The Perfect Alt Text Formula
         </h3>
-
         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Formula: [Product Type] + [Key Features] + [Context] + [Target Keyword]</h4>
-
           <div className="space-y-4 text-gray-700 dark:text-gray-300">
             <div>
               <p className="font-semibold text-red-600 dark:text-red-400">❌ Bad:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">alt="product image"</code>
             </div>
-
             <div>
               <p className="font-semibold text-red-600 dark:text-red-400">❌ Bad:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">alt="blue dress"</code>
             </div>
-
             <div>
               <p className="font-semibold text-green-600 dark:text-green-400">✅ Good:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">alt="Women's navy blue midi dress with floral print and puff sleeves"</code>
             </div>
-
             <div>
               <p className="font-semibold text-green-600 dark:text-green-400">✅ Excellent:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">alt="Sustainable organic cotton midi dress in navy blue with hand-painted floral print, puff sleeves, and side pockets - summer collection 2026"</code>
             </div>
           </div>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Alt Text Best Practices 2026
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Be specific:</strong> Include color, size, material, pattern, style</li>
           <li><strong>Include keywords naturally:</strong> Target keyword once, don't stuff</li>
@@ -290,20 +248,16 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>No "image of" or "picture of":</strong> Screen readers already announce it's an image</li>
           <li><strong>Unique per image:</strong> Each product angle gets unique alt text</li>
         </ul>
-
         {/* Section 6 */}
         <h2 id="structured-data" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Image Structured Data for Rich Results
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Structured data helps Google understand your product images and display them in rich results (Google Images, Shopping, Lens results).
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Product Schema with Images
         </h3>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`{
   "@context": "https://schema.org/",
@@ -327,37 +281,30 @@ export default function ImageSEOShopifyVisualSearchPage() {
   }
 }`}</code></pre>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Key benefits: Higher CTR in image search, eligibility for Google Shopping, better visual search matching, enhanced product discovery.
         </p>
-
         {/* Section 7 */}
         <h2 id="file-naming" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           SEO-Friendly File Naming Conventions
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           File names are a direct ranking signal for image search. Google reads them before crawling the page content.
         </p>
-
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">✅ File Naming Best Practices</h4>
-
           <div className="space-y-4 text-gray-700 dark:text-gray-300">
             <div>
               <p className="font-semibold text-red-600 dark:text-red-400">❌ Bad:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">IMG_12345.jpg</code>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">product-image.jpg</code>
             </div>
-
             <div>
               <p className="font-semibold text-green-600 dark:text-green-400">✅ Good:</p>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">navy-blue-midi-dress-organic-cotton.jpg</code>
               <code className="block bg-white dark:bg-gray-800 p-2 rounded mt-1">womens-sustainable-floral-dress-summer-2026.webp</code>
             </div>
           </div>
-
           <ul className="space-y-2 mt-4">
             <li><strong>Use hyphens</strong> (not underscores) to separate words</li>
             <li><strong>Include target keywords</strong> naturally in the filename</li>
@@ -367,24 +314,19 @@ export default function ImageSEOShopifyVisualSearchPage() {
             <li><strong>Keep it concise:</strong> 3-5 descriptive words ideal</li>
           </ul>
         </div>
-
         {/* Section 8 */}
         <h2 id="image-sitemaps" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Image Sitemaps: Accelerating Discovery
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Image sitemaps help Google discover and index your product images faster--especially important for new products or frequent inventory updates.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Shopify Image Sitemap Setup
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify automatically generates an image sitemap at <code>yourstore.com/sitemap.xml</code>. However, you can enhance it:
         </p>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Verify in Google Search Console:</strong> Submit your sitemap if not auto-detected</li>
           <li><strong>Add image captions:</strong> Include <code>&lt;image:caption&gt;</code> tags for context</li>
@@ -392,20 +334,16 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>License info:</strong> <code>&lt;image:license&gt;</code> for original photography</li>
           <li><strong>Regular updates:</strong> Regenerate sitemap when adding new products</li>
         </ol>
-
         {/* Section 9 */}
         <h2 id="compression-techniques" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Compression Without Quality Loss
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Aggressive compression is the secret to fast-loading images that still look stunning. The goal: <strong>30-70% file size reduction</strong> with no visible quality degradation.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Compression Strategy by Use Case
         </h3>
-
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border border-gray-300 dark:border-gray-700">
             <thead className="bg-gray-100 dark:bg-gray-800">
@@ -450,31 +388,25 @@ export default function ImageSEOShopifyVisualSearchPage() {
             </tbody>
           </table>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Recommended Compression Tools
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Shopify apps:</strong> TinyIMG, Crush.pics, Optimole (automatic optimization)</li>
           <li><strong>Manual tools:</strong> Squoosh (Google), ImageOptim, ShortPixel</li>
           <li><strong>CDN solutions:</strong> Cloudflare Images, Cloudinary, imgix (automatic format delivery)</li>
           <li><strong>Bulk processing:</strong> ImageMagick, Sharp (for developers)</li>
         </ul>
-
         {/* Section 10 */}
         <h2 id="mobile-optimization" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Mobile-First Image Optimization
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           With <strong>62.66% of traffic coming from mobile devices</strong>, mobile image optimization is non-negotiable. Mobile users have slower connections and smaller screens--optimize accordingly.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Responsive Image Best Practices
         </h3>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`<img
   srcset="product-300.webp 300w,
@@ -490,24 +422,19 @@ export default function ImageSEOShopifyVisualSearchPage() {
   height="1600"
 />`}</code></pre>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           This approach serves appropriately-sized images based on device width, reducing mobile data usage by up to 70%.
         </p>
-
         {/* Section 11 */}
         <h2 id="pinterest-instagram" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Pinterest & Instagram Visual Search
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Beyond Google Lens, optimize for platform-specific visual search:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Pinterest Lens (87% Purchase Rate)
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Vertical images:</strong> 2:3 aspect ratio (1000x1500px) performs best</li>
           <li><strong>Rich Pins:</strong> Add Product Pins with pricing, availability, descriptions</li>
@@ -515,11 +442,9 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>Text overlays:</strong> Add benefit-driven text to product images</li>
           <li><strong>Lifestyle context:</strong> Show products in use, not just on white backgrounds</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Instagram Shopping Tags
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Product tags:</strong> Tag up to 5 products per post/story</li>
           <li><strong>Square format:</strong> 1080x1080px for feed posts</li>
@@ -527,15 +452,12 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <li><strong>User-generated content:</strong> Repost customer photos with product tags</li>
           <li><strong>Shoppable stories:</strong> 58% of users discover new products on Instagram Stories</li>
         </ul>
-
         {/* Section 12 */}
         <h2 id="implementation" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Complete Image SEO Implementation Checklist
         </h2>
-
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">✅ Your 30-Day Image SEO Action Plan</h3>
-
           <div className="space-y-6">
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 1: Foundation</h4>
@@ -547,7 +469,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
                 <li>☐ Add width/height attributes to prevent layout shift</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 2: Alt Text & Metadata</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -558,7 +479,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
                 <li>☐ Create image-focused content (buying guides, style posts)</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 3: Format Conversion</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -569,7 +489,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
                 <li>☐ Test mobile performance with PageSpeed Insights</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 4: Visual Search Platforms</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -582,7 +501,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl p-12 my-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -591,7 +509,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
           <p className="text-xl mb-8 text-purple-100">
             SEOLOGY.AI automatically optimizes your Shopify product images for Google Lens, visual search, and Core Web Vitals. Our AI writes perfect alt text, compresses images to WebP/AVIF, and implements structured data--while you focus on selling.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link
               href="/dashboard/onboarding"
@@ -606,7 +523,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
               Watch Demo
             </Link>
           </div>
-
           <div className="flex items-center justify-center gap-8 text-sm text-purple-100">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -628,7 +544,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
             </div>
           </div>
         </div>
-
         {/* Author Bio Footer */}
         <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-16">
           <div className="flex items-start gap-4">
@@ -644,7 +559,6 @@ export default function ImageSEOShopifyVisualSearchPage() {
             </div>
           </div>
         </div>
-
       </div>
     </article>
   )

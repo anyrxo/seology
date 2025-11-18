@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Search Intent Optimization: 18 Tactics to Match Content to User Intent in 2025',
   description: 'Intent mismatch causes 76% of content to fail at ranking. This complete guide shows how to identify, match, and optimize for the 4 types of search intent Google rewards with page-one rankings.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'search-intent-optimization-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Search Intent Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Search Intent Optimization: 18 Tactics to Match Content to User Intent in 2025
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>May 15, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Intent mismatch causes 76% of content to fail at ranking. This complete guide shows how to identify, match, and optimize for the 4 types of search intent Google rewards with page-one rankings.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates intent analysis</strong> by analyzing SERP patterns, identifying dominant content types, and restructuring pages to match winning intent formats automatically</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Search Intent Is the Most Important Ranking Factor</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -95,13 +90,11 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 4 Types of Search Intent</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Google categorizes every search query into one of four intent categories. Understanding these is critical to matching your content format correctly:
               </p>
-
               <div className="space-y-6">
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                   <h3 className="text-2xl font-bold text-blue-900 mb-3">1. Informational Intent (80% of searches)</h3>
@@ -123,7 +116,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Example: "how to optimize images for SEO" → User wants a tutorial, not product pages.</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                   <h3 className="text-2xl font-bold text-purple-900 mb-3">2. Navigational Intent (10% of searches)</h3>
                   <p className="text-slate-700 mb-3">
@@ -143,7 +135,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Example: "Gmail login" → User wants to reach Gmail\'s login page, not an article about email.</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                   <h3 className="text-2xl font-bold text-pink-900 mb-3">3. Commercial Investigation Intent (6% of searches)</h3>
                   <p className="text-slate-700 mb-3">
@@ -164,7 +155,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Example: "best project management software" → User wants a comparison, not a single product page.</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                   <h3 className="text-2xl font-bold text-green-900 mb-3">4. Transactional Intent (4% of searches)</h3>
                   <p className="text-slate-700 mb-3">
@@ -187,17 +177,14 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 18 Search Intent Optimization Tactics</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Follow these tactics to identify and match search intent perfectly:
               </p>
-
               <div className="space-y-8">
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Identifying Intent (Tactics 1-5)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-blue-600 pl-6">
                       <h4 className="text-xl font-bold text-blue-900 mb-3">1. Analyze the Google SERP for Your Target Keyword</h4>
@@ -214,7 +201,6 @@ export default function BlogPost() {
                         <li>• One brand dominates? → Navigational intent</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-purple-600 pl-6">
                       <h4 className="text-xl font-bold text-purple-900 mb-3">2. Check Google\'s SERP Features</h4>
                       <p className="text-slate-700 mb-3">
@@ -229,7 +215,6 @@ export default function BlogPost() {
                         <li>• <strong>Local pack (map + 3 businesses):</strong> Local transactional intent</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-pink-600 pl-6">
                       <h4 className="text-xl font-bold text-pink-900 mb-3">3. Use Intent Modifiers in Keywords</h4>
                       <p className="text-slate-700 mb-3">
@@ -245,7 +230,6 @@ export default function BlogPost() {
                         </ul>
                       </div>
                     </div>
-
                     <div className="border-l-4 border-green-600 pl-6">
                       <h4 className="text-xl font-bold text-green-900 mb-3">4. Analyze Current Page Performance Metrics</h4>
                       <p className="text-slate-700 mb-3">
@@ -258,7 +242,6 @@ export default function BlogPost() {
                         <li>• <strong>Rankings dropping despite no algorithm updates:</strong> RankBrain detected mismatch</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-yellow-600 pl-6">
                       <h4 className="text-xl font-bold text-yellow-900 mb-3">5. Consider the User\'s Journey Stage</h4>
                       <p className="text-slate-700 mb-3">
@@ -272,10 +255,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Matching Intent (Tactics 6-13)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-indigo-600 pl-6">
                       <h4 className="text-xl font-bold text-indigo-900 mb-3">6. Match Your Content Format to the Dominant SERP Type</h4>
@@ -284,7 +265,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: If you\'re targeting "best CRM software" but only have a generic product page, you\'ll lose to competitors with comprehensive comparison articles.</p>
                     </div>
-
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">7. Mirror Ranking Content Structure and Depth</h4>
                       <p className="text-slate-700 mb-3">
@@ -298,7 +278,6 @@ export default function BlogPost() {
                         <li>• What media types do they use? (Videos, screenshots, infographics)</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-cyan-600 pl-6">
                       <h4 className="text-xl font-bold text-cyan-900 mb-3">8. Use Intent-Specific Title Tag Formulas</h4>
                       <p className="text-slate-700 mb-3">
@@ -311,7 +290,6 @@ export default function BlogPost() {
                         <li>• <strong>Navigational:</strong> "[Brand Name] | Official [Service] Website"</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-orange-600 pl-6">
                       <h4 className="text-xl font-bold text-orange-900 mb-3">9. Optimize Your Meta Description for Intent</h4>
                       <p className="text-slate-700 mb-3">
@@ -323,7 +301,6 @@ export default function BlogPost() {
                         <li>• <strong>Transactional:</strong> "Buy [Product] with free shipping and 30-day returns. In stock and ready to ship today."</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-teal-600 pl-6">
                       <h4 className="text-xl font-bold text-teal-900 mb-3">10. Use Intent-Appropriate CTAs</h4>
                       <p className="text-slate-700 mb-3">
@@ -336,7 +313,6 @@ export default function BlogPost() {
                       </ul>
                       <p className="text-sm text-slate-600 italic mt-3">Don\'t put "Buy Now" buttons on informational content--users aren\'t ready and it hurts trust.</p>
                     </div>
-
                     <div className="border-l-4 border-pink-600 pl-6">
                       <h4 className="text-xl font-bold text-pink-900 mb-3">11. Add Supporting Content for Adjacent Intents</h4>
                       <p className="text-slate-700 mb-3">
@@ -344,7 +320,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: On a transactional product page (primary intent), add an FAQ section at the bottom to capture informational intent queries about the product.</p>
                     </div>
-
                     <div className="border-l-4 border-blue-600 pl-6">
                       <h4 className="text-xl font-bold text-blue-900 mb-3">12. Create Dedicated Pages for Each Intent Type</h4>
                       <p className="text-slate-700 mb-3">
@@ -356,7 +331,6 @@ export default function BlogPost() {
                         <li>• "Running shoes" → Buying guide blog post + E-commerce category page</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-purple-600 pl-6">
                       <h4 className="text-xl font-bold text-purple-900 mb-3">13. Use Schema Markup That Matches Intent</h4>
                       <p className="text-slate-700 mb-3">
@@ -371,10 +345,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Testing & Optimizing (Tactics 14-18)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-green-600 pl-6">
                       <h4 className="text-xl font-bold text-green-900 mb-3">14. Monitor Behavioral Metrics in Search Console</h4>
@@ -387,7 +359,6 @@ export default function BlogPost() {
                         <li>• <strong>Impressions up but clicks flat:</strong> Intent mismatch between promise and delivery</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-yellow-600 pl-6">
                       <h4 className="text-xl font-bold text-yellow-900 mb-3">15. Track Engagement Metrics in Analytics</h4>
                       <p className="text-slate-700 mb-3">
@@ -400,7 +371,6 @@ export default function BlogPost() {
                         <li>• Conversion rate improving = intent + offer alignment working</li>
                       </ul>
                     </div>
-
                     <div className="border-l-4 border-indigo-600 pl-6">
                       <h4 className="text-xl font-bold text-indigo-900 mb-3">16. Run A/B Tests on Intent Variations</h4>
                       <p className="text-slate-700 mb-3">
@@ -408,7 +378,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: Test "ultimate guide" format vs "best options" listicle for a keyword to see which Google prefers and which converts better.</p>
                     </div>
-
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">17. Update Content When Intent Shifts</h4>
                       <p className="text-slate-700 mb-3">
@@ -416,7 +385,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: "iPhone" used to be informational (what is an iPhone?) but is now navigational (people want Apple.com). "AI" shifted from informational to commercial investigation as AI tools exploded.</p>
                     </div>
-
                     <div className="border-l-4 border-cyan-600 pl-6">
                       <h4 className="text-xl font-bold text-cyan-900 mb-3">18. Build Internal Links Based on Intent Flow</h4>
                       <p className="text-slate-700 mb-3">
@@ -432,7 +400,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Search Intent Mistakes That Kill Rankings</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -476,7 +443,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: SaaS Company Triples Organic Traffic by Fixing Intent Mismatches</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -508,7 +474,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> The founder said: <em>"We had been creating content based on what we thought users wanted, not what Google was actually rewarding. Once we analyzed the SERPs and matched our content format to the winning intent type, rankings and conversions exploded. Intent optimization gave us 3x better results than 2 years of traditional SEO."</em>
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Search Intent Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -532,7 +497,6 @@ export default function BlogPost() {
                   <p className="text-slate-700">Tracks bounce rate, dwell time, CTR in Search Console to detect intent mismatches early. Alerts you when RankBrain signals indicate user dissatisfaction.</p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Search Intent Optimization in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -555,7 +519,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The Verdict: Match Intent or Don\'t Bother Creating Content</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -576,7 +539,6 @@ export default function BlogPost() {
                 Or let SEOLOGY handle all 18 intent optimization tactics automatically--analyzing SERPs, detecting mismatches, restructuring content, and monitoring behavioral signals to ensure every page matches its target intent perfectly. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -592,7 +554,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #SearchIntent #UserIntent #ContentOptimization #KeywordStrategy #BehavioralSEO #SEOAutomation
@@ -601,7 +562,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Knowledge Panel Optimization: 14 Tactics to Own Your Brand SERP -- 92% Recognition',
   description: "Knowledge panels dominate 85% of brand searches but 68% show inaccurate info. Knowledge panel optimization increased brand recognition 92% and click-through rates 47% by claiming and optimizing Google\'s knowledge graph.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'knowledge-panel-optimization' && ["entity-seo-knowledge-graph","schema-markup-complete-guide-2025","eat-signals-expertise-authority","local-seo-guide"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Knowledge Panel Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Knowledge Panel Optimization: 14 Tactics to Own Your Brand SERP
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>July 3, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Knowledge panels dominate 85% of brand searches but 68% display inaccurate information. This comprehensive guide shows exactly how to claim, verify, and optimize your Google Knowledge Panel--with 14 proven tactics that increased brand recognition by 92% and organic CTR by 47%.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -62,7 +58,6 @@ export default function BlogPost() {
                 <li><strong>SEOLOGY monitors knowledge panel accuracy</strong> and alerts you to unauthorized changes or errors automatically</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Knowledge Panels Matter for Brand SEO</h2>
@@ -101,19 +96,16 @@ export default function BlogPost() {
                   Knowledge panels are Google\'s "answer box" for your brand. If you don\'t claim and optimize it, Google controls your brand narrative--often incorrectly. Worse, competitors or vandals can suggest malicious edits that Google may accept.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">14 Knowledge Panel Optimization Tactics That Work</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-8">
                   Here are the exact tactics that increased brand recognition by 92%, improved CTR by 47%, and gave complete control over brand search appearance. These strategies are proven across 1,200+ knowledge panel optimizations.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 text-blue-900">Category 1: Claiming & Verification</h3>
                 <div className="bg-slate-50 p-6 rounded-lg mb-8 border-l-4 border-blue-600">
                   <p className="text-slate-700 mb-6">
                     Take ownership of your knowledge panel to control content and suggest edits.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">1. Claim Your Knowledge Panel via Google Search Console</h4>
@@ -137,7 +129,6 @@ export default function BlogPost() {
                         <strong>Important:</strong> Even after claiming, you can only <em>suggest</em> edits--Google still decides what gets approved based on their data confidence. However, verified owners have significantly higher approval rates (78% vs 34% for non-verified suggestions).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">2. Verify Your Official Website Domain</h4>
                       <p className="text-slate-700 mb-3">
@@ -159,7 +150,6 @@ export default function BlogPost() {
                         <strong>Pro Tip:</strong> If your knowledge panel shows the wrong official site (common after mergers, rebrands, or domain changes), suggest an edit with documentation proving the new domain (press releases, social announcements, trademark records).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">3. Link Social Profiles to Establish Entity Relationships</h4>
                       <p className="text-slate-700 mb-3">
@@ -183,13 +173,11 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-purple-900">Category 2: Wikipedia & Wikidata Optimization</h3>
                 <div className="bg-purple-50 p-6 rounded-lg mb-8 border-l-4 border-purple-600">
                   <p className="text-slate-700 mb-6">
                     Wikipedia is the #1 data source for knowledge panels--optimize or create your Wikipedia presence.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">4. Create or Improve Your Wikipedia Page</h4>
@@ -221,7 +209,6 @@ export default function BlogPost() {
                         <strong>Warning:</strong> Never edit your own Wikipedia page directly (violates conflict of interest policy). Use Wikipedia\'s "Talk" page to suggest changes, or disclose your affiliation when editing. Violations can result in page protection or deletion.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">5. Optimize Your Wikidata Entry</h4>
                       <p className="text-slate-700 mb-3">
@@ -255,7 +242,6 @@ export default function BlogPost() {
                         <strong>Approval Rate:</strong> Wikidata is more permissive than Wikipedia. You can edit your own entity\'s data if you provide reliable sources (official website, verified social profiles, press coverage).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">6. Monitor Wikipedia for Vandalism and Errors</h4>
                       <p className="text-slate-700 mb-3">
@@ -279,13 +265,11 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-pink-900">Category 3: Schema Markup & Structured Data</h3>
                 <div className="bg-pink-50 p-6 rounded-lg mb-8 border-l-4 border-pink-600">
                   <p className="text-slate-700 mb-6">
                     Implement structured data to help Google understand your entity and its relationships.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">7. Add Organization Schema to Your Homepage</h4>
@@ -336,7 +320,6 @@ export default function BlogPost() {
                         <strong>Critical Properties:</strong> <code>name</code> (exact match to knowledge panel name), <code>logo</code> (high-res square PNG, minimum 112x112px), <code>sameAs</code> (all official social profiles), <code>url</code> (canonical website), <code>foundingDate</code> (YYYY-MM-DD format).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">8. Use High-Quality Logo in Correct Format</h4>
                       <p className="text-slate-700 mb-3">
@@ -373,7 +356,6 @@ export default function BlogPost() {
                         <strong>If Google Shows Wrong Logo:</strong> Upload the correct logo to Wikimedia Commons and use it in your Wikipedia infobox. Update Organization schema. Suggest logo change via knowledge panel "Suggest an edit" feature with link to correct logo.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">9. Implement Breadcrumb Schema for Site Hierarchy</h4>
                       <p className="text-slate-700 mb-3">
@@ -408,13 +390,11 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 text-green-900">Category 4: Ongoing Monitoring & Optimization</h3>
                 <div className="bg-green-50 p-6 rounded-lg mb-8 border-l-4 border-green-600">
                   <p className="text-slate-700 mb-6">
                     Continuously monitor your knowledge panel for changes and optimize based on performance data.
                   </p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-bold text-lg mb-2">10. Set Up Knowledge Panel Change Alerts</h4>
@@ -437,7 +417,6 @@ export default function BlogPost() {
                         <strong>Response Protocol:</strong> If unauthorized changes appear: (1) Check Wikipedia for vandalism and revert if found, (2) Suggest edit correction via claimed panel with authoritative sources, (3) Document the error with screenshots for escalation if needed.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">11. Optimize Panel Content for Click-Through Rate</h4>
                       <p className="text-slate-700 mb-3">
@@ -459,7 +438,6 @@ export default function BlogPost() {
                         <strong>Testing Impact:</strong> Track branded search traffic in Google Analytics before/after panel optimizations. Look for increases in direct traffic from brand searches (knowledge panel clicks show as direct or google.com referral).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">12. Maintain Consistent NAP Across All Platforms</h4>
                       <p className="text-slate-700 mb-3">
@@ -483,7 +461,6 @@ export default function BlogPost() {
                         <strong>Standardization Rules:</strong> Pick one canonical version of your business name and use it everywhere. For addresses, use USPS standardized format. For phone numbers, include country code and use consistent formatting.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">13. Build High-Quality Backlinks to Strengthen Entity Authority</h4>
                       <p className="text-slate-700 mb-3">
@@ -505,7 +482,6 @@ export default function BlogPost() {
                         <strong>Quality Over Quantity:</strong> One link from The New York Times is worth more for entity authority than 1,000 directory links. Focus on editorial mentions from trusted sources.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="font-bold text-lg mb-2">14. Leverage Google Posts for Local Business Panels</h4>
                       <p className="text-slate-700 mb-3">
@@ -530,7 +506,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Knowledge Panel Mistakes to Avoid</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -581,7 +556,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Knowledge Panel Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -620,7 +594,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: 92% Brand Recognition Increase from Panel Optimization</h2>
                 <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
@@ -660,7 +633,6 @@ export default function BlogPost() {
                   Knowledge panels are your brand\'s "business card" on Google. Incomplete or inaccurate panels damage trust and send clicks to competitors. Claiming and optimizing your panel is one of the highest-ROI brand SEO tactics available.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Knowledge Panel Monitoring</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -688,7 +660,6 @@ export default function BlogPost() {
                     <span><strong>Edit Suggestion Assistance:</strong> When errors appear, SEOLOGY prepares edit suggestions with supporting documentation ready to submit via Google Search Console.</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mb-6">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Knowledge Panel Monitoring</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -703,7 +674,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Own Your Brand SERP with Knowledge Panels</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -737,7 +707,6 @@ export default function BlogPost() {
                   <strong>SEOLOGY automates knowledge panel monitoring</strong>--tracking changes, detecting errors, monitoring Wikipedia for vandalism, and alerting you to inaccuracies instantly. Protect your brand\'s most visible Google real estate automatically.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -750,7 +719,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEO #KnowledgePanel #KnowledgeGraph #EntitySEO #BrandSEO #SEOLOGY
@@ -760,7 +728,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Link Building Strategies: 19 White-Hat Tactics for 2025',
   description: 'Outdated link building gets you penalized. These 19 white-hat strategies build authority without risk.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['guest-posting-seo-guide-2025', 'broken-link-building-tactics', 'digital-pr-seo-strategy', 'link-reclamation-guide-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Link Building Strategies</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Link Building Strategies: 19 White-Hat Tactics for 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>December 8, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Outdated link building gets you penalized. These <strong className="text-white">19 white-hat strategies</strong> build authority without risk.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -69,7 +65,6 @@ export default function BlogPost() {
                 <li>These 19 tactics have built 10,000+ high-authority backlinks</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Link Building Still Matters in 2025</h2>
@@ -94,10 +89,8 @@ export default function BlogPost() {
                   The key is building links the right way--white-hat tactics that Google rewards, not penalizes.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">19 White-Hat Link Building Strategies</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content-Based Link Building</h3>
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
@@ -136,7 +129,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Outreach-Based Link Building</h3>
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
@@ -175,7 +167,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Relationship-Based Link Building</h3>
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
@@ -214,7 +205,6 @@ export default function BlogPost() {
                     </div>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Community-Based Link Building</h3>
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
@@ -247,7 +237,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Link Quality Factors That Matter</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -280,7 +269,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Link Building Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -321,7 +309,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Link Building Outreach Template</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -340,7 +327,6 @@ export default function BlogPost() {
                   <strong>Success rate:</strong> 8-15% response rate when personalized.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Quality Over Quantity</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -349,7 +335,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Focus on white-hat tactics that earn real, editorial links. One DR70 link is worth 100 DR20 links.
                 </p>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Ready to Build Authority?</h3>
@@ -365,7 +350,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -376,7 +360,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #LinkBuilding #Backlinks #OffPageSEO #WhiteHatSEO #DigitalPR
@@ -386,7 +369,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

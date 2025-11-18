@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Site Architecture: SEO Best Practices for Maximum Crawlability in 2025',
   description: 'Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google--with 67% more pages indexed.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'site-architecture-seo-best-practices').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,7 +46,6 @@ export default function BlogPost() {
                 <li><strong>SEOLOGY audits and fixes site architecture issues</strong>--31% more pages indexed in 60 days on average</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Site Architecture Breaks SEO (The Numbers)</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -76,13 +76,11 @@ export default function BlogPost() {
                 <strong>Translation:</strong> If Google can\'t crawl it, it doesn\'t rank. If it\'s buried 5 clicks deep, it gets zero authority. Your best content dies unseen.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 3 Pillars of Perfect Site Architecture</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Every high-performing site follows the same three principles:
               </p>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">1. Shallow Hierarchy (3-Click Rule)</h3>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Every important page should be <strong>3 clicks or fewer</strong> from the homepage.
@@ -96,7 +94,6 @@ export default function BlogPost() {
               <p className="text-lg text-slate-700 leading-relaxed">
                 <strong>Real example:</strong> E-commerce site reduced product page depth from 5 clicks to 2 clicks. Result: <strong>+67% pages indexed</strong>, <strong>+43% organic traffic</strong> in 90 days.
               </p>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">2. Hub-and-Spoke Internal Linking</h3>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Create "hub" pages (pillar content) that link to related "spoke" pages (supporting content). Spokes link back to the hub and to each other.
@@ -115,7 +112,6 @@ export default function BlogPost() {
               <p className="text-lg text-slate-700 leading-relaxed">
                 <strong>Impact:</strong> Sites with hub-and-spoke linking get <strong>34% more internal PageRank flow</strong> than randomly linked sites (Moz study).
               </p>
-
               <h3 className="text-2xl font-bold mt-8 mb-4">3. Logical URL Structure</h3>
               <p className="text-lg text-slate-700 leading-relaxed">
                 URLs should mirror your site hierarchy. Users and Google understand where they are instantly.
@@ -129,10 +125,8 @@ export default function BlogPost() {
                 <p className="text-sm font-mono text-slate-700">/2024/11/18/post-title ❌ (adds unnecessary depth)</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">18 Site Architecture Best Practices That Actually Work</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
@@ -144,7 +138,6 @@ export default function BlogPost() {
                     <strong>How:</strong> Use breadcrumb navigation to visualize depth. Create shortcuts from homepage to deep pages via "Featured Products" or "Popular Posts" sections.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
@@ -156,7 +149,6 @@ export default function BlogPost() {
                     <strong>Example:</strong> Homepage → "Men\'s Shoes" → "Running Shoes" → Nike Air Max 2025
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
@@ -186,7 +178,6 @@ export default function BlogPost() {
 </script>`}</pre>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
@@ -197,7 +188,6 @@ export default function BlogPost() {
                     <strong>Link it:</strong> Put HTML sitemap link in footer. Link to it from 404 page.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
@@ -208,7 +198,6 @@ export default function BlogPost() {
                     <strong>Update frequency:</strong> Set <code>&lt;changefreq&gt;</code> realistically (daily for blog, weekly for products, monthly for static pages).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
@@ -219,7 +208,6 @@ export default function BlogPost() {
                     <strong>Tactic:</strong> Add "Recently Published" section to homepage. Link from existing high-ranking posts to new related content within 24 hours of publishing.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">7</div>
@@ -231,7 +219,6 @@ export default function BlogPost() {
                     <strong>Fix:</strong> Add links from related pages, category pages, or sitemap.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">8</div>
@@ -242,7 +229,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Instantly reduces click depth for important pages from 4+ clicks to 1 click.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">9</div>
@@ -253,7 +239,6 @@ export default function BlogPost() {
                     <strong>Solution:</strong> Pick one canonical URL. Add <code>&lt;link rel="canonical"&gt;</code> to all duplicate versions pointing to the canonical.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">10</div>
@@ -269,7 +254,6 @@ Disallow: /*?*size=
 Disallow: /*?*brand=</pre>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">11</div>
@@ -280,7 +264,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Do this:</strong> Use paginated URLs (/blog/page/2/) with <code>rel="prev"</code> and <code>rel="next"</code> tags.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">12</div>
@@ -292,7 +275,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Impact:</strong> Descriptive anchors help Google understand what the linked page is about.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">13</div>
@@ -303,7 +285,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Fix:</strong> Pick one. 301 redirect the other. Update all internal links.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">14</div>
@@ -315,7 +296,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Exception:</strong> Use subdomains for completely different products (shop.example.com for e-commerce, app.example.com for SaaS dashboard).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">15</div>
@@ -327,7 +307,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Fix:</strong> If low-value pages (filters, tags, old blog posts) consume most crawl budget, add them to robots.txt or noindex them.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">16</div>
@@ -339,7 +318,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Test:</strong> Use Google Mobile-Friendly Test to verify mobile architecture.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">17</div>
@@ -351,7 +329,6 @@ Disallow: /*?*brand=</pre>
                     <strong>Alternative:</strong> ccTLDs (example.co.uk, example.fr) if you want local domain authority.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">18</div>
@@ -365,7 +342,6 @@ Disallow: /*?*brand=</pre>
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">6 Site Architecture Mistakes That Kill Rankings</h2>
               <div className="space-y-6">
@@ -378,7 +354,6 @@ Disallow: /*?*brand=</pre>
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -388,7 +363,6 @@ Disallow: /*?*brand=</pre>
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -398,7 +372,6 @@ Disallow: /*?*brand=</pre>
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -408,7 +381,6 @@ Disallow: /*?*brand=</pre>
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -418,7 +390,6 @@ Disallow: /*?*brand=</pre>
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -430,7 +401,6 @@ Disallow: /*?*brand=</pre>
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Site Architecture Audit Checklist</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -471,7 +441,6 @@ Disallow: /*?*brand=</pre>
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Site Architecture Analysis</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -501,7 +470,6 @@ Disallow: /*?*brand=</pre>
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Architecture Fixes That Worked</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200">
@@ -559,7 +527,6 @@ Disallow: /*?*brand=</pre>
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Site Architecture Fixes</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -595,7 +562,6 @@ Disallow: /*?*brand=</pre>
                 <strong>Average result:</strong> SEOLOGY clients see <strong>31% more pages indexed</strong> within 60 days of architecture fixes.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -617,7 +583,6 @@ Disallow: /*?*brand=</pre>
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -630,7 +595,6 @@ Disallow: /*?*brand=</pre>
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #SiteArchitecture #TechnicalSEO #SiteStructure #InternalLinking #CrawlBudget

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics) -- 67% Traffic Boost',
   description: "Orphan pages with no internal links waste 34% of your site\'s ranking potential. Orphan page recovery strategy identified 284 hidden pages and recovered 67% more organic traffic by integrating them into site architecture.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'orphan-page-recovery-strategy' &&
     ["internal-linking-strategy-2025","site-architecture-seo-best-practices","crawl-budget-optimization-guide"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -22,21 +23,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Orphan Page Recovery</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>June 5, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Orphan pages waste 34% of your site\'s ranking potential--hidden from Google with zero internal links. Orphan page recovery identified 284 hidden pages and recovered 67% more organic traffic.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -48,7 +45,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 <li><strong>67% traffic recovery:</strong> Site with 284 orphan pages added strategic internal links to 147 high-value orphans, redirected 89 low-value orphans, increased organic traffic 67% within 8 weeks</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Orphan Pages Destroy Your SEO Performance</h2>
@@ -80,15 +75,12 @@ export default function BlogPost() {
                   Orphans happen for several reasons: Old pages created before your current site architecture was established. Content management systems that create pages automatically (like blog tag pages or parameter URLs) without adding navigation links. Developers removing links during redesigns without deleting the actual pages. Product pages no longer featured in category pages but still live on the site. The result: valuable content exists but contributes nothing to your rankings or traffic.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">14 Orphan Page Recovery Tactics That Restore Rankings</h2>
-
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 1: Identifying Orphan Pages</h3>
                   <p className="text-slate-700 mb-0">Tools and methods to find hidden pages on your site</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">1. Compare Site Crawl Data to Google Search Console</h4>
@@ -105,7 +97,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> Some pages may legitimately not be linked (like thank-you pages, form submissions). Filter out URLs containing <code>/thanks</code>, <code>/confirmation</code>, <code>/unsubscribe</code> to focus on actual content orphans worth fixing.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">2. Check Pages in XML Sitemap But Not in Navigation</h4>
                     <p className="text-slate-700 mb-3">
@@ -121,7 +112,6 @@ export default function BlogPost() {
                       <strong>Common culprits:</strong> Blog posts not linked from category pages, product variations not linked from main product pages, old content hubs removed from navigation, location pages not in footer, seasonal content like "2023 Holiday Gift Guide" no longer promoted.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">3. Use Analytics to Find High-Traffic Pages With Zero Referrals</h4>
                     <p className="text-slate-700 mb-3">
@@ -137,7 +127,6 @@ export default function BlogPost() {
                       <strong>Prioritization:</strong> Sort by landing page views descending. Pages with 100+ monthly visits but zero internal referrals are your highest-priority orphans to fix--they already have traffic, adding links will amplify results quickly.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">4. Identify Technical Orphans (Disallowed in Robots.txt or Noindex)</h4>
                     <p className="text-slate-700 mb-3">
@@ -154,12 +143,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 2: Prioritizing Which Orphans to Fix</h3>
                   <p className="text-slate-700 mb-0">Not all orphans are worth saving--focus on high-value pages first</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">5. Prioritize Pages With Existing Rankings and Traffic</h4>
@@ -176,7 +163,6 @@ export default function BlogPost() {
                       <strong>Action:</strong> Start with top 10-20 orphans by impressions. Add 3-5 contextual internal links from related content. Monitor position changes in Search Console over 4 weeks. You\'ll typically see 60-70% of these pages improve rankings significantly.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">6. Assess Content Quality (Comprehensive vs Thin)</h4>
                     <p className="text-slate-700 mb-3">
@@ -192,7 +178,6 @@ export default function BlogPost() {
                       <strong>Decision matrix:</strong> High quality + existing traffic = add internal links immediately. High quality + no traffic = add links + improve content. Low quality + no traffic = redirect to similar comprehensive page or remove. Low quality + existing traffic = improve content quality first, then add links.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">7. Evaluate Business Value (Conversion Potential)</h4>
                     <p className="text-slate-700 mb-3">
@@ -208,7 +193,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> E-commerce site found 18 product pages orphaned (removed from category navigation during redesign). These products had historical conversion rates of 4.2% (above site average of 2.8%). Re-adding to category pages and related product links recovered $47,000/month in revenue within 6 weeks.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">8. Check for External Backlinks (Authority to Leverage)</h4>
                     <p className="text-slate-700 mb-3">
@@ -225,12 +209,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-pink-50 to-blue-50 p-6 rounded-xl border-l-4 border-pink-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 3: Recovery Tactics and Linking Strategies</h3>
                   <p className="text-slate-700 mb-0">How to integrate orphans back into your site architecture</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">9. Add Contextual Links From Related Content</h4>
@@ -247,7 +229,6 @@ export default function BlogPost() {
                       <strong>Placement:</strong> Add links in the first 2-3 paragraphs (higher weight), within list items discussing related topics, in "Related Resources" sections at article end. Never force unnatural links--if there\'s no topical relevance, find different source pages to link from.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Add to Site-Wide Navigation or Footer</h4>
                     <p className="text-lg text-slate-700 leading-relaxed">
@@ -263,7 +244,6 @@ export default function BlogPost() {
                       <strong>Caution:</strong> Site-wide links from footer or navigation pass less value than contextual body links because they appear on every page (Google may discount them). Use for pages that legitimately belong in site-wide navigation--not as a shortcut to fix orphans that need contextual links.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">11. Create Resource Hub Pages to Link Orphaned Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -279,7 +259,6 @@ export default function BlogPost() {
                       <strong>Bonus benefit:</strong> Hub pages themselves often rank well because they\'re comprehensive and link to detailed resources. The hub becomes a traffic driver that distributes that traffic to previously-orphaned content. Two-way value: hub ranks and drives traffic, orphans get internal links and ranking boost.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">12. Implement Automated Related Posts or Recommendations</h4>
                     <p className="text-slate-700 mb-3">
@@ -296,12 +275,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 4: Prevention and Long-Term Maintenance</h3>
                   <p className="text-slate-700 mb-0">Stop orphans from happening in the first place</p>
                 </div>
-
                 <div className="space-y-8">
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">13. Establish Content Publishing Workflow With Linking Requirements</h4>
@@ -318,7 +295,6 @@ export default function BlogPost() {
                       <strong>CMS enforcement:</strong> Some CMS plugins can enforce linking requirements. WordPress example: require custom field "Internal Links Added" to be filled with URLs before publishing. Or use editorial workflow tools (e.g., Edit Flow, PublishPress) that include internal linking as a checklist item in approval process.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">14. Schedule Regular Orphan Audits (Monthly or Quarterly)</h4>
                     <p className="text-slate-700 mb-3">
@@ -336,7 +312,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Orphan Page Mistakes to Avoid</h2>
                 <div className="space-y-6">
@@ -349,7 +324,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Always prioritize orphans with existing traffic (use GA4 + Search Console data), external backlinks (check Ahrefs/SEMrush), or high conversion potential (product/service pages). Fix top 20 highest-value orphans first--you\'ll see 80% of the traffic recovery from 20% of the work.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Adding Irrelevant Links Just to "Fix" Orphan Status</h3>
                     <p className="text-slate-700 mb-3">
@@ -359,7 +333,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Only add topically-relevant contextual links that provide value to users reading the source page. If you can\'t find 3+ relevant pages to naturally link from, create a hub page or resource directory where the orphan logically belongs. Quality of links matters more than quantity.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Keeping Low-Quality Orphans Instead of Removing Them</h3>
                     <p className="text-slate-700 mb-3">
@@ -369,7 +342,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Audit orphan content quality ruthlessly. Low-quality orphans with zero traffic should be: (1) 301 redirected to a comprehensive related page (consolidates any authority), (2) Improved significantly before adding links (rewrite to 1,000+ words), or (3) Deleted entirely with 410 status if truly worthless. Don\'t link to garbage.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Ignoring Orphans Created During Site Redesigns</h3>
                     <p className="text-slate-700 mb-3">
@@ -379,7 +351,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Before launching redesigns, crawl the current site to document all internal links. After redesign launch, crawl again and compare--any pages previously linked but now not reachable = redesign-created orphans. Proactively add these pages back to navigation or create redirect maps if they\'re being consolidated.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Relying Only on XML Sitemaps to "Fix" Orphans</h3>
                     <p className="text-slate-700 mb-3">
@@ -391,7 +362,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Essential Orphan Page Detection Tools</h2>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -404,7 +374,6 @@ export default function BlogPost() {
                       <li><strong>DeepCrawl (Lumar):</strong> Enterprise SEO platform with orphan tracking</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Google & Analytics Tools</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -413,7 +382,6 @@ export default function BlogPost() {
                       <li><strong>Google Sheets/Excel:</strong> Compare crawl data to Search Console exports to identify orphans</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Backlink Analysis Tools</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -422,7 +390,6 @@ export default function BlogPost() {
                       <li><strong>Moz Link Explorer:</strong> Domain and page authority metrics for prioritization</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Internal Linking Plugins</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -433,7 +400,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: 284 Orphan Pages Recovered, 67% Traffic Increase</h2>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border border-blue-200">
@@ -441,23 +407,19 @@ export default function BlogPost() {
                     <div className="text-sm font-semibold text-blue-600 mb-2">CASE STUDY</div>
                     <h3 className="text-2xl font-bold text-slate-900">SaaS Company Identifies and Fixes 284 Orphan Pages</h3>
                   </div>
-
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
                       <p className="mt-1">B2B SaaS company with 850-page website (blog, resources, product docs) noticed flat organic traffic despite publishing 50+ new blog posts in past 6 months. Traffic wasn\'t growing proportionally to content volume--something was systematically wrong with site architecture.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Discovery:</strong>
                       <p className="mt-1">Full site crawl with Screaming Frog revealed crawler only discovered 566 pages by following internal links. Google Search Console showed 850 pages indexed. Math: 284 pages (33%) were orphans--no internal links pointing to them. Cross-check with Google Analytics showed 147 orphans had existing organic traffic (2,500+ visits/month combined), meaning they were ranking despite being handicapped.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Strategy:</strong>
                       <p className="mt-1">Three-tier approach: (Tier 1) 147 orphans with existing traffic--add 3-5 contextual internal links from related high-authority blog posts and resource pages. (Tier 2) 89 orphans with zero traffic but high quality (1,000+ words, comprehensive)--add to relevant resource hubs and topic cluster pages. (Tier 3) 48 orphans with low quality/thin content--301 redirect to comprehensive related pages or delete with 410 status.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">Implementation:</strong>
                       <ul className="mt-2 space-y-1 ml-4">
@@ -468,7 +430,6 @@ export default function BlogPost() {
                         <li>• Week 8+: Monitored traffic and rankings weekly, added more links to orphans showing improvement</li>
                       </ul>
                     </div>
-
                     <div className="bg-white p-6 rounded-xl border-2 border-blue-600 mt-6">
                       <strong className="text-slate-900">The Results (After 8 Weeks):</strong>
                       <ul className="mt-3 space-y-2">
@@ -494,7 +455,6 @@ export default function BlogPost() {
                         </li>
                       </ul>
                     </div>
-
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
                       <p className="mt-1 text-lg">"We were creating great content but it was invisible to Google and users because we weren\'t systematically adding internal links. Fixing 284 orphan pages unlocked 67% more traffic from content we already had--no new content required. The ROI was immediate and massive." -- VP of Marketing</p>
@@ -502,7 +462,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Orphan Page Detection and Recovery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -514,26 +473,22 @@ export default function BlogPost() {
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Continuous Orphan Detection</h3>
                     <p className="text-slate-700">SEOLOGY automatically crawls your site weekly, compares crawl data to indexed pages in Google Search Console, identifies new orphans as they appear, alerts you when orphan rate increases above threshold (10% orphans triggers alert).</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200">
                     <div className="text-3xl mb-3">🤖</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">AI-Powered Prioritization</h3>
                     <p className="text-slate-700">Claude AI automatically prioritizes orphans by analyzing: existing traffic and rankings (Search Console data), external backlinks and authority (Ahrefs API integration), content quality signals (word count, freshness, engagement), business value (conversion potential, page type).</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Link Integration</h3>
                     <p className="text-slate-700">SEOLOGY doesn\'t just find orphans--it fixes them automatically. AI identifies topically-relevant source pages for contextual links, generates natural anchor text variations, adds 3-5 internal links per orphan from high-authority pages, deploys changes via CMS API (Shopify, WordPress, etc.).</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
                     <div className="text-3xl mb-3">📊</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Recovery Tracking & Reporting</h3>
                     <p className="text-slate-700">After fixing orphans, SEOLOGY monitors ranking improvements in Search Console (average position changes for recovered orphans), tracks traffic increases in Google Analytics (before/after recovery comparison), shows ROI per orphan (traffic value recovered), prevents new orphans via publishing workflow integration.</p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Stop Wasting 34% of Your Site\'s Ranking Potential--Automate Orphan Recovery</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -556,7 +511,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Orphan Page Recovery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -578,7 +532,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
                 <div className="grid gap-4">
@@ -594,7 +547,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #OrphanPages #InternalLinking #SiteArchitecture #TechnicalSEO #CrawlBudget #SEO #SEOLOGY
@@ -604,7 +556,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

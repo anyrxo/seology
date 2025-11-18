@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Voice Search SEO for Shopify: Alexa & Google Assistant Optimization 2026 | SEOLOGY.AI',
   description: '157.1 million Americans will use voice assistants by 2026, with $290B in voice commerce spending. Master voice search SEO for Shopify: featured snippets, conversational keywords, and schema markup that wins position zero and captures voice shopping queries.',
 }
-
 export default function VoiceSearchSEOShopifyPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
@@ -13,7 +13,6 @@ export default function VoiceSearchSEOShopifyPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           Voice Search SEO for Shopify: Alexa & Google Assistant Optimization 2026
         </h1>
-
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
           <time dateTime="2025-12-19">December 19, 2025</time>
           <span>•</span>
@@ -21,14 +20,12 @@ export default function VoiceSearchSEOShopifyPage() {
           <span>•</span>
           <span>Updated for Q1 2026</span>
         </div>
-
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <strong className="text-indigo-600 dark:text-indigo-400">Voice search is the new battleground:</strong> <strong>157.1 million Americans</strong> will use voice assistants by 2026, and <strong>75% of households</strong> already own smart speakers. Consumers will spend <strong>$290 billion via voice commerce</strong> in 2025, with <strong>62% of smart speaker users</strong> planning to make purchases this month. If your Shopify store isn't optimized for "Hey Google" and "Alexa" queries, you're invisible to the <strong>52% of daily voice search users</strong>.
           </p>
         </div>
       </header>
-
       {/* Author Bio */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-12">
         <div className="flex items-start gap-4">
@@ -44,7 +41,6 @@ export default function VoiceSearchSEOShopifyPage() {
           </div>
         </div>
       </div>
-
       {/* Table of Contents */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Table of Contents</h2>
@@ -63,19 +59,15 @@ export default function VoiceSearchSEOShopifyPage() {
           <li><a href="#implementation" className="hover:underline">60-Day Voice Search Optimization Plan</a></li>
         </ul>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         {/* Section 1 */}
         <h2 id="voice-search-statistics" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Voice Search Statistics: The 2026 Opportunity Is Massive
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice search isn't the future--it's the present. The adoption rates are staggering:
         </p>
-
         <div className="bg-indigo-50 dark:bg-indigo-950/30 border-l-4 border-indigo-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🎤 December 2025 Voice Search Data</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -90,11 +82,9 @@ export default function VoiceSearchSEOShopifyPage() {
             <li><strong>58%</strong> of consumers use voice for local information</li>
           </ul>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Market Share: Google, Alexa, Siri (2025)
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Google Assistant:</strong> 92.4 million U.S. users (most popular)</li>
           <li><strong>Apple Siri:</strong> 87.0 million U.S. users</li>
@@ -102,20 +92,16 @@ export default function VoiceSearchSEOShopifyPage() {
           <li><strong>Amazon Echo:</strong> 68.2% of American smart speaker owners (70.6% U.S. penetration)</li>
           <li><strong>Google Home:</strong> 23.8% U.S. penetration</li>
         </ul>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Between 2020-2024, monthly voice assistant usage surged: <strong>Google Assistant +46%, Siri +40%, Alexa +26%</strong>. This isn't a trend--it's a fundamental shift in how people search and shop online.
         </p>
-
         {/* Section 2 */}
         <h2 id="voice-commerce-revolution" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Voice Commerce: The $290 Billion Revolution
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice commerce (v-commerce) is exploding faster than any ecommerce channel in history:
         </p>
-
         <div className="bg-purple-50 dark:bg-purple-950/30 border-l-4 border-purple-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">💰 Voice Commerce Growth Trajectory</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -127,24 +113,19 @@ export default function VoiceSearchSEOShopifyPage() {
             <li><strong>Annual increase:</strong> Consumer spending via voice up 60% year-over-year</li>
           </ul>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The consumer behavior is clear: <strong>nearly 50% of U.S. consumers have used voice search for shopping</strong>, and <strong>60% make daily or weekly purchases using voice assistants</strong>. For Shopify merchants, this represents a massive untapped revenue channel.
         </p>
-
         {/* Section 3 */}
         <h2 id="how-voice-search-works" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           How Voice Search Actually Works (And Why It's Different)
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice search fundamentally differs from typed search in three critical ways:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           1. Conversational, Natural Language Queries
         </h3>
-
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border border-gray-300 dark:border-gray-700">
             <thead className="bg-gray-100 dark:bg-gray-800">
@@ -169,36 +150,28 @@ export default function VoiceSearchSEOShopifyPage() {
             </tbody>
           </table>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice queries are <strong>longer (3-5+ words), phrased as complete questions</strong>, and use natural speech patterns. Traditional keyword-focused SEO fails here.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           2. Spoken Answer, Not a List of Links
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Google Assistant and Alexa read <strong>one answer</strong>--usually from a featured snippet (position zero). There's no page 2, no scrolling. You either win position zero or you're invisible.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           3. Emphasis on Local + Action Intent
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           <strong>58% of voice searches are for local information</strong>. Queries often include action intent: "buy," "book," "order," "find," "get directions." Voice users want immediate results.
         </p>
-
         {/* Section 4 */}
         <h2 id="featured-snippets" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Featured Snippets: Your Position Zero Strategy
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice assistants pull answers from featured snippets <strong>~80% of the time</strong>. Winning position zero is non-negotiable for voice search visibility.
         </p>
-
         <div className="bg-green-50 dark:bg-green-950/30 border-l-4 border-green-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🎯 Featured Snippet Optimization Formula</h3>
           <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300">
@@ -210,11 +183,9 @@ export default function VoiceSearchSEOShopifyPage() {
             <li><strong>Follow with depth:</strong> Expand after the snippet-worthy answer</li>
           </ol>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Snippet-Worthy Content Structure
         </h3>
-
         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg my-6">
           <h4 className="font-bold mb-2 text-gray-900 dark:text-gray-100">Example: "How to clean leather shoes?"</h4>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -225,31 +196,25 @@ export default function VoiceSearchSEOShopifyPage() {
             <strong>Detailed guide follows below</strong> (step-by-step with images, materials needed, tips, etc.)
           </p>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Types of Featured Snippets
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Paragraph snippets:</strong> Direct answer to a question (most common for voice)</li>
           <li><strong>List snippets:</strong> Numbered steps or bulleted lists</li>
           <li><strong>Table snippets:</strong> Comparison data, pricing, specs</li>
           <li><strong>Video snippets:</strong> How-to videos with timestamps</li>
         </ul>
-
         {/* Section 5 */}
         <h2 id="conversational-keywords" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Conversational Keywords & Question-Based Optimization
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Voice search requires a shift from traditional keywords to <strong>conversational long-tail phrases</strong>. Think: How people actually talk, not how they type.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           The 5 W's + H Question Framework
         </h3>
-
         <div className="space-y-4 mb-8">
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Who</h4>
@@ -258,7 +223,6 @@ export default function VoiceSearchSEOShopifyPage() {
               "Who makes the best wireless earbuds?"
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">What</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -266,7 +230,6 @@ export default function VoiceSearchSEOShopifyPage() {
               "What are the best running shoes for flat feet?"
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Where</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -274,7 +237,6 @@ export default function VoiceSearchSEOShopifyPage() {
               "Where's the closest bike shop?"
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">When</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -282,7 +244,6 @@ export default function VoiceSearchSEOShopifyPage() {
               "When do coffee shops open near me?"
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Why</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -290,7 +251,6 @@ export default function VoiceSearchSEOShopifyPage() {
               "Why should I use a French press?"
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-indigo-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">How</h4>
             <p className="text-gray-700 dark:text-gray-300">
@@ -299,11 +259,9 @@ export default function VoiceSearchSEOShopifyPage() {
             </p>
           </div>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Voice Search Keyword Research Process
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Start with seed keywords:</strong> Your main products/services</li>
           <li><strong>Use "People Also Ask":</strong> Google's PAA box shows question-based queries</li>
@@ -312,24 +270,19 @@ export default function VoiceSearchSEOShopifyPage() {
           <li><strong>Long-tail focus:</strong> 5-10 word conversational phrases</li>
           <li><strong>Natural language:</strong> "What's the best way to..." not "best way [topic]"</li>
         </ol>
-
         {/* Section 6 */}
         <h2 id="schema-markup" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Schema Markup for Voice Search (FAQ, HowTo, Product)
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Structured data helps voice assistants understand and extract your content. Three schema types are critical for voice search:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           1. FAQ Schema (Highest Voice Search Impact)
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           FAQ schema directly feeds voice assistants question-answer pairs. Perfect for product pages, guides, and support content.
         </p>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`{
   "@context": "https://schema.org",
@@ -354,15 +307,12 @@ export default function VoiceSearchSEOShopifyPage() {
   ]
 }`}</code></pre>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           2. HowTo Schema (Tutorial/Guide Content)
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           HowTo schema makes step-by-step guides voice-friendly. Google can read individual steps aloud.
         </p>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`{
   "@context": "https://schema.org",
@@ -391,28 +341,22 @@ export default function VoiceSearchSEOShopifyPage() {
   ]
 }`}</code></pre>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           3. Product Schema (Ecommerce Essential)
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Product schema enables voice shopping. "Alexa, order organic coffee beans from [Your Store]" requires proper product markup.
         </p>
-
         {/* Section 7 */}
         <h2 id="local-voice-search" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Local Voice Search Optimization
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           With <strong>58% of voice searches being local</strong>, local optimization is critical. Voice queries often include "near me" or city names.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Local Voice Search Checklist
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li>✅ Complete Google Business Profile (name, address, phone, hours)</li>
           <li>✅ NAP consistency across website and directories</li>
@@ -423,52 +367,42 @@ export default function VoiceSearchSEOShopifyPage() {
           <li>✅ Fast page speed (voice users want instant answers)</li>
           <li>✅ Natural language directions ("We're located next to City Hall")</li>
         </ul>
-
         {/* Section 8 */}
         <h2 id="product-listings" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Voice-Optimized Product Listings for Shopify
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Transform your Shopify product pages into voice-search-ready listings:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Product Title Optimization
         </h3>
-
         <div className="space-y-4 text-gray-700 dark:text-gray-300 mb-6">
           <div>
             <p className="font-semibold text-red-600 dark:text-red-400">❌ Traditional SEO:</p>
             <code className="block bg-gray-100 dark:bg-gray-800 p-2 rounded mt-1">"Organic Coffee Beans - Single Origin"</code>
           </div>
-
           <div>
             <p className="font-semibold text-green-600 dark:text-green-400">✅ Voice-Optimized:</p>
             <code className="block bg-gray-100 dark:bg-gray-800 p-2 rounded mt-1">"What are the Best Organic Coffee Beans? Premium Single-Origin Colombian Medium Roast"</code>
           </div>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Product Description Structure
         </h3>
-
         <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Quick answer first:</strong> "These organic coffee beans are single-origin Colombian, medium roast, and perfect for pour-over brewing."</li>
           <li><strong>FAQ section:</strong> "What makes these beans special?", "How should I brew them?", "How long do they stay fresh?"</li>
           <li><strong>Natural language:</strong> Write like you're talking to a customer in-store</li>
           <li><strong>Feature benefits:</strong> "Why choose organic?" not just "Organic certified"</li>
         </ol>
-
         {/* Section 9 */}
         <h2 id="alexa-google-differences" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Alexa vs Google Assistant: Platform Differences
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           While optimization principles overlap, there are key platform differences:
         </p>
-
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border border-gray-300 dark:border-gray-700">
             <thead className="bg-gray-100 dark:bg-gray-800">
@@ -507,24 +441,19 @@ export default function VoiceSearchSEOShopifyPage() {
             </tbody>
           </table>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           <strong>Strategy:</strong> Optimize for Google first (larger search index, better web integration), then add Alexa Skills for Amazon-specific commerce.
         </p>
-
         {/* Section 10 */}
         <h2 id="page-speed-mobile" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Page Speed & Mobile Optimization for Voice
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The majority of voice searches happen on mobile devices. Google's mobile-first indexing means your mobile site <strong>IS</strong> your site.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Voice Search Speed Requirements
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Target LCP:</strong> Under 2.5 seconds (voice users expect instant answers)</li>
           <li><strong>Mobile-friendly:</strong> Responsive design, large tap targets (44px minimum)</li>
@@ -532,20 +461,16 @@ export default function VoiceSearchSEOShopifyPage() {
           <li><strong>Structured data:</strong> Helps assistants parse content quickly</li>
           <li><strong>Clear headings:</strong> H1, H2, H3 structure for easy content extraction</li>
         </ul>
-
         {/* Section 11 */}
         <h2 id="voice-commerce-integration" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Voice Commerce Integration: Alexa Skills for Shopify
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           With <strong>62% of smart speaker users planning to make purchases this month</strong>, enabling voice commerce is critical.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Alexa Skills Setup for Shopify
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Create Alexa Skill:</strong> Amazon Developer Console → Alexa Skills Kit</li>
           <li><strong>Link Shopify store:</strong> Use Shopify API to fetch products, inventory, prices</li>
@@ -554,15 +479,12 @@ export default function VoiceSearchSEOShopifyPage() {
           <li><strong>Order confirmation:</strong> Voice confirmation + email receipt</li>
           <li><strong>Reorder capability:</strong> "Alexa, reorder my last order from [Your Store]"</li>
         </ol>
-
         {/* Section 12 */}
         <h2 id="implementation" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           60-Day Voice Search Optimization Plan
         </h2>
-
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-200 dark:border-indigo-800 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">✅ Your Complete 60-Day Action Plan</h3>
-
           <div className="space-y-6">
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 1-2: Foundation & Research</h4>
@@ -575,7 +497,6 @@ export default function VoiceSearchSEOShopifyPage() {
                 <li>☐ Verify Google Business Profile completeness</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 3-4: Content Optimization</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -587,7 +508,6 @@ export default function VoiceSearchSEOShopifyPage() {
                 <li>☐ Optimize page titles with question formats</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 5-6: Technical Implementation</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -599,7 +519,6 @@ export default function VoiceSearchSEOShopifyPage() {
                 <li>☐ Fix any mobile usability issues</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Week 7-8: Expansion & Monitoring</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -613,7 +532,6 @@ export default function VoiceSearchSEOShopifyPage() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-12 my-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -622,7 +540,6 @@ export default function VoiceSearchSEOShopifyPage() {
           <p className="text-xl mb-8 text-indigo-100">
             SEOLOGY.AI automatically optimizes your Shopify store for voice search--FAQ schema generation, featured snippet formatting, conversational keyword suggestions, and structured data implementation. Capture the $290B voice commerce market while you focus on growing your business.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link
               href="/dashboard/onboarding"
@@ -637,7 +554,6 @@ export default function VoiceSearchSEOShopifyPage() {
               Watch Demo
             </Link>
           </div>
-
           <div className="flex items-center justify-center gap-8 text-sm text-indigo-100">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -659,7 +575,6 @@ export default function VoiceSearchSEOShopifyPage() {
             </div>
           </div>
         </div>
-
         {/* Author Bio Footer */}
         <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-16">
           <div className="flex items-start gap-4">
@@ -675,7 +590,6 @@ export default function VoiceSearchSEOShopifyPage() {
             </div>
           </div>
         </div>
-
       </div>
     </article>
   )

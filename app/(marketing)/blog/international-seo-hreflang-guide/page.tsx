@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'International SEO & Hreflang: The Complete Implementation Guide',
   description: 'Expanding globally? This guide shows how to implement hreflang correctly and avoid the 7 fatal mistakes that kill international rankings.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'international-seo-hreflang-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,12 @@ export default function BlogPost() {
                 <li><strong>Test with Google Search Console</strong> and hreflang validator tools--errors are common and deadly</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why International SEO Matters (The Opportunity)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Most sites target one country and ignore 95% of the global internet. That\'s leaving millions of dollars on the table.
                 </p>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -75,7 +74,6 @@ export default function BlogPost() {
                     <span><strong>Wrong hreflang = Google shows wrong version = 0 conversions</strong></span>
                   </li>
                 </ul>
-
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-6 my-6">
                   <p className="text-amber-900 font-semibold mb-2">⚡ Real Example:</p>
                   <p className="text-slate-700 mb-0">
@@ -83,17 +81,14 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">What is Hreflang? (The Basics)</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Hreflang is an HTML attribute that tells Google which language and geographical region your content targets.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>The Problem It Solves:</strong>
                 </p>
-
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -112,18 +107,15 @@ export default function BlogPost() {
                     <span>With hreflang: Google shows US version to US users, UK version to UK users</span>
                   </li>
                 </ul>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Hreflang is NOT for translation widgets.</strong> It\'s for sites with separate URLs for different languages/regions.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step 1: Choose Your URL Structure</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Before implementing hreflang, decide how to structure international URLs. Each has pros and cons:
                 </p>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h3 className="text-2xl font-bold mb-3">Option 1: Country Code Top-Level Domains (ccTLDs)</h3>
@@ -147,7 +139,6 @@ export default function BlogPost() {
                     </ul>
                     <p className="text-slate-700 mt-3"><strong>Best for:</strong> Enterprise companies with localized teams and big budgets</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h3 className="text-2xl font-bold mb-3">Option 2: Subdomains with gTLD</h3>
                     <p className="font-mono text-sm text-blue-600 mb-3">
@@ -170,7 +161,6 @@ export default function BlogPost() {
                     </ul>
                     <p className="text-slate-700 mt-3"><strong>Best for:</strong> Mid-size companies wanting geographical separation without ccTLD costs</p>
                   </div>
-
                   <div className="bg-green-50 p-6 rounded-lg border-2 border-green-500">
                     <h3 className="text-2xl font-bold mb-3">Option 3: Subdirectories with gTLD (Recommended)</h3>
                     <p className="font-mono text-sm text-blue-600 mb-3">
@@ -194,7 +184,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mt-3"><strong>Best for:</strong> 95% of businesses--best balance of cost, simplicity, and SEO benefit</p>
                   </div>
                 </div>
-
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
                   <p className="text-blue-900 font-semibold mb-2">💡 Recommendation:</p>
                   <p className="text-slate-700 mb-0">
@@ -202,13 +191,11 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step 2: Implement Hreflang Tags</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   You have three options for implementing hreflang. Pick <strong>one method only</strong>--mixing methods causes errors.
                 </p>
-
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-2xl font-bold mb-4">Method 1: HTML {`<head>`} Tags (Easiest)</h3>
@@ -253,7 +240,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4">Method 2: HTTP Headers (For Non-HTML Files)</h3>
                     <p className="text-slate-700 mb-4">
@@ -268,7 +254,6 @@ export default function BlogPost() {
                       </p>
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-2xl font-bold mb-4">Method 3: XML Sitemap (For Large Sites)</h3>
                     <p className="text-slate-700 mb-4">
@@ -299,13 +284,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step 3: Use Correct Language and Region Codes</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Hreflang uses ISO 639-1 language codes and ISO 3166-1 Alpha 2 region codes. <strong>Case matters.</strong>
                 </p>
-
                 <div className="bg-red-50 border-l-4 border-red-500 p-6 my-6">
                   <p className="text-red-900 font-semibold mb-2">❌ Common Errors:</p>
                   <ul className="text-slate-700 space-y-1">
@@ -315,7 +298,6 @@ export default function BlogPost() {
                     <li>• english-us (wrong--must use ISO codes)</li>
                   </ul>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-500 p-6 my-6">
                   <p className="text-green-900 font-semibold mb-2">✅ Correct Format:</p>
                   <ul className="text-slate-700 space-y-1 font-mono text-sm">
@@ -333,11 +315,9 @@ export default function BlogPost() {
                     <li>• pt-pt (Portuguese - Portugal)</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Language-only vs. Language-Region:</strong>
                 </p>
-
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -353,23 +333,19 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Step 4: Implement x-default for Unmatched Regions</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <code>x-default</code> tells Google which version to show users from regions you don\'t target.
                 </p>
-
                 <div className="bg-slate-100 p-4 rounded-lg mb-4">
                   <p className="font-mono text-sm text-slate-800">
                     {`<link rel="alternate" hreflang="x-default" href="https://example.com/" />`}
                   </p>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   <strong>Example Scenario:</strong>
                 </p>
-
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -384,7 +360,6 @@ export default function BlogPost() {
                     <span>Google shows the x-default version (usually your primary market)</span>
                   </li>
                 </ul>
-
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
                   <p className="text-blue-900 font-semibold mb-2">💡 Best Practice:</p>
                   <p className="text-slate-700 mb-0">
@@ -392,10 +367,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 7 Fatal Hreflang Mistakes</h2>
-
                 <div className="space-y-6">
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">1. Missing Self-Referencing Hreflang</h3>
@@ -409,7 +382,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Every page must reference itself. If example.com/uk/ has hreflang tags, one must be <code>hreflang="en-gb" href="https://example.com/uk/"</code>
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">2. Non-Bidirectional Hreflang</h3>
                     <p className="text-slate-700 mb-2">
@@ -422,7 +394,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> If /us/product/ has {`hreflang="en-gb" href="/uk/product/"`}, then /uk/product/ MUST have {`hreflang="en-us" href="/us/product/"`}
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">3. Wrong Language/Region Code Format</h3>
                     <p className="text-slate-700 mb-2">
@@ -435,7 +406,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Language lowercase, region uppercase, hyphen separator: en-us, fr-ca, de-de
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">4. Hreflang Points to Redirected URLs</h3>
                     <p className="text-slate-700 mb-2">
@@ -448,7 +418,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Always use final destination URLs in hreflang tags (including trailing slashes if needed)
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">5. Relative URLs in Hreflang</h3>
                     <p className="text-slate-700 mb-2">
@@ -461,7 +430,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Always use absolute URLs with protocol (https://)
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">6. Hreflang on Canonicalized Pages</h3>
                     <p className="text-slate-700 mb-2">
@@ -474,7 +442,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Put hreflang tags on the canonical version only
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-500 p-6">
                     <h3 className="text-xl font-bold text-red-900 mb-2">7. Missing x-default</h3>
                     <p className="text-slate-700 mb-2">
@@ -489,13 +456,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Testing and Validation Tools</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   63% of hreflang implementations have errors. Test thoroughly before launching:
                 </p>
-
                 <div className="space-y-4">
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">1. Google Search Console (Free, Official)</h4>
@@ -506,7 +471,6 @@ export default function BlogPost() {
                       <li>• Takes 2-4 weeks for Google to fully process hreflang changes</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">2. Hreflang Tags Testing Tool by Merkle (Free)</h4>
                     <ul className="space-y-1 text-slate-700">
@@ -516,7 +480,6 @@ export default function BlogPost() {
                       <li>• Visual diagram of hreflang relationships</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">3. Screaming Frog SEO Spider ($259/year)</h4>
                     <ul className="space-y-1 text-slate-700">
@@ -525,7 +488,6 @@ export default function BlogPost() {
                       <li>• Great for large sites (1000+ pages)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-4 rounded-lg">
                     <h4 className="font-bold text-lg mb-2">4. Ahrefs Site Audit (from $99/month)</h4>
                     <ul className="space-y-1 text-slate-700">
@@ -536,13 +498,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Beyond Hreflang: Complete International SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Hreflang is critical, but it\'s only one part of international SEO success:
                 </p>
-
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-bold text-lg mb-2">1. Content Localization (Not Just Translation)</h4>
@@ -565,7 +525,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="font-bold text-lg mb-2">2. International Keyword Research</h4>
                     <ul className="space-y-2">
@@ -583,7 +542,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="font-bold text-lg mb-2">3. Geo-Targeting in Google Search Console</h4>
                     <ul className="space-y-2">
@@ -601,7 +559,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="font-bold text-lg mb-2">4. Local Backlinks</h4>
                     <ul className="space-y-2">
@@ -615,7 +572,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="font-bold text-lg mb-2">5. Hosting and CDN</h4>
                     <ul className="space-y-2">
@@ -631,7 +587,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates International SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -640,7 +595,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   SEOLOGY automates the entire process:
                 </p>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
@@ -675,7 +629,6 @@ export default function BlogPost() {
                     <span><strong>Tracks international rankings</strong> by country/language</span>
                   </li>
                 </ul>
-
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
                   <p className="text-blue-900 font-semibold mb-2">💡 SEOLOGY Result:</p>
                   <p className="text-slate-700 mb-0">
@@ -683,7 +636,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -695,7 +647,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   But 63% of manual implementations have errors that tank rankings. You can spend 40+ hours getting it right, or let SEOLOGY do it in 5 minutes with zero errors.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate International SEO in 5 Minutes</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -706,7 +657,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -719,7 +669,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #InternationalSEO #Hreflang #GlobalSEO #MultilingualSEO #LocalizationSEO
@@ -729,7 +678,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

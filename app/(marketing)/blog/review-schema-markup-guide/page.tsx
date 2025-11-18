@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Review Schema: Get Star Ratings in Search Results (15 Implementation Tactics) -- 35% CTR Boost',
   description: 'Review star ratings in Google search results increase CTR 35% and conversions 28%. Review schema markup implementation with proper structured data earned 4.8-star displays for 847 product pages.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'review-schema-markup-guide' &&
     ["schema-markup-complete-guide-2025","rich-snippets-complete-guide","product-page-seo-ecommerce"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -22,21 +23,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Review Schema</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Review Schema: Get Star Ratings in Search Results (15 Implementation Tactics)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>May 20, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Review star ratings in Google search results increase CTR 35% and conversions 28%--but 73% of implementations fail validation. Here\'s how to implement review schema that actually displays stars.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -48,7 +45,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 <li><strong>Real example: 847 product pages with 4.8 stars:</strong> E-commerce site implemented review schema correctly, earned star ratings for 84% of product pages, increased organic CTR 35% and revenue 42%</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Review Stars Transform Search Performance</h2>
@@ -80,15 +75,12 @@ export default function BlogPost() {
                   But here\'s the catch: 73% of review schema implementations fail validation and don\'t display stars (source: Screaming Frog analysis of 10,000 sites). Missing required properties, invalid rating ranges, fake reviews, self-reviews--dozens of mistakes prevent stars from showing. This guide shows you exactly how to implement review schema that Google actually accepts and displays in search results.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">15 Review Schema Tactics That Actually Display Stars</h2>
-
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-blue-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 1: Understanding Review Schema Fundamentals</h3>
                   <p className="text-slate-700 mb-0">What review schema is and which types Google displays</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">1. Choose the Right Review Type (Product, Business, or Aggregate)</h4>
@@ -105,7 +97,6 @@ export default function BlogPost() {
                       <strong>Which to use:</strong> E-commerce sites selling products → use <code>Product</code> with <code>aggregateRating</code>. Service businesses (dentists, plumbers, restaurants) → use <code>LocalBusiness</code> with <code>aggregateRating</code>. SaaS/software companies → use <code>SoftwareApplication</code> with <code>aggregateRating</code>. Match the schema type to what you\'re actually reviewing.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">2. Implement Aggregate Ratings vs Individual Reviews</h4>
                     <p className="text-slate-700 mb-3">
@@ -121,7 +112,6 @@ export default function BlogPost() {
                       <strong>Best practice:</strong> Start with <code>aggregateRating</code> only (simplest). Once that works, optionally add individual <code>review</code> objects for top reviews. Never add individual reviews without aggregate rating--Google requires the aggregate for stars to display.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">3. Understand Required vs Recommended Properties</h4>
                     <p className="text-slate-700 mb-3">
@@ -137,7 +127,6 @@ export default function BlogPost() {
                       <strong>Validation tip:</strong> Use Google\'s Rich Results Test (search.google.com/test/rich-results) to check your schema. It clearly shows "Required property missing" errors and "Recommended property missing" warnings.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-blue-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">4. Use the Correct Rating Scale (1-5 vs 0-100)</h4>
                     <p className="text-slate-700 mb-3">
@@ -160,12 +149,10 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 2: Implementation with JSON-LD</h3>
                   <p className="text-slate-700 mb-0">Complete working examples you can copy and adapt</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">5. Basic Product Review Schema Template</h4>
@@ -194,7 +181,6 @@ export default function BlogPost() {
                       <strong>Where to place it:</strong> Add this <code>&lt;script&gt;</code> tag in your page\'s <code>&lt;head&gt;</code> section or anywhere in the <code>&lt;body&gt;</code>. JSON-LD can go anywhere--it doesn\'t affect page layout because it\'s just structured data for search engines.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">6. Enhanced Product Schema with Individual Reviews</h4>
                     <p className="text-slate-700 mb-3">
@@ -233,7 +219,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> Include 2-5 of your best reviews as individual review objects. Don\'t include all 384 reviews--that bloats page size. Select high-quality reviews with detailed text (100+ characters), recent dates, and 4-5 star ratings.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">7. LocalBusiness Review Schema for Service Businesses</h4>
                     <p className="text-slate-700 mb-3">
@@ -265,7 +250,6 @@ export default function BlogPost() {
                       <strong>Important:</strong> For LocalBusiness, Google often pulls reviews from your Google Business Profile automatically. The schema supplements this data and may help if you have website reviews in addition to Google reviews.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-purple-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">8. Dynamic Schema Generation (From Database Reviews)</h4>
                     <p className="text-slate-700 mb-3">
@@ -292,12 +276,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-pink-50 to-blue-50 p-6 rounded-xl border-l-4 border-pink-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 3: Google Guidelines & Policy Compliance</h3>
                   <p className="text-slate-700 mb-0">Avoid penalties by following review snippet policies</p>
                 </div>
-
                 <div className="space-y-8 mb-12">
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">9. Never Use Self-Reviews or Editorial Reviews</h4>
@@ -314,7 +296,6 @@ export default function BlogPost() {
                       <strong>Only allow:</strong> Verified customer reviews from real buyers. Require email verification or purchase confirmation. Clearly label reviews as "Verified Purchase" if applicable. Never incentivize 5-star reviews specifically--asking for honest feedback is fine, but tying rewards to positive ratings violates policy.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">10. Ensure Review Schema Matches Visible Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -330,7 +311,6 @@ export default function BlogPost() {
                       <strong>Acceptable variations:</strong> It\'s OK to show only the first 5-10 reviews on the page with "Load more" pagination--but the aggregate rating and review count must match your schema. Don\'t inflate numbers in schema beyond what actually exists.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">11. Avoid Review Gating (Filtering Negative Reviews)</h4>
                     <p className="text-slate-700 mb-3">
@@ -346,7 +326,6 @@ export default function BlogPost() {
                       <strong>Best practice:</strong> Send review requests to all customers automatically after purchase. Don\'t pre-screen based on satisfaction surveys. Accept that you\'ll get some negative reviews--a 4.7 rating with mixed reviews is more credible than a perfect 5.0 with no criticism.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-pink-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">12. Require Minimum 5 Reviews Before Adding Schema</h4>
                     <p className="text-slate-700 mb-3">
@@ -363,12 +342,10 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-600 mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Category 4: Testing, Validation & Troubleshooting</h3>
                   <p className="text-slate-700 mb-0">Ensure your schema works before deploying to production</p>
                 </div>
-
                 <div className="space-y-8">
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">13. Validate Schema with Google\'s Rich Results Test</h4>
@@ -385,7 +362,6 @@ export default function BlogPost() {
                       <strong>When to test:</strong> Test during development before launch. Test again if you change schema structure. Test sample products/pages from different categories. Set up automated testing using Google\'s Rich Results Testing API to catch regressions.
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">14. Monitor Performance in Google Search Console</h4>
                     <p className="text-slate-700 mb-3">
@@ -401,7 +377,6 @@ export default function BlogPost() {
                       <strong>Fix workflow:</strong> Check Search Console weekly for new errors. Click into error details to see affected URLs. Fix the schema issue on those pages. Request reindexing via URL Inspection tool. Monitor for error resolution (takes 1-2 weeks for Google to recrawl and update).
                     </p>
                   </div>
-
                   <div className="bg-white border-l-4 border-green-600 p-6 shadow-sm">
                     <h4 className="text-xl font-bold mb-3 text-slate-900">15. Troubleshoot When Stars Don\'t Appear in SERPs</h4>
                     <p className="text-slate-700 mb-3">
@@ -422,7 +397,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Review Schema Mistakes That Prevent Stars</h2>
                 <div className="space-y-6">
@@ -435,7 +409,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Always display review content on your page that matches your schema. Show the average star rating visually (★★★★☆ 4.7), display the review count ("Based on 384 customer reviews"), and show at least a few actual reviews. Schema must reflect what\'s visible to users.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Using Editorial Reviews Instead of Customer Reviews</h3>
                     <p className="text-slate-700 mb-3">
@@ -445,7 +418,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Only use review schema for actual customer reviews from real purchasers. Editorial/expert reviews are valuable content (publish them!) but don\'t mark them up with schema. If you only have editorial reviews and no customer reviews, don\'t use review schema at all--wait until you have real customer feedback.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Forgetting to Update Schema When Reviews Change</h3>
                     <p className="text-slate-700 mb-3">
@@ -455,7 +427,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Generate review schema dynamically from your database (see tactic #8). Recalculate average rating and review count whenever a new review is submitted. Use server-side rendering to inject current values into schema. Never hardcode review data--it becomes stale immediately.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Using Review Schema on Homepage or Category Pages</h3>
                     <p className="text-slate-700 mb-3">
@@ -465,7 +436,6 @@ export default function BlogPost() {
                       <strong>The fix:</strong> Product review schema must be on specific product pages only--one product per page with reviews specific to that product. For business/organization reviews (not products), use <code>Organization</code> or <code>LocalBusiness</code> schema on about/location pages. Never aggregate cross-product reviews into site-wide schema.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-3">❌ Setting Review Count Below 5 (Or Above Actual Count)</h3>
                     <p className="text-slate-700 mb-3">
@@ -477,7 +447,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Essential Review Schema Tools</h2>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -489,7 +458,6 @@ export default function BlogPost() {
                       <li><strong>Google Search Console:</strong> Monitor live performance (Enhancements section)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Review Collection Platforms</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -499,7 +467,6 @@ export default function BlogPost() {
                       <li><strong>Stamped.io:</strong> Review requests + photo reviews + schema markup</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Schema Generators</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -508,7 +475,6 @@ export default function BlogPost() {
                       <li><strong>JSON-LD Schema Generator:</strong> Custom code generator for developers</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-xl font-bold mb-3 text-slate-900">Documentation</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -518,7 +484,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: 847 Products with 4.8-Star Rich Results</h2>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border border-blue-200">
@@ -526,23 +491,19 @@ export default function BlogPost() {
                     <div className="text-sm font-semibold text-blue-600 mb-2">CASE STUDY</div>
                     <h3 className="text-2xl font-bold text-slate-900">Electronics E-commerce Site Implements Review Schema Correctly</h3>
                   </div>
-
                   <div className="space-y-4 text-slate-700">
                     <div>
                       <strong className="text-slate-900">The Problem:</strong>
                       <p className="mt-1">Online electronics retailer with 1,000+ products had no review schema implemented despite having 50,000+ verified customer reviews in their database. Competitors with lower rankings but review stars in SERPs were getting higher CTR and stealing traffic.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Discovery:</strong>
                       <p className="mt-1">Manual analysis showed that 847 products had at least 5 reviews (meeting Google\'s minimum threshold). Average rating across all reviewed products was 4.6 stars. Competitor analysis revealed that top 3 competitors all displayed review stars for similar products--creating strong social proof advantage.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">The Strategy:</strong>
                       <p className="mt-1">Implemented JSON-LD review schema dynamically generated from review database. For each product page: (1) Calculate average rating from all verified customer reviews, (2) Count total verified reviews, (3) Generate Product schema with aggregateRating if review count ≥ 5, (4) Include top 3 most helpful reviews as individual review objects, (5) Ensure visible review display matches schema data.</p>
                     </div>
-
                     <div>
                       <strong className="text-slate-900">Implementation:</strong>
                       <ul className="mt-2 space-y-1 ml-4">
@@ -553,7 +514,6 @@ export default function BlogPost() {
                         <li>• Month 2: Added review collection automation (post-purchase emails) to increase review count for remaining products</li>
                       </ul>
                     </div>
-
                     <div className="bg-white p-6 rounded-xl border-2 border-blue-600 mt-6">
                       <strong className="text-slate-900">The Results (After 8 Weeks):</strong>
                       <ul className="mt-3 space-y-2">
@@ -579,7 +539,6 @@ export default function BlogPost() {
                         </li>
                       </ul>
                     </div>
-
                     <div className="mt-6">
                       <strong className="text-slate-900">Key Takeaway:</strong>
                       <p className="mt-1 text-lg">"Review stars are the easiest SEO win we\'ve ever implemented. We already had the reviews--we just needed proper schema to display them. The 35% CTR increase pays for itself every single day in additional traffic and revenue." -- E-commerce Director</p>
@@ -587,7 +546,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Review Schema Implementation</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -599,26 +557,22 @@ export default function BlogPost() {
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Review Detection</h3>
                     <p className="text-slate-700">SEOLOGY connects to your e-commerce platform or review database, automatically detects which products have sufficient reviews (≥5), calculates accurate aggregate ratings, and identifies products ready for schema implementation.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200">
                     <div className="text-3xl mb-3">🤖</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">AI-Generated Schema Markup</h3>
                     <p className="text-slate-700">Claude AI generates perfectly formatted JSON-LD review schema following Google\'s latest guidelines--includes all required properties (name, aggregateRating, reviewCount, bestRating), adds recommended properties for better rich results, ensures compliance with review snippet policies.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl border border-pink-200">
                     <div className="text-3xl mb-3">⚡</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Automatic Deployment & Updates</h3>
                     <p className="text-slate-700">SEOLOGY doesn\'t just generate schema--it deploys directly to your site via platform API (Shopify, WordPress, etc.). Automatically updates schema when new reviews are submitted, keeps ratingValue and reviewCount synchronized with actual review data, no manual code editing required.</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
                     <div className="text-3xl mb-3">📊</div>
                     <h3 className="text-xl font-bold mb-2 text-slate-900">Continuous Validation & Monitoring</h3>
                     <p className="text-slate-700">After deployment, SEOLOGY monitors Google Search Console for schema errors, tracks which products are displaying stars in SERPs, alerts you to validation issues (missing properties, policy violations), provides CTR lift reports showing impact of review stars on traffic.</p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Stop Manually Coding Review Schema--Automate Rich Results Implementation</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -641,7 +595,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-4">The Final Verdict on Review Schema</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -663,7 +616,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
                 <div className="grid gap-4">
@@ -679,7 +631,6 @@ export default function BlogPost() {
                   ))}
                 </div>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #ReviewSchema #StructuredData #RichSnippets #StarRatings #SchemaMarkup #JSONLD #SEO #SEOLOGY
@@ -689,7 +640,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

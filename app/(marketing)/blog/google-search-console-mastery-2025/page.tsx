@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Google Search Console Mastery: Extract Every SEO Insight',
   description: 'Most people waste 90% of Search Console data. This guide unlocks every insight to boost rankings and traffic.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['google-analytics-4-seo-tracking', 'technical-seo-audit-checklist-2025', 'keyword-research-strategy-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Google Search Console Mastery</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Google Search Console Mastery: Extract Every SEO Insight
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>September 3, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Most people waste <strong className="text-white">90% of Search Console data</strong>. This guide unlocks every insight to boost rankings and traffic.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Google Search Console is <strong>the most underutilized SEO tool</strong>. It contains exact keyword data, performance metrics, and technical issues--but most people only scratch the surface. This guide shows advanced Search Console tactics that found $2.7M in hidden SEO opportunities for our clients.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Search Console Beats Every Other SEO Tool</h2>
@@ -98,13 +93,11 @@ export default function BlogPost() {
                   If you\'re paying $200/month for an SEO tool but ignoring Search Console, you\'re wasting money.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Performance Report: Advanced Query Analysis</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   The Performance report contains goldmines most people miss. Here\'s how to extract maximum value:
                 </p>
-
                 <ul className="space-y-4 my-6">
                   <li className="flex items-start gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
@@ -143,13 +136,11 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Coverage Report: Fix Indexing Issues</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The Coverage report shows which pages Google can and can\'t index. Critical issues to address:
                 </p>
-
                 <div className="grid md:grid-cols-3 gap-6 my-8">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <div className="text-4xl font-bold text-blue-600 mb-2">16mo</div>
@@ -164,7 +155,6 @@ export default function BlogPost() {
                     <div className="text-slate-700">Average indexing delay</div>
                   </div>
                 </div>
-
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle2 className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
@@ -184,7 +174,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Core Web Vitals: Performance Optimization</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -208,7 +197,6 @@ export default function BlogPost() {
                   Fix URLs showing "Poor" status first--these lose rankings to faster competitors.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Mobile Usability: Avoid Mobile Penalties</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -233,7 +221,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Advanced Search Console Tactics</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -261,7 +248,6 @@ export default function BlogPost() {
                     <span><strong>Use URL Inspection Tool:</strong> Test live pages before requesting indexing to catch errors</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">SEOLOGY Monitors Search Console 24/7</h3>
@@ -277,7 +263,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -290,7 +275,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SearchConsole #GSC #SEOTools
@@ -300,7 +284,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

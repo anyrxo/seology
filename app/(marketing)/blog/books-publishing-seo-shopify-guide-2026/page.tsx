@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Books & Publishing SEO for Shopify: Complete Optimization Guide 2026 | SEOLOGY.AI',
   description: 'Online books market reaches $26.04B in 2025, growing to $48.27B by 2034. Master ISBN optimization, genre targeting, Amazon Kindle SEO, audiobook strategies, and self-publishing discoverability.',
 }
-
 export default function BooksPublishingSEOGuide2026() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
@@ -18,17 +18,14 @@ export default function BooksPublishingSEOGuide2026() {
             ← Back to Blog
           </Link>
         </div>
-
         <h1 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
           Books & Publishing SEO for Shopify: Complete Optimization Guide 2026
         </h1>
-
         <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
           <time dateTime="2025-12-20">December 20, 2025</time>
           <span>•</span>
           <span>17 min read</span>
         </div>
-
         <div className="mt-6 flex flex-wrap gap-2">
           <span className="rounded-full bg-brand-primary-100 px-3 py-1 text-sm font-medium text-brand-primary-800 dark:bg-brand-primary-900/30 dark:text-brand-primary-300">
             Book SEO
@@ -41,7 +38,6 @@ export default function BooksPublishingSEOGuide2026() {
           </span>
         </div>
       </header>
-
       {/* Featured Stats */}
       <div className="not-prose mb-12 grid gap-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-8 sm:grid-cols-3">
         <div>
@@ -57,26 +53,19 @@ export default function BooksPublishingSEOGuide2026() {
           <div className="mt-1 text-sm text-amber-700 dark:text-amber-300">Audiobook annual growth</div>
         </div>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         <p className="lead">
           The online books market is experiencing steady growth, calculated at <strong>$26.04 billion in 2025</strong> and forecasted to reach <strong>$48.27 billion by 2034</strong> at a CAGR of 7.1%. The broader book market is valued at <strong>$142.72 billion in 2025</strong>, projected to reach <strong>$156.04 billion by 2030</strong>. Audiobooks are seeing explosive growth at <strong>25% annually</strong>, while independent bookstores have nearly doubled since 2016 to over 2,400 nationwide. This comprehensive guide reveals how Shopify bookstores, publishers, and authors can optimize for ISBN searches, genre targeting, Amazon Kindle SEO, audiobook discovery, and self-publishing success.
         </p>
-
         <h2>The Books & Publishing Ecommerce Landscape in 2025-2026</h2>
-
         <h3>Market Size and Format Evolution</h3>
-
         <p>
           The global online books market size is calculated at <strong>$26.04 billion in 2025</strong> and is forecasted to reach around <strong>$48.27 billion by 2034</strong>, accelerating at a CAGR of 7.10% from 2025 to 2034. The overall book market size is estimated at <strong>$142.72 billion in 2025</strong> and is projected to reach <strong>$156.04 billion by 2030</strong>.
         </p>
-
         <p>
           The e-book market specifically is valued at <strong>$18.02 billion in 2025</strong>, with the market forecast to expand at a 4.78% CAGR, reaching <strong>$22.76 billion by 2030</strong>. Another projection shows the global E Book Market starting at an estimated value of <strong>$26.82 billion in 2025</strong>, expected to grow to <strong>$28.46 billion in 2026</strong>, ultimately reaching <strong>$46.14 billion by 2035</strong>.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-indigo-900 dark:text-indigo-100 mb-3">
             📚 Key Market Insights for SEO Strategy
@@ -89,25 +78,18 @@ export default function BooksPublishingSEOGuide2026() {
             <li><strong>• Digital Platform Expansion:</strong> Bookshop.org now offers 3 million+ e-books supporting local stores</li>
           </ul>
         </div>
-
         <h3>Self-Publishing and Independent Publishing Growth</h3>
-
         <p>
           Many independent publishers, hybrid presses, and self-published authors are finding success, with crowdfunding platforms like Kickstarter and Patreon allowing authors to secure direct funding from readers. Small presses focusing on niche genres or communities are thriving, often catering to underserved markets and adopting print-on-demand models.
         </p>
-
         <p>
           Platforms like Bookshop.org now offer a catalog of over 3 million e-books, providing readers with more accessible options while supporting local bookstores. This creates opportunities for independent authors and publishers to reach audiences through channels beyond Amazon.
         </p>
-
         <h2>ISBN Optimization and Product Identifier Strategy</h2>
-
         <h3>Why ISBN Matters for Book SEO</h3>
-
         <p>
           ISBN (International Standard Book Number) is the unique identifier for books, similar to SKU/UPC for general products. Readers, librarians, booksellers, and institutions frequently search by ISBN when looking for specific editions.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-blue-900 dark:text-blue-100 mb-3">
             🔢 ISBN SEO Optimization Strategy
@@ -138,13 +120,10 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Schema Markup for Books</h3>
-
         <p>
           Implement Book schema for enhanced search visibility:
         </p>
-
         <ul>
           <li><strong>Book Schema Properties:</strong> name, author, isbn, bookFormat, publisher, datePublished, numberOfPages, bookEdition, inLanguage</li>
           <li><strong>Author Schema:</strong> Link to author page with Person schema including name, url, sameAs (social profiles)</li>
@@ -152,15 +131,11 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Offer Schema:</strong> Price, availability, seller information</li>
           <li><strong>Series Schema:</strong> For book series, use hasPart/isPartOf to connect volumes</li>
         </ul>
-
         <h2>Genre Category Optimization</h2>
-
         <h3>The Importance of Genre-Specific SEO</h3>
-
         <p>
           Book buyers search by genre more than any other attribute. Genre landing pages and precise categorization are essential for discoverability.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-purple-50 to-fuchsia-50 dark:from-purple-900/20 dark:to-fuchsia-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-purple-900 dark:text-purple-100 mb-3">
             📖 Genre Keyword Strategy by Category
@@ -189,28 +164,21 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>BISAC Category Optimization</h3>
-
         <p>
           BISAC (Book Industry Standards and Communications) codes are the standard categorization system for books. Use BISAC categories strategically:
         </p>
-
         <ul>
           <li><strong>Primary BISAC:</strong> Main genre category (e.g., "FIC031080 - Fiction / Thrillers / Psychological")</li>
           <li><strong>Secondary BISAC:</strong> Additional relevant categories (e.g., "FIC030000 - Fiction / Noir")</li>
           <li><strong>SEO Benefit:</strong> Creates natural hierarchy for site architecture: /fiction/thrillers/psychological/</li>
           <li><strong>Amazon KDP:</strong> Choose categories wisely--you can select two, but strategically pick less competitive niches</li>
         </ul>
-
         <h2>Amazon Kindle SEO Optimization</h2>
-
         <h3>Mastering Amazon's Ecosystem</h3>
-
         <p>
           Amazon accounts for <strong>67% of e-book sales</strong>, making Kindle optimization critical for authors and publishers. Amazon Kindle Direct Publishing (KDP) SEO is the process of optimizing your eBook's metadata and listing elements to improve its ranking, involving strategically using keywords, selecting relevant categories, and crafting compelling titles and descriptions.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-orange-900 dark:text-orange-100 mb-3">
             📱 Amazon Kindle SEO Tactics
@@ -248,13 +216,10 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Amazon Algorithm Factors</h3>
-
         <p>
           Amazon's A9 algorithm ranks books based on multiple factors:
         </p>
-
         <ul>
           <li><strong>Sales Velocity:</strong> Recent sales performance (30-day, 90-day) weighs heavily</li>
           <li><strong>Conversion Rate:</strong> Click-to-purchase ratio affects ranking</li>
@@ -263,15 +228,11 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Kindle Unlimited Borrows:</strong> Page reads count as engagement signals</li>
           <li><strong>Pre-Orders:</strong> Strong pre-order campaigns boost launch visibility</li>
         </ul>
-
         <h2>Audiobook SEO and Discovery Optimization</h2>
-
         <h3>The Audiobook Boom</h3>
-
         <p>
           Audiobooks continue to rise in popularity, with a 12% revenue increase in recent years. Sales in the U.S. are growing by over <strong>25% annually</strong>, driven by platforms like Audible and Apple Books. Libro.fm allows users to buy audiobooks and share profits with chosen indie bookstores, and as of 2025, they now offer AI-narrated titles and full-cast productions.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-green-900 dark:text-green-100 mb-3">
             🎧 Audiobook SEO Strategy
@@ -284,13 +245,10 @@ export default function BooksPublishingSEOGuide2026() {
             <p><strong>• Use Case Keywords:</strong> "best audiobook for road trips", "audiobook for sleep", "workout audiobooks", "audiobook for learning"</p>
           </div>
         </div>
-
         <h3>Audiobook Product Page Optimization</h3>
-
         <p>
           Audiobook listings require additional details:
         </p>
-
         <ul>
           <li><strong>Narrator Information:</strong> Prominent display of narrator name with bio and other titles narrated</li>
           <li><strong>Audio Sample:</strong> 5-10 minute preview clip is critical (like "Look Inside" for e-books)</li>
@@ -298,15 +256,11 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Production Quality:</strong> "Professional studio production", "Award-winning narrator", "Full cast"</li>
           <li><strong>Listening Speed Compatibility:</strong> Note if compatible with speed adjustment features</li>
         </ul>
-
         <h2>Author Platform and Personal Branding SEO</h2>
-
         <h3>Building Author Authority</h3>
-
         <p>
           For self-published authors and small presses, author platform SEO drives book discovery. Strong author platforms create direct-to-reader sales channels independent of Amazon.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-cyan-900 dark:text-cyan-100 mb-3">
             ✍️ Author Platform SEO Strategy
@@ -338,13 +292,10 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Author Website Essential Pages</h3>
-
         <p>
           Every author/publisher website should include:
         </p>
-
         <ul>
           <li><strong>Books Page:</strong> Complete bibliography with cover images, descriptions, buy links</li>
           <li><strong>About Page:</strong> Author bio, credentials, awards, media appearances</li>
@@ -353,15 +304,11 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Contact Page:</strong> Speaking engagements, bulk orders, rights inquiries</li>
           <li><strong>Newsletter Signup:</strong> Prominent call-to-action on every page</li>
         </ul>
-
         <h2>Book Review and Rating Optimization</h2>
-
         <h3>The Critical Role of Reviews</h3>
-
         <p>
           Book reviews dramatically impact both SEO and conversion. Reviews provide fresh, user-generated content while building trust and social proof.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-violet-900 dark:text-violet-100 mb-3">
             ⭐ Review Optimization Strategy
@@ -393,28 +340,21 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Managing Negative Reviews</h3>
-
         <p>
           All books receive some negative reviews. Handle them professionally:
         </p>
-
         <ul>
           <li><strong>Never Argue:</strong> Don't respond defensively to negative reviews--damages author reputation</li>
           <li><strong>Encourage Balanced Reviews:</strong> Don't only ask happy readers--let all readers share honestly</li>
           <li><strong>Monitor for Violations:</strong> Report reviews that violate platform policies (personal attacks, spoilers without warnings)</li>
           <li><strong>Learn From Criticism:</strong> Recurring complaints about pacing, editing, etc. inform future works</li>
         </ul>
-
         <h2>Book Launch SEO Strategy</h2>
-
         <h3>Pre-Launch Optimization (90 Days Before)</h3>
-
         <p>
           Book launches require months of advance SEO preparation to maximize launch-day visibility.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-900/20 dark:to-pink-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-rose-900 dark:text-rose-100 mb-3">
             🚀 Book Launch SEO Timeline
@@ -450,13 +390,10 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Post-Launch Momentum Maintenance</h3>
-
         <p>
           Don't abandon marketing after launch week:
         </p>
-
         <ul>
           <li><strong>30-Day Review Requests:</strong> Email ARC recipients reminder to post reviews</li>
           <li><strong>Price Promotions:</strong> Strategic discounts to boost sales velocity and rankings</li>
@@ -464,15 +401,11 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Book Tour:</strong> Virtual or in-person events continue generating awareness</li>
           <li><strong>Award Submissions:</strong> Submit to genre-specific awards for credibility and "award-winning" badge</li>
         </ul>
-
         <h2>Independent Bookstore Partnership SEO</h2>
-
         <h3>Supporting Local Bookstores While Building SEO</h3>
-
         <p>
           The number of independent bookstores has nearly doubled since 2016, now surpassing 2,400 nationwide. This revival creates partnership opportunities for local SEO and community building.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-amber-900 dark:text-amber-100 mb-3">
             🏪 Independent Bookstore SEO Tactics
@@ -504,28 +437,21 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>IndieBound and ABA Membership</h3>
-
         <p>
           Publishers and authors can leverage independent bookstore networks:
         </p>
-
         <ul>
           <li><strong>IndieBound.org:</strong> American Booksellers Association network linking to 1,900+ indie stores</li>
           <li><strong>Indie Next List:</strong> Monthly curated list from booksellers (like a bestseller list for indies)</li>
           <li><strong>Regional Bestsellers:</strong> Appear on regional indie bestseller lists for local credibility</li>
           <li><strong>IndieBound Widget:</strong> Embed "Buy from Indie Bookstore" widget on your website</li>
         </ul>
-
         <h2>Academic and Educational Book SEO</h2>
-
         <h3>Targeting Institutional Buyers</h3>
-
         <p>
           Academic books, textbooks, and educational materials require different SEO strategies targeting professors, librarians, and institutional buyers.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-indigo-900 dark:text-indigo-100 mb-3">
             🎓 Academic Book SEO Strategy
@@ -557,28 +483,21 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Open Access and Institutional Repositories</h3>
-
         <p>
           For academic publishers considering open access models:
         </p>
-
         <ul>
           <li><strong>DOI Assignment:</strong> Digital Object Identifiers for permanent URLs and citation tracking</li>
           <li><strong>Google Scholar Indexing:</strong> Ensure academic works appear in Scholar search</li>
           <li><strong>Repository Deposits:</strong> Submit to institutional repositories for broader academic discovery</li>
           <li><strong>ORCID Integration:</strong> Link to author ORCID IDs for researcher identification</li>
         </ul>
-
         <h2>Content Marketing for Book Discovery</h2>
-
         <h3>Beyond the Product Page</h3>
-
         <p>
           Effective keyword research is the foundation of all successful SEO for books; identifying and understanding keywords will help understand your target audience's language and optimize your overall marketing presence.
         </p>
-
         <div className="not-prose bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 p-6 rounded-lg my-8">
           <p className="font-semibold text-teal-900 dark:text-teal-100 mb-3">
             📝 Content Marketing for Publishers
@@ -610,13 +529,10 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         <h3>Seasonal and Thematic Content</h3>
-
         <p>
           Create seasonal reading lists and themed collections:
         </p>
-
         <ul>
           <li><strong>Holiday Gift Guides:</strong> "Best Books for Christmas 2026", "Valentine's Day Romance Reads"</li>
           <li><strong>Summer/Beach Reads:</strong> "Beach Books Summer 2026", "Vacation Reading List"</li>
@@ -624,13 +540,10 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Banned Books Week:</strong> "Celebrating Banned Books", "Censorship and Literature"</li>
           <li><strong>Award Season:</strong> "Pulitzer Prize Finalists", "National Book Award Winners"</li>
         </ul>
-
         <h2>How SEOLOGY.AI Automates Books & Publishing SEO</h2>
-
         <p>
           Managing ISBN optimization, genre categorization, Amazon Kindle metadata, audiobook descriptions, author platform building, and review schema manually is overwhelming. <strong>SEOLOGY.AI's automation engine</strong> handles the complexity:
         </p>
-
         <div className="not-prose bg-gradient-to-r from-brand-primary-50 to-brand-secondary-50 dark:from-brand-primary-900/20 dark:to-brand-secondary-900/20 p-6 rounded-lg my-8">
           <h3 className="text-xl font-bold text-brand-primary-900 dark:text-brand-primary-100 mb-4">
             SEOLOGY.AI for Bookstores & Publishers
@@ -645,15 +558,11 @@ export default function BooksPublishingSEOGuide2026() {
             <p><strong>📅 Launch Campaign Scheduling:</strong> Automates 90-day pre-launch content calendar with ARC distribution, cover reveals, and email campaigns</p>
           </div>
         </div>
-
         <h2>Measuring Book SEO Success</h2>
-
         <h3>Key Performance Indicators (KPIs)</h3>
-
         <p>
           Track metrics specific to book publishing ecommerce:
         </p>
-
         <ul>
           <li><strong>ISBN Search Rankings:</strong> Ensure you rank #1 for your own ISBN searches</li>
           <li><strong>Genre Category Performance:</strong> Monitor rankings within specific genre categories</li>
@@ -664,13 +573,10 @@ export default function BooksPublishingSEOGuide2026() {
           <li><strong>Book Launch Velocity:</strong> Sales in first 7, 30, 90 days post-launch</li>
           <li><strong>Series Read-Through Rate:</strong> Percentage reading subsequent books in series</li>
         </ul>
-
         <h3>Attribution for Book Discovery Journeys</h3>
-
         <p>
           Book purchases often involve extended discovery periods spanning weeks or months. A typical reader journey might include:
         </p>
-
         <ol>
           <li>Genre browsing: "best sci-fi books 2026" (Week 1)</li>
           <li>Author discovery: "books by [similar author]" (Week 2)</li>
@@ -678,29 +584,22 @@ export default function BooksPublishingSEOGuide2026() {
           <li>Sample reading: "read first chapter", "book excerpt" (Week 4)</li>
           <li>Purchase decision: "[Book title] buy", Amazon search (Week 5)</li>
         </ol>
-
         <p>
           Use multi-touch attribution to understand the value of genre content, author interviews, and reader reviews published early in the discovery journey. Many readers discover books through content marketing weeks before purchasing.
         </p>
-
         <h2>Conclusion: Discoverability in the Digital Age</h2>
-
         <p>
           The online books market's steady growth--reaching <strong>$26.04 billion in 2025</strong> and projected to <strong>$48.27 billion by 2034</strong>, with audiobooks exploding at <strong>25% annual growth</strong> and independent bookstores doubling to 2,400+ locations--represents evolving opportunities for publishers, authors, and bookstores willing to adapt to digital discovery patterns.
         </p>
-
         <p>
           Success requires understanding the unique characteristics of this market: ISBN optimization for direct searches, precise genre categorization for browse discovery, Amazon Kindle SEO dominance requiring platform-specific strategies, audiobook format growth demanding narrator-focused optimization, author platform importance for self-published success, review accumulation for social proof, launch campaign coordination, and the independent bookstore revival creating partnership opportunities.
         </p>
-
         <p>
           By implementing comprehensive ISBN displays, BISAC-compliant categorization, Amazon KDP keyword optimization, audiobook narrator highlighting, author bio schema, review aggregation strategies, pre-launch campaign timelines, and independent bookstore partnerships, book publishers and sellers can thrive in the competitive digital marketplace while maintaining the literary culture and community that makes books special.
         </p>
-
         <p>
           The future of book publishing belongs to those who recognize that discovery has evolved--readers find books through genre searches, author platforms, review sites, audiobook narrators, social media recommendations, and local bookstore partnerships, not just browsing physical shelves. Digital discoverability determines which books find their readers in 2026 and beyond.
         </p>
-
         {/* Author Bio */}
         <div className="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-800 pt-8">
           <div className="flex items-start gap-4">
@@ -722,7 +621,6 @@ export default function BooksPublishingSEOGuide2026() {
             </div>
           </div>
         </div>
-
         {/* CTA Section */}
         <div className="not-prose mt-12 rounded-2xl bg-gradient-to-br from-brand-primary-500 to-brand-secondary-600 p-8 text-white">
           <h2 className="mb-4 text-3xl font-bold">
@@ -749,7 +647,6 @@ export default function BooksPublishingSEOGuide2026() {
             ✓ 95+ publishers trust SEOLOGY.AI &nbsp; ✓ Average 187% increase in book discovery traffic &nbsp; ✓ Automatic Amazon KDP optimization
           </p>
         </div>
-
         {/* Related Articles */}
         <div className="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-800 pt-8">
           <h3 className="mb-6 text-xl font-bold text-neutral-900 dark:text-neutral-100">
@@ -780,7 +677,6 @@ export default function BooksPublishingSEOGuide2026() {
             </Link>
           </div>
         </div>
-
       </div>
     </article>
   )

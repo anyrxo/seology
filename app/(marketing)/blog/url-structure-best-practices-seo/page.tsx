@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'URL Structure Best Practices: How Perfect URLs Boost Rankings 45%',
   description: 'URL structure affects rankings more than you think. These 18 best practices improved CTR by 28% and rankings by 45% for 500+ sites.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'url-structure-best-practices-seo').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,7 +46,6 @@ export default function BlogPost() {
                 <li><strong>Changing URLs requires 301 redirects</strong>--or you lose 100% of existing rankings and traffic</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why URL Structure Matters for SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -76,7 +76,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> Clean URLs boost CTR, improve rankings, build trust, and help Google understand page content instantly.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The Anatomy of Perfect SEO-Friendly URLs</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -99,10 +98,8 @@ export default function BlogPost() {
                 <p className="text-sm font-mono text-red-600">https://example.com/products/electronics/computers/laptops/gaming/asus-rog ❌ (too deep)</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">18 URL Structure Best Practices That Actually Work</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
@@ -116,7 +113,6 @@ export default function BlogPost() {
                     <strong>Bad:</strong> /the-complete-comprehensive-ultimate-seo-guide-for-beginners (62 chars) ❌
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
@@ -129,7 +125,6 @@ export default function BlogPost() {
                     <strong>Bad:</strong> /guide-123 ❌
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
@@ -141,7 +136,6 @@ export default function BlogPost() {
                     <strong>Google sees:</strong> /seo_guide → "seoguide" ❌
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
@@ -152,7 +146,6 @@ export default function BlogPost() {
                     <strong>Do this:</strong> Always use lowercase. Configure server to redirect uppercase to lowercase.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
@@ -166,7 +159,6 @@ export default function BlogPost() {
                     <strong>Bad:</strong> /guideseo (removed too much, unreadable) ❌
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
@@ -178,7 +170,6 @@ export default function BlogPost() {
                     <strong>Bad:</strong> /blog-post-12345 ❌
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">7</div>
@@ -190,7 +181,6 @@ export default function BlogPost() {
                     <strong>Exception:</strong> Parameters are fine for filters, but use rel=canonical to avoid duplicate content.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">8</div>
@@ -201,7 +191,6 @@ export default function BlogPost() {
                     <strong>How:</strong> Get SSL certificate (free from Let\'s Encrypt), install it, redirect all HTTP → HTTPS with 301s.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">9</div>
@@ -213,7 +202,6 @@ export default function BlogPost() {
                     <strong>Why:</strong> Evergreen URLs age better. Easier to update content without changing URL.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">10</div>
@@ -224,7 +212,6 @@ export default function BlogPost() {
                     <strong>Solution:</strong> Pick one (trailing slash OR no slash). Redirect the other version. Configure server to enforce consistency.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">11</div>
@@ -236,7 +223,6 @@ export default function BlogPost() {
                     <strong>Exception:</strong> Use subdomains for completely different products (app.example.com for SaaS app).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">12</div>
@@ -248,7 +234,6 @@ export default function BlogPost() {
                     <strong>Why:</strong> Shallow URLs perform better. Deep URLs suggest low-value content.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">13</div>
@@ -260,7 +245,6 @@ export default function BlogPost() {
                     <strong>How:</strong> Use 301 redirects to remove file extensions. Configure .htaccess or server to serve clean URLs.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">14</div>
@@ -272,7 +256,6 @@ export default function BlogPost() {
                     <strong>Result:</strong> Google consolidates ranking signals to one URL.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">15</div>
@@ -283,7 +266,6 @@ export default function BlogPost() {
                     <strong>How:</strong> Create 1-to-1 mapping of all old URLs → new URLs. Implement 301 redirects in .htaccess or server config.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">16</div>
@@ -296,7 +278,6 @@ export default function BlogPost() {
                     <strong>Why:</strong> Readable URLs build trust, improve CTR, help users decide to click.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">17</div>
@@ -308,7 +289,6 @@ export default function BlogPost() {
                     <strong>Alternative:</strong> ccTLDs if you want strong local signal (example.co.uk, example.fr).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">18</div>
@@ -322,7 +302,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">6 URL Structure Mistakes That Kill Rankings</h2>
               <div className="space-y-6">
@@ -335,7 +314,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -345,7 +323,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -355,7 +332,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -365,7 +341,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -375,7 +350,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-4 bg-red-50 p-6 rounded-lg border-l-4 border-red-600">
                   <div className="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xl">❌</div>
                   <div>
@@ -387,7 +361,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How to Fix Bad URLs (Migration Strategy)</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -426,7 +399,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for URL Analysis</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -456,7 +428,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: URL Restructure That Boosted Rankings 45%</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200">
@@ -514,7 +485,6 @@ export default function BlogPost() {
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates URL Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -550,7 +520,6 @@ export default function BlogPost() {
                 <strong>Average result:</strong> SEOLOGY clients see <strong>28% CTR improvement</strong> and <strong>34% better rankings</strong> after URL optimization.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -572,7 +541,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -585,7 +553,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #URLStructure #TechnicalSEO #OnPageSEO #SEOBestPractices

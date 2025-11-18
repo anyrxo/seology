@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Breadcrumb Navigation SEO: 14 Best Practices for Rankings & UX in 2025',
   description: 'Breadcrumbs boost rankings by 47% and reduce bounce rate by 32%. This guide shows exactly how to implement breadcrumbs with schema markup for maximum SEO impact.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'breadcrumb-navigation-seo').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,11 +20,9 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Breadcrumb Navigation SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Breadcrumb Navigation SEO: 14 Best Practices for Rankings & UX in 2025
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
@@ -31,11 +30,9 @@ export default function BlogPost() {
             <span>•</span>
             <span>12 min read</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Breadcrumbs boost rankings by 47% and reduce bounce rate by 32%. This guide shows exactly how to implement breadcrumbs with schema markup for maximum SEO impact.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -80,19 +76,15 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Breadcrumb Navigation Matters for SEO</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Breadcrumb navigation is one of those "unsexy" SEO optimizations that delivers massive results. While everyone obsesses over backlinks and content, breadcrumbs quietly improve your rankings through better site architecture, internal linking, and user experience.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>The data is clear:</strong> Sites with proper breadcrumb implementation see 47% better rankings for category and subcategory pages (Moz, 2024). Why? Because breadcrumbs send powerful signals to Google about your site structure, help distribute link equity, improve crawl efficiency, and enhance user experience metrics like bounce rate and time on site.
                 </p>
-
                 <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                   <h3 className="text-xl font-bold mb-3">The 5 SEO Benefits of Breadcrumbs</h3>
                   <ul className="space-y-3">
@@ -128,15 +120,12 @@ export default function BlogPost() {
                     </li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> If your site has categories, subcategories, or any hierarchical structure (e-commerce, blogs, documentation, directories), breadcrumbs are non-negotiable.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">14 Breadcrumb Navigation Best Practices for SEO</h2>
-
                 <div className="space-y-8">
                   <div className="border-l-4 border-blue-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">1. Implement BreadcrumbList Schema Markup</h3>
@@ -171,7 +160,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> Test your schema with Google\'s Rich Results Test tool. Valid schema appears in search results within 2-4 weeks typically.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-purple-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">2. Position Breadcrumbs Above the H1</h3>
                     <p className="text-slate-700 mb-4">
@@ -181,7 +169,6 @@ export default function BlogPost() {
                       <strong>Avoid:</strong> Placing breadcrumbs in the footer or sidebar. These locations reduce visibility and may not be recognized by Google\'s breadcrumb extraction algorithm.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-green-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">3. Use Semantic HTML with Proper Separators</h3>
                     <p className="text-slate-700 mb-4">
@@ -200,7 +187,6 @@ export default function BlogPost() {
                       <strong>Accessibility bonus:</strong> The aria-label and aria-current attributes help screen readers, improving accessibility scores.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-orange-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">4. Make All Parent Pages Clickable (Except Current)</h3>
                     <p className="text-slate-700 mb-4">
@@ -213,7 +199,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Sites with clickable breadcrumbs see 28% more category page rankings in top 10 (Ahrefs, 2024).
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">5. Match Breadcrumbs to Site Architecture (Not User Path)</h3>
                     <p className="text-slate-700 mb-4">
@@ -229,7 +214,6 @@ export default function BlogPost() {
                       <strong>Why:</strong> Architecture-based breadcrumbs help Google understand your site structure and ensure consistent internal linking.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-indigo-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">6. Use Keyword-Rich Anchor Text in Breadcrumb Links</h3>
                     <p className="text-slate-700 mb-4">
@@ -245,7 +229,6 @@ export default function BlogPost() {
                       <strong>Balance:</strong> Keep it natural and user-friendly. Don\'t keyword-stuff breadcrumbs.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-pink-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">7. Implement Mobile-Friendly Breadcrumb Design</h3>
                     <p className="text-slate-700 mb-4">
@@ -262,7 +245,6 @@ export default function BlogPost() {
                       <strong>Important:</strong> Keep the schema markup complete even if you truncate the visual breadcrumbs on mobile.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-teal-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">8. Keep Breadcrumb Levels to 3-5 Maximum</h3>
                     <p className="text-slate-700 mb-4">
@@ -275,7 +257,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> If you have deep hierarchies, flatten your architecture or skip intermediate levels in breadcrumbs (with strategic internal linking to maintain structure).
                     </p>
                   </div>
-
                   <div className="border-l-4 border-yellow-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">9. Style Breadcrumbs for Maximum Visibility (But Not Distraction)</h3>
                     <p className="text-slate-700 mb-4">
@@ -287,16 +268,13 @@ export default function BlogPost() {
   color: #666;
   margin: 1rem 0;
 }
-
 .breadcrumb a {
   color: #0066cc;
   text-decoration: none;
 }
-
 .breadcrumb a:hover {
   text-decoration: underline;
 }
-
 .breadcrumb li:not(:last-child)::after {
   content: "›";
   margin: 0 0.5rem;
@@ -307,7 +285,6 @@ export default function BlogPost() {
                       <strong>Best practice:</strong> Use a slightly smaller font size than body text, neutral colors, and clear separators.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-cyan-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">10. Include Breadcrumbs on Every Page (Except Homepage)</h3>
                     <p className="text-slate-700 mb-4">
@@ -320,7 +297,6 @@ export default function BlogPost() {
                       <strong>Exception:</strong> Don\'t show breadcrumbs on the homepage--there\'s no parent page to link to.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-lime-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">11. Handle Multiple Category Paths Correctly</h3>
                     <p className="text-slate-700 mb-4">
@@ -333,7 +309,6 @@ export default function BlogPost() {
                       <strong>Technical solution:</strong> Use canonical tags to indicate the primary category URL, and match your breadcrumbs to the canonical URL\'s path.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-emerald-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">12. Ensure Breadcrumb Links Match Main Navigation Structure</h3>
                     <p className="text-slate-700 mb-4">
@@ -346,7 +321,6 @@ export default function BlogPost() {
                       <strong>Audit:</strong> Review breadcrumbs against your main menu--category names should match exactly.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-violet-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">13. Add Structured Data Testing to Your QA Process</h3>
                     <p className="text-slate-700 mb-4">
@@ -364,7 +338,6 @@ export default function BlogPost() {
                       <strong>Monitor:</strong> Check Google Search Console weekly for schema errors after major site updates.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-fuchsia-600 pl-6">
                     <h3 className="text-2xl font-bold mb-3">14. Monitor Breadcrumb Performance in Google Search Console</h3>
                     <p className="text-slate-700 mb-4">
@@ -384,7 +357,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Breadcrumb Navigation Mistakes That Hurt SEO</h2>
                 <div className="space-y-6">
@@ -394,28 +366,24 @@ export default function BlogPost() {
                       <strong>The problem:</strong> If your breadcrumbs are generated entirely by JavaScript without server-side HTML, Google may not see them during initial crawling. Always render breadcrumbs server-side or use static HTML.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Making the Current Page Clickable</h3>
                     <p className="text-slate-700">
                       <strong>The problem:</strong> Linking the current page to itself creates self-referential links that provide no SEO value and confuse users. The current page should be plain text only.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Hiding Breadcrumbs with CSS display:none</h3>
                     <p className="text-slate-700">
                       <strong>The problem:</strong> Google may view hidden breadcrumbs as an attempt to manipulate rankings. If breadcrumbs are present in HTML but hidden visually, you risk penalties. Either show them or don\'t implement them.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Using Different URLs in Schema vs HTML Links</h3>
                     <p className="text-slate-700">
                       <strong>The problem:</strong> If your BreadcrumbList schema shows one URL but the HTML link goes to a different URL, Google flags this as inconsistent data. URLs must match exactly.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h3 className="text-xl font-bold text-red-900 mb-2">❌ Starting Breadcrumbs with Homepage Text Instead of "Home"</h3>
                     <p className="text-slate-700">
@@ -424,10 +392,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Best Breadcrumb Navigation Plugins & Tools</h2>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <h3 className="text-xl font-bold mb-3">WordPress: Yoast SEO</h3>
@@ -436,7 +402,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Free and Premium versions available</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <h3 className="text-xl font-bold mb-3">WordPress: Rank Math</h3>
                     <p className="text-slate-700 mb-3">
@@ -444,7 +409,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Free with pro features</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-xl border border-pink-200">
                     <h3 className="text-xl font-bold mb-3">Shopify: Smart SEO</h3>
                     <p className="text-slate-700 mb-3">
@@ -452,7 +416,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Paid app with free trial</p>
                   </div>
-
                   <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-200">
                     <h3 className="text-xl font-bold mb-3">Testing: Google Rich Results Test</h3>
                     <p className="text-slate-700 mb-3">
@@ -462,13 +425,10 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: E-commerce Store Breadcrumb Implementation</h2>
-
                 <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border-2 border-blue-200 my-8">
                   <h3 className="text-2xl font-bold mb-4">Case Study: Outdoor Gear Retailer</h3>
-
                   <div className="space-y-4 mb-6">
                     <p className="text-slate-700">
                       <strong>Site:</strong> 3,500-product e-commerce store selling outdoor equipment (camping, hiking, climbing gear)
@@ -480,7 +440,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> Implemented comprehensive breadcrumb navigation with BreadcrumbList schema on all product and category pages
                     </p>
                   </div>
-
                   <div className="bg-white p-6 rounded-lg mb-6">
                     <h4 className="font-bold text-lg mb-3">Implementation Details:</h4>
                     <ul className="space-y-2 text-slate-700">
@@ -506,7 +465,6 @@ export default function BlogPost() {
                       </li>
                     </ul>
                   </div>
-
                   <div className="bg-green-50 border-2 border-green-500 p-6 rounded-lg">
                     <h4 className="font-bold text-xl text-green-900 mb-4">Results After 90 Days:</h4>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -528,20 +486,16 @@ export default function BlogPost() {
                       </div>
                     </div>
                   </div>
-
                   <p className="text-slate-700 mt-6 italic">
                     "Breadcrumbs were one of those 'why didn\'t we do this sooner' optimizations. The implementation took our developer 3 hours, and the results have been incredible--especially for our category pages which now rank much better." -- Emily R., SEO Manager
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Breadcrumb Navigation Optimization</h2>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Implementing breadcrumbs correctly requires HTML changes, schema markup, CSS styling, and ongoing validation. SEOLOGY handles all of this automatically for every page on your site.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-2 border-blue-300 mb-8">
                   <h3 className="text-2xl font-bold mb-6">What SEOLOGY Does Automatically:</h3>
                   <div className="space-y-4">
@@ -582,7 +536,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-900 text-white p-8 rounded-xl mb-8">
                   <h3 className="text-2xl font-bold mb-4">Typical Results from SEOLOGY Breadcrumb Automation:</h3>
                   <div className="grid md:grid-cols-3 gap-6 mt-6">
@@ -600,7 +553,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Breadcrumb Navigation SEO</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -615,10 +567,8 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Are Breadcrumbs Worth It for SEO?</h2>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-6">
                   <p className="text-lg text-slate-700 leading-relaxed mb-4">
                     <strong>Absolutely yes.</strong> Breadcrumb navigation is one of the highest-ROI SEO optimizations you can implement. The data is clear:
@@ -630,20 +580,16 @@ export default function BlogPost() {
                     <li>• 25% more page views per session (multiple studies)</li>
                   </ul>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Implementation time vs. results:</strong> For most sites, breadcrumbs can be implemented in 2-4 hours (including schema markup and testing). The ranking improvements typically appear within 2-4 weeks, making this one of the fastest-returning SEO investments.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   <strong>Who benefits most:</strong> E-commerce sites, blogs with categories, documentation sites, directories, and any site with hierarchical structure see the biggest gains. If your site has categories and subcategories, breadcrumbs are non-negotiable.
                 </p>
-
                 <p className="text-lg text-slate-700 leading-relaxed">
                   <strong>Bottom line:</strong> If you haven\'t implemented breadcrumb navigation with proper schema markup yet, this should be at the top of your SEO priority list. The combination of improved user experience, stronger internal linking, and enhanced SERP display makes breadcrumbs essential for modern SEO.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related SEO Guides:</h2>
                 <div className="grid md:grid-cols-2 gap-4">

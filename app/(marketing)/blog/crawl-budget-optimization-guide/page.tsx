@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Crawl Budget Optimization: Get More Pages Indexed Faster',
   description: "Large sites waste 70% of their crawl budget. Here\'s how to optimize crawl budget and get every important page indexed.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['technical-seo-audit-checklist-2025', 'xml-sitemap-optimization-guide', 'robots-txt-configuration-guide', 'site-architecture-seo-best-practices'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Crawl Budget Optimization</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Crawl Budget Optimization: Get More Pages Indexed Faster
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>December 3, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Large sites waste <strong className="text-white">70% of their crawl budget</strong>. Here's how to optimize crawl budget and get every important page indexed.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -61,7 +57,6 @@ export default function BlogPost() {
                 <li>SEOLOGY automatically optimizes crawl budget for maximum efficiency</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is Crawl Budget?</h2>
@@ -88,7 +83,6 @@ export default function BlogPost() {
                   If you have 10,000 pages but Google only crawls 3,000 per day, you have a crawl budget problem.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Does Crawl Budget Matter for Your Site?</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -118,10 +112,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">13 Ways to Optimize Crawl Budget</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">1. Eliminate Duplicate Content</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Duplicate pages waste crawl budget. Use canonical tags to consolidate:
@@ -129,7 +121,6 @@ export default function BlogPost() {
                 <div className="bg-slate-100 p-4 rounded-lg my-4">
                   <code>&lt;link rel="canonical" href="https://example.com/original-page" /&gt;</code>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">2. Fix Redirect Chains</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Redirect chains waste crawl budget. Always redirect directly to the final URL:
@@ -138,7 +129,6 @@ export default function BlogPost() {
                   <li>❌ <strong>Bad:</strong> A → B → C (2 hops)</li>
                   <li>✅ <strong>Good:</strong> A → C (direct)</li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">3. Block Low-Value Pages in Robots.txt</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Block admin pages, search results, filters from being crawled:
@@ -151,17 +141,14 @@ export default function BlogPost() {
                     Disallow: /*?filter=
                   </code>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">4. Manage URL Parameters</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Use Google Search Console's URL Parameters tool to tell Google which parameters don't change content.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">5. Fix Broken Links (404s)</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Google wastes crawl budget on 404 pages. Fix or redirect them.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">6. Optimize XML Sitemap</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Only include important, canonical URLs in your sitemap. Remove:
@@ -184,32 +171,26 @@ export default function BlogPost() {
                     <span>Noindexed pages</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">7. Improve Site Speed</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Faster sites get crawled more frequently. Optimize Core Web Vitals.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">8. Reduce Server Errors (5xx)</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Server errors cause Google to reduce crawl rate. Monitor and fix immediately.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">9. Update Content Regularly</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Fresh content signals to Google your site deserves more crawl budget.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">10. Build Quality Backlinks</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Higher authority sites get more crawl budget. Build backlinks to increase authority.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">11. Optimize Internal Linking</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Link to important pages from high-authority pages. Deep pages need internal links to get crawled.
                 </p>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">12. Use Noindex for Low-Value Pages</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Tag low-value pages with noindex instead of wasting crawl budget:
@@ -217,13 +198,11 @@ export default function BlogPost() {
                 <div className="bg-slate-100 p-4 rounded-lg my-4">
                   <code>&lt;meta name="robots" content="noindex, follow" /&gt;</code>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">13. Monitor Server Log Files</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Analyze server logs to see what Google is actually crawling. Identify waste.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Check Your Crawl Budget</h2>
                 <ul className="space-y-4 my-6">
@@ -250,7 +229,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Crawl Budget Red Flags</h2>
                 <ul className="space-y-4 my-6">
@@ -284,7 +262,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Crawl Budget Statistics</h2>
                 <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -298,7 +275,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Crawl Budget</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -327,7 +303,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Stop Wasting Crawl Budget</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -336,7 +311,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Fix duplicate content, optimize redirects, and clean your sitemap to get important pages indexed faster.
                 </p>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Crawl Budget Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -351,7 +325,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -362,7 +335,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #CrawlBudget #TechnicalSEO #Indexing #GoogleBot #SiteOptimization
@@ -372,7 +344,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

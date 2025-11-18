@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Alt Text Optimization: Write Perfect Image Descriptions for SEO',
   description: 'Bad alt text wastes image SEO potential. This guide shows how to write alt text that ranks and improves accessibility.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['image-optimization-seo-guide', 'schema-markup-complete-guide-2025', 'technical-seo-audit-checklist-2025'].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Alt Text Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Alt Text Optimization: Write Perfect Image Descriptions for SEO
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>August 20, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Bad alt text wastes image SEO potential. This guide shows how to write alt text that ranks and improves accessibility.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Alt text is a <strong>dual-purpose SEO weapon</strong>: it helps Google understand your images AND makes your site accessible to visually impaired users. Most sites waste this opportunity with generic descriptions like "image1.jpg" or keyword stuffing. This guide shows you how to write alt text that ranks in Google Images, improves accessibility, and drives traffic--automatically with SEOLOGY.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Alt Text Matters for SEO</h2>
@@ -95,7 +90,6 @@ export default function BlogPost() {
                   <div className="text-slate-700">Sites with optimized alt text see <strong>37% higher Google Image Search traffic</strong> and improved overall rankings.</div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Alt Text Formula That Ranks</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -127,7 +121,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Alt Text Best Practices by Image Type</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -178,7 +171,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Alt Text Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -219,7 +211,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Alt Text vs Title Attribute vs Caption</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -243,7 +234,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Audit Missing or Poor Alt Text</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -273,7 +263,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Alt Text Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -301,7 +290,6 @@ export default function BlogPost() {
                     <span><strong>Bulk Updates:</strong> Applies optimized alt text to thousands of images instantly</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Every Image on Your Site</h3>
@@ -317,7 +305,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -326,7 +313,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/technical-seo-audit-checklist-2025" className="text-blue-600 hover:text-blue-800">Technical SEO Audit Checklist</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #AltText #ImageSEO #Accessibility #OnPageSEO #SEOLOGY
@@ -336,7 +322,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

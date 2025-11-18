@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'SEO ROI Calculator: Prove Your SEO Investment is Worth It',
   description: "Can\'t prove SEO ROI to your boss? This calculator shows exactly how much revenue your SEO generates--with real data.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'seo-roi-calculator-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>SEO ROI Calculator Guide</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             SEO ROI Calculator: Prove Your SEO Investment is Worth It
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>December 20, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Can't prove SEO ROI to your boss? This calculator shows exactly how much <strong className="text-white">revenue your SEO generates</strong>--with real data.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Most businesses can't prove SEO ROI because they don't track the right metrics. This guide shows you how to calculate: <strong>(Organic Revenue - SEO Costs) / SEO Costs x 100</strong>. Average SEO ROI is 748% ($7.48 return per $1 spent). SEOLOGY's built-in analytics tracks every dollar earned from organic search--making ROI reporting automatic.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why SEO ROI Matters</h2>
@@ -82,7 +77,6 @@ export default function BlogPost() {
                   That's the power of proving SEO ROI.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The SEO ROI Formula</h2>
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200 my-8">
@@ -99,10 +93,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Calculate Organic Revenue (Step-by-Step)</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 1: Track Organic Traffic</h3>
@@ -119,7 +111,6 @@ export default function BlogPost() {
                       Example: 15,420 organic sessions
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 2: Calculate Conversion Rate</h3>
                     <p className="text-slate-700 mb-3">
@@ -135,7 +126,6 @@ export default function BlogPost() {
                       Example: 462 conversions / 15,420 sessions = 3% conversion rate
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 3: Determine Average Order Value</h3>
                     <p className="text-slate-700 mb-3">
@@ -148,7 +138,6 @@ export default function BlogPost() {
                       Example: $138,600 revenue / 462 orders = $300 AOV
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 4: Calculate Organic Revenue</h3>
                     <p className="text-slate-700 mb-3">
@@ -158,7 +147,6 @@ export default function BlogPost() {
                       Example: 15,420 x 3% x $300 = $138,780 organic revenue
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-4">Step 5: Calculate Total SEO Costs</h3>
                     <p className="text-slate-700 mb-3">
@@ -186,7 +174,6 @@ export default function BlogPost() {
                       Example: $5,000 total monthly SEO costs
                     </p>
                   </div>
-
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border-2 border-green-500">
                     <h3 className="text-2xl font-bold mb-4 text-green-900">Step 6: Calculate SEO ROI</h3>
                     <p className="text-slate-700 mb-3">
@@ -201,7 +188,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">SEO ROI Benchmarks by Industry</h2>
                 <div className="overflow-x-auto my-8">
@@ -251,13 +237,11 @@ export default function BlogPost() {
                   <strong>Average across all industries: 748% ROI</strong> (Source: Search Engine Journal, 2024)
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Beyond Revenue: Other SEO ROI Metrics</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Revenue isn't the only measure of SEO success. Track these metrics too:
                 </p>
-
                 <div className="space-y-4">
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">1. Lifetime Value (LTV)</h4>
@@ -265,28 +249,24 @@ export default function BlogPost() {
                       Organic customers have 2.4x higher LTV than paid ads customers--they return more often and spend more over time.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">2. Customer Acquisition Cost (CAC)</h4>
                     <p className="text-slate-700">
                       SEO CAC averages $31 vs $56 for paid ads--acquiring customers through organic search is 44% cheaper.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">3. Brand Awareness</h4>
                     <p className="text-slate-700">
                       Ranking #1 for 50+ keywords increases branded search volume by 74% on average (people start searching for your brand directly).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">4. Market Share</h4>
                     <p className="text-slate-700">
                       Capturing 30% of search traffic in your niche = 30% market share (competitors lose visibility when you rank higher).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-5 rounded-lg border border-slate-200">
                     <h4 className="text-xl font-bold mb-2">5. Compounding Returns</h4>
                     <p className="text-slate-700">
@@ -295,7 +275,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common SEO ROI Mistakes</h2>
                 <div className="space-y-4 my-6">
@@ -305,28 +284,24 @@ export default function BlogPost() {
                       Set up GA4 conversion events correctly--track purchases, leads, phone calls, not just form submissions.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #2: Expecting instant ROI</strong>
                     <p className="text-slate-700 mt-2">
                       SEO takes 4-6 months to show significant results. Calculate ROI over 12+ months for accurate picture.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #3: Ignoring assisted conversions</strong>
                     <p className="text-slate-700 mt-2">
                       Organic search often assists conversions attributed to other channels--check GA4 attribution reports.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #4: Forgetting to include ALL costs</strong>
                     <p className="text-slate-700 mt-2">
                       Count tools, content, design, development, agency fees--incomplete cost data inflates ROI artificially.
                     </p>
                   </div>
-
                   <div className="border-l-4 border-red-500 bg-red-50 p-4 rounded-r-lg">
                     <strong className="text-red-900">Mistake #5: Not segmenting by channel</strong>
                     <p className="text-slate-700 mt-2">
@@ -335,7 +310,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Calculates SEO ROI Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -364,7 +338,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Proving Your SEO ROI</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -391,7 +364,6 @@ export default function BlogPost() {
                     <span>Executive-ready reports in PDF format</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Start Tracking SEO ROI Automatically</h3>
@@ -407,7 +379,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -416,7 +387,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/local-seo-automation-guide" className="text-blue-600 hover:text-blue-800">Local SEO Automation Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #SEOROI #SEOAnalytics #SEOMetrics #SEOLOGY #MarketingROI
@@ -426,7 +396,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Anchor Text Optimization: Natural Link Building That Ranks',
   description: 'Over-optimized anchor text triggers penalties. This strategy builds natural anchor text diversity that ranks safely.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['link-building-strategies-2025', 'broken-link-building-tactics', 'guest-posting-seo-guide-2025'].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Anchor Text Optimization</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Anchor Text Optimization: Natural Link Building That Ranks
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>August 18, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Over-optimized anchor text triggers penalties. This strategy builds natural anchor text diversity that ranks safely.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -65,7 +61,6 @@ export default function BlogPost() {
                 Anchor text is the clickable text in a hyperlink--and it\'s one of Google\'s <strong>most powerful ranking signals</strong>. But here\'s the trap: over-optimized anchor text (using exact-match keywords too often) triggers Google penalties. This guide shows you the exact anchor text distribution formula that ranks pages without getting penalized--and how SEOLOGY automates this for safe, natural link building.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Is Anchor Text and Why It Matters</h2>
@@ -86,7 +81,6 @@ export default function BlogPost() {
                   <div className="text-slate-700">Studies show anchor text is among the <strong>top 3 most important ranking factors</strong> for Google\'s algorithm--but only when it appears natural.</div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 7 Types of Anchor Text</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -151,7 +145,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Perfect Anchor Text Distribution Formula</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -191,7 +184,6 @@ export default function BlogPost() {
                   <p className="text-slate-700 mb-0">If more than 10% of your backlinks use exact-match anchor text, you risk triggering Google\'s Penguin algorithm penalty. This can tank your rankings overnight.</p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Anchor Text Strategy for Internal Links</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -236,7 +228,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Audit Your Anchor Text Profile</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -273,7 +264,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Anchor Text Optimization Tactics</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -298,7 +288,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Optimizes Anchor Text Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -322,7 +311,6 @@ export default function BlogPost() {
                     <span><strong>Internal Link Optimization:</strong> Automatically updates internal anchor text to match best practices</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Build Safe, Natural Anchor Text Profiles</h3>
@@ -338,7 +326,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -347,7 +334,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/guest-posting-seo-guide-2025" className="text-blue-600 hover:text-blue-800">Guest Posting for SEO</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #AnchorText #LinkBuilding #SEOStrategy #Backlinks #SEOLOGY
@@ -357,7 +343,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

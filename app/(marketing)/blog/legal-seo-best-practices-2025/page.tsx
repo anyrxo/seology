@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, Award, CheckCircle2, FileText, MapPin, Star, Target, Users } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Legal SEO: Dominate "Attorney Near Me" & High-Value Keywords',
   description: 'Legal SEO is ultra-competitive. These strategies helped 41 law firms rank #1 for high-value keywords.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['local-seo-automation-guide', 'google-my-business-optimization', 'competitor-seo-analysis-guide', 'b2b-seo-tactics-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,12 +24,10 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Legal SEO Best Practices</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Legal SEO: Dominate "Attorney Near Me" & High-Value Keywords
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
@@ -37,12 +36,10 @@ export default function BlogPost() {
             <span>•</span>
             <span>18 min read</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Legal SEO is ultra-competitive. These proven strategies helped <strong className="text-white">41 law firms rank #1</strong> for high-value keywords like "personal injury lawyer near me" and "DUI attorney [city]."
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -55,7 +52,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -70,7 +66,6 @@ export default function BlogPost() {
                 <strong>Key insight:</strong> Legal SEO isn\'t about ranking for generic terms--it\'s about dominating local, high-intent searches where prospects are ready to hire NOW.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
@@ -106,7 +101,6 @@ export default function BlogPost() {
                   The good news? Solo practitioners and small firms can compete using smart legal SEO tactics--you don\'t need a massive budget.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <MapPin className="w-8 h-8 text-blue-600" />
@@ -115,7 +109,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   The Google Map Pack (the 3 local results with map pins) generates <strong>46% of all clicks</strong> for "attorney near me" searches. Ranking here is non-negotiable.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Google Business Profile Optimization</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Your Google Business Profile (formerly Google My Business) is your #1 local ranking factor:
@@ -142,7 +135,6 @@ export default function BlogPost() {
                     <span><strong>Post weekly updates:</strong> Case wins, legal tips, firm news</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Review Acquisition Strategy</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Reviews are the <strong>#2 local ranking factor</strong> after Google Business Profile optimization:
@@ -165,14 +157,12 @@ export default function BlogPost() {
                     <span><strong>Use keyword-rich responses:</strong> "Thank you for trusting our DUI defense team..."</span>
                   </li>
                 </ul>
-
                 <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
                   <p className="text-slate-700 mb-0">
                     <strong>⚠️ Legal compliance warning:</strong> Never incentivize reviews or violate bar association rules. Always follow your state\'s ethics guidelines on client testimonials.
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <FileText className="w-8 h-8 text-blue-600" />
@@ -181,7 +171,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Content marketing establishes your expertise and captures searchers in the research phase--before they contact competitors.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">The Legal Content Framework</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -196,7 +185,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> "Complete Guide to DUI Defense in [City]: Process, Costs & Success Rates"
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Local Legal Guides</h4>
                     <p className="text-slate-700 mb-3">
@@ -209,7 +197,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> These low-competition keywords convert extremely well because they capture high-intent local searchers
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Case Study Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -222,7 +209,6 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> Ranks for long-tail keywords + demonstrates expertise for E-A-T
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">FAQ Content Strategy</h4>
                     <p className="text-slate-700 mb-3">
@@ -236,7 +222,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Content Publishing Schedule</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Consistent publishing signals active expertise to Google:
@@ -256,7 +241,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Users className="w-8 h-8 text-blue-600" />
@@ -265,7 +249,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Legal directories provide high-authority backlinks AND drive direct leads. But most lawyers waste them.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Top-Tier Legal Directories (Must Be On)</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -289,7 +272,6 @@ export default function BlogPost() {
                     <span><strong>Lawyers.com:</strong> DA 87 - Part of Martindale, complete Q&A section for visibility</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Directory Profile Optimization</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
@@ -306,7 +288,6 @@ export default function BlogPost() {
                     <li>• Awards and recognition</li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">State & Local Bar Directories</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Don\'t ignore official bar association directories:
@@ -326,7 +307,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Target className="w-8 h-8 text-blue-600" />
@@ -335,7 +315,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Your competitors are ranking for hundreds of keywords you\'re missing. Here\'s how to steal their rankings:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Competitive Keyword Gap Analysis</h3>
                 <div className="bg-slate-50 p-6 rounded-xl my-6 border border-slate-200">
                   <p className="text-slate-700 mb-4">
@@ -349,7 +328,6 @@ export default function BlogPost() {
                     <li><strong>5. Create better content:</strong> Analyze their ranking page, identify weaknesses, create superior content</li>
                   </ol>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Backlink Gap Analysis</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Find who links to competitors but not to you:
@@ -368,7 +346,6 @@ export default function BlogPost() {
                     <span><strong>Low-hanging fruit:</strong> Prioritize DA 30+ sites with existing legal content</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">SERP Feature Opportunities</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Identify SERP features competitors own that you can steal:
@@ -388,7 +365,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <DollarSign className="w-8 h-8 text-blue-600" />
@@ -397,7 +373,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Most law firms treat SEO and PPC as separate channels. Smart firms use PPC data to dominate organic search.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Using PPC Data for SEO Strategy</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -412,7 +387,6 @@ export default function BlogPost() {
                       <strong>Action:</strong> Only create SEO content for keywords with 5%+ conversion rate in PPC
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Steal Competitor PPC Keywords</h4>
                     <p className="text-slate-700 mb-3">
@@ -425,7 +399,6 @@ export default function BlogPost() {
                       <strong>SEO play:</strong> Target these expensive PPC keywords organically to capture free traffic
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Dominate Both Paid & Organic</h4>
                     <p className="text-slate-700 mb-3">
@@ -439,7 +412,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Landing Page Optimization Insights</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   PPC landing page tests inform organic page optimization:
@@ -463,7 +435,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                   <Award className="w-8 h-8 text-blue-600" />
@@ -472,7 +443,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Google heavily weighs expertise for legal content (YMYL - Your Money Your Life). Build demonstrable authority:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Attorney Author Profiles</h3>
                 <ul className="space-y-3 my-6">
                   <li className="flex items-start gap-3">
@@ -488,7 +458,6 @@ export default function BlogPost() {
                     <span><strong>Schema markup:</strong> Implement Person schema with credentials, education, affiliations</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Media Mentions & PR</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Get featured in news outlets to build third-party authority:
@@ -511,7 +480,6 @@ export default function BlogPost() {
                     <span><strong>Display mentions:</strong> Create "As Seen In" section with logos of media outlets</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Speaking & Teaching</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
                   Speaking engagements signal authority to Google and humans:
@@ -535,7 +503,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Legal SEO Mistakes to Avoid</h2>
                 <div className="space-y-6 my-8">
@@ -545,28 +512,24 @@ export default function BlogPost() {
                       <strong>Problem:</strong> Most law firm practice area pages are 200-300 words of generic content that doesn\'t rank. <strong>Solution:</strong> Create comprehensive 2,000+ word guides with local information, case examples, FAQs, and process overviews.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Ignoring Negative Reviews</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Unanswered negative reviews hurt both conversion rates and local rankings. <strong>Solution:</strong> Respond professionally to ALL reviews within 24 hours, especially negative ones. Addressing concerns publicly shows professionalism.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: No Local Schema Markup</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Missing LocalBusiness and Attorney schema means Google can\'t understand your practice areas and service areas. <strong>Solution:</strong> Implement comprehensive schema including LegalService, Attorney, LocalBusiness, and FAQPage markup.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Duplicate Content Across Locations</h4>
                     <p className="text-slate-700">
                       <strong>Problem:</strong> Multi-location firms often copy the same content across location pages, triggering duplicate content penalties. <strong>Solution:</strong> Create unique content for each location with specific local information, directions, parking, local court info.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Slow Website Speed</h4>
                     <p className="text-slate-700">
@@ -575,7 +538,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Legal SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -607,7 +569,6 @@ export default function BlogPost() {
                     <span>Tracks local pack rankings and competitor movements daily</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Dominate Legal Search in Your Market</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -622,7 +583,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Legal Marketing Guides:</h2>
                 <ul className="space-y-2">
@@ -632,7 +592,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/schema-markup-complete-guide-2025" className="text-blue-600 hover:text-blue-800">Schema Markup Complete Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #LegalSEO #AttorneySEO #LocalSEO #LawFirmMarketing #PersonalInjurySEO #DUIAttorney #SEOForLawyers
@@ -642,7 +601,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Ecommerce SEO Strategy: 25 Tactics That Drive Real Sales in 2025',
   description: 'Ecommerce SEO is different. These 25 proven tactics help online stores rank higher and sell more--automatically.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'ecommerce-seo-strategy-2025').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Ecommerce SEO Strategy 2025</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Ecommerce SEO Strategy: 25 Tactics That Drive Real Sales in 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>December 18, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Ecommerce SEO is different. These <strong className="text-white">25 proven tactics</strong> help online stores rank higher and sell more--automatically.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Ecommerce SEO isn't like blog SEO--product pages, category pages, filters, and duplicate content create unique challenges. This guide covers <strong>25 ecommerce-specific tactics</strong>: product schema, faceted navigation, category optimization, internal linking, user-generated content, and more. SEOLOGY automates 90% of these optimizations for Shopify, WooCommerce, and custom ecommerce sites.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Ecommerce SEO is Different</h2>
@@ -96,10 +91,8 @@ export default function BlogPost() {
                   Standard SEO tactics don't scale for ecommerce. You need automation.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">25 Ecommerce SEO Tactics</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Product Page Optimization (7 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -114,7 +107,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> AI generates unique product descriptions at scale.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Optimize Product Titles for Search</h4>
                     <p className="text-slate-700 mb-3">
@@ -127,7 +119,6 @@ export default function BlogPost() {
                       Include brand, model, product type, key attribute, and variation.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Implement Product Schema Markup</h4>
                     <p className="text-slate-700 mb-3">
@@ -137,7 +128,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Rich snippets with star ratings, price, and stock status in Google search.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Add High-Quality Product Images</h4>
                     <p className="text-slate-700 mb-3">
@@ -147,7 +137,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Images appear in Google Images (30% of ecommerce traffic comes from image search).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Enable User Reviews</h4>
                     <p className="text-slate-700 mb-3">
@@ -157,7 +146,6 @@ export default function BlogPost() {
                       <strong>Stat:</strong> Products with 50+ reviews rank 4.6x higher on average.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Create Product Videos</h4>
                     <p className="text-slate-700 mb-3">
@@ -167,7 +155,6 @@ export default function BlogPost() {
                       <strong>Stat:</strong> Product pages with videos convert 80% better and rank 52% higher.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Optimize Product URLs</h4>
                     <p className="text-slate-700 mb-3">
@@ -181,7 +168,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Category Page Optimization (5 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -196,7 +182,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> "Running Shoes for Men" category gets 400-word guide to choosing running shoes.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Optimize Category Page Titles</h4>
                     <p className="text-slate-700 mb-3">
@@ -209,7 +194,6 @@ export default function BlogPost() {
                       Include keyword, product count, and top brands.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Create Sub-Categories</h4>
                     <p className="text-slate-700 mb-3">
@@ -219,7 +203,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Target long-tail keywords with lower competition.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Optimize Pagination</h4>
                     <p className="text-slate-700 mb-3">
@@ -229,7 +212,6 @@ export default function BlogPost() {
                       <strong>Goal:</strong> Ensure Google crawls all products without seeing paginated pages as duplicates.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Add Breadcrumb Navigation</h4>
                     <p className="text-slate-700 mb-3">
@@ -240,7 +222,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical Ecommerce SEO (6 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -255,7 +236,6 @@ export default function BlogPost() {
                       <strong>Exception:</strong> High-volume filter combos (e.g., "red running shoes") should be indexable.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Manage Out-of-Stock Products</h4>
                     <p className="text-slate-700 mb-3">
@@ -268,7 +248,6 @@ export default function BlogPost() {
                       <strong>If permanently discontinued:</strong> 301 redirect to similar product or category.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Implement Canonical Tags</h4>
                     <p className="text-slate-700 mb-3">
@@ -278,7 +257,6 @@ export default function BlogPost() {
                       <strong>Goal:</strong> Tell Google which version is the "master" to avoid duplicate content penalties.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Create XML Sitemaps</h4>
                     <p className="text-slate-700 mb-3">
@@ -288,7 +266,6 @@ export default function BlogPost() {
                       <strong>Update frequency:</strong> Daily for products, weekly for categories, monthly for static pages.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Optimize Site Speed</h4>
                     <p className="text-slate-700 mb-3">
@@ -298,7 +275,6 @@ export default function BlogPost() {
                       <strong>Target:</strong> LCP under 2.5s (especially critical for mobile conversions).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">18. Implement Hreflang for International Sites</h4>
                     <p className="text-slate-700 mb-3">
@@ -309,7 +285,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Content & Link Building (7 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -324,7 +299,6 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> Targets informational keywords, builds authority, generates backlinks.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">20. Create Product Comparison Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -334,7 +308,6 @@ export default function BlogPost() {
                       <strong>Target:</strong> "vs" and "or" keywords (high commercial intent).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">21. Build Internal Links Strategically</h4>
                     <p className="text-slate-700 mb-3">
@@ -344,7 +317,6 @@ export default function BlogPost() {
                       <strong>Tool:</strong> SEOLOGY automatically suggests internal linking opportunities.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">22. Get Product Reviews from Influencers</h4>
                     <p className="text-slate-700 mb-3">
@@ -354,7 +326,6 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> High-quality backlinks + referral traffic + social proof.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">23. Create Linkable Assets</h4>
                     <p className="text-slate-700 mb-3">
@@ -364,7 +335,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Other sites link to your content naturally (powerful link building).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">24. Leverage User-Generated Content</h4>
                     <p className="text-slate-700 mb-3">
@@ -374,7 +344,6 @@ export default function BlogPost() {
                       <strong>SEO benefit:</strong> Fresh content, long-tail keywords, increased engagement signals.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">25. Add FAQ Schema to Product Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -386,7 +355,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Ecommerce SEO Results</h2>
                 <div className="grid md:grid-cols-3 gap-6 my-8">
@@ -404,7 +372,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Ecommerce SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -437,7 +404,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Start Driving Ecommerce Sales with SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -464,7 +430,6 @@ export default function BlogPost() {
                     <span>Revenue tracking and ROI reporting</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Optimize Your Ecommerce Store Today</h3>
@@ -480,7 +445,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -489,7 +453,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/schema-markup-complete-guide-2025" className="text-blue-600 hover:text-blue-800">Schema Markup Complete Guide 2025</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #EcommerceSEO #OnlineStore #SEOStrategy #Shopify #SEOLOGY
@@ -499,7 +462,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Bounce Rate Reduction: 27 Tactics to Keep Visitors Engaged',
   description: 'High bounce rates kill rankings. These 27 tactics reduced bounce rates by 43% and increased conversions by 67%.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['dwell-time-optimization-guide', 'conversion-rate-optimization-seo', 'landing-page-seo-conversion'].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -21,21 +22,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Bounce Rate Reduction</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Bounce Rate Reduction: 27 Tactics to Keep Visitors Engaged
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>August 15, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             High bounce rates kill rankings. These 27 tactics reduced bounce rates by 43% and increased conversions by 67%.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -47,7 +44,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -57,7 +53,6 @@ export default function BlogPost() {
                 Bounce rate is the percentage of visitors who leave your site after viewing just one page--and it\'s killing your SEO. Google uses engagement metrics like bounce rate as ranking signals. High bounce rates signal poor content quality, leading to <strong>lower rankings and lost revenue</strong>. This guide reveals 27 proven tactics that reduced bounce rates by 43% and increased conversions by 67%--all automatically implemented by SEOLOGY.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Bounce Rate Destroys Your SEO</h2>
@@ -83,7 +78,6 @@ export default function BlogPost() {
                   <div className="text-slate-700">Pages with bounce rates above 70% rank <strong>53% lower</strong> than pages with bounce rates below 40%.</div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">What\'s a Good Bounce Rate?</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -108,13 +102,11 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">27 Proven Bounce Rate Reduction Tactics</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Here are the exact tactics that reduced bounce rates by 43%:
                 </p>
-
                 <div className="space-y-6">
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                     <h3 className="text-xl font-bold text-blue-900 mb-4">Speed & Performance (Tactics 1-5)</h3>
@@ -126,7 +118,6 @@ export default function BlogPost() {
                       <li><strong>5. Optimize Images:</strong> Compress and use next-gen formats (WebP, AVIF)</li>
                     </ul>
                   </div>
-
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                     <h3 className="text-xl font-bold text-purple-900 mb-4">Content Quality (Tactics 6-12)</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -139,7 +130,6 @@ export default function BlogPost() {
                       <li><strong>12. Fix Grammar & Typos:</strong> Poor writing destroys credibility</li>
                     </ul>
                   </div>
-
                   <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                     <h3 className="text-xl font-bold text-pink-900 mb-4">User Experience (Tactics 13-19)</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -152,7 +142,6 @@ export default function BlogPost() {
                       <li><strong>19. High Contrast:</strong> Ensure text is easy to read</li>
                     </ul>
                   </div>
-
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                     <h3 className="text-xl font-bold text-green-900 mb-4">Engagement & CTAs (Tactics 20-27)</h3>
                     <ul className="space-y-2 text-slate-700">
@@ -168,7 +157,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Track and Analyze Bounce Rate</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -193,7 +181,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Bounce Rate Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -227,7 +214,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Reduces Bounce Rate Automatically</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -251,7 +237,6 @@ export default function BlogPost() {
                     <span><strong>Mobile Optimization:</strong> Ensures perfect mobile UX across all devices</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Cut Bounce Rate by 43% Automatically</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -266,7 +251,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -275,7 +259,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/landing-page-seo-conversion" className="text-blue-600 hover:text-blue-800">Landing Page SEO</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #BounceRate #UserEngagement #ConversionOptimization #UX #SEOLOGY
@@ -285,7 +268,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

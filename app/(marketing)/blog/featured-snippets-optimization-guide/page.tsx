@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Featured Snippets: How to Rank in Position Zero (13 Proven Tactics)',
   description: 'Featured snippets get 35% of all clicks. These 13 tactics help you steal position zero from competitors.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['title-tag-optimization-complete-guide', 'keyword-research-strategy-2025', 'voice-search-optimization-2025', 'meta-description-best-practices-2025'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">

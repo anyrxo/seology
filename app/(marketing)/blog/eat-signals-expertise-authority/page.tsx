@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'E-E-A-T Signals: 21 Proven Tactics to Build Expertise, Authority & Trust in 2025',
   description: 'E-E-A-T determines 40% of ranking factors for YMYL sites. This complete guide shows how to build Experience, Expertise, Authoritativeness, and Trustworthiness signals Google actually rewards with higher rankings.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'eat-signals-expertise-authority').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>E-E-A-T Signals</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             E-E-A-T Signals: 21 Proven Tactics to Build Expertise, Authority & Trust in 2025
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>July 25, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             E-E-A-T determines 40% of ranking factors for YMYL sites. This complete guide shows how to build Experience, Expertise, Authoritativeness, and Trustworthiness signals Google actually rewards with higher rankings.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates E-E-A-T optimization</strong> by analyzing content gaps, implementing author profiles, building citation links, and monitoring trust signals continuously</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">What Is E-E-A-T and Why It Dominates Modern SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -95,13 +90,11 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Understanding the Four E-E-A-T Components</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Each letter represents a distinct quality signal Google evaluates:
               </p>
-
               <div className="space-y-6">
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
                   <h3 className="text-2xl font-bold text-blue-900 mb-3">Experience (Added December 2022)</h3>
@@ -119,7 +112,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Google\'s rationale: "Would you trust a restaurant review from someone who\'s never eaten there?"</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200">
                   <h3 className="text-2xl font-bold text-purple-900 mb-3">Expertise</h3>
                   <p className="text-slate-700 mb-3">
@@ -136,7 +128,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Important: Everyday expertise counts too--e.g., hobbyist photographer reviewing cameras has "everyday expertise."</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200">
                   <h3 className="text-2xl font-bold text-pink-900 mb-3">Authoritativeness</h3>
                   <p className="text-slate-700 mb-3">
@@ -154,7 +145,6 @@ export default function BlogPost() {
                   </ul>
                   <p className="text-sm text-slate-600 mt-3 italic">Authority is earned through reputation--others must validate your expertise.</p>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                   <h3 className="text-2xl font-bold text-green-900 mb-3">Trustworthiness</h3>
                   <p className="text-slate-700 mb-3">
@@ -176,17 +166,14 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The 21 E-E-A-T Building Tactics</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 These proven tactics build all four E-E-A-T signals systematically:
               </p>
-
               <div className="space-y-8">
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Experience Signals (Tactics 1-5)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-blue-600 pl-6">
                       <h4 className="text-xl font-bold text-blue-900 mb-3">1. Add First-Hand Experience Details to Content</h4>
@@ -198,7 +185,6 @@ export default function BlogPost() {
                         <strong>Good (experience-based):</strong> "I used this camera for 6 months shooting 2,000+ photos at weddings. The autofocus locked onto subjects in 0.3 seconds even in dim reception halls, and the battery lasted through full 8-hour events."
                       </p>
                     </div>
-
                     <div className="border-l-4 border-purple-600 pl-6">
                       <h4 className="text-xl font-bold text-purple-900 mb-3">2. Include Original Photos, Screenshots, and Videos</h4>
                       <p className="text-slate-700 mb-3">
@@ -206,7 +192,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-sm text-slate-600 italic">Bonus: Screenshots of your own dashboards, results, or usage prove hands-on experience.</p>
                     </div>
-
                     <div className="border-l-4 border-pink-600 pl-6">
                       <h4 className="text-xl font-bold text-pink-900 mb-3">3. Share Specific Results, Data, and Measurements</h4>
                       <p className="text-slate-700 mb-3">
@@ -214,7 +199,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: "After using this SEO tool for 3 months (Jan-Mar 2024), our organic traffic increased from 12,400 to 18,700 monthly visits (+51%)."</p>
                     </div>
-
                     <div className="border-l-4 border-green-600 pl-6">
                       <h4 className="text-xl font-bold text-green-900 mb-3">4. Document the Testing/Usage Process</h4>
                       <p className="text-slate-700 mb-3">
@@ -222,7 +206,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: "I tested this VPN across 47 server locations over 30 days, measuring speed, latency, and connection reliability during peak hours (6-9pm EST)."</p>
                     </div>
-
                     <div className="border-l-4 border-yellow-600 pl-6">
                       <h4 className="text-xl font-bold text-yellow-900 mb-3">5. Add "Pros & Cons from Experience" Sections</h4>
                       <p className="text-slate-700 mb-3">
@@ -232,10 +215,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Expertise Signals (Tactics 6-11)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-indigo-600 pl-6">
                       <h4 className="text-xl font-bold text-indigo-900 mb-3">6. Create Detailed Author Bios with Credentials</h4>
@@ -244,7 +225,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: "Dr. Sarah Chen, MD, is a board-certified dermatologist with 12 years of clinical experience treating 3,000+ patients. She completed her residency at Johns Hopkins and publishes research in the Journal of the American Academy of Dermatology."</p>
                     </div>
-
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">7. Link Author Bios to Full Author Profile Pages</h4>
                       <p className="text-slate-700 mb-3">
@@ -252,7 +232,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-sm text-slate-600 italic">Google can connect the dots between author pages, social profiles, and external mentions to build expertise signals.</p>
                     </div>
-
                     <div className="border-l-4 border-cyan-600 pl-6">
                       <h4 className="text-xl font-bold text-cyan-900 mb-3">8. Display Credentials Prominently on YMYL Content</h4>
                       <p className="text-slate-700 mb-3">
@@ -260,7 +239,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example badge: "Medically reviewed by Dr. Sarah Chen, MD, Board-Certified Dermatologist" with photo and credentials link.</p>
                     </div>
-
                     <div className="border-l-4 border-orange-600 pl-6">
                       <h4 className="text-xl font-bold text-orange-900 mb-3">9. Cite Authoritative Sources and Studies</h4>
                       <p className="text-slate-700 mb-3">
@@ -268,7 +246,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">For medical content: Link to PubMed studies, Mayo Clinic, CDC, NIH. For legal: Link to official statutes and court documents. For finance: Link to SEC filings, Federal Reserve data.</p>
                     </div>
-
                     <div className="border-l-4 border-teal-600 pl-6">
                       <h4 className="text-xl font-bold text-teal-900 mb-3">10. Create In-Depth, Comprehensive Content</h4>
                       <p className="text-slate-700 mb-3">
@@ -276,7 +253,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-sm text-slate-600 italic">Study: Comprehensive content (2K+ words) has 3.5x higher E-E-A-T scores in quality rater evaluations (SEMrush analysis).</p>
                     </div>
-
                     <div className="border-l-4 border-pink-600 pl-6">
                       <h4 className="text-xl font-bold text-pink-900 mb-3">11. Update Old Content to Maintain Expertise</h4>
                       <p className="text-slate-700 mb-3">
@@ -286,10 +262,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Authoritativeness Signals (Tactics 12-16)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-blue-600 pl-6">
                       <h4 className="text-xl font-bold text-blue-900 mb-3">12. Earn High-Quality Backlinks from Authoritative Sites</h4>
@@ -298,7 +272,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Tactics: Original research/data, expert roundups, journalist outreach (HARO), guest posts on authoritative sites.</p>
                     </div>
-
                     <div className="border-l-4 border-purple-600 pl-6">
                       <h4 className="text-xl font-bold text-purple-900 mb-3">13. Get Brand Mentions (Even Unlinked)</h4>
                       <p className="text-slate-700 mb-3">
@@ -306,7 +279,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-sm text-slate-600 italic">Google\'s Reasonable Surfer patent suggests they value mentions as "implied links" when determining authority.</p>
                     </div>
-
                     <div className="border-l-4 border-green-600 pl-6">
                       <h4 className="text-xl font-bold text-green-900 mb-3">14. Build a Wikipedia Presence</h4>
                       <p className="text-slate-700 mb-3">
@@ -314,14 +286,12 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Requirements: Significant news coverage from independent reliable sources, awards/recognition, major achievements. Don\'t spam--Wikipedia is strict.</p>
                     </div>
-
                     <div className="border-l-4 border-yellow-600 pl-6">
                       <h4 className="text-xl font-bold text-yellow-900 mb-3">15. Secure Speaking Engagements and Conference Appearances</h4>
                       <p className="text-slate-700 mb-3">
                         Speaking at industry conferences, webinars, or podcasts positions you as an authority. <strong>Document these appearances</strong> on your author profile with links to recordings, slides, or event pages.
                       </p>
                     </div>
-
                     <div className="border-l-4 border-indigo-600 pl-6">
                       <h4 className="text-xl font-bold text-indigo-900 mb-3">16. Win Awards and Industry Recognition</h4>
                       <p className="text-slate-700 mb-3">
@@ -330,10 +300,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">Trustworthiness Signals (Tactics 17-21)</h3>
-
                   <div className="space-y-6">
                     <div className="border-l-4 border-red-600 pl-6">
                       <h4 className="text-xl font-bold text-red-900 mb-3">17. Implement HTTPS (SSL Certificate)</h4>
@@ -342,7 +310,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-sm text-slate-600 italic">Sites without HTTPS rank lower and convert 20-30% worse (Google data).</p>
                     </div>
-
                     <div className="border-l-4 border-cyan-600 pl-6">
                       <h4 className="text-xl font-bold text-cyan-900 mb-3">18. Create Comprehensive "About Us" and Contact Pages</h4>
                       <p className="text-slate-700 mb-3">
@@ -350,7 +317,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">For YMYL sites: List leadership team, credentials, press mentions, and company registration details.</p>
                     </div>
-
                     <div className="border-l-4 border-orange-600 pl-6">
                       <h4 className="text-xl font-bold text-orange-900 mb-3">19. Display Third-Party Reviews and Trust Badges</h4>
                       <p className="text-slate-700 mb-3">
@@ -358,7 +324,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Trust badges: BBB accreditation, industry certifications, security seals (Norton, McAfee for e-commerce).</p>
                     </div>
-
                     <div className="border-l-4 border-teal-600 pl-6">
                       <h4 className="text-xl font-bold text-teal-900 mb-3">20. Add Clear Editorial and Fact-Checking Policies</h4>
                       <p className="text-slate-700 mb-3">
@@ -366,7 +331,6 @@ export default function BlogPost() {
                       </p>
                       <p className="text-slate-700 mb-3">Example: "Our medical content is reviewed by board-certified physicians and updated quarterly. We cite peer-reviewed studies published within the last 5 years."</p>
                     </div>
-
                     <div className="border-l-4 border-pink-600 pl-6">
                       <h4 className="text-xl font-bold text-pink-900 mb-3">21. Fix Broken Links, Errors, and Security Issues</h4>
                       <p className="text-slate-700 mb-3">
@@ -378,7 +342,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common E-E-A-T Mistakes That Tank Rankings</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -436,7 +399,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Health Site Recovers from Core Update with E-E-A-T Overhaul</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -468,7 +430,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> The founder said: <em>"We had great content but zero E-E-A-T signals. Google couldn\'t verify our expertise. After adding credentialed authors, medical citations, and transparent editorial policies, we went from \'who are you?\' to \'trusted health source\' in Google\'s eyes. E-E-A-T isn\'t optional for YMYL--it\'s survival."</em>
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates E-E-A-T Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -492,7 +453,6 @@ export default function BlogPost() {
                   <p className="text-slate-700">Monitors SSL certificates, broken links, security issues, and review profiles. Alerts you to trust problems before they impact rankings.</p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your E-E-A-T Optimization in 5 Minutes</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -515,7 +475,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The Verdict: E-E-A-T Is Non-Negotiable for YMYL (and Increasingly for All Sites)</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -535,7 +494,6 @@ export default function BlogPost() {
                 Or let SEOLOGY handle all 21 E-E-A-T optimization tactics automatically--gap analysis, author profile creation, citation linking, trust signal monitoring, and continuous improvement based on ranking performance. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Try it free for 14 days.</Link>
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -551,7 +509,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #EEAT #Expertise #Authority #Trust #YMYLContent #ContentQuality #SEOAutomation
@@ -560,7 +517,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Log File Analysis for SEO: 14 Tactics to See Exactly How Google Crawls Your Site & Fix Crawl Budget Waste',
   description: 'Server log analysis reveals 47% more crawl data than Google Search Console alone. This log file analysis strategy identified 2,847 pages wasting crawl budget and increased indexation 156% by optimizing Googlebot behavior.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     post.slug !== 'log-file-analysis-seo' &&
     ["crawl-budget-optimization-guide","robots-txt-configuration-guide","technical-seo-audit-checklist-2025","xml-sitemap-optimization"].includes(post.slug)
   ).slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -22,21 +23,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Log File Analysis for SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Log File Analysis for SEO: 14 Tactics to See Exactly How Google Crawls Your Site & Fix Crawl Budget Waste
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>June 22, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Server log analysis reveals 47% more crawl data than Google Search Console alone (OnCrawl study). Most sites rely solely on Search Console, missing critical insights about how Googlebot actually crawls their site--including pages Google accesses but never indexes, crawl budget waste, and technical errors invisible in standard reports.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -48,7 +45,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 <li><strong>Log analysis identified 2,847 pages wasting crawl budget</strong> for a news site, freeing budget for 12,000 new articles to be crawled weekly (case study below)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Log File Analysis Matters</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -97,10 +92,8 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 1: Setting Up Log File Analysis</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Access and Extract Server Log Files</h3>
                 <p className="text-slate-700 mb-4">
@@ -123,7 +116,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">2. Filter Logs for Googlebot User Agent</h3>
                 <p className="text-slate-700 mb-4">
@@ -146,7 +138,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Choose Log Analysis Tools for SEO Insights</h3>
                 <p className="text-slate-700 mb-4">
@@ -170,10 +161,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 2: Analyzing Googlebot Crawl Behavior</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">4. Identify Most and Least Crawled Pages</h3>
                 <p className="text-slate-700 mb-4">
@@ -195,7 +184,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">5. Find Crawl Budget Waste on Low-Value Pages</h3>
                 <p className="text-slate-700 mb-4">
@@ -219,7 +207,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">6. Analyze Googlebot HTTP Status Code Distribution</h3>
                 <p className="text-slate-700 mb-4">
@@ -242,7 +229,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">7. Detect Fake Googlebot vs. Real Googlebot Traffic</h3>
                 <p className="text-slate-700 mb-4">
@@ -265,10 +251,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 3: Finding and Fixing Technical Issues</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">8. Discover Pages Google Crawls But Doesn\'t Index</h3>
                 <p className="text-slate-700 mb-4">
@@ -290,7 +274,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">9. Find Orphaned Pages That Google Discovers Externally</h3>
                 <p className="text-slate-700 mb-4">
@@ -312,7 +295,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">10. Identify Redirect Chains and Loops Wasting Crawl Budget</h3>
                 <p className="text-slate-700 mb-4">
@@ -334,7 +316,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">11. Analyze Server Response Times for Googlebot</h3>
                 <p className="text-slate-700 mb-4">
@@ -357,10 +338,8 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Category 4: Optimizing Crawl Budget</h2>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl border-l-4 border-blue-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">12. Block Googlebot from Low-Value Pages Using Robots.txt</h3>
                 <p className="text-slate-700 mb-4">
@@ -383,7 +362,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl border-l-4 border-purple-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">13. Prioritize Important Pages in XML Sitemap Based on Crawl Data</h3>
                 <p className="text-slate-700 mb-4">
@@ -405,7 +383,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-8 rounded-xl border-l-4 border-pink-600 mb-8">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">14. Monitor Crawl Rate Changes Over Time for Anomaly Detection</h3>
                 <p className="text-slate-700 mb-4">
@@ -429,7 +406,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Mistakes to Avoid</h2>
               <ul className="space-y-4 my-6">
@@ -470,7 +446,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools & Resources</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -494,7 +469,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: News Site Crawl Budget Optimization</h2>
               <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 rounded-xl border border-slate-200">
@@ -537,7 +511,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Log File Analysis</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -565,7 +538,6 @@ export default function BlogPost() {
                   <span><strong>Real-Time Crawl Rate Monitoring:</strong> Tracks Googlebot activity daily and alerts you to anomalies (sudden crawl rate drops often indicate technical problems)</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Log File Analysis</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -580,7 +552,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -600,7 +571,6 @@ export default function BlogPost() {
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
               <ul className="space-y-2">
@@ -613,7 +583,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #TechnicalSEO #LogFileAnalysis #CrawlBudget #GooglebotOptimization
@@ -622,7 +591,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

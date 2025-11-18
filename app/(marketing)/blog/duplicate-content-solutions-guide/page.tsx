@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Duplicate Content Solutions: Fix the #1 Ranking Killer',
   description: "Duplicate content is silently destroying your rankings. Here\'s how to find and fix it before Google penalizes you.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'duplicate-content-solutions-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,14 +46,11 @@ export default function BlogPost() {
                 <li><strong>SEOLOGY auto-detects and fixes:</strong> Automatically identifies duplicate content across your site and implements correct solutions</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">The Truth About Duplicate Content (It\'s Not What You Think)</h2>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Let\'s clear up the biggest myth: <strong>Google doesn\'t have a "duplicate content penalty."</strong> But duplicate content still kills your rankings--just not how you think.
               </p>
-
               <div className="bg-slate-50 p-6 rounded-xl mb-8">
                 <h3 className="text-2xl font-bold mb-4">What Actually Happens</h3>
                 <p className="text-slate-700 mb-4">When Google finds multiple pages with identical or near-identical content:</p>
@@ -64,15 +62,12 @@ export default function BlogPost() {
                   <li><strong>5. Your site competes with itself</strong> for rankings (and loses to competitors)</li>
                 </ol>
               </div>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 <strong>Real stat:</strong> Moz found that sites with duplicate content issues rank 50% lower on average than sites without duplication. Not because of a penalty--because Google can\'t tell which page to rank.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">7 Types of Duplicate Content (And How to Fix Each)</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -98,7 +93,6 @@ export default function BlogPost() {
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^example\\.com [NC]
 RewriteRule ^(.*)$ https://www.example.com/$1 [L,R=301]
-
 # OR choose non-www version:
 RewriteCond %{HTTP_HOST} ^www\\.example\\.com [NC]
 RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]`}
@@ -107,7 +101,6 @@ RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]`}
                   </div>
                   <p className="text-slate-700 pl-13"><strong>Result:</strong> All link equity flows to one canonical version. Pick www or non-www and stick with it.</p>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">2</span>
@@ -124,7 +117,6 @@ RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]`}
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
 # Nginx
 server {
     listen 80;
@@ -136,7 +128,6 @@ server {
                     <p className="text-slate-700"><strong>Also update:</strong> Update all internal links to HTTPS, update canonical tags, update sitemap URLs, submit HTTPS sitemap to Search Console.</p>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">3</span>
@@ -171,7 +162,6 @@ server {
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">4</span>
@@ -188,7 +178,6 @@ server {
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ https://example.com/$1/ [L,R=301]
-
 # Remove trailing slash (if you prefer)
 RewriteCond %{REQUEST_URI} (.*)/$
 RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
@@ -197,7 +186,6 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">5</span>
@@ -233,7 +221,6 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">6</span>
@@ -250,12 +237,10 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
 {`<!-- Page 1 -->
 <link rel="canonical" href="https://example.com/blog/" />
 <link rel="next" href="https://example.com/blog/page/2/" />
-
 <!-- Page 2 -->
 <link rel="canonical" href="https://example.com/blog/page/2/" />
 <link rel="prev" href="https://example.com/blog/" />
 <link rel="next" href="https://example.com/blog/page/3/" />
-
 <!-- Page 3 -->
 <link rel="canonical" href="https://example.com/blog/page/3/" />
 <link rel="prev" href="https://example.com/blog/page/2/" />`}
@@ -269,7 +254,6 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                     <span className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">7</span>
@@ -289,12 +273,10 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                       <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm mt-3">
 {`<!-- On print version (/article?print=1) -->
 <link rel="canonical" href="https://example.com/article" />
-
 <!-- If using mobile subdomain (legacy) -->
 <!-- Desktop version: -->
 <link rel="alternate" media="only screen and (max-width: 640px)"
       href="https://m.example.com/article" />
-
 <!-- Mobile version: -->
 <link rel="canonical" href="https://example.com/article" />`}
                       </pre>
@@ -303,10 +285,8 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How to Find Duplicate Content on Your Site</h2>
-
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold mb-3">Method 1: Google Search Console</h3>
@@ -318,7 +298,6 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     <li><strong>4.</strong> Compare to see which version Google chose as canonical</li>
                   </ol>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3">Method 2: Site Crawl with Screaming Frog</h3>
                   <p className="text-slate-700 mb-3"><strong>Best for:</strong> Finding all duplicate content issues before Google does</p>
@@ -330,7 +309,6 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     <li><strong>5.</strong> Decide: 301 redirect, canonical tag, or consolidate content</li>
                   </ol>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3">Method 3: Google "site:" Search</h3>
                   <p className="text-slate-700 mb-3"><strong>Best for:</strong> Quick manual checks</p>
@@ -339,20 +317,16 @@ RewriteRule ^(.*)/$ https://example.com/$1 [L,R=301]`}
                     <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto text-sm">
 {`# Find all indexed versions of a specific page:
 site:example.com "exact title of page"
-
 # Find parameter variations:
 site:example.com inurl:?
-
 # Find www vs non-www indexation:
 site:www.example.com
 site:example.com
-
 # Find HTTP versions still indexed:
 site:http://example.com`}
                     </pre>
                   </div>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3">Method 4: Copyscape / Siteliner</h3>
                   <p className="text-slate-700 mb-3"><strong>Best for:</strong> Finding near-duplicate content (not exact matches)</p>
@@ -365,20 +339,16 @@ site:http://example.com`}
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Canonical Tags: The Ultimate Duplicate Content Solution</h2>
-
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 When you have legitimate duplicates (you can\'t remove or redirect them), canonical tags tell Google: "This is the master version--index this one, ignore the others."
               </p>
-
               <div className="bg-blue-50 p-6 rounded-xl mb-6">
                 <h3 className="text-xl font-bold mb-4">How Canonical Tags Work</h3>
                 <pre className="bg-slate-900 text-green-400 p-4 rounded-lg overflow-x-auto">
 {`<!-- On duplicate/variant pages, add: -->
 <link rel="canonical" href="https://example.com/master-page" />
-
 <!-- Google will:
 1. Index only the canonical version
 2. Consolidate all link equity to canonical
@@ -387,7 +357,6 @@ site:http://example.com`}
 -->`}
                 </pre>
               </div>
-
               <div className="space-y-6">
                 <div className="bg-green-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-green-900 mb-3">✅ When to Use Canonical Tags</h3>
@@ -400,7 +369,6 @@ site:http://example.com`}
                     <li>• A/B test variations with different URLs</li>
                   </ul>
                 </div>
-
                 <div className="bg-red-50 p-6 rounded-xl">
                   <h3 className="text-xl font-bold text-red-900 mb-3">❌ When NOT to Use Canonical Tags</h3>
                   <ul className="space-y-2 text-slate-700">
@@ -412,7 +380,6 @@ site:http://example.com`}
                   </ul>
                 </div>
               </div>
-
               <div className="bg-amber-50 p-6 rounded-xl mt-6">
                 <h3 className="text-xl font-bold text-amber-900 mb-3">⚠️ Common Canonical Tag Mistakes</h3>
                 <ol className="space-y-3 text-slate-700 pl-6">
@@ -424,10 +391,8 @@ site:http://example.com`}
                 </ol>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">5 Advanced Duplicate Content Issues</h2>
-
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold mb-3">1. Scraped Content / Content Theft</h3>
@@ -442,7 +407,6 @@ site:http://example.com`}
                     <li>• Use Copyscape Plagiarism Checker to find scrapers</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-3">2. Syndicated Content</h3>
                   <p className="text-slate-700 mb-3">
@@ -456,7 +420,6 @@ site:http://example.com`}
                     <li>• Include "Originally published at [your site]" with link</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-3">3. Boilerplate Content</h3>
                   <p className="text-slate-700 mb-3">
@@ -470,7 +433,6 @@ site:http://example.com`}
                     <li>• Vary related posts / recommendations by category</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-3">4. Category / Tag Page Duplication</h3>
                   <p className="text-slate-700 mb-3">
@@ -484,7 +446,6 @@ site:http://example.com`}
                     <li>• Limit number of categories/tags per post</li>
                   </ul>
                 </div>
-
                 <div>
                   <h3 className="text-2xl font-bold mb-3">5. Search Results / Filter Pages</h3>
                   <p className="text-slate-700 mb-3">
@@ -500,7 +461,6 @@ site:http://example.com`}
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Auto-Fixes Duplicate Content</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -515,7 +475,6 @@ site:http://example.com`}
                 <li className="flex items-start gap-3"><CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" /><div><strong className="text-lg">Ongoing monitoring:</strong><p className="text-slate-700 mt-1">Alerts you when new duplicate content issues appear (e.g., new product variants without canonicals)</p></div></li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict: Eliminate Duplicate Content or Lose Rankings</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -533,12 +492,10 @@ site:http://example.com`}
                 <Link href="/sign-up" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg">Fix Duplicate Content Now<ArrowRight className="w-5 h-5" /></Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">{relatedPosts.map(post => (<li key={post.slug}><Link href={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-800">{post.title}</Link></li>))}</ul>
             </section>
-
             <section><p className="text-sm text-slate-500"><strong>Tags:</strong> #DuplicateContent #TechnicalSEO #ContentSEO</p></section>
           </div>
         </div>

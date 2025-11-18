@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026 | SEOLOGY.AI',
@@ -8,7 +9,6 @@ export const metadata: Metadata = {
     title: 'International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026',
     description: '75% of users prefer native language shopping. Achieve 70% traffic increase and 40-60% revenue growth with Shopify Markets and international SEO.',
 }
-
 export default function InternationalSEOShopifyMarketsPage() {
   return (
     <article className="container mx-auto px-4 py-16 max-w-4xl">
@@ -17,7 +17,6 @@ export default function InternationalSEOShopifyMarketsPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           International SEO for Shopify Markets: Multilingual & Multi-Currency Guide 2026
         </h1>
-
         <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
           <time dateTime="2025-12-19">December 19, 2025</time>
           <span>•</span>
@@ -25,14 +24,12 @@ export default function InternationalSEOShopifyMarketsPage() {
           <span>•</span>
           <span>Updated for Q1 2026</span>
         </div>
-
         <div className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 border border-teal-200 dark:border-teal-800 rounded-lg p-6">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             <strong className="text-teal-600 dark:text-teal-400">Going global is your growth multiplier:</strong> <strong>75% of users prefer buying in their native language</strong>, and <strong>40% won't purchase from sites without localized content</strong>. Businesses with multilingual websites see <strong>70% organic traffic increase</strong> and <strong>40-60% revenue growth</strong> within the first year. Cross-border ecommerce will hit <strong>$9.96 trillion by 2033</strong>, yet <strong>31% of international sites have broken hreflang tags</strong>. Master Shopify Markets + international SEO to capture this massive opportunity.
           </p>
         </div>
       </header>
-
       {/* Author Bio */}
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-12">
         <div className="flex items-start gap-4">
@@ -48,7 +45,6 @@ export default function InternationalSEOShopifyMarketsPage() {
           </div>
         </div>
       </div>
-
       {/* Table of Contents */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-12">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Table of Contents</h2>
@@ -67,19 +63,15 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><a href="#implementation-plan" className="hover:underline">90-Day International SEO Launch Plan</a></li>
         </ul>
       </div>
-
       {/* Main Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">
-
         {/* Section 1 */}
         <h2 id="international-seo-roi" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           International SEO ROI: The Data Proves Global Expansion Works
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Expanding internationally isn't just about reaching more customers--it's about tapping into markets where your competition is weaker and demand is strong. Here's the December 2025 data:
         </p>
-
         <div className="bg-teal-50 dark:bg-teal-950/30 border-l-4 border-teal-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">🌍 International SEO Statistics (2025)</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -94,24 +86,19 @@ export default function InternationalSEOShopifyMarketsPage() {
             <li><strong>$6.56 trillion</strong> online sales worldwide in 2025 (up 7.8% YoY)</li>
           </ul>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           The opportunity is clear: <strong>70% of searches happen in non-English languages</strong>, yet most ecommerce stores only serve English-speaking markets. Those who properly localize see <strong>40-60% revenue growth</strong> in year one.
         </p>
-
         {/* Section 2 */}
         <h2 id="shopify-markets-overview" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Shopify Markets: Your Global Selling Foundation
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify Markets (formerly Managed Markets) makes international selling dramatically easier by handling currency conversion, duties, taxes, shipping, and localization automatically.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           What Shopify Markets Handles Automatically
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Multi-currency checkout:</strong> 130+ currencies supported via Shopify Payments</li>
           <li><strong>Localized pricing:</strong> Custom pricing per market or automatic conversion</li>
@@ -121,11 +108,9 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Translation support:</strong> 180+ languages with Shopify Translate & Adapt</li>
           <li><strong>Domain/subdomain routing:</strong> Market-specific URLs</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Shopify Markets Setup Process
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Enable Shopify Markets:</strong> Shopify Admin → Settings → Markets</li>
           <li><strong>Create markets:</strong> Group countries by region (EU, North America, Asia Pacific, etc.)</li>
@@ -135,7 +120,6 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Configure shipping:</strong> Set up carrier-calculated or flat rates per market</li>
           <li><strong>Add domains (optional):</strong> market.yourstore.com or yourstore.fr</li>
         </ol>
-
         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">💡 Shopify Markets Pro (Advanced)</h4>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
@@ -149,20 +133,16 @@ export default function InternationalSEOShopifyMarketsPage() {
             <li>• Priority support for cross-border issues</li>
           </ul>
         </div>
-
         {/* Section 3 */}
         <h2 id="multi-currency-setup" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Multi-Currency Setup: 92% Prefer Local Currency
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Displaying prices in local currency isn't a nice-to-have--it's essential. <strong>92% of shoppers prefer local currency</strong>, and <strong>33% abandon carts</strong> if pricing is only in USD.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Currency Conversion Strategies
         </h3>
-
         <div className="space-y-4 mb-8">
           <div className="bg-white dark:bg-gray-800 border-l-4 border-teal-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Automatic Conversion (Easy)</h4>
@@ -174,7 +154,6 @@ export default function InternationalSEOShopifyMarketsPage() {
               <strong>Cons:</strong> Prices change with exchange rates, may look odd ($24.87 vs $24.99)
             </p>
           </div>
-
           <div className="bg-white dark:bg-gray-800 border-l-4 border-teal-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">Manual Local Pricing (Recommended)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -186,27 +165,22 @@ export default function InternationalSEOShopifyMarketsPage() {
             </p>
           </div>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           SEO Implications of Multi-Currency
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Currency selector doesn't change URLs:</strong> Same page shows different currency (no duplicate content issues)</li>
           <li><strong>Use hreflang for regions:</strong> Different countries with same language (en-US, en-GB, en-AU)</li>
           <li><strong>Structured data pricing:</strong> Product schema should show default currency, not all variants</li>
           <li><strong>JavaScript currency switchers:</strong> Ensure crawlable default currency is visible</li>
         </ul>
-
         {/* Section 4 */}
         <h2 id="hreflang-tags" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Hreflang Tags: The Technical Foundation (31% Get It Wrong)
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Hreflang tags tell Google which language/region version of a page to show users. Yet <strong>31% of international sites have broken hreflang</strong>, and <strong>16% are missing self-referencing tags</strong>.
         </p>
-
         <div className="bg-yellow-50 dark:bg-yellow-950/30 border-l-4 border-yellow-500 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">⚠️ Critical Hreflang Facts (May 2025)</h3>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
@@ -216,11 +190,9 @@ export default function InternationalSEOShopifyMarketsPage() {
             <li><strong>ISO code accuracy matters:</strong> "en-UK" is wrong (use "en-GB"); incorrect codes invalidate signal</li>
           </ul>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Hreflang Implementation Example
         </h3>
-
         <div className="bg-gray-900 text-gray-100 rounded-lg p-6 overflow-x-auto my-6">
           <pre className="text-sm"><code>{`<!-- On English US page (yourstore.com/products/coffee) -->
 <link rel="alternate" hreflang="en-us" href="https://yourstore.com/products/coffee" />
@@ -228,7 +200,6 @@ export default function InternationalSEOShopifyMarketsPage() {
 <link rel="alternate" hreflang="fr-fr" href="https://yourstore.fr/products/cafe" />
 <link rel="alternate" hreflang="es-es" href="https://yourstore.es/products/cafe" />
 <link rel="alternate" hreflang="x-default" href="https://yourstore.com/products/coffee" />
-
 <!-- On French page (yourstore.fr/products/cafe) -->
 <link rel="alternate" hreflang="en-us" href="https://yourstore.com/products/coffee" />
 <link rel="alternate" hreflang="en-gb" href="https://yourstore.co.uk/products/coffee" />
@@ -236,11 +207,9 @@ export default function InternationalSEOShopifyMarketsPage() {
 <link rel="alternate" hreflang="es-es" href="https://yourstore.es/products/cafe" />
 <link rel="alternate" hreflang="x-default" href="https://yourstore.com/products/coffee" />`}</code></pre>
         </div>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Hreflang Best Practices
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Use language-region format:</strong> "en-us" not just "en" (unless truly language-only)</li>
           <li><strong>Add x-default:</strong> Fallback for unmatched languages/regions</li>
@@ -248,16 +217,13 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Choose one method:</strong> HTML head tags, XML sitemap, or HTTP headers (don't mix)</li>
           <li><strong>Validate:</strong> Use Google Search Console International Targeting report</li>
         </ul>
-
         {/* Section 5 */}
         <h2 id="url-structure" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           International URL Structure: 3 Proven Strategies
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           How you structure URLs affects SEO, user trust, and technical implementation. Here are the 3 main approaches:
         </p>
-
         <div className="overflow-x-auto my-6">
           <table className="min-w-full border border-gray-300 dark:border-gray-700">
             <thead className="bg-gray-100 dark:bg-gray-800">
@@ -290,24 +256,19 @@ export default function InternationalSEOShopifyMarketsPage() {
             </tbody>
           </table>
         </div>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           <strong>Shopify recommendation:</strong> Subdirectories (/fr/, /de/) for most stores. Use ccTLDs only if you have dedicated regional teams and budgets.
         </p>
-
         {/* Section 6 */}
         <h2 id="content-localization" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Content Localization vs Translation (40% Won't Buy Without It)
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Translation = converting words. Localization = adapting content to culture, preferences, and local context. <strong>40% of consumers won't buy without proper localization</strong>.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           What to Localize Beyond Text
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Currency & pricing:</strong> €22.99 not $24.99 EUR</li>
           <li><strong>Date formats:</strong> DD/MM/YYYY (EU) vs MM/DD/YYYY (US)</li>
@@ -319,15 +280,12 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Payment methods:</strong> iDEAL (Netherlands), Bancontact (Belgium), Klarna (Nordics)</li>
           <li><strong>Legal requirements:</strong> GDPR consent (EU), distance selling rights</li>
         </ul>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Shopify Translate & Adapt
         </h3>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Shopify's native translation app supports 180+ languages and lets you:
         </p>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li>• Automatically translate products, collections, pages via AI</li>
           <li>• Manually edit translations for quality control</li>
@@ -335,7 +293,6 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li>• Adapt content per market (not just translate)</li>
           <li>• Manage translations in Shopify Admin</li>
         </ul>
-
         <div className="bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg p-6 my-8">
           <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">✅ Translation Quality Checklist</h4>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -347,44 +304,35 @@ export default function InternationalSEOShopifyMarketsPage() {
             <li>☐ Translate metadata (titles, descriptions, alt text)</li>
           </ul>
         </div>
-
         {/* Section 7 */}
         <h2 id="geo-targeting" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Geographic Targeting in Google Search Console
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           For subdirectories or subdomains, you need to tell Google which region each version targets.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           How to Set Geographic Target
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Add property in Search Console:</strong> Add fr.yourstore.com or yourstore.com/fr/ as separate property</li>
           <li><strong>Settings → International Targeting:</strong> Select target country</li>
           <li><strong>Verify hreflang implementation:</strong> Check for errors in International Targeting report</li>
           <li><strong>Monitor per-market performance:</strong> Track impressions, clicks, CTR by country</li>
         </ol>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           <strong>Note:</strong> ccTLDs (.fr, .de) are automatically geo-targeted and don't need manual configuration.
         </p>
-
         {/* Section 8 */}
         <h2 id="multilingual-keyword" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Multilingual Keyword Research
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Don't just translate English keywords--research what people actually search in each market.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Keyword Research Process Per Market
         </h3>
-
         <ol className="list-decimal list-inside space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Use local Google:</strong> google.fr, google.de, google.co.uk (not google.com)</li>
           <li><strong>Google Keyword Planner:</strong> Set location to target country</li>
@@ -393,20 +341,16 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Google Trends:</strong> Regional interest in topics</li>
           <li><strong>Native speaker input:</strong> Validate keyword choices with locals</li>
         </ol>
-
         {/* Section 9 */}
         <h2 id="duplicate-content" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Avoiding International Duplicate Content
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Multiple language versions can trigger duplicate content penalties if not handled correctly.
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Duplicate Content Prevention Strategy
         </h3>
-
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Hreflang tags:</strong> Tell Google these are language/regional variants, not duplicates</li>
           <li><strong>No canonical to different language:</strong> Don't canonical French page to English page</li>
@@ -414,12 +358,10 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Self-referencing canonicals:</strong> Each language version canonicals to itself</li>
           <li><strong>Language selector in crawlable HTML:</strong> Not JavaScript-only</li>
         </ul>
-
         {/* Section 10 */}
         <h2 id="common-hreflang-errors" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Common Hreflang Errors (31% of Sites Broken)
         </h2>
-
         <div className="space-y-6 mb-8">
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">❌ Missing Reciprocal Links</h4>
@@ -430,7 +372,6 @@ export default function InternationalSEOShopifyMarketsPage() {
               <strong>Fix:</strong> Every page must include hreflang links to ALL versions (including itself)
             </p>
           </div>
-
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">❌ Incorrect ISO Codes</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -440,7 +381,6 @@ export default function InternationalSEOShopifyMarketsPage() {
               <strong>Fix:</strong> Use ISO 639-1 language codes + ISO 3166-1 Alpha 2 country codes
             </p>
           </div>
-
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">❌ Missing Self-Referencing Tag (16% of Sites)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -450,7 +390,6 @@ export default function InternationalSEOShopifyMarketsPage() {
               <strong>Fix:</strong> Each page must include link to itself
             </p>
           </div>
-
           <div className="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 rounded">
             <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-gray-100">❌ Missing x-default</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -461,20 +400,16 @@ export default function InternationalSEOShopifyMarketsPage() {
             </p>
           </div>
         </div>
-
         {/* Section 11 */}
         <h2 id="performance-tracking" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           Tracking International SEO Performance
         </h2>
-
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
           Monitor these KPIs to measure international expansion success:
         </p>
-
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           Key Metrics by Market
         </h3>
-
         <ul className="space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li><strong>Organic traffic by country:</strong> Google Analytics → Audience → Geo → Location</li>
           <li><strong>Rankings per market:</strong> Track keyword positions in google.fr, google.de, etc.</li>
@@ -484,15 +419,12 @@ export default function InternationalSEOShopifyMarketsPage() {
           <li><strong>Impressions/clicks by country:</strong> Search Console → Performance → Country filter</li>
           <li><strong>Average order value:</strong> Compare AOV across markets</li>
         </ul>
-
         {/* Section 12 */}
         <h2 id="implementation-plan" className="text-3xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100">
           90-Day International SEO Launch Plan
         </h2>
-
         <div className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 border border-teal-200 dark:border-teal-800 rounded-lg p-8 my-8">
           <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">✅ Your Complete 90-Day Action Plan</h3>
-
           <div className="space-y-6">
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Month 1: Foundation & Market Research</h4>
@@ -505,7 +437,6 @@ export default function InternationalSEOShopifyMarketsPage() {
                 <li>☐ Create hreflang implementation plan</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Month 2: Translation & Localization</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -517,7 +448,6 @@ export default function InternationalSEOShopifyMarketsPage() {
                 <li>☐ Set up geo-targeting in Google Search Console</li>
               </ul>
             </div>
-
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">Month 3: Testing & Expansion</h4>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -532,7 +462,6 @@ export default function InternationalSEOShopifyMarketsPage() {
             </div>
           </div>
         </div>
-
         {/* Final CTA */}
         <div className="not-prose bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-2xl p-12 my-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -541,7 +470,6 @@ export default function InternationalSEOShopifyMarketsPage() {
           <p className="text-xl mb-8 text-teal-100">
             SEOLOGY.AI automatically generates hreflang tags, validates international SEO implementation, monitors for errors, and suggests localization improvements. Expand globally with confidence--our AI handles the technical complexity while you focus on selling worldwide.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Link
               href="/dashboard/onboarding"
@@ -556,7 +484,6 @@ export default function InternationalSEOShopifyMarketsPage() {
               Watch Demo
             </Link>
           </div>
-
           <div className="flex items-center justify-center gap-8 text-sm text-teal-100">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -578,7 +505,6 @@ export default function InternationalSEOShopifyMarketsPage() {
             </div>
           </div>
         </div>
-
         {/* Author Bio Footer */}
         <div className="not-prose border-t border-gray-200 dark:border-gray-700 pt-8 mt-16">
           <div className="flex items-start gap-4">
@@ -594,7 +520,6 @@ export default function InternationalSEOShopifyMarketsPage() {
             </div>
           </div>
         </div>
-
       </div>
     </article>
   )

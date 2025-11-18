@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Lock } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'HTTPS Migration Guide: Move to SSL Without Losing Rankings',
   description: 'HTTPS migrations kill rankings when done wrong. This step-by-step guide ensures zero traffic loss during migration.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'https-migration-seo-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>HTTPS Migration Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             HTTPS Migration Guide: Move to SSL Without Losing Rankings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>October 18, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             HTTPS migrations kill rankings when done wrong. This step-by-step guide ensures zero traffic loss during migration.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -55,14 +51,12 @@ export default function BlogPost() {
                 HTTPS (SSL/TLS encryption) is now a confirmed Google ranking factor, but <strong>incorrect migrations cause 15-30% traffic drops</strong> that can take months to recover. This guide covers 15 critical steps: SSL certificate selection, 301 redirect implementation, Google Search Console updates, canonical tag fixes, internal link updates, and post-migration monitoring. Common mistakes like mixed content warnings, redirect chains, and missing HSTS headers can destroy rankings. SEOLOGY automates HTTPS migration with zero ranking loss.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why HTTPS Migration Matters for SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   HTTPS isn\'t just security--it\'s essential for modern SEO:
                 </p>
-
                 <div className="grid md:grid-cols-2 gap-6 my-8">
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl border border-green-200">
                     <div className="flex items-center gap-3 mb-3">
@@ -84,15 +78,12 @@ export default function BlogPost() {
                     <div className="text-slate-700">Average traffic drop from incorrect HTTPS migration--recoverable but takes 3-6 months</div>
                   </div>
                 </div>
-
                 <p className="text-lg text-slate-700 leading-relaxed mt-6">
                   <strong>Critical reality:</strong> HTTPS migration done correctly maintains 100% of rankings. Done incorrectly, it can devastate organic traffic for months.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pre-Migration Checklist (5 Steps)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">1. Choose the Right SSL Certificate</h4>
@@ -109,7 +100,6 @@ export default function BlogPost() {
                       <strong>Wildcard consideration:</strong> If you have subdomains, get wildcard certificate to cover *.yourdomain.com.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Crawl Your Entire Site</h4>
                     <p className="text-slate-700 mb-3">
@@ -125,7 +115,6 @@ export default function BlogPost() {
                       <strong>Baseline metrics:</strong> Document current rankings, traffic, backlinks--you\'ll compare these post-migration.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Backup Everything</h4>
                     <p className="text-slate-700 mb-3">
@@ -141,7 +130,6 @@ export default function BlogPost() {
                       <strong>Keep backups accessible:</strong> Store off-server in case of catastrophic failure during migration.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Install SSL Certificate</h4>
                     <p className="text-slate-700 mb-3">
@@ -157,7 +145,6 @@ export default function BlogPost() {
                       <strong>SSL Labs test:</strong> Run SSL Labs SSL Server Test--aim for A or A+ grade before proceeding.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Update Internal Absolute URLs</h4>
                     <p className="text-slate-700 mb-3">
@@ -175,10 +162,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Migration Implementation (6 Steps)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Implement 301 Redirects</h4>
@@ -199,7 +184,6 @@ export default function BlogPost() {
                       <strong>Test redirects:</strong> Verify every HTTP URL redirects to HTTPS equivalent--no redirect chains or loops.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Update XML Sitemap</h4>
                     <p className="text-slate-700 mb-3">
@@ -215,7 +199,6 @@ export default function BlogPost() {
                       <strong>Submit new sitemap:</strong> Submit HTTPS sitemap to Google Search Console and Bing Webmaster Tools.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Update Canonical Tags</h4>
                     <p className="text-slate-700 mb-3">
@@ -231,7 +214,6 @@ export default function BlogPost() {
                       <strong>Automated check:</strong> Use Screaming Frog to crawl site and verify all canonicals use HTTPS.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Fix Mixed Content Warnings</h4>
                     <p className="text-slate-700 mb-3">
@@ -250,7 +232,6 @@ export default function BlogPost() {
                       <strong>Third-party content:</strong> Update embeds (YouTube, Twitter) to use HTTPS versions--most support it now.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Update Google Search Console</h4>
                     <p className="text-slate-700 mb-3">
@@ -266,7 +247,6 @@ export default function BlogPost() {
                       <strong>Address change tool:</strong> Google Search Console has "Change of Address" tool for migrations--use it.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Update Google Analytics</h4>
                     <p className="text-slate-700 mb-3">
@@ -284,10 +264,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Post-Migration Monitoring (4 Steps)</h2>
-
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Enable HSTS (HTTP Strict Transport Security)</h4>
@@ -304,7 +282,6 @@ export default function BlogPost() {
                       <strong>Warning:</strong> Only enable HSTS after confirming entire site works perfectly on HTTPS--it\'s irreversible.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">13. Monitor Rankings Daily</h4>
                     <p className="text-slate-700 mb-3">
@@ -320,7 +297,6 @@ export default function BlogPost() {
                       <strong>Red flag:</strong> If traffic drops 20%+ for more than 7 days, investigate immediately for migration issues.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Check for Indexation Issues</h4>
                     <p className="text-slate-700 mb-3">
@@ -336,7 +312,6 @@ export default function BlogPost() {
                       <strong>Timeline:</strong> Full reindexation takes 2-4 weeks for most sites--be patient but vigilant.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Update External Backlinks</h4>
                     <p className="text-slate-700 mb-3">
@@ -354,7 +329,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common HTTPS Migration Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -367,7 +341,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Always use 301 (permanent) redirects for HTTPS migration--signals permanent move to Google.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Mixed Content Warnings</h4>
                     <p className="text-slate-700 mb-3">
@@ -377,7 +350,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Update all internal resources to HTTPS, use protocol-relative URLs for external resources.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Forgetting to Update Canonicals</h4>
                     <p className="text-slate-700 mb-3">
@@ -387,7 +359,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Update all canonical tags to point to HTTPS versions--critical for duplicate content prevention.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: Not Updating Search Console</h4>
                     <p className="text-slate-700 mb-3">
@@ -397,7 +368,6 @@ export default function BlogPost() {
                       <strong>Fix:</strong> Add HTTPS property to Google Search Console, submit sitemap, use Change of Address tool.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Redirect Chains</h4>
                     <p className="text-slate-700 mb-3">
@@ -409,7 +379,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Handles HTTPS Migration</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -445,7 +414,6 @@ export default function BlogPost() {
                     <span>Enables HSTS and implements security best practices</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Migrate to HTTPS Without Losing Rankings</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -460,7 +428,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -469,7 +436,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/technical-seo-audit-checklist-2025" className="text-blue-600 hover:text-blue-800">Technical SEO Audit Checklist: 31 Critical Issues to Fix</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #HTTPS #SSL #SiteMigration
@@ -479,7 +445,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

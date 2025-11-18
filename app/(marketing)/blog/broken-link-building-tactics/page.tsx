@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Broken Link Building: Find & Replace Dead Links for Easy Backlinks',
   description: 'Broken link building is the easiest white-hat link building tactic. This guide built 847 high-authority backlinks in 90 days.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'broken-link-building-tactics').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Broken Link Building Tactics</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Broken Link Building: Find & Replace Dead Links for Easy Backlinks
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>October 22, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Broken link building is the <strong className="text-white">easiest white-hat link building tactic</strong>. This guide built 847 high-authority backlinks in 90 days.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Broken link building finds dead links on high-authority sites, creates replacement content, and offers it to webmasters who gladly link to you. It\'s a <strong>win-win strategy</strong> that built 847 backlinks in 90 days with a 43% success rate. This guide covers 12 proven tactics: finding broken links at scale, creating 10x replacement content, outreach templates that convert, automation workflows, and competitive analysis. SEOLOGY automates the entire broken link building process.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Broken Link Building Works So Well</h2>
@@ -89,10 +84,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 12 Broken Link Building Tactics</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Finding Broken Links (4 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -107,7 +100,6 @@ export default function BlogPost() {
                       <strong>Pro tip:</strong> Target pages with DR 40+ linking domains for maximum impact.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Check Competitor Backlinks</h4>
                     <p className="text-slate-700 mb-3">
@@ -120,7 +112,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Pre-qualified link opportunities in your exact niche.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Target Resource Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -133,7 +124,6 @@ export default function BlogPost() {
                       <strong>Goldmine pages:</strong> University resource pages (.edu domains) with 100+ outbound links.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Use the Wayback Machine</h4>
                     <p className="text-slate-700 mb-3">
@@ -147,7 +137,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Creating Replacement Content (3 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -162,7 +151,6 @@ export default function BlogPost() {
                       <strong>Benchmark:</strong> If the dead page was 1,500 words, make yours 3,000+ words with unique insights.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Match Original Intent</h4>
                     <p className="text-slate-700 mb-3">
@@ -175,7 +163,6 @@ export default function BlogPost() {
                       <strong>Warning:</strong> Don\'t pitch unrelated content--it destroys credibility.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">7. Create Multiple Formats</h4>
                     <p className="text-slate-700 mb-3">
@@ -189,7 +176,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Outreach That Converts (3 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -208,7 +194,6 @@ export default function BlogPost() {
                       <strong>Word count:</strong> Under 100 words--busy webmasters don\'t read novels.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Personalize at Scale</h4>
                     <p className="text-slate-700 mb-3">
@@ -221,7 +206,6 @@ export default function BlogPost() {
                       <strong>Tools:</strong> BuzzStream, Pitchbox, or Hunter.io for personalized email automation.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Follow Up Strategically</h4>
                     <p className="text-slate-700 mb-3">
@@ -235,7 +219,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Automation & Scale (2 Tactics)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -255,7 +238,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Consistent stream of 20-30 new backlinks monthly.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Track and Optimize</h4>
                     <p className="text-slate-700 mb-3">
@@ -270,7 +252,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Broken Link Building</h2>
                 <div className="overflow-x-auto my-8">
@@ -318,7 +299,6 @@ export default function BlogPost() {
                   </table>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Broken Link Building Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -328,28 +308,24 @@ export default function BlogPost() {
                       Your replacement must be objectively better than the dead page. Thin, rushed content gets ignored. Take time to create comprehensive, valuable resources.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 2: Generic Email Templates</h4>
                     <p className="text-slate-700">
                       "Dear Webmaster" emails get deleted. At minimum, personalize with site name, page title, and specific broken URL. Generic outreach has &lt;5% success rate.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 3: Targeting Low-Authority Sites</h4>
                     <p className="text-slate-700">
                       Focus on DR 40+ sites. Links from weak sites don\'t move the needle. Quality over quantity--10 DR 60+ links beat 100 DR 10 links.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 4: No Follow-Up System</h4>
                     <p className="text-slate-700">
                       Most webmasters don\'t respond to the first email. Set up automated follow-ups at 5, 10, and 20 days. This is where 73% of links come from.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Mistake 5: Ignoring Context</h4>
                     <p className="text-slate-700">
@@ -358,7 +334,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Broken Link Building</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -394,7 +369,6 @@ export default function BlogPost() {
                     <span>Tracks success rates and optimizes outreach templates over time</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Broken Link Building Today</h3>
@@ -410,7 +384,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -419,7 +392,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/digital-pr-seo-strategy" className="text-blue-600 hover:text-blue-800">Digital PR for SEO: Build Authority Links Through Media Coverage</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #BrokenLinkBuilding #LinkBuilding #Backlinks
@@ -429,7 +401,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

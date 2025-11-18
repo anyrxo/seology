@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'WordPress SEO Automation: 15 Best Practices for 2025',
   description: "WordPress SEO doesn\'t have to be manual. Here\'s how SEOLOGY automates 15 critical SEO tasks for WordPress sites.",
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'wordpress-seo-automation-best-practices').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>WordPress SEO Automation</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             WordPress SEO Automation: 15 Best Practices for 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>January 5, 2025</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             WordPress SEO doesn't have to be manual. Here's how SEOLOGY automates <strong className="text-white">15 critical SEO tasks</strong> for WordPress sites.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 WordPress powers 43% of all websites, but most owners waste <strong>10+ hours weekly</strong> on manual SEO tasks. SEOLOGY's WordPress SEO automation handles meta tags, XML sitemaps, schema markup, image optimization, and 11 other critical tasks--automatically. Stop installing 15+ plugins. Start ranking higher.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why WordPress SEO Needs Automation</h2>
@@ -92,10 +87,8 @@ export default function BlogPost() {
                   SEOLOGY replaces the chaos with one unified automation system that actually works.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">15 WordPress SEO Tasks You Should Automate Today</h2>
-
                 <div className="space-y-6">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">1. Meta Tag Optimization</h3>
@@ -106,7 +99,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Analyzes content, generates optimal title tags and meta descriptions automatically, ensures character limits, includes target keywords naturally.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">2. XML Sitemap Generation</h3>
                     <p className="text-slate-700 mb-3">
@@ -116,7 +108,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically generates and updates XML sitemaps in real-time, prioritizes important pages, excludes low-value content.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">3. Schema Markup Implementation</h3>
                     <p className="text-slate-700 mb-3">
@@ -126,7 +117,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically adds Article, FAQ, HowTo, Product, and 15+ other schema types based on content analysis.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">4. Image Alt Text Optimization</h3>
                     <p className="text-slate-700 mb-3">
@@ -136,7 +126,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> AI analyzes image context and surrounding content to generate descriptive, keyword-rich alt text automatically.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">5. Broken Link Detection & Fixing</h3>
                     <p className="text-slate-700 mb-3">
@@ -146,7 +135,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Monitors all internal/external links 24/7, automatically fixes broken links or suggests replacements.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">6. Internal Linking Optimization</h3>
                     <p className="text-slate-700 mb-3">
@@ -156,7 +144,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Analyzes content relationships and automatically suggests/adds contextual internal links with optimal anchor text.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">7. Heading Structure Optimization</h3>
                     <p className="text-slate-700 mb-3">
@@ -166,7 +153,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically detects and fixes heading hierarchy issues, ensures one H1 per page, logical H2-H6 structure.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">8. Content Freshness Updates</h3>
                     <p className="text-slate-700 mb-3">
@@ -176,7 +162,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Identifies outdated content automatically and suggests/applies updates to maintain freshness signals.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">9. Canonical URL Management</h3>
                     <p className="text-slate-700 mb-3">
@@ -186,7 +171,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Automatically detects duplicate content and sets proper canonical URLs to avoid indexing issues.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">10. Robots.txt Optimization</h3>
                     <p className="text-slate-700 mb-3">
@@ -196,7 +180,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Optimizes robots.txt automatically based on your site structure, prevents accidental blocking of valuable content.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">11. Page Speed Optimization</h3>
                     <p className="text-slate-700 mb-3">
@@ -206,7 +189,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Monitors Core Web Vitals, automatically implements speed optimizations, lazy-loads images and resources.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">12. Mobile-Friendliness Checks</h3>
                     <p className="text-slate-700 mb-3">
@@ -216,7 +198,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Continuously monitors mobile usability, alerts to issues, suggests fixes for mobile-first indexing compliance.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">13. Security & HTTPS Enforcement</h3>
                     <p className="text-slate-700 mb-3">
@@ -226,7 +207,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Verifies HTTPS implementation across all pages, automatically fixes mixed content issues.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">14. Redirect Chain Management</h3>
                     <p className="text-slate-700 mb-3">
@@ -236,7 +216,6 @@ export default function BlogPost() {
                       <strong>SEOLOGY automation:</strong> Detects redirect chains automatically and consolidates them to direct 301 redirects for better performance.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h3 className="text-2xl font-bold mb-3">15. Content Gap Analysis</h3>
                     <p className="text-slate-700 mb-3">
@@ -248,7 +227,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">WordPress SEO Automation Results</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -269,7 +247,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How to Set Up WordPress SEO Automation</h2>
                 <ul className="space-y-4 my-6">
@@ -303,7 +280,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Stop Installing More WordPress Plugins</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -334,7 +310,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Each plugin adds bloat, slows your site, and creates conflicts. SEOLOGY replaces them all with one external automation platform that doesn't slow down WordPress.
                 </p>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white mt-8">
                   <h3 className="text-2xl font-bold mb-4">Automate Your WordPress SEO Today</h3>
@@ -350,7 +325,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -359,7 +333,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/content-optimization-ai-vs-manual" className="text-blue-600 hover:text-blue-800">Content Optimization: AI vs Manual</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #WordPressSEO #SEOAutomation #WordPress #SEO2025 #WordPressPlugins
@@ -369,7 +342,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Page Titles vs H1 Tags: 14 Rules for When to Match (and When to Differ) -- 43% CTR Boost',
   description: 'Title tag and H1 optimization increased CTR 43% and conversions 31% by matching titles and H1s for informational content but using different copy for commercial pages to maximize both rankings and on-page conversion.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'page-titles-vs-h1-tags').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Page Titles vs H1 Tags</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Page Titles vs H1 Tags: 14 Rules for When to Match (and When to Differ) -- 43% CTR Boost
           </h1>
-
           <div className="flex items-start gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>June 3, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Should your title tag match your H1? The answer: it depends. Matching them works for blog posts and informational content--but for commercial pages, different copy converts 31% better. This guide reveals the exact rules for when to match (SEO consistency) and when to differ (conversion optimization).
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -78,7 +74,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Title Tags and H1s Are NOT the Same Thing</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -108,13 +103,10 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-0">One SaaS company tested matching vs different titles/H1s across 500+ landing pages. <strong>Matching worked better for informational content (43% higher CTR), but different copy worked better for commercial pages (31% higher conversion rate)</strong>. The key: knowing which pattern to use where.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">14 Rules for Title Tags vs H1 Tags</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4 text-blue-900">Category 1: Understanding the Difference (Rules 1-3)</h3>
               <p className="text-slate-700 mb-6">Before deciding whether to match or differ, understand what each element does.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #1: Title Tags Optimize for SERP CTR, H1s Optimize for On-Page Conversion</h4>
                 <p className="text-slate-700 mb-4">
@@ -130,7 +122,6 @@ export default function BlogPost() {
                   <strong>Example:</strong> Title tag: "10 Lazy Loading Techniques for Faster Sites" (SEO-focused). H1: "Speed Up Your Site 67% with These 10 Lazy Loading Techniques" (benefit-focused).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #2: Title Tags Have Length Limits, H1s Don\'t</h4>
                 <p className="text-slate-700 mb-4">
@@ -146,7 +137,6 @@ export default function BlogPost() {
                   <strong>When this matters:</strong> Long product names or detailed value propositions may not fit in title tags but work perfectly as H1s.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #3: Both Must Include Your Primary Keyword (But Can Vary Word Order)</h4>
                 <p className="text-slate-700 mb-4">
@@ -164,10 +154,8 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Google understands semantic variations. As long as both elements target the same topic/keyword, you maintain topical relevance while optimizing each for its specific purpose.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-purple-900">Category 2: When to Match Them (Rules 4-6)</h3>
               <p className="text-slate-700 mb-6">For certain page types, matching your title tag and H1 creates consistency that improves both SEO and UX.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #4: Match Them for Blog Posts and Informational Content</h4>
                 <p className="text-slate-700 mb-4">
@@ -187,7 +175,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Pages with matching title/H1 for informational queries get <strong>12% lower bounce rate and 43% higher CTR</strong> (Moz, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #5: Match Them for News Articles and Time-Sensitive Content</h4>
                 <p className="text-slate-700 mb-4">
@@ -207,7 +194,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> For news content, use <em>identical</em> title tags and H1s. Even small variations confuse readers.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #6: Match Them When Your Title Tag Is Already Perfect</h4>
                 <p className="text-slate-700 mb-4">
@@ -227,10 +213,8 @@ export default function BlogPost() {
                   <strong>When to match:</strong> Informational content, straightforward topics, when title tag is already compelling and fits within 60 characters.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-pink-900">Category 3: When to Make Them Different (Rules 7-10)</h3>
               <p className="text-slate-700 mb-6">Commercial pages benefit from different title tags and H1s--optimize each for its specific job.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #7: Make Them Different for Product Pages and Services</h4>
                 <p className="text-slate-700 mb-4">
@@ -251,7 +235,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Different title/H1 copy on product pages increases conversion rates <strong>31%</strong> compared to matching copy (Unbounce, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #8: Make Them Different for Landing Pages with High Commercial Intent</h4>
                 <p className="text-slate-700 mb-4">
@@ -272,7 +255,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Title tag gets the click (keyword-rich), H1 sells the benefit (emotion-driven). Two different jobs, two different approaches.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #9: Make Them Different When Title Tag Hits Character Limit</h4>
                 <p className="text-slate-700 mb-4">
@@ -284,7 +266,6 @@ export default function BlogPost() {
                 <div className="bg-slate-900 text-green-400 p-4 rounded-lg font-mono text-sm overflow-x-auto my-4">
                   <pre>{`<!-- Title tag (60 chars) -->
 <title>Core Web Vitals Optimization: Complete Guide (2025)</title>
-
 <!-- H1 (full headline, no limit) -->
 <h1>Core Web Vitals Optimization: Complete Guide to LCP, FID, and CLS in 2025</h1>`}</pre>
                 </div>
@@ -292,7 +273,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Keep title tag concise for SERP display, expand H1 to provide full context.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #10: Make Them Different When Testing Conversion Variations</h4>
                 <p className="text-slate-700 mb-4">
@@ -310,10 +290,8 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Testing H1 variations doesn\'t affect your SERP presence or keyword targeting. You can optimize conversion without touching SEO.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-green-900">Category 4: Optimization Best Practices (Rules 11-14)</h3>
               <p className="text-slate-700 mb-6">Whether matching or differing, follow these best practices for both elements.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #11: Always Include Primary Keyword in Both Title Tag and H1</h4>
                 <p className="text-slate-700 mb-4">
@@ -337,7 +315,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Both title tag and H1 are strong relevance signals. Missing your keyword in either element weakens topical relevance.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #12: Never Use Identical Title Tag and H1 if They\'re Generic or Weak</h4>
                 <p className="text-slate-700 mb-4">
@@ -361,7 +338,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> If your title tag is weak for SEO reasons (brand name only, generic), compensate with a strong, benefit-driven H1.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #13: Use Only ONE H1 Per Page</h4>
                 <p className="text-slate-700 mb-4">
@@ -381,7 +357,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> One H1 = clear topical focus for both users and search engines. Multiple H1s create ambiguity.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Rule #14: Monitor CTR and Bounce Rate to Test Your Strategy</h4>
                 <p className="text-slate-700 mb-4">
@@ -398,7 +373,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Common Title Tag vs H1 Mistakes to Avoid</h2>
               <ul className="space-y-4">
@@ -439,7 +413,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Real Example: 43% CTR Boost from Optimized Title/H1 Strategy</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -471,7 +444,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> One strategy doesn\'t fit all. Informational content benefits from consistency (matching title/H1). Commercial content benefits from optimization for two different jobs (title for SEO/CTR, H1 for conversion).
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Title Tag & H1 Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -503,7 +475,6 @@ export default function BlogPost() {
                   <span><strong>A/B Testing Recommendations:</strong> Suggests H1 variations to test for conversion optimization</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Title Tag & H1 Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -518,7 +489,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -534,7 +504,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> Both elements must contain your primary keyword, but they serve different purposes. Choose your strategy based on page type and goal--not outdated "best practices."
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -547,7 +516,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #TitleTags #H1Tags #OnPageSEO #ConversionOptimization #SEOAutomation
@@ -556,7 +524,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

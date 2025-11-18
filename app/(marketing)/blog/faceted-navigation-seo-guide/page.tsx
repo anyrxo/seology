@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Faceted Navigation SEO: 17 Tactics to Handle Filters Without Duplicate Content (94% Crawl Savings)',
   description: 'Faceted navigation optimization reduced duplicate content 94% and increased indexed pages 67% by strategically blocking low-value filter combinations while indexing high-demand filtered pages.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'faceted-navigation-seo-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Faceted Navigation SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Faceted Navigation SEO: 17 Tactics to Handle Filters Without Duplicate Content
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>David Kim</span>
             <span>•</span>
             <span>July 15, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             E-commerce filters create millions of duplicate pages that waste crawl budget. This guide shows 17 tactics to handle faceted navigation strategically--blocking low-value combinations while indexing high-demand filtered pages.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,13 +56,11 @@ export default function BlogPost() {
                 <li className="text-slate-700">Tools: Google Search Console (URL Parameters), Screaming Frog (audit filter URLs), OnCrawl (crawl budget analysis)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">What Is Faceted Navigation?</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Faceted navigation is the filter system on e-commerce and catalog sites that lets users narrow products by attributes like brand, color, size, price range, material, rating, etc. Each filter selection creates a new URL, leading to exponential URL growth.
               </p>
-
               <div className="bg-slate-50 border border-slate-200 p-6 rounded-lg my-6">
                 <h3 className="text-xl font-bold mb-3">Example: Faceted Navigation URL Explosion</h3>
                 <div className="space-y-2 text-sm">
@@ -80,7 +74,6 @@ export default function BlogPost() {
                 <p className="text-sm text-slate-600 mt-4">Only 50-100 of these combinations have actual search demand or user value. The rest waste crawl budget and dilute link equity.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Faceted Navigation Destroys SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -109,14 +102,11 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">17 Tactics for Faceted Navigation SEO</h2>
-
               <div className="space-y-8">
                 <div className="border-l-4 border-blue-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 1: Auditing Faceted Navigation</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">1. Crawl Site to Map All Filter URLs</h4>
                     <p className="text-slate-700 mb-3">
@@ -124,7 +114,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Set Screaming Frog to "Crawl All Subdomains" and remove crawl limit to discover full extent of filter URL creation</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">2. Calculate URL Explosion Potential</h4>
                     <p className="text-slate-700 mb-3">
@@ -135,7 +124,6 @@ export default function BlogPost() {
                       <p className="text-sm mt-2">If you have 50 categories, that\'s 240,000 filter URLs Google could crawl!</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">3. Analyze Google Search Console Coverage</h4>
                     <p className="text-slate-700 mb-3">
@@ -143,7 +131,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">High numbers (thousands+) of "Discovered but not indexed" URLs signal faceted navigation problems wasting crawl budget</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">4. Check Crawl Budget Allocation</h4>
                     <p className="text-slate-700 mb-3">
@@ -154,10 +141,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-purple-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 2: Blocking Low-Value Filter Combinations</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">5. Use robots.txt to Block Filter Parameters</h4>
                     <p className="text-slate-700 mb-3">
@@ -171,7 +156,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2"><strong>Caution:</strong> robots.txt is blunt tool--blocks ALL instances of parameter. Use for truly worthless filters only.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">6. Add meta robots noindex to Filter Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -182,7 +166,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Use noindex for: multi-parameter combinations (3+ filters applied), sort variations, pagination beyond page 3-5</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">7. Implement Canonical Tags to Base Category</h4>
                     <p className="text-slate-700 mb-3">
@@ -193,7 +176,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-sm text-slate-600 mt-2">Best for: filter combinations with 90%+ duplicate content, pages with few unique products, temporary promotions</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">8. Use URL Parameters Tool in Google Search Console</h4>
                     <p className="text-slate-700 mb-3">
@@ -208,7 +190,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">9. Add rel="nofollow" to Low-Value Filter Links</h4>
                     <p className="text-slate-700 mb-3">
@@ -219,10 +200,8 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-pink-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 3: Strategically Indexing High-Value Filters</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">10. Research Filter Combinations with Search Demand</h4>
                     <p className="text-slate-700 mb-3">
@@ -238,7 +217,6 @@ export default function BlogPost() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">11. Create Unique Content for Indexed Filter Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -246,7 +224,6 @@ export default function BlogPost() {
                     </p>
                     <p className="text-sm text-slate-600">Example: "Nike Black Running Shoes" filter page should have unique content about Nike\'s black shoe technologies, styling tips, etc.</p>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">12. Use View All Page Pattern</h4>
                     <p className="text-slate-700 mb-3">
@@ -257,7 +234,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;link rel="canonical" href="https://example.com/shoes/view-all" /&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">13. Build Static Category Pages for Popular Filters</h4>
                     <p className="text-slate-700 mb-3">
@@ -266,10 +242,8 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">Best for: Top 10-20 filter combinations per category that account for 80% of filtered traffic</p>
                   </div>
                 </div>
-
                 <div className="border-l-4 border-green-600 pl-6">
                   <h3 className="text-2xl font-bold mb-3">Category 4: Technical Implementation</h3>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">14. Use AJAX/JavaScript for Filters (With Caution)</h4>
                     <p className="text-slate-700 mb-3">
@@ -280,7 +254,6 @@ export default function BlogPost() {
                       <p className="text-sm mt-1"><strong>Cons:</strong> Can\'t rank for filtered queries, harder to share specific filter views</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">15. Implement Proper Pagination for Filter Results</h4>
                     <p className="text-slate-700 mb-3">
@@ -291,7 +264,6 @@ export default function BlogPost() {
                       <p className="font-mono text-sm">&lt;link rel="next" href="/shoes?brand=nike&page=2" /&gt;</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">16. Clean Up URL Parameters</h4>
                     <p className="text-slate-700 mb-3">
@@ -302,7 +274,6 @@ export default function BlogPost() {
                       <p className="text-sm text-green-600"><strong>✓ Good:</strong> /shoes?brand=nike</p>
                     </div>
                   </div>
-
                   <div className="mb-6">
                     <h4 className="text-xl font-bold mb-2">17. Monitor and Iterate</h4>
                     <p className="text-slate-700 mb-3">
@@ -313,7 +284,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Common Faceted Navigation Mistakes</h2>
               <ul className="space-y-4 my-6">
@@ -354,7 +324,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Tools for Faceted Navigation SEO</h2>
               <div className="grid md:grid-cols-2 gap-6 my-8">
@@ -390,7 +359,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: Fashion E-Commerce Crawl Budget Rescue</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 border-l-4 border-blue-600 p-6 rounded-r-lg my-8">
@@ -431,7 +399,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Faceted Navigation Optimization</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -463,7 +430,6 @@ export default function BlogPost() {
                   <span><strong>Continuous Monitoring:</strong> Tracks crawl budget allocation, indexed filter pages, and organic traffic to adjust strategy over time</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Faceted Navigation Optimization</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -478,7 +444,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -488,7 +453,6 @@ export default function BlogPost() {
                 Start by auditing your filter URLs with Screaming Frog, calculating URL explosion potential, and checking crawl budget allocation in GSC. Then implement a hybrid strategy: block obvious low-value filters with robots.txt/noindex, research which filter combinations have search demand, and create unique content for only those strategic combinations. The challenge is ongoing monitoring--filter usage changes as inventory grows. SEOLOGY automates the entire workflow, from discovering filter URLs to analyzing keyword demand to implementing perfect indexing rules to monitoring crawl budget impact, so you get the 127% traffic increase without months of manual technical optimization.
               </p>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -504,7 +468,6 @@ export default function BlogPost() {
                 ))}
               </div>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #FacetedNavigation #EcommerceSEO #CrawlBudget #DuplicateContent #TechnicalSEO #SEOAutomation #SEOLOGY
@@ -513,7 +476,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'News SEO: 16 Tactics to Get Featured in Google News & Top Stories (847% Traffic Spike)',
   description: 'Google News optimization increased referral traffic 847% and Top Stories appearances 94% by implementing NewsArticle schema, optimizing for freshness, and establishing topical authority.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'news-seo-google-news-optimization').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>News SEO & Google News</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             News SEO: 16 Tactics to Get Featured in Google News & Top Stories (847% Traffic Spike)
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>June 10, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Google News and Top Stories drive massive traffic spikes--847% increase in 48 hours for breaking news. Yet only publishers with NewsArticle schema, proper technical setup, and consistent publishing frequency get featured. This guide reveals the exact tactics to get approved for Google News and dominate Top Stories carousels.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -78,7 +74,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why Google News Destroys Regular SEO for Traffic</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -95,13 +90,10 @@ export default function BlogPost() {
                 <p className="text-slate-700 mb-0">One technology news site implemented complete News SEO optimization--NewsArticle schema, Google News approval, consistent publishing schedule. Result: <strong>847% traffic increase during a major product launch announcement, 94% more Top Stories appearances, and 312% increase in overall referral traffic</strong> within 90 days.</p>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">16 Tactics for Google News Domination</h2>
-
               <h3 className="text-2xl font-bold mt-8 mb-4 text-blue-900">Category 1: Google News Eligibility & Setup (Tactics 1-4)</h3>
               <p className="text-slate-700 mb-6">Before you can appear in Google News, you must meet eligibility requirements and set up Google Publisher Center.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #1: Apply to Google News via Publisher Center</h4>
                 <p className="text-slate-700 mb-4">
@@ -117,7 +109,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Only approved publishers appear in Google News app and are eligible for Top Stories carousels. Without approval, you\'re limited to standard organic results--no news placement.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #2: Create Dedicated News Section with /news/ URL Structure</h4>
                 <p className="text-slate-700 mb-4">
@@ -133,7 +124,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Clear URL structure helps Google identify news content and apply appropriate ranking algorithms. News sections get crawled more frequently than evergreen content sections.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #3: Establish Consistent Publishing Frequency (10+ Articles/Day)</h4>
                 <p className="text-slate-700 mb-4">
@@ -149,7 +139,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Publishers posting 10+ articles per day get <strong>94% more Top Stories appearances</strong> than those posting fewer than 5 per day (BuzzSumo, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #4: Build E-E-A-T with Proper Bylines & Author Pages</h4>
                 <p className="text-slate-700 mb-4">
@@ -165,10 +154,8 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Google News algorithms heavily weight E-E-A-T for YMYL (Your Money or Your Life) topics. Established authors with credentials rank 67% higher than anonymous content (Google, 2024).
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-purple-900">Category 2: NewsArticle Schema & Technical SEO (Tactics 5-8)</h3>
               <p className="text-slate-700 mb-6">Proper schema markup and technical optimization are required for Top Stories eligibility and news ranking.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #5: Implement NewsArticle Schema Markup on All News Content</h4>
                 <p className="text-slate-700 mb-4">
@@ -214,7 +201,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> NewsArticle schema increases Top Stories eligibility <strong>73%</strong> compared to articles without schema (Google, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #6: Optimize Article Metadata (Publish Date, Modified Date, Headline)</h4>
                 <p className="text-slate-700 mb-4">
@@ -233,7 +219,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Freshness is a top-3 ranking factor for news content. Articles published within 2 hours of breaking news rank <strong>67% higher</strong> than late coverage (Moz, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #7: Create XML News Sitemap & Submit to Publisher Center</h4>
                 <p className="text-slate-700 mb-4">
@@ -266,7 +251,6 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> Automatically regenerate your news sitemap every time you publish a new article. Most CMS platforms support this via plugins (Yoast SEO for WordPress, Next.js plugins).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #8: Optimize Mobile Page Speed ({'<'}2s Load Time)</h4>
                 <p className="text-slate-700 mb-4">
@@ -282,10 +266,8 @@ export default function BlogPost() {
                   <strong>Data:</strong> Mobile-optimized articles get <strong>82% more news traffic</strong> because they rank higher and have lower bounce rates (Google, 2024).
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-pink-900">Category 3: Content Optimization for Top Stories (Tactics 9-12)</h3>
               <p className="text-slate-700 mb-6">Top Stories carousel requires specific content qualities beyond technical optimization.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #9: Target Trending Keywords with Google Trends</h4>
                 <p className="text-slate-700 mb-4">
@@ -301,7 +283,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Publishing content when a topic is trending (but before it peaks) gives you first-mover advantage. Early articles accumulate engagement signals (clicks, time on page) that boost rankings.
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #10: Write Compelling, Accurate Headlines (No Clickbait)</h4>
                 <p className="text-slate-700 mb-4">
@@ -317,7 +298,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Descriptive, specific headlines get <strong>43% higher CTR</strong> than vague or clickbait headlines in news results (Moz, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #11: Use High-Quality Featured Images (1200x630px Minimum)</h4>
                 <p className="text-slate-700 mb-4">
@@ -333,7 +313,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> High-quality images increase CTR in Top Stories by <strong>38%</strong> and improve overall engagement metrics (Google, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #12: Optimize Article Length (600-1200 Words for Breaking News)</h4>
                 <p className="text-slate-700 mb-4">
@@ -349,10 +328,8 @@ export default function BlogPost() {
                   <strong>Pro tip:</strong> For breaking news, publish a shorter version (600-800 words) within 2 hours, then update with more details as they emerge. Google rewards quick publishing + updates.
                 </p>
               </div>
-
               <h3 className="text-2xl font-bold mt-12 mb-4 text-green-900">Category 4: Authority & Distribution (Tactics 13-16)</h3>
               <p className="text-slate-700 mb-6">Build topical authority and distribute content to maximize news reach.</p>
-
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #13: Build Topical Authority in Specific News Verticals</h4>
                 <p className="text-slate-700 mb-4">
@@ -368,7 +345,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> Niche news publishers with 80%+ content in 1-2 verticals rank <strong>54% higher</strong> than generalist publishers (BuzzSumo, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #14: Update Breaking News Articles in Real-Time</h4>
                 <p className="text-slate-700 mb-4">
@@ -384,7 +360,6 @@ export default function BlogPost() {
                   <strong>Why it works:</strong> Google\'s algorithms reward freshness. Articles updated 3+ times during a breaking story stay in Top Stories <strong>48% longer</strong> than static articles (Moz, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-pink-50 to-blue-50 p-6 rounded-xl border border-pink-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #15: Implement AMP (Accelerated Mobile Pages) for Instant Loading</h4>
                 <p className="text-slate-700 mb-4">
@@ -400,7 +375,6 @@ export default function BlogPost() {
                   <strong>Data:</strong> AMP articles get <strong>36% more news traffic</strong> because they load instantly and rank higher in mobile news results (Google, 2024).
                 </p>
               </div>
-
               <div className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl border border-blue-200 my-6">
                 <h4 className="text-xl font-bold mb-3 text-slate-900">Tactic #16: Distribute to Google Discover with High-Quality Visuals</h4>
                 <p className="text-slate-700 mb-4">
@@ -417,7 +391,6 @@ export default function BlogPost() {
                 </p>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Common News SEO Mistakes to Avoid</h2>
               <ul className="space-y-4">
@@ -458,7 +431,6 @@ export default function BlogPost() {
                 </li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Essential News SEO Tools</h2>
               <ul className="space-y-3">
@@ -472,7 +444,6 @@ export default function BlogPost() {
                 <li><strong>Parse.ly:</strong> Analytics specifically for news publishers</li>
               </ul>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Real Example: 847% Traffic Spike from Google News</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -510,7 +481,6 @@ export default function BlogPost() {
                 <strong>Key Insight:</strong> The biggest lift came from combining fast publishing (within 2 hours of announcements) with proper NewsArticle schema. One article about a major product launch appeared in Top Stories for 18 hours straight, driving 167,000 visitors--more than their previous monthly total.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates News SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -542,7 +512,6 @@ export default function BlogPost() {
                   <span><strong>Real-Time Performance Tracking:</strong> Monitors Top Stories appearances and news traffic in real-time</span>
                 </li>
               </ul>
-
               <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                 <h3 className="text-2xl font-bold mb-4">Automate Your Google News Domination</h3>
                 <p className="text-lg mb-6 opacity-90">
@@ -557,7 +526,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section className="mt-12">
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -573,7 +541,6 @@ export default function BlogPost() {
                 <strong>Bottom line:</strong> If you publish timely content, News SEO should be your #1 traffic growth strategy. The competition is weak, the tools are free, and the ROI is immediate.
               </p>
             </section>
-
             <section className="mt-12">
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -586,7 +553,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #NewsSEO #GoogleNews #TopStories #NewsArticleSchema #SEOAutomation
@@ -595,7 +561,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

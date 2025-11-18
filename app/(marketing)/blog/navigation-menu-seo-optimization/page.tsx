@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX -- 58% More Indexation',
   description: 'Navigation menu optimization increased indexation 58%, boosted internal link equity distribution 42%, and improved Core Web Vitals 31% by structuring menus for both crawlability and user experience with proper hierarchy, descriptive anchor text, and mobile-first design.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'navigation-menu-seo-optimization').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -19,21 +20,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Navigation Menu SEO</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Navigation Menu SEO: 16 Tactics to Structure Menus for Rankings & UX
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>June 12, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Navigation affects rankings more than you think--menus distribute link equity, guide Googlebot, and signal site structure. This guide optimizes navigation menus for crawlability, internal linking, and user experience using 16 proven tactics.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -45,7 +42,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -60,7 +56,6 @@ export default function BlogPost() {
                 <li className="text-slate-700"><strong>SEOLOGY automates</strong> navigation audits, anchor text optimization, and mobile-first menu structure for you</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Navigation Menu SEO Matters</h2>
@@ -74,14 +69,11 @@ export default function BlogPost() {
                   Mobile-first indexing makes navigation even more critical. Sites that optimize mobile navigation for Core Web Vitals see <strong>31% improvement in LCP and CLS scores</strong>, directly boosting mobile rankings. Google explicitly states that navigation contributes to E-E-A-T signals by demonstrating site organization and content quality.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 16 Navigation Menu SEO Tactics</h2>
-
                 <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200 mb-8">
                   <h3 className="text-2xl font-bold text-blue-900 mb-4">Category 1: Navigation Structure & Hierarchy</h3>
                   <p className="text-slate-700 mb-6">Foundation tactics for crawlable, logical menu architecture</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">1. Use Flat Navigation Hierarchy (Max 3 Clicks to Any Page)</h4>
@@ -98,7 +90,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites with flat navigation (2-3 click depth) see 58% more pages indexed compared to sites with deep hierarchies (Moz, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">2. Use Semantic HTML &lt;nav&gt; Element</h4>
                       <p className="text-slate-700 mb-4">
@@ -115,7 +106,6 @@ export default function BlogPost() {
     <li><a href="/contact">Contact</a></li>
   </ul>
 </nav>
-
 <!-- ❌ Generic div with no semantic meaning -->
 <div class="menu">
   <a href="/products">Products</a>
@@ -127,7 +117,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Semantic HTML improves accessibility (WCAG 2.1 AA compliance) and helps Google understand navigation context.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">3. Limit Top-Level Navigation to 7 Items (±2 Rule)</h4>
                       <p className="text-slate-700 mb-4">
@@ -137,7 +126,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites with 5-7 top-level menu items see 23% higher pages per session and 18% lower bounce rate compared to sites with 10+ items (Nielsen Norman Group, 2023).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">4. Prioritize High-Value Pages in Primary Navigation</h4>
                       <p className="text-slate-700 mb-4">
@@ -149,11 +137,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 mb-8">
                   <h3 className="text-2xl font-bold text-purple-900 mb-4">Category 2: Anchor Text & Link Optimization</h3>
                   <p className="text-slate-700 mb-6">Tactics for descriptive, keyword-rich navigation links</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">5. Use Descriptive Anchor Text (Not Generic)</h4>
@@ -170,7 +156,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Descriptive anchor text improves target page rankings by 27% for related keywords (Search Engine Journal, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">6. Include Target Keywords in Menu Labels</h4>
                       <p className="text-slate-700 mb-4">
@@ -180,7 +165,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Keyword-optimized navigation anchor text increases category page rankings by 19% on average (Moz, 2023).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">7. Use Regular &lt;a&gt; Tags (Not JavaScript Links)</h4>
                       <p className="text-slate-700 mb-4">
@@ -190,7 +174,6 @@ export default function BlogPost() {
                         <pre className="font-mono text-sm text-slate-800 overflow-x-auto">
 {`<!-- ✅ Crawlable HTML link -->
 <a href="/products">Products</a>
-
 <!-- ❌ JavaScript-only navigation (risky) -->
 <button onClick="navigate('/products')">Products</button>
 <div onClick="window.location='/products'">Products</div>`}
@@ -200,7 +183,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> HTML links ensure 100% crawlability; JavaScript navigation can miss 15-30% of link equity depending on Google\'s rendering budget.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">8. Add Title Attributes for Context (Not Required, But Helpful)</h4>
                       <p className="text-slate-700 mb-4">
@@ -219,11 +201,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl border-2 border-green-200 mb-8">
                   <h3 className="text-2xl font-bold text-green-900 mb-4">Category 3: Mobile Navigation & Performance</h3>
                   <p className="text-slate-700 mb-6">Tactics for mobile-first navigation that passes Core Web Vitals</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">9. Optimize Mobile Navigation for LCP & CLS</h4>
@@ -236,7 +216,6 @@ export default function BlogPost() {
 .menu-toggle:checked ~ .nav-menu {
   display: block;
 }
-
 /* Reserve space for navigation to prevent CLS */
 .nav-menu {
   min-height: 300px;
@@ -247,7 +226,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Sites that optimize mobile navigation for Core Web Vitals see 31% improvement in LCP/CLS scores and 22% higher mobile rankings (Google, 2024).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">10. Make Mobile Navigation Thumb-Friendly (44px Touch Targets)</h4>
                       <p className="text-slate-700 mb-4">
@@ -268,7 +246,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Proper touch targets reduce mobile bounce rate by 18% and improve usability scores in Google Search Console.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">11. Use Accessible Hamburger Menus (With aria-labels)</h4>
                       <p className="text-slate-700 mb-4">
@@ -291,7 +268,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Accessible navigation improves WCAG compliance and contributes to E-E-A-T quality signals.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">12. Ensure Navigation Links Are Crawlable on Mobile</h4>
                       <p className="text-slate-700 mb-4">
@@ -303,11 +279,9 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-200 mb-8">
                   <h3 className="text-2xl font-bold text-yellow-900 mb-4">Category 4: Advanced Navigation Tactics</h3>
                   <p className="text-slate-700 mb-6">Pro-level optimizations for mega menus, breadcrumbs, and internal linking</p>
-
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">13. Use Mega Menus for E-Commerce (With Lazy Loading)</h4>
@@ -329,7 +303,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Mega menus increase category page clicks by 47% while maintaining fast page load times with lazy loading (Baymard Institute, 2023).
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">14. Integrate Breadcrumbs with Navigation</h4>
                       <p className="text-slate-700 mb-4">
@@ -361,7 +334,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Breadcrumbs improve internal linking structure and can trigger breadcrumb rich snippets in Google search results.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">15. Add Search Functionality in Navigation</h4>
                       <p className="text-slate-700 mb-4">
@@ -371,7 +343,6 @@ export default function BlogPost() {
                         <strong>Result:</strong> Header search increases engagement metrics and provides query data for keyword research.
                       </p>
                     </div>
-
                     <div>
                       <h4 className="text-xl font-bold text-slate-900 mb-3">16. Monitor Navigation Performance in Google Search Console</h4>
                       <p className="text-slate-700 mb-4">
@@ -384,7 +355,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Navigation Menu SEO Mistakes</h2>
                 <ul className="space-y-4 my-6">
@@ -432,7 +402,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Tools for Navigation Menu SEO</h2>
                 <ul className="space-y-3 my-6">
@@ -468,7 +437,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Example: How Navigation Optimization Drove 58% More Indexation</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -540,7 +508,6 @@ export default function BlogPost() {
                   <strong>Key Takeaway:</strong> Navigation structure directly impacts indexation, rankings, and revenue--flat hierarchies with crawlable HTML links and descriptive anchor text drive measurable SEO wins.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Navigation Menu SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -572,7 +539,6 @@ export default function BlogPost() {
                     <span><strong>Zero Manual Work:</strong> Connect your CMS (Shopify, WordPress, custom sites) and SEOLOGY applies fixes automatically--no coding or technical expertise required</span>
                   </li>
                 </ul>
-
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Automate Your Navigation Menu SEO Optimization</h3>
                   <p className="text-lg mb-6 opacity-90">
@@ -587,7 +553,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Navigation Menu SEO Is the Highway to Rankings</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -600,7 +565,6 @@ export default function BlogPost() {
                   <strong>Ready to optimize navigation menus automatically?</strong> SEOLOGY audits site structure, rewrites navigation anchor text, fixes mobile usability issues, and monitors performance--delivering proven SEO wins without manual work. <Link href="/sign-up" className="text-blue-600 hover:text-blue-800 font-bold">Start your free trial today →</Link>
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -613,7 +577,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #NavigationSEO #InternalLinking #SiteStructure #MobileFirstIndexing #CoreWebVitals #TechnicalSEO #SEOLOGY #SEOAutomation
@@ -623,7 +586,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Read More Posts</h2>

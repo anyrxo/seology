@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'WooCommerce SEO: 21 Optimizations That Boosted Sales 156% in 2025',
   description: 'WooCommerce needs specific SEO tweaks generic plugins miss. These 21 optimizations increased organic traffic 230% and sales 156% for 300+ stores.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'woocommerce-seo-complete-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       <div className="container mx-auto px-4 pt-32 pb-16">
@@ -45,7 +46,6 @@ export default function BlogPost() {
                 <li><strong>Mobile optimization is non-negotiable</strong>--74% of e-commerce traffic is mobile (Statista)</li>
               </ul>
             </div>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Why WooCommerce SEO is Different (And Harder)</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
@@ -80,10 +80,8 @@ export default function BlogPost() {
                 <strong>Good news:</strong> Fixing these issues gives you massive competitive advantage. Most WooCommerce stores ignore 80% of these optimizations.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">21 WooCommerce SEO Optimizations That Actually Work</h2>
-
               <div className="space-y-8">
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
@@ -96,7 +94,6 @@ export default function BlogPost() {
                     <strong>Plugin:</strong> Schema Pro or Rank Math Pro (has built-in product schema).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
@@ -108,7 +105,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Stores with unique descriptions rank 62% higher (Ahrefs study).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
@@ -120,7 +116,6 @@ export default function BlogPost() {
                     <strong>Example:</strong> "Running Shoes" category → Add "How to Choose Running Shoes" buying guide.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
@@ -132,7 +127,6 @@ export default function BlogPost() {
                     <strong>Tool:</strong> Yoast SEO or Rank Math can set this automatically.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
@@ -144,7 +138,6 @@ export default function BlogPost() {
                     <strong>Result:</strong> Maintains rankings + captures email leads for restocks.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">6</div>
@@ -156,7 +149,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Images account for 60% of product page load time.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">7</div>
@@ -168,7 +160,6 @@ export default function BlogPost() {
                     <strong>Test:</strong> Google PageSpeed Insights. Aim for 90+ on mobile.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">8</div>
@@ -180,7 +171,6 @@ export default function BlogPost() {
                     <strong>Schema:</strong> Add BreadcrumbList schema so Google displays breadcrumbs in search results.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">9</div>
@@ -192,7 +182,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Products with reviews get 18% more clicks (BrightLocal study).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">10</div>
@@ -204,7 +193,6 @@ export default function BlogPost() {
                     <strong>Settings:</strong> WooCommerce → Permalinks → Set "Product base" to /shop/ (clean structure).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">11</div>
@@ -216,7 +204,6 @@ export default function BlogPost() {
                     <strong>Strategy:</strong> Each guide links to 5-10 relevant products (drives traffic + sales).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">12</div>
@@ -228,7 +215,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Proper internal linking increased rankings 43% (Ahrefs case study).
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">13</div>
@@ -240,7 +226,6 @@ export default function BlogPost() {
                     <strong>Settings:</strong> Most SEO plugins have "Noindex faceted navigation" option.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">14</div>
@@ -251,7 +236,6 @@ export default function BlogPost() {
                     <strong>Result:</strong> Rank for "running shoes near me" + local pack listings.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">15</div>
@@ -263,7 +247,6 @@ export default function BlogPost() {
                     <strong>Schema:</strong> Use FAQPage schema for each product.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">16</div>
@@ -275,7 +258,6 @@ export default function BlogPost() {
                     <strong>Critical:</strong> E-commerce sites without HTTPS lose 90% of checkout traffic.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">17</div>
@@ -287,7 +269,6 @@ export default function BlogPost() {
                     <strong>Impact:</strong> Mobile-optimized stores convert 3x better than non-optimized.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">18</div>
@@ -299,7 +280,6 @@ export default function BlogPost() {
                     <strong>Strategy:</strong> Show 4-6 related products per product page.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">19</div>
@@ -311,7 +291,6 @@ export default function BlogPost() {
                     <strong>Submit:</strong> Google Search Console → Sitemaps → Add sitemap URL.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">20</div>
@@ -323,7 +302,6 @@ export default function BlogPost() {
                     <strong>Check:</strong> Google Search Console → Core Web Vitals report. Fix "Poor" and "Needs Improvement" pages first.
                   </p>
                 </div>
-
                 <div>
                   <h3 className="text-xl font-bold mb-3 flex items-center gap-3">
                     <div className="bg-pink-600 text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">21</div>
@@ -337,7 +315,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Essential WooCommerce SEO Plugins</h2>
               <div className="grid md:grid-cols-2 gap-6">
@@ -367,7 +344,6 @@ export default function BlogPost() {
                 </div>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Real Example: WooCommerce SEO That Increased Sales 156%</h2>
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-200">
@@ -437,7 +413,6 @@ export default function BlogPost() {
                 </ul>
               </div>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates WooCommerce SEO</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -473,7 +448,6 @@ export default function BlogPost() {
                 <strong>Average result:</strong> SEOLOGY WooCommerce clients see <strong>180% more organic traffic</strong> and <strong>120% more sales from SEO</strong> within 90 days.
               </p>
             </section>
-
             <section>
               <h2 className="text-3xl font-bold mb-6">Final Verdict</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -495,7 +469,6 @@ export default function BlogPost() {
                 </Link>
               </div>
             </section>
-
             <section>
               <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
               <ul className="space-y-2">
@@ -508,7 +481,6 @@ export default function BlogPost() {
                 ))}
               </ul>
             </section>
-
             <section>
               <p className="text-sm text-slate-500">
                 <strong>Tags:</strong> #WooCommerce #WordPressSEO #EcommerceSEO #ProductSchema #PageSpeed

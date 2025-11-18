@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, MapPin, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Real Estate SEO: Dominate Local Search & Get More Listings',
   description: 'Real estate is hyper-competitive. This SEO strategy helped 73 agents dominate their local markets.',
 }
-
 export default function BlogPost() {
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
@@ -17,21 +18,17 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Real Estate SEO Guide</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Real Estate SEO: Dominate Local Search & Get More Listings
           </h1>
-
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Sarah Park</span>
             <span>•</span>
             <span>October 3, 2024</span>
           </div>
-
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Real estate is hyper-competitive. Every agent is fighting for the same keywords, the same buyers, the same sellers. This SEO strategy helped <strong className="text-white">73 agents dominate their local markets</strong> and generate 5-10 qualified leads per week--without paid ads.
           </p>
-
           <div className="mb-12">
             <Link
               href="/sign-up"
@@ -43,7 +40,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto prose prose-lg">
@@ -53,7 +49,6 @@ export default function BlogPost() {
                 Real estate SEO isn&apos;t about ranking nationally--it&apos;s about owning your local market. This guide covers hyper-local keyword targeting, Google Business Profile optimization, neighborhood-level content, and automated SEO systems that keep you ranking #1 while you focus on closing deals. SEOLOGY automates 90% of these tactics.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Traditional Real Estate Marketing Is Dead</h2>
@@ -77,13 +72,11 @@ export default function BlogPost() {
                   If you&apos;re not showing up in steps 1-2, you&apos;re invisible. This guide fixes that.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Real Estate SEO Framework</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Real estate SEO has three pillars:
                 </p>
-
                 <div className="grid md:grid-cols-3 gap-6 my-8">
                   <div className="bg-blue-50 p-6 rounded-lg">
                     <MapPin className="w-10 h-10 text-blue-600 mb-4" />
@@ -102,10 +95,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pillar 1: Hyper-Local Keyword Domination</h2>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">The Mistake Every Agent Makes</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Most agents target these keywords:
@@ -118,12 +109,10 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   These keywords have massive competition and low conversion rates. You&apos;ll never outrank the national portals.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">The Hyper-Local Strategy</h3>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Instead, target neighborhood-level keywords with buyer/seller intent:
                 </p>
-
                 <div className="bg-slate-50 p-6 rounded-lg my-8">
                   <h4 className="text-xl font-bold mb-4 mt-0">High-Converting Real Estate Keywords</h4>
                   <div className="space-y-4 mb-0">
@@ -159,7 +148,6 @@ export default function BlogPost() {
                     </div>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">How to Find Your Keywords</h3>
                 <ol className="space-y-4 my-6">
                   <li className="text-slate-700">
@@ -178,7 +166,6 @@ export default function BlogPost() {
                     <strong>Step 5:</strong> Create dedicated pages for each neighborhood + keyword combo
                   </li>
                 </ol>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
                   <p className="text-green-900 font-bold mb-2">✅ Pro Tip:</p>
                   <p className="text-slate-700 mb-0">
@@ -186,7 +173,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pillar 2: Google Business Profile Mastery</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -195,9 +181,7 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Getting into that Map Pack = 5-10x more visibility than regular organic results.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">How to Optimize Your GBP</h3>
-
                 <div className="space-y-6 my-8">
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">1. Complete EVERY Section</h4>
@@ -213,7 +197,6 @@ export default function BlogPost() {
                       <li>Categories (Primary: Real Estate Agent, Secondary: Real Estate Consultant, Real Estate Agency)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">2. Photos, Photos, Photos</h4>
                     <p className="text-slate-700 mb-3">Profiles with 100+ photos get 520% more calls. Upload:</p>
@@ -227,7 +210,6 @@ export default function BlogPost() {
                     </ul>
                     <p className="text-slate-700 mt-3 mb-0"><strong>Upload 3-5 new photos every week.</strong> Google favors active profiles.</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">3. Reviews Are EVERYTHING</h4>
                     <p className="text-slate-700 mb-3">Reviews are the #1 ranking factor for Map Pack. Here&apos;s the system:</p>
@@ -239,7 +221,6 @@ export default function BlogPost() {
                       <li><strong>Never buy fake reviews</strong> (Google detects and penalizes)</li>
                     </ul>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">4. Google Posts (Weekly Updates)</h4>
                     <p className="text-slate-700 mb-3">Post weekly updates directly to your GBP:</p>
@@ -251,7 +232,6 @@ export default function BlogPost() {
                     </ul>
                     <p className="text-slate-700 mt-3 mb-0">Include a CTA button ("Learn More", "Sign Up", "Call Now").</p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-3 mt-0">5. Q&A Section</h4>
                     <p className="text-slate-700 mb-3">Fill out the Q&A section yourself (yes, you can do this):</p>
@@ -262,7 +242,6 @@ export default function BlogPost() {
                     </ul>
                   </div>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
                   <p className="text-green-900 font-bold mb-2">🎯 Result:</p>
                   <p className="text-slate-700 mb-0">
@@ -270,7 +249,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Pillar 3: Content That Ranks & Converts</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -279,9 +257,7 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   You need content that demonstrates local expertise and answers buyer/seller questions.
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Content Types That Work</h3>
-
                 <div className="space-y-6 my-8">
                   <div>
                     <h4 className="text-xl font-bold mb-3">1. Neighborhood Guides (The Foundation)</h4>
@@ -304,7 +280,6 @@ export default function BlogPost() {
                     </div>
                     <p className="text-slate-700 mt-3"><strong>Target:</strong> 2,000+ words per guide. Update quarterly with new market data.</p>
                   </div>
-
                   <div>
                     <h4 className="text-xl font-bold mb-3">2. Market Reports (Monthly Updates)</h4>
                     <p className="text-slate-700 mb-3">Publish monthly reports on your market:</p>
@@ -318,7 +293,6 @@ export default function BlogPost() {
                     </ul>
                     <p className="text-slate-700 mt-3">Include charts/graphs (visual content ranks better).</p>
                   </div>
-
                   <div>
                     <h4 className="text-xl font-bold mb-3">3. Buyer & Seller Guides</h4>
                     <p className="text-slate-700 mb-3">Ultimate guides targeting transactional keywords:</p>
@@ -330,7 +304,6 @@ export default function BlogPost() {
                       <li>"What&apos;s My Home Worth? [City] Home Valuation Guide"</li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="text-xl font-bold mb-3">4. Comparison Content</h4>
                     <p className="text-slate-700 mb-3">People love comparisons:</p>
@@ -341,7 +314,6 @@ export default function BlogPost() {
                       <li>"Living in [City] vs [Nearby City]: Complete Comparison"</li>
                     </ul>
                   </div>
-
                   <div>
                     <h4 className="text-xl font-bold mb-3">5. Video Content</h4>
                     <p className="text-slate-700 mb-3">Video is exploding for real estate SEO:</p>
@@ -355,7 +327,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mt-3">Upload to YouTube and embed on your website. Google loves video content.</p>
                   </div>
                 </div>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
                   <p className="text-green-900 font-bold mb-2">📊 Content Publishing Schedule:</p>
                   <ul className="text-slate-700 mb-0 space-y-1">
@@ -366,13 +337,11 @@ export default function BlogPost() {
                   </ul>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Technical SEO for Real Estate Sites</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Your content won&apos;t rank if your technical SEO is broken. Here are the critical technical fixes:
                 </p>
-
                 <ol className="space-y-6 my-8">
                   <li>
                     <strong className="text-xl text-slate-900">Mobile Optimization</strong>
@@ -399,7 +368,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mt-2">IDX/MLS feeds often create duplicate content. Use canonical tags to point to the original listing on Zillow/Realtor.com, or add unique descriptions to every listing.</p>
                   </li>
                 </ol>
-
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
                   <p className="text-blue-900 font-bold mb-2">🤖 Automate It:</p>
                   <p className="text-slate-700 mb-0">
@@ -407,13 +375,11 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Link Building for Real Estate Agents</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Backlinks signal authority to Google. The more quality backlinks you have, the higher you rank. Here&apos;s how to get them:
                 </p>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Local Link Building Tactics</h3>
                 <ol className="space-y-4 my-6">
                   <li className="text-slate-700">
@@ -437,7 +403,6 @@ export default function BlogPost() {
                     <p className="mt-2">Partner with mortgage brokers, home inspectors, contractors, interior designers. Exchange backlinks on each other&apos;s "Recommended Partners" pages.</p>
                   </li>
                 </ol>
-
                 <div className="bg-green-50 border-l-4 border-green-600 p-6 my-8 rounded-r-lg">
                   <p className="text-green-900 font-bold mb-2">🎯 Link Building Goal:</p>
                   <p className="text-slate-700 mb-0">
@@ -445,13 +410,11 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Measuring Real Estate SEO Success</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   Track these metrics to measure ROI:
                 </p>
-
                 <div className="bg-slate-50 p-6 rounded-lg my-8">
                   <h3 className="text-xl font-bold mb-4 mt-0">Key Metrics</h3>
                   <ul className="space-y-3 text-slate-700 mb-0">
@@ -472,7 +435,6 @@ export default function BlogPost() {
                     </li>
                   </ul>
                 </div>
-
                 <h3 className="text-2xl font-bold mt-8 mb-4">Tools You Need</h3>
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Google Search Console:</strong> Free. Shows which keywords drive traffic.</li>
@@ -482,13 +444,11 @@ export default function BlogPost() {
                   <li><strong>SEOLOGY:</strong> Automates SEO fixes, tracks rankings, monitors competitors.</li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Real Estate SEO Timeline: What to Expect</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   SEO isn&apos;t instant. Here&apos;s a realistic timeline:
                 </p>
-
                 <div className="space-y-4 my-8">
                   <div className="bg-slate-50 p-6 rounded-lg">
                     <h4 className="text-xl font-bold mb-2 mt-0">Month 1-2: Foundation</h4>
@@ -507,7 +467,6 @@ export default function BlogPost() {
                     <p className="text-slate-700 mb-0">Top 3 rankings for most target keywords. In Map Pack for multiple neighborhoods. Traffic up 400-500%. 10-20 qualified leads per month from SEO.</p>
                   </div>
                 </div>
-
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-6 my-8 rounded-r-lg">
                   <p className="text-blue-900 font-bold mb-2">⏱️ Patience Pays Off:</p>
                   <p className="text-slate-700 mb-0">
@@ -515,7 +474,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Real Estate SEO Mistakes to Avoid</h2>
                 <div className="space-y-4 my-8">
@@ -541,7 +499,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section className="my-16">
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-2xl p-12 text-center">
                   <h2 className="text-4xl font-bold mb-6">Ready to Dominate Your Local Market?</h2>
@@ -568,7 +525,6 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Thoughts: SEO Is Your Long-Term Competitive Advantage</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -584,7 +540,6 @@ export default function BlogPost() {
                   And if you want to automate 90% of this work? SEOLOGY handles it for you. Set it up once, and let AI optimize your SEO while you focus on what you do best--helping clients buy and sell homes.
                 </p>
               </section>
-
               <div className="mt-16 pt-8 border-t border-slate-200">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div>

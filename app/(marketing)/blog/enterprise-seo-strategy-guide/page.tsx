@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Enterprise SEO Strategy: Scale SEO for 10,000+ Pages',
   description: 'Enterprise SEO requires different strategies. This guide shows how to manage SEO for massive websites at scale.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(p => p.slug !== 'enterprise-seo-strategy-guide').slice(0, 4)
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -21,24 +22,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Enterprise SEO Strategy Guide</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Enterprise SEO Strategy: Scale SEO for 10,000+ Pages
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>September 25, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Enterprise SEO requires different strategies. This guide shows how to manage SEO for <strong className="text-white">massive websites at scale</strong>.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -51,7 +48,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -63,7 +59,6 @@ export default function BlogPost() {
                 Enterprise SEO at scale (10,000+ pages) requires automation, standardization, and technical infrastructure. This guide covers 23 enterprise-specific strategies: taxonomy architecture, programmatic SEO, crawl budget management, international SEO, technical debt prevention, and automation frameworks. Companies implementing proper enterprise SEO see 8.3x ROI increases. SEOLOGY handles enterprise-scale SEO automatically with no manual work required.
               </p>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">What Makes Enterprise SEO Different</h2>
@@ -92,7 +87,6 @@ export default function BlogPost() {
                   <strong>Key differentiators:</strong> Scale requires automation. Manual optimization is impossible. Technical infrastructure matters more than content. Governance prevents chaos. Migration mistakes cost millions.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Enterprise SEO Challenges</h2>
                 <div className="space-y-6 mb-8">
@@ -108,7 +102,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> Ecommerce site with 50,000 products but 5 million indexed URLs from filter combinations.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Technical Debt at Scale</h4>
                     <p className="text-slate-700 mb-3">
@@ -121,7 +114,6 @@ export default function BlogPost() {
                       <strong>Reality:</strong> One bad template can break SEO for 100,000 pages instantly.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">Multi-Stakeholder Chaos</h4>
                     <p className="text-slate-700 mb-3">
@@ -134,7 +126,6 @@ export default function BlogPost() {
                       <strong>Solution:</strong> SEO governance framework with automated checks in CI/CD pipeline.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">International Complexity</h4>
                     <p className="text-slate-700 mb-3">
@@ -149,10 +140,8 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">23 Enterprise SEO Strategies That Scale</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Architecture & Taxonomy (6 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -170,7 +159,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Clear site hierarchy. Category pages rank for broad terms. Product pages rank for specific queries.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">2. Implement Faceted Navigation Control</h4>
                     <p className="text-slate-700 mb-3">
@@ -186,7 +174,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> /shoes?brand=nike (indexed) vs /shoes?color=red&size=10 (noindex, canonical to /shoes)
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">3. Build Template-Based SEO System</h4>
                     <p className="text-slate-700 mb-3">
@@ -202,7 +189,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> One template change updates 100,000 pages instantly. Consistency across entire site.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">4. Create Programmatic Landing Pages</h4>
                     <p className="text-slate-700 mb-3">
@@ -218,7 +204,6 @@ export default function BlogPost() {
                       <strong>Warning:</strong> Requires substantial unique content per page. Thin content penalties kill this strategy if done wrong.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">5. Optimize Internal Linking Architecture</h4>
                     <p className="text-slate-700 mb-3">
@@ -234,7 +219,6 @@ export default function BlogPost() {
                       <strong>Tool:</strong> Use log file analysis to find pages Google can\'t discover. Add strategic internal links.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">6. Implement Pagination Best Practices</h4>
                     <p className="text-slate-700 mb-3">
@@ -248,7 +232,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Technical Infrastructure (6 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -266,7 +249,6 @@ export default function BlogPost() {
                       <strong>Goal:</strong> Google crawls your most important pages daily. Low-value pages crawled weekly or not at all.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">8. Implement Log File Analysis</h4>
                     <p className="text-slate-700 mb-3">
@@ -282,7 +264,6 @@ export default function BlogPost() {
                       <strong>Action:</strong> Cross-reference log files with Google Analytics to find pages Googlebot crawls but users never visit. Noindex or delete them.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">9. Optimize JavaScript Rendering</h4>
                     <p className="text-slate-700 mb-3">
@@ -298,7 +279,6 @@ export default function BlogPost() {
                       <strong>Common mistake:</strong> Lazy loading content below fold that Google never sees. Ensure critical content in initial HTML.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">10. Build Distributed XML Sitemaps</h4>
                     <p className="text-slate-700 mb-3">
@@ -317,7 +297,6 @@ export default function BlogPost() {
                       <strong>Example:</strong> Amazon has thousands of sitemap files segmented by category and region.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">11. Monitor Core Web Vitals at Scale</h4>
                     <p className="text-slate-700 mb-3">
@@ -336,7 +315,6 @@ export default function BlogPost() {
                       <strong>Goal:</strong> 75th percentile of all page loads passes all three Core Web Vitals.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">12. Implement CDN and Edge Caching</h4>
                     <p className="text-slate-700 mb-3">
@@ -353,7 +331,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">International & Multi-Site (5 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -376,7 +353,6 @@ export default function BlogPost() {
                       <strong>Common errors:</strong> Missing return tags. Wrong language codes. Self-referencing canonical conflicting with hreflang.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">14. Choose Right International Structure</h4>
                     <p className="text-slate-700 mb-3">
@@ -392,7 +368,6 @@ export default function BlogPost() {
                       <strong>Recommendation:</strong> Subdirectories for 90% of enterprise cases. Use ccTLDs only if strong local presence required (government contracts, local laws).
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">15. Localize Content (Don\'t Just Translate)</h4>
                     <p className="text-slate-700 mb-3">
@@ -408,7 +383,6 @@ export default function BlogPost() {
                       <strong>Process:</strong> Keyword research per market → Human translation → Native speaker editing → Local SEO optimization.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">16. Handle Currency and Geo-Targeting</h4>
                     <p className="text-slate-700 mb-3">
@@ -424,7 +398,6 @@ export default function BlogPost() {
                       <strong>Schema markup:</strong> Add priceCurrency to Product schema matching page region.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">17. Consolidate Multi-Brand SEO</h4>
                     <p className="text-slate-700 mb-3">
@@ -441,7 +414,6 @@ export default function BlogPost() {
                     </p>
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Automation & Governance (6 Strategies)</h3>
                 <div className="space-y-6 mb-8">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
@@ -459,7 +431,6 @@ export default function BlogPost() {
                       <strong>Tools:</strong> Botify, Lumar, OnCrawl for enterprise. Screaming Frog for smaller sites.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">19. Integrate SEO into DevOps Pipeline</h4>
                     <p className="text-slate-700 mb-3">
@@ -475,7 +446,6 @@ export default function BlogPost() {
                       <strong>Tools:</strong> Lighthouse CI, SEO Testing frameworks, custom scripts using Puppeteer.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">20. Build Content Creation Workflows</h4>
                     <p className="text-slate-700 mb-3">
@@ -491,7 +461,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Consistent SEO quality across thousands of content pieces.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">21. Automate Schema Markup Deployment</h4>
                     <p className="text-slate-700 mb-3">
@@ -510,7 +479,6 @@ export default function BlogPost() {
                       <strong>Benefit:</strong> Rich results (star ratings, price, availability) increase CTR by 30%+.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">22. Implement Automated Redirect Management</h4>
                     <p className="text-slate-700 mb-3">
@@ -526,7 +494,6 @@ export default function BlogPost() {
                       <strong>Tools:</strong> Custom scripts using Python + fuzzy string matching. Monitor redirect performance in Google Search Console.
                     </p>
                   </div>
-
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h4 className="text-xl font-bold mb-3">23. Establish SEO Governance Framework</h4>
                     <p className="text-slate-700 mb-3">
@@ -544,7 +511,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Common Enterprise SEO Mistakes</h2>
                 <div className="space-y-6 my-8">
@@ -557,7 +523,6 @@ export default function BlogPost() {
                       <strong>Reality:</strong> Scale changes everything. Manual optimization impossible. Templates, automation, and infrastructure required.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ No Crawl Budget Management</h4>
                     <p className="text-slate-700 mb-3">
@@ -567,7 +532,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Important pages never get crawled. New products take weeks to index. Rankings suffer.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Missing SEO Governance</h4>
                     <p className="text-slate-700 mb-3">
@@ -577,7 +541,6 @@ export default function BlogPost() {
                       <strong>Result:</strong> Developers noindex entire site accidentally. Marketing changes URLs without redirects. Product breaks structured data.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Ignoring Technical Debt</h4>
                     <p className="text-slate-700 mb-3">
@@ -587,7 +550,6 @@ export default function BlogPost() {
                       <strong>Compound effect:</strong> Small issues multiply across templates. 100,000 pages with 3-redirect chains = massive crawl budget waste.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ Bad Hreflang Implementation</h4>
                     <p className="text-slate-700 mb-3">
@@ -597,7 +559,6 @@ export default function BlogPost() {
                       <strong>Impact:</strong> Wrong language versions shown in search. Duplicate content issues. Wasted international SEO potential.
                     </p>
                   </div>
-
                   <div className="bg-red-50 border-l-4 border-red-600 p-6 rounded-r-lg">
                     <h4 className="text-xl font-bold mb-3 text-red-900">❌ No Mobile Parity</h4>
                     <p className="text-slate-700 mb-3">
@@ -609,7 +570,6 @@ export default function BlogPost() {
                   </div>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Handles Enterprise SEO</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -645,7 +605,6 @@ export default function BlogPost() {
                     <span>Integrates with CI/CD pipelines to catch SEO issues before production deployment</span>
                   </li>
                 </ul>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Scale Enterprise SEO Without Scaling Your Team</h3>
@@ -661,7 +620,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -670,7 +628,6 @@ export default function BlogPost() {
                   <li><Link href="/blog/international-seo-hreflang-guide" className="text-blue-600 hover:text-blue-800">International SEO & Hreflang: The Complete Implementation Guide</Link></li>
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #EnterpriseSEO #SEOatScale #TechnicalSEO
@@ -680,7 +637,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">

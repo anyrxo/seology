@@ -1,15 +1,16 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { blogPosts } from '@/lib/blog-data'
 
 export const metadata: Metadata = {
   title: 'Keyword Research Strategy That Actually Works in 2025',
   description: 'Stop wasting time on low-value keywords. This strategy finds high-converting keywords that actually drive sales.',
 }
-
 export default function BlogPost() {
   const relatedPosts = blogPosts.filter(post =>
     ['content-optimization-ai-vs-manual', 'featured-snippets-optimization-guide', 'title-tag-optimization-complete-guide', 'saas-seo-strategy-complete-guide'].includes(post.slug)
   )
-
   return (
     <article className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
       {/* Hero Section */}
@@ -23,24 +24,20 @@ export default function BlogPost() {
             {' '}/{' '}
             <span>Keyword Research Strategy</span>
           </div>
-
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent leading-tight">
             Keyword Research Strategy That Actually Works in 2025
           </h1>
-
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
             <span>Marcus Chen</span>
             <span>•</span>
             <span>December 10, 2024</span>
           </div>
-
           {/* Description */}
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Stop wasting time on low-value keywords. This strategy finds <strong className="text-white">high-converting keywords</strong> that actually drive sales.
           </p>
-
           {/* CTA */}
           <div className="mb-12">
             <Link
@@ -53,7 +50,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Content */}
       <div className="bg-white text-slate-900">
         <div className="container mx-auto px-4 py-16">
@@ -69,7 +65,6 @@ export default function BlogPost() {
                 <li>SEOLOGY's AI identifies high-value keywords automatically</li>
               </ul>
             </div>
-
             <div className="space-y-8">
               <section>
                 <h2 className="text-3xl font-bold mb-6">Why Most Keyword Research Fails</h2>
@@ -98,7 +93,6 @@ export default function BlogPost() {
                   This guide shows you the exact keyword research strategy used by 8-figure ecommerce brands.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The 4 Types of Search Intent</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -144,10 +138,8 @@ export default function BlogPost() {
                   </p>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">The Ultimate Keyword Research Process (Step-by-Step)</h2>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Step 1: Seed Keyword Brainstorming</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Start with 5-10 seed keywords related to your business:
@@ -166,7 +158,6 @@ export default function BlogPost() {
                     <span>Your industry or niche</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Step 2: Expand with Keyword Tools</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Use these tools to expand your seed keywords:
@@ -189,7 +180,6 @@ export default function BlogPost() {
                     <span><strong>Google Search Console:</strong> Keywords you already rank for</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Step 3: Competitor Gap Analysis</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Find keywords your competitors rank for, but you don't:
@@ -208,7 +198,6 @@ export default function BlogPost() {
                     <span>Prioritize keywords with low difficulty and high search volume</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Step 4: Analyze Keyword Metrics</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Evaluate each keyword on these criteria:
@@ -235,7 +224,6 @@ export default function BlogPost() {
                     <span><strong>Trend:</strong> Growing or stable search volume</span>
                   </li>
                 </ul>
-
                 <h3 className="text-2xl font-bold mb-4 mt-8">Step 5: Prioritize with the KEI Formula</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
                   Use Keyword Effectiveness Index (KEI) to prioritize:
@@ -247,7 +235,6 @@ export default function BlogPost() {
                   Higher KEI = better opportunity. Focus on keywords with KEI above 100.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Long-Tail Keywords: The Secret Weapon</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -271,7 +258,6 @@ export default function BlogPost() {
                   <strong>Example:</strong> Instead of targeting "running shoes" (high competition), target "best trail running shoes for wide feet" (low competition, high intent).
                 </p>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Keyword Research Mistakes to Avoid</h2>
                 <ul className="space-y-4 my-6">
@@ -305,7 +291,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">How SEOLOGY Automates Keyword Research</h2>
                 <p className="text-lg text-slate-700 leading-relaxed">
@@ -334,7 +319,6 @@ export default function BlogPost() {
                   </li>
                 </ul>
               </section>
-
               <section>
                 <h2 className="text-3xl font-bold mb-6">Final Verdict: Focus on Intent, Not Volume</h2>
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -343,7 +327,6 @@ export default function BlogPost() {
                 <p className="text-lg text-slate-700 leading-relaxed mb-6">
                   One high-intent keyword can generate more revenue than 100 low-intent keywords.
                 </p>
-
                 {/* Final CTA */}
                 <div className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-2xl text-white">
                   <h3 className="text-2xl font-bold mb-4">Let AI Find Your Best Keywords</h3>
@@ -359,7 +342,6 @@ export default function BlogPost() {
                   </Link>
                 </div>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold mb-4">Related Posts:</h2>
                 <ul className="space-y-2">
@@ -370,7 +352,6 @@ export default function BlogPost() {
                   ))}
                 </ul>
               </section>
-
               <section>
                 <p className="text-sm text-slate-500">
                   <strong>Tags:</strong> #KeywordResearch #SEOStrategy #ContentMarketing #SearchIntent #LongTailKeywords
@@ -380,7 +361,6 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-
       {/* Related Posts */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
