@@ -370,7 +370,7 @@ export default function BlogPost() {
                   </li>
                 </ul>
                 <p className="text-sm text-slate-600 italic">
-                  "We knew our product pages were underperforming but didn\'t realize how much opportunity we were leaving on the table. Writing unique descriptions and adding schema seemed like busywork, but the ROI was incredible--nearly 4x organic revenue in four months. This paid for itself 50x over." - Marcus Chen, CEO, TrailBlaze Outdoor Equipment
+                  "We knew our product pages were underperforming but didn\'t realize how much opportunity we were leaving on the table. Writing unique descriptions and adding schema seemed like busywork, but the ROI was incredible--nearly 4x organic revenue in four months. This paid for itself 50x over." - Maria Chen, CEO, TrailBlaze Outdoor Equipment
                 </p>
               </div>
             </section>

@@ -24,7 +24,7 @@ export default function BlogPost() {
             News SEO: 16 Tactics to Get Featured in Google News & Top Stories (847% Traffic Spike)
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span>
+            <span>Maria Chen</span>
             <span>•</span>
             <span>June 10, 2024</span>
           </div>
@@ -173,7 +173,7 @@ export default function BlogPost() {
   "dateModified": "2024-06-10T15:45:00-07:00",
   "author": {
     "@type": "Person",
-    "name": "Marcus Chen",
+    "name": "Maria Chen",
     "url": "https://example.com/author/marcus-chen"
   }
   "publisher": {

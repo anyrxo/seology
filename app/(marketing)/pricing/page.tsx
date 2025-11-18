@@ -322,10 +322,34 @@ export default function PricingPage() {
                     transition: { type: 'spring', stiffness: 300, damping: 20 }
                   }}
                 >
+                  {/* Animated colored border ring for popular plan - BEHIND content */}
+                  {plan.popular && (
+                    <div className="absolute -inset-[2px] rounded-[18px] opacity-100 overflow-hidden z-0">
+                      <motion.div
+                        className="absolute inset-0 rounded-[18px]"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
+                          backgroundSize: '200% 100%',
+                          padding: '2px',
+                        }}
+                        animate={{
+                          backgroundPosition: ['200% 0', '-200% 0'],
+                        }}
+                        transition={{
+                          duration: 5,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                      >
+                        <div className="w-full h-full rounded-[18px] bg-white dark:bg-black"></div>
+                      </motion.div>
+                    </div>
+                  )}
+
                   {/* Popular Badge */}
                   {plan.popular && (
                     <motion.div
-                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold rounded-full shadow-lg flex items-center gap-2"
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold rounded-full shadow-lg flex items-center gap-2 z-20"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 200, delay: 0.5 }}
@@ -336,7 +360,7 @@ export default function PricingPage() {
                   )}
 
                   {/* Plan Header */}
-                  <div className="mb-8">
+                  <div className="mb-8 relative z-10">
                     <div className="flex items-center gap-3 mb-4">
                       <div className={`p-3 rounded-xl ${
                         plan.popular
@@ -390,7 +414,7 @@ export default function PricingPage() {
                   {/* CTA Button */}
                   <Link
                     href="/sign-up"
-                    className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 ${
+                    className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 relative z-10 ${
                       plan.popular
                         ? 'bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl'
                         : 'bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90'
@@ -401,7 +425,7 @@ export default function PricingPage() {
                   </Link>
 
                   {/* Features List */}
-                  <div className="space-y-4 flex-1">
+                  <div className="space-y-4 flex-1 relative z-10">
                     <div className="text-xs font-bold text-black/60 dark:text-white/60 uppercase tracking-wider mb-4">
                       What's included:
                     </div>
@@ -435,30 +459,6 @@ export default function PricingPage() {
                       </motion.div>
                     ))}
                   </div>
-
-                  {/* Animated colored border ring for popular plan */}
-                  {plan.popular && (
-                    <div className="absolute -inset-[2px] rounded-[18px] opacity-100 overflow-hidden">
-                      <motion.div
-                        className="absolute inset-0 rounded-[18px]"
-                        style={{
-                          background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
-                          backgroundSize: '200% 100%',
-                          padding: '2px',
-                        }}
-                        animate={{
-                          backgroundPosition: ['200% 0', '-200% 0'],
-                        }}
-                        transition={{
-                          duration: 5,
-                          repeat: Infinity,
-                          ease: 'linear',
-                        }}
-                      >
-                        <div className="w-full h-full rounded-[18px] bg-white dark:bg-black"></div>
-                      </motion.div>
-                    </div>
-                  )}
                 </motion.div>
               )
             })}

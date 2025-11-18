@@ -22,7 +22,7 @@ export default function BlogPost() {
             SaaS SEO Strategy: How to Dominate Competitive Markets in 2025
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span><span>•</span><span>November 25, 2024</span>
+            <span>Maria Chen</span><span>•</span><span>November 25, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             SaaS SEO is different from ecommerce. This strategy helped <strong className="text-white">47 SaaS companies</strong> rank #1 for their target keywords.

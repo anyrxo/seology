@@ -27,7 +27,7 @@ export default function BlogPost() {
             Review Schema: Get Star Ratings in Search Results (15 Implementation Tactics)
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>May 20, 2024</span>
           </div>

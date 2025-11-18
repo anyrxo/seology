@@ -28,7 +28,7 @@ export default function BlogPost() {
           </h1>
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span>
+            <span>Maria Chen</span>
             <span>•</span>
             <span>January 15, 2025</span>
           </div>

@@ -20,7 +20,7 @@ export default function BlogPost() {
             Site Architecture: SEO Best Practices for Maximum Crawlability in 2025
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span><span>•</span><span>November 18, 2024</span>
+            <span>Sarah Kim</span><span>•</span><span>November 18, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             Poor site architecture kills rankings. This guide shows the exact structure used by sites ranking #1 on Google--with 67% more pages indexed.

@@ -24,7 +24,7 @@ export default function BlogPost() {
             Semantic SEO: 16 Tactics to Optimize for NLP & Related Entities (52% Traffic Increase)
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>November 8, 2024</span>
           </div>

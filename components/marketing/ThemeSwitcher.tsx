@@ -26,14 +26,14 @@ export default function ThemeSwitcher() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative w-12 h-6 rounded-full bg-slate-200 dark:bg-slate-700 p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800"
+      className="relative w-12 h-6 rounded-full bg-black/10 dark:bg-white/10 p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:ring-offset-2"
       aria-label="Toggle theme"
       whileTap={{ scale: 0.95 }}
     >
       <motion.div
-        className="absolute top-1/2 left-1 w-4 h-4 rounded-full bg-white dark:bg-slate-900 shadow-md flex items-center justify-center"
+        className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white dark:bg-black shadow-md flex items-center justify-center"
         animate={{
-          x: theme === 'dark' ? 24 : 0,
+          x: theme === 'dark' ? 'calc(100% - 1.25rem)' : '0.25rem',
         }}
         transition={{
           type: "spring",
@@ -41,10 +41,10 @@ export default function ThemeSwitcher() {
           damping: 30,
         }}
       >
-        {theme === 'light' ? (
-          <Sun className="w-2.5 h-2.5 text-yellow-500" />
+        {theme === 'dark' ? (
+          <Moon className="w-2.5 h-2.5 text-black" />
         ) : (
-          <Moon className="w-2.5 h-2.5 text-blue-400" />
+          <Sun className="w-2.5 h-2.5 text-white" />
         )}
       </motion.div>
     </motion.button>

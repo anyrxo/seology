@@ -24,7 +24,7 @@ export default function BlogPost() {
             Search Intent Optimization: 18 Tactics to Match Content to User Intent in 2025
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span>
+            <span>Maria Chen</span>
             <span>•</span>
             <span>May 15, 2024</span>
           </div>

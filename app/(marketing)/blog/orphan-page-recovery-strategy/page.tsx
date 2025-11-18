@@ -27,7 +27,7 @@ export default function BlogPost() {
             Orphan Page Recovery: Find & Fix Pages With No Internal Links (14 Recovery Tactics)
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>June 5, 2024</span>
           </div>

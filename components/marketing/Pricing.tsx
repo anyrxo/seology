@@ -129,7 +129,7 @@ export default function Pricing() {
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
                   <div className="px-4 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-semibold rounded-full shadow-lg flex items-center gap-1">
                     <Sparkles className="h-3 w-3" />
                     Most Popular
@@ -145,9 +145,9 @@ export default function Pricing() {
                     : "border-black/10 dark:border-white/10"
                 } hover:shadow-2xl hover:bg-white/90 dark:hover:bg-black/90 transition-all duration-500 h-full flex flex-col group`}
               >
-                {/* Animated colored border ring for popular plan */}
+                {/* Animated colored border ring for popular plan - BEHIND content */}
                 {plan.popular && (
-                  <div className="absolute -inset-[2px] rounded-2xl opacity-100 overflow-hidden">
+                  <div className="absolute -inset-[2px] rounded-2xl opacity-100 overflow-hidden z-0">
                     <motion.div
                       className="absolute inset-0 rounded-2xl"
                       style={{
@@ -169,17 +169,17 @@ export default function Pricing() {
                   </div>
                 )}
                 {/* Plan Name */}
-                <h3 className="text-3xl font-black mb-2 text-black dark:text-white">
+                <h3 className="text-3xl font-black mb-2 text-black dark:text-white relative z-10">
                   {plan.name}
                 </h3>
 
                 {/* Description */}
-                <p className="text-black/60 dark:text-white/60 mb-6">
+                <p className="text-black/60 dark:text-white/60 mb-6 relative z-10">
                   {plan.description}
                 </p>
 
                 {/* Price */}
-                <div className="mb-8">
+                <div className="mb-8 relative z-10">
                   <div className="flex items-baseline gap-2">
                     <span className="text-6xl font-black text-black dark:text-white">
                       ${isAnnual ? plan.price.annual : plan.price.monthly}
@@ -194,7 +194,7 @@ export default function Pricing() {
                 </div>
 
                 {/* CTA Button */}
-                <Link href="/sign-up">
+                <Link href="/sign-up" className="relative z-10">
                   <button
                     className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 mb-8 ${
                       plan.popular
@@ -207,7 +207,7 @@ export default function Pricing() {
                 </Link>
 
                 {/* Features List */}
-                <ul className="space-y-3 flex-1">
+                <ul className="space-y-3 flex-1 relative z-10">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-black dark:bg-white flex items-center justify-center flex-shrink-0 mt-0.5">

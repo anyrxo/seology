@@ -20,7 +20,7 @@ export default function BlogPost() {
             WooCommerce SEO: 21 Optimizations That Boosted Sales 156% in 2025
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span><span>•</span><span>November 20, 2024</span>
+            <span>Sarah Kim</span><span>•</span><span>November 20, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             WooCommerce needs specific SEO tweaks generic plugins miss. These 21 optimizations increased organic traffic 230% and sales 156% for 300+ stores.

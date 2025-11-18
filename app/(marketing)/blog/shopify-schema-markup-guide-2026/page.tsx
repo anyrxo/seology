@@ -30,7 +30,7 @@ export default function BlogPost() {
         <div className="flex items-center gap-4">
           <div className="h-12 w-12 rounded-full bg-indigo-100"></div>
           <div>
-            <p className="font-semibold text-neutral-900">David Kim</p>
+            <p className="font-semibold text-neutral-900">Sarah Kim</p>
             <p className="text-sm text-neutral-600">Technical SEO Specialist at SEOLOGY.AI</p>
           </div>
         </div>
@@ -558,7 +558,7 @@ export default function BlogPost() {
           <div className="flex gap-6">
             <div className="h-16 w-16 flex-shrink-0 rounded-full bg-indigo-100"></div>
             <div>
-              <p className="mb-2 font-bold text-neutral-900">David Kim</p>
+              <p className="mb-2 font-bold text-neutral-900">Sarah Kim</p>
               <p className="mb-3 text-sm text-neutral-600">
                 Technical SEO Specialist at SEOLOGY.AI with 12+ years experience in structured data implementation.
                 David has personally implemented schema markup for 2,000+ ecommerce stores, achieving an average

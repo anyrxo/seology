@@ -20,7 +20,7 @@ export default function BlogPost() {
             Voice Search Optimization: 15 Tactics to Dominate Alexa, Siri & Google in 2025
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span><span>•</span><span>November 10, 2024</span>
+            <span>Maria Chen</span><span>•</span><span>November 10, 2024</span>
           </div>
           <p className="text-xl text-slate-300 mb-8 leading-relaxed">
             58% of consumers use voice search to find local businesses. These 15 tactics increased voice search visibility 340% for 200+ sites.

@@ -24,7 +24,7 @@ export default function BlogPost() {
             Redirect Chains: 17 Tactics to Find & Fix Loops Killing Your Speed
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>May 22, 2024</span>
           </div>

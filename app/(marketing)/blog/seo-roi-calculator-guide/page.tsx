@@ -28,7 +28,7 @@ export default function BlogPost() {
           </h1>
           {/* Meta */}
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>December 20, 2024</span>
           </div>

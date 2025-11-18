@@ -27,7 +27,7 @@ export default function BlogPost() {
             PPC & SEO Integration Strategy: 15 Tactics to Combine Paid & Organic for 92% Higher ROI
           </h1>
           <div className="flex items-center gap-4 text-slate-400 mb-8">
-            <span>Marcus Chen</span>
+            <span>Maria Chen</span>
             <span>•</span>
             <span>May 30, 2024</span>
           </div>

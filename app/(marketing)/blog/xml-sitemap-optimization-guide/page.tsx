@@ -26,7 +26,7 @@ export default function BlogPost() {
             XML Sitemap Optimization: Get Every Page Indexed Fast
           </h1>
           <div className="flex items-center gap-4 text-black/60 dark:text-white/60 mb-8">
-            <span>David Kim</span>
+            <span>Sarah Kim</span>
             <span>•</span>
             <span>October 25, 2024</span>
             <span>•</span>
