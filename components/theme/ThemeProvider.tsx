@@ -36,11 +36,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 
-  // Prevent flash of unstyled content
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+  // Always provide context, even during SSR
+  // This prevents "useTheme must be used within a ThemeProvider" errors during static generation
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
