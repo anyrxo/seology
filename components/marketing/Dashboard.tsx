@@ -186,10 +186,9 @@ export default function Dashboard() {
                         type="monotone"
                         dataKey="traffic"
                         stroke="#000"
-                        className="dark:stroke-white"
+                        className="dark:stroke-white dark:fill-white"
                         strokeWidth={3}
                         dot={{ fill: "#000", r: 6 }}
-                        className="dark:fill-white"
                         activeDot={{ r: 8 }}
                       />
                     </LineChart>
