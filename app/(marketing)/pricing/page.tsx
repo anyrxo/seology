@@ -199,35 +199,10 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="bg-white dark:bg-slate-950 min-h-screen relative overflow-hidden">
-      {/* Animated Background Gradient */}
+    <div className="bg-white dark:bg-black min-h-screen relative overflow-hidden">
+      {/* Subtle Background Pattern */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <motion.div
-          className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-500/15 via-pink-500/15 to-blue-500/15 rounded-full blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -100, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
 
       {/* Hero Section */}
@@ -236,29 +211,34 @@ export default function PricingPage() {
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             {/* Trust Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 rounded-full mb-8 shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full mb-8 shadow-sm"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, type: 'spring', bounce: 0.5 }}
             >
-              <Sparkles className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-semibold text-blue-900">
+              <Sparkles className="w-4 h-4 text-black dark:text-white" />
+              <span className="text-sm font-semibold text-black dark:text-white">
                 14-day free trial • No credit card required
               </span>
             </motion.div>
 
             {/* Main Heading */}
-            <motion.h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            <motion.header
+              className="mx-auto flex flex-col gap-y-3 text-center mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              Simple, Transparent Pricing
-            </motion.h1>
+              <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-2">
+                PRICING
+              </div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-black dark:text-white mb-6 leading-tight">
+                Simple, Transparent Pricing
+              </h1>
+            </motion.header>
 
             <motion.p
-              className="text-xl sm:text-2xl text-gray-600 mb-4"
+              className="text-xl sm:text-2xl text-black/60 dark:text-white/60 mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -267,7 +247,7 @@ export default function PricingPage() {
             </motion.p>
 
             <motion.p
-              className="text-base sm:text-lg text-gray-500 mb-12 max-w-2xl"
+              className="text-base sm:text-lg text-black/60 dark:text-white/60 mb-12 max-w-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -278,7 +258,7 @@ export default function PricingPage() {
 
             {/* Billing Cycle Toggle */}
             <motion.div
-              className="inline-flex items-center gap-3 p-1.5 bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-inner"
+              className="inline-flex items-center gap-3 p-1.5 bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-xl shadow-inner"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -287,8 +267,8 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('monthly')}
                 className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'monthly'
-                    ? 'bg-white dark:bg-slate-700 text-gray-900 dark:text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-md'
+                    : 'text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white'
                 }`}
               >
                 Monthly
@@ -297,13 +277,13 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('annual')}
                 className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'annual'
-                    ? 'bg-white dark:bg-slate-700 text-gray-900 dark:text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    ? 'bg-white dark:bg-black text-black dark:text-white shadow-md'
+                    : 'text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white'
                 }`}
               >
                 Annual
                 <motion.span
-                  className="absolute -top-3 -right-3 px-2.5 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs rounded-full font-bold shadow-lg"
+                  className="absolute -top-3 -right-3 px-2.5 py-1 bg-black dark:bg-white text-white dark:text-black text-xs rounded-full font-bold shadow-lg"
                   animate={{ y: [0, -2, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
@@ -328,10 +308,10 @@ export default function PricingPage() {
               return (
                 <motion.div
                   key={plan.name}
-                  className={`relative flex flex-col bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border rounded-[18px] p-8 transition-all duration-500 ${
+                  className={`relative flex flex-col bg-white/95 dark:bg-black/95 backdrop-blur-sm border rounded-[18px] p-8 transition-all duration-500 ${
                     plan.popular
-                      ? `border-blue-500/50 dark:border-blue-400/50 shadow-2xl shadow-blue-500/20 lg:scale-105 z-10`
-                      : `border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl`
+                      ? `border-black dark:border-white shadow-2xl lg:scale-105 z-10`
+                      : `border-black/10 dark:border-white/10 shadow-lg hover:shadow-xl`
                   }`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -345,7 +325,7 @@ export default function PricingPage() {
                   {/* Popular Badge */}
                   {plan.popular && (
                     <motion.div
-                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2"
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-bold rounded-full shadow-lg flex items-center gap-2"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ type: 'spring', stiffness: 200, delay: 0.5 }}
@@ -360,16 +340,16 @@ export default function PricingPage() {
                     <div className="flex items-center gap-3 mb-4">
                       <div className={`p-3 rounded-xl ${
                         plan.popular
-                          ? 'bg-gradient-to-br from-blue-600 to-purple-600'
-                          : 'bg-slate-900 dark:bg-slate-700'
+                          ? 'bg-black dark:bg-white'
+                          : 'bg-black dark:bg-white'
                       }`}>
-                        <PlanIcon className="w-6 h-6 text-white" />
+                        <PlanIcon className="w-6 h-6 text-white dark:text-black" />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
+                        <div className="text-sm font-bold text-black/60 dark:text-white/60 tracking-widest uppercase">
                           {plan.name}
                         </div>
-                        <div className="text-xs text-gray-600 dark:text-gray-400">
+                        <div className="text-xs text-black/60 dark:text-white/60">
                           {plan.tagline}
                         </div>
                       </div>
@@ -378,10 +358,10 @@ export default function PricingPage() {
                     {/* Price */}
                     <div className="mb-4">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-6xl font-black text-gray-900 dark:text-white">
+                        <span className="text-6xl font-black text-black dark:text-white">
                           ${getPrice(plan)}
                         </span>
-                        <span className="text-xl text-gray-500 dark:text-gray-400 font-medium">/month</span>
+                        <span className="text-xl text-black/60 dark:text-white/60 font-medium">/month</span>
                       </div>
                       {billingCycle === 'annual' && (
                         <motion.div
@@ -389,20 +369,20 @@ export default function PricingPage() {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                         >
-                          <Zap className="w-4 h-4 text-green-600" />
-                          <span className="text-sm text-green-600 font-bold">
+                          <Zap className="w-4 h-4 text-black dark:text-white" />
+                          <span className="text-sm text-black dark:text-white font-bold">
                             Save ${getAnnualSavings(plan)}/year
                           </span>
                         </motion.div>
                       )}
                       {billingCycle === 'monthly' && (
-                        <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        <div className="text-sm text-black/60 dark:text-white/60 mt-2">
                           Billed monthly
                         </div>
                       )}
                     </div>
 
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                    <p className="text-sm text-black/60 dark:text-white/60">
                       {plan.description}
                     </p>
                   </div>
@@ -412,8 +392,8 @@ export default function PricingPage() {
                     href="/sign-up"
                     className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl'
-                        : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100'
+                        ? 'bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl'
+                        : 'bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90'
                     }`}
                   >
                     {plan.cta}
@@ -422,7 +402,7 @@ export default function PricingPage() {
 
                   {/* Features List */}
                   <div className="space-y-4 flex-1">
-                    <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+                    <div className="text-xs font-bold text-black/60 dark:text-white/60 uppercase tracking-wider mb-4">
                       What's included:
                     </div>
                     {plan.features.map((feature, i) => (
@@ -435,19 +415,19 @@ export default function PricingPage() {
                         transition={{ delay: i * 0.05 }}
                       >
                         {feature.included ? (
-                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500 flex items-center justify-center mt-0.5">
-                            <Check className="w-3 h-3 text-white font-bold" />
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-black dark:bg-white flex items-center justify-center mt-0.5">
+                            <Check className="w-3 h-3 text-white dark:text-black font-bold" />
                           </div>
                         ) : (
-                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mt-0.5">
-                            <X className="w-3 h-3 text-gray-400 dark:text-gray-500" />
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-black/10 dark:bg-white/10 flex items-center justify-center mt-0.5">
+                            <X className="w-3 h-3 text-black/40 dark:text-white/40" />
                           </div>
                         )}
                         <span
                           className={`text-sm font-medium ${
                             feature.included
-                              ? 'text-gray-900 dark:text-white'
-                              : 'text-gray-400 dark:text-gray-500 line-through'
+                              ? 'text-black dark:text-white'
+                              : 'text-black/40 dark:text-white/40 line-through'
                           }`}
                         >
                           {feature.name}
@@ -456,12 +436,28 @@ export default function PricingPage() {
                     ))}
                   </div>
 
-                  {/* Glow Effect on Hover */}
+                  {/* Animated colored border ring for popular plan */}
                   {plan.popular && (
-                    <motion.div
-                      className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-indigo-500/20 to-purple-500/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      style={{ filter: 'blur(20px)' }}
-                    />
+                    <div className="absolute -inset-[2px] rounded-[18px] opacity-100 overflow-hidden">
+                      <motion.div
+                        className="absolute inset-0 rounded-[18px]"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, #3b82f6 25%, #8b5cf6 50%, #ec4899 75%, #06b6d4 100%, transparent 100%)',
+                          backgroundSize: '200% 100%',
+                          padding: '2px',
+                        }}
+                        animate={{
+                          backgroundPosition: ['200% 0', '-200% 0'],
+                        }}
+                        transition={{
+                          duration: 5,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                      >
+                        <div className="w-full h-full rounded-[18px] bg-white dark:bg-black"></div>
+                      </motion.div>
+                    </div>
                   )}
                 </motion.div>
               )
@@ -471,7 +467,7 @@ export default function PricingPage() {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -479,47 +475,39 @@ export default function PricingPage() {
                 icon: Shield,
                 title: '100% Secure',
                 description: 'Bank-level encryption',
-                color: 'text-blue-600 dark:text-blue-400',
-                bg: 'bg-blue-50 dark:bg-blue-900/20'
               },
               {
                 icon: Clock,
                 title: '14-Day Trial',
                 description: 'No credit card needed',
-                color: 'text-green-600 dark:text-green-400',
-                bg: 'bg-green-50 dark:bg-green-900/20'
               },
               {
                 icon: CreditCard,
                 title: 'Cancel Anytime',
                 description: 'No long-term contracts',
-                color: 'text-purple-600 dark:text-purple-400',
-                bg: 'bg-purple-50 dark:bg-purple-900/20'
               },
               {
                 icon: Lock,
                 title: 'Money Back',
                 description: '30-day guarantee',
-                color: 'text-amber-600 dark:text-amber-400',
-                bg: 'bg-amber-50 dark:bg-amber-900/20'
               },
             ].map((badge, index) => (
               <motion.div
                 key={index}
-                className="group relative flex flex-col items-center text-center p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-gray-100 dark:border-slate-700 hover:border-gray-200 dark:hover:border-slate-600 transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col items-center text-center p-6 bg-white/80 dark:bg-black/80 rounded-2xl border-2 border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -4, scale: 1.02 }}
               >
-                <div className={`p-4 ${badge.bg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                  <badge.icon className={`w-7 h-7 ${badge.color}`} />
+                <div className="p-4 bg-black/5 dark:bg-white/5 rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <badge.icon className="w-7 h-7 text-black dark:text-white" />
                 </div>
-                <div className="text-base font-bold text-gray-900 dark:text-white mb-1">
+                <div className="text-base font-bold text-black dark:text-white mb-1">
                   {badge.title}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="text-sm text-black/60 dark:text-white/60">
                   {badge.description}
                 </div>
               </motion.div>
@@ -537,34 +525,34 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-black text-black dark:text-white mb-4">
               Compare All Features
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
+            <p className="text-lg sm:text-xl text-black/60 dark:text-white/60">
               See exactly what is included in each plan
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border-2 border-gray-100 dark:border-slate-700 overflow-hidden"
+            className="bg-white/80 dark:bg-black/80 rounded-3xl shadow-2xl border-2 border-black/10 dark:border-white/10 overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-slate-800 dark:to-slate-700 border-b-2 border-gray-200 dark:border-slate-600">
+                <thead className="bg-black/5 dark:bg-white/5 border-b-2 border-black/10 dark:border-white/10">
                   <tr>
-                    <th className="px-6 py-5 text-left text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-left text-sm font-bold text-black dark:text-white uppercase tracking-wider">
                       Feature
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-black dark:text-white uppercase tracking-wider">
                       Starter
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider bg-blue-50 dark:bg-blue-900/20">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-black dark:text-white uppercase tracking-wider bg-black/5 dark:bg-white/5">
                       Growth
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-black dark:text-white uppercase tracking-wider">
                       Scale
                     </th>
                   </tr>
@@ -572,9 +560,9 @@ export default function PricingPage() {
                 <tbody>
                   {comparisonFeatures.map((category, catIndex) => (
                     <React.Fragment key={catIndex}>
-                      <tr className="bg-gray-50 dark:bg-slate-800/50">
+                      <tr className="bg-black/5 dark:bg-white/5">
                         <td colSpan={4} className="px-6 py-3">
-                          <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                          <div className="text-xs font-bold text-black/60 dark:text-white/60 uppercase tracking-widest">
                             {category.category}
                           </div>
                         </td>
@@ -582,37 +570,37 @@ export default function PricingPage() {
                       {category.features.map((feature, featureIndex) => (
                         <motion.tr
                           key={featureIndex}
-                          className="border-b border-gray-100 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                          className="border-b border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: featureIndex * 0.03 }}
                         >
-                          <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
+                          <td className="px-6 py-4 text-sm font-medium text-black dark:text-white">
                             {feature.name}
                           </td>
                           <td className="px-6 py-4 text-center">
                             {typeof feature.starter === 'boolean' ? (
                               feature.starter ? (
-                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
+                                <Check className="w-5 h-5 text-black dark:text-white mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
+                                <X className="w-5 h-5 text-black/20 dark:text-white/20 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                              <span className="text-sm font-semibold text-black dark:text-white">
                                 {feature.starter}
                               </span>
                             )}
                           </td>
-                          <td className="px-6 py-4 text-center bg-blue-50/50 dark:bg-blue-900/10">
+                          <td className="px-6 py-4 text-center bg-black/5 dark:bg-white/5">
                             {typeof feature.growth === 'boolean' ? (
                               feature.growth ? (
-                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
+                                <Check className="w-5 h-5 text-black dark:text-white mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
+                                <X className="w-5 h-5 text-black/20 dark:text-white/20 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                              <span className="text-sm font-semibold text-black dark:text-white">
                                 {feature.growth}
                               </span>
                             )}
@@ -620,12 +608,12 @@ export default function PricingPage() {
                           <td className="px-6 py-4 text-center">
                             {typeof feature.scale === 'boolean' ? (
                               feature.scale ? (
-                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
+                                <Check className="w-5 h-5 text-black dark:text-white mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
+                                <X className="w-5 h-5 text-black/20 dark:text-white/20 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                              <span className="text-sm font-semibold text-black dark:text-white">
                                 {feature.scale}
                               </span>
                             )}
@@ -642,7 +630,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -650,13 +638,13 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl mb-6">
-              <HelpCircle className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-black/5 dark:bg-white/5 rounded-2xl mb-6">
+              <HelpCircle className="w-8 h-8 text-black dark:text-white" />
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl sm:text-5xl font-black text-black dark:text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-black/60 dark:text-white/60">
               Everything you need to know about our pricing
             </p>
           </motion.div>
@@ -665,7 +653,7 @@ export default function PricingPage() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-gray-100 dark:border-slate-700 overflow-hidden hover:border-gray-200 dark:hover:border-slate-600 transition-all duration-300"
+                className="bg-white/80 dark:bg-black/80 rounded-2xl border-2 border-black/10 dark:border-white/10 overflow-hidden hover:border-black/20 dark:hover:border-white/20 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -673,16 +661,16 @@ export default function PricingPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                 >
-                  <span className="text-base font-semibold text-gray-900 dark:text-white pr-4">
+                  <span className="text-base font-semibold text-black dark:text-white pr-4">
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: openFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-black/60 dark:text-white/60 flex-shrink-0" />
                   </motion.div>
                 </button>
                 <AnimatePresence>
@@ -694,7 +682,7 @@ export default function PricingPage() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-slate-700 pt-4">
+                      <div className="px-6 pb-5 text-black/60 dark:text-white/60 leading-relaxed border-t border-black/10 dark:border-white/10 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -707,34 +695,7 @@ export default function PricingPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700" />
-
-        {/* Animated Particles */}
-        <div className="absolute inset-0">
-          {Array.from({ length: 40 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.2, 0.8, 0.2],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
-
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black dark:bg-white">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -742,10 +703,10 @@ export default function PricingPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white dark:text-black mb-6 leading-tight">
               Ready to Automate Your SEO?
             </h2>
-            <p className="text-xl sm:text-2xl text-blue-100 mb-10 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-white/90 dark:text-black/60 mb-10 leading-relaxed">
               Join thousands of businesses using AI to fix their SEO automatically.
               <br className="hidden sm:block" />
               Start your free trial today - no credit card required.
@@ -757,7 +718,7 @@ export default function PricingPage() {
               >
                 <Link
                   href="/sign-up"
-                  className="group inline-flex items-center justify-center px-10 py-5 bg-white text-blue-600 font-black rounded-xl hover:bg-blue-50 transition-all duration-300 text-lg shadow-2xl shadow-blue-900/30"
+                  className="group inline-flex items-center justify-center px-10 py-5 bg-white dark:bg-black text-black dark:text-white font-black rounded-xl hover:bg-white/90 dark:hover:bg-black/90 transition-all duration-300 text-lg shadow-2xl border border-black/10 dark:border-white/10"
                 >
                   Start Free Trial
                   <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
@@ -769,13 +730,13 @@ export default function PricingPage() {
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/20 transition-all duration-300 text-lg border-2 border-white/30"
+                  className="inline-flex items-center justify-center px-10 py-5 bg-white/10 dark:bg-black/10 backdrop-blur-sm text-white dark:text-black font-bold rounded-xl hover:bg-white/20 dark:hover:bg-black/20 transition-all duration-300 text-lg border-2 border-white/30 dark:border-black/30"
                 >
                   Talk to Sales
                 </Link>
               </motion.div>
             </div>
-            <p className="text-blue-200 text-sm mt-6">
+            <p className="text-white/70 dark:text-black/60 text-sm mt-6">
               No credit card required • 14-day free trial • Cancel anytime
             </p>
           </motion.div>

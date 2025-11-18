@@ -82,32 +82,32 @@ export default function Blog() {
           </div>
         </section>
         {/* Newsletter CTA */}
-        <section className="py-24 bg-slate-50 dark:bg-slate-900">
+        <section className="py-24 bg-white dark:bg-black">
           <div className="container max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center"
+              className="bg-black dark:bg-white rounded-2xl p-12 text-center border border-black/10 dark:border-white/10"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-white dark:text-black mb-4">
                 Get SEO Tips in Your Inbox
               </h2>
-              <p className="text-xl text-white/90 mb-8">
+              <p className="text-xl text-white/90 dark:text-black/60 mb-8">
                 Join 10,000+ store owners getting weekly SEO insights
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white"
+                  className="flex-1 px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-black text-black dark:text-white focus:ring-2 focus:ring-black dark:focus:ring-white"
                 />
-                <button className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors whitespace-nowrap">
+                <button className="px-6 py-3 bg-white dark:bg-black text-black dark:text-white font-semibold rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-colors whitespace-nowrap border border-black/10 dark:border-white/10">
                   Subscribe
                 </button>
               </div>
-              <p className="text-sm text-white/70 mt-4">
+              <p className="text-sm text-white/70 dark:text-black/60 mt-4">
                 No spam. Unsubscribe anytime.
               </p>
             </motion.div>
