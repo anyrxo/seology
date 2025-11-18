@@ -8,6 +8,10 @@
    =========================== */
 
 :root {
+  /* Background & Foreground */
+  --background: #ffffff;
+  --foreground: #1f2d54;
+  
   /* Dashflow X - Neutral Colors */
   --neutral--100: #ffffff;
   --neutral--200: #f7f8fc;
@@ -76,6 +80,10 @@
 
 /* Dark theme support for Dashflow X and Radiant UI */
 .dark {
+  /* Background & Foreground */
+  --background: #0a0f1f;
+  --foreground: #e6e8f0;
+  
   /* Background colors - inverted for dark mode */
   --neutral--100: #0f1319;  /* Darkest background */
   --neutral--200: #1a1d2e;  /* Main background */

@@ -30,21 +30,8 @@ export function PlanComparison({
     if (onSelectPlan) {
       onSelectPlan(planTier, billingCycle)
     } else {
-      // Default: redirect to checkout
-      try {
-        const response = await fetch('/api/billing/create-checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ plan: planTier, billingCycle }),
-        })
-
-        const data = await response.json()
-        if (data.success && data.url) {
-          window.location.href = data.url
-        }
-      } catch (error) {
-        console.error('Error creating checkout:', error)
-      }
+      // Default: redirect to sign-up
+      window.location.href = '/sign-up'
     }
   }
 

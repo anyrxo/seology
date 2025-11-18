@@ -11,6 +11,7 @@ import {
   Code,
   Zap,
 } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -91,10 +92,10 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            Everything You Need
+            Solution
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Comprehensive SEO tools powered by AI to dominate search rankings
+            Elevate Your SEO Strategy, From Start to Finish
           </p>
         </motion.div>
 
@@ -136,8 +137,8 @@ export default function Features() {
 
                 {/* Learn More Link */}
                 <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-                  <a
-                    href="#"
+                  <Link
+                    href="/sign-up"
                     className={`text-sm font-medium bg-gradient-to-r ${feature.color} bg-clip-text text-transparent hover:underline inline-flex items-center gap-1`}
                   >
                     Learn more
@@ -148,7 +149,7 @@ export default function Features() {
                     >
                       →
                     </motion.span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

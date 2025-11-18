@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Zap, MessageSquare, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 const modes = [
   {
@@ -64,10 +65,10 @@ export default function ThreeModes() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            How Seology Works
+            Elevate Your SEO Strategy, From Start to Finish
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Three powerful modes to optimize your SEO strategy
+            Three powerful modes to automate your SEO optimization
           </p>
         </motion.div>
 
@@ -144,9 +145,11 @@ export default function ThreeModes() {
           <p className="text-slate-600 dark:text-slate-400 mb-4">
             Switch between modes anytime or let Seology choose the best approach for you
           </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            Try Seology for Free
-          </button>
+          <Link href="/sign-up">
+            <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              Try Seology for Free
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

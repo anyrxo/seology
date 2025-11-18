@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,9 +12,10 @@ export default function Header() {
   const [mobileFeaturesOpen, setMobileFeaturesOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-      <div className="container">
-        <div className="flex items-center justify-between h-16">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 pt-4">
+      <div className="w-full rounded-[18px] border border-slate-200/50 dark:border-slate-800/50 bg-background/95 dark:bg-background/95 p-1 backdrop-blur-sm supports-[backdrop-filter]:bg-background/70 dark:supports-[backdrop-filter]:bg-background/70 shadow-sm">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-between h-16 px-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -22,7 +24,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {/* Features Dropdown */}
             <div
               className="relative"
@@ -64,13 +66,14 @@ export default function Header() {
             <Link href="/blog" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Blog
             </Link>
-            <Link href="/sign-up" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
+            <Link href="/pricing" className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">
               Pricing
             </Link>
           </nav>
 
-          {/* CTA Buttons */}
+          {/* Right Side - Theme Switcher & CTA */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeSwitcher />
             <Link href="/sign-up">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all">
                 Try SEOLOGY Free
@@ -175,6 +178,10 @@ export default function Header() {
                 Pricing
               </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <div className="flex items-center justify-between px-2 py-2">
+                  <span className="text-sm font-medium text-slate-600 dark:text-slate-300">Theme</span>
+                  <ThemeSwitcher />
+                </div>
                 <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                     Try SEOLOGY Free
@@ -184,6 +191,7 @@ export default function Header() {
             </nav>
           </div>
         )}
+        </div>
       </div>
     </header>
   );

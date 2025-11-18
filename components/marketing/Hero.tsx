@@ -41,7 +41,7 @@ export default function Hero() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             >
-              SEO That Never Sleeps
+              Automate Your SEO with AI-Powered Fixes
             </motion.h1>
 
             {/* Subheadline */}
@@ -51,7 +51,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed font-medium max-w-xl"
             >
-              Replace your SEO agency with AI that optimizes 24/7. Auto-fix issues, boost rankings, and grow organic traffic on autopilot.
+              Simply connect your site; our AI Agent analyzes your SEO, identifies issues, and automatically fixes them—no manual work required.
             </motion.p>
 
             {/* CTAs */}
@@ -59,32 +59,37 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-4 mb-6"
             >
-              <Button
-                size="lg"
-                className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-lg font-semibold"
-              >
-                Try Seology for Free
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Link href="/demo">
+              <Link href="/sign-up">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="border-2 border-blue-400 text-white hover:bg-blue-500/10 text-lg px-8 py-6 backdrop-blur-sm rounded-lg font-semibold cursor-pointer"
+                  className="bg-white hover:bg-blue-50 text-blue-600 text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-lg font-bold"
                 >
-                  View Demo
+                  Boost My SEO Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
+            </motion.div>
+
+            {/* Guarantee Badge */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="mb-8"
+            >
+              <p className="text-blue-100 text-sm font-medium">
+                14-Day Free Trial • No Credit Card Required
+              </p>
             </motion.div>
 
             {/* Trust indicators */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-wrap items-center gap-8 text-blue-100 text-sm"
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="flex flex-wrap items-center gap-6 text-blue-100 text-sm"
             >
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">

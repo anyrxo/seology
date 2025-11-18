@@ -199,7 +199,7 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="bg-white min-h-screen relative overflow-hidden">
+    <div className="bg-white dark:bg-slate-950 min-h-screen relative overflow-hidden">
       {/* Animated Background Gradient */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <motion.div
@@ -278,7 +278,7 @@ export default function PricingPage() {
 
             {/* Billing Cycle Toggle */}
             <motion.div
-              className="inline-flex items-center gap-3 p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-xl shadow-inner"
+              className="inline-flex items-center gap-3 p-1.5 bg-gray-100/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-inner"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
@@ -287,8 +287,8 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('monthly')}
                 className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'monthly'
-                    ? 'bg-white text-gray-900 shadow-md'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white dark:bg-slate-700 text-gray-900 dark:text-white shadow-md'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 Monthly
@@ -297,8 +297,8 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('annual')}
                 className={`relative px-8 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
                   billingCycle === 'annual'
-                    ? 'bg-white text-gray-900 shadow-md'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'bg-white dark:bg-slate-700 text-gray-900 dark:text-white shadow-md'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 Annual
@@ -316,18 +316,22 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
+      <section className="pb-20 px-4 sm:px-6 lg:px-8 relative">
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="relative w-full h-full after:absolute after:inset-0 after:z-10 after:[background:linear-gradient(to_top,#fff_30%,transparent)] dark:after:[background:linear-gradient(to_top,#0a0f1f_30%,transparent)]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-20">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 xl:gap-6">
             {plans.map((plan, index) => {
               const PlanIcon = plan.icon
               return (
                 <motion.div
                   key={plan.name}
-                  className={`relative flex flex-col bg-gradient-to-br ${plan.gradient} rounded-3xl p-8 transition-all duration-500 ${
+                  className={`relative flex flex-col bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border rounded-[18px] p-8 transition-all duration-500 ${
                     plan.popular
-                      ? `border-4 ${plan.borderColor} shadow-2xl shadow-blue-500/20 lg:scale-105 z-10`
-                      : `border-2 ${plan.borderColor} shadow-xl hover:shadow-2xl`
+                      ? `border-blue-500/50 dark:border-blue-400/50 shadow-2xl shadow-blue-500/20 lg:scale-105 z-10`
+                      : `border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-xl`
                   }`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -357,15 +361,15 @@ export default function PricingPage() {
                       <div className={`p-3 rounded-xl ${
                         plan.popular
                           ? 'bg-gradient-to-br from-blue-600 to-purple-600'
-                          : 'bg-gray-900'
+                          : 'bg-slate-900 dark:bg-slate-700'
                       }`}>
                         <PlanIcon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-gray-500 tracking-widest uppercase">
+                        <div className="text-sm font-bold text-gray-500 dark:text-gray-400 tracking-widest uppercase">
                           {plan.name}
                         </div>
-                        <div className="text-xs text-gray-600">
+                        <div className="text-xs text-gray-600 dark:text-gray-400">
                           {plan.tagline}
                         </div>
                       </div>
@@ -374,10 +378,10 @@ export default function PricingPage() {
                     {/* Price */}
                     <div className="mb-4">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-6xl font-black text-gray-900">
+                        <span className="text-6xl font-black text-gray-900 dark:text-white">
                           ${getPrice(plan)}
                         </span>
-                        <span className="text-xl text-gray-500 font-medium">/month</span>
+                        <span className="text-xl text-gray-500 dark:text-gray-400 font-medium">/month</span>
                       </div>
                       {billingCycle === 'annual' && (
                         <motion.div
@@ -392,21 +396,25 @@ export default function PricingPage() {
                         </motion.div>
                       )}
                       {billingCycle === 'monthly' && (
-                        <div className="text-sm text-gray-500 mt-2">
+                        <div className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                           Billed monthly
                         </div>
                       )}
                     </div>
 
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
                       {plan.description}
                     </p>
                   </div>
 
                   {/* CTA Button */}
                   <Link
-                    href={plan.name === 'SCALE' ? '/contact' : '/sign-up'}
-                    className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 ${plan.buttonStyle}`}
+                    href="/sign-up"
+                    className={`group w-full py-4 px-6 rounded-xl font-bold text-center transition-all duration-300 mb-8 flex items-center justify-center gap-2 ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl'
+                        : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100'
+                    }`}
                   >
                     {plan.cta}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -414,7 +422,7 @@ export default function PricingPage() {
 
                   {/* Features List */}
                   <div className="space-y-4 flex-1">
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">
+                    <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
                       What's included:
                     </div>
                     {plan.features.map((feature, i) => (
@@ -431,15 +439,15 @@ export default function PricingPage() {
                             <Check className="w-3 h-3 text-white font-bold" />
                           </div>
                         ) : (
-                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center mt-0.5">
-                            <X className="w-3 h-3 text-gray-400" />
+                          <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mt-0.5">
+                            <X className="w-3 h-3 text-gray-400 dark:text-gray-500" />
                           </div>
                         )}
                         <span
                           className={`text-sm font-medium ${
                             feature.included
-                              ? 'text-gray-900'
-                              : 'text-gray-400 line-through'
+                              ? 'text-gray-900 dark:text-white'
+                              : 'text-gray-400 dark:text-gray-500 line-through'
                           }`}
                         >
                           {feature.name}
@@ -463,7 +471,7 @@ export default function PricingPage() {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -471,34 +479,34 @@ export default function PricingPage() {
                 icon: Shield,
                 title: '100% Secure',
                 description: 'Bank-level encryption',
-                color: 'text-blue-600',
-                bg: 'bg-blue-50'
+                color: 'text-blue-600 dark:text-blue-400',
+                bg: 'bg-blue-50 dark:bg-blue-900/20'
               },
               {
                 icon: Clock,
                 title: '14-Day Trial',
                 description: 'No credit card needed',
-                color: 'text-green-600',
-                bg: 'bg-green-50'
+                color: 'text-green-600 dark:text-green-400',
+                bg: 'bg-green-50 dark:bg-green-900/20'
               },
               {
                 icon: CreditCard,
                 title: 'Cancel Anytime',
                 description: 'No long-term contracts',
-                color: 'text-purple-600',
-                bg: 'bg-purple-50'
+                color: 'text-purple-600 dark:text-purple-400',
+                bg: 'bg-purple-50 dark:bg-purple-900/20'
               },
               {
                 icon: Lock,
                 title: 'Money Back',
                 description: '30-day guarantee',
-                color: 'text-amber-600',
-                bg: 'bg-amber-50'
+                color: 'text-amber-600 dark:text-amber-400',
+                bg: 'bg-amber-50 dark:bg-amber-900/20'
               },
             ].map((badge, index) => (
               <motion.div
                 key={index}
-                className="group relative flex flex-col items-center text-center p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-gray-200 transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col items-center text-center p-6 bg-white dark:bg-slate-800 rounded-2xl border-2 border-gray-100 dark:border-slate-700 hover:border-gray-200 dark:hover:border-slate-600 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -508,10 +516,10 @@ export default function PricingPage() {
                 <div className={`p-4 ${badge.bg} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
                   <badge.icon className={`w-7 h-7 ${badge.color}`} />
                 </div>
-                <div className="text-base font-bold text-gray-900 mb-1">
+                <div className="text-base font-bold text-gray-900 dark:text-white mb-1">
                   {badge.title}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
                   {badge.description}
                 </div>
               </motion.div>
@@ -529,34 +537,34 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Compare All Features
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
               See exactly what is included in each plan
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-3xl shadow-2xl border-2 border-gray-100 overflow-hidden"
+            className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border-2 border-gray-100 dark:border-slate-700 overflow-hidden"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-slate-800 dark:to-slate-700 border-b-2 border-gray-200 dark:border-slate-600">
                   <tr>
-                    <th className="px-6 py-5 text-left text-sm font-bold text-gray-700 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-left text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Feature
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Starter
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-blue-700 uppercase tracking-wider bg-blue-50">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider bg-blue-50 dark:bg-blue-900/20">
                       Growth
                     </th>
-                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 uppercase tracking-wider">
+                    <th className="px-6 py-5 text-center text-sm font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Scale
                     </th>
                   </tr>
@@ -564,9 +572,9 @@ export default function PricingPage() {
                 <tbody>
                   {comparisonFeatures.map((category, catIndex) => (
                     <React.Fragment key={catIndex}>
-                      <tr className="bg-gray-50">
+                      <tr className="bg-gray-50 dark:bg-slate-800/50">
                         <td colSpan={4} className="px-6 py-3">
-                          <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                          <div className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                             {category.category}
                           </div>
                         </td>
@@ -574,37 +582,37 @@ export default function PricingPage() {
                       {category.features.map((feature, featureIndex) => (
                         <motion.tr
                           key={featureIndex}
-                          className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                          className="border-b border-gray-100 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: featureIndex * 0.03 }}
                         >
-                          <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                          <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
                             {feature.name}
                           </td>
                           <td className="px-6 py-4 text-center">
                             {typeof feature.starter === 'boolean' ? (
                               feature.starter ? (
-                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900">
+                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
                                 {feature.starter}
                               </span>
                             )}
                           </td>
-                          <td className="px-6 py-4 text-center bg-blue-50/50">
+                          <td className="px-6 py-4 text-center bg-blue-50/50 dark:bg-blue-900/10">
                             {typeof feature.growth === 'boolean' ? (
                               feature.growth ? (
-                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900">
+                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
                                 {feature.growth}
                               </span>
                             )}
@@ -612,12 +620,12 @@ export default function PricingPage() {
                           <td className="px-6 py-4 text-center">
                             {typeof feature.scale === 'boolean' ? (
                               feature.scale ? (
-                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                                <Check className="w-5 h-5 text-green-600 dark:text-green-400 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                                <X className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto" />
                               )
                             ) : (
-                              <span className="text-sm font-semibold text-gray-900">
+                              <span className="text-sm font-semibold text-gray-900 dark:text-white">
                                 {feature.scale}
                               </span>
                             )}
@@ -634,7 +642,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-950">
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -642,13 +650,13 @@ export default function PricingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl mb-6">
-              <HelpCircle className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl mb-6">
+              <HelpCircle className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 dark:text-gray-400">
               Everything you need to know about our pricing
             </p>
           </motion.div>
@@ -657,7 +665,7 @@ export default function PricingPage() {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:border-gray-200 transition-all duration-300"
+                className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-gray-100 dark:border-slate-700 overflow-hidden hover:border-gray-200 dark:hover:border-slate-600 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -665,16 +673,16 @@ export default function PricingPage() {
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
                 >
-                  <span className="text-base font-semibold text-gray-900 pr-4">
+                  <span className="text-base font-semibold text-gray-900 dark:text-white pr-4">
                     {faq.question}
                   </span>
                   <motion.div
                     animate={{ rotate: openFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
                   </motion.div>
                 </button>
                 <AnimatePresence>
@@ -686,7 +694,7 @@ export default function PricingPage() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                      <div className="px-6 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-slate-700 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>

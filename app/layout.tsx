@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="dark">
         <head>
           {/* Preconnect to external domains for faster loading */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />

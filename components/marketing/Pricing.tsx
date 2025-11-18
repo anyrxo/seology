@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, Sparkles } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const plans = [
   {
@@ -163,15 +164,17 @@ export default function Pricing() {
                 </div>
 
                 {/* CTA Button */}
-                <button
-                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mb-6 ${
-                    plan.popular
-                      ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg hover:scale-105`
-                      : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
-                  }`}
-                >
-                  Try Seology for Free
-                </button>
+                <Link href="/sign-up">
+                  <button
+                    className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 mb-6 ${
+                      plan.popular
+                        ? `bg-gradient-to-r ${plan.color} text-white hover:shadow-lg hover:scale-105`
+                        : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
+                    }`}
+                  >
+                    Try Seology for Free
+                  </button>
+                </Link>
 
                 {/* Features List */}
                 <ul className="space-y-3 flex-1">
@@ -203,7 +206,7 @@ export default function Pricing() {
             All plans include 14-day free trial. No credit card required.
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-500">
-            Need a custom plan? <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Contact our sales team</a>
+            Need a custom plan? <Link href="/sign-up" className="text-blue-600 dark:text-blue-400 hover:underline">Contact our sales team</Link>
           </p>
         </motion.div>
       </div>

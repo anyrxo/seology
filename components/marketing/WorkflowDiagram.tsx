@@ -2,35 +2,29 @@
 
 import { motion } from "framer-motion";
 import { Link2, Search, Sparkles, TrendingUp, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const steps = [
   {
-    number: "01",
-    title: "Connect Store",
-    description: "Link your Shopify store in 60 seconds. No technical setup required.",
+    number: "1",
+    title: "Add Your Domain",
+    description: "Add your domain to start prospecting for SEO issues and optimization opportunities.",
     icon: <Link2 className="h-8 w-8" />,
     color: "from-blue-400 to-blue-600",
   },
   {
-    number: "02",
-    title: "AI Analysis",
-    description: "Our AI scans your entire store, identifies issues, and creates optimization plan.",
+    number: "2",
+    title: "Let the AI Agent Do the Work",
+    description: "Our AI agent will analyze your site, identify SEO issues, and create a fix plan on your behalf.",
     icon: <Search className="h-8 w-8" />,
     color: "from-purple-400 to-purple-600",
   },
   {
-    number: "03",
-    title: "Auto Optimization",
-    description: "Seology automatically fixes issues and optimizes content 24/7 in your chosen mode.",
+    number: "3",
+    title: "Review & Convert",
+    description: "Review the identified issues and fixes. Approve to automatically implement optimizations.",
     icon: <Sparkles className="h-8 w-8" />,
     color: "from-pink-400 to-pink-600",
-  },
-  {
-    number: "04",
-    title: "See Results",
-    description: "Watch your rankings climb, traffic grow, and revenue increase month over month.",
-    icon: <TrendingUp className="h-8 w-8" />,
-    color: "from-green-400 to-green-600",
   },
 ];
 
@@ -47,10 +41,10 @@ export default function WorkflowDiagram() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6">
-            The Seology Process
+            How it works
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            From setup to success in four simple steps
+            Just 3 steps to get started
           </p>
         </motion.div>
 
@@ -163,10 +157,12 @@ export default function WorkflowDiagram() {
           <p className="text-slate-600 dark:text-slate-400 mb-6 text-lg">
             Get started in minutes, see results in days
           </p>
-          <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg">
-            Start Your Free Trial
-            <ArrowRight className="inline-block ml-2 h-5 w-5" />
-          </button>
+          <Link href="/sign-up">
+            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-lg">
+              Start Your Free Trial
+              <ArrowRight className="inline-block ml-2 h-5 w-5" />
+            </button>
+          </Link>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-4">
             No credit card required • 14-day free trial • Cancel anytime
           </p>

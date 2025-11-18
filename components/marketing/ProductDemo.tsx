@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   MessageSquare,
   Zap,
@@ -342,9 +343,11 @@ export default function ProductDemo() {
           <p className="text-slate-600 dark:text-slate-400 mb-4 text-lg">
             Ready to transform your Shopify store's SEO?
           </p>
-          <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-            Start Your 14-Day Free Trial
-          </button>
+          <Link href="/sign-up">
+            <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+              Start Your 14-Day Free Trial
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>

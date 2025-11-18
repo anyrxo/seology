@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -131,12 +132,12 @@ export default function FAQ() {
           <p className="text-slate-600 dark:text-slate-400 mb-4">
             Still have questions?
           </p>
-          <a
-            href="#"
+          <Link
+            href="/sign-up"
             className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
           >
             Contact our support team →
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

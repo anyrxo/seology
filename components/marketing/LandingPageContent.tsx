@@ -1,7 +1,9 @@
 'use client';
 
 import Hero from "@/components/marketing/Hero";
+import FeaturedOn from "@/components/marketing/FeaturedOn";
 import StatsBar from "@/components/marketing/StatsBar";
+import TheChallenge from "@/components/marketing/TheChallenge";
 import ThreeModes from "@/components/marketing/ThreeModes";
 import Dashboard from "@/components/marketing/Dashboard";
 import WorkflowDiagram from "@/components/marketing/WorkflowDiagram";
@@ -15,7 +17,9 @@ export default function NewLandingPageContent() {
   return (
     <>
       <Hero />
+      <FeaturedOn />
       <StatsBar />
+      <TheChallenge />
       <ThreeModes />
       <Dashboard />
       <WorkflowDiagram />
