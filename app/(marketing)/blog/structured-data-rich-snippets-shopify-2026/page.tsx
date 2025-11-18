@@ -384,7 +384,7 @@ export default function StructuredDataRichSnippetsShopifyPage() {
           Breadcrumb Schema for Site Navigation
         </h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-          Breadcrumb schema shows your site hierarchy in search results (Home > Coffee > Medium Roast > Product), improving UX and helping users understand where they'll land.
+          Breadcrumb schema shows your site hierarchy in search results (Home &gt; Coffee &gt; Medium Roast &gt; Product), improving UX and helping users understand where they'll land.
         </p>
         <h3 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-gray-100">
           BreadcrumbList Schema Example

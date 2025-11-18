@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Users } from 'lucide-react'
+import { ArrowRight, DollarSign, MapPin, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Real Estate SEO: Dominate Local Search & Get More Listings',
