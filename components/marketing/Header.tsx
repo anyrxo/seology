@@ -79,7 +79,7 @@ export default function Header() {
           </nav>
 
           {/* Right Side - Single responsive section */}
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-4">
             {/* Theme Switcher - Show on all sizes */}
             <ThemeSwitcher />
             
@@ -87,13 +87,6 @@ export default function Header() {
             <Link href="/sign-up" className="hidden md:block">
               <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2.5 rounded-lg">
                 Try SEOLOGY Free
-              </Button>
-            </Link>
-
-            {/* Mobile CTA Button */}
-            <Link href="/sign-up" className="md:hidden">
-              <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-sm px-4 py-2 rounded-lg">
-                Try Free
               </Button>
             </Link>
 
@@ -206,6 +199,13 @@ export default function Header() {
               >
                 Pricing
               </Link>
+              <div className="pt-4 border-t border-black/10 dark:border-white/10">
+                <Link href="/sign-up" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90">
+                    Try SEOLOGY Free
+                  </Button>
+                </Link>
+              </div>
             </nav>
           </motion.div>
         )}
