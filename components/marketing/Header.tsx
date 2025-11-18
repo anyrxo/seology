@@ -78,7 +78,7 @@ export default function Header() {
             </Link>
           </nav>
 
-                 {/* Right Side - Theme Switcher & CTA */}
+                 {/* Right Side - Desktop: Theme Switcher & CTA */}
                  <div className="hidden md:flex items-center gap-4">
                    <ThemeSwitcher />
                    <Link href="/sign-up">
@@ -88,8 +88,8 @@ export default function Header() {
                    </Link>
                  </div>
 
-                 {/* Mobile Right Side - Theme Switcher, CTA & Hamburger Menu */}
-                 <div className="md:hidden flex items-center gap-3">
+                 {/* Right Side - Mobile: Theme Switcher, CTA & Hamburger Menu */}
+                 <div className="flex md:hidden items-center gap-3">
                    <ThemeSwitcher />
                    <Link href="/sign-up">
                      <Button className="bg-black dark:bg-white text-white dark:text-black hover:bg-black/90 dark:hover:bg-white/90 text-sm px-4 py-2 rounded-lg">
