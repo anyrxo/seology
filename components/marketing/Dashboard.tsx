@@ -182,15 +182,13 @@ export default function Dashboard() {
                       <XAxis 
                         dataKey="month" 
                         stroke="rgba(0,0,0,0.4)" 
-                        className="dark:stroke-white/40"
+                        className="dark:stroke-white/40 dark:[&_text]:fill-white/60"
                         tick={{ fill: 'rgba(0,0,0,0.6)' }}
-                        className="dark:[&_text]:fill-white/60"
                       />
                       <YAxis 
                         stroke="rgba(0,0,0,0.4)" 
-                        className="dark:stroke-white/40"
+                        className="dark:stroke-white/40 dark:[&_text]:fill-white/60"
                         tick={{ fill: 'rgba(0,0,0,0.6)' }}
-                        className="dark:[&_text]:fill-white/60"
                       />
                       <Tooltip
                         contentStyle={{
@@ -254,18 +252,16 @@ export default function Dashboard() {
                       <XAxis 
                         type="number" 
                         stroke="rgba(0,0,0,0.4)" 
-                        className="dark:stroke-white/40"
+                        className="dark:stroke-white/40 dark:[&_text]:fill-white/60"
                         tick={{ fill: 'rgba(0,0,0,0.6)' }}
-                        className="dark:[&_text]:fill-white/60"
                       />
                       <YAxis 
                         dataKey="keyword" 
                         type="category" 
                         width={150} 
                         stroke="rgba(0,0,0,0.4)" 
-                        className="dark:stroke-white/40"
+                        className="dark:stroke-white/40 dark:[&_text]:fill-white/60"
                         tick={{ fill: 'rgba(0,0,0,0.6)' }}
-                        className="dark:[&_text]:fill-white/60"
                       />
                       <Tooltip
                         contentStyle={{
